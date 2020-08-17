@@ -1,0 +1,187 @@
+---
+#--- tags have to be all lowercase
+name: TKG
+tags:
+  - name: docker
+    type: OR
+  - name: stateful
+    type: AND
+  - name: javaee
+    type: AND
+  - name: fullprofile
+    type: AND
+  - name: jni
+    type: OR
+  - name: nonstandard-protocol
+    type: OR
+  - name: corba
+    type: OR
+
+---
+name: TAS
+tags:
+  - name: webprofile
+    type: OR
+  - name: spring
+    type: OR
+  - name: spring-boot
+    type: OR
+  - name: webcontainer
+    type: OR
+  - name: rest
+    type: OR
+
+---
+name: BATCH
+tags:
+  - name: batch
+    type: OR
+  - name: etl
+    type: OR
+
+---
+name: CONTAINER
+tags:
+  - name: term
+    type: OR
+  - name: metrics
+    type: OR
+  - name: sudo
+    type: OR
+  - name: healthcheck
+    type: OR
+  - name: ehcache
+    type: OR
+  - name: non-root
+    type: OR
+  - name: hardip
+    type: OR
+  - name: processexit
+    type: OR
+  - name: distcache
+    type: OR
+  - name: wscluster
+    type: OR
+  - name: wlcluster
+    type: ORs
+  - name: io
+    type: OR
+  - name: log2file
+    type: OR
+  - name: docker
+    type: OR
+  - name: transaction
+    type: OR
+
+---
+name: BOOT
+tags:
+  - name: cdi
+    type: OR
+  - name: ejb
+    type: OR
+  - name: jaxws
+    type: OR
+  - name: jsf
+    type: OR
+  - name: mdb
+    type: OR
+  - name: struts
+    type: OR
+  - name: txn
+    type: OR
+  - name: webservlet
+    type: OR
+
+---
+name: Modern Microservices
+tags:
+  - name: spring-boot
+    type: AND
+  - name: jar
+    type: AND
+
+---
+name: Spring
+tags:
+  - name: spring
+    type: OR
+
+---
+name: Stateful
+tags:
+  - name: stateful
+    type: OR
+  - name: spring
+    type: EXCLUDE
+
+---
+name: Web MVC
+tags:
+  - name: ui
+    type: OR
+  - name: webapp
+    type: AND
+  - name: webcontainer
+    type: AND
+  - name: jsp
+    type: OR
+  - name: jsf
+    type: OR
+  - name: portlet
+    type: OR
+  - name: struts
+    type: OR
+  - name: jetty
+    type: OR
+
+---
+name: Thick Java Clients
+tags:
+  - name: fat-client
+    type: OR
+
+---
+name: Caching
+tags:
+  - name: cache
+    type: OR
+  - name: persistence
+    type: OR
+
+---
+name: Data
+tags:
+  - name: io
+    type: OR
+
+---
+name: Monolith
+tags:
+  - name: soap
+    type: AND
+  - name: webservices
+    type: AND
+  - name: messaging
+    type: AND
+  - name: ear
+    type: AND
+  - name: stateful
+    type: AND
+  - name: rpc
+    type: OR
+  - name: ant
+    type: OR
+  - name: websphere
+    type: OR
+  - name: weblogic
+    type: OR
+  - name: glassfish
+    type: OR
+  - name: jboss
+    type: OR
+  - name: security
+    type: OR
+
+---
+

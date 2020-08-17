@@ -1,0 +1,23 @@
+name: java-remoteWebService-import
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Ensure valid configuration for TAS or use TKG
+effort: 10
+readiness: 10
+category: webService
+tags:
+  - value: webservices
+  - value: client
+  - value: jaxws
+  - value: api
+patterns:
+  - value: javax.xml.ws.AsyncHandler
+  - value: javax.xml.ws.Service
+  - value: javax.xml.ws.Service.Mode
+  - value: javax.xml.ws.WebServiceClient
+  - value: javax.xml.ws.WebServiceRef
+  - value: javax.xml.ws.WebServiceRefs
+  - value: org.apache.client.wink.client
+    tag: wink

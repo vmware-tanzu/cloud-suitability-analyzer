@@ -1,0 +1,26 @@
+name: java-iop
+filetype: java$
+target: line
+type: regex
+advice: Remote Method Invocations are not cloud native. Move to cloud friendly alternatives such as REST endpoints.
+defaultpattern: '^.*[ .]%s[ (.].*'
+effort: 10
+readiness: 6
+category: iop
+tags:
+- value: api
+- value: ejb
+- value: non-standard-protocol
+- value: imports
+- value: corba
+patterns:
+- value: import javax.rmi
+- value: inport org.omg.IOP
+
+##  PortableRemoteObject(
+##  CodecFactory(
+##  CodecOperations(
+##  TransactionService(
+##  ServiceContext(
+##  TaggedComponent(
+##  TaggedProfile(

@@ -1,0 +1,16 @@
+name: wsdl-soap
+filetype: wsdl$
+target: file
+effort: 4
+readiness: 3
+category: soap
+advice: Refer to platform documentation
+type: regex
+tags:
+  - value: file
+  - value: api
+  - value: wsdl
+  - value: webservices
+patterns:
+  - value: .*\.wsdl
+## "*.wsdl"

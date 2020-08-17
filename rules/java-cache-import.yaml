@@ -1,0 +1,27 @@
+name: java-cache-import
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Cloud readiness issue as potential state information that is not persisted to a backing service
+effort: 50
+readiness: 10
+category: nondistcache
+tags:
+  - value: imports
+  - value: stateful
+  - value: cache-import
+  - value: cache
+  - value: api
+  - value: nondistcache
+patterns:
+  - value: com.tangosol
+  - value: org.apache.commons-jcs-jcache
+  - value: com.ibm.websphere.cache
+  - value: com.hazelcast
+  - value: org.jboss.ha.cachemanager
+  - value: javax.cache
+  - value: net.spy.memcached
+  - value: com.opensymphony.oscache
+  - value: org.shiftone-cache
+  - value: com.ibm.websphere.objectgrid

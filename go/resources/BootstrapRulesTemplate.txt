@@ -1,0 +1,24 @@
+/*******************************************************************************
+ * Copyright (c) 2018 - Present VMWare, Inc. All Rights Reserved.
+ ******************************************************************************/
+
+package model
+
+//Created By BootstrapRulesTemplate.txt found under go/resources folder
+//Created @ {{now}}
+
+func BootstrapRules() []Rule {
+    var BootstrapRules = []Rule{
+        {{ range . }}
+            { Name: "{{.Name}}", FileType: "{{.FileType}}", Target: "{{.Target}}", Type: "{{.Type}}", DefaultPattern: "{{.GetEscapedPattern}}", Advice: "{{.Advice}}", Effort: {{.Effort}}, Readiness: {{.Readiness}}, Impact: "{{.Impact}}", Category: "{{.Category}}", Criticality: "{{.Criticality}}",
+            Tags:
+            []Tag{ {{ range .Tags }} { Value: "{{.Value}}",},{{end}} },
+            Recipes:
+            []Recipe{ {{ range .Recipes }} { URI: "{{.URI}}", }, {{end}} },
+            Patterns:
+            []Pattern{ {{ range .Patterns }} { Type: "{{.Type}}", Pattern: "{{.GetEscapedPattern}}", Value: "{{.GetEscapedValue}}", Advice: "{{.Advice}}", Effort: {{.Effort}}, Readiness: {{.Readiness}}, Criticality: "{{.Criticality}}", Category: "{{.Category}}", Tag: "{{.Tag}}", Recipe: "{{.Recipe}}", },
+            {{end}} }, },
+        {{end}}
+    }
+    return BootstrapRules
+}

@@ -1,0 +1,16 @@
+#SW
+name: bootWEBSERVLET
+filetype: xml$
+target: line
+type: contains
+category: WebServlet
+advice: Automatic remediation with Bootifier
+effort: 2
+readiness: 2
+tags:
+  - value: webservlet
+patterns:
+  - value: ejb-api
+  - value: websocket-api
+  - value: javax.websocket-client-api
+  - value: javax.websocket-all

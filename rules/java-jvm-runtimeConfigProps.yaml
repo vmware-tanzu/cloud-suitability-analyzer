@@ -1,0 +1,29 @@
+name: java-jvm-runtimeConfigProps
+filetype: java$
+target: line
+type: contains
+advice: Do not change these properties at runtime in application code
+recipes:
+effort: 50
+readiness: 0
+category: config
+tags:
+- value: config
+- value: api
+- value: jvm
+- value: javax
+patterns:
+- value: javax.xml.soap.SOAPFactory
+- value: javax.xml.parsers.DocumentBuilderFactory
+- value: javax.xml.parsers.SAXParserFactory
+
+
+##javax.net.ssl.keyStore
+##javax.net.ssl.keyStoreType
+##javax.net.ssl.keyStorePassword
+##javax.net.ssl.trustStore
+##javax.net.ssl.trustStoreType
+##javax.net.ssl.trustStorePassword
+##javax.xml.soap.SOAPFactory
+##javax.xml.parsers.DocumentBuilderFactory
+##javax.xml.parsers.SAXParserFactory

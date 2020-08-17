@@ -1,0 +1,13 @@
+name: dotnet-transactions
+filetype: (cs$|vb$)
+target: line
+type: contains
+advice: Potential use of distributed transactions which are unsupported
+readiness: 10
+effort: 100
+category: transactions
+tags:
+- value: api
+patterns:
+- value: TransactionScope
+

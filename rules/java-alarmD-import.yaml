@@ -1,0 +1,14 @@
+name: java-alarmD-import
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Integrate with new alarmD service
+category: ThirdParty
+tags:
+  - value: alarmD
+  - value: third-party
+  - value: api
+  - value: scheduler
+patterns:
+  - value: com.tfcci.ucs.manager

@@ -1,0 +1,17 @@
+#qc1
+name: config-security
+filetype: config$
+target: line
+type: contains
+advice: Use of generated machine keys is problematic
+effort: 100
+readiness: 100
+category: Security
+tags:
+- value: config
+patterns:
+- value: validationKey="AutoGenerate"
+- value: decryptionKey="AutoGenerate"
+
+##validationKey="AutoGenerate"
+##decryptionKey="AutoGenerate"

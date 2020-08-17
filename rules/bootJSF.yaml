@@ -1,0 +1,21 @@
+#SW
+name: bootJSF
+filetype: xml$
+target: line
+type: contains
+category: jsf
+advice: Automatic remediation with Bootifier
+effort: 2
+readiness: 2
+tags:
+  - value: jsf
+patterns:
+  - value: javax.faces-api
+  - value: jsf-api
+  - value: myfaces-api
+  - value: myfaces-impl
+  - value: jsf-impl
+  - value: jboss-jsf-api_2.3_spec
+  - value: jboss-jsf-api_2.2_spec
+  - value: jboss-jsf-api_2.1_spec
+  - value: jboss-jsf-api_2.0_spec

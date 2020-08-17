@@ -1,0 +1,12 @@
+#qc1
+name: dotnet-StaticFileModule
+filetype: config$
+target: line
+type: contains
+category: Unsupported modules
+advice: Ensure compatible configuation
+effort: 400
+readiness: 5
+patterns:
+- value: StaticFileModule
+## StaticFileModule

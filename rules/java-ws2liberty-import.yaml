@@ -1,0 +1,37 @@
+name: java-ws2liberty-import
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Refer to IBM documentation
+effort: 10
+readiness: 10
+category: webSphere
+tags:
+- value: websphere
+- value: api
+- value: fullprofile
+- value: wsspi
+- value: websphere-imports
+patterns:
+- value: com.ibm.websphere
+- value: org.apache.axis2
+- value: com.ibm.workplace.extension
+- value: com.ibm.isc.api.platform
+- value: com.ibm.portal
+- value: com.ibm.wsspi
+- value: org.apache.tuscany.sca
+- value: org.oasisopen.sca
+- value: org.osoa.sca
+- value: com.ibm.uddi
+- value: com.ibm.ws
+- value: com.ibm.ejs.ras
+- value: com.ibm.ffdc
+- value: com.ibm.ras
+- value: com.ibm.servlet
+- value: com.ibm.etools
+- value: com.ibm.jca
+- value: com.ibm.webtools
+- value: com.ibm.wsdl
+- value: com.ibm.wsif
+- value: org.xmlsoap.schemas.wsdl.wsadie.messages

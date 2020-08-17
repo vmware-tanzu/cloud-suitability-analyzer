@@ -1,0 +1,11 @@
+name: dotnet-RequestFilteringModule
+filetype: config$
+target: line
+type: contains
+advice: Refer to platform documentation
+category: Unsupported modules
+effort: 100
+readiness: 1
+patterns:
+- value: <requestFiltering
+## <requestFiltering 

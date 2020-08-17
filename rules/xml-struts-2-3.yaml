@@ -1,0 +1,16 @@
+#SW
+name: xml-struts-2-3
+filetype: xml$
+target: line
+type: contains
+category: struts
+advice: Refer to platform documentation
+effort: 7
+readiness: 7
+tags:
+- value: api  
+- value: webapp
+- value: ui
+patterns:
+- value: struts-2.3.dtd
+##struts-2.3.dtd

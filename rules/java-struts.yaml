@@ -1,0 +1,88 @@
+name: java-struts
+filetype: java$
+target: line
+type: regex
+advice: Refer to platform documentation
+defaultpattern: "^.*[ .]%s[ (].*"
+effort: 6
+readiness: 7
+category: struts
+tags:
+  - value: api
+  - value: ui
+  - value: webapp
+  - value: webcontainer
+patterns:
+  - value: LibaryBaseAction
+  - value: ActionForward
+  - value: ActionForm
+  - value: RequestProcessor
+  - value: DynaValidationForm
+  - value: ActionComponent
+  - value: ActionError
+  - value: ActionMessage
+  - value: AppendIterator
+  - value: Checkbox
+  - value: CheckboxList
+  - value: ClosingUIBean
+  - value: ComboBox
+  ## - value: Component
+  - value: ComponentUrlProvider
+  - value: ContextBean
+  - value: DateTextField
+  - value: DoubleListUIBean
+  - value: DoubleSelect
+  - value: FieldError
+  - value: FormButton
+  - value: GenericUIBean
+  - value: InputTransferSelect
+  - value: IteratorComponent
+  - value: ListUIBean
+  - value: MergeIterator
+  - value: OptGroup
+  - value: OptionTransferSelect
+  - value: Radio
+  ## - value: Reset
+  ## - value: Select
+  - value: ServletUrlRenderer
+  - value: TextArea
+  - value: TextField
+  - value: UIBean
+  - value: UpDownSelect
+##  LibaryBaseAction(
+##  ActionForward(
+##  ActionForm(
+##  RequestProcessor(
+##  DynaValidationForm(
+##  ActionComponent(
+##  ActionError(
+##  ActionMessage(
+##  Anchor(
+##  AppendIterator(
+##  Checkbox(
+##  CheckboxList(
+##  ClosingUIBean(
+##  ComboBox(
+##  Component(
+##  ComponentUrlProvider(
+##  ContextBean(
+##  DateTextField(
+##  DoubleListUIBean(
+##  DoubleSelect(
+##  FieldError(
+##  FormButton(
+##  GenericUIBean(
+##  InputTransferSelect(
+##  IteratorComponent(
+##  ListUIBean(
+##  MergeIterator(
+##  OptGroup(
+##  OptionTransferSelect(
+##  Radio(
+##  Reset(
+##  Select(
+##  ServletUrlRenderer(
+##  TextArea(
+##  TextField(
+##  UIBean(
+##  UpDownSelect(

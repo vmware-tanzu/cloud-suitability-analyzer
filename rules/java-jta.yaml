@@ -1,0 +1,60 @@
+---
+#--- updated from 8/8/18 Survey
+name: java-jta
+filetype: java$
+target: line
+type: regex
+impact: file
+defaultpattern: "^.*[ .]%s[ (.{].*"
+effort: 50
+readiness: 6
+category: jta
+advice: Distributed transcations are problematic and should be remediated.
+recipes:
+tags:
+  - value: api
+  - value: jta
+  - value: webprofile
+patterns:
+  - value: UserTransaction
+  - value: InvalidTransactionException
+  - value: TransactionRequiredException
+  - value: TransactionRollemodelackException
+  - value: TransactionManager
+  - value: TransactionSynchronizationRegistry
+  - value: UserTransaction
+  - value: HeuristicCommitException
+  - value: HeuristicMixedException
+  - value: HeuristicRollbackException
+  - value: InvalidTransactionException
+  - value: NotSupportedException
+  - value: RollbackException
+  - value: TransactionalException
+  - value: TransactionRequiredException
+  - value: TransactionRollemodelackException
+  - value: XAResource
+  - value: Xid
+  - value: XAException
+  - value: enlistForDurableTwoPhase
+  - value: enlistForVolatileTwoPhase
+##  UserTransaction(
+##  InvalidTransactionException(
+##  TransactionRequiredException(
+##  TransactionRollemodelackException(
+##  Synchronization(
+##  TransactionManager(
+##  TransactionSynchronizationRegistry(
+##  UserTransaction(
+##  HeuristicCommitException(
+##  HeuristicMixedException(
+##  HeuristicRollbackException(
+##  InvalidTransactionException(
+##  NotSupportedException(
+##  RollbackException(
+##  SystemException(
+##  TransactionalException(
+##  TransactionRequiredException(
+##  TransactionRollemodelackException(
+##  XAResource(
+##  Xid(
+##  XAException(

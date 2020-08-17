@@ -1,0 +1,15 @@
+name: java-logging-file-appender
+filetype: xml$
+target: line
+type: contains
+effort: 3
+readiness: 5
+advice: Replace file appender with console appender
+category: logging
+tags:
+  - value: third-party
+  - value: api
+  - value: logging
+  - value: log2file
+patterns:
+  - value: fileappender

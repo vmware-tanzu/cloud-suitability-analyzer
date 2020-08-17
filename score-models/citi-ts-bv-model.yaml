@@ -1,0 +1,72 @@
+name: citi-ts-bv-model
+max-score: 10
+ranges:
+- type: sloc
+  start: "0"
+  end: int.max
+  ranges:
+  - type: raw
+    start: int.min
+    end: "100"
+    ranges:
+    - type: bv
+      start: flt.min
+      end: flt.max
+      outcome:
+        calculate: true
+        expression: max_score - log(10,raw_score)
+        recommendation: Deploy to PAS
+  - type: raw
+    start: "101"
+    end: "10000"
+    ranges:
+    - type: bv
+      start: flt.min
+      end: "5.00"
+      outcome:
+        calculate: true
+        expression: max_score - log(10,raw_score)
+        recommendation: Rehost to PKS
+    - type: bv
+      start: "5.01"
+      end: flt.max
+      outcome:
+        calculate: true
+        expression: max_score - log(10,raw_score)
+        recommendation: Refactor to PAS
+  - type: raw
+    start: "10001"
+    end: "10000000"
+    ranges:
+    - type: bv
+      start: flt.min
+      end: "5.00"
+      outcome:
+        calculate: true
+        expression: max_score - log(10,raw_score)
+        recommendation: Rehost to PKS
+    - type: bv
+      start: "5.01"
+      end: flt.max
+      outcome:
+        calculate: true
+        expression: max_score - log(10,raw_score)
+        recommendation: Refactor to PAS
+  - type: raw
+    start: "10000001"
+    end: int.max
+    ranges:
+    - type: bv
+      start: flt.min
+      end: "5.00"
+      outcome:
+        calculate: true
+        expression: max_score - log(10,raw_score)
+        recommendation: Rehost to PKS
+    - type: bv
+      start: "5.01"
+      end: flt.max
+      outcome:
+        calculate: true
+        expression: max_score - log(10,raw_score)
+        recommendation: Refactor to PAS

@@ -1,0 +1,17 @@
+#SW
+name: xml-localJNDI
+filetype: xml$
+target: line
+type: contains
+category: jndi
+advice: WebSphere does not allow local JNDI, refer to documentation
+effort: 10
+readiness: 10
+tags:
+- value: api
+- value: jndi
+- value: local
+- value: webcontainer
+patterns:
+- value: <local-jndi-name>
+##<local-jndi-name>

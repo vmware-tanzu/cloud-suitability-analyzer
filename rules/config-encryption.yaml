@@ -1,0 +1,15 @@
+#qc1
+name: config-encryption
+filetype: config$
+target: line
+type: contains
+advice: Use of encrypted sections is problematic in cloud environments
+effort: 300
+category: Security
+tags:
+- value: config
+patterns:
+- value: configProtectionProvider="
+
+##validationKey="AutoGenerate"
+##decryptionKey="AutoGenerate"

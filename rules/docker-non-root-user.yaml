@@ -1,0 +1,19 @@
+name: docker-non-root-user
+filetype: $
+target: line
+type: regex
+defaultpattern: "^%s"
+category: dockerSecurity
+advice: Shows evidence of avoiding root privledges
+recipes:
+effort: 1
+readiness: 1000
+tags:
+  - value: container
+  - value: non-root
+  - value: docker
+  - value: config
+patterns:
+  - value: RUN groupadd
+  - value: RUN useradd
+  - value: USER

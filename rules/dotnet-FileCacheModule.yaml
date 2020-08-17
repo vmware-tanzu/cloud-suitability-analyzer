@@ -1,0 +1,12 @@
+#qc1
+name: dotnet-FileCacheModule
+filetype: config$
+target: line
+type: contains
+category: caching
+advice: Refer to platform documentation
+effort: 1000
+readiness: 5
+patterns:
+- value: <frequentHit
+## <frequentHit

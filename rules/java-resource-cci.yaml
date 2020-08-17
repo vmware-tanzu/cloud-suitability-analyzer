@@ -1,0 +1,38 @@
+name: java-resource-cci
+filetype: java$
+target: line
+type: regex
+defaultpattern: "^.*[ .]%s[ (].*"
+effort: 7
+readiness: 7
+advice: Consult with TAS documetation for configuration or use TKG
+category: jca
+tags:
+  - value: api
+  - value: jca
+  - value: resource-adapter
+patterns:
+  - value: createInteraction
+  - value: getEISProductName
+  - value: getEISProductVersion
+  - value: getAdapterName
+  - value: getAdapterShortDescription
+  - value: getAdapterVersion
+  - value: getInteractionSpecsSupported
+  - value: getSpecVersion
+  - value: supportsExecuteWithInputAndOutputRecord
+  - value: supportsExecuteWithInputRecordOnly
+  - value: supportsLocalTransactionDemarcation
+#TODO Add import javax.resource.cci effort 100
+
+##  createInteraction(
+##  getEISProductName(
+##  getEISProductVersion(
+##  getAdapterName(
+##  getAdapterShortDescription(
+##  getAdapterVersion(
+##  getInteractionSpecsSupported(
+##  getSpecVersion(
+##  supportsExecuteWithInputAndOutputRecord(
+##  supportsExecuteWithInputRecordOnly(
+##  supportsLocalTransactionDemarcation(

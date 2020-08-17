@@ -1,0 +1,33 @@
+name: xml-jboss
+filetype: xml$
+target: file
+type: simple-text
+category: Jboss
+advice: Refer to platform documentation
+effort: 50
+readiness: 5
+tags:
+- value: jboss
+- value: javaee
+- value: api
+patterns:
+- value: jaws.xml
+  tag: orm
+  tag: entity-beans
+- value: jboss.xml
+- value: jbosscmp-jmodelc.xml
+  tag: ejb
+  tag: fullprofile
+- value: jboss-service.xml
+  tag: config
+- value: jboss-web.xml
+  tag: webapp
+- value: jboss-wsse-server.xml
+  tag: security
+
+##F jaws.xml
+##F jboss.xml
+##F jbosscmp-jmodelc.xml
+##F jboss-service.xml
+##F jboss-web.xml
+##F jboss-wsse-server.xml

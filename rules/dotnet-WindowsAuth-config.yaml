@@ -1,0 +1,17 @@
+#qc1
+name: dotnet-WindowsAuth-config
+# ignore development config files
+filetype: config$
+target: contents
+type: regex
+category: Unsupported modules
+advice: Ensure compatible configuation
+effort: 500
+readiness: 1
+patterns:
+- value: <windowsAuthentication
+- value: clientCredentialType="[Ww]indows"
+- value: <authentication mode="[Ww]indows"
+- value: Integrated Security=True
+  effort: 100
+## <windowsAuthentication

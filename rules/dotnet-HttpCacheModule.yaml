@@ -1,0 +1,12 @@
+#qc
+name: dotnet-HttpCacheModule
+filetype: config$
+target: line
+type: contains
+category: caching
+advice: Output cache profiles etc. via configuration.
+effort: 1000
+readiness: 5
+patterns:
+- value: <cacheControl
+## <cacheControl 

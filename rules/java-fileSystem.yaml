@@ -1,0 +1,15 @@
+name: java-file-system
+filetype: java$
+advice: Use backing service or use TKG
+target: line
+type: contains
+effort: 100
+readiness: 10
+category: io
+tags:
+  - value: io
+  - value: api
+  - value: java-filesystem
+patterns:
+  - value: "file://"
+## file://

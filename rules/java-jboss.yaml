@@ -1,0 +1,17 @@
+---
+#--- updated from 8/8/18 Survey
+name: java-jboss
+filetype: java$
+target: line
+type: contains
+advice: Convert to Spring based POJOs instead of using container specific functionality
+effort: 50
+readiness: 5
+category: jboss
+tags:
+  - value: api
+  - value: jboss
+  - value: jboss-import
+patterns:
+  - value: import org.jboss.
+## import org.jboss.

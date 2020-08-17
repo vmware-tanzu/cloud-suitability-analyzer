@@ -1,0 +1,15 @@
+name: dotnet-logging
+filetype: (cs$|vb$)
+target: line
+type: contains
+advice: Logging to the Event Log is not recommended for cloud native apps.
+readiness: 3
+effort: 100
+category: Logging
+tags:
+- value: api
+patterns:
+- value: EventLogTraceListener
+- value: EventLog
+## EventLogTraceListener
+## EventLog

@@ -1,0 +1,15 @@
+name: java-servlet
+filetype: java$
+target: line
+type: contains
+effort: 0
+readiness: 0
+advice: Servlet Java API Import
+category: servlet
+tags:
+- value: api
+- value: servlet
+- value: webcontainer
+patterns:
+- value: import javax.servlet.
+##import javax.servlet.

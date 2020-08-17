@@ -1,0 +1,11 @@
+IBM-Feature-Version: 2
+IBM-ShortName: arquillian-support-1.0
+Subsystem-Content: arquillian-liberty-support; version=${parsedVersion.osgiVersion},
+ com.ibm.wsspi.appserver.webBundle-1.0; type="osgi.subsystem.feature",
+ com.ibm.websphere.appserver.servlet-3.0; ibm.tolerates:="3.1,4.0"; type="osgi.subsystem.feature"
+Subsystem-Description: Liberty Feature to support integration for the Arquillian Project
+Subsystem-ManifestVersion: 1
+Subsystem-Name: Arquillian Support Feature
+Subsystem-SymbolicName: io.openliberty.arquillian.arquillian-support-1.0; visibility:=public
+Subsystem-Type: osgi.subsystem.feature
+Subsystem-Version: ${parsedVersion.osgiVersion}

@@ -1,0 +1,18 @@
+#SW
+name: bootCDI
+filetype: xml$
+target: line
+type: contains
+category: cdi
+advice: Automatic remediation with Bootifier
+effort: 2
+readiness: 2
+tags:
+  - value: cdi
+patterns:
+  - value: javaee-api
+  - value: javax.inject
+  - value: cdi-api
+  - value: jboss-ejb-api_3.0_spec
+  - value: jboss-ejb-api_3.1_spec
+  - value: jboss-ejb-api_3.2_spec

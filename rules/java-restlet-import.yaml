@@ -1,0 +1,16 @@
+name: java-restlet-import
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: The Restlet library appears to be dead at this point in time. 
+effort: 10
+readiness: 7
+category: restlet
+tags:
+  - value: api
+  - value: rest
+  - value: json
+  - value: restlet
+patterns:
+  - value: org.restlet

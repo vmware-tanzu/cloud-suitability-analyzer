@@ -1,0 +1,20 @@
+#SW
+name: java-ejb-mdb
+filetype: java$
+target: line
+type: contains
+category: ejb
+advice: Consult MDB documentation
+effort: 7
+readiness: 7
+tags:
+- value: ejb
+- value: mdb
+- value: messaging
+- value: javaee
+- value: api
+patterns:
+- value: import javax.ejb.MessageDriven
+- value: import javax.ejb.ActivationConfigProperty
+##import javax.ejb.MessageDriven
+##import javax.ejb.ActivationConfigProperty

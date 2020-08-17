@@ -1,0 +1,15 @@
+name: xml-activeMQ
+filetype: xml$
+target: line
+type: contains
+category: mq
+advice: Convert to rabbitmq or use TKG
+effort: 5
+readiness: 10
+tags:
+  - value: api
+  - value: amqp
+  - value: messaging
+patterns:
+  - value: amq:broker
+## amq:broker
