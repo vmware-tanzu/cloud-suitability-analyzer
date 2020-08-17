@@ -19,7 +19,7 @@
 
 
 #--- set the usage message
-message="VMWare App Tx\Update CSA rules\nUsage: %s  -g <github url>  -m (replace,add)"
+message="VMWare App Tx\nUpdate CSA rules\nUsage: %s  -g <github url>  -m (replace,add,validate)"
 
 
 #--- example of a two param script, one value, one flag
@@ -32,11 +32,11 @@ fi
 packageFlag=0
 
 #--- input parameters into variables
-while getopts 'g:m:' OPTION
+while getopts 'd:m:' OPTION
 do
    case $OPTION in
-   g)    gitHubUrlFlag=g
-         gitHubUrl="$OPTARG"
+   d)    ruleDirFlag=g
+         ruleDir="$OPTARG"
          ;;
    m)    modeFlag=m
          mode="$OPTARG"
@@ -49,5 +49,70 @@ do
    esac
 done
 
-git clone $gitHubUrl tmp
+validModes="rav"
 
+if [[ $mode != "a" && $mode != "r" && $mode != "v" ]]; then
+   echo "Invalid mode: $mode"
+   echo "r - replace existing rules"
+   echo "a - add to existing rules"
+   echo "v - validate rule yaml files"
+   exit 1
+fi
+
+if [[ "$mode" == "r" ]]; then
+   csa rules delete-all
+   if [ $? -eq 0 ]; then
+      echo "Successfully deleted all CSA rules"
+   else
+      echo "Error deleting CSA rules"
+      exit 1
+   fi 
+
+   csa rules import --rules-dir $ruleDir
+
+   if [ $? -eq 0 ]; then
+      echo "Successfully imported rules from directory: $ruleDir"
+      exit 0
+   else
+      echo "Error importing rules from directory: $ruleDir"
+      exit 1
+   fi 
+   echo "Replacing existing CSA rules with yaml files from $rulesDir"
+   exit 0
+fi
+
+if [[ "$mode" == "a" ]]; then
+   echo "Adding to existing CSA rules with yaml files from $rulesDir"
+   csa rules import --rules-dir $ruleDir
+   if [ $? -eq 0 ]; then
+      echo "Successfully imported rules from directory: $ruleDir"
+      exit 0
+   else
+      echo "Error importing rules from directory: $ruleDir"
+      exit 1
+   fi 
+fi
+
+
+if [[ "$mode" == "v" ]]; then
+
+      ruleList=$(find $ruleDir -name "*.yaml")
+      rulesPassed=0
+      rulesFailed=0
+      for ruleFile in $ruleList
+      do
+      echo -n "Validating $ruleFile"
+      result="$(csa rules validate $ruleFile 2>&1)"
+      if echo "$result" | grep -q "error"; then
+            echo ": ***** NOT VALID!! *****"
+            rulesFailed=$(($rulesFailed + 1))
+      else
+            echo ": valid"
+            rulesPassed=$(($rulesPassed + 1))
+      fi
+      done
+
+      echo "Rules passed: $rulesPassed"
+      echo "Rules failed: $rulesFailed"
+      exit 0
+fi
