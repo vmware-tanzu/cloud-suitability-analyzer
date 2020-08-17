@@ -1,0 +1,21 @@
+name: java-rpc-import
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Adapt to cloud friendly protocl or use TKG
+effort: 2
+readiness: 10
+category: webService
+tags:
+  - value: webservices
+  - value: api
+  - value: rpc
+  - value: soap
+patterns:
+  - value: org.apache.soap.rpc
+  - value: javax.xml.rpc.Call
+  - value: javax.xml.rpc.Service
+  - value: javax.xml.rpc.Stub
+  - value: javax.xml.rpc.ServiceFactory
+  - value: javax.xml.rpc.ServiceException

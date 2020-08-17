@@ -1,0 +1,15 @@
+name: java-message-driven-annotations
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^\s*@%s
+advice: To convert a message driven bean to spring cloud stream with rabbitmq
+effort: 5
+category: annotations
+tags:
+- value: annotations
+- value: javaee
+patterns:
+- value: MessageDriven
+- value: ActivationConfigProperty
+  tag: messaging

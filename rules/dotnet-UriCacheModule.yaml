@@ -1,0 +1,12 @@
+#qc1
+name: dotnet-iis_module-UriCacheModule
+filetype: config$
+target: line
+type: contains
+category: Unsupported IIS modules
+advice: Implements a generic cache for URL-specific server state; such as configuration. With this module; the server only reads configuration for the first request for a particular URL. And reuse it on subsequent requests until it changes.
+effort: 1000
+readiness: 5
+patterns:
+- value: UriCacheModule
+## UriCacheModule

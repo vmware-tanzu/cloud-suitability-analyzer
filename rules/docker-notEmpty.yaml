@@ -1,0 +1,17 @@
+name: docker-notEmpty
+filetype: $
+target: line
+type: regex
+defaultpattern: "^%s"
+category: docker
+advice: Determine if TKG is more prescriptive
+recipes:
+effort: 1
+readiness: 1000
+tags:
+  - value: container
+  - value: docker
+  - value: non-empty
+  - value: config
+patterns:
+  - value: FROM

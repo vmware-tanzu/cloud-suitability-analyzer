@@ -1,0 +1,21 @@
+#SW - this is where we need xpath
+name: SNAP-java-package-Gradle
+filetype: gradle$
+target: line
+type: regex
+defaultpattern: apply\s*plugin:\s*[']%s[']
+category: packaging
+advice: Refer to platform documentation
+effort: 100
+readiness: 0
+tags:
+  - value: api
+  - value: ear
+  - value: gradle
+  - value: snap
+patterns:
+  - value: ear
+#--- gradle
+
+##apply plugin: 'ear'
+##apply plugin: 'war'

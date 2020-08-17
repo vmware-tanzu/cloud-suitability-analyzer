@@ -1,0 +1,18 @@
+#SW
+name: xml-statefulEJB
+filetype: xml$
+target: line
+type: contains
+category: ejb
+advice: Stateful EJBs may be better suited to TKG
+effort: 1000
+readiness: 1000
+tags:
+  - value: api
+  - value: ejb
+  - value: stateful
+  - value: javaee
+  - value: fullprofile
+patterns:
+  - value: <session-type>Stateful</session-type>
+##<session-type>Stateful</session-type>

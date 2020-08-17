@@ -1,0 +1,16 @@
+#SW
+name: xml-ejb-3-1
+filetype: xml$
+target: line
+type: contains
+category: ejb
+advice: Refer to platform documentation
+effort: 7
+readiness: 7
+tags:
+- value: api
+- value: ejb-lite
+- value: javaee
+patterns:
+- value: ejb-jar_3_1.xsd
+##ejb-jar_3_1.xsd

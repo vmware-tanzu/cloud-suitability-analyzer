@@ -1,0 +1,20 @@
+/*******************************************************************************
+ * Copyright (c) 2018 - Present VMWare, Inc. All Rights Reserved.
+ ******************************************************************************/
+
+package model
+
+//Created By BootstrapBinsTemplate.txt found under go/resources folder
+//Created @ {{now}}
+
+func BootstrapBins() []Bin {
+    var BootstrapBins = []Bin{
+        {{ range . }}
+            { Name: "{{.Name}}",
+            Tags:
+            []*BinTag{ {{ range .Tags }} { Name: "{{.Name}}", Type: {{.Type}}, Action: "{{.Action}}", }, {{end}} },
+             },
+        {{end}}
+    }
+    return BootstrapBins
+}

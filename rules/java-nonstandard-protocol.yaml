@@ -1,0 +1,33 @@
+name: java-nonstandard-protocol
+filetype: java$
+target: line
+type: contains
+effort: 100
+readiness: 10
+advice: Ensure protocol dependencies are cloud friendly or move to TKG
+category: protocol
+tags:
+  - value: nonstandard-protocol
+  - value: api
+patterns:
+  - value: "t3:"
+  - value: "iiop:"
+  - value: "corbaloc"
+  - value: "tcp:"
+  - value: "ssl:"
+  - value: "udp:"
+  - value: "imap:"
+  - value: "jdbc:"
+  - value: "ldap:"
+  - value: "ldaps:"
+  - value: "pop2:"
+  - value: "smtp:"
+  - value: "ssl:"
+  - value: "tcp:"
+  - value: "ftp:"
+  - value: "sftp:"
+## t3:
+## iiop:
+## corbaloc
+## tcp:
+## ssl:

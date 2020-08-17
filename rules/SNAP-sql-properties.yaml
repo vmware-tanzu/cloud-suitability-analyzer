@@ -1,0 +1,19 @@
+#SW - this is where we need xpath
+name: SNAP-SQL-properties
+filetype: properties$
+target: line
+type: regex
+defaultpattern: "^.*[ .]%s[ (].*"
+category: jdbc
+advice: Refer to platform documentation
+effort: 10
+readiness: 0
+tags:
+  - value: api
+  - value: jdbc
+  - value: sql
+  - value: snap
+patterns:
+  #--- SQL command
+  - value: StoredProcedureQuery
+  - value: CallableStatement

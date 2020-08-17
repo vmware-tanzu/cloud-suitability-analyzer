@@ -1,0 +1,17 @@
+name: dotnet-wcf-protocols
+filetype: (cs$|vb$)
+target: line
+type: regex
+advice: Unsupported protocols
+effort: 500
+category: WCF
+tags:
+- value: api
+patterns:
+- value: <udpBinding>
+  advice: UDP protocol not supported on PCF
+patterns:
+- value: <net.+Binding>
+  advice: Non HTTP based protocols are either unsupported or require extensive refactoring when on PCF. TCP binding would require TCP Router to be configured and app to be self hosted (TCP-IIS activation not supported)
+  
+

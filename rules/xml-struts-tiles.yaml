@@ -1,0 +1,21 @@
+#SW
+name: xml-struts-tiles
+filetype: xml$
+target: line
+type: contains
+category: tiles
+advice: Refer to platform documentation
+effort: 5
+readiness: 2
+tags:
+- value: api
+- value: webapp
+- value: ui
+- value: tiles
+patterns:
+- value: struts.apache.org/tags-tiles
+- value: tiles-config_2_0.dtd
+- value: tiles-config_2_1.dtd
+- value: tiles-config_3_0.dtd
+
+##struts.apache.org/tags-tiles

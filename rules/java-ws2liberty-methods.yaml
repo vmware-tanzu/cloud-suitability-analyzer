@@ -1,0 +1,36 @@
+name: java-ws2liberty-methods
+filetype: java$
+target: line
+type: regex
+effort: 10
+readiness: 10
+advice: Refer to IBM documentation
+defaultpattern: '^.*[ .]%s[ (].*'
+category: webSphere
+tags:
+- value: api
+- value: websphere
+- value: ltpa
+- value: security
+patterns:
+- value: getCallerList
+- value: getFirstCaller
+- value: getFirstServer
+- value: getServerList
+- value: addPropagationAttribute
+- value: getPropagationAttributes
+- value: convertCookieStringToBytes
+- value: revokeSSOCookies
+- value: revokeSSOCookiesForPortlets
+- value: getLTPACookieFromSSOToken
+
+## .getCallerList(
+## .getFirstCaller(
+## .getFirstServer(
+## .getServerList(
+## .addPropagationAttribute(
+## .getPropagationAttributes(
+## .convertCookieStringToBytes(
+## .revokeSSOCookies(
+## .revokeSSOCookiesForPortlets(
+## .getLTPACookieFromSSOToken(

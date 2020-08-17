@@ -1,0 +1,16 @@
+#SW
+name: xml-trinidad
+filetype: xml$
+target: line
+type: contains
+category: trinidad
+advice: Refer to platform documentation
+effort: 10
+readiness: 7
+tags:
+- value: api
+- value: jsf
+- value: webprofile
+patterns:
+- value: myfaces.apache.org/trinidad/config
+##myfaces.apache.org/trinidad/config

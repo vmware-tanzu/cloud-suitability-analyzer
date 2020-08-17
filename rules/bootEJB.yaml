@@ -1,0 +1,16 @@
+#SW
+name: bootEJB
+filetype: xml$
+target: line
+type: contains
+category: ejb
+advice: Automatic remediation with Bootifier
+effort: 2
+readiness: 2
+tags:
+  - value: ejb
+patterns:
+  - value: ejb-api
+  - value: jboss-ejb-api_3.0_spec
+  - value: jboss-ejb-api_3.1_spec
+  - value: jboss-ejb-api_3.2_spec

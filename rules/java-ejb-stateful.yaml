@@ -1,0 +1,20 @@
+name: java-ejb-stateful
+filetype: java$
+target: line
+type: regex
+advice: Refer EJB stateful/stateless documentation
+defaultpattern: ^.*@%s$
+effort: 100
+readiness: 100
+category: ejb
+tags:
+- value: stateful
+- value: ejb
+- value: javaee
+- value: api
+- value: ejbcontainer
+patterns:
+- value: Stateful
+- value: StatefulTimeout
+##@Stateful
+##@StatefulTimeout

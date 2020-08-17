@@ -1,0 +1,17 @@
+name: dotnet-launchProcess
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: '^ +%s[.(].*'
+advice: Launching additional processes within a container is not recommended. 
+readiness: 7
+effort: 300
+category: LocalProcess
+tags:
+- value: api
+patterns:
+- value: Process
+
+## Process()
+## Process ()
+## Process.

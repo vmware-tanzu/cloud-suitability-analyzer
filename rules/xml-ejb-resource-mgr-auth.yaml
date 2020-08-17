@@ -1,0 +1,16 @@
+#SW
+name: xml-ejb-resource-mgr-aut
+filetype: xml$
+target: line
+type: contains
+category: security
+advice: Refer to platform documentation
+effort: 10
+readiness: 10
+tags:
+- value: security
+- value: webapp
+- value: api
+patterns:
+- value: <res-auth>Container</res-auth>
+##<res-auth>Container</res-auth>

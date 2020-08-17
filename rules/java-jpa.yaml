@@ -1,0 +1,37 @@
+---
+#--- updated from 8/8/18 Survey
+#---  converted from import to class usage pattern SW
+name: java-jpa
+filetype: java$
+target: line
+type: regex
+defaultpattern: "^.*[ @.]%s[ (].*"
+effort: 2
+readiness: 6
+advice: JPA will work inside of Cloud Native applications, but changes may need to be made to the way JPA is configured to get connections. 
+category: jpa
+tags:
+  - value: api
+  - value: jpa
+  - value: webprofile
+  - value: entity-manager
+patterns:
+  - value: createEntityManagerFactory
+  - value: createEntityManager
+  - value: getTransaction
+  - value: EntityManagerFactory
+  - value: EntityManager
+  - value: MapKeyClass
+  - value: MapKeyColumn
+  - value: MapKeyEnumerated
+  - value: EntityTransaction
+  - value: ElementCollection
+##  createEntityManagerFactory(
+##  createEntityManager(
+##  getTransaction(
+##  EntityManagerFactory(
+##  MapKeyClass(
+##  MapKeyColumn(
+##  MapKeyEnumerated(
+##  EntityTransaction(
+##  ElementCollection(

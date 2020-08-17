@@ -1,0 +1,19 @@
+#SW - this is where we need xpath
+name: SNAP-java-package-GradleJar
+filetype: gradle$
+target: line
+type: regex
+defaultpattern: "[{] *%s"
+category: packaging
+advice: Refer to platform documentation
+effort: 0
+readiness: 0
+tags:
+  - value: api
+  - value: jar
+  - value: gradle
+  - value: snap
+patterns:
+  #--- Gradle package
+  - value: jar
+##{ jar

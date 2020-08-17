@@ -1,0 +1,12 @@
+#qc1
+name: dotnet-StaticCompressionModule
+filetype: config$
+target: line
+type: contains
+category: Unsupported modules
+advice: Ensure compatible configuration
+effort: 100
+readiness: 5
+patterns:
+- value: <httpCompression
+##<httpCompression

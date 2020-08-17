@@ -1,0 +1,15 @@
+name: java-servlet-session
+filetype: java$
+target: line
+type: contains
+effort: 10
+readiness: 0
+advice: HTTP Sesssion Java API Import. Typically remediated by exernalizing session state.
+category: servlet
+tags:
+- value: api
+- value: session
+- value: webcontainer
+patterns:
+- value: import javax.servlet.http.HttpSession
+##import javax.servlet.

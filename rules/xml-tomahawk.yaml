@@ -1,0 +1,16 @@
+#SW
+name: xml-tomahawk
+filetype: xml$
+target: line
+type: contains
+category: tomahawk
+advice: Refer to platform documentation
+effort: 600
+readiness: 200
+tags:
+- value: jsf
+- value: webprofile
+- value: api
+patterns:
+- value: myfaces.apache.org/tomahawk
+##myfaces.apache.org/tomahawk

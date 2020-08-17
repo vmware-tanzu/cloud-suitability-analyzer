@@ -1,0 +1,34 @@
+#--- updated from 8/8/18 Survey
+name: java-hazelcast
+filetype: java$
+target: line
+type: regex
+defaultpattern: '^.*[ .]%s[ ({.<].*'
+effort: 100
+readiness: 6
+advice: Convert to redis
+category: cache
+tags:
+- value: hazelcast
+- value: cache
+- value: api
+patterns:
+- value: HazelcastInstance
+- value: NearCacheClientSupport
+- value: Hazelcast
+- value: QueryCacheConfig
+- value: HazelcastClient
+- value: newHazelcastClient
+- value: setMapEvictionPolicy
+- value: MapEvictionPolicy
+- value: newHazelcastInstance
+
+##  HazelcastInstance(
+##  NearCacheClientSupport(
+##  Hazelcast(
+##  QueryCacheConfig(
+##  HazelcastClient(
+##  newHazelcastClient(
+##  setMapEvictionPolicy(
+##  MapEvictionPolicy(
+##  newHazelcastInstance(

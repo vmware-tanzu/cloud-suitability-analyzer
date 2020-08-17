@@ -1,0 +1,26 @@
+---
+#--- TODO need to separate and survey to score
+name: java-remoteEJB
+filetype: java$
+target: line
+type: regex
+advice: Refer to TASS/Spring documentation for remediation or move to TKG
+effort: 10
+readiness: 10
+defaultpattern: ^\s*@%s
+category: ejb
+tags:
+  - value: annotations
+  - value: ejb
+  - value: api
+  - value: javaee
+  - value: fullprofile
+patterns:
+  - value: RemoteHome
+    tag: remote
+  - value: EJBObject
+  - value: EJBHome
+##@Remote
+##@RemoteHome
+##@EJBObject
+##@EJBHome

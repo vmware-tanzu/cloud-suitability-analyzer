@@ -1,0 +1,18 @@
+name: java-springframework
+filetype: java$
+target: line
+type: contains
+advice: Presence of spring framework may indicate the app should target TAS
+effort: 0
+readiness: 0
+category: springFramework
+tags:
+  - value: api
+  - value: spring
+patterns:
+  - value: import org.springframework
+  - value: import org.springframework.mongo
+    effort: 100
+  - value: import org.springframework.cassandra
+    effort: 100
+## import org.springframework

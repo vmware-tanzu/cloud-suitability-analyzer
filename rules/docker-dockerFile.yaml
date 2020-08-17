@@ -1,0 +1,16 @@
+#qc1
+name: docker-dockerFile
+filetype: $
+target: file
+type: simple-text
+category: docker
+advice: Determine if TKG is more prescriptive
+recipes:
+effort: 5
+readiness: 1000
+tags:
+  - value: docker
+  - value: config
+patterns:
+  - value: Dockerfile
+##F Dockerfile

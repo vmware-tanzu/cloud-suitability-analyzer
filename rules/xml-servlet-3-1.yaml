@@ -1,0 +1,16 @@
+#SW
+name: xml-servlet-3-1
+filetype: xml$
+target: line
+type: contains
+category: servlet
+advice: Refer to platform documentation
+effort: 5
+readiness: 5
+tags:
+- value: api
+- value: servlet
+- value: webcontainer
+patterns:
+- value: web-app_3_1.xsd
+##web-app_3_1.xsd

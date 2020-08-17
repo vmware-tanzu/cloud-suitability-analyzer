@@ -1,0 +1,19 @@
+name: java-struts-import
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Refer to platform documentation 
+effort: 6
+readiness: 7
+category: struts
+tags:
+  - value: api
+  - value: struts
+  - value: webapp
+  - value: ui
+  - value: webcontainer
+patterns:
+  - value: org.apache.struts
+  - value: org.apache.struts2
+  - value: com.opensymphony

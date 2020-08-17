@@ -1,0 +1,17 @@
+---
+#--- updated from 8/8/18 Survey
+name: java-activemq
+filetype: java$
+target: line
+type: regex
+defaultpattern: ".*[ .]%s[ (].*"
+advice: Remediate any persistence issues 
+effort: 7
+readiness: 7
+category: activemq
+tags:
+  - value: api
+  - value: activemq
+  - value: messaging
+patterns:
+  - value: createActiveMQConnection

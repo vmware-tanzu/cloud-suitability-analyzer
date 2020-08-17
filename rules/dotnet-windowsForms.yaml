@@ -1,0 +1,11 @@
+name: dotnet-windowsForms
+filetype: (cs$|vb$|csproj$)
+target: line
+type: contains
+advice: Windows Forms module is not supported. Refactor to a web application.
+effort: 10
+readiness: 5
+category: Unsupported modules
+patterns:
+- value: System.Windows.Forms
+  advice: Windows Forms module is not supported. Refactor to a web application.

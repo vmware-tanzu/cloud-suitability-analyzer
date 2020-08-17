@@ -1,0 +1,20 @@
+name: java-security
+filetype: java$
+target: line
+type: contains
+advice:
+recipes:
+effort: 10
+readiness: 0
+category: java-security
+tags:
+- value: java-security
+patterns:
+- value: javax.net.ssl.keyStore
+- value: javax.net.ssl.keyStoreType
+- value: javax.net.ssl.keyStorePassword
+- value: javax.net.ssl.trustStore
+- value: javax.net.ssl.trustStoreType
+- value: javax.net.ssl.trustStorePassword
+- value: java.security
+  tag: x509

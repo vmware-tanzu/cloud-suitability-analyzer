@@ -1,0 +1,17 @@
+name: config-dotnet-webConfig
+filetype: config$
+target: file
+category: Config
+type: simple-text
+advice: Convert to Spring based application configuration
+effort: 0
+readiness: 0
+tags:
+- value: file
+- value: api
+patterns:
+- value: web.config
+- value: Web.config
+
+##F web.config
+##F Web.config

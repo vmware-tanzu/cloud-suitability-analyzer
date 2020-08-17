@@ -1,0 +1,15 @@
+#SW
+name: xml-myfaces
+filetype: xml$
+target: line
+type: contains
+category: myfaces
+advice: Refer to platform documentation
+effort: 5
+readiness: 2
+tags:
+- value: api
+- value: jsf
+patterns:
+- value: org.apache.myfaces
+#org.apache.myfaces

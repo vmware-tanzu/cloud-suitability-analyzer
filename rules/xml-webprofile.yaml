@@ -1,0 +1,22 @@
+name: xml-webprofile
+filetype: xml$
+target: file
+category: config
+effort: 50
+readiness: 1000
+type: simple-text
+advice: Web application config file
+tags:
+  - value: api
+  - value: javaee
+  - value: webprofile
+patterns:
+  - value: persistence.xml
+    tag: jpa
+  - value: web.xml
+    tag: webapp
+  - value: applicationContext.xml
+    tag: FileSystemXmlApplicationContext
+##F persistence.xml
+##F web.xml
+##F applicationContext.xml

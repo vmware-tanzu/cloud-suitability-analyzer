@@ -1,21 +1,57 @@
-
 # cloud-suitability-analyzer
 
 ## Overview
+
 
 ## Try it out
 
 ### Prerequisites
 
-* Prereq 1
-* Prereq 2
-* Prereq 3
+* Golang - Installation instructions are [here](https://golang.org/doc/install)
+* Docker - Instructions for [Get Docker](https://docs.docker.com/get-docker/)
+* GOPATH - Set your $GOPATH env var to your go installation directory
+  ```$> export GOPATH=/Users/[your path]/go```
+* go-bindata - Install go-bindata [using go get](https://github.com/jteeuwen/go-bindata) 
+
+  Alternatives if go get fails
+  
+  OSX  ```$> brew install go-bindata``` 
+  
+  Linux ```sudo apt install go-bindata```
+
+### Clone the repo
+
+Clone the repo into your $GOPATH/src using the following folder structure:
+
+```
+$GOPATH/src/github.com/vmware-samples/cloud-suitability-analyzer
+```
 
 ### Build & Run
 
-1. Step 1
-2. Step 2
-3. Step 3
+**Run the build script**
+
+Make sure your in the root directory of your project and run the build script
+```
+$> ./buildOSS.sh [executable type]
+```
+
+**Executable Type Options**
+```
+   O     creates a OSX executable
+   L     creates a Linux executable
+   W     creates a Windows executable
+   OWL   builds all three
+```
+
+**Verify docker created directory has correct ownership**
+```
+$> sudo chown -R $USER:`id -g -n $USER` $WORKING_DIR/go/exe
+```
+
+**Check that the exe runs**
+
+The executable(s) can be found in  `<project root dir>/go/exe` directory
 
 ## Documentation
 
@@ -27,3 +63,5 @@ signed as described on that page. Your signature certifies that you wrote the pa
 as an open-source patch. For more detailed information, refer to [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
+
+Cloud Suitability Analyzer is released under the BSD-2 license. Please see [LICENSE.txt](https://github.com/vmware-samples/cloud-suitability-analyzer/blob/master/LICENSE.txt)

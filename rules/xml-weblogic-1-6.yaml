@@ -1,0 +1,16 @@
+#SW
+name: xml-weblogic-1-6
+filetype: xml$
+target: line
+type: contains
+category: weblogic-webapp
+advice: Refer to platform documentation
+effort: 600
+readiness: 700
+tags:
+- value: api
+- value: webapp
+- value: weblogic
+patterns:
+- value: 1.6/weblogic-web-app.xsd
+##1.6/weblogic-web-app.xsd

@@ -1,0 +1,12 @@
+#qc1
+name: dotnet-iis_module-TokenCacheModule
+filetype: config$
+target: line
+type: contains
+category: Unsupported IIS modules
+advice: Caches windows security tokens for password based authentication schemes (anonymous authentication; basic authentication; IIS client certificate authentication). Ensure compabible configuration.
+effort: 1000
+readiness: 5
+patterns:
+  - value: TokenCacheModule
+## TokenCacheModule

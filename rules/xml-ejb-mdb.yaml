@@ -1,0 +1,18 @@
+#SW
+name: java-mdb
+filetype: xml$
+target: line
+type: contains
+category: MDB
+advice: Consider stateless alternative or move to TKG
+effort: 7
+readiness: 7
+tags:
+  - value: MessageDriven
+  - value: ejb
+  - value: javaee
+  - value: fullprofile
+  - value: api
+patterns:
+  - value: MessageDriven
+##MessageDriven

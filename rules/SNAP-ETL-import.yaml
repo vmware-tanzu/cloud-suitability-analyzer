@@ -1,0 +1,27 @@
+name: SNAP-ETL-import
+filetype: java$
+target: line
+type: regex
+effort: 100
+readiness: 0
+advice: Refer to IBM documentation
+defaultpattern: ^import\s*.*%s.*$
+category: etl
+tags:
+- value: api
+- value: etl
+- value: snap
+patterns:
+#--- major etl vendors, add more as needed
+- value: org.talend
+- value: oracle.odi
+- value: com.ibm.is
+- value: net.sf.jasper
+- value: org.pentaho
+
+
+##import org.talend
+##import oracle.odi
+##import com.ibm.is
+##import net.sf.jasper
+##import org.pentaho

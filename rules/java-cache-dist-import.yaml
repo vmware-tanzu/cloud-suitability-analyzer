@@ -1,0 +1,21 @@
+name: java-cache-dist-import
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Distributed caches must be remediated to function in K8S
+effort: 50
+readiness: 10
+category: distcache
+tags:
+  - value: imports
+  - value: stateful
+  - value: cache-import
+  - value: distcache
+  - value: api
+patterns:
+  - value: org.ehcache #--- dist
+  - value: com.hazelcast #--- dist
+  - value: org.apache.ignite #--- dist
+  - value: org.infinispan #--- dist
+  - value: net.spy.memcached #--- dist

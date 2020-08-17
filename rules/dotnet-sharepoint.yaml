@@ -1,0 +1,13 @@
+name: dotnet-sharepoint
+filetype: (cs$|vb$)
+target: line
+type: contains
+advice: SharePoint is not supported on CloudFoundry.
+effort: 100
+readiness: 0
+category: Unsupported modules
+tags:
+- value: SharePoint
+patterns:
+- value: Microsoft.SharePoint
+  advice: SharePoint is not supported on CloudFoundry.
