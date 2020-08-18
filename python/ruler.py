@@ -13,13 +13,11 @@
 #       COMPANY:  VMWare
 #       VERSION:  1.0
 #       CREATED:  08/16/2020
-#      REVISION:  ---
+#      REVISION:  1.1
 # ===============================================================================
 
 import argparse
 import os
-
-# --- process command lines
 import subprocess
 import sys
 
