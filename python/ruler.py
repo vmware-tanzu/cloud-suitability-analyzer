@@ -59,3 +59,9 @@ if args.mode == 'replace':
     else:
         print('rule import failed')
         sys.exit(1)
+
+# --- verify rules
+if args.mode == 'verify':
+    for entry in os.scandir(args.directory):
+        if entry.path.endswith(".yaml") and entry.is_file():
+            print(entry.path)
