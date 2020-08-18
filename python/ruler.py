@@ -20,6 +20,7 @@ import argparse
 import os
 
 # --- process command lines
+import subprocess
 import sys
 
 parser = argparse.ArgumentParser(description='Manage CSA rules')
@@ -62,6 +63,17 @@ if args.mode == 'replace':
 
 # --- verify rules
 if args.mode == 'verify':
-    for entry in os.scandir(args.directory):
+    goodRuleCount = 0
+    badRuleCount = 0
+    expandedDir = os.path.expanduser(args.directory)
+    for entry in os.scandir(expandedDir):
         if entry.path.endswith(".yaml") and entry.is_file():
-            print(entry.path)
+            print(entry.path, end='')
+            results = subprocess.check_output(['csa', 'rules', 'validate', entry.path], stderr=subprocess.STDOUT)
+            if b"error" in results:
+                print(" - failed")
+                badRuleCount += 1
+            else:
+                goodRuleCount += 1
+                print(" - verified")
+print(f'Valid rules: {goodRuleCount}, Invalid rules: {badRuleCount}')
