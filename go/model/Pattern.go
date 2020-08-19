@@ -12,6 +12,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/antchfx/xmlquery"
 	"github.com/vmware-samples/cloud-suitability-analyzer/go/util"
 )
 
@@ -103,11 +104,19 @@ func (p *Pattern) compile(rule *Rule) {
 	}
 }
 
+func (p *Pattern) MatchXml(node *xmlquery.Node) (bool, string) {
+	switch p.Type {
+	case XPATH_MATCH_TYPE:
+		return true, ""
+	}
+
+	return false, ""
+}
+
 func (p *Pattern) Match(target string) (bool, string) {
 
 	switch p.Type {
 
-	case XPATH_MATCH_TYPE:
 	case REGEX_MATCH_TYPE:
 		if p.compiledRegex.MatchString(target) {
 			return true, ""
@@ -142,9 +151,9 @@ func (p *Pattern) Match(target string) (bool, string) {
 		}
 	default:
 		if target == p.Pattern {
-			return true,""
+			return true, ""
 		}
 	}
 
-	return false,""
+	return false, ""
 }

@@ -6,6 +6,7 @@ require (
 	github.com/Knetic/govaluate v3.0.0+incompatible
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751 // indirect
 	github.com/alecthomas/units v0.0.0-20190924025748-f65c72e2690d // indirect
+	github.com/antchfx/xmlquery v1.2.4
 	github.com/blevesearch/bleve v1.0.9
 	github.com/cznic/b v0.0.0-20181122101859-a26611c4d92d // indirect
 	github.com/cznic/mathutil v0.0.0-20181122101859-297441e03548 // indirect
@@ -21,6 +22,7 @@ require (
 	github.com/gin-gonic/gin v1.6.3
 	github.com/jinzhu/gorm v1.9.14
 	github.com/jmhodges/levigo v1.0.0 // indirect
+	github.com/joho/sqltocsv v0.0.0-20190824231449-5650f27fd5b6
 	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
 	github.com/lib/pq v1.7.0
 	github.com/mattn/go-sqlite3 v1.14.0

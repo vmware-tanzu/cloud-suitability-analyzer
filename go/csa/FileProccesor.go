@@ -14,6 +14,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/antchfx/xmlquery"
 	"github.com/vmware-samples/cloud-suitability-analyzer/go/db"
 	"github.com/vmware-samples/cloud-suitability-analyzer/go/gocloc"
 	"github.com/vmware-samples/cloud-suitability-analyzer/go/model"
@@ -143,9 +144,23 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 		}
 
 		matchHasImpact := true
-		// if value, ok := path.String(root); ok
-		if ok, result := rule.Patterns[i].Match(target); ok {
 
+		matchFunc := func() (bool, string) {
+			return rule.Patterns[i].Match(target)
+		}
+
+		if rule.Patterns[i].Type == model.XPATH_MATCH_TYPE {
+			if csaService.xmlDocs[file.TargetPath] == nil {
+				csaService.xmlDocs[file.TargetPath], _ = xmlquery.Parse(strings.NewReader(target))
+			}
+
+			matchFunc = func() (bool, string) {
+				return rule.Patterns[i].MatchXml(csaService.xmlDocs[file.TargetPath])
+			}
+		}
+
+		// if value, ok := path.String(root); ok
+		if ok, result := matchFunc(); ok {
 			//Track Rule matches for rules that have the associated impact type. Otherwise that is a waste of time!
 			if rule.Impact == model.APP_IMPACT {
 				app.Lock()

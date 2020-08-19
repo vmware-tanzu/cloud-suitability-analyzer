@@ -10,6 +10,11 @@ github.com/alecthomas/template/parse
 # github.com/alecthomas/units v0.0.0-20190924025748-f65c72e2690d
 ## explicit
 github.com/alecthomas/units
+# github.com/antchfx/xmlquery v1.2.4
+## explicit
+github.com/antchfx/xmlquery
+# github.com/antchfx/xpath v1.1.6
+github.com/antchfx/xpath
 # github.com/blevesearch/bleve v1.0.9
 ## explicit
 github.com/blevesearch/bleve
@@ -119,6 +124,8 @@ github.com/go-playground/locales/currency
 github.com/go-playground/universal-translator
 # github.com/go-playground/validator/v10 v10.2.0
 github.com/go-playground/validator/v10
+# github.com/golang/groupcache v0.0.0-20200121045136-8c9f03a8e57e
+github.com/golang/groupcache/lru
 # github.com/golang/protobuf v1.3.3
 github.com/golang/protobuf/proto
 # github.com/golang/snappy v0.0.1
@@ -130,6 +137,9 @@ github.com/jinzhu/gorm
 github.com/jinzhu/inflection
 # github.com/jmhodges/levigo v1.0.0
 ## explicit
+# github.com/joho/sqltocsv v0.0.0-20190824231449-5650f27fd5b6
+## explicit
+github.com/joho/sqltocsv
 # github.com/json-iterator/go v1.1.9
 github.com/json-iterator/go
 # github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
@@ -194,12 +204,31 @@ github.com/ugorji/go/codec
 github.com/willf/bitset
 # go.etcd.io/bbolt v1.3.4
 go.etcd.io/bbolt
-# golang.org/x/net v0.0.0-20200324143707-d3edc9973b7e
+# golang.org/x/net v0.0.0-20200421231249-e086a090c8fd
 golang.org/x/net/html
 golang.org/x/net/html/atom
+golang.org/x/net/html/charset
 # golang.org/x/sys v0.0.0-20200323222414-85ca7c5b95cd
 golang.org/x/sys/unix
 golang.org/x/sys/windows
+# golang.org/x/text v0.3.2
+golang.org/x/text/encoding
+golang.org/x/text/encoding/charmap
+golang.org/x/text/encoding/htmlindex
+golang.org/x/text/encoding/internal
+golang.org/x/text/encoding/internal/identifier
+golang.org/x/text/encoding/japanese
+golang.org/x/text/encoding/korean
+golang.org/x/text/encoding/simplifiedchinese
+golang.org/x/text/encoding/traditionalchinese
+golang.org/x/text/encoding/unicode
+golang.org/x/text/internal/language
+golang.org/x/text/internal/language/compact
+golang.org/x/text/internal/tag
+golang.org/x/text/internal/utf8internal
+golang.org/x/text/language
+golang.org/x/text/runes
+golang.org/x/text/transform
 # gopkg.in/alecthomas/kingpin.v2 v2.2.6
 ## explicit
 gopkg.in/alecthomas/kingpin.v2
