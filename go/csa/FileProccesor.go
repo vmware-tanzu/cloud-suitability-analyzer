@@ -7,6 +7,7 @@ package csa
 
 import (
 	"bufio"
+	"bytes"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -155,11 +156,8 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 
 			if csaService.xmlDocs[file.FQN] == nil {
 				rawData, _ := ioutil.ReadFile(file.FQN)
-				stringData := string(rawData)
-				xml, _ := xmlquery.Parse(strings.NewReader(stringData))
-				fmt.Println("------------------------------------------------")
-				fmt.Println(xml)
-				fmt.Println(stringData)
+				//stringData := string(rawData)
+				xml, _ := xmlquery.Parse(bytes.NewReader(rawData))
 
 				csaService.xmlDocs[file.FQN] = xml
 			}

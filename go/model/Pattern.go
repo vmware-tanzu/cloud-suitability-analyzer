@@ -107,9 +107,6 @@ func (p *Pattern) compile(rule *Rule) {
 func (p *Pattern) MatchXml(node *xmlquery.Node) (bool, string) {
 	switch p.Type {
 	case XPATH_MATCH_TYPE:
-		fmt.Println("===================================")
-		fmt.Println(p.Pattern)
-		fmt.Println(node)
 		return (xmlquery.FindOne(node, p.Pattern) != nil), ""
 	}
 
