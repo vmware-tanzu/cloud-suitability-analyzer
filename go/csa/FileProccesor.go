@@ -8,6 +8,7 @@ package csa
 import (
 	"bufio"
 	"fmt"
+	"io/ioutil"
 	"os"
 	"sort"
 	"strconv"
@@ -150,12 +151,23 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 		}
 
 		if rule.Patterns[i].Type == model.XPATH_MATCH_TYPE {
-			if csaService.xmlDocs[file.TargetPath] == nil {
-				csaService.xmlDocs[file.TargetPath], _ = xmlquery.Parse(strings.NewReader(target))
+			csaService.xmlMux.Lock()
+
+			if csaService.xmlDocs[file.FQN] == nil {
+				rawData, _ := ioutil.ReadFile(file.FQN)
+				stringData := string(rawData)
+				xml, _ := xmlquery.Parse(strings.NewReader(stringData))
+				fmt.Println("------------------------------------------------")
+				fmt.Println(xml)
+				fmt.Println(stringData)
+
+				csaService.xmlDocs[file.FQN] = xml
 			}
 
+			csaService.xmlMux.Unlock()
+
 			matchFunc = func() (bool, string) {
-				return rule.Patterns[i].MatchXml(csaService.xmlDocs[file.TargetPath])
+				return rule.Patterns[i].MatchXml(csaService.xmlDocs[file.FQN])
 			}
 		}
 

@@ -36,6 +36,7 @@ type CsaService struct {
 	findingsSaved        int              //= 0
 	findingsIndexed      int              //= 0
 	xmlDocs              map[string](*xmlquery.Node)
+	xmlMux               sync.Mutex
 }
 
 func NewCsaSvc(mgr *db.Repositories) *CsaService {
