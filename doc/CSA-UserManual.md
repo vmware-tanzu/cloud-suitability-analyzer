@@ -148,6 +148,16 @@ Set ulimit to 20000
 
 4. Reboot your machine
 
+### Contributor's guidelines
+
+sStandard practices for code contribution are listed in this section.
+
+1. Commit messages. A `.gitmessage` file in this repo contains the standard commit message template that was implemented 08/24/2020. Please use this template for all commit messages. DO NOT use `git -m` from the command line. Copy  the `.gitmessage` to your `HOME` directory. Then run the following command:
+
+```bash
+git config --global commit.template ~/.gitmessage
+```
+
 ### Getting help from `csa`
 
 `csa` has several major operating modes with thier own associated commands. You can see a list of the command by using `CSA help`
