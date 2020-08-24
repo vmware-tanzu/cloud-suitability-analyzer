@@ -7,13 +7,16 @@ package csa
 
 import (
 	"bufio"
+	"bytes"
 	"fmt"
+	"io/ioutil"
 	"os"
 	"sort"
 	"strconv"
 	"strings"
 	"time"
 
+	"github.com/antchfx/xmlquery"
 	"github.com/vmware-samples/cloud-suitability-analyzer/go/db"
 	"github.com/vmware-samples/cloud-suitability-analyzer/go/gocloc"
 	"github.com/vmware-samples/cloud-suitability-analyzer/go/model"
@@ -143,9 +146,33 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 		}
 
 		matchHasImpact := true
-		// if value, ok := path.String(root); ok
-		if ok, result := rule.Patterns[i].Match(target); ok {
 
+		matchFunc := func() (bool, string) {
+			return rule.Patterns[i].Match(target)
+		}
+
+		if rule.Patterns[i].Type == model.XPATH_MATCH_TYPE {
+			csaService.xmlMux.Lock()
+
+			if csaService.xmlDocs[file.FQN] == nil {
+				rawData, err := ioutil.ReadFile(file.FQN)
+
+				if rawData, err := ioutil.ReadFile(file.FQN); !err {
+					if xml, err := xmlquery.Parse(bytes.NewReader(rawData)); !err {
+						csaService.xmlDocs[file.FQN] = xml
+					}
+				}
+			}
+
+			csaService.xmlMux.Unlock()
+
+			matchFunc = func() (bool, string) {
+				return rule.Patterns[i].MatchXml(csaService.xmlDocs[file.FQN])
+			}
+		}
+
+		// if value, ok := path.String(root); ok
+		if ok, result := matchFunc(); ok {
 			//Track Rule matches for rules that have the associated impact type. Otherwise that is a waste of time!
 			if rule.Impact == model.APP_IMPACT {
 				app.Lock()

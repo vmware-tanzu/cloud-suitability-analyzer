@@ -10,6 +10,7 @@ import (
 	"os"
 	"sync"
 
+	"github.com/antchfx/xmlquery"
 	"github.com/vmware-samples/cloud-suitability-analyzer/go/db"
 	"github.com/vmware-samples/cloud-suitability-analyzer/go/model"
 	"github.com/vmware-samples/cloud-suitability-analyzer/go/report"
@@ -34,6 +35,8 @@ type CsaService struct {
 	savingDone           bool             //= false
 	findingsSaved        int              //= 0
 	findingsIndexed      int              //= 0
+	xmlDocs              map[string](*xmlquery.Node)
+	xmlMux               sync.Mutex
 }
 
 func NewCsaSvc(mgr *db.Repositories) *CsaService {
@@ -65,6 +68,7 @@ func NewCsaService(ruleRepository db.RuleRepository,
 		savingDone:           false,
 		findingsSaved:        0,
 		findingsIndexed:      0,
+		xmlDocs:              make(map[string](*xmlquery.Node)),
 	}
 
 }
