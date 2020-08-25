@@ -25,9 +25,22 @@ parser = argparse.ArgumentParser(description='Manage CSA rules')
 
 parser.add_argument('-d', '--dir', metavar='directory', action='store', required=True, dest='directory')
 
-parser.add_argument('-m', '--mode', metavar='mode', action='store', choices={'add', 'replace', 'verify'}, dest='mode')
+parser.add_argument('-m', '--mode', metavar='mode', action='store',
+                    choices={'add', 'replace', 'verify', 'export'}, dest='mode',
+                    help='modes: %(choices)s')
 
 args = parser.parse_args()
+
+# --- export rules to directory
+if args.mode == 'export':
+    print(f'exporting rules to {args.directory}')
+    exitCode = os.system(f'csa rules export --rules-dir {args.directory}')
+    if exitCode == 0:
+        print("Rule export succeeded")
+        sys.exit(0)
+    else:
+        print("Rule export failed")
+        sys.exit(1)
 
 # --- add rules to existing rules
 if args.mode == 'add':

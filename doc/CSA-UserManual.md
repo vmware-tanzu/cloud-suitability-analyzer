@@ -361,6 +361,72 @@ ranges:
               recommendation: Refactor to TAS
 ```
 
+## Managing rules with `ruler.py`
+
+`ruler.py` is a Python script that provides a slightly higher level interface to manage custom rules. It's a good idea to put the `ruler.py` directory `Python` directory on your path. Of course, you are free to use `csa` directly, that's fine as well. See instructions below.
+
+Note: When you first download `csa` it will not have it's `Sqlite` database, `csa.db`. That is not created until you run your first scan a directory of code. So either scan some code or an empty directory before proceeding with customer rules. `csa.db` will be created in the same directory that the `csa` executable is located.
+
+The rules are actually embedded in the `csa` binary. When `csa` is ran it reconstitutes those rules in `csa.db`. So, as your manage your rules, they are being stored in this databasse.
+
+**IMPORTANT**
+
+You should treat your rules like source code. Put them in version control. Their lifetime in `csa.db` should be emphemeral. 
+
+### Getting help
+
+```
+ruler.py -h
+```
+
+```
+usage: ruler.py [-h] -d directory [-m mode]
+
+Manage CSA rules
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -d directory, --dir directory
+  -m mode, --mode mode  modes: add, verify, replace, export
+```
+
+
+### Export all existing rules to a directory
+
+If you plan on writing rules, it helps to have some examples to start from. Exporting existing rules can help get your started.
+
+```
+ruler.py -d <your rules directory> -m export
+```
+
+### Validate a directory of custom rules
+
+You need to validate your rules before importing into `csa` to ensure they are properly formatted. This validation insures there are no yaml or formatting errors. Note that this does not check the validatity of your `regular expresss` . You should test independently. There are several good website to do that such as [https://www.regexpal.com/].
+
+Here's how to validate an entire directory of rules.
+
+```bash
+ ruler.py -d <your rules directory> -m verify
+```
+
+### Append a directory of custom rules
+
+If you simply want to add to existing rules we use `add`
+
+```
+ ruler.py -d <your rules directory> -m add
+```
+
+### Overwrite existing rule with custom rules
+
+If you want to overwrite existing rules, use `replace`. All existing rules will first deleted, then your rules will be imported.
+
+
+```bash
+ruler.py -d <your rules directory> -m replace
+```
+
+
 ## Adding rules
 
 An important design requirement for `csa` was the ability to change rules in the field, without the need to recompile the executable. This requirement is driven by the realization that many customer may have in-house libraries that have `wrapper` classes and functions to simplify the use of other frameworks. As such, these wrapper classes may hide critical patterns. With this capability, those internal libraries can be scanned first and then the rules may be augmented to look for additional patterns. The following process details the steps required to do this.
