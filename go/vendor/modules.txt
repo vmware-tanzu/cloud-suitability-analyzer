@@ -139,7 +139,6 @@ github.com/jinzhu/inflection
 ## explicit
 # github.com/joho/sqltocsv v0.0.0-20190824231449-5650f27fd5b6
 ## explicit
-github.com/joho/sqltocsv
 # github.com/json-iterator/go v1.1.9
 github.com/json-iterator/go
 # github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
