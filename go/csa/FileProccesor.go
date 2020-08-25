@@ -155,10 +155,8 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 			csaService.xmlMux.Lock()
 
 			if csaService.xmlDocs[file.FQN] == nil {
-				rawData, err := ioutil.ReadFile(file.FQN)
-
-				if rawData, err := ioutil.ReadFile(file.FQN); !err {
-					if xml, err := xmlquery.Parse(bytes.NewReader(rawData)); !err {
+				if rawData, err := ioutil.ReadFile(file.FQN); err == nil {
+					if xml, err := xmlquery.Parse(bytes.NewReader(rawData)); err == nil {
 						csaService.xmlDocs[file.FQN] = xml
 					}
 				}
