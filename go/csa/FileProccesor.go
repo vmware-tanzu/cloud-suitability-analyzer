@@ -21,6 +21,7 @@ import (
 	"github.com/vmware-samples/cloud-suitability-analyzer/go/gocloc"
 	"github.com/vmware-samples/cloud-suitability-analyzer/go/model"
 	"github.com/vmware-samples/cloud-suitability-analyzer/go/util"
+	"gopkg.in/yaml.v3"
 )
 
 func (csaService *CsaService) processFile(run *model.Run, app *model.Application, file *util.FileInfo, rules []model.Rule, hasContentRules bool, output chan<- interface{}) (findingCnt int, err error) {
@@ -166,6 +167,22 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 
 			matchFunc = func() (bool, string) {
 				return rule.Patterns[i].MatchXml(csaService.xmlDocs[file.FQN])
+			}
+		} else if rule.Patterns[i].Type == model.YAMLPATH_MATCH_TYPE {
+			csaService.yamlMux.Lock()
+
+			if csaService.yamlDocs[file.FQN] == nil {
+				if rawData, err := ioutil.ReadFile(file.FQN); err == nil {
+					var node yaml.Node
+					err = yaml.Unmarshal(rawData, &node)
+					csaService.yamlDocs[file.FQN] = &node
+				}
+			}
+
+			csaService.yamlMux.Unlock()
+
+			matchFunc = func() (bool, string) {
+				return rule.Patterns[i].MatchYaml(csaService.yamlDocs[file.FQN])
 			}
 		}
 
