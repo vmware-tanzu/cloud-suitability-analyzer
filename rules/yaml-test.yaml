@@ -1,0 +1,8 @@
+name: yaml-test
+filetype: (yaml|yml)$
+target: file
+type: yamlpath
+effort: 1000
+readiness: 10
+patterns:
+  - value: $.orchestration

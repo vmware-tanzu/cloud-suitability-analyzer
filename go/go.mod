@@ -35,9 +35,11 @@ require (
 	github.com/stretchr/testify v1.6.1
 	github.com/tecbot/gorocksdb v0.0.0-20191217155057-f0fad39f321c // indirect
 	github.com/toqueteos/trie v1.0.0 // indirect
+	github.com/vmware-labs/yaml-jsonpath v0.0.0-20200625154356-ea62dcd51756
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
 	gopkg.in/src-d/enry.v1 v1.7.3
 	gopkg.in/toqueteos/substring.v1 v1.0.2 // indirect
 	gopkg.in/xmlpath.v2 v2.0.0-20150820204837-860cbeca3ebc
 	gopkg.in/yaml.v2 v2.3.0
+	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
 )

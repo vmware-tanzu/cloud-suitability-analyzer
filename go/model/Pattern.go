@@ -13,7 +13,9 @@ import (
 	"time"
 
 	"github.com/antchfx/xmlquery"
+	"github.com/vmware-labs/yaml-jsonpath/pkg/yamlpath"
 	"github.com/vmware-samples/cloud-suitability-analyzer/go/util"
+	"gopkg.in/yaml.v3"
 )
 
 const ANALYZED_FILE_PATTERN = "Analyzed File"
@@ -102,6 +104,19 @@ func (p *Pattern) compile(rule *Rule) {
 	if p.Type == REGEX_MATCH_TYPE {
 		p.compiledRegex = regexp.MustCompile(p.Pattern)
 	}
+}
+
+func (p *Pattern) MatchYaml(node *yaml.Node) (bool, string) {
+	switch p.Type {
+	case YAMLPATH_MATCH_TYPE:
+		if path, err := yamlpath.NewPath(p.Pattern); err == nil {
+			if results, err := path.Find(node); err == nil {
+				return (len(results) > 0), ""
+			}
+		}
+	}
+
+	return false, ""
 }
 
 func (p *Pattern) MatchXml(node *xmlquery.Node) (bool, string) {

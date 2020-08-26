@@ -85,6 +85,8 @@ github.com/couchbase/vellum/utf8
 # github.com/davecgh/go-spew v1.1.1
 ## explicit
 github.com/davecgh/go-spew/spew
+# github.com/dprotaso/go-yit v0.0.0-20191028211022-135eb7262960
+github.com/dprotaso/go-yit
 # github.com/elazarl/go-bindata-assetfs v1.0.1
 ## explicit
 github.com/elazarl/go-bindata-assetfs
@@ -199,6 +201,9 @@ github.com/tinylib/msgp/msgp
 github.com/toqueteos/trie
 # github.com/ugorji/go/codec v1.1.7
 github.com/ugorji/go/codec
+# github.com/vmware-labs/yaml-jsonpath v0.0.0-20200625154356-ea62dcd51756
+## explicit
+github.com/vmware-labs/yaml-jsonpath/pkg/yamlpath
 # github.com/willf/bitset v1.1.10
 github.com/willf/bitset
 # go.etcd.io/bbolt v1.3.4
@@ -248,4 +253,5 @@ gopkg.in/xmlpath.v2
 ## explicit
 gopkg.in/yaml.v2
 # gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c
+## explicit
 gopkg.in/yaml.v3

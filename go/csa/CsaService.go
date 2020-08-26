@@ -15,6 +15,7 @@ import (
 	"github.com/vmware-samples/cloud-suitability-analyzer/go/model"
 	"github.com/vmware-samples/cloud-suitability-analyzer/go/report"
 	"github.com/vmware-samples/cloud-suitability-analyzer/go/util"
+	"gopkg.in/yaml.v3"
 )
 
 //The Engine that does file parsing and rule matching
@@ -35,6 +36,8 @@ type CsaService struct {
 	savingDone           bool             //= false
 	findingsSaved        int              //= 0
 	findingsIndexed      int              //= 0
+	yamlDocs             map[string](*yaml.Node)
+	yamlMux              sync.Mutex
 	xmlDocs              map[string](*xmlquery.Node)
 	xmlMux               sync.Mutex
 }
@@ -69,6 +72,7 @@ func NewCsaService(ruleRepository db.RuleRepository,
 		findingsSaved:        0,
 		findingsIndexed:      0,
 		xmlDocs:              make(map[string](*xmlquery.Node)),
+		yamlDocs:             make(map[string](*yaml.Node)),
 	}
 
 }
