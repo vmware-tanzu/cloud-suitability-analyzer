@@ -107,11 +107,13 @@ func (p *Pattern) compile(rule *Rule) {
 }
 
 func (p *Pattern) MatchYaml(node *yaml.Node) (bool, string) {
-	switch p.Type {
-	case YAMLPATH_MATCH_TYPE:
-		if path, err := yamlpath.NewPath(p.Pattern); err == nil {
-			if results, err := path.Find(node); err == nil {
-				return (len(results) > 0), ""
+	if node != nil {
+		switch p.Type {
+		case YAMLPATH_MATCH_TYPE:
+			if path, err := yamlpath.NewPath(p.Pattern); err == nil {
+				if results, err := path.Find(node); err == nil {
+					return (len(results) > 0), ""
+				}
 			}
 		}
 	}

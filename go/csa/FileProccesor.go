@@ -175,7 +175,10 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 				if rawData, err := ioutil.ReadFile(file.FQN); err == nil {
 					var node yaml.Node
 					err = yaml.Unmarshal(rawData, &node)
-					csaService.yamlDocs[file.FQN] = &node
+
+					if err == nil {
+						csaService.yamlDocs[file.FQN] = &node
+					}
 				}
 			}
 
