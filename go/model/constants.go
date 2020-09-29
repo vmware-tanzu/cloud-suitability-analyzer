@@ -18,6 +18,7 @@ const FILE_IMPACT string = "file"         //A hit on this rule has an impact onl
 const APP_IMPACT string = "app"           //A hit on this rule has an impact only once per run regardless of the number of findings.
 const REGEX_MATCH_TYPE string = "regex"
 const XPATH_MATCH_TYPE string = "xpath"
+const PLUGIN_MATCH_TYPE string = "plugin"
 const JSONPATH_MATCH_TYPE string = "jsonpath"
 const YAMLPATH_MATCH_TYPE string = "yamlpath"
 const SIMPLE_TEXT_MATCH_TYPE string = "simple-text"
