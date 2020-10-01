@@ -338,6 +338,10 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 
 			// if value, ok := path.String(root); ok
 			if ok, result := matchFunc(); ok {
+				if len(result) > 0 {
+					target = regexp.MustCompile(`\r?\n`).ReplaceAllString(result, " ")
+				}
+
 				csaService.handleRuleMatched(run, app, file, line, target, rule, rule.Patterns[i], output, result, nil)
 
 				findings++
