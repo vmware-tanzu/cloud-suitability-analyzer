@@ -1,8 +1,8 @@
 #qc1
 name: config-security
 filetype: config$
-target: line
-type: contains
+target: file
+type: xpath
 advice: Use of generated machine keys is problematic
 effort: 100
 readiness: 100
@@ -10,8 +10,7 @@ category: Security
 tags:
 - value: config
 patterns:
-- value: validationKey="AutoGenerate"
-- value: decryptionKey="AutoGenerate"
+- value: /configuration/system.web/machineKey[contains(@validationKey, "AutoGenerate") or contains(@decryptionKey, "AutoGenerate")]
 
 ##validationKey="AutoGenerate"
 ##decryptionKey="AutoGenerate"
