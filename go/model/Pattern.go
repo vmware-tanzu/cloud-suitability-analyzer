@@ -129,7 +129,7 @@ func (p *Pattern) MatchXml(node *xmlquery.Node) (bool, string) {
 		var value string
 
 		if node != nil {
-			if len(node.InnerText()) < 1 {
+			if len(strings.TrimSpace(node.InnerText())) < 1 {
 				value = node.OutputXML(true)
 			} else {
 				value = node.InnerText()
