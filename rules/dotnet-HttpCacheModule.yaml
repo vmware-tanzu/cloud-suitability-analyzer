@@ -1,12 +1,12 @@
 #qc
 name: dotnet-HttpCacheModule
 filetype: config$
-target: line
-type: contains
+target: file
+type: xpath
 category: caching
 advice: Output cache profiles etc. via configuration.
 effort: 1000
 readiness: 5
 patterns:
-- value: <cacheControl
+- value: /configuration/system.webServer/staticContent/clientCache[@cacheControlMode][1]
 ## <cacheControl 

@@ -11,4 +11,4 @@ tags:
   - value: stateful
   - value: TAS
 patterns:
-  - value: /configuration/system.web/sessionState[@mode="InProc" or @mode="StateServer"][1]/@mode
+  - value: /configuration/system.web/sessionState[@mode="InProc" or @mode="StateServer"][1]

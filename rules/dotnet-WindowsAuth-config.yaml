@@ -2,16 +2,17 @@
 name: dotnet-WindowsAuth-config
 # ignore development config files
 filetype: config$
-target: contents
-type: regex
+target: file
+type: xpath
 category: Unsupported modules
 advice: Ensure compatible configuation
 effort: 500
 readiness: 1
 patterns:
-- value: <windowsAuthentication
-- value: clientCredentialType="[Ww]indows"
-- value: <authentication mode="[Ww]indows"
-- value: Integrated Security=True
-  effort: 100
+- value: //system.webServer/security/authentication/windowsAuthentication[translate(@enabled, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'TRUE'][1]
+- value: /configuration/system.serviceModel/bindings//binding/security/transport[translate(@clientCredentialType, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')="WINDOWS"][1]
+- value: /configuration/system.web/authentication[translate(@mode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')="WINDOWS"][1]
+- value: /configuration/connectionStrings/add[contains(translate(translate(@connectionString, ' ', ''), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 'INTEGRATEDSECURITY=TRUE')]
+#- value: Integrated Security=True
+#  effort: 100
 ## <windowsAuthentication
