@@ -125,7 +125,18 @@ func (p *Pattern) MatchYaml(node *yaml.Node) (bool, string) {
 func (p *Pattern) MatchXml(node *xmlquery.Node) (bool, string) {
 	switch p.Type {
 	case XPATH_MATCH_TYPE:
-		return (xmlquery.FindOne(node, p.Pattern) != nil), ""
+		var node = xmlquery.FindOne(node, p.Pattern)
+		var value string
+
+		if node != nil {
+			if len(strings.TrimSpace(node.InnerText())) < 1 {
+				value = node.OutputXML(true)
+			} else {
+				value = node.InnerText()
+			}
+		}
+
+		return (node != nil), value
 	}
 
 	return false, ""

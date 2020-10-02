@@ -1,9 +1,8 @@
 #qc1
 name: dotnet-database-access
 filetype: config$
-target: line
-type: regex
-defaultpattern: using\s*%s
+target: file
+type: xpath
 advice: Connection strings should be externally managed.
 readiness: 10
 effort: 100
@@ -11,5 +10,4 @@ category: DatabaseAccess
 tags:
 - value: Database
 patterns:
-- value: <connectionStrings
-  advice: Connection strings should be externally managed.
+- value: /configuration/connectionStrings[1]

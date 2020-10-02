@@ -1,12 +1,12 @@
 #qc1
 name: dotnet-FileCacheModule
 filetype: config$
-target: line
-type: contains
+target: file
+type: xpath
 category: caching
 advice: Refer to platform documentation
 effort: 1000
 readiness: 5
 patterns:
-- value: <frequentHit
+- value: /configuration/location/system.webServer/serverRuntime[@frequentHitThreshold or @frequentHitTimePeriod][1]
 ## <frequentHit
