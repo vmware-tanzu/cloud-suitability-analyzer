@@ -184,4 +184,13 @@ tags:
     type: OR
 
 ---
-
+name: FAAS
+tags:
+  - name: persistence
+    type: OR
+  - name: security
+    type: OR  
+  - name: authentication
+    type: OR
+  - name: boottime
+    type: OR
