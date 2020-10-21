@@ -93,7 +93,6 @@ then
     exit 1
   fi
 popd
-   popd
 fi
 
 end_time="$(date -u +%s)"
@@ -103,4 +102,3 @@ echo "Native  execution time: $elapsed seconds"
 
 echo "~~~> Mounting docker image"
 time docker run -it -e OS=$1 -e VERSION=$2 -e NATIVETIME=$elapsed -v ${GOPATH}/src/github.com/vmware-samples/cloud-suitability-analyzer/:/go/src/github.com/vmware-samples/cloud-suitability-analyzer neur0manc3r/node-go-cross-build /go/src/github.com/vmware-samples/cloud-suitability-analyzer/buildlocalFull.sh 
-
