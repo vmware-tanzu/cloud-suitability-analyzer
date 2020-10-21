@@ -1,0 +1,13 @@
+name: long-startup
+filetype: meta$ 
+target: file
+type: xpath
+advice: App should be started in the shortest time possible
+readiness: 2
+effort: 200
+category: boottime
+tags:
+  - value: boottime
+  - value: runtime
+patterns:
+  - value: /libraries[@count>13]

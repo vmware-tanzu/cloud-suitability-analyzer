@@ -1,0 +1,15 @@
+name: spring-boot-persistence-import
+filetype: java$
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Consult 3rd party documentation
+effort: 5
+readiness: 5
+category: persistence
+tags:
+- value: spring-boot
+- value: persistence
+- value: api
+patterns:
+- value: org.springframework.jdbc
