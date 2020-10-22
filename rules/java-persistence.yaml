@@ -1,4 +1,4 @@
-name: java-persistence-import
+name: java-persistence
 filetype: java$
 target: line
 type: regex

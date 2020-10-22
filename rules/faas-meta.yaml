@@ -1,5 +1,5 @@
-name: long-startup
-filetype: meta$ 
+name: faas-meta
+filetype: meta$
 target: file
 type: xpath
 advice: App should be started in the shortest time possible
