@@ -1,4 +1,4 @@
-name: spring-boot-persistence-import
+name: bootJDBC
 filetype: java$
 target: line
 type: regex
