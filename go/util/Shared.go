@@ -8,9 +8,10 @@ package util
 import (
 	//"github.com/vmware-samples/cloud-suitability-analyzer/go/vendor/gopkg.in/alecthomas/kingpin.v2"
 	//"github.com/vmware-samples/cloud-suitability-analyzer/go/vendor/gopkg.in/alecthomas/kingpin.v2"
-	"gopkg.in/alecthomas/kingpin.v2"
 	"strconv"
 	"sync"
+
+	"gopkg.in/alecthomas/kingpin.v2"
 )
 
 var (
@@ -32,8 +33,8 @@ var (
 	BuildInfoCmd = App.Command("info", "Get full build details of this csa executable")
 
 	//csa ui
-	//CsaCmd  = App.Command("ui", "Launch the CSA UI")
-	//CsaPort = CsaCmd.Flag("port", "port to start ui on").Default("3001").Int()
+	CsaCmd  = App.Command("ui", "Launch the CSA UI")
+	CsaPort = CsaCmd.Flag("port", "port to start ui on").Default("3001").Int()
 
 	//List reports Command
 	ShowReports = App.Command("list", "list available reports to run")

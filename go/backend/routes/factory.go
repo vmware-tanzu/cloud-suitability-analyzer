@@ -7,11 +7,12 @@ package routes
 
 import (
 	"fmt"
-	assetfs "github.com/elazarl/go-bindata-assetfs"
-	//"github.com/vmware-samples/cloud-suitability-analyzer/go/frontend/resources"
 	"net/http"
 	"strconv"
 	"strings"
+
+	assetfs "github.com/elazarl/go-bindata-assetfs"
+	"github.com/vmware-samples/cloud-suitability-analyzer/go/frontend/resources"
 
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
@@ -148,7 +149,7 @@ func (b *binaryFileSystem) Exists(prefix string, filepath string) bool {
 
 func BinaryFileSystem(root string) *binaryFileSystem {
 	var fs *assetfs.AssetFS
-	//fs = &assetfs.AssetFS{Asset: resources.Asset, AssetDir: resources.AssetDir, AssetInfo: resources.AssetInfo, Prefix: root}
+	fs = &assetfs.AssetFS{Asset: resources.Asset, AssetDir: resources.AssetDir, AssetInfo: resources.AssetInfo, Prefix: root}
 
 	return &binaryFileSystem{
 		fs,

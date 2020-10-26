@@ -22,10 +22,12 @@ import (
 	"os"
 	"runtime"
 	"runtime/debug"
+
 	//"runtime/pprof"
 
 	"github.com/pkg/profile"
 	"github.com/sirupsen/logrus"
+	"github.com/vmware-samples/cloud-suitability-analyzer/go/backend/routes"
 	"github.com/vmware-samples/cloud-suitability-analyzer/go/csa"
 	"github.com/vmware-samples/cloud-suitability-analyzer/go/db"
 	"github.com/vmware-samples/cloud-suitability-analyzer/go/model"
@@ -176,10 +178,10 @@ func main() {
 		run.ValidateRun()
 		naturalLanguageService := natural.NewNaturalLanguageService(repoMgr.Run)
 		naturalLanguageService.LangProcess(run)
-	//case util.CsaCmd.FullCommand():
-	//	adminMode = true
-	//	port := util.CsaPort
-	//	routes.StartRouter(run.DB, true, *port)
+	case util.CsaCmd.FullCommand():
+		adminMode = true
+		port := util.CsaPort
+		routes.StartRouter(run.DB, true, *port)
 	case util.SearchCmd.FullCommand():
 		adminMode = true
 		repoMgr := db.NewRepositoriesManager(run.DB)
