@@ -11,6 +11,53 @@ export GO111MODULE=on
 
 export WORKING_DIR=$GOPATH/src/github.com/vmware-samples/cloud-suitability-analyzer
 
+echo "~~~> Compile/Minify UI"
+pushd ${WORKING_DIR}/go/frontend
+  
+  echo "~~~> Running npm ci"
+
+  
+  npm ci
+
+  if [ $? -eq 0 ]
+  then
+    echo "npm ci succeeded"
+  else
+    echo "npm ci failed" >&2
+    exit 1
+  fi
+  
+  echo "~~~> Running npm production-build"
+  npm run production-build
+
+  if [ $? -eq 0 ]
+  then
+    echo "production-build succeeded"
+  else
+    echo "production-build failed " >&2
+    exit 1
+  fi
+
+  bindDataFile=${WORKING_DIR}/go/frontend/resources/web-site.go
+
+  if [ -f "$bindDataFile" ]; then
+    echo "**** web-site.go found, removing"
+    rm $bindDataFile
+  fi
+
+  echo "~~~> Binding in web assets"
+  mkdir -p ${WORKING_DIR}/go/frontend/resources
+  go-bindata -o resources/web-site.go -pkg resources build/...
+    
+  if [ $? -eq 0 ]
+  then
+    echo "go-bindata succeeded"
+  else
+    echo "go-bindata failed " >&2
+    exit 1
+  fi
+
+popd
 
 runGenerate=0
 
