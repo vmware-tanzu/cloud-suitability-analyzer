@@ -4,7 +4,6 @@
 
 | Date         | Action                       | Author   |
 | ------------ | ---------------------------- | -------- |
-| Aug 13, 2020 | Final edit                   | S. Woods |
 | Jul 30, 2020 | Prep for open source release | S. Woods |
 | Dec 12, 2018 | Converted from readme        | S. Woods |
 | Dec 18, 2018 | Added scoring/graphics       | S. Woods |
@@ -17,7 +16,7 @@ Cloud Suitability Analyzer is licensed under `SPDX-License-Identifier: BSD-2`
 
 ## Purpose
 
-`csa` is built to automatically scan for potential cloud remediation issues (cloud native) and cloud accommodation issues (containerization) embedded in legacy applications. Currently, rules target Java and .Net, however, any language can be targeted by writing rules that identify patterns for that language or platform.
+`csa` is built to automatically scan for potential cloud remediation issues (`TAS`) and cloud accommodation issues (`TKG`) embedded in legacy applications. Currently, rules target Java and .Net, however, any language can be targeted by writing rules that identify patterns for that language or platform.
 
 `csa` is entirely data driven using rules comprised of patterns that are first written in `yaml` and then compiled in the `csa` command-line executable. The rule system is flexible and can scan any type of written text, including source code, configuration files, and xml files. Basically, if the file is human-readable text, a rule can be devised that scans the file.
 
@@ -41,7 +40,7 @@ Download from here:
 
 [https://github.com/vmware-samples/cloud-suitability-analyzer/releases](https://github.com/vmware-samples/cloud-suitability-analyzer/releases)
 
-There is no real installation process. It is just a matter of deciding on a home directory andd copying the files in the `csa` distribution to that directory.
+There is no real installation process. It is just a matter of deciding on a home directory can copying the files in the `csa` distribution to that directory.
 
 ### Setting up environment
 
@@ -147,16 +146,6 @@ Set ulimit to 20000
 ```
 
 4. Reboot your machine
-
-### Contributor's guidelines
-
-sStandard practices for code contribution are listed in this section.
-
-1. Commit messages. A `.gitmessage` file in this repo contains the standard commit message template that was implemented 08/24/2020. Please use this template for all commit messages. DO NOT use `git -m` from the command line. Copy  the `.gitmessage` to your `HOME` directory. Then run the following command:
-
-```bash
-git config --global commit.template ~/.gitmessage
-```
 
 ### Getting help from `csa`
 
@@ -360,72 +349,6 @@ ranges:
               expression: max_score - log(10,raw_score)
               recommendation: Refactor to TAS
 ```
-
-## Managing rules with `ruler.py`
-
-`ruler.py` is a Python script that provides a slightly higher level interface to manage custom rules. It's a good idea to put the `ruler.py` directory `Python` directory on your path. Of course, you are free to use `csa` directly, that's fine as well. See instructions below.
-
-Note: When you first download `csa` it will not have it's `Sqlite` database, `csa.db`. That is not created until you run your first scan a directory of code. So either scan some code or an empty directory before proceeding with customer rules. `csa.db` will be created in the same directory that the `csa` executable is located.
-
-The rules are actually embedded in the `csa` binary. When `csa` is ran it reconstitutes those rules in `csa.db`. So, as your manage your rules, they are being stored in this databasse.
-
-**IMPORTANT**
-
-You should treat your rules like source code. Put them in version control. Their lifetime in `csa.db` should be emphemeral. 
-
-### Getting help
-
-```
-ruler.py -h
-```
-
-```
-usage: ruler.py [-h] -d directory [-m mode]
-
-Manage CSA rules
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -d directory, --dir directory
-  -m mode, --mode mode  modes: add, verify, replace, export
-```
-
-
-### Export all existing rules to a directory
-
-If you plan on writing rules, it helps to have some examples to start from. Exporting existing rules can help get your started.
-
-```
-ruler.py -d <your rules directory> -m export
-```
-
-### Validate a directory of custom rules
-
-You need to validate your rules before importing into `csa` to ensure they are properly formatted. This validation insures there are no yaml or formatting errors. Note that this does not check the validatity of your `regular expresss` . You should test independently. There are several good website to do that such as [https://www.regexpal.com/].
-
-Here's how to validate an entire directory of rules.
-
-```bash
- ruler.py -d <your rules directory> -m verify
-```
-
-### Append a directory of custom rules
-
-If you simply want to add to existing rules we use `add`
-
-```
- ruler.py -d <your rules directory> -m add
-```
-
-### Overwrite existing rule with custom rules
-
-If you want to overwrite existing rules, use `replace`. All existing rules will first deleted, then your rules will be imported.
-
-
-```bash
-ruler.py -d <your rules directory> -m replace
-```
-
 
 ## Adding rules
 
@@ -725,3 +648,159 @@ tags:
 
 ```
 
+## CSA Web Interface
+
+### Overview
+
+The `cas ui` command launches a browser-based visual explorer. You'll see `csa` write out some status information then the last line `Using Http FileSystem`. This is your indication that `csa ui` is waiting for you to directory your browser to `localhost:3001`
+
+```bash
+Csa: 1.63.0-rev.2 DBEngine: sqlite-3.25.2	DBName: csa.db
+User: swoods
+Command: ui
+User-Home: /Users/swoods
+DB Path: /Users/swoods/af/csa.db
+Rules-Dir: /Users/swoods/csa/rules
+OutputPath: /Users/swoods/csa/csa-reports
+Exe Path: /Users/swoods/csa
+Tmp Path: /var/folders/w6/3lp91tmn6b51wbqlzn2v6ywc0000gn/T/386908506
+
+Using Http FileSystem!
+```
+
+We'll walk through all the pages of information available for your exploration. A note about features that are available throughout:
+
+- For tabular data, most columns are searchable and sortable. You can also export the data to csv files for further analysis.
+
+- Many of the graphics have a hover capbility that helps to identify more detailed information. This feature is very helpful when you have many applications on the Summary page scatter plot.
+
+### Summary Page
+
+The Summary page is a high level view of your entire portfolio of applications. Notice the combo box in the upper left hand corner. If you have run several scans, each will be given a sequential run number starting at 1. `csa` always shows you it's latest run. You can select previous runs using thia control.
+
+To the right of the combo box, there's a summary providing some information about the run you've selected.
+
+The page selector has the summary page showing and highlighted in green. To select other pages, simple click on the one you want.
+
+Just above the page selector you'll the see the current `csa` version number. Should you have problems always make sure you convey the version number to whomever you reach out to for help.
+
+A series of infomation boxes divide the page showing high level statistics.
+
+| Box Title | Meaning                                               |
+| --------- | ----------------------------------------------------- |
+| APPS      | Total nunber of applications scanned                  |
+| LOCS      | Total lines of code found in portfolio                |
+| FILES     | Total number of files in portfolio                    |
+| FINDINGS  | Total number of findings that were triggered by rules |
+
+The table below the information boxes has following columns:
+
+| Column          | Description                                                             |
+| --------------- | ----------------------------------------------------------------------- |
+| Application     | Name of directory or the application in the config file if there is one |
+| LOC             | Lines code source code                                                  |
+| Files           | Total number of files                                                   |
+| Raw Score       | Unadjusted score                                                        |
+| Scoring Model   | Currently there is only one `Default`                                   |
+| Technical Score | The overall calculated techncial score of the application               |
+
+
+
+![enter image description here](images/summaryPage.png "Summary Page with Table")
+
+### Portfolio Page
+
+The Portfolio page gives a view of langages and APIs found across your portofolio. The top two bar charts present the top 5 languages and top 5 APIs found in your entire portfilio.
+
+The bottom two bar charts present a selectable view with language and APIs, reflecting their presence, the top 10, found within each application.
+
+![enter image description here](images/Portfolio.png "Portfolio Page")
+
+### Application Page
+
+The Application page allows us to focus on a single application and dig deeper into its composition. Selecting an application in the combo box will show all the details for that application, such SLOC (Software Lines of Code) and number of files.
+
+| Box Name | Description                                                    |
+| -------- | -------------------------------------------------------------- |
+| INFO     | Rule findings that have a 0 score, they are informational only |
+| LOW      | Low effort score (1 - 3)                                       |
+| MEDIUM   | Medium effort score (4 - 6)                                    |
+| HIGH     | High effort score (7 - 10)                                     |
+| Total    | Total number of finding                                        |
+| Score    | Score for this application, hover to see the raw score         |
+
+- Note: See scoring section for more detail. Ranges can change based upon the anticipated frequency of occurance.
+
+Let's skip down to the table, then come back to the rectangles and ovals.
+
+The tables contents are:
+
+| Column    | Description                                                         |
+| --------- | ------------------------------------------------------------------- |
+| ID        | Sequential ID number assocated with finding                         |
+| Level     | Level of effort score or information only                           |
+| Category  | Category of finding                                                 |
+| Value     | The pattern that triggers the rule, or a number indicating LOC, etc |
+| File Name | File name where pattern was discovered                              |
+| Line #    | Line number where pattern occurred                                  |
+| Effort    | Relative effort to remediate finding                                |
+| # Tag     | Total number of tags associated with finding                        |
+| # Recipes | Total number of recipies associated with finding                    |
+
+- Note: `ID`, `# Tag`, and `# Recipes` are colored green, indicating more information available with a click.
+
+![enter image description here](images/App-Findings.png "Application Page")
+
+Now lets focus on the rectangular and oval figures. The rectangular boxes represent architecture archetypes. Archetypes can the thought of as buckets to group similar technology stacks together. Click a rectangular box and its assoicated tags will also turn green. This allows us to think of large portofilio was a collection of a smaller number of similar applications with similar approaches to either remediate (`TAS`) or to accomodate (`TKG`).
+
+The next two tabs give us a tree layout by language and api. The point here is to have a quick visual read on the anatomy of the application.
+
+![enter image description here](images/App-Languages.png "Application Page, Languages")
+
+![enter image description here](images/App-API.png "Application - API")
+
+### Data Page
+
+The Data page provides several views into detailed findings for your entire portfolio. Using sorting and filtering you can explorer your application in several dimensions:
+
+#### API by APP
+
+In `csa`, the primary component of scores is the individual rules that indicate patterns found in source code require remediation (`TAS`) or acommodation (`TKG`). While a single number score is useful in comparison with other applications, when considering a single application it is helpful to know the subcomponents of the score. This matrix shows the raw scores, with each column indicating an effort score. By horizontally scrolling you can better understand the score breakdown.
+
+![enter image description here](images/Data-AppByAPI.png "Data - Matrix")
+
+#### API Usage (Detailed)
+
+At a deeper level, the API Usage (Detailed) tab shows all details collected during the application scan. Using filters and sorting you can explorer all details of portfolio scans.
+
+![enter image description here](images/Data-APIUsageDetailed.png "Data - API Detail")
+
+#### API Usage (Summary)
+
+The API Usage (Summary) presents a quick high level summary of the APIs found in your entire portfolio.
+
+![enter image description here](images/Data-APIUsageSummary.png "Data - API Summary")
+
+#### Annotations
+
+Here is collected all the annotation throughout your portfolio that may present challenges or considerations in your move to the cloud.
+
+![enter image description here](images/Data-Annotations.png?raw=true "Data - Annotations")
+
+#### Third Party Libs
+
+Not all third party libraries behave well in the cloud, so it is helpful to know which are in your applications. They can be found here.
+
+![enter image description here](images/Data-3rdParty.png "Source Code")
+
+#### Source Code
+
+Sometimes, it's easy to forget how many languages are in your application. Here's is a breakdown of all those languages and the amount of each.
+
+![enter image description here](images/Data-SourceCode.png "Source")
+
+### Rules Page
+
+If you're writing rules for `csa` this tab is very helpful to know how the rules are performing. Poorly written regular expression can seriously affect `csa's` performance, this is where you to to find bottlenecks.
+
+![enter image description here](images/Data-Rules.png "Rules")
