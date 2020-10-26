@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapBinsTemplate.txt found under go/resources folder
-//Created @ 2020-08-04 12:12:17.779975 -0500 CDT m=+0.570776101
+//Created @ 2020-10-26 15:16:24.194699549 -0500 CDT m=+0.081310932
 
 func BootstrapBins() []Bin {
     var BootstrapBins = []Bin{
@@ -75,9 +75,9 @@ func BootstrapBins() []Bin {
             []*BinTag{  { Name: "soap", Type: 0, Action: "AND", },  { Name: "webservices", Type: 0, Action: "AND", },  { Name: "messaging", Type: 0, Action: "AND", },  { Name: "ear", Type: 0, Action: "AND", },  { Name: "stateful", Type: 0, Action: "AND", },  { Name: "rpc", Type: 1, Action: "OR", },  { Name: "ant", Type: 1, Action: "OR", },  { Name: "websphere", Type: 1, Action: "OR", },  { Name: "weblogic", Type: 1, Action: "OR", },  { Name: "glassfish", Type: 1, Action: "OR", },  { Name: "jboss", Type: 1, Action: "OR", },  { Name: "security", Type: 1, Action: "OR", },  },
              },
         
-            { Name: "",
+            { Name: "FAAS",
             Tags:
-            []*BinTag{  },
+            []*BinTag{  { Name: "persistence", Type: 1, Action: "OR", },  { Name: "security", Type: 1, Action: "OR", },  { Name: "authentication", Type: 1, Action: "OR", },  { Name: "boottime", Type: 1, Action: "OR", },  },
              },
         
     }

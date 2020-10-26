@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2020-08-04 12:12:17.398005 -0500 CDT m=+0.188810088
+//Created @ 2020-10-26 15:16:24.147827126 -0500 CDT m=+0.034438559
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -42,7 +42,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "build.gradle", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "SNAP-SQL-properties", FileType: "properties$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Refer to TAS/TKG documetation", Effort: 10, Readiness: 0, Impact: "", Category: "jdbc", Criticality: "",
+            { Name: "SNAP-SQL-properties", FileType: "properties$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Refer to platform documentation", Effort: 10, Readiness: 0, Impact: "", Category: "jdbc", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "jdbc",}, { Value: "sql",}, { Value: "snap",}, },
             Recipes:
@@ -52,7 +52,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "CallableStatement", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "SNAP-SQL", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Refer to TAS/TKG documetation", Effort: 10, Readiness: 0, Impact: "", Category: "jdbc", Criticality: "",
+            { Name: "SNAP-SQL", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Refer to platform documentation", Effort: 10, Readiness: 0, Impact: "", Category: "jdbc", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "jdbc",}, { Value: "sql",}, { Value: "snap",}, },
             Recipes:
@@ -62,7 +62,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "CallableStatement", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "SNAP-java-package-Gradle", FileType: "gradle$", Target: "line", Type: "regex", DefaultPattern: "apply\\s*plugin:\\s*['']%s['']", Advice: "Refer to PCF/TKG documetation", Effort: 100, Readiness: 0, Impact: "", Category: "packaging", Criticality: "",
+            { Name: "SNAP-java-package-Gradle", FileType: "gradle$", Target: "line", Type: "regex", DefaultPattern: "apply\\s*plugin:\\s*['']%s['']", Advice: "Refer to platform documentation", Effort: 100, Readiness: 0, Impact: "", Category: "packaging", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "ear",}, { Value: "gradle",}, { Value: "snap",}, },
             Recipes:
@@ -71,7 +71,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "ear", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "SNAP-java-package-GradleJar", FileType: "gradle$", Target: "line", Type: "regex", DefaultPattern: "[{] *%s", Advice: "Refer to TAS/TKG documetation", Effort: 0, Readiness: 0, Impact: "", Category: "packaging", Criticality: "",
+            { Name: "SNAP-java-package-GradleJar", FileType: "gradle$", Target: "line", Type: "regex", DefaultPattern: "[{] *%s", Advice: "Refer to platform documentation", Effort: 0, Readiness: 0, Impact: "", Category: "packaging", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "jar",}, { Value: "gradle",}, { Value: "snap",}, },
             Recipes:
@@ -80,7 +80,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "jar", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "SNAP-java-package-Maven-Ant", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to TAS/TKG documetation", Effort: 100, Readiness: 0, Impact: "", Category: "packaging", Criticality: "",
+            { Name: "SNAP-java-package-Maven-Ant", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 100, Readiness: 0, Impact: "", Category: "packaging", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "ear",}, { Value: "maven",}, { Value: "snap",}, },
             Recipes:
@@ -90,7 +90,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "<target name=\"ear\"", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "SNAP-java-ver-Maven-Ant", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 100, Readiness: 0, Impact: "", Category: "java-ver", Criticality: "",
+            { Name: "SNAP-java-ver-Maven-Ant", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 100, Readiness: 0, Impact: "", Category: "java-ver", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "snap",}, },
             Recipes:
@@ -139,6 +139,15 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "jboss-annotations-api_1.3_spec", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "jboss-servlet-api_4.0_spec", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "javax.enterprise.concurrent-api", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "bootJDBC", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Consult 3rd party documentation", Effort: 5, Readiness: 5, Impact: "", Category: "persistence", Criticality: "",
+            Tags:
+            []Tag{  { Value: "spring-boot",}, { Value: "persistence",}, { Value: "api",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "org.springframework.jdbc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "bootJSF", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Automatic remediation with Bootifier", Effort: 2, Readiness: 2, Impact: "", Category: "jsf", Criticality: "",
@@ -213,40 +222,38 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "Web.config", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "config-encryption", FileType: "config$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Use of encrypted sections generally requires machine installed key provider which is problematic in cloud environments", Effort: 300, Readiness: 0, Impact: "", Category: "Security", Criticality: "",
+            { Name: "config-encryption", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Use of encrypted sections is problematic in cloud environments", Effort: 300, Readiness: 0, Impact: "", Category: "Security", Criticality: "",
             Tags:
             []Tag{  { Value: "config",}, },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "configProtectionProvider=\"", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "//*[@configProtectionProvider][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "config-security", FileType: "config$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Use of generated machine keys can cause problems in cloud applications when they are scaled.  Consider disabling use of Machine Keys, or explicitly set the key in your configuration.", Effort: 100, Readiness: 100, Impact: "", Category: "Security", Criticality: "",
+            { Name: "config-security", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Use of generated machine keys is problematic", Effort: 100, Readiness: 100, Impact: "", Category: "Security", Criticality: "",
             Tags:
             []Tag{  { Value: "config",}, },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "validationKey=\"AutoGenerate\"", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "decryptionKey=\"AutoGenerate\"", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "/configuration/system.web/machineKey[contains(@validationKey, \"AutoGenerate\") or contains(@decryptionKey, \"AutoGenerate\")]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "config-sessionState", FileType: "config$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "App should be executed as a stateless process. Store session state externally.", Effort: 500, Readiness: 2, Impact: "", Category: "stateful", Criticality: "",
+            { Name: "config-sessionState", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "App should be executed as a stateless process", Effort: 200, Readiness: 2, Impact: "", Category: "stateful", Criticality: "",
             Tags:
             []Tag{  { Value: "stateful",}, { Value: "TAS",}, },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "mode=\"InProc\"", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "mode=\"StateServer\"", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "/configuration/system.web/sessionState[@mode=\"InProc\" or @mode=\"StateServer\"][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "docker-dockerFile", FileType: "$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Determine if TKG is more prescriptive", Effort: 5, Readiness: 1000, Impact: "", Category: "docker", Criticality: "",
             Tags:
             []Tag{  { Value: "docker",}, { Value: "config",}, },
             Recipes:
-            []Recipe{  { URI: "https://spring.io/blog/2018/11/08/spring-boot-in-a-container", },  },
+            []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "Dockerfile", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
@@ -255,7 +262,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "container",}, { Value: "non-root",}, { Value: "docker",}, { Value: "config",}, },
             Recipes:
-            []Recipe{  { URI: "https://spring.io/blog/2018/11/08/spring-boot-in-a-container", },  },
+            []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "RUN groupadd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "RUN useradd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
@@ -266,7 +273,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "container",}, { Value: "docker",}, { Value: "non-empty",}, { Value: "config",}, },
             Recipes:
-            []Recipe{  { URI: "https://spring.io/blog/2018/11/08/spring-boot-in-a-container", },  },
+            []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "FROM", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
@@ -275,40 +282,40 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "docker",}, { Value: "sudo",}, },
             Recipes:
-            []Recipe{  { URI: "https://spring.io/blog/2018/11/08/spring-boot-in-a-container", },  },
+            []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "RUN install -y sudo", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "RUN su root", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-FileCacheModule", FileType: "config$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Caches file handles for files opened by the server engine and modules. Ensure cloud readiness", Effort: 1000, Readiness: 5, Impact: "", Category: "caching", Criticality: "",
+            { Name: "dotnet-FileCacheModule", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 1000, Readiness: 5, Impact: "", Category: "caching", Criticality: "",
             Tags:
             []Tag{  },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "<frequentHit", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "/configuration/location/system.webServer/serverRuntime[@frequentHitThreshold or @frequentHitTimePeriod][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-HttpCacheModule", FileType: "config$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "The HttpCacheModule implements the IIS output cache and also the logic for caching items in the http.sys cache. Set the cache size. Output cache profiles etc. via configuration.", Effort: 1000, Readiness: 5, Impact: "", Category: "caching", Criticality: "",
+            { Name: "dotnet-HttpCacheModule", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Output cache profiles etc. via configuration.", Effort: 1000, Readiness: 5, Impact: "", Category: "caching", Criticality: "",
             Tags:
             []Tag{  },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "<cacheControl", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "/configuration/system.webServer/staticContent/clientCache[@cacheControlMode][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-ISAPI-Filters-config", FileType: "config$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 1000, Readiness: 0, Impact: "", Category: "Unsupported IIS modules", Criticality: "",
+            { Name: "dotnet-ISAPI-Filters-config", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 1000, Readiness: 0, Impact: "", Category: "Unsupported IIS modules", Criticality: "",
             Tags:
             []Tag{  },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "<isapiFilters", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "/configuration/system.webServer/isapiFilters[1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-ISAPI-Filters-vbcs", FileType: "(cs$|vb$)", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 1000, Readiness: 0, Impact: "", Category: "Unsupported IIS modules", Criticality: "",
+            { Name: "dotnet-ISAPI-Filters-vbcs", FileType: "(cs$|vb$)", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 1000, Readiness: 0, Impact: "", Category: "Unsupported IIS modules", Criticality: "",
             Tags:
             []Tag{  },
             Recipes:
@@ -317,7 +324,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "GetSection(system.webServer/isapiFilters)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-MSMQ-vbcs", FileType: "(cs$|vb$)", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 10, Readiness: 1, Impact: "", Category: "Unsupported modules", Criticality: "",
+            { Name: "dotnet-MSMQ-vbcs", FileType: "(cs$|vb$)", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 10, Readiness: 1, Impact: "", Category: "Unsupported modules", Criticality: "",
             Tags:
             []Tag{  },
             Recipes:
@@ -327,61 +334,61 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "using System.Messaging", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-RequestFilteringModule", FileType: "config$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Ensure configuration is compatible with PCF", Effort: 100, Readiness: 1, Impact: "", Category: "Unsupported modules", Criticality: "",
+            { Name: "dotnet-RequestFilteringModule", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 100, Readiness: 1, Impact: "", Category: "Unsupported modules", Criticality: "",
             Tags:
             []Tag{  },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "<requestFiltering", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "/configuration/system.webServer/security/requestFiltering/requestLimits[1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-StaticCompressionModule", FileType: "config$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Ensure compatible configuration", Effort: 100, Readiness: 5, Impact: "", Category: "Unsupported modules", Criticality: "",
+            { Name: "dotnet-StaticCompressionModule", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Ensure compatible configuration", Effort: 100, Readiness: 5, Impact: "", Category: "Unsupported modules", Criticality: "",
             Tags:
             []Tag{  },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "<httpCompression", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "/configuration/system.webServer/httpCompression[1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-StaticFileModule", FileType: "config$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Ensure compatible configuation", Effort: 400, Readiness: 5, Impact: "", Category: "Unsupported modules", Criticality: "",
+            { Name: "dotnet-StaticFileModule", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Ensure compatible configuation", Effort: 400, Readiness: 5, Impact: "", Category: "Unsupported modules", Criticality: "",
             Tags:
             []Tag{  },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "StaticFileModule", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "/configuration/system.webServer/handlers/add[contains(@modules, ''StaticFileModule'')][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-iis_module-TokenCacheModule", FileType: "config$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Caches windows security tokens for TASsword based authentication schemes (anonymous authentication; basic authentication; IIS client certificate authentication). Ensure compabible configuration.", Effort: 1000, Readiness: 5, Impact: "", Category: "Unsupported IIS modules", Criticality: "",
+            { Name: "dotnet-iis_module-TokenCacheModule", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Caches windows security tokens for password based authentication schemes (anonymous authentication; basic authentication; IIS client certificate authentication). Ensure compabible configuration.", Effort: 1000, Readiness: 5, Impact: "", Category: "Unsupported IIS modules", Criticality: "",
             Tags:
             []Tag{  },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "TokenCacheModule", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "/configuration/system.webServer/globalModules/add[@name=''TokenCacheModule''][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-iis_module-UriCacheModule", FileType: "config$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Implements a generic cache for URL-specific server state; such as configuration. With this module; the server only reads configuration for the first request for a particular URL. And reuse it on subsequent requests until it changes.", Effort: 1000, Readiness: 5, Impact: "", Category: "Unsupported IIS modules", Criticality: "",
+            { Name: "dotnet-iis_module-UriCacheModule", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Implements a generic cache for URL-specific server state; such as configuration. With this module; the server only reads configuration for the first request for a particular URL. And reuse it on subsequent requests until it changes.", Effort: 1000, Readiness: 5, Impact: "", Category: "Unsupported IIS modules", Criticality: "",
             Tags:
             []Tag{  },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "UriCacheModule", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "/configuration/system.webServer/globalModules/add[@name=''UriCacheModule''][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-WindowsAuth-config", FileType: "config$", Target: "contents", Type: "regex", DefaultPattern: "", Advice: "Ensure compatible configuation", Effort: 500, Readiness: 1, Impact: "", Category: "Unsupported modules", Criticality: "",
+            { Name: "dotnet-WindowsAuth-config", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Ensure compatible configuation", Effort: 500, Readiness: 1, Impact: "", Category: "Unsupported modules", Criticality: "",
             Tags:
             []Tag{  },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "<windowsAuthentication", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "clientCredentialType=\"[Ww]indows\"", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "<authentication mode=\"[Ww]indows\"", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Integrated Security=True", Advice: "", Effort: 100, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "//system.webServer/security/authentication/windowsAuthentication[translate(@enabled, ''abcdefghijklmnopqrstuvwxyz'', ''ABCDEFGHIJKLMNOPQRSTUVWXYZ'') = ''TRUE''][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "/configuration/system.serviceModel/bindings//binding/security/transport[translate(@clientCredentialType, ''abcdefghijklmnopqrstuvwxyz'', ''ABCDEFGHIJKLMNOPQRSTUVWXYZ'')=\"WINDOWS\"][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "/configuration/system.web/authentication[translate(@mode, ''abcdefghijklmnopqrstuvwxyz'', ''ABCDEFGHIJKLMNOPQRSTUVWXYZ'')=\"WINDOWS\"][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "/configuration/connectionStrings/add[contains(translate(translate(@connectionString, '' '', ''''), ''abcdefghijklmnopqrstuvwxyz'', ''ABCDEFGHIJKLMNOPQRSTUVWXYZ''), ''INTEGRATEDSECURITY=TRUE'')]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "dotnet-WindowsAuth-csvb", FileType: "(cs$|vb$)", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Ensure compatible configuation", Effort: 500, Readiness: 1, Impact: "", Category: "Unsupported modules", Criticality: "",
@@ -393,25 +400,25 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "GetSection(system.webServer/security/authentication/windowsAuthentication", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-database-access", FileType: "config$", Target: "line", Type: "regex", DefaultPattern: "using\\s*%s", Advice: "Typically, applications using databases need to be converted to receive their connection strings from the environment.  Use Project Steeltoe (steeltoe.io) to easily inject cloud provided service bindings.", Effort: 100, Readiness: 10, Impact: "", Category: "DatabaseAccess", Criticality: "",
+            { Name: "dotnet-database-access", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Connection strings should be externally managed.", Effort: 100, Readiness: 10, Impact: "", Category: "DatabaseAccess", Criticality: "",
             Tags:
             []Tag{  { Value: "Database",}, },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "<connectionStrings", Advice: "Connection strings should be externally managed, consider using web.config transform buildpack with config server", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "/configuration/connectionStrings[1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-db2-unmanaged", FileType: "(cs$|vb$)", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to cookbook URIs", Effort: 10, Readiness: 9, Impact: "", Category: "DatabaseAccess", Criticality: "",
+            { Name: "dotnet-db2-unmanaged", FileType: "(cs$|vb$)", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 10, Readiness: 9, Impact: "", Category: "DatabaseAccess", Criticality: "",
             Tags:
             []Tag{  { Value: "Database",}, },
             Recipes:
-            []Recipe{  { URI: "https://dotnet-cookbook.cfapps.io/3rdparty/db2/", },  },
+            []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "IBM.Data.DB2", Advice: "IBM.Data.DB2 can require a special procedure so that the driver's native components are deployed with the application.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-fileIO", FileType: "(cs$|vb$)", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Relying on the local filesystem to store state is unreliable in a cloud platform.  Since containers are immutable, restarts will lose any written changes.  Refactor this logic to use an external service to store state.", Effort: 3, Readiness: 8, Impact: "", Category: "I/O", Criticality: "",
+            { Name: "dotnet-fileIO", FileType: "(cs$|vb$)", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Relying on the local filesystem to store state is unreliable in a cloud platform.", Effort: 3, Readiness: 8, Impact: "", Category: "I/O", Criticality: "",
             Tags:
             []Tag{  { Value: "I/O",}, },
             Recipes:
@@ -425,11 +432,11 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "File.Replace", Advice: "Calling File.Replace", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "File.Set", Advice: "Setting File Metadata (File.Set*)", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "File.Write", Advice: "Writing to a file (File.Write*)", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "new FileStream(", Advice: "Direct construction of FileStream (investigate further to determine refactor rating)", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "new FileStream(", Advice: "Direct construction of FileStream", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "FileSystemWatcher", Advice: "Use of FileSystemWatcher", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-launchProcess", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: "^ +%s[.(].*", Advice: "Launching additional processes within a container is not recommended.  Consider refactoring this code to either embed the functionality, or establish a separate service.", Effort: 300, Readiness: 7, Impact: "", Category: "LocalProcess", Criticality: "",
+            { Name: "dotnet-launchProcess", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: "^ +%s[.(].*", Advice: "Launching additional processes within a container is not recommended.", Effort: 300, Readiness: 7, Impact: "", Category: "LocalProcess", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, },
             Recipes:
@@ -438,7 +445,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "Process", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-logging", FileType: "(cs$|vb$)", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Logging to the Event Log is not recommended for cloud native apps.  Consider refactoring to use a ConsoleTraceListener with the System.Diagnostics logging system. Alternatively, one can shim this so that EventLog messages go to stdout.", Effort: 100, Readiness: 3, Impact: "", Category: "Logging", Criticality: "",
+            { Name: "dotnet-logging", FileType: "(cs$|vb$)", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Logging to the Event Log is not recommended for cloud native apps.", Effort: 100, Readiness: 3, Impact: "", Category: "Logging", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, },
             Recipes:
@@ -448,7 +455,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "EventLog", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-oracle-umanaged", FileType: "(cs$|vb$)", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Oracle unmanaged driver requires including binaries with app -- can use buildpack.", Effort: 3, Readiness: 8, Impact: "", Category: "DatabaseAccess", Criticality: "",
+            { Name: "dotnet-oracle-umanaged", FileType: "(cs$|vb$)", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Oracle unmanaged driver requires including binaries with app", Effort: 3, Readiness: 8, Impact: "", Category: "DatabaseAccess", Criticality: "",
             Tags:
             []Tag{  { Value: "Database",}, },
             Recipes:
@@ -457,7 +464,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "Oracle.DataAccess", Advice: "Oracle unmanaged driver requires including binaries with app -- can use buildpack.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-security", FileType: "(cs$|vb$)", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Relying on Windows certificate stores is problematic in a cloud environment.  Ensure that you either load the certificates you need into the store Just-in-Time or consider refactoring your code to lookup certificates from the environment or another external service.", Effort: 3, Readiness: 10, Impact: "", Category: "Security", Criticality: "",
+            { Name: "dotnet-security", FileType: "(cs$|vb$)", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Relying on Windows certificate stores is problematic in a cloud environment.", Effort: 3, Readiness: 10, Impact: "", Category: "Security", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, },
             Recipes:
@@ -475,7 +482,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "Microsoft.SharePoint", Advice: "SharePoint is not supported on CloudFoundry.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-transactions", FileType: "(cs$|vb$)", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Potentials use of distributed transactions which are unsupported", Effort: 100, Readiness: 10, Impact: "", Category: "transactions", Criticality: "",
+            { Name: "dotnet-transactions", FileType: "(cs$|vb$)", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Potential use of distributed transactions which are unsupported", Effort: 100, Readiness: 10, Impact: "", Category: "transactions", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, },
             Recipes:
@@ -531,7 +538,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "System.Security.Principal.Windows", Advice: "Operations requiring a Windows domain are not supported", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-windowsRegistry", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: "^.*%s.*", Advice: "External configurations should be made available by environment variables or some other external service such as Spring Cloud Config Server.  App should have no dependencies on OS registry.", Effort: 100, Readiness: 2, Impact: "", Category: "AccessingRegistry", Criticality: "",
+            { Name: "dotnet-windowsRegistry", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: "^.*%s.*", Advice: "External configurations should be made available by environment variables or some other external service.", Effort: 100, Readiness: 2, Impact: "", Category: "AccessingRegistry", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, },
             Recipes:
@@ -552,21 +559,16 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "System.ServiceProcess", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnetProj-netFramework", FileType: "(csproj$|vbproj$)", Target: "line", Type: "regex", DefaultPattern: "\\<TargetFrameworkVersion\\>v%s\\<\\/TargetFrameworkVersion\\>", Advice: "Switch to .NET Framework 4.5 or later, or consider migration to .NET Core", Effort: 300, Readiness: 2, Impact: "", Category: "NetFramework", Criticality: "",
+            { Name: "faas-meta", FileType: "meta$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "App should be started in the shortest time possible", Effort: 200, Readiness: 2, Impact: "", Category: "boottime", Criticality: "",
             Tags:
-            []Tag{  { Value: "api",}, },
+            []Tag{  { Value: "authentication",}, { Value: "boottime",}, { Value: "runtime",}, },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "1.0", Advice: "", Effort: 5, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "1.1", Advice: "", Effort: 5, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "2.0", Advice: "", Effort: 2, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "3.0", Advice: "", Effort: 1, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "3.5", Advice: "", Effort: 1, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "4.0", Advice: "", Effort: 1, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "/libraries[@count>13]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-3rdPartyImports", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Refer to 3rd party organization for cloud affinity of library", Effort: 0, Readiness: 0, Impact: "", Category: "ThirdParty", Criticality: "",
+            { Name: "java-3rdPartyImports", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Consult 3rd party documentation", Effort: 0, Readiness: 0, Impact: "", Category: "ThirdParty", Criticality: "",
             Tags:
             []Tag{  { Value: "imports",}, { Value: "third-party",}, { Value: "java-core",}, },
             Recipes:
@@ -954,7 +956,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "halt", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-activemq", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: ".*[ .]%s[ (].*", Advice: "Remediate any persistence issues or move to TKG", Effort: 7, Readiness: 7, Impact: "", Category: "activemq", Criticality: "",
+            { Name: "java-activemq", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: ".*[ .]%s[ (].*", Advice: "Remediate any persistence issues", Effort: 7, Readiness: 7, Impact: "", Category: "activemq", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "activemq",}, { Value: "messaging",}, },
             Recipes:
@@ -1022,7 +1024,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "NamingExceptionEvent", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-batchAnnotations", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*@%s$", Advice: "Batch processing can include long running processes, use the local file system, and/or be dependent on a scheduling system. Ensure that the necessary backing services and tooling is in place to allow for batch processes to function properly. In addition, this is a good time to evaluate Spring Cloud Data Flow.", Effort: 10, Readiness: 7, Impact: "", Category: "batch", Criticality: "",
+            { Name: "java-batchAnnotations", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*@%s$", Advice: "Batch processing can include long running processes", Effort: 10, Readiness: 7, Impact: "", Category: "batch", Criticality: "",
             Tags:
             []Tag{  { Value: "io",}, { Value: "batch",}, { Value: "api",}, { Value: "fullprofile",}, { Value: "javaee",}, },
             Recipes:
@@ -1197,7 +1199,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "import javax.ejb.ActivationConfigProperty", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-ejb-stateful-import", FileType: "java$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Consult with PCF documetation", Effort: 7, Readiness: 7, Impact: "", Category: "ejb", Criticality: "",
+            { Name: "java-ejb-stateful-import", FileType: "java$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 7, Readiness: 7, Impact: "", Category: "ejb", Criticality: "",
             Tags:
             []Tag{  { Value: "ejb",}, { Value: "stateful",}, { Value: "api",}, { Value: "ejbcontainer",}, { Value: "javaee",}, },
             Recipes:
@@ -1216,7 +1218,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "StatefulTimeout", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-ejb-stateless", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Removing RMI calls from client applications. Refer to cookbook URIs", Effort: 10, Readiness: 4, Impact: "", Category: "ejb", Criticality: "",
+            { Name: "java-ejb-stateless", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Removing RMI calls from client applications.", Effort: 10, Readiness: 4, Impact: "", Category: "ejb", Criticality: "",
             Tags:
             []Tag{  { Value: "ejb",}, { Value: "api",}, { Value: "ejbcontainer",}, { Value: "javaee",}, { Value: "fullprofile",}, },
             Recipes:
@@ -1286,7 +1288,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "UnicastRemoteObject", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-faces-flow-Annotations", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*@%s$", Advice: "Batch processing can include long running processes, use the local file system, and/or be dependent on a scheduling system. Ensure that the necessary backing services and tooling is in place to allow for batch processes to function properly. In addition, this is a good time to evaluate Spring Cloud Data Flow.", Effort: 10, Readiness: 7, Impact: "", Category: "batch", Criticality: "",
+            { Name: "java-faces-flow-Annotations", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*@%s$", Advice: "Batch processing can include long running processes", Effort: 10, Readiness: 7, Impact: "", Category: "batch", Criticality: "",
             Tags:
             []Tag{  { Value: "jsf-flow",}, { Value: "jsf",}, },
             Recipes:
@@ -1439,7 +1441,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "javafx", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-jaxrs-import", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Refer to PCF/Spring documentation for remediation", Effort: 2, Readiness: 8, Impact: "", Category: "jax-rs", Criticality: "",
+            { Name: "java-jaxrs-import", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Refer to platform documentation", Effort: 2, Readiness: 8, Impact: "", Category: "jax-rs", Criticality: "",
             Tags:
             []Tag{  { Value: "jaxrs",}, { Value: "api",}, { Value: "json",}, { Value: "rest",}, },
             Recipes:
@@ -1508,7 +1510,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: ".*\\.jks", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-jms", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ ({.].*", Advice: "Run embedded service broker as a JMS Provider. Refer to cookbook URIs", Effort: 10, Readiness: 6, Impact: "", Category: "jms", Criticality: "",
+            { Name: "java-jms", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ ({.].*", Advice: "Run embedded service broker as a JMS Provider.", Effort: 10, Readiness: 6, Impact: "", Category: "jms", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "jms",}, { Value: "messaging",}, { Value: "fullprofile",}, },
             Recipes:
@@ -1595,7 +1597,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "NamingExceptionEvent", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-jni", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^\\s*%s\\s*native\\s*", Advice: "A few conditions have to be met to make JNI calls. Refer to cookbook URI", Effort: 1000, Readiness: 7, Impact: "", Category: "jni", Criticality: "",
+            { Name: "java-jni", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^\\s*%s\\s*native\\s*", Advice: "A few conditions have to be met to make JNI calls", Effort: 1000, Readiness: 7, Impact: "", Category: "jni", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "native",}, { Value: "jni",}, },
             Recipes:
@@ -1606,7 +1608,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "static", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-jpa", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ @.]%s[ (].*", Advice: "JPA will work inside of Cloud Native applications, but changes may need to be made to the way JPA is configured to get connections. In addition, ensure that any JPA dependencies are not provided and dependent upon the current application server.", Effort: 2, Readiness: 6, Impact: "", Category: "jpa", Criticality: "",
+            { Name: "java-jpa", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ @.]%s[ (].*", Advice: "JPA will work inside of Cloud Native applications, but changes may need to be made to the way JPA is configured to get connections.", Effort: 2, Readiness: 6, Impact: "", Category: "jpa", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "jpa",}, { Value: "webprofile",}, { Value: "entity-manager",}, },
             Recipes:
@@ -1624,11 +1626,11 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "ElementCollection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-jsf", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*$", Advice: "The conversion of a JSF application to a Spring Boot application requires several steps. Refer to the recipe URIs", Effort: 5, Readiness: 4, Impact: "", Category: "jsf", Criticality: "",
+            { Name: "java-jsf", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*$", Advice: "The conversion of a JSF application to a Spring Boot application requires several steps", Effort: 5, Readiness: 4, Impact: "", Category: "jsf", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "jsf",}, { Value: "ui",}, },
             Recipes:
-            []Recipe{  { URI: "https://auth0.com/blog/developing-jsf-applications-with-spring-boot/", },  },
+            []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "ApplicationConfigurationPopulator", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "ApplicationFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
@@ -1696,7 +1698,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "UIViewRoot", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-jsp", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "While a lot of replatforming work involves web services, you can also host legacy Java Web applications with JSPs on PCF. This recipe sets forth the steps to do so. Note that to support JSP’s, this recipe will have spring boot build a executable war file, not a jar. Refer to cookbook URIs", Effort: 2, Readiness: 5, Impact: "", Category: "jsp", Criticality: "",
+            { Name: "java-jsp", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "You can also host legacy Java Web applications with JSPs on TAS", Effort: 2, Readiness: 5, Impact: "", Category: "jsp", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "ui",}, { Value: "jsp",}, { Value: "webcontainer",}, },
             Recipes:
@@ -1722,7 +1724,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "api",}, { Value: "jta",}, { Value: "webprofile",}, },
             Recipes:
-            []Recipe{  { URI: "https://www.javaworld.com/article/2077963/distributed-transactions-in-spring--with-and-without-xa.html", },  { URI: "https://cloud.rohitkelapure.com/2017/09/what-to-do-with-xa-global-transactions.html", },  },
+            []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "UserTransaction", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "InvalidTransactionException", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
@@ -1751,7 +1753,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "config",}, { Value: "api",}, { Value: "jvm",}, { Value: "javax",}, },
             Recipes:
-            []Recipe{  { URI: "https://www.ibm.com/support/knowledgecenter/SSEQTP_9.0.5/com.ibm.websphere.base.doc/ae/trun_jvm.html", },  { URI: "https://www.ibm.com/support/knowledgecenter/SSAW57_liberty/com.ibm.websphere.wlp.nd.multiplatform.doc/ae/twlp_admin_customvars.html", },  },
+            []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "javax.xml.soap.SOAPFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "javax.xml.parsers.DocumentBuilderFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
@@ -1790,7 +1792,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "ActivationConfigProperty", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "messaging", Recipe: "", },
              }, },
         
-            { Name: "java-messageDrivenBeans", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*@%s.*$", Advice: "Consult PCF documentation", Effort: 7, Readiness: 10, Impact: "", Category: "mdb", Criticality: "",
+            { Name: "java-messageDrivenBeans", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*@%s.*$", Advice: "Refer to platform documentation", Effort: 7, Readiness: 10, Impact: "", Category: "mdb", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "annotations",}, { Value: "lookup",}, { Value: "ejb",}, },
             Recipes:
@@ -1812,7 +1814,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "edu.iris.dmc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-mqseries", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "You need to make sure that you are using the dependencies that match the version of IBM MQ on the server or you could also run into conflicts. Refer to cookbook URIs", Effort: 7, Readiness: 7, Impact: "", Category: "ibm-mq", Criticality: "",
+            { Name: "java-mqseries", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "You need to make sure that you are using the dependencies that match the version of IBM MQ on the server", Effort: 7, Readiness: 7, Impact: "", Category: "ibm-mq", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "ibm-mq",}, { Value: "messaging",}, },
             Recipes:
@@ -1852,7 +1854,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "MQTopic", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-mulesoft-import", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "There are several changes required to move a Mule Project to PCF. Refer to cookbook URIs", Effort: 100, Readiness: 10, Impact: "", Category: "etl", Criticality: "",
+            { Name: "java-mulesoft-import", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "There are several changes required to move a Mule Project to PCF", Effort: 100, Readiness: 10, Impact: "", Category: "etl", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "mule",}, { Value: "etl",}, { Value: "api-gateway",}, },
             Recipes:
@@ -1861,7 +1863,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "org.mule", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-mulesoft-intf", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ {].*", Advice: "Refer to cookbook URIs", Effort: 10, Readiness: 10, Impact: "", Category: "etl", Criticality: "",
+            { Name: "java-mulesoft-intf", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ {].*", Advice: "Refer to platform documentation", Effort: 10, Readiness: 10, Impact: "", Category: "etl", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "mule",}, { Value: "api-gateway",}, },
             Recipes:
@@ -1884,7 +1886,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "com.netflix.runtime.health.api.IndicatorMatcher", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-nio", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Storage on TAS is emphemerol, so nio based actions may not behave well. Socket/Pipes/Datagram connnections also do not fit well into TAS. Replace with backing service and use TKG.", Effort: 8, Readiness: 8, Impact: "", Category: "nio", Criticality: "",
+            { Name: "java-nio", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Storage on TAS is emphemerol, so nio based actions may not behave well", Effort: 8, Readiness: 8, Impact: "", Category: "nio", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "java",}, { Value: "nio",}, },
             Recipes:
@@ -1957,6 +1959,15 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "sftp:", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
+            { Name: "java-persistence", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Consult 3rd party documentation", Effort: 5, Readiness: 5, Impact: "", Category: "persistence", Criticality: "",
+            Tags:
+            []Tag{  { Value: "persistence",}, { Value: "api",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "javax.persistence", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
             { Name: "java-portUsage", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^*.(%s?:.*):(\\d*)\\/?(.*)", Advice: "Ensure port usage is cloud-friendly or use TKG", Effort: 5, Readiness: 6, Impact: "", Category: "portUsage", Criticality: "",
             Tags:
             []Tag{  { Value: "portUsage",}, { Value: "api",}, { Value: "protocol",}, { Value: "url",}, },
@@ -1976,7 +1987,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "com.rabbitmq", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-remoteEJB", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^\\s*@%s", Advice: "Refer to PCF/Spring documentation for remediation or move to TKG", Effort: 10, Readiness: 10, Impact: "", Category: "ejb", Criticality: "",
+            { Name: "java-remoteEJB", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^\\s*@%s", Advice: "Refer to TASS/Spring documentation for remediation or move to TKG", Effort: 10, Readiness: 10, Impact: "", Category: "ejb", Criticality: "",
             Tags:
             []Tag{  { Value: "annotations",}, { Value: "ejb",}, { Value: "api",}, { Value: "javaee",}, { Value: "fullprofile",}, },
             Recipes:
@@ -2002,7 +2013,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "org.apache.client.wink.client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "wink", Recipe: "", },
              }, },
         
-            { Name: "java-resource-cci", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Consult with PCF documetation for configuration or use TKG", Effort: 7, Readiness: 7, Impact: "", Category: "jca", Criticality: "",
+            { Name: "java-resource-cci", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Consult with TAS documetation for configuration or use TKG", Effort: 7, Readiness: 7, Impact: "", Category: "jca", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "jca",}, { Value: "resource-adapter",}, },
             Recipes:
@@ -2066,7 +2077,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "getStartDuration", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-restlet-import", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "The Restlet library appears to be dead at this point in time. It is for this reason the recommendation going forward is to migrate these applications to Spring MVC. Refer to cookbook URI", Effort: 10, Readiness: 7, Impact: "", Category: "restlet", Criticality: "",
+            { Name: "java-restlet-import", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "The Restlet library appears to be dead at this point in time.", Effort: 10, Readiness: 7, Impact: "", Category: "restlet", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "rest",}, { Value: "json",}, { Value: "restlet",}, },
             Recipes:
@@ -2143,7 +2154,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "org.slf4j", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-soap", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.* %s.*[(].*", Advice: "There occasionally exists use cases where a message interceptor is required to either modify input/output messages or invoke some other piece of functionality. Spring-boot provides the ability to add these interceptor configurators. Refer to cookbook URIs", Effort: 4, Readiness: 3, Impact: "", Category: "soap", Criticality: "",
+            { Name: "java-soap", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.* %s.*[(].*", Advice: "There occasionally exists use cases where a message interceptor is required.", Effort: 4, Readiness: 3, Impact: "", Category: "soap", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "webservices",}, { Value: "soap",}, },
             Recipes:
@@ -2173,7 +2184,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "SOAPBinding", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-springboot-annotations", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^\\s*@%s", Advice: "Spring Boot is award a positive score", Effort: -100, Readiness: 0, Impact: "", Category: "spring-boot", Criticality: "",
+            { Name: "java-springboot-annotations", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^\\s*@%s", Advice: "Spring Boot is a positive score", Effort: -100, Readiness: 0, Impact: "", Category: "spring-boot", Criticality: "",
             Tags:
             []Tag{  { Value: "annotations",}, { Value: "spring",}, { Value: "spring-boot",}, { Value: "api",}, },
             Recipes:
@@ -2215,7 +2226,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "Stateless", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ejb", Recipe: "", },
              }, },
         
-            { Name: "java-struts-import", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "If your application is not using Spring and you don’t need any Spring features or Spring context inside your Struts Actions then integration should work out of the box in case you are packaging application as normal WAR and deploy inside external Tomcat (so you are not using embedded spring boot tomcat). Refer to cookbook URIs or move to TKG", Effort: 6, Readiness: 7, Impact: "", Category: "struts", Criticality: "",
+            { Name: "java-struts-import", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Refer to platform documentation", Effort: 6, Readiness: 7, Impact: "", Category: "struts", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "struts",}, { Value: "webapp",}, { Value: "ui",}, { Value: "webcontainer",}, },
             Recipes:
@@ -2226,7 +2237,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "com.opensymphony", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-struts", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "If your application is not using Spring and you don’t need any Spring features or Spring context inside your Struts Actions then integration should work out of the box in case you are packaging application as normal WAR and deploy inside external Tomcat (so you are not using embedded spring boot tomcat). Refer to cookbook URIs or move to TKG", Effort: 6, Readiness: 7, Impact: "", Category: "struts", Criticality: "",
+            { Name: "java-struts", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Refer to platform documentation", Effort: 6, Readiness: 7, Impact: "", Category: "struts", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "ui",}, { Value: "webapp",}, { Value: "webcontainer",}, },
             Recipes:
@@ -2373,13 +2384,13 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "api",}, { Value: "deprecated",}, },
             Recipes:
-            []Recipe{  { URI: "http://www14.software.ibm.com/webapp/wsbroker/redirect?version=phil&product=was-libcore-mp&topic=twlp_config_managedexecutor", },  { URI: "https://docs.oracle.com/javaee/7/api/javax/enterprise/concurrent/ManagedExecutorService.html", },  { URI: "http://www14.software.ibm.com/webapp/wsbroker/redirect?version=phil&product=was-nd-mp&topic=rwlp_feature_concurrent-1.0", },  },
+            []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "java.lang.Thread", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "java.lang.Runnable", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-tibco-jms", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Integrating with TIBCO BusinessWorks JMS queues from a Spring application requires vendor-specific implementation, so the application will use the TIBCO JMS client library for publishing to these types of queues. The application can provide this synchronous request/response behavior by using TIBCO on-demand response queue per request. Refer to cookbook URIs", Effort: 7, Readiness: 6, Impact: "", Category: "tibco", Criticality: "",
+            { Name: "java-tibco-jms", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Integrating with TIBCO BusinessWorks JMS queues from a Spring application requires vendor-specific implementation", Effort: 7, Readiness: 6, Impact: "", Category: "tibco", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "tibco",}, { Value: "external-services",}, },
             Recipes:
@@ -2388,7 +2399,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "TibjmsConnectionFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-transaction-annotations", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^\\s*@%s", Advice: "Distributed transcations are problematic and should be remediated or use TKG.effort", Effort: 5, Readiness: 0, Impact: "", Category: "annotations", Criticality: "",
+            { Name: "java-transaction-annotations", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^\\s*@%s", Advice: "Distributed transcations are problematic and should be remediated or use TKG", Effort: 5, Readiness: 0, Impact: "", Category: "annotations", Criticality: "",
             Tags:
             []Tag{  { Value: "annotations",}, { Value: "transaction",}, { Value: "javaee",}, },
             Recipes:
@@ -2419,11 +2430,11 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "import weblogic.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-websockets-import", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Review the PCF documentation for websockets and discuss next steps with the PCF operators.", Effort: 100, Readiness: 100, Impact: "", Category: "websockets", Criticality: "",
+            { Name: "java-websockets-import", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Refer to platform documentation", Effort: 100, Readiness: 100, Impact: "", Category: "websockets", Criticality: "",
             Tags:
             []Tag{  { Value: "websocket",}, { Value: "io",}, },
             Recipes:
-            []Recipe{  { URI: "https://docs.pivotal.io/pivotalcf/latest/adminguide/supporting-websockets.html", },  },
+            []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "javax.websocket", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "javax.websocket.Endpoint", Advice: "", Effort: 100, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
@@ -2486,7 +2497,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "java.util.logging.FileHandler", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "log4j-properties", FileType: "log4j2.properties$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to TAS/TKG documetation", Effort: 1, Readiness: 0, Impact: "", Category: "logtofile", Criticality: "",
+            { Name: "log4j-properties", FileType: "log4j2.properties$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 1, Readiness: 0, Impact: "", Category: "logtofile", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "log2file",}, },
             Recipes:
@@ -2495,13 +2506,22 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "property.filename", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "log4j-xml", FileType: "log4j2.xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to TAS/TKG documetation", Effort: 1, Readiness: 0, Impact: "", Category: "log2file", Criticality: "",
+            { Name: "log4j-xml", FileType: "log4j2.xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 1, Readiness: 0, Impact: "", Category: "log2file", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "log2file",}, },
             Recipes:
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "property.filename", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "sqlserver-ssis", FileType: "(dtsx$)", Target: "line", Type: "contains", DefaultPattern: "", Advice: "SSIS is not supported on CloudFoundry.", Effort: 100, Readiness: 0, Impact: "", Category: "Unsupported modules", Criticality: "",
+            Tags:
+            []Tag{  { Value: "ssis",}, { Value: "etl",}, { Value: "sql",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "DTS", Advice: "SSIS is not supported on CloudFoundry. Consider leaving the packages in an external SQL Server deployment or rewrite them in a cloud native ETL Framework like Spring Cloud Data Flow.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "weblogic-cluster-config", FileType: "conf$", Target: "line", Type: "regex", DefaultPattern: "^%s.*", Advice: "weblogic clusters cannot run in K8S", Effort: 1, Readiness: 0, Impact: "", Category: "wlcluster", Criticality: "",
@@ -2522,7 +2542,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "_CLUSTERS", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "wsdl-soap", FileType: "wsdl$", Target: "file", Type: "regex", DefaultPattern: "", Advice: "In Websphere Portal, necessary service beans were provided by JNDI. Cloud native application can not relay on JNDI, so we need to change configuration. Refer to cookbook URIs", Effort: 4, Readiness: 3, Impact: "", Category: "soap", Criticality: "",
+            { Name: "wsdl-soap", FileType: "wsdl$", Target: "file", Type: "regex", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 4, Readiness: 3, Impact: "", Category: "soap", Criticality: "",
             Tags:
             []Tag{  { Value: "file",}, { Value: "api",}, { Value: "wsdl",}, { Value: "webservices",}, },
             Recipes:
@@ -2558,7 +2578,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "ehcache.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-ejb-2-1", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Consult with PCF documetation", Effort: 10, Readiness: 10, Impact: "", Category: "ejb", Criticality: "",
+            { Name: "xml-ejb-2-1", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 10, Readiness: 10, Impact: "", Category: "ejb", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "ejb",}, { Value: "javaee",}, { Value: "fullprofile",}, },
             Recipes:
@@ -2567,7 +2587,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "ejb-jar_2_1.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-ejb-3-0", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Consult with PCF documetation", Effort: 7, Readiness: 7, Impact: "", Category: "ejb", Criticality: "",
+            { Name: "xml-ejb-3-0", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 7, Readiness: 7, Impact: "", Category: "ejb", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "javaee",}, { Value: "ejb-lite",}, },
             Recipes:
@@ -2576,7 +2596,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "ejb-jar_3_0.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-ejb-3-1", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Consult with PCF documetation", Effort: 7, Readiness: 7, Impact: "", Category: "ejb", Criticality: "",
+            { Name: "xml-ejb-3-1", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 7, Readiness: 7, Impact: "", Category: "ejb", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "ejb-lite",}, { Value: "javaee",}, },
             Recipes:
@@ -2585,7 +2605,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "ejb-jar_3_1.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-ejb-3-2", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Consult with PCF documetation", Effort: 7, Readiness: 7, Impact: "", Category: "ejb", Criticality: "",
+            { Name: "xml-ejb-3-2", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 7, Readiness: 7, Impact: "", Category: "ejb", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "ejb-lite",}, { Value: "javaee",}, },
             Recipes:
@@ -2594,7 +2614,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "ejb-jar_3_2.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-ejb-mdb-import", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documentation", Effort: 7, Readiness: 7, Impact: "", Category: "MDB", Criticality: "",
+            { Name: "xml-ejb-mdb-import", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 7, Readiness: 7, Impact: "", Category: "MDB", Criticality: "",
             Tags:
             []Tag{  { Value: "MessageDriven",}, { Value: "ejb",}, { Value: "javaee",}, { Value: "fullprofile",}, { Value: "api",}, },
             Recipes:
@@ -2612,7 +2632,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "MessageDriven", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-ejb-remote", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documentation", Effort: 100, Readiness: 100, Impact: "", Category: "ejb", Criticality: "",
+            { Name: "xml-ejb-remote", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 100, Readiness: 100, Impact: "", Category: "ejb", Criticality: "",
             Tags:
             []Tag{  { Value: "RemoteEJB",}, { Value: "ejb",}, { Value: "api",}, { Value: "javaee",}, { Value: "fullprofile",}, },
             Recipes:
@@ -2621,7 +2641,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "<remote>", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-ejb-resource-mgr-aut", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 10, Readiness: 10, Impact: "", Category: "security", Criticality: "",
+            { Name: "xml-ejb-resource-mgr-aut", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 10, Readiness: 10, Impact: "", Category: "security", Criticality: "",
             Tags:
             []Tag{  { Value: "security",}, { Value: "webapp",}, { Value: "api",}, },
             Recipes:
@@ -2630,7 +2650,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "<res-auth>Container</res-auth>", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-facelets", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 2, Readiness: 2, Impact: "", Category: "Facelets", Criticality: "",
+            { Name: "xml-facelets", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 2, Readiness: 2, Impact: "", Category: "Facelets", Criticality: "",
             Tags:
             []Tag{  { Value: "facelets",}, { Value: "jsf",}, { Value: "webapp",}, { Value: "api",}, },
             Recipes:
@@ -2639,7 +2659,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "jsf/facelets", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-jboss", FileType: "xml$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "The community maintained JBoss buildpack (https://github.com/cloudfoundry-community/jboss-buildpack) is a fork of the Java buildpack (https://github.com/cloudfoundry/java-buildpack). As facets of the JBoss buildpack are discussed, there may be many things that are identical or similar when compared to the original Java buildpack. Refer to cookbook URIs", Effort: 50, Readiness: 5, Impact: "", Category: "Jboss", Criticality: "",
+            { Name: "xml-jboss", FileType: "xml$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 50, Readiness: 5, Impact: "", Category: "Jboss", Criticality: "",
             Tags:
             []Tag{  { Value: "jboss",}, { Value: "javaee",}, { Value: "api",}, },
             Recipes:
@@ -2666,7 +2686,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "webservices.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "webservices", Recipe: "", },
              }, },
         
-            { Name: "xml-jsf-1-0", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 1000, Readiness: 0, Impact: "", Category: "jsf", Criticality: "",
+            { Name: "xml-jsf-1-0", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 1000, Readiness: 0, Impact: "", Category: "jsf", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "jsf",}, { Value: "webapp",}, },
             Recipes:
@@ -2675,7 +2695,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "web-facesconfig_1_0.dtd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-jsf-1-1", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 1000, Readiness: 0, Impact: "", Category: "jsf", Criticality: "",
+            { Name: "xml-jsf-1-1", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 1000, Readiness: 0, Impact: "", Category: "jsf", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "jsf",}, { Value: "webapp",}, },
             Recipes:
@@ -2684,7 +2704,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "web-facesconfig_1_1.dtd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-jsf-1-2", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 1000, Readiness: 0, Impact: "", Category: "jsf", Criticality: "",
+            { Name: "xml-jsf-1-2", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 1000, Readiness: 0, Impact: "", Category: "jsf", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "jsf",}, { Value: "webapp",}, },
             Recipes:
@@ -2693,7 +2713,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "web-facesconfig_1_2.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-jsf-2-0", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 700, Readiness: 700, Impact: "", Category: "jsf", Criticality: "",
+            { Name: "xml-jsf-2-0", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 700, Readiness: 700, Impact: "", Category: "jsf", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "jsf",}, { Value: "webapp",}, },
             Recipes:
@@ -2702,7 +2722,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "web-facesconfig_2_0.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-jsf-2-1", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 700, Readiness: 700, Impact: "", Category: "jsf", Criticality: "",
+            { Name: "xml-jsf-2-1", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 700, Readiness: 700, Impact: "", Category: "jsf", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "jsf",}, { Value: "webapp",}, },
             Recipes:
@@ -2711,7 +2731,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "web-facesconfig_2_1.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-jsf-2-2", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 700, Readiness: 700, Impact: "", Category: "jsf", Criticality: "",
+            { Name: "xml-jsf-2-2", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 700, Readiness: 700, Impact: "", Category: "jsf", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "jsf",}, { Value: "webapp",}, },
             Recipes:
@@ -2720,7 +2740,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "web-facesconfig_2_2.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-jsf-2-3", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 700, Readiness: 700, Impact: "", Category: "jsf", Criticality: "",
+            { Name: "xml-jsf-2-3", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 700, Readiness: 700, Impact: "", Category: "jsf", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "jsf",}, { Value: "webapp",}, },
             Recipes:
@@ -2738,7 +2758,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "<local-jndi-name>", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-messageDrivenBeans", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 10, Readiness: 10, Impact: "", Category: "mdb", Criticality: "",
+            { Name: "xml-messageDrivenBeans", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 10, Readiness: 10, Impact: "", Category: "mdb", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "ejb",}, { Value: "javaee",}, { Value: "fullprofile",}, },
             Recipes:
@@ -2747,7 +2767,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "<ejb-ref>", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-myfaces", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 5, Readiness: 2, Impact: "", Category: "myfaces", Criticality: "",
+            { Name: "xml-myfaces", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 5, Readiness: 2, Impact: "", Category: "myfaces", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "jsf",}, },
             Recipes:
@@ -2756,7 +2776,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "org.apache.myfaces", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-portlet-1-0", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 500, Readiness: 700, Impact: "", Category: "version-portlet", Criticality: "",
+            { Name: "xml-portlet-1-0", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 500, Readiness: 700, Impact: "", Category: "version-portlet", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "portlet",}, { Value: "webcontainer",}, },
             Recipes:
@@ -2765,7 +2785,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "portlet-app_1_0.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-servlet-2-3", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 700, Readiness: 700, Impact: "", Category: "servlet", Criticality: "",
+            { Name: "xml-servlet-2-3", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 700, Readiness: 700, Impact: "", Category: "servlet", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "servlet",}, { Value: "webcontainer",}, },
             Recipes:
@@ -2774,7 +2794,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "web-app_2_3.dtd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-servlet-2-4", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 700, Readiness: 700, Impact: "", Category: "servlet", Criticality: "",
+            { Name: "xml-servlet-2-4", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 700, Readiness: 700, Impact: "", Category: "servlet", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "servlet",}, { Value: "webcontainer",}, },
             Recipes:
@@ -2783,7 +2803,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "web-app_2_4.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-servlet-2-5", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 400, Readiness: 500, Impact: "", Category: "servlet", Criticality: "",
+            { Name: "xml-servlet-2-5", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 400, Readiness: 500, Impact: "", Category: "servlet", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "servlet",}, { Value: "webcontainer",}, },
             Recipes:
@@ -2792,7 +2812,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "web-app_2_5.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-servlet-3-0", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 8, Readiness: 10, Impact: "", Category: "servlet", Criticality: "",
+            { Name: "xml-servlet-3-0", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 8, Readiness: 10, Impact: "", Category: "servlet", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "servlet",}, { Value: "webcontainer",}, },
             Recipes:
@@ -2801,7 +2821,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "web-app_3_0.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-servlet-3-1", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 5, Readiness: 5, Impact: "", Category: "servlet", Criticality: "",
+            { Name: "xml-servlet-3-1", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 5, Readiness: 5, Impact: "", Category: "servlet", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "servlet",}, { Value: "webcontainer",}, },
             Recipes:
@@ -2828,7 +2848,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "<session-type>Stateful</session-type>", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-struts-1-1", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 10, Readiness: 10, Impact: "", Category: "struts", Criticality: "",
+            { Name: "xml-struts-1-1", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 10, Readiness: 10, Impact: "", Category: "struts", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "webapp",}, { Value: "ui",}, },
             Recipes:
@@ -2837,7 +2857,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "struts-config_1_1.dtd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-struts-2-2", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 7, Readiness: 7, Impact: "", Category: "struts", Criticality: "",
+            { Name: "xml-struts-2-2", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 7, Readiness: 7, Impact: "", Category: "struts", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "webapp",}, { Value: "ui",}, },
             Recipes:
@@ -2846,7 +2866,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "struts-2.2.dtd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-struts-2-3", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 7, Readiness: 7, Impact: "", Category: "struts", Criticality: "",
+            { Name: "xml-struts-2-3", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 7, Readiness: 7, Impact: "", Category: "struts", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "webapp",}, { Value: "ui",}, },
             Recipes:
@@ -2855,7 +2875,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "struts-2.3.dtd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-struts-2-4", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 7, Readiness: 7, Impact: "", Category: "struts", Criticality: "",
+            { Name: "xml-struts-2-4", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 7, Readiness: 7, Impact: "", Category: "struts", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "webapp",}, { Value: "ui",}, },
             Recipes:
@@ -2864,7 +2884,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "struts-2.4.dtd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-struts-2-5", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 7, Readiness: 7, Impact: "", Category: "struts", Criticality: "",
+            { Name: "xml-struts-2-5", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 7, Readiness: 7, Impact: "", Category: "struts", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "webapp",}, { Value: "ui",}, },
             Recipes:
@@ -2873,7 +2893,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "struts-2.5.dtd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-struts-tiles", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 5, Readiness: 2, Impact: "", Category: "tiles", Criticality: "",
+            { Name: "xml-struts-tiles", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 5, Readiness: 2, Impact: "", Category: "tiles", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "webapp",}, { Value: "ui",}, { Value: "tiles",}, },
             Recipes:
@@ -2885,7 +2905,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "tiles-config_3_0.dtd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-tomahawk", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 600, Readiness: 200, Impact: "", Category: "tomahawk", Criticality: "",
+            { Name: "xml-tomahawk", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 600, Readiness: 200, Impact: "", Category: "tomahawk", Criticality: "",
             Tags:
             []Tag{  { Value: "jsf",}, { Value: "webprofile",}, { Value: "api",}, },
             Recipes:
@@ -2894,7 +2914,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "myfaces.apache.org/tomahawk", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-tomcat", FileType: "xml$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "There are several issues with configuring Tomcat to run on TAS. Refer to cookbook URIs", Effort: 100, Readiness: 0, Impact: "", Category: "Tomcat", Criticality: "",
+            { Name: "xml-tomcat", FileType: "xml$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 100, Readiness: 0, Impact: "", Category: "Tomcat", Criticality: "",
             Tags:
             []Tag{  { Value: "file",}, { Value: "appprofile",}, { Value: "tomcat",}, { Value: "api",}, },
             Recipes:
@@ -2914,7 +2934,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "<transport-guarantee>CONFIDENTIAL", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-trinidad", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 10, Readiness: 7, Impact: "", Category: "trinidad", Criticality: "",
+            { Name: "xml-trinidad", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 10, Readiness: 7, Impact: "", Category: "trinidad", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "jsf",}, { Value: "webprofile",}, },
             Recipes:
@@ -2923,7 +2943,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "myfaces.apache.org/trinidad/config", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-webLogic-1-2", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 700, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
+            { Name: "xml-webLogic-1-2", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 700, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "webapp",}, { Value: "weblogic",}, },
             Recipes:
@@ -2932,7 +2952,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "1.2/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-webLogic-1-3", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 700, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
+            { Name: "xml-webLogic-1-3", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 700, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "webapp",}, { Value: "weblogic",}, },
             Recipes:
@@ -2941,7 +2961,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "1.3/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-webLogic-1-4", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 700, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
+            { Name: "xml-webLogic-1-4", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 700, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "webapp",}, { Value: "weblogic",}, },
             Recipes:
@@ -2950,7 +2970,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "1.4/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-webLogic-1-5", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 700, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
+            { Name: "xml-webLogic-1-5", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 700, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "webapp",}, { Value: "weblogic",}, },
             Recipes:
@@ -2959,7 +2979,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "1.5/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-weblogic-1-6", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 600, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
+            { Name: "xml-weblogic-1-6", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 600, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "webapp",}, { Value: "weblogic",}, },
             Recipes:
@@ -2968,7 +2988,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "1.6/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-webLogic-1-7", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 600, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
+            { Name: "xml-webLogic-1-7", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 600, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "webapp",}, { Value: "weblogic",}, },
             Recipes:
@@ -2977,7 +2997,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "1.7/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-webLogic-1-8", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 400, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
+            { Name: "xml-webLogic-1-8", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 400, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "webapp",}, { Value: "weblogic",}, },
             Recipes:
@@ -2986,7 +3006,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "1.8/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-webLogic-1-9", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to PCF documetation", Effort: 400, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
+            { Name: "xml-webLogic-1-9", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 400, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
             Tags:
             []Tag{  { Value: "api",}, { Value: "webapp",}, { Value: "weblogic",}, },
             Recipes:
@@ -3064,6 +3084,15 @@ func BootstrapRules() []Rule {
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "<xa-datasource", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "yaml-test", FileType: "(yaml|yml)$", Target: "file", Type: "yamlpath", DefaultPattern: "", Advice: "", Effort: 1000, Readiness: 10, Impact: "", Category: "", Criticality: "",
+            Tags:
+            []Tag{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "$.orchestration", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
     }
