@@ -2,7 +2,6 @@
 #--- ignore web-site.go, it is created by go-bindata
 .gitmodules
 web-site.go
-go/frontend
 
 go/model/BinBootstrap.go
 go/model/Bootstrap.go

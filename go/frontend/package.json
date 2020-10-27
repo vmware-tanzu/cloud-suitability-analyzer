@@ -1,0 +1,55 @@
+{
+  "name": "csa-ui",
+  "version": "2.1.0",
+  "private": true,
+  "proxy": "http://localhost:3001/",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "chart.js": "2.7.2",
+    "classnames": "2.2.6",
+    "core-js": "3.6.5",
+    "font-awesome": "4.7.0",
+    "pivotal-ui": "16.1.0",
+    "primeicons": "^1.0.0-beta.10",
+    "primereact": "2.0.0-beta.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.0",
+    "react-transition-group": "^4.4.1",
+    "react-vis": "^1.11.7",
+    "recharts": "1.1.0",
+    "typescript": "^4.0.3"
+  },
+  "scripts": {
+    "prettify-all": "prettier --single-quote --write src/**/*.{js,jsx,json,css}",
+    "precommit": "lint-staged",
+    "dev-start-frontend-backend": "concurrently \"pushd .. && go generate && popd && go run rules-admin.go --database-dir=./data\" \"react-scripts start\"",
+    "dev-start-frontend": "react-scripts start",
+    "dev-start-backend": "go run rules-admin.go --database-dir=../exe",
+    "production-build": "react-scripts build  > /dev/null 2>&1",
+    "test": "react-scripts test --env=jsdom --passWithNoTests",
+    "eject": "react-scripts eject"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "axios-mock-adapter": "1.15.0",
+    "concurrently": "3.6.0",
+    "enzyme": "3.3.0",
+    "enzyme-adapter-react-16": "^1.15.5",
+    "lint-staged": "7.2.0",
+    "prettier": "1.13.7",
+    "react-test-renderer": "16.4.1"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

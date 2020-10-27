@@ -1,0 +1,97 @@
+
+#--- ignore web-site.go, it is created by go-bindata
+.gitmodules
+web-site.go
+go/frontend
+
+go/model/BinBootstrap.go
+go/model/Bootstrap.go
+go/model/ScoringModelBootstrap.go
+
+*~
+*.swo
+*.swp
+*/rsconnect/
+rsconnect/
+
+#*.db
+*.RData
+*.RHistory
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+#*.so
+
+#idea
+.idea
+
+# Distribution / packaging
+MANIFEST
+.Python
+env/
+build/
+go/exe/*
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Credentials
+credentials.yml
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+
+# jupyter
+jup/.ipynb*
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+.Rproj.user
+
+*.DS_Store
+
+# Concourse Pipeline Params
+pipeline-params*.yml
+
+# Vendor folders
+
+**/node_modules/**
