@@ -1,1 +1,0 @@
-docker run -it -e OS=$args[0] -e VERSION=$args[1] -v $Env:GOPATH"/src/github.com/vmware-samples/cloud-suitability-analyzer/:/go/src/github.com/vmware-samples/cloud-suitability-analyzer" neur0manc3r/node-go-cross-build /bin/bash /go/src/github.com/vmware-samples/cloud-suitability-analyzer/buildlocalFull.sh 
