@@ -33,7 +33,7 @@ $GOPATH/src/github.com/vmware-samples/cloud-suitability-analyzer
 
 Make sure your in the root directory of your project and run the build script
 ```
-$> ./buildOSS.sh [executable type]
+$> ./buildDocker.sh [executable type] or buildDocker.ps1
 ```
 
 **Executable Type Options**
