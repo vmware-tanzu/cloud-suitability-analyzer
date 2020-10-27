@@ -8,5 +8,5 @@ advice: Ensure compatible configuation
 effort: 400
 readiness: 5
 patterns:
-- value: /configuration/system.webServer/handlers/add[contains(@modules, 'StaticFileModule')][1]
+- value: /configuration/system.webServer/handlers/add[contains(@modules, "StaticFileModule")][1]
 ## StaticFileModule
