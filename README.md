@@ -1,6 +1,7 @@
 # cloud-suitability-analyzer
 
 ## Overview
+Note: The web user interface has been added to this OSS version.
 
 
 ## Try it out
