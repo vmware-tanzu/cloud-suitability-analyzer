@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<arquillian xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://jboss.org/schema/arquillian"
+	xsi:schemaLocation="http://jboss.org/schema/arquillian http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
+
+  <engine>
+    <property name="deploymentExportPath">target/</property>
+  </engine>
+
+  <container qualifier="wlp-dropins-deployment" default="true">
+    <configuration>
+      <property name="wlpHome">${project.build.directory}/liberty/wlp/</property>
+      <property name="deployType">dropins</property>
+
+      <!-- Adjust timeouts to work on Cloudbees CI server -->
+      <property name="appDeployTimeout">60</property>
+      <property name="appUndeployTimeout">10</property>
+    </configuration>
+  </container>
+  <container qualifier="wlp-xml-deployment">
+    <configuration>
+      <property name="wlpHome">${project.build.directory}/liberty/wlp/</property>
+      <property name="httpPort">9080</property>
+      <property name="deployType">xml</property>
+      <property name="javaVmArguments">-Xmx512m</property>
+      <!-- the values below are the documented default, so it is not changing anything,
+           other than testing these code paths -->
+      <property name="apiTypeVisibility">spec, ibm-api, api</property>
+
+      <!-- Adjust timeouts to work on Cloudbees CI server -->
+      <property name="appDeployTimeout">60</property>
+      <property name="appUndeployTimeout">10</property>
+    </configuration>
+  </container>
+  <container qualifier="wlp-xml-management-deployment">
+    <configuration>
+      <property name="wlpHome">${project.build.directory}/liberty/wlp/</property>
+      <property name="deployType">xml</property>
+      <property name="serverName">managementServer</property>
+
+      <!-- Adjust timeouts to work on Cloudbees CI server -->
+      <property name="appDeployTimeout">60</property>
+      <property name="appUndeployTimeout">10</property>
+    </configuration>
+  </container>
+  
+</arquillian>
