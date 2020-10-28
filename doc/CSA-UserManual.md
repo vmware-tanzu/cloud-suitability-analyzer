@@ -1,6 +1,6 @@
 # Cloud Suitability Analyzer (CSA) User Manual
 
-#### Version 2.1.0
+
 
 | Date         | Action                       | Author   |
 | ------------ | ---------------------------- | -------- |
