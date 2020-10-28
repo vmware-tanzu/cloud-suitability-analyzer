@@ -122,11 +122,11 @@ func (p *Pattern) MatchYaml(node *yaml.Node) (bool, string) {
 	return false, ""
 }
 
-func (p *Pattern) MatchXml(node *xmlquery.Node) (bool, string) {
-	switch p.Type {
-	case XPATH_MATCH_TYPE:
-		var node = xmlquery.FindOne(node, p.Pattern)
-		var value string
+func (p *Pattern) MatchXml(rootNode *xmlquery.Node) (bool, string) {
+	var value string
+
+	if p.Type == XPATH_MATCH_TYPE && rootNode != nil {
+		var node = xmlquery.FindOne(rootNode, p.Pattern)
 
 		if node != nil {
 			if len(strings.TrimSpace(node.InnerText())) < 1 {
@@ -134,7 +134,7 @@ func (p *Pattern) MatchXml(node *xmlquery.Node) (bool, string) {
 			} else {
 				value = node.InnerText()
 			}
-		}
+		}	
 
 		return (node != nil), value
 	}
