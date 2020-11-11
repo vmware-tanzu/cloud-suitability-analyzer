@@ -62,63 +62,8 @@ popd > /dev/null
 
 cd ${WORKING_DIR}
 
-runGenerate=0
-
-echo "~~~> Checking for rule changes"
-git diff --exit-code rules
-rulesChanged=$?
-
-echo "~~~> Checking for bin changes"
-git diff --exit-code bins
-binsChanged=$?
-
-echo "~~~> Checking for scoring model changes"
-git diff --exit-code score-models
-modelsChanged=$?
-
-
-if [ $rulesChanged -eq 1 ]
-then
-  echo "~~~> Rules changed"
-  runGenerate=1
-fi
-
-if [ $binsChanged -eq 1 ]
-then
-  echo "~~~> Bins changed"
-  runGenerate=1
-fi
-
-if [ $modelsChanged -eq 1 ]
-then
-  echo "~~~> Scoring models changed"
-  runGenerate=1
-fi
-
-#--- these go files have to exist to make the compiler happy, they may be overwritten by go generate
-
-BootstrapFile="go/model/Bootstrap.go"
-BinBootstrapFile="go/model/BinBootstrap.go"
-ScoringModelBootstrapFile="go/model/ScoringModelBootstrap.go"
-if [ ! -f "$BootstrapFile" ]; then
-    echo "~~~> $BootstrapFile is missing"
-    cp go/model-cache/Bootstrap.go go/model/Bootstrap.go
-    runGenerate=1
-fi
-
-if [ ! -f "$BinBootstrapFile" ]; then
-    echo "~~~> $BinBootstrapFile is missing"
-    cp go/model-cache/BinBootstrap.go go/model/BinBootstrap.go
-    runGenerate=1
-fi
-
-if [ ! -f "$ScoringModelBootstrapFile" ]; then
-    echo "~~~> $ScoringModelBootstrapFile is missing"
-    cp go/model-cache/ScoringModelBootstrap.go go/model/ScoringModelBootstrap.go
-    runGenerate=1
-fi
-
-
+#--- removing condidation go generate
+runGenerate=1
 if [ $runGenerate -eq 1 ]
 then
 
