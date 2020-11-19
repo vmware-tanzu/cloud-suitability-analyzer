@@ -14,7 +14,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/util"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/util"
 )
 
 const MAX_INT = "int.max"

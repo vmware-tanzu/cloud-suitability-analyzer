@@ -6,7 +6,7 @@
 package csa
 
 import (
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/model"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/model"
 	"github.com/stretchr/testify/assert"
 	"math"
 	"testing"

@@ -12,8 +12,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/backend/routes"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/db/test_support"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/backend/routes"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/db/test_support"
 	"github.com/stretchr/testify/assert"
 )
 

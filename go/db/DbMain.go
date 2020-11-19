@@ -16,8 +16,8 @@ import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/lib/pq"
 	_ "github.com/mattn/go-sqlite3"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/model"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/util"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/model"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/util"
 )
 
 const sqllite_driver string = "sqlite3"

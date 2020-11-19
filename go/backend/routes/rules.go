@@ -8,7 +8,7 @@ package routes
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/db"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/db"
 	"net/http"
 )
 

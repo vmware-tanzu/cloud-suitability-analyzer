@@ -5,8 +5,8 @@
 package gocloc
 
 import (
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/model"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/util"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/model"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/util"
 )
 
 type Processor struct {

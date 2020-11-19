@@ -14,8 +14,8 @@ import (
 	_ "github.com/blevesearch/bleve/search/highlight/format/ansi"
 	_ "github.com/blevesearch/bleve/search/highlight/highlighter/ansi"
 	bQuery "github.com/blevesearch/bleve/search/query"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/db"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/util"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/db"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/util"
 )
 
 const HTML_HIGHLIGHT = "html"

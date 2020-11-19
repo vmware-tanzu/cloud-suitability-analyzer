@@ -8,7 +8,7 @@ package services
 import (
 	"fmt"
 
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/model"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/model"
 
 	log "github.com/sirupsen/logrus"
 )

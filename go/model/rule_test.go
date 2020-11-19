@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/model"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/model"
 )
 
 func TestRuleNameRequired(t *testing.T) {

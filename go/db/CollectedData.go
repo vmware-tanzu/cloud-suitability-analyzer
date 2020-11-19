@@ -7,7 +7,7 @@ package db
 
 import (
 	"github.com/jinzhu/gorm"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/model"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/model"
 )
 
 func GetReportData(runId uint, reportId int) []model.ReportData {

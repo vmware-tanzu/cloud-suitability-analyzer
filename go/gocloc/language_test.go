@@ -7,7 +7,7 @@ package gocloc
 import (
 	"testing"
 
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/util"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/util"
 )
 
 func TestGetShebang(t *testing.T) {

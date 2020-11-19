@@ -8,7 +8,7 @@ package db_test
 import (
 	"testing"
 
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/db"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/db"
 	"github.com/stretchr/testify/assert"
 )
 

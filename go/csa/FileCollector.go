@@ -11,8 +11,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/model"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/util"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/model"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/util"
 )
 
 //Gathers Files for Input to CSA

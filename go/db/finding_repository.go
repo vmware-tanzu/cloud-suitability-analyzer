@@ -15,8 +15,8 @@ import (
 
 	"github.com/jinzhu/gorm"
 	log "github.com/sirupsen/logrus"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/model"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/util"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/model"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/util"
 )
 
 type FindingRepository interface {

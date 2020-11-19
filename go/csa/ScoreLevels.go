@@ -5,7 +5,7 @@
 
 package csa
 
-import "github.com/vmware-samples/cloud-suitability-analyzer/go/model"
+import "github.com/vmware-tanzu/cloud-suitability-analyzer/go/model"
 
 func GetLevelForScore(score int) string {
 

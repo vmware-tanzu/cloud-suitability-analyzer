@@ -11,10 +11,10 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/backend/services"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/db"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/model"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/search"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/backend/services"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/db"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/model"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/search"
 	log "github.com/sirupsen/logrus"
 )
 

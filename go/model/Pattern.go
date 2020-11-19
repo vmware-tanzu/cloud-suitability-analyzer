@@ -14,7 +14,7 @@ import (
 
 	"github.com/antchfx/xmlquery"
 	"github.com/vmware-labs/yaml-jsonpath/pkg/yamlpath"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/util"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/util"
 	"gopkg.in/yaml.v3"
 )
 

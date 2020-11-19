@@ -6,8 +6,8 @@
 package util
 
 import (
-	//"github.com/vmware-samples/cloud-suitability-analyzer/go/vendor/gopkg.in/alecthomas/kingpin.v2"
-	//"github.com/vmware-samples/cloud-suitability-analyzer/go/vendor/gopkg.in/alecthomas/kingpin.v2"
+	//"github.com/vmware-tanzu/cloud-suitability-analyzer/go/vendor/gopkg.in/alecthomas/kingpin.v2"
+	//"github.com/vmware-tanzu/cloud-suitability-analyzer/go/vendor/gopkg.in/alecthomas/kingpin.v2"
 	"strconv"
 	"sync"
 

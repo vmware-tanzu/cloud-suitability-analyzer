@@ -7,7 +7,7 @@ package services
 
 import (
 	"github.com/blevesearch/bleve"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/db"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/db"
 )
 
 type RepoService struct {

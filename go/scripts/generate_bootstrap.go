@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/db"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/db"
 )
 
 //Responsible for generating the Bootstrap.go file

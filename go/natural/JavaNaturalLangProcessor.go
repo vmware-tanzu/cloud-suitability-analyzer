@@ -15,10 +15,10 @@ import (
 
 	"github.com/emirpasic/gods/sets/hashset"
 	"github.com/fatih/camelcase"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/csa"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/db"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/model"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/util"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/csa"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/db"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/model"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/util"
 )
 
 type NaturalLangService struct {

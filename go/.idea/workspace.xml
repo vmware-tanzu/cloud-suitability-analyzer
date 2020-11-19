@@ -66,7 +66,7 @@
       <parameters value="ui" />
       <kind value="FILE" />
       <filePath value="$PROJECT_DIR$/csa.go" />
-      <package value="github.com/vmware-samples/cloud-suitability-analyzer/go" />
+      <package value="github.com/vmware-tanzu/cloud-suitability-analyzer/go" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>

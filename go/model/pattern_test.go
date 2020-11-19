@@ -8,7 +8,7 @@ package model_test
 import (
 	"testing"
 
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/model"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/model"
 )
 
 func TestPatternValueRequired(t *testing.T) {

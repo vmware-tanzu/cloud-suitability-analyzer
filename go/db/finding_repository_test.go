@@ -11,9 +11,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/db"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/db/test_support"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/model"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/db"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/db/test_support"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/model"
 	"github.com/stretchr/testify/assert"
 )
 

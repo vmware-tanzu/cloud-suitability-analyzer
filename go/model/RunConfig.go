@@ -16,7 +16,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/util"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/util"
 	"gopkg.in/yaml.v2"
 )
 

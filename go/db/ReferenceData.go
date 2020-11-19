@@ -6,8 +6,8 @@
 package db
 
 import (
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/model"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/util"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/model"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/util"
 )
 
 //"CREATE TABLE IF NOT EXISTS REPORT_REF (report_id INTEGER, type varchar(20), description varchar(100), target varchar(20))"

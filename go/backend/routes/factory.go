@@ -12,15 +12,15 @@ import (
 	"strings"
 
 	assetfs "github.com/elazarl/go-bindata-assetfs"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/frontend/resources"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/frontend/resources"
 
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
 	"github.com/pkg/browser"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/backend/services"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/db"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/util"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/backend/services"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/db"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/util"
 )
 
 const BROWSER_URL = "http://localhost:3001"

@@ -38,7 +38,7 @@ The patterns are used to perform global scans of all application files, recursiv
 
 Download from here:
 
-[https://github.com/vmware-samples/cloud-suitability-analyzer/releases](https://github.com/vmware-samples/cloud-suitability-analyzer/releases)
+[https://github.com/vmware-tanzu/cloud-suitability-analyzer/releases](https://github.com/vmware-tanzu/cloud-suitability-analyzer/releases)
 
 There is no real installation process. It is just a matter of deciding on a home directory can copying the files in the `csa` distribution to that directory.
 

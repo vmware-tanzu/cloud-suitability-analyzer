@@ -6,10 +6,11 @@
 package routes
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/backend/services"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/db"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/backend/services"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/db"
 )
 
 type slocRoutes struct {

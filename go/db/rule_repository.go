@@ -18,8 +18,8 @@ import (
 
 	"github.com/davecgh/go-spew/spew"
 	"github.com/jinzhu/gorm"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/model"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/util"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/model"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/util"
 )
 
 type RuleRepository interface {

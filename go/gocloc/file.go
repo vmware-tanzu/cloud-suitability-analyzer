@@ -10,7 +10,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/util"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/util"
 )
 
 type ClocFile struct {

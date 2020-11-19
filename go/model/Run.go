@@ -19,7 +19,7 @@ import (
 	"github.com/jinzhu/gorm"
 	"github.com/kardianos/osext"
 	"github.com/mitchellh/go-homedir"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/util"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/util"
 )
 
 type Run struct {

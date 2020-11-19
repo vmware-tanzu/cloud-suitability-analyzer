@@ -8,7 +8,7 @@ import (
 	"encoding/xml"
 	"fmt"
 
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/util"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/util"
 )
 
 type XMLTotalLanguages struct {

@@ -27,14 +27,14 @@ import (
 
 	"github.com/pkg/profile"
 	"github.com/sirupsen/logrus"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/backend/routes"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/csa"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/db"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/model"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/natural"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/report"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/search"
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/util"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/backend/routes"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/csa"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/db"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/model"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/natural"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/report"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/search"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/util"
 )
 
 //to generate the Bootstrap.go file

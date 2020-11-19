@@ -9,7 +9,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/vmware-samples/cloud-suitability-analyzer/go/util"
+	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/util"
 )
 
 func TestAnalayzeFile4Python(t *testing.T) {
