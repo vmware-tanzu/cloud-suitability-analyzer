@@ -13,8 +13,6 @@ Note: The web user interface has been added to this OSS version.
 
 * Golang - Installation instructions are [here](https://golang.org/doc/install)
 * Docker - Instructions for [Get Docker](https://docs.docker.com/get-docker/)
-* GOPATH - Set your $GOPATH env var to your go installation directory
-  ```$> export GOPATH=/Users/[your path]/go```
 * go-bindata - Install go-bindata [using go get](https://github.com/jteeuwen/go-bindata) 
 
   Alternatives if go get fails
@@ -25,11 +23,8 @@ Note: The web user interface has been added to this OSS version.
 
 ### Clone the repo
 
-Clone the repo into your $GOPATH/src using the following folder structure:
+Clone the repo into your the directory of your choice.
 
-```
-$GOPATH/src/github.com/vmware-samples/cloud-suitability-analyzer
-```
 
 ### Build & Run
 
