@@ -23,8 +23,6 @@ fi
 set -e
 
 
-cd src/github.com/vmware-samples/cloud-suitability-analyzer/
-
 
 
 #--- this corrects and issue with go mod tidy
@@ -34,7 +32,7 @@ export GOSUMDB=off
 export G0111MODULE=onS
 export GOBIN=/go/bin
 export PATH=$GOPATH/bin:$PATH
-export WORKING_DIR=$GOPATH/src/github.com/vmware-samples/cloud-suitability-analyzer
+export WORKING_DIR="/cloud-suitability-analyzer"
 export OUTPUT_DIR="$WORKING_DIR/go/exe"
 
 
@@ -46,7 +44,6 @@ pushd ${WORKING_DIR}/go > /dev/null
 
   #--- version needs to be automated, using command line for now.
   export LD_FLAGS="-X \"main.Version=$VERSION\"" 
-
 
   if [[ "$OS" == *"$OSX"* ]]; then
     echo "~~~> Building osx version"

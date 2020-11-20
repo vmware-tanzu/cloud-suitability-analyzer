@@ -1,5 +1,7 @@
 #!/bin/bash
 
+
+
 start_time="$(date -u +%s)"
 
 
@@ -9,7 +11,7 @@ export GOSUMDB=off
 #--- set module mode
 export GO111MODULE=on
 
-export WORKING_DIR=$GOPATH/src/github.com/vmware-samples/cloud-suitability-analyzer
+export WORKING_DIR=${PWD}
 
 echo "~~~> Compile/Minify UI"
 pushd ${WORKING_DIR}/go/frontend > /dev/null

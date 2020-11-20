@@ -91,5 +91,5 @@ RUN apt-get install yarn
 COPY --from=osx-cross "${OSX_CROSS_PATH}/." "${OSX_CROSS_PATH}/"
 COPY --from=libtool   "${OSX_CROSS_PATH}/." "${OSX_CROSS_PATH}/"
 ENV PATH=${OSX_CROSS_PATH}/target/bin:$PATH
-
-
+WORKDIR "/cloud-suitability-analyzer"
+RUN cd /cloud-suitability-analyzer
