@@ -1,7 +1,6 @@
 # cloud-suitability-analyzer
 
-# Note:
-We are adjusting to the new repo home and revising our build procedure. This make take a few days.
+
 
 ## Overview
 Note: The web user interface has been added to this OSS version.
