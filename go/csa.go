@@ -38,7 +38,7 @@ import (
 )
 
 //to generate the Bootstrap.go file
-//go:generate go run scripts/generate_bootstrap.go
+//go:generate go run scripts/generate_bootstrap.go >&2
 
 var (
 	Version       string

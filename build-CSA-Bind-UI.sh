@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "~~~> OS: $OS"
 
 LINUX="L"
 OSX="O"
@@ -44,21 +45,22 @@ pushd ${WORKING_DIR}/go > /dev/null
 
   #--- version needs to be automated, using command line for now.
   export LD_FLAGS="-X \"main.Version=$VERSION\"" 
-
+  echo "OS: $OS"
+  echo "OSX: $OSX"
   if [[ "$OS" == *"$OSX"* ]]; then
     echo "~~~> Building osx version"
-    env CGO_ENABLED=1 CC=o64-clang GOOS=darwin GOARCH=amd64 go build -ldflags "${LD_FLAGS}" -o ${OUTPUT_DIR}/csa csa.go
+    env CGO_ENABLED=1 CC=o64-clang GOOS=darwin GOARCH=amd64 go build -ldflags "${LD_FLAGS}" -o ${OUTPUT_DIR}/csa csa.go  >&2
     chmod +x ${OUTPUT_DIR}/csa
   fi
 
   if [[ "$OS" == *"$WINDOWS"* ]]; then
     echo "~~~> Building windows version"
-    env CGO_ENABLED=1 CC=x86_64-w64-mingw32-gcc GOOS=windows GOARCH=amd64 go build -ldflags "${LD_FLAGS}" -o ${OUTPUT_DIR}/csa.exe csa.go
+    env CGO_ENABLED=1 CC=x86_64-w64-mingw32-gcc GOOS=windows GOARCH=amd64 go build -ldflags "${LD_FLAGS}" -o ${OUTPUT_DIR}/csa.exe csa.go >&2
     chmod +x ${OUTPUT_DIR}/csa.exe
   fi 
 
   if [[ "$OS" == *"$LINUX"* ]]; then
     echo "~~~> Building linux version"
-    env CGO_ENABLED=1 CC=musl-gcc go build --ldflags '-linkmode external -extldflags "-static"'  -o ${OUTPUT_DIR}/csa-l csa.go
+    env CGO_ENABLED=1 CC=musl-gcc go build --ldflags '-linkmode external -extldflags "-static"'  -o ${OUTPUT_DIR}/csa-l csa.go >&2
     chmod +x ${OUTPUT_DIR}/csa-l  
   fi
