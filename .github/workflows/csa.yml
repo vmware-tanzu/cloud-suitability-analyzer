@@ -19,4 +19,10 @@ jobs:
 
     - name: Build
       run: ./buildDocker.sh OWL
+    
+    - name: Upload artifacts
+      uses: actions/upload-artifact@master
+      with:
+        name: buildFiles
+        path: go/exe
 
