@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 - Present VMWare, Inc. All Rights Reserved.
+ * Copyright (c) 2018 - Present VMware, Inc. All Rights Reserved.
  * SPDX-License-Identifier: BSD-2
  */
 
@@ -18,7 +18,7 @@ target="_blank"
 href="https://vmware.com/"
 rel="noopener noreferrer"
     >
-    VMWare
+    VMware
 </a>, Inc.
 </p>
 </div>

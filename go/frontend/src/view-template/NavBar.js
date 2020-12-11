@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 - Present VMWare, Inc. All Rights Reserved.
+ * Copyright (c) 2018 - Present VMware, Inc. All Rights Reserved.
  * SPDX-License-Identifier: BSD-2
  */
 
@@ -44,7 +44,7 @@ export const NavBar = () => (
     <Menubar model={items} style={{ border: 'none', background: '#edf0f5' }}>
       <img
         id="logo"
-        src="/VMWare-logo.svg"
+        src="/VMware-logo.svg"
         width="60"
         height="60"
         alt="vmware-logo"
