@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2018 - Present VMWare, Inc. All Rights Reserved.
+ * Copyright (c) 2018 - Present VMware, Inc. All Rights Reserved.
  * SPDX-License-Identifier: BSD-2
  ******************************************************************************/
 
@@ -83,7 +83,7 @@ func main() {
 
 	util.App.HelpFlag.Short('?')
 	util.App.Version(Version)
-	util.App.Author("Steve Woods (VMWare)")
+	util.App.Author("Steve Woods (VMware)")
 
 	var run = model.NewRun()
 

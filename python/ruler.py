@@ -10,7 +10,7 @@
 #  REQUIREMENTS:  ---
 #          BUGS:  ---
 #        AUTHOR:  App Tx Team (Steve Woods)
-#       COMPANY:  VMWare
+#       COMPANY:  VMware
 #       VERSION:  1.0
 #       CREATED:  08/16/2020
 #      REVISION:  1.1

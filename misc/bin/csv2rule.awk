@@ -8,7 +8,7 @@
 BEGIN {
    filename = ""
    yamlFile = ""
-   print "VMWare, copyright 2018. All rights reserved"
+   print "VMware, copyright 2018. All rights reserved"
    FS=","
 }
 
