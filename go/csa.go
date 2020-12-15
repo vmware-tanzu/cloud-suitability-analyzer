@@ -81,7 +81,7 @@ func main() {
 
 	debug.SetMaxThreads(100000)
 
-	util.App.HelpFlag.Short('?')
+	util.App.HelpFlag.Short('h')
 	util.App.Version(Version)
 	util.App.Author("Steve Woods (VMware)")
 
