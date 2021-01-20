@@ -359,9 +359,17 @@ An important design requirement for `csa` was the ability to change rules in the
 
 2. Add whatever rules you want to add to the rules directory that was just created. You may edit existing rules, as well.
 
-3. Run the following command
+3. Run the following commands
+
+   To import rules, you'll need to ensure a `bins` directory is first exported. The following command will export a `bins.yaml` file to the default location of `~/csa-reports`. You only have to do this once unless you intend to modify or create new bins.
+
+   `csa bins export`
+
+   You may then import rules with the following command.
 
    `csa rules import –-rules-dir=./rules`
+
+   All bins declared in the `bins.yaml` file are validated. As such, all tags specfified in each `bin` must be present in the rules. If you intend to drop any or all of the standard rules, you'll need to remove bins from the `bins.yaml` file that depend on the rule tags.
 
 4. Open a shell window (bash, MingW, git bash, powershell, etc...)
 
