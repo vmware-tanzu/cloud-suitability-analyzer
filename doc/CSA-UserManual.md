@@ -3,6 +3,7 @@
 
 | Date         | Action                       | Author   |
 | ------------ | ---------------------------- | -------- |
+| Jul 30, 2020 | Amended rule import instructions | S. Woods |
 | Jul 30, 2020 | Prep for open source release | S. Woods |
 | Dec 12, 2018 | Converted from readme        | S. Woods |
 | Dec 18, 2018 | Added scoring/graphics       | S. Woods |
@@ -369,7 +370,7 @@ An important design requirement for `csa` was the ability to change rules in the
 
    `csa rules import –-rules-dir=./rules`
 
-   All bins declared in the `bins.yaml` file are validated. As such, all tags specfified in each `bin` must be present in the rules. If you intend to drop any or all of the standard rules, you'll need to remove bins from the `bins.yaml` file that depend on the rule tags.
+   All bins declared in the `bins.yaml` file are validated. As such, all tags specified in each `bin` must be present in the rules. If you intend to drop any or all of the standard rules, you'll need to remove bins from the `bins.yaml` file that depend on the rule tags.
 
 4. Open a shell window (bash, MingW, git bash, powershell, etc...)
 
