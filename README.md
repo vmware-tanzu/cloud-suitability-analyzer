@@ -3,7 +3,7 @@
 # Latest Additions
 
 We have recently added call graph documentation for all `Go`
-code. See `Appendix A` in the [user manual](doc/CSA-UserManual.md). Also you will find a table packages and their descriptions. Call graphs were created by [go-calvis](https://github.com/ofabry/go-callvis). Instructions for using `go-callvis` are included. This is an excellent way to become more familiar with the code.
+code. See `Appendix A` in the [user manual](doc/CSA-UserManual.md). Also, you will find a table of package names and their descriptions. Call graphs were created by [go-calvis](https://github.com/ofabry/go-callvis). Instructions for using `go-callvis` are included. This is an excellent way to become more familiar with the code.
 
 # Backlog/Feature requests
 
