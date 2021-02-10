@@ -3,6 +3,7 @@
 
 | Date         | Action                       | Author   |
 | ------------ | ---------------------------- | -------- |
+| Feb 10, 2021 | Add call graphs to user manual with package descriptions| S. Woods
 | Jul 30, 2020 | Amended rule import instructions | S. Woods |
 | Jul 30, 2020 | Prep for open source release | S. Woods |
 | Dec 12, 2018 | Converted from readme        | S. Woods |
@@ -867,3 +868,35 @@ Here you can find descriptions for various types of output.
 |`regular`    | **simple** arrow|
 |`concurrent` | arrow with **circle**|
 |`deferred`   | arrow with **diamond**|
+
+## Package descriptions
+
+|Package      | Description|
+|---------:   | :---------|
+|`main.svg`   | Main package|
+|`csa.svg`    | sloc 
+|             | app scoring|
+|             | natural lang processing|
+|             | lucene search|
+|             | git reports|
+|`model.svg`  | orm for sqlite|
+|             | rule validation|
+|             | yaml path|
+|             | xml query|
+|             | json path|
+|             | rule/file processor|
+|             | rule metrics|
+|`routes.svg` | REST call routing|
+|`db.svg`     | ORM and data access layer|
+|`profile.svg`| Runtime perf profiler|
+|`kingpin.svg`| CLI parameter processer|
+|`logrus.svg` | Logging framework|
+|`natural.svg`| Natural Language processer|
+|`reports.svg`| Git report generator|
+|`search.svg` | Lucene search from CLI|
+
+A good first step if you are adding a feature to CSA is to grep the name of the function(s) in the `svg` files and determine which packages are involved then open the relevant `svg` to understand the implementation. 
+
+While exploring the `svg` in a browser, you will receive detailed source code information when hovering over a call graph node.
+
+![Hover image](images/hover.png "Hover")

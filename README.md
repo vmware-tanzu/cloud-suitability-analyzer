@@ -1,5 +1,19 @@
 # Cloud Suitability Analyzer
 
+# Latest Additions
+
+We have recently added call graph documentation for all `Go`
+code. See `Appendix A` in the [user manual](doc/CSA-UserManual.md). Also you will find a table packages and their descriptions. Call graphs were created by [go-calvis](https://github.com/ofabry/go-callvis). Instructions for using `go-callvis` are included. This is an excellent way to become more familiar with the code.
+
+# Backlog/Feature requests
+
+We are becoming more formal in our tracking of backlog with increased usage driving feature requests. You'll find our official backlog detailed in our [Roadmap](https://github.com/vmware-tanzu/cloud-suitability-analyzer/projects/1) 
+
+To summarize, here's what is in progress:
+
+1. Rules that look for the absence of a pattern
+2. Allowing multiple instances of file patterns
+
 
 
 # Quick Start
@@ -83,7 +97,7 @@ $> sudo chown -R $USER:`id -g -n $USER` $WORKING_DIR/go/exe
 
 The executable(s) can be found in  `<project root dir>/go/exe` directory
 
-## Documentation
+# Documentation
 
 ## Contributing
 
