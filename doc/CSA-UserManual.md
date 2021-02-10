@@ -724,6 +724,8 @@ The bottom two bar charts present a selectable view with language and APIs, refl
 
 ![enter image description here](images/Portfolio.png "Portfolio Page")
 
+
+
 ### Application Page
 
 The Application page allows us to focus on a single application and dig deeper into its composition. Selecting an application in the combo box will show all the details for that application, such SLOC (Software Lines of Code) and number of files.
@@ -812,3 +814,56 @@ Sometimes, it's easy to forget how many languages are in your application. Here'
 If you're writing rules for `csa` this tab is very helpful to know how the rules are performing. Poorly written regular expression can seriously affect `csa's` performance, this is where you to to find bottlenecks.
 
 ![enter image description here](images/Data-Rules.png "Rules")
+
+# Appendix A
+
+## CSA Structure and Operation
+
+CSA is a complex application for selevaral reasons. It contains a parallel rules processing engine, a web server, and an embedded set of yaml based rules. The first time it is run, it creates it's own *SQLite* database, `csa.db`. It's CLI syntax is extensive. To better understand it, a comprehensive call graph has been produced and may be found in the `doc/csa-callgraphs` directory. These call graphs were created with a `Go` base utility called [go-callvis](https://github.com/ofabry/go-callvis). The tools directs your browser to a locally hosted web-server. 
+
+To install:
+```bash
+go get -u github.com/ofabry/go-callvis
+```
+
+To run from the `csa/go` directory:
+
+```bash
+go-callvis csa.go
+```
+
+Otherwise, you open the `svg` files in the directory using any browswer.
+
+Here's a reprint of the diagram legend:
+
+## Reference guide
+
+Here you can find descriptions for various types of output.
+
+### Packages / Types
+
+|Represents  | Style|
+|----------: | :-------------|
+|`focused`   | **blue** color|
+|`stdlib`    | **green** color|
+|`other`     | **yellow** color|
+
+### Functions / Methods
+
+|Represents   | Style|
+|-----------: | :--------------|
+|`exported`   | **bold** border|
+|`unexported` | **normal** border|
+|`anonymous`  | **dotted** border|
+
+### Calls
+
+|Represents   | Style|
+|-----------: | :-------------|
+|`internal`   | **black** color|
+|`external`   | **brown** color|
+|`static`     | **solid** line|
+|`dynamic`    | **dashed** line|
+|`regular`    | **simple** arrow|
+|`concurrent` | arrow with **circle**|
+|`deferred`   | arrow with **diamond**|
