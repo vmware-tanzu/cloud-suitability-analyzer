@@ -17,7 +17,7 @@ echo "~~~> Compile/Minify UI"
 pushd ${WORKING_DIR}/go/frontend > /dev/null
   
   echo "~~~> Running npm ci"
-
+  export NODE_OPTIONS="--max_old_space_size=4096"
   
   npm ci -s --no-optional #> /dev/null 2>&1
 
