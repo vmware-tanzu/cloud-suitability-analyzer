@@ -19,7 +19,7 @@ pushd ${WORKING_DIR}/go/frontend > /dev/null
   echo "~~~> Running npm ci"
 
   
-  npm ci -s --no-optional > /dev/null 2>&1
+  npm ci -s --no-optional #> /dev/null 2>&1
 
   if [ $? -eq 0 ]
   then

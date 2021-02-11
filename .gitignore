@@ -1,5 +1,4 @@
 
-#--- ignore web-site.go, it is created by go-bindata
 .gitmodules
 
 
