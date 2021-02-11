@@ -1,6 +1,10 @@
 
 .gitmodules
 
+#--- ignore generated files
+go/model/BinBootstrap.go
+go/model/Bootstrap.go
+go/model/ScoringModelBootstrap.go
 
 *~
 *.swo
