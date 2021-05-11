@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapScoringModelsTemplate.txt found under go/resources folder
-//Created @ 2021-02-11 20:44:06.578421466 +0000 UTC m=+0.096466506
+//Created @ 2021-05-11 21:20:11.739733068 +0000 UTC m=+0.071879698
 
 func BootstrapModels() []ScoringModel {
     var BootstrapModels = []ScoringModel{
