@@ -57,6 +57,6 @@ it('when componentDidMount then populateSummaryAndApplicationScores called 1 tim
 it('when rendered then prime react components present', () => {
   const run = { id: '1' };
   const wrapper = shallow(<ExecutiveSummaryViewComponent selectedRun={run} />);
-  expect(wrapper.find('Growl').exists()).toBeTruthy();
+  expect(wrapper.find('Toast').exists()).toBeTruthy();
   expect(wrapper.find('DataTable').exists()).toBeTruthy();
 });

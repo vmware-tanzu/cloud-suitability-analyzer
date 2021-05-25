@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
-import { Growl } from 'primereact/growl';
+import { Toast } from 'primereact/toast';
 
 import { RulesService } from './RulesService';
 import NavBarUtil from '../util/NavBarUtil';
@@ -40,7 +40,7 @@ export default class RulesTableComponent extends Component {
 
         this.setState({ rules: rulesResponse });
       })
-      .catch(err => pushErrorNotification(err, this.growl));
+      .catch(err => pushErrorNotification(err, this.toast));
   }
 
   tagFilter(value, filter) {
@@ -132,7 +132,7 @@ export default class RulesTableComponent extends Component {
 
     return (
       <div>
-        <Growl ref={el => (this.growl = el)} position="bottomright" />
+        <Toast ref={el => (this.toast = el)} position="bottomright" />
         <DataTable
           value={this.state.rules}
           responsive={true}

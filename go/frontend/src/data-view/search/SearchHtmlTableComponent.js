@@ -13,7 +13,7 @@ import {
   pushNotification,
   sleep
 } from '../../util/NotificationUtil';
-import { Growl } from 'primereact/components/growl/Growl';
+import { Toast } from 'primereact/toast';
 //import KeyValuePairComponent from "../../util/KeyValuePairComponent";
 import FindingDetails from '../../util/FindingDetails';
 
@@ -57,9 +57,9 @@ export default class SearchHtmlTableComponent extends Component {
       .then(() => this.tableLoaded())
       .catch(err => {
         if (err.response) {
-          pushErrorNotification(err.response.data, this.growl);
+          pushErrorNotification(err.response.data, this.toast);
         } else {
-          pushErrorNotification(err, this.growl);
+          pushErrorNotification(err, this.toast);
         }
       });
   }
@@ -103,7 +103,7 @@ export default class SearchHtmlTableComponent extends Component {
         hits = this.state.searchResults.Hits.length;
       }
 
-      pushNotification('Search returned [' + hits + '] findings!', this.growl);
+      pushNotification('Search returned [' + hits + '] findings!', this.toast);
     }
   }
 
@@ -270,9 +270,9 @@ export default class SearchHtmlTableComponent extends Component {
       .then(resp => this.showFindingSideBar(resp))
       .catch(err => {
         if (err.response) {
-          pushErrorNotification(err.response.data, this.growl);
+          pushErrorNotification(err.response.data, this.toast);
         } else {
-          pushErrorNotification(err, this.growl);
+          pushErrorNotification(err, this.toast);
         }
       });
   }
@@ -292,9 +292,9 @@ export default class SearchHtmlTableComponent extends Component {
       })
       .catch(err => {
         if (err.response) {
-          pushErrorNotification(err.response.data, this.growl);
+          pushErrorNotification(err.response.data, this.toast);
         } else {
-          pushErrorNotification(err, this.growl);
+          pushErrorNotification(err, this.toast);
         }
         this.setState({ index: { exists: false } });
       });
@@ -442,7 +442,7 @@ export default class SearchHtmlTableComponent extends Component {
 
     return (
       <div>
-        <Growl ref={el => (this.growl = el)} position="bottomright" />
+        <Toast ref={el => (this.toast = el)} position="bottomright" />
         {searchBody}
       </div>
     );

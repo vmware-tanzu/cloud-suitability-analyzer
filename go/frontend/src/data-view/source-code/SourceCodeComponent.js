@@ -6,7 +6,7 @@
 import React, { Component } from 'react';
 import { Column } from 'primereact/components/column/Column';
 import { DataTable } from 'primereact/components/datatable/DataTable';
-import { Growl } from 'primereact/components/growl/Growl';
+import { Toast } from 'primereact/toast';
 import { InputText } from 'primereact/components/inputtext/InputText';
 
 import DataViewService from '../DataViewService';
@@ -28,7 +28,7 @@ export default class SourceCodeComponent extends Component {
     DataViewService()
       .getSourceCodeData(runid)
       .then(resp => this.setState({ findings: resp }))
-      .catch(err => pushErrorNotification(err, this.growl))
+      .catch(err => pushErrorNotification(err, this.toast))
       .then(() => this.tableLoaded());
   }
 
@@ -74,7 +74,7 @@ export default class SourceCodeComponent extends Component {
 
     return (
       <div>
-        <Growl ref={el => (this.growl = el)} position="bottomright" />
+        <Toast ref={el => (this.toast = el)} position="bottomright" />
         <DataTable
           value={this.state.findings}
           loading={this.state.loading}

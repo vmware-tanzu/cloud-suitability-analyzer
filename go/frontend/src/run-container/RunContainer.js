@@ -4,7 +4,7 @@
  */
 
 import React, { Component } from 'react';
-import { Growl } from 'primereact/growl';
+import { Toast } from 'primereact/toast';
 import { Dropdown } from 'primereact/dropdown';
 
 import { pushErrorNotification } from '../util/NotificationUtil';
@@ -86,8 +86,8 @@ export default class RunContainer extends Component {
     );
     this.navigateToApp = this.navigateToApp.bind(this);
 
-    const app_param = new URLSearchParams(window.location.href.split('?')[1]).get("app");  
-    if (app_param) { 
+    const app_param = new URLSearchParams(window.location.href.split('?')[1]).get("app");
+    if (app_param) {
       this.state = {
         runIdItems: [],
         selectedRun: '',
@@ -246,7 +246,7 @@ export default class RunContainer extends Component {
           return { runIdItems: items, selectedRun: run };
         });
       })
-      .catch(err => pushErrorNotification(err, this.growl));
+      .catch(err => pushErrorNotification(err, this.toast));
   }
 
   fetchVersionInfo() {
@@ -255,7 +255,7 @@ export default class RunContainer extends Component {
       .then(resp => {
         this.setState({ version: resp });
       })
-      .catch(err => pushErrorNotification(err, this.growl));
+      .catch(err => pushErrorNotification(err, this.toast));
   }
 
   startContainer() {
@@ -321,9 +321,9 @@ export default class RunContainer extends Component {
 
     return (
       <div>
-        <Growl
-          id="growl1"
-          ref={el => (this.growl = el)}
+        <Toast
+          id="toast1"
+          ref={el => (this.toast = el)}
           position="bottomright"
         />
         <div className="ui-g">

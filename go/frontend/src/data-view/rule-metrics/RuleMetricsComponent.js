@@ -13,7 +13,7 @@ import {
   pushNotification,
   sleep
 } from '../../util/NotificationUtil';
-import { Growl } from 'primereact/components/growl/Growl';
+import { Toast } from 'primereact/toast';
 import { PrimaryButton } from 'pivotal-ui/react/buttons/buttons';
 
 export default class RuleMetricsComponent extends Component {
@@ -33,9 +33,9 @@ export default class RuleMetricsComponent extends Component {
       .then(resp => this.setState({ metrics: resp.metrics }))
       .catch(err => {
         if (err.response) {
-          pushErrorNotification(err.response.data, this.growl);
+          pushErrorNotification(err.response.data, this.toast);
         } else {
-          pushErrorNotification(err, this.growl);
+          pushErrorNotification(err, this.toast);
         }
       })
       .then(() => this.tableLoaded());
@@ -61,7 +61,7 @@ export default class RuleMetricsComponent extends Component {
     this.setState({ loading: false });
     pushNotification(
       'Found [' + this.state.metrics.length + '] metrics!',
-      this.growl
+      this.toast
     );
   }
 
@@ -91,7 +91,7 @@ export default class RuleMetricsComponent extends Component {
 
     return (
       <div>
-        <Growl ref={el => (this.growl = el)} position="bottomright" />
+        <Toast ref={el => (this.toast = el)} position="bottomright" />
 
         <DataTable
           value={this.state.metrics}

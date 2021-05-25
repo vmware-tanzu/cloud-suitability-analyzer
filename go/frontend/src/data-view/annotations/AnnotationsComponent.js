@@ -9,7 +9,7 @@ import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
 import DataViewService from '../DataViewService';
 import { pushErrorNotification, sleep } from '../../util/NotificationUtil';
-import { Growl } from 'primereact/components/growl/Growl';
+import { Toast } from 'primereact/toast';
 import { PrimaryButton } from 'pivotal-ui/react/buttons/buttons';
 
 export default class AnnotationsComponent extends Component {
@@ -27,7 +27,7 @@ export default class AnnotationsComponent extends Component {
     DataViewService()
       .getAnnotationData(runid)
       .then(resp => this.setState({ findings: resp }))
-      .catch(err => pushErrorNotification(err, this.growl))
+      .catch(err => pushErrorNotification(err, this.toast))
       .then(() => this.tableLoaded());
   }
 
@@ -73,7 +73,7 @@ export default class AnnotationsComponent extends Component {
 
     return (
       <div>
-        <Growl ref={el => (this.growl = el)} position="bottomright" />
+        <Toast ref={el => (this.toast = el)} position="bottomright" />
         <DataTable
           value={this.state.findings}
           loading={this.state.loading}

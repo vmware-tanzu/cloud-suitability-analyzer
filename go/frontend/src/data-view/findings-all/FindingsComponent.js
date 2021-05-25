@@ -13,7 +13,7 @@ import {
   pushNotification,
   sleep
 } from '../../util/NotificationUtil';
-import { Growl } from 'primereact/components/growl/Growl';
+import { Toast } from 'primereact/toast';
 import { PrimaryButton } from 'pivotal-ui/react/buttons/buttons';
 import FindingDetails from '../../util/FindingDetails';
 import { Sidebar } from 'primereact/sidebar';
@@ -43,9 +43,9 @@ export default class FindingsComponent extends Component {
       .then(resp => this.setState({ findings: resp }))
       .catch(err => {
         if (err.response) {
-          pushErrorNotification(err.response.data, this.growl);
+          pushErrorNotification(err.response.data, this.toast);
         } else {
-          pushErrorNotification(err, this.growl);
+          pushErrorNotification(err, this.toast);
         }
       })
       .then(() => this.tableLoaded());
@@ -71,7 +71,7 @@ export default class FindingsComponent extends Component {
     this.setState({ loading: false });
     pushNotification(
       'Found [' + this.state.findings.length + '] findings!',
-      this.growl
+      this.toast
     );
   }
 
@@ -130,9 +130,9 @@ export default class FindingsComponent extends Component {
       .then(resp => this.showFindingSideBar(resp, position))
       .catch(err => {
         if (err.response) {
-          pushErrorNotification(err.response.data, this.growl);
+          pushErrorNotification(err.response.data, this.toast);
         } else {
-          pushErrorNotification(err, this.growl);
+          pushErrorNotification(err, this.toast);
         }
       });
   }
@@ -171,7 +171,7 @@ export default class FindingsComponent extends Component {
 
     return (
       <div>
-        <Growl ref={el => (this.growl = el)} position="bottomright" />
+        <Toast ref={el => (this.toast = el)} position="bottomright" />
         <Sidebar
           position={this.state.sidebarPosition}
           className="ui-sidebar-md"

@@ -6,7 +6,7 @@
 import React, { Component } from 'react';
 import { Chart } from 'primereact/chart';
 import { Dropdown } from 'primereact/dropdown';
-import { Growl } from 'primereact/growl';
+import { Toast } from 'primereact/toast';
 
 import PortfolioViewService from './PortfolioViewService';
 import { pushErrorNotification } from '../util/NotificationUtil';
@@ -74,7 +74,7 @@ export default class PortfolioViewComponent extends Component {
           }
         );
       })
-      .catch(err => pushErrorNotification(err, this.growl))
+      .catch(err => pushErrorNotification(err, this.toast))
       .then(() => this.fetchAppsByLanguage(runid, this.state.selectedLanguage));
   }
 
@@ -91,7 +91,7 @@ export default class PortfolioViewComponent extends Component {
           }
         );
       })
-      .catch(err => pushErrorNotification(err, this.growl))
+      .catch(err => pushErrorNotification(err, this.toast))
       .then(() => this.fetchAppsByApi(runid, this.state.selectedApi));
   }
 
@@ -103,7 +103,7 @@ export default class PortfolioViewComponent extends Component {
           this.setState({ top5LanguagesByLocData: resp.slice(0, 5) });
         }
       })
-      .catch(err => pushErrorNotification(err, this.growl));
+      .catch(err => pushErrorNotification(err, this.toast));
   }
 
   fetchTop5ApisByScore(runid) {
@@ -115,7 +115,7 @@ export default class PortfolioViewComponent extends Component {
           this.setState({ top5ApisByScoreData: resp.slice(0, 5) });
         }
       })
-      .catch(err => pushErrorNotification(err, this.growl));
+      .catch(err => pushErrorNotification(err, this.toast));
   }
 
   fetchAppsByLanguage(runid, language) {
@@ -126,7 +126,7 @@ export default class PortfolioViewComponent extends Component {
           this.setState({ appsByLanguageData: resp.slice(0, 10) });
         }
       })
-      .catch(err => pushErrorNotification(err, this.growl));
+      .catch(err => pushErrorNotification(err, this.toast));
   }
 
   fetchAppsByApi(runid, api) {
@@ -136,7 +136,7 @@ export default class PortfolioViewComponent extends Component {
         console.log('fetched apps by api!');
         this.setState({ appsByApiData: resp.slice(0, 10) });
       })
-      .catch(err => pushErrorNotification(err, this.growl));
+      .catch(err => pushErrorNotification(err, this.toast));
   }
 
   componentDidMount() {
@@ -363,7 +363,7 @@ export default class PortfolioViewComponent extends Component {
 
     return (
       <div>
-        <Growl ref={el => (this.growl = el)} position="bottomright" />
+        <Toast ref={el => (this.toast = el)} position="bottomright" />
         <div className="ui-g ui-fluid dashboard">
           <div className="ui-g-12">
             <div className="ui-g-12 ui-g-nopad">

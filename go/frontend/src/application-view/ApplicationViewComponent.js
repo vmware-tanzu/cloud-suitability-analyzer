@@ -5,7 +5,7 @@
 
 import React, { Component } from 'react';
 import { Dropdown } from 'primereact/dropdown';
-import { Growl } from 'primereact/growl';
+import { Toast } from 'primereact/toast';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
@@ -307,7 +307,7 @@ export default class ApplicationViewComponent extends Component {
           this.state.includeFF
         );
       })
-      .catch(err => pushErrorNotification(err, this.growl));
+      .catch(err => pushErrorNotification(err, this.toast));
   }
 
   populateAppStateData(
@@ -367,7 +367,7 @@ export default class ApplicationViewComponent extends Component {
       )
       .then(resp => this.setState({ findings: resp }))
       .then(() => this.filterLevel(this.props.levels))
-      .catch(err => pushErrorNotification(err, this.growl))
+      .catch(err => pushErrorNotification(err, this.toast))
       .then(() => this.tableLoaded());
   }
 
@@ -377,7 +377,7 @@ export default class ApplicationViewComponent extends Component {
       .then(resp => {
         this.setupScoreCard(resp, application, tags, bins);
       })
-      .catch(err => pushErrorNotification(err, this.growl));
+      .catch(err => pushErrorNotification(err, this.toast));
   }
 
   fetchLanguagesByApp(runid, app) {
@@ -390,7 +390,7 @@ export default class ApplicationViewComponent extends Component {
           });
         }
       })
-      .catch(err => pushErrorNotification(err, this.growl));
+      .catch(err => pushErrorNotification(err, this.toast));
   }
 
   fetchApisByApp(runid, app) {
@@ -403,7 +403,7 @@ export default class ApplicationViewComponent extends Component {
           });
         }
       })
-      .catch(err => pushErrorNotification(err, this.growl));
+      .catch(err => pushErrorNotification(err, this.toast));
   }
 
   setupScoreCard(scoreCard, application, tags, bins) {
@@ -496,7 +496,7 @@ export default class ApplicationViewComponent extends Component {
     this.setState({ loading: false });
     pushNotification(
       'Found [' + this.state.findings.length + '] findings!',
-      this.growl
+      this.toast
     );
   }
 
@@ -506,9 +506,9 @@ export default class ApplicationViewComponent extends Component {
       .then(resp => this.showFindingSideBar(resp, position))
       .catch(err => {
         if (err.response) {
-          pushErrorNotification(err.response.data, this.growl);
+          pushErrorNotification(err.response.data, this.toast);
         } else {
-          pushErrorNotification(err, this.growl);
+          pushErrorNotification(err, this.toast);
         }
       });
   }
@@ -569,7 +569,7 @@ export default class ApplicationViewComponent extends Component {
 
     return (
       <div>
-        <Growl ref={el => (this.growl = el)} position="bottomright" />
+        <Toast ref={el => (this.toast = el)} position="bottomright" />
         <div className="ui-g ui-fluid dashboard">
           <div className="ui-g-12 ui-md-6">
             <div className="card summary">

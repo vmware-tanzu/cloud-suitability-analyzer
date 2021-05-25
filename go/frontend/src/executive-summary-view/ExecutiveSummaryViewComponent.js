@@ -6,7 +6,7 @@
 import React, { Component } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import { Growl } from 'primereact/growl';
+import { Toast } from 'primereact/toast';
 import { TabPanel, TabView } from 'primereact/tabview';
 import {
   pushErrorNotification,
@@ -17,7 +17,7 @@ import ExecutiveSummaryService from './ExecutiveSummaryService';
 import { PrimaryButton } from 'pivotal-ui/react/buttons/buttons';
 import { InputText } from 'primereact/components/inputtext/InputText';
 import { DashboardCard } from '../shared/DashboardCard';
-import { Spinner } from 'primereact/spinner';
+import { ProgressSpinner } from 'primereact/progressspinner';
 import RecommendationTreeMap from './RecommendationTreeMap';
 import RecommendationBar from './RecommendationBar';
 
@@ -146,7 +146,7 @@ export default class ExecutiveSummaryViewComponent extends Component {
     ExecutiveSummaryService()
       .getApplicationScoresByRun(runid)
       .then(resp => this.setupAppScores(resp))
-      .catch(err => pushErrorNotification(err, this.growl))
+      .catch(err => pushErrorNotification(err, this.toast))
       .then(() => this.defaultAppBizValue());
   }
 
@@ -157,7 +157,7 @@ export default class ExecutiveSummaryViewComponent extends Component {
       .then(resp => {
         this.summaryStateSetter(resp);
       })
-      .catch(err => pushErrorNotification(err, this.growl));
+      .catch(err => pushErrorNotification(err, this.toast));
   }
 
   summaryStateSetter(resp) {
@@ -240,7 +240,7 @@ export default class ExecutiveSummaryViewComponent extends Component {
       let rowData = props.value[props.rowIndex];
       let idPre = props.rowIndex + '-' + props.field + '-';
       return (
-        <Spinner
+        <ProgressSpinner
           id={idPre + 'sp'}
           value={rowData[props.field]}
           style={{ width: '6em' }}
@@ -284,7 +284,7 @@ export default class ExecutiveSummaryViewComponent extends Component {
           }
           ExecutiveSummaryService()
             .updateApp(app)
-            .catch(err => pushErrorNotification(err, this.growl));
+            .catch(err => pushErrorNotification(err, this.toast));
           this.setState(
             { applicationScores: this.state.applicationScores },
             () => this.generateReadinessChart()
@@ -322,7 +322,7 @@ export default class ExecutiveSummaryViewComponent extends Component {
     this.setState({ loading: false });
     pushNotification(
       'Found [' + this.state.applicationScores + '] applications!',
-      this.growl
+      this.toast
     );
   }
 
@@ -356,9 +356,9 @@ export default class ExecutiveSummaryViewComponent extends Component {
 
     return (
       <div className="ui-g-nopad">
-        <Growl
-          id="growl1"
-          ref={el => (this.growl = el)}
+        <Toast
+          id="toast1"
+          ref={el => (this.toast = el)}
           position="bottomright"
         />
         <div className="ui-g ui-fluid ui-g-nopad dashboard">
@@ -476,9 +476,9 @@ export default class ExecutiveSummaryViewComponent extends Component {
                       />
                     )}
 
-                    {/* 
+                    {/*
                     Removed business value and 2x2 grid, keeping here
-                    in case we get push back                   
+                    in case we get push back
                     {this.state.tableEditable && (
                       <Column
                         header="Business Value"

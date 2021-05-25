@@ -42,9 +42,9 @@ export default class DataViewComponent extends Component {
       })
       .catch(err => {
         if (err.response) {
-          pushErrorNotification(err.response.data, this.growl);
+          pushErrorNotification(err.response.data, this.toast);
         } else {
-          pushErrorNotification(err, this.growl);
+          pushErrorNotification(err, this.toast);
         }
         this.setState({ index: { exists: false, activeIndex: 0 } });
       });

@@ -92,7 +92,7 @@ it('when populateLanguagesAndApis then fetchTop5LanguagesByLoc,fetchTop5ApisBySc
 it('when rendered then prime react components present', () => {
   const run = { id: '1' };
   const wrapper = shallow(<PortfolioViewComponent selectedRun={run} />);
-  expect(wrapper.find('Growl').exists()).toBeTruthy();
+  expect(wrapper.find('Toast').exists()).toBeTruthy();
   expect(wrapper.find('Chart').exists()).toBeTruthy();
   expect(wrapper.find('Dropdown').exists()).toBeTruthy();
 });

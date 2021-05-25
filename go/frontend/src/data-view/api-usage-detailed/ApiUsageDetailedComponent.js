@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
-import { Growl } from 'primereact/growl';
+import { Toast } from 'primereact/toast';
 
 import { pushErrorNotification, sleep } from '../../util/NotificationUtil';
 import DataViewService from '../DataViewService';
@@ -32,7 +32,7 @@ export default class ApiUsageDetailedComponent extends Component {
     DataViewService()
       .getApiDetailedUsage(runid)
       .then(resp => this.setState({ findings: resp }))
-      .catch(err => pushErrorNotification(err, this.growl))
+      .catch(err => pushErrorNotification(err, this.toast))
       .then(() => this.tableLoaded());
   }
 
@@ -74,7 +74,7 @@ export default class ApiUsageDetailedComponent extends Component {
 
     return (
       <div>
-        <Growl ref={el => (this.growl = el)} position="bottomright" />
+        <Toast ref={el => (this.toast = el)} position="bottomright" />
         <DataTable
           value={this.state.findings}
           loading={this.state.loading}
