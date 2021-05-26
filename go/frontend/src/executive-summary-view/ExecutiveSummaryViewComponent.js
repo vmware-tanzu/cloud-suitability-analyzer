@@ -356,7 +356,7 @@ export default class ExecutiveSummaryViewComponent extends Component {
 
     return (
       <div className="ui-g-nopad">
-        <Toast
+        <p-toast
           id="toast1"
           ref={el => (this.toast = el)}
           position="bottomright"

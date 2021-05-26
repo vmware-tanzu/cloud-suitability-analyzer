@@ -321,7 +321,7 @@ export default class RunContainer extends Component {
 
     return (
       <div>
-        <Toast
+        <p-toast
           id="toast1"
           ref={el => (this.toast = el)}
           position="bottomright"

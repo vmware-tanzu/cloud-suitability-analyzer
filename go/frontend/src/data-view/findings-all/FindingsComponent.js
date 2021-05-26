@@ -171,7 +171,7 @@ export default class FindingsComponent extends Component {
 
     return (
       <div>
-        <Toast ref={el => (this.toast = el)} position="bottomright" />
+        <p-toast ref={el => (this.toast = el)} position="bottomright" />
         <Sidebar
           position={this.state.sidebarPosition}
           className="ui-sidebar-md"

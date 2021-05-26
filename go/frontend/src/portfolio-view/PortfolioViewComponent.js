@@ -363,7 +363,7 @@ export default class PortfolioViewComponent extends Component {
 
     return (
       <div>
-        <Toast ref={el => (this.toast = el)} position="bottomright" />
+        <p-toast ref={el => (this.toast = el)} position="bottomright" />
         <div className="ui-g ui-fluid dashboard">
           <div className="ui-g-12">
             <div className="ui-g-12 ui-g-nopad">

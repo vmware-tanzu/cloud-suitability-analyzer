@@ -73,7 +73,7 @@ export default class AnnotationsComponent extends Component {
 
     return (
       <div>
-        <Toast ref={el => (this.toast = el)} position="bottomright" />
+        <p-toast ref={el => (this.toast = el)} position="bottomright" />
         <DataTable
           value={this.state.findings}
           loading={this.state.loading}
