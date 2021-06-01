@@ -8,6 +8,8 @@ import {UriConstants} from 'src/app/constants/uri-constants';
 import {Score} from "../model/score";
 import {RunSloc} from "../model/runsloc";
 import {Scores} from "../model/scores";
+import {LanguagesByCodeLines} from "../model/languagesbycodelines";
+import {ApisByScore} from "../model/apisbyscore";
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -35,6 +37,17 @@ export class ExecutiveSummaryService {
   getSummaryFindingsByRun(runid: number): Observable<RunSloc>  {
     const url = UriConstants.RUNS_URI + runid + '/summary/run_slocs';
     return this.http.get<RunSloc>(url);
+  }
+
+  getLanguagesByLoc(runid: number): Observable<LanguagesByCodeLines[]> {
+    const url = UriConstants.RUNS_URI + runid + '/summary/top_languages_by_codelines';
+    return this.http.get<LanguagesByCodeLines[]>(url);
+  }
+
+  /* /api/runs/1/summary/top_apis_by_count */
+  getApisByScore(runid: number): Observable<ApisByScore[]>{
+    const url = UriConstants.RUNS_URI + + runid + '/summary/top_apis_by_score';
+    return this.http.get<ApisByScore[]>(url);
   }
 
 }

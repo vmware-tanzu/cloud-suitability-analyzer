@@ -9,6 +9,8 @@ import {forkJoin} from "rxjs";
 import {Scores} from "../../model/scores";
 import {ClarityIcons, pinboardIcon, fileIcon, codeIcon, applicationsIcon, downloadIcon} from '@cds/core/icon';
 import '@cds/core/icon/register.js';
+import {LanguagesByCodeLines} from "../../model/languagesbycodelines";
+import {ApisByScore} from "../../model/apisbyscore";
 
 @Component({
   selector: 'csa-executive-summary',
@@ -26,7 +28,8 @@ export class ExecutiveSummaryComponent implements OnChanges {
   locByRun: number = 0;
   numFilesByRun: number = 0;
   findings: number = 0;
-  readinessChartData: any[] = [];
+  top5LanguagesByLocData: LanguagesByCodeLines[]= [];
+  top5ApisByScoreData: ApisByScore[] = [];
   cardBackground: string = 'count card-background';
   activeIndex: number = 0;
   filter: string = "";
@@ -63,7 +66,8 @@ export class ExecutiveSummaryComponent implements OnChanges {
     this.locByRun = 0;
     this.numAppsByRun = 0;
     this.filteredApplicationScores = [];
-    this.readinessChartData = [];
+    this.top5LanguagesByLocData = [];
+    this.top5ApisByScoreData = [];
   }
   fetchAppScoresAndFindings(runid: number): void{
     let runSlocBlank: RunSloc= {
@@ -98,4 +102,20 @@ export class ExecutiveSummaryComponent implements OnChanges {
       })
     }
 }
+
+  fetchTop5LanguagesByLoc(runid: number) {
+    this.executiveSummaryService.getLanguagesByLoc(runid).subscribe(languagesByLocReturned => {
+      this.top5LanguagesByLocData = languagesByLocReturned.slice(0, 5);
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  fetchTop5ApisByScore(runid: number) {
+    this.executiveSummaryService.getApisByScore(runid).subscribe(apisByScoreReturned => {
+      this.top5ApisByScoreData = apisByScoreReturned.slice(0, 5);
+    }, error => {
+      console.log(error);
+    });
+  }
 }

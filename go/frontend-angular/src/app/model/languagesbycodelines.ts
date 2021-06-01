@@ -1,4 +1,4 @@
-export interface languagesByCodeLines{
+export interface LanguagesByCodeLines {
   language: number;
   codeLines: string;
 }

@@ -33,7 +33,8 @@
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3",
-    "lodash": "4.17.21"
+    "lodash": "4.17.21",
+    "xlsx": "^0.16.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1102.2",
