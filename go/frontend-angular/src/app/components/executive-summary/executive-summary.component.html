@@ -75,8 +75,47 @@
     </clr-tab>
     <clr-tab class="summary-tab">
       <button clrTabLink>Charts</button>
-      <clr-tab-content *clrIfActive="true">
-        Charts
+      <clr-tab-content *clrIfActive="false">
+        <div class="summary-charts">
+        <div class="summary-chart">
+        <ngx-charts-bar-horizontal
+          [view]="view"
+          [scheme]="colorScheme"
+          [results]="top5LanguagesByLocData"
+          [gradient]="gradient"
+          [xAxis]="showXAxis"
+          [yAxis]="showYAxis"
+          [showXAxisLabel]="showXAxisLabel"
+          [showYAxisLabel]="showYAxisLabel"
+          [xAxisLabel]="xAxisLabelForLanguagesByLoc"
+          [yAxisLabel]="yAxisLabelForLanguagesByLoc"
+          [barPadding]="barPadding"
+          [showGridLines]="showGridLines"
+          (select)="onSelectApisByScore($event)"
+          (activate)="onActivateApisByScore($event)"
+          (deactivate)="onDeactivateApisByScore($event)">
+        </ngx-charts-bar-horizontal>
+        </div>
+        <div class="summary-chart">
+        <ngx-charts-bar-horizontal
+          [view]="view"
+          [scheme]="colorScheme"
+          [results]="top5ApisByScoreData"
+          [gradient]="gradient"
+          [xAxis]="showXAxis"
+          [yAxis]="showYAxis"
+          [showXAxisLabel]="showXAxisLabel"
+          [showYAxisLabel]="showYAxisLabel"
+          [xAxisLabel]="xAxisLabelForApiByScore"
+          [yAxisLabel]="yAxisLabelForApiByScore"
+          [barPadding]="barPadding"
+          [showGridLines]="showGridLines"
+          (select)="onSelectApisByScore($event)"
+          (activate)="onActivateApisByScore($event)"
+          (deactivate)="onDeactivateApisByScore($event)">
+        </ngx-charts-bar-horizontal>
+        </div>
+        </div>
       </clr-tab-content>
     </clr-tab>
   </clr-tabs>

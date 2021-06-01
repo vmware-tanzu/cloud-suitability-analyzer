@@ -1,4 +1,4 @@
 export interface ApisByScore{
-  api: number;
-  usageCount: string;
+  api: string;
+  usageCount: number;
 }

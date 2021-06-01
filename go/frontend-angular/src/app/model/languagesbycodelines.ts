@@ -1,4 +1,4 @@
 export interface LanguagesByCodeLines {
-  language: number;
-  codeLines: string;
+  language: string;
+  codeLines: number;
 }

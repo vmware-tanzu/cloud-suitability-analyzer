@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
@@ -17,10 +18,11 @@ import {AnalyzerRunService} from "./services/analyzerrun.service";
 import {ExecutiveSummaryService} from "./services/executivesummary.service";
 import {HttpClientModule} from "@angular/common/http";
 import { ExcelExportComponent } from './components/common/excel-export/excel-export.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [AppComponent, ExecutiveSummaryComponent, SortArrayByPropPipe, AnalyzerRunComponent, AnalyzerRunDetailsComponent, HeaderComponent, ExcelExportComponent],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, CdsModule, ClarityModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, CdsModule, ClarityModule, HttpClientModule, FormsModule, NgxChartsModule, BrowserAnimationsModule],
   providers: [AnalyzerRunService, ExecutiveSummaryService],
   bootstrap: [AppComponent],
 })
