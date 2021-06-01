@@ -16,9 +16,10 @@ import { HeaderComponent } from './components/header/header.component';
 import {AnalyzerRunService} from "./services/analyzerrun.service";
 import {ExecutiveSummaryService} from "./services/executivesummary.service";
 import {HttpClientModule} from "@angular/common/http";
+import { ExcelExportComponent } from './components/common/excel-export/excel-export.component';
 
 @NgModule({
-  declarations: [AppComponent, ExecutiveSummaryComponent, SortArrayByPropPipe, AnalyzerRunComponent, AnalyzerRunDetailsComponent, HeaderComponent],
+  declarations: [AppComponent, ExecutiveSummaryComponent, SortArrayByPropPipe, AnalyzerRunComponent, AnalyzerRunDetailsComponent, HeaderComponent, ExcelExportComponent],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, CdsModule, ClarityModule, HttpClientModule, FormsModule],
   providers: [AnalyzerRunService, ExecutiveSummaryService],
   bootstrap: [AppComponent],

@@ -7,7 +7,7 @@ import {RunSloc} from "../../model/runsloc";
 import {AnalyzerRun} from "../../model/analyzerrun";
 import {forkJoin} from "rxjs";
 import {Scores} from "../../model/scores";
-import {ClarityIcons, pinboardIcon, fileIcon, codeIcon, applicationsIcon} from '@cds/core/icon';
+import {ClarityIcons, pinboardIcon, fileIcon, codeIcon, applicationsIcon, downloadIcon} from '@cds/core/icon';
 import '@cds/core/icon/register.js';
 
 @Component({
@@ -38,6 +38,7 @@ export class ExecutiveSummaryComponent implements OnChanges {
     ClarityIcons.addIcons(pinboardIcon);
     ClarityIcons.addIcons(fileIcon);
     ClarityIcons.addIcons(codeIcon);
+    ClarityIcons.addIcons(downloadIcon);
     ClarityIcons.addIcons(applicationsIcon);
   }
 

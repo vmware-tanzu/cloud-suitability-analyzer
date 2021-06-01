@@ -41,11 +41,45 @@
 
 }
 
+.summary-tab{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 14px 0px 0px;
+
+  position: absolute;
+  width: 123px;
+  height: 36px;
+  left: 25px;
+  top: 482px;
+}
+
+.summary-tabs{
+  position: absolute;
+  top: 497px;
+}
+
+.summary-grid-divider{
+  position: absolute;
+  height: 1px;
+  left: 0%;
+  right: 0%;
+  top: 517px;
+  background: #CCCCCC;
+}
+
 .summary-grid{
   position: absolute;
   width: 1390px;
   left: 25px;
-  top: 609px;
+}
+
+.summary-grid-export{
+  position: absolute;
+  width: 74px;
+  height: 36px;
+  left: 25px;
+  top: 542px;
 }
 
 .grid-column{
