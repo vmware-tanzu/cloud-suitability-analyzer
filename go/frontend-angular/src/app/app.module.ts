@@ -14,16 +14,16 @@ import { SortArrayByPropPipe } from './pipes/sort-array-by-prop.pipe';
 import { AnalyzerRunComponent } from './components/analyzer-run/analyzer-run.component';
 import { AnalyzerRunDetailsComponent } from './components/analyzer-run-details/analyzer-run-details.component';
 import { HeaderComponent } from './components/header/header.component';
-import {AnalyzerRunService} from "./services/analyzerrun.service";
-import {ExecutiveSummaryService} from "./services/executivesummary.service";
-import {HttpClientModule} from "@angular/common/http";
+import { AnalyzerRunService } from "./services/analyzerrun.service";
+import { ExecutiveSummaryService } from "./services/executivesummary.service";
+import { HttpClientModule } from "@angular/common/http";
 import { ExcelExportComponent } from './components/common/excel-export/excel-export.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
-import { RulesComponent } from './components/rules/rules.component';
+import { ApplicationSummaryComponent } from './components/application-summary/application-summary.component';
 
 @NgModule({
-  declarations: [AppComponent, ExecutiveSummaryComponent, SortArrayByPropPipe, AnalyzerRunComponent, AnalyzerRunDetailsComponent, HeaderComponent, ExcelExportComponent, SearchFilterPipe, RulesComponent],
+  declarations: [AppComponent, ExecutiveSummaryComponent, SortArrayByPropPipe, AnalyzerRunComponent, AnalyzerRunDetailsComponent, HeaderComponent, ExcelExportComponent, SearchFilterPipe, ApplicationSummaryComponent],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, CdsModule, ClarityModule, HttpClientModule, FormsModule, NgxChartsModule, BrowserAnimationsModule],
   providers: [AnalyzerRunService, ExecutiveSummaryService],
   bootstrap: [AppComponent],
