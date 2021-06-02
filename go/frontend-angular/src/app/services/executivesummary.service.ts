@@ -5,7 +5,6 @@ import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import {HttpHeaders, HttpErrorResponse} from '@angular/common/http';
 import {UriConstants} from 'src/app/constants/uri-constants';
-import {Score} from "../model/score";
 import {RunSloc} from "../model/runsloc";
 import {Scores} from "../model/scores";
 import {LanguagesByCodeLines} from "../model/languagesbycodelines";
@@ -49,6 +48,5 @@ export class ExecutiveSummaryService {
     const url = UriConstants.RUNS_URI + + runid + '/summary/top_apis_by_score';
     return this.http.get<ApisByScore[]>(url);
   }
-
 }
 

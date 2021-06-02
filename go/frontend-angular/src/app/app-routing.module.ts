@@ -1,17 +1,28 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {AnalyzerRunDetailsComponent} from "./components/analyzer-run-details/analyzer-run-details.component";
 import {ExecutiveSummaryComponent} from "./components/executive-summary/executive-summary.component";
+import {RulesComponent} from "./components/rules/rules.component";
 export const routes: Routes = [
   {
     path: 'runs/:id',
-    component: AnalyzerRunDetailsComponent,
     children: [
       {
         path: 'summary',
         component: ExecutiveSummaryComponent
+      },
+      {
+        path: 'application',
+        component: ExecutiveSummaryComponent
+      },
+      {
+        path: 'data',
+        component: ExecutiveSummaryComponent
       }
     ]
+  },
+  {
+    path: 'rules',
+    component: RulesComponent
   },
   { path: '', redirectTo: 'select-run', pathMatch: 'full'},
 ];

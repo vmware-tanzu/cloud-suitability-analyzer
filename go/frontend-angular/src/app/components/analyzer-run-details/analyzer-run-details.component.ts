@@ -9,6 +9,7 @@ import {AnalyzerRun} from "../../model/analyzerrun";
 })
 export class AnalyzerRunDetailsComponent implements OnInit {
 
+  @Input()
   selectedRunId: number | undefined;
 
   @Input()

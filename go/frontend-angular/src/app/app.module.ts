@@ -20,9 +20,10 @@ import {HttpClientModule} from "@angular/common/http";
 import { ExcelExportComponent } from './components/common/excel-export/excel-export.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
+import { RulesComponent } from './components/rules/rules.component';
 
 @NgModule({
-  declarations: [AppComponent, ExecutiveSummaryComponent, SortArrayByPropPipe, AnalyzerRunComponent, AnalyzerRunDetailsComponent, HeaderComponent, ExcelExportComponent, SearchFilterPipe],
+  declarations: [AppComponent, ExecutiveSummaryComponent, SortArrayByPropPipe, AnalyzerRunComponent, AnalyzerRunDetailsComponent, HeaderComponent, ExcelExportComponent, SearchFilterPipe, RulesComponent],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, CdsModule, ClarityModule, HttpClientModule, FormsModule, NgxChartsModule, BrowserAnimationsModule],
   providers: [AnalyzerRunService, ExecutiveSummaryService],
   bootstrap: [AppComponent],

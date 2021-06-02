@@ -33,12 +33,16 @@ export class AnalyzerRunComponent implements OnInit {
   }
 
     ngOnInit(): void {
+      this.analyzerRunService.getForgeVersion().subscribe(version => {
+        this.forgeVersion = version;
+      }, error => {
+        console.log(error);
+      });
     this.analyzerRunService.getDistinctRuns().subscribe(runList => {
       console.log(runList);
       Object.keys(runList).forEach((key) => {
         console.log(runList[key]);
         this.analyzerRuns = runList[key];
-        this.loaded = true;
       });
       this.analyzerRuns.forEach((analyzerRun, index) => {
         console.log(analyzerRun);
@@ -47,22 +51,21 @@ export class AnalyzerRunComponent implements OnInit {
           this.selectedRunId = analyzerRun.id;
           this.selectedRunDesc = analyzerRun.id+" - " +analyzerRun.Alias;
           this.analyzerRunSelected = analyzerRun;
+          console.log("loaded - "+this.selectedRunId);
+          this.loaded = true;
+          this.router.navigateByUrl(`/runs/${this.selectedRunId}/summary`);
+          // this.router.navigateByUrl(`/runs/${this.selectedRunId}/summary`, {state: {data: this.analyzerRunSelected}});
         }
       })
     }, error => {
       console.log(error);
     });
-    this.analyzerRunService.getForgeVersion().subscribe(version => {
-      this.forgeVersion = version;
-    }, error => {
-      console.log(error);
-    });
-     console.log("loaded - "+this.loaded);
   }
 
   runIdChanged(): void {
     this.analyzerRunSelected = this.analyzerRuns.find(analyzerRun => analyzerRun.id == this.selectedRunId);
     console.log(this.analyzerRunSelected);
+    this.router.navigateByUrl(`/runs/${this.selectedRunId}/summary`);
   }
 
 }

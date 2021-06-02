@@ -1,5 +1,5 @@
 import {Component, Input, OnChanges, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {ExecutiveSummaryService} from "../../services/executivesummary.service";
 import {ApplicationScore} from "../../model/applicationscore";
 import {RunSloc} from "../../model/runsloc";
@@ -16,10 +16,7 @@ import '@cds/core/search/register.js';
   templateUrl: './executive-summary.component.html',
   styleUrls: ['./executive-summary.component.css']
 })
-export class ExecutiveSummaryComponent implements OnChanges {
-
-  @Input()
-  analyzerRun: any;
+export class ExecutiveSummaryComponent implements OnInit {
 
   public searchCrit: any = '';
 
@@ -57,7 +54,7 @@ export class ExecutiveSummaryComponent implements OnChanges {
     domain: ['#0095D3', '#00BFA9', '#60B515', '#8939AD', '#F57600']
   };
 
-  constructor(private router: Router, private executiveSummaryService: ExecutiveSummaryService) {
+  constructor(private router: Router, private route: ActivatedRoute, private executiveSummaryService: ExecutiveSummaryService) {
     ClarityIcons.addIcons(pinboardIcon);
     ClarityIcons.addIcons(fileIcon);
     ClarityIcons.addIcons(codeIcon);
@@ -65,21 +62,29 @@ export class ExecutiveSummaryComponent implements OnChanges {
     ClarityIcons.addIcons(applicationsIcon);
   }
 
-/*  ngOnInit(): void {
-    if(this.analyzerRun) {
-      console.log("in ngOnInit analyzerRun.id - "+this.analyzerRun.id);
-      this.resetPage();
-      this.fetchAppScoresAndFindings(this.analyzerRun.id);
-    }
-  }*/
-  ngOnChanges(): void {
-    if(this.analyzerRun) {
-      this.resetPage();
-      this.fetchAppScoresAndFindings(this.analyzerRun.id);
-      this.fetchTop5ApisByScore(this.analyzerRun.id);
-      this.fetchTop5LanguagesByLoc(this.analyzerRun.id);
-    }
+  ngOnInit(): void {
+    console.log("in ngOnInit");
+    this.resetPage();
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      const runId = Number(params.get('id'));
+      console.log("runid is : "+runId);
+      this.fetchAppScoresAndFindings(runId);
+      this.fetchTop5ApisByScore(runId);
+      this.fetchTop5LanguagesByLoc(runId);
+    });
   }
+
+  /*ngOnChanges(): void {
+    console.log("in ngOnChanges");
+    this.resetPage();
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      const runId = Number(params.get('id'));
+      console.log("runid is : "+runId);
+      this.fetchAppScoresAndFindings(runId);
+      this.fetchTop5ApisByScore(runId);
+      this.fetchTop5LanguagesByLoc(runId);
+    });
+  }*/
 
   resetPage(): void{
     this.findings = 0;

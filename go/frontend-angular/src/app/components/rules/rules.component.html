@@ -1,0 +1,53 @@
+<div >
+  <clr-tabs class="rules-tabs">
+    <clr-tab class="rules-tab">
+      <button clrTabLink>Rules</button>
+      <clr-tab-content *clrIfActive>
+        <clr-datagrid class="rules-grid">
+          <clr-dg-action-bar>
+            <div class="action-bar">
+              <div class="action-bar-item-left">
+                <app-excel-export [data]="rules" [file_name]="'rules-summary.xlsx'"></app-excel-export>
+              </div>
+              <div class="action-bar-item-right">
+                <cds-search control-width="shrink">
+                  <label>Search</label>
+                  <input type="search" [(ngModel)]="searchCrit"/>
+                </cds-search>
+              </div>
+            </div>
+          </clr-dg-action-bar>
+          <clr-dg-column [clrDgField]="'name'">Name</clr-dg-column>
+          <clr-dg-column [clrDgField]="'tags'">Tags</clr-dg-column>
+          <clr-dg-column [clrDgField]="'fileTyoe'">FileType</clr-dg-column>
+          <clr-dg-column [clrDgField]="'target'">Target</clr-dg-column>
+          <clr-dg-column [clrDgField]="'advice'">Advice</clr-dg-column>
+          <clr-dg-column [clrDgField]="'effort'" [clrDgColType]="'number'">Effort</clr-dg-column>
+          <clr-dg-column [clrDgField]="'category'">Category</clr-dg-column>
+          <clr-dg-column [clrDgField]="'criticality'">Criticality</clr-dg-column>
+
+          <clr-dg-row *clrDgItems="let rule of rules  | searchFilter: 'name' : searchCrit">
+            <clr-dg-cell>{{rule.Name}}</clr-dg-cell>
+            <clr-dg-cell>
+              <span class="badge badge-tag" *ngFor="let tag of rule.Tags">{{tag.Value}}</span>
+            </clr-dg-cell>
+            <clr-dg-cell>{{rule.FileType}}</clr-dg-cell>
+            <clr-dg-cell>{{rule.Target}}</clr-dg-cell>
+            <clr-dg-cell>{{rule.Advice}}</clr-dg-cell>
+            <clr-dg-cell>{{rule.Effort}}</clr-dg-cell>
+            <clr-dg-cell>{{rule.Category}}</clr-dg-cell>
+            <clr-dg-cell></clr-dg-cell>
+          </clr-dg-row>
+
+          <clr-dg-footer>
+            <clr-dg-pagination #pagination [clrDgPageSize]="25">
+              <clr-dg-page-size [clrPageSizeOptions]="[25,50,100]">Rules per page</clr-dg-page-size>
+              {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+              of {{pagination.totalItems}} rules
+            </clr-dg-pagination>
+          </clr-dg-footer>
+        </clr-datagrid>
+      </clr-tab-content>
+    </clr-tab>
+  </clr-tabs>
+</div>
