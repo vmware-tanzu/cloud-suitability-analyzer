@@ -9,6 +9,7 @@ import {LanguagesByCodeLines} from "../../model/languagesbycodelines";
 import {ApisByScore} from "../../model/apisbyscore";
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import {ChartElement} from "../../model/chartelement";
+import '@cds/core/search/register.js';
 
 @Component({
   selector: 'csa-executive-summary',
@@ -19,6 +20,8 @@ export class ExecutiveSummaryComponent implements OnChanges {
 
   @Input()
   analyzerRun: any;
+
+  public searchCrit: any = '';
 
   applicationScores: ApplicationScore [] = [];
   filteredApplicationScores: ApplicationScore[] =[];

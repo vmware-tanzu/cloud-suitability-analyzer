@@ -42,11 +42,19 @@
       <button clrTabLink>Scoring summary</button>
       <clr-tab-content *clrIfActive>
         <clr-datagrid class="summary-grid">
-
           <clr-dg-action-bar>
+            <div class="action-bar">
+              <div class="action-bar-item-left">
             <app-excel-export [data]="filteredApplicationScores" [file_name]="'app-summary.xlsx'"></app-excel-export>
+              </div>
+              <div class="action-bar-item-right">
+                <cds-search control-width="shrink">
+                  <label>Search</label>
+              <input type="search" [(ngModel)]="searchCrit"/>
+            </cds-search>
+              </div>
+            </div>
           </clr-dg-action-bar>
-
           <clr-dg-column [clrDgField]="'application'">Application</clr-dg-column>
           <clr-dg-column [clrDgField]="'loc'" [clrDgColType]="'number'">LOC</clr-dg-column>
           <clr-dg-column [clrDgField]="'files'" [clrDgColType]="'number'">Files</clr-dg-column>
@@ -54,7 +62,7 @@
           <clr-dg-column [clrDgField]="'scoringmodel'">Scoring Model</clr-dg-column>
           <clr-dg-column [clrDgField]="'technicalscore'" [clrDgColType]="'number'">Technical Score</clr-dg-column>
 
-          <clr-dg-row *clrDgItems="let filteredApplicationScore of filteredApplicationScores">
+          <clr-dg-row *clrDgItems="let filteredApplicationScore of filteredApplicationScores  | searchFilter: 'name' : searchCrit">
             <clr-dg-cell>{{filteredApplicationScore.name}}</clr-dg-cell>
             <clr-dg-cell>{{filteredApplicationScore.slocCnt}}</clr-dg-cell>
             <clr-dg-cell>{{filteredApplicationScore.filesCnt}}</clr-dg-cell>
