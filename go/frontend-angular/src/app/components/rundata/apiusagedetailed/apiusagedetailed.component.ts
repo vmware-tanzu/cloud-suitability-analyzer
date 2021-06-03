@@ -7,7 +7,7 @@ import {ApiDetailedUsage} from "../../../model/apidetailedusage";
 @Component({
   selector: 'apiusagedetailed',
   templateUrl: './apiusagedetailed.component.html',
-  styleUrls: ['./apiusagedetailed.component.css']
+  styleUrls: ['./apiusagedetailed.component.css','../rundatasummary/rundatasummary.component.css']
 })
 export class ApiUsageDetailedComponent implements OnInit {
 
@@ -29,7 +29,7 @@ export class ApiUsageDetailedComponent implements OnInit {
   }
 
   resetPage(): void {
-
+    this.apiDetailedUsages=[];
   }
 
   fetchApiUsageDetailed(runId: number): void{
