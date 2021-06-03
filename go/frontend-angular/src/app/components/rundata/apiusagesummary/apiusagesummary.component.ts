@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {RundataService} from "../../../services/rundata.service";
 
 @Component({
@@ -10,13 +10,27 @@ import {RundataService} from "../../../services/rundata.service";
 export class ApiUsageSummaryComponent implements OnInit {
 
   public searchCrit: any = '';
-  public fileName: string = 'api-usage-summary.xlsx';
+  public fileName: string;
 
-  constructor(private router: Router, private rundataService: RundataService) {
+  constructor(private router: Router, private route: ActivatedRoute, private rundataService: RundataService) {
 
   }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.resetPage();
+      const runId = Number(params.get('id'));
+      console.log("runid is : "+runId);
+      this.fetchApiUsageSummary(runId);
+    });
+  }
+
+  resetPage(): void {
+
+  }
+
+  fetchApiUsageSummary(runId: number): void{
+
   }
 
 }
