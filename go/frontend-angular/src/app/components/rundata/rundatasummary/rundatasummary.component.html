@@ -1,0 +1,17 @@
+<div >
+  <clr-tabs class="run-data-tabs">
+    <clr-tab class="run-data-tab">
+      <button clrTabLink>Api By App</button>
+      <clr-tab-content *clrIfActive>
+        <apibyapp></apibyapp>
+      </clr-tab-content>
+    </clr-tab>
+    <clr-tab class="run-data-tab">
+      <button clrTabLink>Api Usage (Detailed)</button>
+      <clr-tab-content *clrIfActive="false">
+        <apiusagedetailed></apiusagedetailed>
+      </clr-tab-content>
+    </clr-tab>
+  </clr-tabs>
+
+</div>

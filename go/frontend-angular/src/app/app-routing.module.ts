@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {ExecutiveSummaryComponent} from "./components/executive-summary/executive-summary.component";
 import {RulesComponent} from "./components/rules/rules.component";
 import {ApplicationSummaryComponent} from "./components/application-summary/application-summary.component";
+import {RunDataSummaryComponent} from "./components/rundata/rundatasummary/rundatasummary.component";
 export const routes: Routes = [
   {
     path: 'runs/:id',
@@ -17,7 +18,7 @@ export const routes: Routes = [
       },
       {
         path: 'data',
-        component: ExecutiveSummaryComponent
+        component: RunDataSummaryComponent
       }
     ]
   },
