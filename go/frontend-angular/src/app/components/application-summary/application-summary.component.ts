@@ -51,8 +51,14 @@ export class ApplicationSummaryComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.resetPage();
       this.runId = Number(params.get('id'));
-      console.log("runid is : "+ this.runId);
-      this.fetchAppScoresAndFindings(this.runId);
+      let applicationScores = this.fetchAppScoresAndFindings(this.runId);
+
+      applicationScores.forEach(appScore => {
+        if(this.selectedAppId == undefined) {
+          this.selectedAppId = 0;
+          this.appChanged();
+        }
+      });
     });
   }
 
@@ -67,12 +73,11 @@ export class ApplicationSummaryComponent implements OnInit {
     this.binTags = [];
   }
 
-  fetchAppScoresAndFindings(runid: number): void{
+  fetchAppScoresAndFindings(runid: number): ApplicationScore[]{
     this.applicationSummaryService.getApplicationByRun(runid).subscribe(scores => {
       if (scores.scores.appScores) {
         this.applicationScores = scores.scores.appScores;
         this.findings = scores.scores.findings;
-        console.log(scores.scores.appScores.length);
         scores.scores.appScores.forEach(appScore => {
           this.filteredApplicationScores.push(appScore);
         });
@@ -80,6 +85,8 @@ export class ApplicationSummaryComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+
+    return this.applicationScores;
   }
 
   fetchApplicationFindings(runid: number, applicationSelected: ApplicationScore): void{
@@ -91,26 +98,29 @@ export class ApplicationSummaryComponent implements OnInit {
   }
 
   fetchTagsForApplication(runid: number, applicationSelected: ApplicationScore): void{
-    applicationSelected.tags.forEach(tag => {
-      this.applicationSummaryService.getApplicationFindingsByTag(runid, applicationSelected.name, tag).subscribe(tags => {
-        let tagSummary : TagSummary = new TagSummary(tag.Value, tags.length);
-        this.tags.push(tagSummary);
-      }, error => {
-        console.log(error);
+    if(applicationSelected.tags != null && applicationSelected.tags.length != 0) {
+      applicationSelected.tags.forEach(tag => {
+        this.applicationSummaryService.getApplicationFindingsByTag(runid, applicationSelected.name, tag).subscribe(tags => {
+          let tagSummary : TagSummary = new TagSummary(tag.Value, tags.length);
+          this.tags.push(tagSummary);
+        }, error => {
+          console.log(error);
+        })
       })
-    })
+    }
   }
 
   fetchBinTagsForApplication(runid: number, applicationSelected: ApplicationScore): void{
-    applicationSelected.bins.forEach(bin => {
-      this.applicationSummaryService.getApplicationFindingsByTags(runid, applicationSelected.name, bin).subscribe(bintags => {
-        let tagSummary : TagSummary = new TagSummary(bin.name, bintags.length);
-        this.binTags.push(tagSummary);
-      }, error => {
-        console.log(error);
+    if(applicationSelected.bins != null && applicationSelected.bins.length != 0) {
+      applicationSelected.bins.forEach(bin => {
+        this.applicationSummaryService.getApplicationFindingsByTags(runid, applicationSelected.name, bin).subscribe(bintags => {
+          let tagSummary : TagSummary = new TagSummary(bin.name, bintags.length);
+          this.binTags.push(tagSummary);
+        }, error => {
+          console.log(error);
+        })
       })
-    })
-
+    }
   }
 
   fetchScoreCardForApplication(runid: number, applicationSelected: ApplicationScore): void{

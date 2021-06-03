@@ -1,30 +1,29 @@
-<div>
-  <label for="select-full" class="clr-control-label select-app-text">Application</label>
+<div class="clr-row">
+  <label for="select-full" class="clr-control-label select-app-text clr-col">Application</label>
   <div class="clr-select-wrapper select-app-placeholder">
     <select id="select-full" class="clr-select" [(ngModel)]="selectedAppId" [ngModelOptions]="{standalone: true}" (change)="appChanged()">
       <option class="select-app-option" value="{{filteredApplicationScore.appId}}" *ngFor="let filteredApplicationScore of filteredApplicationScores">{{filteredApplicationScore.name}}</option>
     </select>
-    <label *ngIf="applicationSelected">LOC <span class="badge badge-info" *ngIf="applicationSelected">{{applicationSelected.slocCnt}}</span></label>
-    <label *ngIf="applicationSelected">Files <span class="badge badge-info" *ngIf="applicationSelected">{{applicationSelected.filesCnt}}</span></label>
+    <label *ngIf="applicationSelected" class="clr-col">LOC <span class="clr-col-2 badge badge-info" *ngIf="applicationSelected">{{applicationSelected.slocCnt}}</span></label>
+    <label *ngIf="applicationSelected" class="clr-col">Files <span class="clr-col-2 badge badge-info" *ngIf="applicationSelected">{{applicationSelected.filesCnt}}</span></label>
   </div>
-
 </div>
 
 <div *ngIf="applicationSelected">
-  <clr-tabs class="application-summary-tabs">
+  <clr-tabs class="summary-tabs">
     <clr-tab class="findings-tab">
       <button clrTabLink>Findings</button>
       
       <clr-tab-content *clrIfActive>
 
         <div class="clr-row">
-          <div class="clr-col-2" *ngFor="let binTag of binTags">
+          <div *ngFor="let binTag of binTags">
             <span class="label label-light-blue">{{binTag.name}}<span class="badge badge-light-blue">{{binTag.count}}</span></span>
           </div>
         </div>
 
         <div class="clr-row">
-          <div class="clr-col" *ngFor="let tag of tags">
+          <div *ngFor="let tag of tags">
             <span class="label label-info">{{tag.name}}<span class="badge badge-info">{{tag.count}}</span></span>
           </div>
         </div>
@@ -95,7 +94,7 @@
           <clr-dg-action-bar>
             <div class="action-bar">
               <div class="action-bar-item-left">
-                <app-excel-export [data]="applicationFindings" [file_name]="'app-summary.xlsx'"></app-excel-export>
+                <app-excel-export [data]="applicationFindings" [file_name]="'app-findings-summary.xlsx'"></app-excel-export>
               </div>
     
               <div class="action-bar-item-right">
@@ -137,11 +136,11 @@
         </clr-datagrid>
       </clr-tab-content>
     </clr-tab>
-    <clr-tab class="languages-tab">
+    <clr-tab>
       <button clrTabLink>Languages</button>
       <clr-tab-content *clrIfActive="false">
-        <div class="summary-charts">
-          <div class="summary-chart">
+        <div>
+          <div>
             <ngx-charts-tree-map
               [view]="view"
               [scheme]="colorScheme"
@@ -154,11 +153,11 @@
         </div>
       </clr-tab-content>
     </clr-tab>
-    <clr-tab class="apis-tab">
+    <clr-tab>
       <button clrTabLink>APIs</button>
       <clr-tab-content *clrIfActive="false">
-        <div class="summary-charts">
-          <div class="summary-chart">
+        <div>
+          <div>
             <ngx-charts-tree-map
               [view]="view"
               [scheme]="colorScheme"

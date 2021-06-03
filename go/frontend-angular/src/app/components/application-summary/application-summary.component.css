@@ -59,12 +59,13 @@
   width: 123px;
   height: 36px;
   left: 25px;
-  top: 412px;
+  top: 250px;
 }
 
-.application-summary-tabs{
+.summary-tabs{
   position: absolute;
-  top: 412px;
+  top: 250px;
+  width: 95%;
 }
 
 .summary-grid-divider{
