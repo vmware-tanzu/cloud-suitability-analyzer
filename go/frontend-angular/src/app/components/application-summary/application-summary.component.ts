@@ -1,12 +1,13 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
-import {ActivatedRoute, ParamMap, Router} from "@angular/router";
-import {ApplicationScore} from "../../model/applicationscore";
-import {ApplicationSummaryService} from "../../services/applicationsummary.service";
-import {ClarityIcons, pinboardIcon, fileIcon, codeIcon, applicationsIcon, downloadIcon} from '@cds/core/icon';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap, Router } from "@angular/router";
+import { ApplicationScore } from "../../model/applicationscore";
+import { ApplicationSummaryService} from "../../services/applicationsummary.service";
+import { ClarityIcons, pinboardIcon, thermometerIcon, downloadIcon } from '@cds/core/icon';
 import { ChartElement } from "../../model/chartelement";
 import '@cds/core/search/register.js';
 import { Language } from 'src/app/model/language';
 import { Api } from 'src/app/model/api';
+import { TagSummary } from 'src/app/model/tagsummary';
 
 @Component({
   selector: 'csa-application-summary',
@@ -15,22 +16,21 @@ import { Api } from 'src/app/model/api';
 })
 export class ApplicationSummaryComponent implements OnInit {
 
-  //@Input()
-  analyzerRun: any;
-
   public searchCrit: any = '';
 
   applicationScores: ApplicationScore [] = [];
   applicationFindings: any;
+  runId: number = 0;
   findings: number = 0;
   selectedAppId: number | undefined;
   filteredApplicationScores: ApplicationScore[] =[];
   applicationSelected: any;
-  tags: any;
-  scoreCard: any;
+  tags: TagSummary[] = [];
+  binTags: TagSummary[] = [];
   languages: ChartElement[] = [];
   apis: ChartElement[] = [];
-
+  scoreCard: any;
+  
   view: [number, number] = [700, 400];
 
   // options
@@ -43,18 +43,16 @@ export class ApplicationSummaryComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute, private applicationSummaryService: ApplicationSummaryService) {
     ClarityIcons.addIcons(pinboardIcon);
-    ClarityIcons.addIcons(fileIcon);
-    ClarityIcons.addIcons(codeIcon);
     ClarityIcons.addIcons(downloadIcon);
-    ClarityIcons.addIcons(applicationsIcon);
+    ClarityIcons.addIcons(thermometerIcon);
   }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.resetPage();
-      const runId = Number(params.get('id'));
-      console.log("runid is : "+runId);
-      this.fetchAppScoresAndFindings(runId);
+      this.runId = Number(params.get('id'));
+      console.log("runid is : "+ this.runId);
+      this.fetchAppScoresAndFindings(this.runId);
     });
   }
 
@@ -65,6 +63,8 @@ export class ApplicationSummaryComponent implements OnInit {
     this.filteredApplicationScores = [];
     this.languages = [];
     this.apis = [];
+    this.tags = [];
+    this.binTags = [];
   }
 
   fetchAppScoresAndFindings(runid: number): void{
@@ -83,7 +83,7 @@ export class ApplicationSummaryComponent implements OnInit {
   }
 
   fetchApplicationFindings(runid: number, applicationSelected: ApplicationScore): void{
-    this.applicationSummaryService.getApplicationFindings(runid, applicationSelected.name, applicationSelected.tags).subscribe(applicationFindings => {
+    this.applicationSummaryService.getApplicationAllFindings(runid, applicationSelected.name).subscribe(applicationFindings => {
       this.applicationFindings = applicationFindings;
     }, error => {
       console.log(error);
@@ -91,15 +91,30 @@ export class ApplicationSummaryComponent implements OnInit {
   }
 
   fetchTagsForApplication(runid: number, applicationSelected: ApplicationScore): void{
-    this.applicationSummaryService.getTagsForApplication(runid, applicationSelected.name).subscribe(tags => {
-      this.tags = tags.tags;
-    }, error => {
-      console.log(error);
+    applicationSelected.tags.forEach(tag => {
+      this.applicationSummaryService.getApplicationFindingsByTag(runid, applicationSelected.name, tag).subscribe(tags => {
+        let tagSummary : TagSummary = new TagSummary(tag.Value, tags.length);
+        this.tags.push(tagSummary);
+      }, error => {
+        console.log(error);
+      })
     })
   }
 
+  fetchBinTagsForApplication(runid: number, applicationSelected: ApplicationScore): void{
+    applicationSelected.bins.forEach(bin => {
+      this.applicationSummaryService.getApplicationFindingsByTags(runid, applicationSelected.name, bin).subscribe(bintags => {
+        let tagSummary : TagSummary = new TagSummary(bin.name, bintags.length);
+        this.binTags.push(tagSummary);
+      }, error => {
+        console.log(error);
+      })
+    })
+
+  }
+
   fetchScoreCardForApplication(runid: number, applicationSelected: ApplicationScore): void{
-    this.applicationSummaryService.getApplicationScorecard(runid, applicationSelected.name, applicationSelected.tags).subscribe(scoreCard => {
+    this.applicationSummaryService.getApplicationScorecard(runid, applicationSelected.name).subscribe(scoreCard => {
       this.scoreCard = scoreCard;
     }, error => {
       console.log(error);
@@ -129,14 +144,19 @@ export class ApplicationSummaryComponent implements OnInit {
   }
 
   appChanged(): void {
-    this.applicationSelected = this.filteredApplicationScores.find(applicationScore => applicationScore.appId == this.selectedAppId);
-    this.fetchApplicationFindings(this.analyzerRun.id, this.applicationSelected);
-    this.fetchScoreCardForApplication(this.analyzerRun.id, this.applicationSelected);
-
     this.languages = [];
     this.apis = [];
-    this.fetchLanguagesByApplicationRun(this.analyzerRun.id, this.applicationSelected);
-    this.fetchApisByApplicationRun(this.analyzerRun.id, this.applicationSelected);
+    this.tags = [];
+    this.binTags = [];
+
+    this.applicationSelected = this.filteredApplicationScores.find(applicationScore => applicationScore.appId == this.selectedAppId);
+    this.fetchApplicationFindings(this.runId, this.applicationSelected);
+    this.fetchScoreCardForApplication(this.runId, this.applicationSelected);
+    
+    this.fetchBinTagsForApplication(this.runId, this.applicationSelected);
+    this.fetchTagsForApplication(this.runId, this.applicationSelected);
+    this.fetchLanguagesByApplicationRun(this.runId, this.applicationSelected);
+    this.fetchApisByApplicationRun(this.runId, this.applicationSelected);
   }
 
   onSelectLanguage(language: Language[]): void {

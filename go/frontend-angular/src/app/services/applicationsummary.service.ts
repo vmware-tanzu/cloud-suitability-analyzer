@@ -8,9 +8,10 @@ import { Scores } from "../model/scores";
 import { Language } from "../model/language"
 import { Api } from "../model/api"
 import { Tags } from "../model/tags"
-import { ApplicationFindings } from '../model/applicationfindings';
+import { ApplicationFinding } from '../model/applicationfinding';
 import { ApplicationScoreCard } from '../model/applicationscorecard';
-import { Tag } from '../model/applicationscore';
+import { Bin, Tag } from '../model/applicationscore';
+import { TagRequest, TagRequests } from '../model/tagrequest';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -47,17 +48,39 @@ export class ApplicationSummaryService {
     return this.http.get<Api[]>(url);
   }
 
-  getTagsForApplication(runid: number, appName: string): Observable<Tags> {
-    const url = UriConstants.RUNS_URI + runid + '/apps/' + appName + '/tags';
-    return this.http.get<Tags>(url);
+  getApplicationAllFindings(runid: number, appName: string): Observable<ApplicationFinding[]>  {
+    const url = UriConstants.RUNS_URI + runid + '/apps/' + appName + '/findings/scorecard/low,medium,high?includeFF=false';
+    return this.http.post<ApplicationFinding[]>(url, "");
   }
 
-  getApplicationFindings(runid: number, appName: string, tags: Tag[]): Observable<ApplicationFindings>  {
+  getApplicationFindingsByTag(runid: number, appName: string, tag: Tag): Observable<ApplicationFinding[]>  {
     const url = UriConstants.RUNS_URI + runid + '/apps/' + appName + '/findings/scorecard/low,medium,high?includeFF=false';
-    return this.http.post<ApplicationFindings>(url, "");
+
+    let tagReq: TagRequest = new TagRequest(tag.Value, true);
+
+    let tagsReq: TagRequest [] = [];
+    tagsReq.push(tagReq);
+
+    let tagsRequest: TagRequests = new TagRequests(tagsReq);
+
+    return this.http.post<ApplicationFinding[]>(url, tagsRequest);
+  }
+
+  getApplicationFindingsByTags(runid: number, appName: string, bin: Bin): Observable<ApplicationFinding[]>  {
+    const url = UriConstants.RUNS_URI + runid + '/apps/' + appName + '/findings/scorecard/low,medium,high?includeFF=false';
+
+    let tagsReq: TagRequest [] = [];
+    bin.tags.forEach(tag => {
+      let tagReq: TagRequest = new TagRequest(tag.name, true);
+      tagsReq.push(tagReq);
+    });
+
+    let tagsRequest: TagRequests = new TagRequests(tagsReq);
+
+    return this.http.post<ApplicationFinding[]>(url, tagsRequest);
   }
   
-  getApplicationScorecard(runid: number, appName: string, tags: Tag[]): Observable<ApplicationScoreCard>  {
+  getApplicationScorecard(runid: number, appName: string): Observable<ApplicationScoreCard>  {
     const url = UriConstants.RUNS_URI + runid + '/apps/' + appName + '/scorecard?includeFF=false';
     return this.http.post<ApplicationScoreCard>(url, "");
   }

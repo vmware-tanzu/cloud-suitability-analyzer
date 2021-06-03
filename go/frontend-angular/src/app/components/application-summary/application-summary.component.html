@@ -18,26 +18,26 @@
       <clr-tab-content *clrIfActive>
 
         <div class="clr-row">
-          <div class="clr-col-2" *ngFor="let bin of applicationSelected.bins">
-            <span class="label label-light-blue">{{bin.name}}<span class="badge badge-light-blue">2</span></span>
+          <div class="clr-col-2" *ngFor="let binTag of binTags">
+            <span class="label label-light-blue">{{binTag.name}}<span class="badge badge-light-blue">{{binTag.count}}</span></span>
           </div>
         </div>
 
         <div class="clr-row">
-          <div class="clr-col" *ngFor="let tag of applicationSelected.tags">
-            <span class="label label-info">{{tag.Value}}<span class="badge badge-info">2</span></span>
+          <div class="clr-col" *ngFor="let tag of tags">
+            <span class="label label-info">{{tag.name}}<span class="badge badge-info">{{tag.count}}</span></span>
           </div>
         </div>
 
         <div class="clr-row">
           <div class="clr-col-lg-2">
             <div class="card card-green">
-              <div class="card-img" align="center">
-                <cds-icon shape="thermometer badge-color-white"></cds-icon>
+              <div class="card-img badge-color-white" align="center">
+                <cds-icon shape="thermometer"></cds-icon>
               </div>
               <div class="card-block">
                 <h4 class="card-title badge-color-white" align="center">Low</h4>
-                <p class="card-text badge-color-white" align="center">{{scoreCard.low}}</p>
+                <p class="card-text badge-color-white" align="center" *ngIf="scoreCard">{{scoreCard.low}}</p>
               </div>
             </div>
           </div>
@@ -49,7 +49,7 @@
               </div>
               <div class="card-block">
                 <h4 class="card-title badge-color-white" align="center">Medium</h4>
-                <p class="card-text badge-color-white" align="center">{{scoreCard.medium}}</p>
+                <p class="card-text badge-color-white" align="center" *ngIf="scoreCard">{{scoreCard.medium}}</p>
               </div>
             </div>
           </div>
@@ -61,7 +61,7 @@
               </div>
               <div class="card-block">
                 <h4 class="card-title badge-color-white" align="center">High</h4>
-                <p class="card-text badge-color-white" align="center">{{scoreCard.high}}</p>
+                <p class="card-text badge-color-white" align="center" *ngIf="scoreCard">{{scoreCard.high}}</p>
               </div>
             </div>
           </div>
@@ -73,7 +73,7 @@
               </div>
               <div class="card-block">
                 <h4 class="card-title badge-color-white" align="center">Findings</h4>
-                <p class="card-text badge-color-white" align="center">{{scoreCard.total}}</p>
+                <p class="card-text badge-color-white" align="center" *ngIf="scoreCard">{{scoreCard.total}}</p>
               </div>
             </div>
           </div>

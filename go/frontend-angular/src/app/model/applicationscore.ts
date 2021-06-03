@@ -2,10 +2,13 @@
 export interface Tag {
   Value: string;
 }
+export interface BinTag {
+  name: string;
+}
 
 export interface Bin {
   name: string;
-  tags: Tag[];
+  tags: BinTag[];
   matched: string[];
 }
 
