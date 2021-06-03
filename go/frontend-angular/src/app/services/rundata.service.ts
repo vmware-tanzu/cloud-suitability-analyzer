@@ -13,6 +13,7 @@ import {ThirdPartyLibsUsage} from "../model/thirdpartylibsusage";
 import {Findings} from "../model/findings";
 import {RuleMetric} from "../model/rulemetric";
 import {RunIndex} from "../model/runindex";
+import {Sloc} from "../model/sloc";
 
 @Injectable({
   providedIn: 'root'
@@ -43,7 +44,7 @@ export class RundataService {
   /* /api/runs/:runid/data/sloc */
   getSourceCodeData(runid) {
     const url = UriConstants.RUNS_URI + '/' + runid + '/data/sloc';
-    return this.http.get<ApiSummary[]>(url);
+    return this.http.get<Sloc[]>(url);
   };
   /*/api/runs/:runid/data/annotations */
   getAnnotationData(runid) {

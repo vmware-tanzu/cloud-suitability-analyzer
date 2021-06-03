@@ -39,6 +39,4 @@ export class AnnotationsComponent implements OnInit {
       console.log(error);
     });
   }
-
-
 }
