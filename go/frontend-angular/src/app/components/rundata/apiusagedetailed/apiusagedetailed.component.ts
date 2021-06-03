@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {RundataService} from "../../../services/rundata.service";
-import {Apiusage} from "../../../model/appapiusage";
 import {ApiDetailedUsage} from "../../../model/apidetailedusage";
 
 @Component({

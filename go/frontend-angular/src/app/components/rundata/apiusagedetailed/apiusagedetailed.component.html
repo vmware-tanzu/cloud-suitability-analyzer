@@ -16,10 +16,10 @@
     <clr-dg-column [clrDgField]="'application'">Application</clr-dg-column>
     <clr-dg-column [clrDgField]="'api'">API</clr-dg-column>
     <clr-dg-column [clrDgField]="'filename'">Filename</clr-dg-column>
-    <clr-dg-column [clrDgField]="'rawscore'">Value</clr-dg-column>
-    <clr-dg-column [clrDgField]="'scoringmodel'">Advice</clr-dg-column>
-    <clr-dg-column [clrDgField]="'technicalscore'" [clrDgColType]="'number'">Effort</clr-dg-column>
-    <clr-dg-column [clrDgField]="'technicalscore'">Level</clr-dg-column>
+    <clr-dg-column [clrDgField]="'value'">Value</clr-dg-column>
+    <clr-dg-column [clrDgField]="'advice'">Advice</clr-dg-column>
+    <clr-dg-column [clrDgField]="'effort'" [clrDgColType]="'number'">Effort</clr-dg-column>
+    <clr-dg-column [clrDgField]="'level'">Level</clr-dg-column>
 
     <clr-dg-row *clrDgItems="let apiDetailedUsage of apiDetailedUsages  | searchFilter: 'name' : searchCrit">
       <clr-dg-cell>{{apiDetailedUsage.application}}</clr-dg-cell>
