@@ -25,7 +25,7 @@ export const routes: Routes = [
     path: 'rules',
     component: RulesComponent
   },
-  { path: '', redirectTo: 'select-run', pathMatch: 'full'},
+  { path: '', redirectTo: '/', pathMatch: 'full'},
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

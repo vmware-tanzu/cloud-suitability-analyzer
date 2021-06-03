@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { startWith } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -33,4 +33,5 @@ export class AppComponent {
   panel1Expanded = true;
   title = "Cloud suitability analyzer";
 
+  runId: number | undefined;
 }

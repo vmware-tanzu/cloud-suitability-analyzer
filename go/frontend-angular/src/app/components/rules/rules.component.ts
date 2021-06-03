@@ -29,7 +29,6 @@ export class RulesComponent implements OnInit {
       if (rulesReturned.rules) {
         this.rules = rulesReturned.rules;
       }
-      this.rules.forEach(rule => console.log(rule.Tags));
     }, error => {
       console.log(error);
     });

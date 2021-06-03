@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { ClarityIcons, cloudIcon } from '@cds/core/icon';
 import '@cds/core/icon/register.js';
 
@@ -8,6 +8,12 @@ import '@cds/core/icon/register.js';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
+  @Input()
+  selectedRunId: number | undefined;
+
+  @Output()
+  selectedRunIdChange = new EventEmitter();
 
   constructor() {
     const csaSvg = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>

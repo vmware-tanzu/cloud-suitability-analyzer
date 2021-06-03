@@ -16,7 +16,13 @@ export class AnalyzerRunComponent implements OnInit {
   analyzerRuns: AnalyzerRun[]=[];
   forgeVersion: string='';
   runItemsDropDownItems: RunDropDownItem[]=[];
+
+  @Input()
   selectedRunId: number | undefined;
+
+  @Output()
+  selectedRunIdChange = new EventEmitter();
+
   selectedRunDesc: string='';
   analyzerRunSelected: any;
   loaded:boolean = false;
@@ -53,7 +59,8 @@ export class AnalyzerRunComponent implements OnInit {
           this.analyzerRunSelected = analyzerRun;
           console.log("loaded - "+this.selectedRunId);
           this.loaded = true;
-          this.router.navigateByUrl(`/runs/${this.selectedRunId}/summary`);
+          this.selectedRunIdChange.emit(this.selectedRunId);
+          this.router.navigateByUrl(`/runs/${this.selectedRunId}/summary`, { skipLocationChange: true });
           // this.router.navigateByUrl(`/runs/${this.selectedRunId}/summary`, {state: {data: this.analyzerRunSelected}});
         }
       })
@@ -65,7 +72,9 @@ export class AnalyzerRunComponent implements OnInit {
   runIdChanged(): void {
     this.analyzerRunSelected = this.analyzerRuns.find(analyzerRun => analyzerRun.id == this.selectedRunId);
     console.log(this.analyzerRunSelected);
-    this.router.navigateByUrl(`/runs/${this.selectedRunId}/summary`);
+    console.log("before emitting event to parent");
+    this.selectedRunIdChange.emit(this.selectedRunId);
+    this.router.navigateByUrl(`/runs/${this.selectedRunId}/summary`, { skipLocationChange: true });
   }
 
 }

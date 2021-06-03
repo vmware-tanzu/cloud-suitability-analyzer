@@ -16,7 +16,7 @@ import '@cds/core/search/register.js';
   templateUrl: './executive-summary.component.html',
   styleUrls: ['./executive-summary.component.css']
 })
-export class ExecutiveSummaryComponent implements OnInit, OnChanges {
+export class ExecutiveSummaryComponent implements OnInit {
 
   public searchCrit: any = '';
 
@@ -63,9 +63,8 @@ export class ExecutiveSummaryComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    console.log("in ngOnInit");
-    this.resetPage();
     this.route.paramMap.subscribe((params: ParamMap) => {
+      this.resetPage();
       const runId = Number(params.get('id'));
       console.log("runid is : "+runId);
       this.fetchAppScoresAndFindings(runId);
@@ -74,7 +73,7 @@ export class ExecutiveSummaryComponent implements OnInit, OnChanges {
     });
   }
 
-  ngOnChanges(): void {
+/*  ngOnChanges(): void {
     console.log("in ngOnChanges");
     this.resetPage();
     this.route.paramMap.subscribe((params: ParamMap) => {
@@ -84,7 +83,7 @@ export class ExecutiveSummaryComponent implements OnInit, OnChanges {
       this.fetchTop5ApisByScore(runId);
       this.fetchTop5LanguagesByLoc(runId);
     });
-  }
+  }*/
 
   resetPage(): void{
     console.log("resetting pageeeeeee");
