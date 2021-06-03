@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AnalyzerRunDetailsComponent } from "./components/analyzer-run-details/analyzer-run-details.component";
-import { ExecutiveSummaryComponent } from "./components/executive-summary/executive-summary.component";
-import { ApplicationSummaryComponent } from "./components/application-summary/application-summary.component"
+import {ExecutiveSummaryComponent} from "./components/executive-summary/executive-summary.component";
+import {RulesComponent} from "./components/rules/rules.component";
+import {ApplicationSummaryComponent} from "./components/application-summary/application-summary.component";
 export const routes: Routes = [
-  { path: '', redirectTo: 'select-run', pathMatch: 'full'},
   {
-    path: 'app-analyzer-run-details/:id',
-    component: AnalyzerRunDetailsComponent,
+    path: 'runs/:id',
     children: [
       {
         path: 'summary',
@@ -16,9 +14,18 @@ export const routes: Routes = [
       {
         path: 'application',
         component: ApplicationSummaryComponent
+      },
+      {
+        path: 'data',
+        component: ExecutiveSummaryComponent
       }
     ]
   },
+  {
+    path: 'rules',
+    component: RulesComponent
+  },
+  { path: '', redirectTo: 'select-run', pathMatch: 'full'},
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

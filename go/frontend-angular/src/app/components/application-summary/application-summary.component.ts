@@ -1,5 +1,5 @@
-import { Component, Input, OnChanges } from '@angular/core';
-import {Router} from "@angular/router";
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {ApplicationScore} from "../../model/applicationscore";
 import {ApplicationSummaryService} from "../../services/applicationsummary.service";
 import {ClarityIcons, pinboardIcon, fileIcon, codeIcon, applicationsIcon, downloadIcon} from '@cds/core/icon';
@@ -12,9 +12,9 @@ import { Tags } from 'src/app/model/tags';
   templateUrl: './application-summary.component.html',
   styleUrls: ['./application-summary.component.css']
 })
-export class ApplicationSummaryComponent implements OnChanges {
+export class ApplicationSummaryComponent implements OnInit {
 
-  @Input()
+  //@Input()
   analyzerRun: any;
 
   applicationScores: ApplicationScore [] = [];
@@ -26,7 +26,7 @@ export class ApplicationSummaryComponent implements OnChanges {
   tags: any;
   scoreCard: any;
 
-  constructor(private router: Router, private applicationSummaryService: ApplicationSummaryService) {
+  constructor(private router: Router, private route: ActivatedRoute, private applicationSummaryService: ApplicationSummaryService) {
     ClarityIcons.addIcons(pinboardIcon);
     ClarityIcons.addIcons(fileIcon);
     ClarityIcons.addIcons(codeIcon);
@@ -34,11 +34,13 @@ export class ApplicationSummaryComponent implements OnChanges {
     ClarityIcons.addIcons(applicationsIcon);
   }
 
-  ngOnChanges(): void {
-    if(this.analyzerRun) {
-      this.resetPage();
-      this.fetchAppScoresAndFindings(this.analyzerRun.id);
-    }
+  ngOnInit(): void {
+    this.resetPage();
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      const runId = Number(params.get('id'));
+      console.log("runid is : "+runId);
+      this.fetchAppScoresAndFindings(runId);
+    });
   }
 
   resetPage(): void{
@@ -83,7 +85,7 @@ export class ApplicationSummaryComponent implements OnChanges {
       console.log(error);
     })
   }
-  
+
   appChanged(): void {
     this.applicationSelected = this.filteredApplicationScores.find(applicationScore => applicationScore.appId == this.selectedAppId);
     console.log(this.applicationSelected);
