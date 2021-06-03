@@ -91,19 +91,20 @@
           </div>
         </div>
         
-        <!-- <clr-row *ngFor="let tag of tags">
-          <span class="label label-orange">{{tag}}<span class="badge badge-info">2</span></span> -->
-          <!-- <clr-dg-cell>{{user.name}}</clr-dg-cell>
-          <clr-dg-cell>{{user.creation | date}}</clr-dg-cell> -->
-          <!-- <clr-dg-cell>
-            <span class="color-square" [style.backgroundColor]="user.color"></span>
-          </clr-dg-cell> -->
-        <!-- </clr-row> -->
-        
         <clr-datagrid class="summary-grid">
-          
           <clr-dg-action-bar>
-            <app-excel-export [data]="applicationFindings" [file_name]="'app-summary.xlsx'"></app-excel-export>
+            <div class="action-bar">
+              <div class="action-bar-item-left">
+                <app-excel-export [data]="applicationFindings" [file_name]="'app-summary.xlsx'"></app-excel-export>
+              </div>
+    
+              <div class="action-bar-item-right">
+                <cds-search control-width="shrink">
+                  <label>Search</label>
+                  <input type="search" [(ngModel)]="searchCrit"/>
+                </cds-search>
+              </div>
+            </div>
           </clr-dg-action-bar>
 
           <clr-dg-column [clrDgField]="'id'">ID</clr-dg-column>
@@ -115,7 +116,7 @@
           <clr-dg-column [clrDgField]="'tags'" [clrDgColType]="'number'"># Tags</clr-dg-column>
           <clr-dg-column [clrDgField]="'recipes'" [clrDgColType]="'number'"># Recipes</clr-dg-column>
 
-          <clr-dg-row *clrDgItems="let applicationFinding of applicationFindings">
+          <clr-dg-row *clrDgItems="let applicationFinding of applicationFindings | searchFilter: 'filename' : searchCrit">
             <clr-dg-cell>{{applicationFinding.id}}</clr-dg-cell>
             <clr-dg-cell>{{applicationFinding.level}}</clr-dg-cell>
             <clr-dg-cell>{{applicationFinding.value}}</clr-dg-cell>
@@ -140,10 +141,16 @@
       <button clrTabLink>Languages</button>
       <clr-tab-content *clrIfActive="false">
         <div class="summary-charts">
-        <div class="summary-chart">
-        </div>
-        <div class="summary-chart">
-        </div>
+          <div class="summary-chart">
+            <ngx-charts-tree-map
+              [view]="view"
+              [scheme]="colorScheme"
+              [results]="languages"
+              [gradient]="gradient"
+              [animations]="animations"
+              (select)="onSelectLanguage($event)">
+            </ngx-charts-tree-map>
+          </div>
         </div>
       </clr-tab-content>
     </clr-tab>
@@ -151,10 +158,16 @@
       <button clrTabLink>APIs</button>
       <clr-tab-content *clrIfActive="false">
         <div class="summary-charts">
-        <div class="summary-chart">
-        </div>
-        <div class="summary-chart">
-        </div>
+          <div class="summary-chart">
+            <ngx-charts-tree-map
+              [view]="view"
+              [scheme]="colorScheme"
+              [results]="apis"
+              [gradient]="gradient"
+              [animations]="animations"
+              (select)="onSelectApis($event)">
+            </ngx-charts-tree-map>
+          </div>
         </div>
       </clr-tab-content>
     </clr-tab>

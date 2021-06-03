@@ -138,4 +138,18 @@
 .card-blue {
   background: #0091DA
 }
-  
+
+.action-bar{
+  display: flex;
+}
+
+.action-bar-item-left{
+  width: 50%;
+}
+
+.action-bar-item-right{
+  position: absolute;
+  width: 50%;
+  left: 1130px;
+  justify-content: flex-end;
+}

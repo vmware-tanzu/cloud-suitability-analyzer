@@ -3,9 +3,10 @@ import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {ApplicationScore} from "../../model/applicationscore";
 import {ApplicationSummaryService} from "../../services/applicationsummary.service";
 import {ClarityIcons, pinboardIcon, fileIcon, codeIcon, applicationsIcon, downloadIcon} from '@cds/core/icon';
-import {RunSloc} from "../../model/runsloc";
-import { ApplicationFindings } from 'src/app/model/applicationfindings';
-import { Tags } from 'src/app/model/tags';
+import { ChartElement } from "../../model/chartelement";
+import '@cds/core/search/register.js';
+import { Language } from 'src/app/model/language';
+import { Api } from 'src/app/model/api';
 
 @Component({
   selector: 'csa-application-summary',
@@ -17,6 +18,8 @@ export class ApplicationSummaryComponent implements OnInit {
   //@Input()
   analyzerRun: any;
 
+  public searchCrit: any = '';
+
   applicationScores: ApplicationScore [] = [];
   applicationFindings: any;
   findings: number = 0;
@@ -25,6 +28,18 @@ export class ApplicationSummaryComponent implements OnInit {
   applicationSelected: any;
   tags: any;
   scoreCard: any;
+  languages: ChartElement[] = [];
+  apis: ChartElement[] = [];
+
+  view: [number, number] = [700, 400];
+
+  // options
+  gradient: boolean = false;
+  animations: boolean = true;
+
+  colorScheme = {
+    domain: ['#0095D3', '#00BFA9', '#60B515', '#8939AD', '#F57600', '#6870C4']
+  };
 
   constructor(private router: Router, private route: ActivatedRoute, private applicationSummaryService: ApplicationSummaryService) {
     ClarityIcons.addIcons(pinboardIcon);
@@ -44,7 +59,12 @@ export class ApplicationSummaryComponent implements OnInit {
   }
 
   resetPage(): void{
+    this.findings = 0;
+    this.selectedAppId = 0;
     this.applicationScores = [];
+    this.filteredApplicationScores = [];
+    this.languages = [];
+    this.apis = [];
   }
 
   fetchAppScoresAndFindings(runid: number): void{
@@ -86,10 +106,44 @@ export class ApplicationSummaryComponent implements OnInit {
     })
   }
 
+  fetchLanguagesByApplicationRun(runid: number, applicationSelected: ApplicationScore): void{
+    this.applicationSummaryService.getLanguagesByApplicationRun(runid, applicationSelected.name).subscribe(languagesResponse => {
+      languagesResponse.forEach(language => {
+        let chartElement: ChartElement = new ChartElement(language.codeLines, language.language);
+        this.languages.push(chartElement)
+      });
+    }, error => {
+      console.log(error);
+    })
+  }
+  
+  fetchApisByApplicationRun(runid: number, applicationSelected: ApplicationScore): void{
+    this.applicationSummaryService.getApisByApplicationRun(runid, applicationSelected.name).subscribe(apisResponse => {
+      apisResponse.forEach(api => {
+        let chartElement: ChartElement = new ChartElement(api.usageCount, api.api);
+        this.apis.push(chartElement)
+      });
+    }, error => {
+      console.log(error);
+    })
+  }
+
   appChanged(): void {
     this.applicationSelected = this.filteredApplicationScores.find(applicationScore => applicationScore.appId == this.selectedAppId);
-    console.log(this.applicationSelected);
-    this.fetchApplicationFindings(this.analyzerRun.id, this.applicationSelected)
-    this.fetchScoreCardForApplication(this.analyzerRun.id, this.applicationSelected)
+    this.fetchApplicationFindings(this.analyzerRun.id, this.applicationSelected);
+    this.fetchScoreCardForApplication(this.analyzerRun.id, this.applicationSelected);
+
+    this.languages = [];
+    this.apis = [];
+    this.fetchLanguagesByApplicationRun(this.analyzerRun.id, this.applicationSelected);
+    this.fetchApisByApplicationRun(this.analyzerRun.id, this.applicationSelected);
+  }
+
+  onSelectLanguage(language: Language[]): void {
+    console.log('Active', JSON.parse(JSON.stringify(language)));
+  }
+
+  onSelectApis(api: Api[]): void {
+    console.log('Active', JSON.parse(JSON.stringify(api)));
   }
 }
