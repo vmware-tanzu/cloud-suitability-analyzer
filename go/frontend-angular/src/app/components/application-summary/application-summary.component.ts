@@ -50,8 +50,8 @@ export class ApplicationSummaryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.resetPage();
     this.route.paramMap.subscribe((params: ParamMap) => {
+      this.resetPage();
       const runId = Number(params.get('id'));
       console.log("runid is : "+runId);
       this.fetchAppScoresAndFindings(runId);
@@ -116,7 +116,7 @@ export class ApplicationSummaryComponent implements OnInit {
       console.log(error);
     })
   }
-  
+
   fetchApisByApplicationRun(runid: number, applicationSelected: ApplicationScore): void{
     this.applicationSummaryService.getApisByApplicationRun(runid, applicationSelected.name).subscribe(apisResponse => {
       apisResponse.forEach(api => {
