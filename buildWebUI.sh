@@ -15,10 +15,10 @@ export WORKING_DIR=${PWD}
 
 echo "~~~> Compile/Minify UI"
 pushd ${WORKING_DIR}/go/frontend > /dev/null
-  
+
   echo "~~~> Running npm ci"
   export NODE_OPTIONS="--max_old_space_size=4096"
-  
+
   npm ci -s --no-optional #> /dev/null 2>&1
 
   if [ $? -eq 0 ]
@@ -28,7 +28,7 @@ pushd ${WORKING_DIR}/go/frontend > /dev/null
     echo "~~~> npm ci failed" >&2
     exit 1
   fi
-  
+
 
   echo "~~~> Running npm production-build"
   npm run -s production-build
@@ -51,7 +51,7 @@ pushd ${WORKING_DIR}/go/frontend > /dev/null
   echo "~~~> Binding in web assets"
   mkdir -p ${WORKING_DIR}/go/frontend/resources
   go-bindata -o resources/web-site.go -pkg resources build/...
-    
+
   if [ $? -eq 0 ]
   then
     echo "~~~> go-bindata succeeded!"
@@ -82,7 +82,7 @@ then
     exit 1
   fi
 
-   echo "~~~> Updating dependencies" 
+   echo "~~~> Updating dependencies"
    go mod tidy
   if [ $? -eq 0 ]
   then

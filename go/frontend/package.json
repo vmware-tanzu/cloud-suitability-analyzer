@@ -1,55 +1,68 @@
 {
-  "name": "csa-ui",
+  "name": "cloud-suitability-analyzer",
   "version": "2.1.0",
-  "private": true,
-  "proxy": "http://localhost:3001/",
-  "dependencies": {
-    "axios": ">=0.21.1",
-    "chart.js": "^3.2.1",
-    "classnames": "2.3.1",
-    "core-js": "3.12.1",
-    "font-awesome": "4.7.0",
-    "pivotal-ui": "19.2.5",
-    "primeicons": "^4.1.0",
-    "primereact": "6.3.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.3",
-    "react-transition-group": "^4.4.1",
-    "react-vis": "^1.11.7",
-    "recharts": "2.0.9",
-    "typescript": "^4.2.4"
-  },
   "scripts": {
-    "prettify-all": "prettier --single-quote --write src/**/*.{js,jsx,json,css}",
-    "precommit": "lint-staged",
-    "dev-start-frontend-backend": "concurrently \"pushd .. && go generate && popd && go run rules-admin.go --database-dir=./data\" \"react-scripts start\"",
-    "dev-start-frontend": "react-scripts start",
+    "ng": "ng",
+    "dev-start-frontend-backend": "concurrently \"pushd .. && go generate && popd && go run rules-admin.go --database-dir=./data\" \"ng serve --proxy-config proxy-conf.json\"",
+    "dev-start-frontend": "ng serve --proxy-config proxy-conf.json",
     "dev-start-backend": "go run rules-admin.go --database-dir=../exe",
-    "production-build": "react-scripts build  > /dev/null 2>&1",
-    "test": "react-scripts test --env=jsdom --passWithNoTests",
-    "eject": "react-scripts eject"
+    "production-build": "ng build --prod > /dev/null 2>&1",
+    "source-map": "cd dist/ng-app && source-map-explorer *.js",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
   },
-  "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": [
-      "prettier --single-quote --write",
-      "git add"
-    ]
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~11.2.3",
+    "@angular/common": "~11.2.3",
+    "@angular/compiler": "~11.2.3",
+    "@angular/core": "~11.2.3",
+    "@angular/forms": "~11.2.3",
+    "@angular/platform-browser": "~11.2.3",
+    "@angular/platform-browser-dynamic": "~11.2.3",
+    "@angular/router": "~11.2.3",
+    "@cds/angular": "^5.2.1",
+    "@cds/city": "^1.1.0",
+    "@cds/core": "^5.2.1",
+    "@clr/angular": "5.2.1",
+    "@clr/icons": "^5.2.1",
+    "@clr/ui": "^5.2.1",
+    "@swimlane/ngx-charts": "^13.0.4",
+    "@webcomponents/webcomponentsjs": "^2.5.0",
+    "d3": "6.7.0",
+    "lodash": "4.17.21",
+    "normalize.css": "^8.0.1",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.0.0",
+    "xlsx": "^0.16.4",
+    "zone.js": "~0.11.3"
   },
   "devDependencies": {
-    "axios-mock-adapter": "1.19.0",
+    "@angular-devkit/build-angular": "~0.1102.2",
+    "@angular/cli": "~11.2.2",
+    "@angular/compiler-cli": "~11.2.3",
+    "@types/jasmine": "~3.6.0",
+    "@types/node": "^12.11.1",
+    "codelyzer": "^6.0.0",
     "concurrently": "6.1.0",
-    "enzyme": "3.11.0",
-    "enzyme-adapter-react-16": "^1.15.6",
-    "lint-staged": "11.0.0",
-    "prettier": "2.3.0",
-    "react-test-renderer": "^17.0.2"
+    "jasmine-core": "~3.6.0",
+    "jasmine-spec-reporter": "~5.0.0",
+    "karma": "~6.1.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.0.3",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "^1.5.0",
+    "postcss-cli": "7.1.0",
+    "protractor": "~7.0.0",
+    "sass": "1.32.8",
+    "ts-node": "~8.3.0",
+    "tslint": "~6.1.0",
+    "typescript": "~4.1.2"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  }
 }

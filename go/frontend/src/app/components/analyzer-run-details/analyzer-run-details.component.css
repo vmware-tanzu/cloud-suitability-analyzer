@@ -1,0 +1,33 @@
+
+.run-summary {
+  position: absolute;
+  width: 377px;
+  height: 140px;
+  left: 343px;
+  top: 91px;
+}
+
+.run-summary run-summary-icon-line {
+  width: 22px;
+  height: 22px;
+}
+
+.run-summary run-summary-icon {
+  left: 13.89%;
+  right: 13.89%;
+  top: 8.33%;
+  bottom: 8.33%;
+  background: #737373;
+}
+
+.run-summary run-summary-text-line{
+  width: 95px;
+  height: 22px;
+  font-family: Metropolis;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  color: #ADBBC4;
+}
