@@ -36,6 +36,24 @@
         <sourcecode></sourcecode>
       </clr-tab-content>
     </clr-tab>
+    <clr-tab class="run-data-tab">
+      <button clrTabLink>All findings</button>
+      <clr-tab-content *clrIfActive="false">
+        <findings></findings>
+      </clr-tab-content>
+    </clr-tab>
+    <clr-tab class="run-data-tab">
+      <button clrTabLink>Rule By App</button>
+      <clr-tab-content *clrIfActive="false">
+        <rulebyapp></rulebyapp>
+      </clr-tab-content>
+    </clr-tab>
+    <clr-tab class="run-data-tab">
+      <button clrTabLink>Rule Metrics</button>
+      <clr-tab-content *clrIfActive="false">
+        <rulemetrics></rulemetrics>
+      </clr-tab-content>
+    </clr-tab>
   </clr-tabs>
 
 </div>

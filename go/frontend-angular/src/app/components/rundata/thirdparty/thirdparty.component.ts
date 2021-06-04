@@ -24,7 +24,7 @@ export class ThirdPartyComponent implements OnInit {
       this.resetPage();
       const runId = Number(params.get('id'));
       console.log("runid is : "+runId);
-      this.fetchApiUsageDetailed(runId);
+      this.fetchThirdPartyLibsUsage(runId);
     });
   }
 
@@ -32,7 +32,7 @@ export class ThirdPartyComponent implements OnInit {
     this.thirdPartyLibs=[];
   }
 
-  fetchApiUsageDetailed(runId: number): void{
+  fetchThirdPartyLibsUsage(runId: number): void{
     this.rundataService.getThirdPartyData(runId).subscribe(thirdPartyLibsReturned => {
       console.log(thirdPartyLibsReturned);
       this.thirdPartyLibs = thirdPartyLibsReturned;

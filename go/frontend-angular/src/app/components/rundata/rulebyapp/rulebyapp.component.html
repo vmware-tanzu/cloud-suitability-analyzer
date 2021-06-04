@@ -1,1 +1,22 @@
-<p>rulebyapp works!</p>
+<div>
+  <clr-datagrid class="run-data-grid">
+    <clr-dg-action-bar>
+      <div class="action-bar">
+        <div class="action-bar-item-left">
+          <app-excel-export [data]="gridData" [file_name]="'rule-by-app.xlsx'"></app-excel-export>
+        </div>
+        <div class="action-bar-item-right">
+          <cds-search control-width="shrink">
+            <label>Search</label>
+            <input type="search" [(ngModel)]="searchCrit"/>
+          </cds-search>
+        </div>
+      </div>
+    </clr-dg-action-bar>
+    <clr-dg-column *ngFor="let gridColumn of gridColumns">{{gridColumn.toUpperCase()}}</clr-dg-column>
+
+    <clr-dg-row *clrDgItems="let gridDataRow of gridData  | searchFilter: 'name' : searchCrit">
+      <clr-dg-cell *ngFor="let gridDataCell of gridDataRow" style="text-align: center">{{gridDataCell}}</clr-dg-cell>
+    </clr-dg-row>
+  </clr-datagrid>
+</div>

@@ -13,10 +13,10 @@
       </div>
     </div>
   </clr-dg-action-bar>
-  <clr-dg-column *ngFor="let gridColumn of gridColumns">{{gridColumn}}</clr-dg-column>
+  <clr-dg-column *ngFor="let gridColumn of gridColumns">{{gridColumn.toUpperCase()}}</clr-dg-column>
 
  <clr-dg-row *clrDgItems="let gridDataRow of gridData  | searchFilter: 'name' : searchCrit">
-   <clr-dg-cell *ngFor="let gridDataCell of gridDataRow" style="text-align: center">{{gridDataCell}}</clr-dg-cell>
+   <clr-dg-cell *ngFor="let gridDataCell of gridDataRow">{{gridDataCell}}</clr-dg-cell>
   </clr-dg-row>
 </clr-datagrid>
 </div>
