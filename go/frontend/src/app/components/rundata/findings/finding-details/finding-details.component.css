@@ -1,0 +1,45 @@
+.findingmodal-content {
+  height: 100%;
+}
+
+p.kv-value {
+  font-size: 14px;
+  font-weight: normal;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 10px;
+  padding-right: 0px;
+  margin-top: 1px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  line-height: 1;
+  text-align: right;
+}
+
+.kv-field {
+  font-size: 14px;
+  font-weight: bold;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-top: 1px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  text-align: left;
+  line-height: 1;
+}
+
+.finding-advice {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.finding-rule {
+  margin-top: 1px;
+  margin-bottom: 0.25em;
+  margin-left: 0px;
+  margin-right: 0px;
+}

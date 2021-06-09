@@ -68,8 +68,8 @@ export class RundataService {
   };
 
 
-  getFinding(id) {
-    const url = '/api/findings/' + id;
+  getFinding(runid, id) {
+    const url = UriConstants.CSA_BASE_URI + 'findings/' + id;
     return this.http.get<Findings>(url);
   };
 

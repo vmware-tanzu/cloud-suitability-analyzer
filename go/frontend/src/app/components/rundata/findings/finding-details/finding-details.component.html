@@ -1,0 +1,89 @@
+<clr-modal [(clrModalOpen)]="isOpen" (clrModalOpenChange)="onModalClose($event)">
+  <h1 class="modal-title" style="color: #138078">{{selectedFinding.id}}</h1>
+  <div class="modal-body">
+    <div>
+      <div>
+        <span class="kv-field">File:</span>
+        <span>
+          <p class="kv-value">{{selectedFinding.filename}}</p>
+        </span>
+      </div>
+      <div>
+        <span class="kv-field">FQN:</span>
+        <span>
+          <p class="kv-value">{{selectedFinding.fqn}}</p>
+        </span>
+      </div>
+      <div>
+        <span class="kv-field">Line:</span>
+        <span>
+          <p class="kv-value">{{selectedFinding.line}}</p>
+        </span>
+      </div>
+      <div>
+        <span class="kv-field">Rule:</span>
+        <span>
+          <p class="kv-value">{{selectedFinding.rule}}</p>
+        </span>
+      </div>
+      <div>
+        <span class="kv-field">Pattern:</span>
+        <span>
+          <p class="kv-value">{{selectedFinding.pattern}}</p>
+        </span>
+      </div>
+      <div>
+        <span class="kv-field">Value:</span>
+        <span>
+          <p class="kv-value">{{selectedFinding.value}}</p>
+        </span>
+      </div>
+      <div>
+        <span class="kv-field">Effort:</span>
+        <span>
+          <p class="kv-value">{{selectedFinding.effort}}</p>
+        </span>
+      </div>
+      <div>
+        <span class="kv-field">Category:</span>
+        <span>
+          <p class="kv-value">{{selectedFinding.category}}</p>
+        </span>
+      </div>
+      <div>
+        <span class="kv-field">Application:</span>
+        <span>
+          <p class="kv-value">{{selectedFinding.application}}</p>
+        </span>
+      </div>
+    </div>
+    <div>
+      <h2 class="finding-advice">Notes</h2>
+      <hr class="finding-rule" />
+      <p>{{selectedFinding.note}}</p>
+    </div>
+    <div>
+      <h2 class="finding-advice">Advice</h2>
+      <hr class="finding-rule" />
+      <p>{{selectedFinding.advice}}</p>
+    </div>
+    <div>
+      <h2>Tags</h2>
+      <hr class="finding-rule" />
+      <ul *ngIf="selectedFinding.tags">
+        <li *ngFor="let findingtag of selectedFinding.tags">
+          {{findingtag}}
+        </li>
+      </ul>
+    </div>
+    <div>
+      <h2>Recipes</h2>
+      <hr class="finding-rule" />
+      <ul *ngIf="selectedFinding.recipes">
+        <li *ngFor="let recipe of selectedFinding.recipes">
+          <a [href]="recipe.uri">{{recipe.id}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</clr-modal>
