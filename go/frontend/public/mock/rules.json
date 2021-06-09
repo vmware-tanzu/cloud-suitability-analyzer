@@ -6,7 +6,7 @@
       "Target": "file",
       "Type": "simple-text",
       "Advice": "Refer to cookbook URIs",
-      "Score": 2,
+      "Effort": 2,
       "Criticality": "medium",
       "Tags": [
         {
@@ -71,7 +71,7 @@
       "Target": "file",
       "Type": "simple-text",
       "Advice": "Convert to Spring based application configuration.",
-      "Score": 1,
+      "Effort": 1,
       "Criticality": "medium",
       "Tags": [
         {
@@ -98,7 +98,7 @@
       "Target": "line",
       "Type": "contains",
       "Advice": "Logging to the Event Log is not recommended for cloud native apps.  Consider refactoring to use a ConsoleTraceListener with the System.Diagnostics logging system.",
-      "Score": 1,
+      "Effort": 1,
       "Category": "Logging",
       "Criticality": "medium",
       "Tags": [
@@ -118,7 +118,7 @@
       "Target": "file",
       "Type": "simple-text",
       "Advice": "Refer to cookbook URIs",
-      "Score": 2,
+      "Effort": 2,
       "Criticality": "medium",
       "Tags": [
         {
@@ -160,7 +160,7 @@
       "Target": "line",
       "Type": "contains",
       "Advice": "Use of generated machine keys can cause problems in cloud applications when they are scaled.  Consider disabling use of Machine Keys, or explicitly set the key in your configuration.",
-      "Score": 1,
+      "Effort": 1,
       "Category": "Security",
       "Criticality": "medium",
       "Tags": [
@@ -183,7 +183,7 @@
       "Target": "line",
       "Type": "contains",
       "Advice": "App should be executed as a stateless process. Store session state externally",
-      "Score": 3,
+      "Effort": 3,
       "Category": "SessionStateConfig",
       "Criticality": "medium",
       "Tags": [
@@ -220,12 +220,12 @@
         {
           "Value": "basicHttpsBinding",
           "Advice": "Disable HTTPS at the container and allow the external load balancer to terminate SSL",
-          "Score": 1
+          "Effort": 1
         },
         {
           "Value": "mode=\"Transport\"",
           "Advice": "Transport security at the container is not supported.  Disable transport security on the service",
-          "Score": 2
+          "Effort": 2
         }
       ]
     },
@@ -235,7 +235,7 @@
       "Target": "line",
       "Type": "contains",
       "Advice": "Typically, applications using databases need to be converted to receive their connection strings from the environment.  Use Project Steeltoe (steeltoe.io) to easily inject cloud provided service bindings.",
-      "Score": 1,
+      "Effort": 1,
       "Category": "DatabaseAccess",
       "Criticality": "medium",
       "Tags": [
@@ -268,7 +268,7 @@
       "Target": "line",
       "Type": "contains",
       "Advice": "Relying on the local filesystem to store state is unreliable in a cloud platform.  Since containers are immutable, restarts will lose any written changes.  Refactor this logic to use an external service to store state.",
-      "Score": 3,
+      "Effort": 3,
       "Category": "LocalFilesystemAccess",
       "Criticality": "high",
       "Tags": [
@@ -325,7 +325,7 @@
       "Target": "line",
       "Type": "contains",
       "Advice": "Launching additional processes within a container is not recommended.  Consider refactoring this code to either embed the functionality, or establish a separate service.",
-      "Score": 2,
+      "Effort": 2,
       "Category": "LocalProcess",
       "Criticality": "medium",
       "Tags": [
@@ -351,7 +351,7 @@
       "Target": "line",
       "Type": "contains",
       "Advice": "Logging to the Event Log is not recommended for cloud native apps.  Consider refactoring to use a ConsoleTraceListener with the System.Diagnostics logging system.",
-      "Score": 1,
+      "Effort": 1,
       "Category": "Logging",
       "Criticality": "medium",
       "Tags": [
@@ -374,7 +374,7 @@
       "Target": "line",
       "Type": "contains",
       "Advice": "Relying on Windows certificate stores is problematic in a cloud environment.  Ensure that you either load the certificates you need into the store Just-in-Time or consider refactoring your code to lookup certificates from the environment or another external service.",
-      "Score": 3,
+      "Effort": 3,
       "Category": "Security",
       "Criticality": "medium",
       "Tags": [
@@ -394,7 +394,7 @@
       "Target": "file",
       "Type": "simple-text",
       "Advice": "Refer to cookbook URIs",
-      "Score": 3,
+      "Effort": 3,
       "Category": "IDE",
       "Criticality": "medium",
       "Tags": [
@@ -425,7 +425,7 @@
       "Target": "line",
       "Type": "contains",
       "Advice": "When using HTTPS, terminate SSL at load balancer",
-      "Score": 1,
+      "Effort": 1,
       "Category": "WCF",
       "Criticality": "medium",
       "Tags": [
@@ -441,7 +441,7 @@
         {
           "Value": "SecurityMode.Transport",
           "Advice": "Transport security at the container is not supported.  Disable transport security on the service",
-          "Score": 2
+          "Effort": 2
         }
       ]
     },
@@ -451,7 +451,7 @@
       "Target": "line",
       "Type": "contains",
       "Advice": "External configurations should be made available by environment variables or some other external service such as Spring Cloud Config Server.  App should have no dependencies on OS registry.",
-      "Score": 1,
+      "Effort": 1,
       "Category": "AccessingRegistry",
       "Criticality": "medium",
       "Tags": [
@@ -477,7 +477,7 @@
       "Target": "line",
       "Type": "contains",
       "Advice": "Don't rely on Windows Services as CloudFoundry manages the lifecycle of your service.  Convert any Windows service to a console application to run in Cloud Foundry.",
-      "Score": 1,
+      "Effort": 1,
       "Category": "WindowsServices",
       "Criticality": "medium",
       "Tags": [
@@ -503,7 +503,7 @@
       "Target": "line",
       "Type": "contains",
       "Advice": "Switch to .NET Framework 4.0 or later, or consider migration to .NET Core",
-      "Score": 3,
+      "Effort": 3,
       "Category": "NetFramework",
       "Criticality": "medium",
       "Tags": [
@@ -523,11 +523,11 @@
         },
         {
           "Value": "\u003cTargetFrameworkVersion\u003ev3.0\u003c/TargetFrameworkVersion\u003e",
-          "Score": 1
+          "Effort": 1
         },
         {
           "Value": "\u003cTargetFrameworkVersion\u003ev3.5\u003c/TargetFrameworkVersion\u003e",
-          "Score": 1
+          "Effort": 1
         },
         {
           "Value": "\u003cTargetFrameworkVersion\u003ev4.0\u003c/TargetFrameworkVersion\u003e"
@@ -1604,7 +1604,7 @@
       "Type": "regex",
       "DefaultPattern": "^import\\s*.*%s\\..*$",
       "Advice": "Integrate with new alarmD service",
-      "Score": 1,
+      "Effort": 1,
       "Criticality": "medium",
       "Tags": [
         {
@@ -1629,7 +1629,7 @@
       "Type": "regex",
       "DefaultPattern": "^.*@%s$",
       "Advice": "Refer to PCF/Spring documentation for remediation",
-      "Score": 1,
+      "Effort": 1,
       "Criticality": "medium",
       "Tags": [
         {
@@ -1706,7 +1706,7 @@
       "Type": "regex",
       "DefaultPattern": "^import\\s*.*%s\\..*$",
       "Advice": "Refer to cookbook URIs",
-      "Score": 3,
+      "Effort": 3,
       "Criticality": "medium",
       "Tags": [
         {
@@ -1734,7 +1734,7 @@
       "Type": "regex",
       "DefaultPattern": "^import\\s*.*%s\\..*$",
       "Advice": "Replace coherence with redis",
-      "Score": 1,
+      "Effort": 1,
       "Criticality": "medium",
       "Tags": [
         {
@@ -1758,7 +1758,7 @@
       "Target": "line",
       "Type": "regex",
       "DefaultPattern": "[ .]%s[ (]",
-      "Score": 3,
+      "Effort": 3,
       "Category": "CorbaAPI",
       "Criticality": "medium",
       "Tags": [
@@ -2082,7 +2082,7 @@
       "Type": "regex",
       "DefaultPattern": "[ .]%s[ (]",
       "Advice": "Refer to cookbook URIs",
-      "Score": 1,
+      "Effort": 1,
       "Category": "EjbAPI",
       "Criticality": "medium",
       "Tags": [
@@ -2324,7 +2324,7 @@
       "Type": "regex",
       "DefaultPattern": "[ .]%s[ (]",
       "Advice": "Move to cloud friendly alternative",
-      "Score": 3,
+      "Effort": 3,
       "Category": "FileIoAPI",
       "Criticality": "high",
       "Tags": [
@@ -2488,7 +2488,7 @@
       "Type": "regex",
       "DefaultPattern": "^.*@%s$",
       "Advice": "Change to annotation based config",
-      "Score": 1,
+      "Effort": 1,
       "Criticality": "medium",
       "Tags": [
         {
@@ -2513,7 +2513,7 @@
       "Type": "regex",
       "DefaultPattern": "[ .]%s[ (]",
       "Advice": "Move to cloud friendly alternatives",
-      "Score": 3,
+      "Effort": 3,
       "Category": "IopAPI",
       "Criticality": "medium",
       "Tags": [
@@ -2552,7 +2552,7 @@
       "Type": "regex",
       "DefaultPattern": "^.*@%s$",
       "Advice": "Change to javaConfig",
-      "Score": 1,
+      "Effort": 1,
       "Criticality": "medium",
       "Tags": [
         {
@@ -2577,7 +2577,7 @@
       "Type": "regex",
       "DefaultPattern": "^import\\s*.*%s\\..*$",
       "Advice": "Refer to PCF/Spring documentation for remediation",
-      "Score": 1,
+      "Effort": 1,
       "Criticality": "medium",
       "Tags": [
         {
@@ -2604,7 +2604,7 @@
       "Target": "line",
       "Type": "contains",
       "Advice": "Convert to Spring based POJOs instead of using container specific functionality",
-      "Score": 3,
+      "Effort": 3,
       "Category": "JBoss",
       "Criticality": "medium",
       "Tags": [
@@ -2641,7 +2641,7 @@
       "Target": "line",
       "Type": "regex",
       "DefaultPattern": "^.*@%s$",
-      "Score": 3,
+      "Effort": 3,
       "Category": "JCA",
       "Criticality": "medium",
       "Tags": [
@@ -2668,7 +2668,7 @@
       "Type": "regex",
       "DefaultPattern": "[ .]%s[ (]",
       "Advice": "Refer to cookbook URIs",
-      "Score": 1,
+      "Effort": 1,
       "Category": "JmsAPI",
       "Criticality": "medium",
       "Tags": [
@@ -2841,7 +2841,7 @@
       "Type": "regex",
       "DefaultPattern": "[ .]%s[ (]",
       "Advice": "Remove jndi provider",
-      "Score": 1,
+      "Effort": 1,
       "Category": "JndiAPI",
       "Criticality": "medium",
       "Tags": [
@@ -2947,7 +2947,7 @@
       "Target": "line",
       "Type": "contains",
       "Advice": "Convert to Spring Beans and dependency injection",
-      "Score": 1,
+      "Effort": 1,
       "Category": "SpringJNDI",
       "Criticality": "medium",
       "Tags": [
@@ -2968,7 +2968,7 @@
       "Type": "regex",
       "DefaultPattern": "[ ]%s[ ]",
       "Advice": "Refer to cookbook URI",
-      "Score": 5,
+      "Effort": 5,
       "Category": "JniApi",
       "Criticality": "medium",
       "Tags": [
@@ -3026,7 +3026,7 @@
       "Target": "line",
       "Type": "contains",
       "Advice": "JPA will work inside of Cloud Native applications, but changes may need to be made to the way JPA is configured to get connections",
-      "Score": 2,
+      "Effort": 2,
       "Category": "JPA",
       "Criticality": "medium",
       "Tags": [
@@ -3055,7 +3055,7 @@
       "Type": "regex",
       "DefaultPattern": "[ .]%s[ (]",
       "Advice": "Refer to this recipe URIs",
-      "Score": 3,
+      "Effort": 3,
       "Category": "JsfAPI",
       "Criticality": "medium",
       "Tags": [
@@ -3291,7 +3291,7 @@
       "Type": "regex",
       "DefaultPattern": "[ .]%s[ (]",
       "Advice": "Refer to cookbook URIs",
-      "Score": 1,
+      "Effort": 1,
       "Category": "JspAPI",
       "Criticality": "medium",
       "Tags": [
@@ -3371,7 +3371,7 @@
       "Type": "regex",
       "DefaultPattern": "[ .]%s[ (]",
       "Advice": "Refer to cookbook URIs",
-      "Score": 5,
+      "Effort": 5,
       "Category": "jtaAPI",
       "Criticality": "medium",
       "Tags": [
@@ -3490,7 +3490,7 @@
       "Type": "regex",
       "DefaultPattern": "[ .]%s[ (]",
       "Advice": "Refer to cookbook URIs",
-      "Score": 1,
+      "Effort": 1,
       "Category": "IBM-MQ",
       "Criticality": "medium",
       "Tags": [
@@ -3552,7 +3552,7 @@
       "Type": "regex",
       "DefaultPattern": "[ .]%s[ (]",
       "Advice": "Refer to cookbook URIs",
-      "Score": 3,
+      "Effort": 3,
       "Category": "ETL",
       "Criticality": "medium",
       "Tags": [
@@ -3587,7 +3587,7 @@
       "Type": "regex",
       "DefaultPattern": "^import\\s*.*%s\\..*$",
       "Advice": "Refer to cookbook URIs",
-      "Score": 3,
+      "Effort": 3,
       "Criticality": "medium",
       "Tags": [
         {
@@ -3624,7 +3624,7 @@
       "Type": "regex",
       "DefaultPattern": "[ .]%s[ {]",
       "Advice": "Refer to cookbook URIs",
-      "Score": 3,
+      "Effort": 3,
       "Category": "ETL",
       "Criticality": "medium",
       "Tags": [
@@ -3662,7 +3662,7 @@
       "Type": "regex",
       "DefaultPattern": "[ .]%s[ (]",
       "Advice": "Move to cloud friendly alternative",
-      "Score": 1,
+      "Effort": 1,
       "Category": "NioAPI",
       "Criticality": "medium",
       "Tags": [
@@ -3809,7 +3809,7 @@
       "Type": "regex",
       "DefaultPattern": "^import\\s*.*%s\\..*$",
       "Advice": "Refer to PCF/Spring documentation for remediation",
-      "Score": 1,
+      "Effort": 1,
       "Criticality": "medium",
       "Tags": [
         {
@@ -3834,7 +3834,7 @@
       "Type": "regex",
       "DefaultPattern": "^import\\s*.*%s\\..*$",
       "Advice": "Refer to PCF/Spring documentation for remediation",
-      "Score": 1,
+      "Effort": 1,
       "Criticality": "medium",
       "Tags": [
         {
@@ -3873,7 +3873,7 @@
       "Target": "line",
       "Type": "regex",
       "DefaultPattern": "[ .]%s[ (]",
-      "Score": 2,
+      "Effort": 2,
       "Category": "JCA",
       "Criticality": "high",
       "Tags": [
@@ -3935,7 +3935,7 @@
       "Target": "line",
       "Type": "regex",
       "DefaultPattern": "[ .]%s[ (]",
-      "Score": 2,
+      "Effort": 2,
       "Category": "JCA",
       "Criticality": "high",
       "Tags": [
@@ -4117,7 +4117,7 @@
       "Target": "line",
       "Type": "regex",
       "DefaultPattern": "[ .]%s[ \u003e({]",
-      "Score": 1,
+      "Effort": 1,
       "Category": "WebTest",
       "Criticality": "medium",
       "Tags": [
@@ -4170,7 +4170,7 @@
       "Target": "line",
       "Type": "contains",
       "Advice": "Servlet Java API Import",
-      "Score": 2,
+      "Effort": 2,
       "Category": "WebProfile",
       "Criticality": "medium",
       "Tags": [
@@ -4191,7 +4191,7 @@
       "Type": "regex",
       "DefaultPattern": "[ .]%s[ (]",
       "Advice": "Refer to cookbook URIs",
-      "Score": 2,
+      "Effort": 2,
       "Category": "SoapAPI",
       "Criticality": "medium",
       "Tags": [
@@ -4302,7 +4302,7 @@
       "Type": "regex",
       "DefaultPattern": "[ .]%s[ (]",
       "Advice": "Refer to cookbook URIs",
-      "Score": 3,
+      "Effort": 3,
       "Category": "StrutsAPI",
       "Criticality": "medium",
       "Tags": [
@@ -4435,7 +4435,7 @@
       "Target": "line",
       "Type": "regex",
       "DefaultPattern": "[ .]%s[ (]",
-      "Score": 3,
+      "Effort": 3,
       "Category": "SwingAPI",
       "Criticality": "medium",
       "Tags": [
@@ -4636,7 +4636,7 @@
       "Type": "regex",
       "DefaultPattern": "[ .]%s[ (]",
       "Advice": "Refer to cookbook URIs",
-      "Score": 1,
+      "Effort": 1,
       "Category": "TibcoAPI",
       "Criticality": "medium",
       "Tags": [
@@ -4661,7 +4661,7 @@
       "Target": "line",
       "Type": "contains",
       "Advice": "Move away from container specific APIs to portal APIs such as Spring",
-      "Score": 3,
+      "Effort": 3,
       "Category": "WebLogic",
       "Criticality": "medium",
       "Tags": [
@@ -4681,7 +4681,7 @@
       "Target": "line",
       "Type": "contains",
       "Advice": "Move away from container specific APIs to portal APIs such as Spring",
-      "Score": 3,
+      "Effort": 3,
       "Category": "Websphere",
       "Criticality": "medium",
       "Tags": [
@@ -4705,7 +4705,7 @@
       "Type": "regex",
       "DefaultPattern": "^.*@%s$",
       "Advice": "Refer to cookbook URIs",
-      "Score": 1,
+      "Effort": 1,
       "Criticality": "medium",
       "Tags": [
         {
@@ -4729,7 +4729,7 @@
       "Target": "file",
       "Type": "simple-text",
       "Advice": "Utilize elinter to improve maintainiblity",
-      "Score": 1,
+      "Effort": 1,
       "Criticality": "medium",
       "Tags": [
         {
@@ -4756,7 +4756,7 @@
       "Target": "file",
       "Type": "simple-text",
       "Advice": "Refer to cookbook URIs",
-      "Score": 1,
+      "Effort": 1,
       "Category": "SQL",
       "Criticality": "medium",
       "Tags": [
@@ -4784,7 +4784,7 @@
       "Target": "file",
       "Type": "simple-text",
       "Advice": "Refer to cookbook URIs",
-      "Score": 2,
+      "Effort": 2,
       "Criticality": "medium",
       "Tags": [
         {
@@ -4853,7 +4853,7 @@
       "Target": "line",
       "Type": "contains",
       "Advice": "Convert to rabbitmq",
-      "Score": 1,
+      "Effort": 1,
       "Category": "JavaEEConfig",
       "Criticality": "medium",
       "Tags": [
@@ -4878,7 +4878,7 @@
       "Target": "file",
       "Type": "simple-text",
       "Advice": "Refer to cookbook URIs",
-      "Score": 1,
+      "Effort": 1,
       "Criticality": "medium",
       "Tags": [
         {
@@ -4932,7 +4932,7 @@
       "Target": "file",
       "Type": "simple-text",
       "Advice": "Convert to Spring based application configuration",
-      "Score": 1,
+      "Effort": 1,
       "Criticality": "medium",
       "Tags": [
         {
@@ -4966,7 +4966,7 @@
       "Target": "line",
       "Type": "contains",
       "Advice": "Convert to Spring based application configuration",
-      "Score": 1,
+      "Effort": 1,
       "Category": "JavaEEConfig",
       "Criticality": "medium",
       "Tags": [
@@ -4986,7 +4986,7 @@
       "Target": "file",
       "Type": "simple-text",
       "Advice": "Refer to cookbook URIs",
-      "Score": 1,
+      "Effort": 1,
       "Criticality": "medium",
       "Tags": [
         {
@@ -5008,7 +5008,7 @@
       "Target": "file",
       "Type": "simple-text",
       "Advice": "Refer to cookbook URIs",
-      "Score": 2,
+      "Effort": 2,
       "Criticality": "medium",
       "Tags": [
         {
@@ -5074,7 +5074,7 @@
       "Target": "file",
       "Type": "simple-text",
       "Advice": "Convert to Spring based application configuration",
-      "Score": 1,
+      "Effort": 1,
       "Criticality": "medium",
       "Tags": [
         {
@@ -5107,7 +5107,7 @@
       "Target": "file",
       "Type": "simple-text",
       "Advice": "Convert to Spring based application configuration",
-      "Score": 1,
+      "Effort": 1,
       "Criticality": "medium",
       "Tags": [
         {
@@ -5202,7 +5202,7 @@
       "Target": "file",
       "Type": "simple-text",
       "Advice": "Convert to Spring based application configuration",
-      "Score": 4,
+      "Effort": 4,
       "Criticality": "medium",
       "Tags": [
         {
@@ -5313,7 +5313,7 @@
       "Target": "line",
       "Type": "contains",
       "Advice": "12 Factor",
-      "Score": 1,
+      "Effort": 1,
       "Category": "12Factor",
       "Criticality": "medium",
       "Tags": [
