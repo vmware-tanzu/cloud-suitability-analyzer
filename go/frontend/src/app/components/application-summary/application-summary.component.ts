@@ -8,6 +8,8 @@ import '@cds/core/search/register.js';
 import { Language } from 'src/app/model/language';
 import { Api } from 'src/app/model/api';
 import { TagSummary } from 'src/app/model/tagsummary';
+import { ApplicationFinding } from 'src/app/model/applicationfinding';
+import { SelectedTag } from 'src/app/model/selectedtag';
 
 @Component({
   selector: 'csa-application-summary',
@@ -19,7 +21,8 @@ export class ApplicationSummaryComponent implements OnInit {
   public searchCrit: any = '';
 
   applicationScores: ApplicationScore [] = [];
-  applicationFindings: any;
+  allApplicationFindings: any;
+  displayApplicationFindings: ApplicationFinding[] = [];
   runId: number = 0;
   findings: number = 0;
   selectedAppId: number | undefined;
@@ -30,7 +33,12 @@ export class ApplicationSummaryComponent implements OnInit {
   languages: ChartElement[] = [];
   apis: ChartElement[] = [];
   scoreCard: any;
+  tagName: number | undefined;
+  binTagName: number | undefined;
   
+  selectedBinTags: string[] = [];
+  selectedTags: SelectedTag[] = [];
+
   view: [number, number] = [700, 400];
 
   // options
@@ -91,7 +99,8 @@ export class ApplicationSummaryComponent implements OnInit {
 
   fetchApplicationFindings(runid: number, applicationSelected: ApplicationScore): void{
     this.applicationSummaryService.getApplicationAllFindings(runid, applicationSelected.name).subscribe(applicationFindings => {
-      this.applicationFindings = applicationFindings;
+      this.allApplicationFindings = applicationFindings;
+      this.displayApplicationFindings = applicationFindings;
     }, error => {
       console.log(error);
     })
@@ -101,7 +110,7 @@ export class ApplicationSummaryComponent implements OnInit {
     if(applicationSelected.tags != null && applicationSelected.tags.length != 0) {
       applicationSelected.tags.forEach(tag => {
         this.applicationSummaryService.getApplicationFindingsByTag(runid, applicationSelected.name, tag).subscribe(tags => {
-          let tagSummary : TagSummary = new TagSummary(tag.Value, tags.length);
+          let tagSummary : TagSummary = new TagSummary(tag.Value, tags.length, tags);
           this.tags.push(tagSummary);
         }, error => {
           console.log(error);
@@ -114,7 +123,7 @@ export class ApplicationSummaryComponent implements OnInit {
     if(applicationSelected.bins != null && applicationSelected.bins.length != 0) {
       applicationSelected.bins.forEach(bin => {
         this.applicationSummaryService.getApplicationFindingsByTags(runid, applicationSelected.name, bin).subscribe(bintags => {
-          let tagSummary : TagSummary = new TagSummary(bin.name, bintags.length);
+          let tagSummary : TagSummary = new TagSummary(bin.name, bintags.length, bintags);
           this.binTags.push(tagSummary);
         }, error => {
           console.log(error);
@@ -175,5 +184,136 @@ export class ApplicationSummaryComponent implements OnInit {
 
   onSelectApis(api: Api[]): void {
     console.log('Active', JSON.parse(JSON.stringify(api)));
+  }
+
+  resetCssForBinTagsAndTags(binTag: string): void {
+    document.getElementById(binTag).classList.replace("label-warning", "label-light-blue");
+
+    this.applicationSelected.bins.forEach(bin => {
+      if(bin.name == binTag) {
+        bin.tags.forEach(tag => {
+          let element = document.getElementById(tag.name);
+          if (element != null || element != undefined) {
+            element.classList.replace("label-success", "label-info");
+            this.selectedTags.forEach((selectedTag, index) => {
+              if(selectedTag.name == tag.name) {
+                this.selectedTags.splice(index, 1);
+              }
+            });
+          }
+        });
+      }
+    });
+  }
+
+  highlightBinTags(event): void {
+    
+    let found = false;
+    if(this.selectedBinTags.length != 0) {
+      this.selectedBinTags.forEach((selectedBinTag, index) => {
+        if(selectedBinTag == event.target.id) {
+          this.selectedBinTags.splice(index, 1);
+          this.resetCssForBinTagsAndTags(event.target.id)
+          found = true;
+        } 
+      });
+    }
+
+    if(!found) {
+      document.getElementById(event.target.id).classList.replace("label-light-blue", "label-warning");
+      this.selectedBinTags.push(event.target.id);
+    }
+
+    this.showApplicationFindings();
+  }
+
+  highlightTags(event): void {
+    console.log("Clicked Id", event.target.id)
+
+    let found = false;
+    let removed = false;
+
+    if(this.selectedTags.length != 0) {
+      this.selectedTags.forEach((selectedTag, index) => {
+        if(selectedTag.name == event.target.id) {
+          found = true;
+          if(!selectedTag.isBinTag) {
+            document.getElementById(event.target.id).classList.replace("label-success", "label-info");
+            this.selectedTags.splice(index, 1);
+            removed = true;
+          }
+        }
+      });
+    }
+
+    if(!found) {
+      document.getElementById(event.target.id).classList.replace("label-info", "label-success");
+      let selectedTag: SelectedTag = new SelectedTag(event.target.id, false);
+      this.selectedTags.push(selectedTag);
+    }
+    
+    this.showApplicationFindings();
+
+  }
+
+  showApplicationFindings(): void {
+    if(this.selectedBinTags.length == 0 && this.selectedTags.length == 0) {
+      this.displayApplicationFindings = this.allApplicationFindings;
+    } else {
+      this.displayApplicationFindings = [];
+    }
+
+
+    let availableFindingIds: number[] = [];
+    this.displayApplicationFindings.forEach(finding => {
+      availableFindingIds.push(finding.id)
+    });
+
+    this.selectedBinTags.forEach(binTag => {
+      this.binTags.forEach(data => {
+        if (data.name == binTag) {
+          data.tagData.forEach(tagFinding => {
+            if(!availableFindingIds.includes(tagFinding.id)) {
+              this.displayApplicationFindings.push(tagFinding);
+            }
+          });
+        }
+      });
+
+      let selectedTags: string[] = [];
+      this.selectedTags.forEach(selectedTag => {
+        selectedTags.push(selectedTag.name);
+      });
+  
+      this.applicationSelected.bins.forEach(bin => {
+        if(bin.name == binTag) {
+          bin.tags.forEach(tag => {
+            let element = document.getElementById(tag.name);
+            if (element != null || element != undefined) {
+              element.classList.replace("label-info", "label-success");
+              let selectedTag: SelectedTag = new SelectedTag(tag.name, true);
+              if(!selectedTags.includes(selectedTag.name)) {
+                this.selectedTags.push(selectedTag);
+                selectedTags.push(selectedTag.name)
+              }
+            }
+          });
+        }
+      });
+    });
+
+    this.selectedTags.forEach(selectedTag => {
+      if(!selectedTag.isBinTag) {
+        this.tags.forEach(tag => {
+          if(tag.name == selectedTag.name) {
+            tag.tagData.forEach((tagFinding, index) => {
+              if(!availableFindingIds.includes(tagFinding.id)) {
+                this.displayApplicationFindings.push(tagFinding);
+              }
+            });
+          }
+        });
+      }
+    });
   }
 }

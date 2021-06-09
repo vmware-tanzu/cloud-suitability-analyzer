@@ -7,7 +7,6 @@ import { UriConstants } from 'src/app/constants/uri-constants';
 import { Scores } from "../model/scores";
 import { Language } from "../model/language"
 import { Api } from "../model/api"
-import { Tags } from "../model/tags"
 import { ApplicationFinding } from '../model/applicationfinding';
 import { ApplicationScoreCard } from '../model/applicationscorecard';
 import { Bin, Tag } from '../model/applicationscore';
