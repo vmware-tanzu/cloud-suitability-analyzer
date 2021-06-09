@@ -21,7 +21,6 @@ import '@cds/core/select/register.js';
 import '@cds/core/textarea/register.js';
 import '@cds/core/time/register.js';
 import '@cds/core/toggle/register.js';
-import {Score} from "./model/score";
 
 @Component({
   selector: 'app-root',

@@ -15,7 +15,7 @@
     </clr-dg-action-bar>
     <clr-dg-column [clrDgField]="'api'">API</clr-dg-column>
     <clr-dg-column [clrDgField]="'usagecount'" [clrDgColType]="'number'">Usage Count</clr-dg-column>
-
+    <clr-dg-placeholder>No API usage summary found</clr-dg-placeholder>
     <clr-dg-row *clrDgItems="let apiSummary of apiSummaries  | searchFilter: 'name' : searchCrit">
       <clr-dg-cell>{{apiSummary.api}}</clr-dg-cell>
       <clr-dg-cell>{{apiSummary.usageCount}}</clr-dg-cell>

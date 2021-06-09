@@ -19,7 +19,7 @@
     <clr-dg-column [clrDgField]="'advice'">Advice</clr-dg-column>
     <clr-dg-column [clrDgField]="'effort'" [clrDgColType]="'number'">Effort</clr-dg-column>
     <clr-dg-column [clrDgField]="'level'">Level</clr-dg-column>
-
+    <clr-dg-placeholder>No annotations found</clr-dg-placeholder>
     <clr-dg-row *clrDgItems="let annotation of annotations  | searchFilter: 'name' : searchCrit">
       <clr-dg-cell>{{annotation.application}}</clr-dg-cell>
       <clr-dg-cell>{{annotation.value}}</clr-dg-cell>

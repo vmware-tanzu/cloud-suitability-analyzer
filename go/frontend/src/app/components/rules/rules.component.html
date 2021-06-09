@@ -1,8 +1,9 @@
-<div >
+<div>
   <clr-tabs class="rules-tabs">
     <clr-tab class="rules-tab">
       <button clrTabLink>Rules</button>
       <clr-tab-content *clrIfActive>
+        <div>
         <clr-datagrid class="rules-grid">
           <clr-dg-action-bar>
             <div class="action-bar">
@@ -17,14 +18,14 @@
               </div>
             </div>
           </clr-dg-action-bar>
-          <clr-dg-column [clrDgField]="'name'"  [clrDgColType]="'string'">Name</clr-dg-column>
-          <clr-dg-column [clrDgField]="'tags'"  [clrDgColType]="'string'">Tags</clr-dg-column>
-          <clr-dg-column [clrDgField]="'fileTyoe'" [clrDgColType]="'string'">FileType</clr-dg-column>
-          <clr-dg-column [clrDgField]="'target'" [clrDgColType]="'string'">Target</clr-dg-column>
-          <clr-dg-column [clrDgField]="'advice'" [clrDgColType]="'string'">Advice</clr-dg-column>
-          <clr-dg-column [clrDgField]="'effort'" [clrDgColType]="'number'">Effort</clr-dg-column>
-          <clr-dg-column [clrDgField]="'category'" [clrDgColType]="'string'">Category</clr-dg-column>
-          <clr-dg-column [clrDgField]="'criticality'" [clrDgColType]="'string'">Criticality</clr-dg-column>
+          <clr-dg-column [clrDgField]="'Name'"  [clrDgColType]="'string'">Name</clr-dg-column>
+          <clr-dg-column [clrDgField]="'Tags'"  [clrDgColType]="'string'">Tags</clr-dg-column>
+          <clr-dg-column [clrDgField]="'FileType'" [clrDgColType]="'string'">FileType</clr-dg-column>
+          <clr-dg-column [clrDgField]="'Target'" [clrDgColType]="'string'">Target</clr-dg-column>
+          <clr-dg-column [clrDgField]="'Advice'" [clrDgColType]="'string'">Advice</clr-dg-column>
+          <clr-dg-column [clrDgField]="'Effort'" [clrDgColType]="'number'">Effort</clr-dg-column>
+          <clr-dg-column [clrDgField]="'Category'" [clrDgColType]="'string'">Category</clr-dg-column>
+          <clr-dg-column [clrDgField]="'Criticality'" [clrDgColType]="'string'">Criticality</clr-dg-column>
 
           <clr-dg-row *clrDgItems="let rule of rules  | searchFilter: 'name' : searchCrit">
             <clr-dg-cell>{{rule.Name}}</clr-dg-cell>
@@ -54,6 +55,7 @@
             </clr-dg-pagination>
           </clr-dg-footer>
         </clr-datagrid>
+        </div>
       </clr-tab-content>
     </clr-tab>
   </clr-tabs>

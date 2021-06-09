@@ -19,7 +19,7 @@
     <clr-dg-column [clrDgField]="'advice'">Advice</clr-dg-column>
     <clr-dg-column [clrDgField]="'effort'" [clrDgColType]="'number'">Effort</clr-dg-column>
     <clr-dg-column [clrDgField]="'level'">Level</clr-dg-column>
-
+    <clr-dg-placeholder>No third party library usage found</clr-dg-placeholder>
     <clr-dg-row *clrDgItems="let thirdPartyLib of thirdPartyLibs  | searchFilter: 'name' : searchCrit">
       <clr-dg-cell>{{thirdPartyLib.application}}</clr-dg-cell>
       <clr-dg-cell>{{thirdPartyLib.category}}</clr-dg-cell>

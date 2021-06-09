@@ -14,7 +14,7 @@
       </div>
     </clr-dg-action-bar>
     <clr-dg-column *ngFor="let gridColumn of gridColumns">{{gridColumn.toUpperCase()}}</clr-dg-column>
-
+    <clr-dg-placeholder>No rule by app information found</clr-dg-placeholder>
     <clr-dg-row *clrDgItems="let gridDataRow of gridData  | searchFilter: 'name' : searchCrit">
       <clr-dg-cell *ngFor="let gridDataCell of gridDataRow" style="text-align: center">{{gridDataCell}}</clr-dg-cell>
     </clr-dg-row>

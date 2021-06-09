@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Findings} from "../../../../model/findings";
 
+
 @Component({
   selector: 'app-finding-details',
   templateUrl: './finding-details.component.html',

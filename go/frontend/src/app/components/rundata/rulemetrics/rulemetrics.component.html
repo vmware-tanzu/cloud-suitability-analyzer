@@ -23,7 +23,7 @@
     <clr-dg-column [clrDgField]="'avgrule'">Avg-rule</clr-dg-column>
     <clr-dg-column [clrDgField]="'avgpattern'">Avg-pattern</clr-dg-column>
     <clr-dg-column [clrDgField]="'avghit'">Avg-hit</clr-dg-column>
-
+    <clr-dg-placeholder>No rule metrics found</clr-dg-placeholder>
     <clr-dg-row *clrDgItems="let ruleMetric of ruleMetrics  | searchFilter: 'name' : searchCrit">
       <clr-dg-cell>{{ruleMetric.rule}}</clr-dg-cell>
       <clr-dg-cell>{{ruleMetric.checks}}</clr-dg-cell>

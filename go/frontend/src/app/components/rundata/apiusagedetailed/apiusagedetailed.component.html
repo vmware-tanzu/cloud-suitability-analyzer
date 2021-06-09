@@ -20,7 +20,7 @@
     <clr-dg-column [clrDgField]="'advice'">Advice</clr-dg-column>
     <clr-dg-column [clrDgField]="'effort'" [clrDgColType]="'number'">Effort</clr-dg-column>
     <clr-dg-column [clrDgField]="'level'">Level</clr-dg-column>
-
+    <clr-dg-placeholder>No API usage details found</clr-dg-placeholder>
     <clr-dg-row *clrDgItems="let apiDetailedUsage of apiDetailedUsages  | searchFilter: 'name' : searchCrit">
       <clr-dg-cell>{{apiDetailedUsage.application}}</clr-dg-cell>
       <clr-dg-cell>{{apiDetailedUsage.api}}</clr-dg-cell>

@@ -18,7 +18,7 @@
     <clr-dg-column [clrDgField]="'blanklines'" [clrDgColType]="'number'">Blank lines</clr-dg-column>
     <clr-dg-column [clrDgField]="'commentlines'" [clrDgColType]="'number'">Comment lines</clr-dg-column>
     <clr-dg-column [clrDgField]="'loc'" [clrDgColType]="'number'">Lines of code</clr-dg-column>
-
+    <clr-dg-placeholder>No source code information found</clr-dg-placeholder>
     <clr-dg-row *clrDgItems="let sloc of slocDetails  | searchFilter: 'name' : searchCrit">
       <clr-dg-cell>{{sloc.language}}</clr-dg-cell>
       <clr-dg-cell>{{sloc.totalFiles}}</clr-dg-cell>
