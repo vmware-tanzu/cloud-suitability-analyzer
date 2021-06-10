@@ -51,11 +51,12 @@
                   <div style="fontWeight: 'bold'">
                     Patterns:
                   </div>
-                  <ul *ngIf="rule.Patterns">
+                  <ul *ngIf="rule.Patterns; else nopattern">
                     <li *ngFor="let pattern of rule.Patterns">
                       {{pattern.Value}}
                     </li>
                   </ul>
+                  <ng-template #nopattern>None</ng-template>
                 </div>
                 <div>
                   <div style="fontWeight: 'bold'">
