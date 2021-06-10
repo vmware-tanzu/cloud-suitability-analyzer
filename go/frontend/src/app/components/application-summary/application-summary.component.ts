@@ -39,6 +39,11 @@ export class ApplicationSummaryComponent implements OnInit {
   selectedBinTags: string[] = [];
   selectedTags: SelectedTag[] = [];
 
+  selectedFinding: ApplicationFinding;
+
+  isOpen: boolean;
+  findingLoaded: boolean = false;
+
   view: [number, number] = [700, 400];
 
   // options
@@ -59,29 +64,25 @@ export class ApplicationSummaryComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.resetPage();
       this.runId = Number(params.get('id'));
-      let applicationScores = this.fetchAppScoresAndFindings(this.runId);
-
-      applicationScores.forEach(appScore => {
-        if(this.selectedAppId == undefined) {
-          this.selectedAppId = 0;
-          this.appChanged();
-        }
-      });
+      this.fetchAppScoresAndFindings(this.runId);
     });
   }
 
   resetPage(): void{
     this.findings = 0;
-    this.selectedAppId = 0;
+    this.selectedAppId = undefined;
     this.applicationScores = [];
+    this.displayApplicationFindings = [];
     this.filteredApplicationScores = [];
     this.languages = [];
     this.apis = [];
     this.tags = [];
     this.binTags = [];
+    this.selectedBinTags = [];
+    this.selectedTags = [];
   }
 
-  fetchAppScoresAndFindings(runid: number): ApplicationScore[]{
+  fetchAppScoresAndFindings(runid: number): void{
     this.applicationSummaryService.getApplicationByRun(runid).subscribe(scores => {
       if (scores.scores.appScores) {
         this.applicationScores = scores.scores.appScores;
@@ -89,21 +90,31 @@ export class ApplicationSummaryComponent implements OnInit {
         scores.scores.appScores.forEach(appScore => {
           this.filteredApplicationScores.push(appScore);
         });
+
+        this.selectedAppId = 0;
+        this.appChanged();
       }
     }, error => {
       console.log(error);
     });
-
-    return this.applicationScores;
   }
 
   fetchApplicationFindings(runid: number, applicationSelected: ApplicationScore): void{
-    this.applicationSummaryService.getApplicationAllFindings(runid, applicationSelected.name).subscribe(applicationFindings => {
+    this.applicationSummaryService.getApplicationAllFindings(runid, applicationSelected.name).subscribe(applicationFindings => {      
+      applicationFindings.map(finding => {
+        if(finding.recipes == null){
+          finding.recipes = [];
+        }
+      }, error => {
+        console.log(error);
+      });
+
       this.allApplicationFindings = applicationFindings;
       this.displayApplicationFindings = applicationFindings;
     }, error => {
       console.log(error);
     })
+
   }
 
   fetchTagsForApplication(runid: number, applicationSelected: ApplicationScore): void{
@@ -179,11 +190,9 @@ export class ApplicationSummaryComponent implements OnInit {
   }
 
   onSelectLanguage(language: Language[]): void {
-    console.log('Active', JSON.parse(JSON.stringify(language)));
   }
 
   onSelectApis(api: Api[]): void {
-    console.log('Active', JSON.parse(JSON.stringify(api)));
   }
 
   resetCssForBinTagsAndTags(binTag: string): void {
@@ -228,8 +237,6 @@ export class ApplicationSummaryComponent implements OnInit {
   }
 
   highlightTags(event): void {
-    console.log("Clicked Id", event.target.id)
-
     let found = false;
     let removed = false;
 
@@ -262,7 +269,6 @@ export class ApplicationSummaryComponent implements OnInit {
     } else {
       this.displayApplicationFindings = [];
     }
-
 
     let availableFindingIds: number[] = [];
     this.displayApplicationFindings.forEach(finding => {
@@ -313,6 +319,24 @@ export class ApplicationSummaryComponent implements OnInit {
             });
           }
         });
+      }
+    });
+
+    this.displayApplicationFindings.map(finding => {
+      if(finding.recipes == null){
+        finding.recipes = [];
+      }
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  fetchFindingById(findingId: number): void{
+    this.displayApplicationFindings.forEach(finding => {
+      if(finding.id == findingId) {
+        this.selectedFinding = finding;
+        this.findingLoaded = true;
+        this.isOpen = true;
       }
     });
   }
