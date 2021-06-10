@@ -10,6 +10,8 @@ import { Api } from 'src/app/model/api';
 import { TagSummary } from 'src/app/model/tagsummary';
 import { ApplicationFinding } from 'src/app/model/applicationfinding';
 import { SelectedTag } from 'src/app/model/selectedtag';
+import {ToastrService} from 'ngx-toastr';
+import { pushErrorNotification, pushInfoNotification } from 'src/app/utils/notificationutil';
 
 @Component({
   selector: 'csa-application-summary',
@@ -54,7 +56,7 @@ export class ApplicationSummaryComponent implements OnInit {
     domain: ['#0095D3', '#00BFA9', '#60B515', '#8939AD', '#F57600', '#6870C4']
   };
 
-  constructor(private router: Router, private route: ActivatedRoute, private applicationSummaryService: ApplicationSummaryService) {
+  constructor(private router: Router, private route: ActivatedRoute, private applicationSummaryService: ApplicationSummaryService, public toastr: ToastrService) {
     ClarityIcons.addIcons(pinboardIcon);
     ClarityIcons.addIcons(downloadIcon);
     ClarityIcons.addIcons(thermometerIcon);
@@ -95,7 +97,7 @@ export class ApplicationSummaryComponent implements OnInit {
         this.appChanged();
       }
     }, error => {
-      console.log(error);
+      pushErrorNotification(error, this.toastr);
     });
   }
 
@@ -106,13 +108,13 @@ export class ApplicationSummaryComponent implements OnInit {
           finding.recipes = [];
         }
       }, error => {
-        console.log(error);
+        pushErrorNotification(error, this.toastr);
       });
 
       this.allApplicationFindings = applicationFindings;
       this.displayApplicationFindings = applicationFindings;
     }, error => {
-      console.log(error);
+      pushErrorNotification(error, this.toastr);
     })
 
   }
@@ -124,7 +126,7 @@ export class ApplicationSummaryComponent implements OnInit {
           let tagSummary : TagSummary = new TagSummary(tag.Value, tags.length, tags);
           this.tags.push(tagSummary);
         }, error => {
-          console.log(error);
+          pushErrorNotification(error, this.toastr);
         })
       })
     }
@@ -137,7 +139,7 @@ export class ApplicationSummaryComponent implements OnInit {
           let tagSummary : TagSummary = new TagSummary(bin.name, bintags.length, bintags);
           this.binTags.push(tagSummary);
         }, error => {
-          console.log(error);
+          pushErrorNotification(error, this.toastr);
         })
       })
     }
@@ -147,7 +149,7 @@ export class ApplicationSummaryComponent implements OnInit {
     this.applicationSummaryService.getApplicationScorecard(runid, applicationSelected.name).subscribe(scoreCard => {
       this.scoreCard = scoreCard;
     }, error => {
-      console.log(error);
+      pushErrorNotification(error, this.toastr);
     })
   }
 
@@ -158,7 +160,7 @@ export class ApplicationSummaryComponent implements OnInit {
         this.languages.push(chartElement)
       });
     }, error => {
-      console.log(error);
+      pushErrorNotification(error, this.toastr);
     })
   }
 
@@ -169,7 +171,7 @@ export class ApplicationSummaryComponent implements OnInit {
         this.apis.push(chartElement)
       });
     }, error => {
-      console.log(error);
+      pushErrorNotification(error, this.toastr);
     })
   }
 
@@ -327,8 +329,10 @@ export class ApplicationSummaryComponent implements OnInit {
         finding.recipes = [];
       }
     }, error => {
-      console.log(error);
+      pushErrorNotification(error, this.toastr);
     });
+
+    pushInfoNotification('Found [' + this.displayApplicationFindings.length + '] findings!', this.toastr);
   }
 
   fetchFindingById(findingId: number): void{
