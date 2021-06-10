@@ -38,15 +38,41 @@
             <clr-dg-cell>{{rule.Effort}}</clr-dg-cell>
             <clr-dg-cell>{{rule.Category}}</clr-dg-cell>
             <clr-dg-cell></clr-dg-cell>
+            <clr-dg-row-detail *clrIfExpanded>
+
+              <div>
+                <div style="fontWeight: 'bold'">
+                  Default Pattern:
+                </div>
+                <div>
+                  {{rule.DefaultPattern}}
+                </div>
+                <div>
+                  <div style="fontWeight: 'bold'">
+                    Patterns:
+                  </div>
+                  <ul *ngIf="rule.Patterns">
+                    <li *ngFor="let pattern of rule.Patterns">
+                      {{pattern.Value}}
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <div style="fontWeight: 'bold'">
+                    Recipes:
+                  </div>
+                  <ul *ngIf="rule.recipes; else norecipe">
+                    <li *ngFor="let recipe of rule.recipes">
+                      <a [href]="recipe.uri">{{recipe.id}}</a>
+                    </li>
+                  </ul>
+                  <ng-template #norecipe>None</ng-template>
+                </div>
+              </div>
+
+            </clr-dg-row-detail>
           </clr-dg-row>
-          <clr-dg-detail *clrIfDetail="let rowdetail">
-            <clr-dg-detail-header>{{ rowdetail.Name.toUpperCase() }}</clr-dg-detail-header>
-            <clr-dg-detail-body>
-              <p>Default Pattern: {{ rowdetail.DefaultPattern }}</p>
-              <p>Patterns: {{ rowdetail.Patterns }}</p>
-              <p>Recipes: None</p>
-            </clr-dg-detail-body>
-          </clr-dg-detail>
+
           <clr-dg-footer>
             <clr-dg-pagination #pagination [clrDgPageSize]="25">
               <clr-dg-page-size [clrPageSizeOptions]="[25,50,100]">Rules per page</clr-dg-page-size>

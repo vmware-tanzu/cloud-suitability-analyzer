@@ -13,15 +13,15 @@
       </div>
     </div>
   </clr-dg-action-bar>
-  <clr-dg-column [clrDgField]="'App'" [clrDgColType]="'string'">App
+  <clr-dg-column [clrDgField]="'App'" [clrDgColType]="'string'" class="first">App
     <clr-dg-string-filter [clrDgStringFilter]="appNameFilter">
     </clr-dg-string-filter>
   </clr-dg-column>
-  <clr-dg-column *ngFor="let gridColumn of gridColumns">{{gridColumn.toUpperCase()}}
+  <clr-dg-column *ngFor="let gridColumn of gridColumns" class="dg-cell">{{gridColumn.toUpperCase()}}
   </clr-dg-column>
   <clr-dg-placeholder>No API by app information found</clr-dg-placeholder>
  <clr-dg-row *clrDgItems="let gridDataRow of gridData  | searchFilter: 'name' : searchCrit">
-   <clr-dg-cell *ngFor="let gridDataCell of gridDataRow" class="dg-cell">{{gridDataCell}}</clr-dg-cell>
+   <clr-dg-cell *ngFor="let gridDataCell of gridDataRow; let first = first;" [ngClass]="{ first: first}" class="dg-cell">{{gridDataCell}}</clr-dg-cell>
   </clr-dg-row>
 </clr-datagrid>
 </div>
