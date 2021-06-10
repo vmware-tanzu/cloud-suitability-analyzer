@@ -1,9 +1,10 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { ClarityIcons, cloudIcon } from '@cds/core/icon';
+import { cloudIcon } from '@cds/core/icon';
 import '@cds/core/icon/register.js';
 import {AnalyzerRunService} from '../../services/analyzerrun.service';
 import { pushErrorNotification } from '../../utils/notificationutil';
 import {ToastrService} from "ngx-toastr";
+import { ClarityIcons } from '@clr/icons';
 
 @Component({
   selector: 'app-header',
@@ -197,8 +198,7 @@ LCAxMTAsIDExNSwgMTA0LCAxMTEsIDExNkC4H3IAAAAodEVYdGljYzpjb3B5cmlnaHQAQ29weXJp
 Z2h0IEFwcGxlIEluYy4sIDIwMjF9ve4mAAAAF3RFWHRpY2M6ZGVzY3JpcHRpb24ARGlzcGxheRcb
 lbgAAAAASUVORK5CYII=" />
 </svg>`;
-    ClarityIcons.addIcons( ['csa', csaSvg]);
-    ClarityIcons.addIcons(cloudIcon);
+    ClarityIcons.add({'csa': csaSvg});
   }
 
   ngOnInit(): void {
