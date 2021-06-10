@@ -34,10 +34,11 @@ import { SourceCodeComponent } from './components/rundata/sourcecode/sourcecode.
 import { ThirdPartyComponent } from './components/rundata/thirdparty/thirdparty.component';
 import { RunDataSummaryComponent } from './components/rundata/rundatasummary/rundatasummary.component';
 import { FindingDetailsComponent } from './components/rundata/findings/finding-details/finding-details.component';
+import {ToastrModule} from 'ngx-toastr';
 
 @NgModule({
   declarations: [AppComponent, ExecutiveSummaryComponent, SortArrayByPropPipe, AnalyzerRunComponent, AnalyzerRunDetailsComponent, HeaderComponent, ExcelExportComponent, SearchFilterPipe, ApplicationSummaryComponent, RulesComponent, AnnotationsComponent, ApiByAppComponent, ApiUsageDetailedComponent, ApiUsageSummaryComponent, FindingsComponent, RuleByAppComponent, RuleMetricsComponent, SourceCodeComponent, ThirdPartyComponent, RunDataSummaryComponent, FindingDetailsComponent],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, CdsModule, ClarityModule, HttpClientModule, FormsModule, NgxChartsModule, BrowserAnimationsModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, CdsModule, ClarityModule, HttpClientModule, FormsModule, NgxChartsModule, BrowserAnimationsModule, ToastrModule.forRoot()],
   providers: [AnalyzerRunService, ExecutiveSummaryService, RulesService],
   bootstrap: [AppComponent],
 })

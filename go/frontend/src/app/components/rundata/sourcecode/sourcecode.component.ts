@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {RundataService} from "../../../services/rundata.service";
 import {Sloc} from "../../../model/sloc";
+import {ToastrService} from 'ngx-toastr';
+import { pushErrorNotification } from '../../../utils/notificationutil';
 
 @Component({
   selector: 'sourcecode',
@@ -14,7 +16,7 @@ export class SourceCodeComponent implements OnInit {
   public fileName: string;
   slocDetails :Sloc[]=[];
 
-  constructor(private router: Router, private route: ActivatedRoute, private rundataService: RundataService) {
+  constructor(private router: Router, private route: ActivatedRoute, private rundataService: RundataService, public toastr: ToastrService) {
 
   }
 
@@ -23,7 +25,6 @@ export class SourceCodeComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.resetPage();
       const runId = Number(params.get('id'));
-      console.log("runid is : "+runId);
       this.fetchSloc(runId);
     });
   }
@@ -36,7 +37,7 @@ export class SourceCodeComponent implements OnInit {
     this.rundataService.getSourceCodeData(runId).subscribe(slocReturned => {
       this.slocDetails = slocReturned;
     }, error => {
-      console.log(error);
+      pushErrorNotification(error, this.toastr);
     });
   }
 

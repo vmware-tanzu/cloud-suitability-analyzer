@@ -1,6 +1,9 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { ClarityIcons, cloudIcon } from '@cds/core/icon';
 import '@cds/core/icon/register.js';
+import {AnalyzerRunService} from '../../services/analyzerrun.service';
+import { pushErrorNotification } from '../../utils/notificationutil';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-header',
@@ -15,7 +18,9 @@ export class HeaderComponent implements OnInit {
   @Output()
   selectedRunIdChange = new EventEmitter();
 
-  constructor() {
+  forgeVersion: string = 'v3.2.5-rc1';
+
+  constructor(private analyzerRunService: AnalyzerRunService, public toastr: ToastrService) {
     const csaSvg = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="278px" height="222px" viewBox="0 0 278 222" enable-background="new 0 0 278 222" xml:space="preserve">  <image id="image0" width="278" height="222" x="0" y="0"
@@ -197,6 +202,13 @@ lbgAAAAASUVORK5CYII=" />
   }
 
   ngOnInit(): void {
+    this.analyzerRunService.getForgeVersion().subscribe(version => {
+      if (version && version.length > 0) {
+        this.forgeVersion = version;
+      }
+    }, error => {
+      pushErrorNotification(error, this.toastr);
+    });
   }
 
 }

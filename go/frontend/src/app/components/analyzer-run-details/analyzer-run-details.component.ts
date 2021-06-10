@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {AnalyzerRun} from "../../model/analyzerrun";
 
 @Component({
   selector: 'app-analyzer-run-details',
@@ -19,8 +18,6 @@ export class AnalyzerRunDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("hi i got loaded")
   }
-
 
 }

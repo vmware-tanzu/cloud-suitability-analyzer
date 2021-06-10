@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {RundataService} from "../../../services/rundata.service";
 import {ThirdPartyLibsUsage} from "../../../model/thirdpartylibsusage";
+import {ToastrService} from 'ngx-toastr';
+import { pushErrorNotification } from '../../../utils/notificationutil';
 
 @Component({
   selector: 'thirdparty',
@@ -14,7 +16,7 @@ export class ThirdPartyComponent implements OnInit {
   public fileName: string = 'annotations.xlsx';
   thirdPartyLibs :ThirdPartyLibsUsage[]=[];
 
-  constructor(private router: Router, private route: ActivatedRoute, private rundataService: RundataService) {
+  constructor(private router: Router, private route: ActivatedRoute, private rundataService: RundataService, public toastr: ToastrService) {
 
   }
 
@@ -37,7 +39,7 @@ export class ThirdPartyComponent implements OnInit {
       console.log(thirdPartyLibsReturned);
       this.thirdPartyLibs = thirdPartyLibsReturned;
     }, error => {
-      console.log(error);
+      pushErrorNotification(error, this.toastr);
     });
   }
 

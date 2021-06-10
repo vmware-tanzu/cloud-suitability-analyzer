@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {RundataService} from "../../../services/rundata.service";
 import {Metric, RuleMetric} from "../../../model/rulemetric";
+import {ToastrService} from 'ngx-toastr';
+import {pushErrorNotification, pushInfoNotification} from '../../../utils/notificationutil';
 
 @Component({
   selector: 'rulemetrics',
@@ -14,7 +16,7 @@ export class RuleMetricsComponent implements OnInit {
   public fileName: string;
   ruleMetrics :Metric[]=[];
 
-  constructor(private router: Router, private route: ActivatedRoute, private rundataService: RundataService) {
+  constructor(private router: Router, private route: ActivatedRoute, private rundataService: RundataService, public toastr: ToastrService) {
 
   }
 
@@ -34,8 +36,9 @@ export class RuleMetricsComponent implements OnInit {
   fetchRuleMetrics(runId: number): void{
     this.rundataService.getRuleMetrics(runId).subscribe(ruleMetricsReturned => {
       this.ruleMetrics = ruleMetricsReturned.metrics;
+      pushInfoNotification('Found [' + this.ruleMetrics.length + '] metrics!', this.toastr);
     }, error => {
-      console.log(error);
+      pushErrorNotification(error, this.toastr);
     });
   }
 

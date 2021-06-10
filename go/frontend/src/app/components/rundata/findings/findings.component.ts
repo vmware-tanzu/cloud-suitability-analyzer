@@ -2,6 +2,9 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {RundataService} from "../../../services/rundata.service";
 import {Findings} from "../../../model/findings";
+import {ToastrService} from 'ngx-toastr';
+import { pushErrorNotification } from '../../../utils/notificationutil';
+import { pushInfoNotification } from '../../../utils/notificationutil';
 
 @Component({
   selector: 'findings',
@@ -18,7 +21,7 @@ export class FindingsComponent implements OnInit {
   isOpen: boolean;
   findingLoaded: boolean = false;
 
-  constructor(private router: Router, private route: ActivatedRoute, private rundataService: RundataService) {
+  constructor(private router: Router, private route: ActivatedRoute, private rundataService: RundataService, public toastr: ToastrService) {
 
   }
 
@@ -26,7 +29,6 @@ export class FindingsComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.resetPage();
       const runId = Number(params.get('id'));
-      console.log("runid is : "+runId);
       this.selectedRunId = runId;
       this.fetchFindings(runId);
     });
@@ -39,13 +41,14 @@ export class FindingsComponent implements OnInit {
   fetchFindings(runId: number): void{
     this.rundataService.getRunFindings(runId).subscribe(findingsReturned => {
       this.findings = findingsReturned;
+      pushInfoNotification('Found [' + this.findings.length + '] findings!', this.toastr);
       this.findings.map(finding => {
         if(finding.recipes == null){
           finding.recipes = [];
         }
       })
     }, error => {
-      console.log(error);
+      pushErrorNotification(error, this.toastr);
     });
   }
 
@@ -54,14 +57,8 @@ export class FindingsComponent implements OnInit {
       this.selectedFinding = findingDataReturned;
       this.findingLoaded = true;
       this.isOpen = true;
-      console.log("findingLoaded: "+ this.findingLoaded);
-      console.log("isOpen: "+ this.isOpen);
     }, error => {
-      console.log(error);
+      pushErrorNotification(error, this.toastr);
     });
-  }
-
-  doNothing(): boolean{
-    return false;
   }
 }

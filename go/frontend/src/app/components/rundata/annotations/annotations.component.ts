@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {RundataService} from "../../../services/rundata.service";
 import {Annotation} from "../../../model/annotation";
+import {ToastrService} from 'ngx-toastr';
+import { pushErrorNotification } from '../../../utils/notificationutil';
 
 @Component({
   selector: 'annotations',
@@ -14,7 +16,7 @@ export class AnnotationsComponent implements OnInit {
   public fileName: string = 'annotations.xlsx';
   annotations :Annotation[]=[];
 
-  constructor(private router: Router, private route: ActivatedRoute, private rundataService: RundataService) {
+  constructor(private router: Router, private route: ActivatedRoute, private rundataService: RundataService, public toastr: ToastrService) {
 
   }
 
@@ -23,7 +25,6 @@ export class AnnotationsComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.resetPage();
       const runId = Number(params.get('id'));
-      console.log("runid is : "+runId);
       this.fetchApiUsageDetailed(runId);
     });
   }
@@ -36,7 +37,7 @@ export class AnnotationsComponent implements OnInit {
     this.rundataService.getAnnotationData(runId).subscribe(annotationDataReturned => {
       this.annotations = annotationDataReturned;
     }, error => {
-      console.log(error);
+      pushErrorNotification(error, this.toastr);
     });
   }
 }

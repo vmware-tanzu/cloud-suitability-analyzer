@@ -2,12 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {RundataService} from '../../../services/rundata.service';
 import {Apiusage} from '../../../model/appapiusage';
-import {
-  ClrDatagridFilterInterface,
-  ClrDatagridNumericFilterInterface,
-  ClrDatagridStringFilterInterface
-} from '@clr/angular';
-import {Subject} from "rxjs";
+import {ToastrService} from 'ngx-toastr';
+import { pushErrorNotification } from '../../../utils/notificationutil';
+import {ClrDatagridStringFilterInterface} from '@clr/angular';
 
 @Component({
   selector: 'apibyapp',
@@ -24,7 +21,7 @@ export class ApiByAppComponent implements OnInit {
 
   public appNameFilter = new AppNameFilter();
 
-  constructor(private router: Router, private route: ActivatedRoute, private rundataService: RundataService) {
+  constructor(private router: Router, private route: ActivatedRoute, private rundataService: RundataService, public toastr: ToastrService) {
 
   }
 
@@ -32,7 +29,6 @@ export class ApiByAppComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.resetPage();
       const runId = Number(params.get('id'));
-      console.log('runid is : ' + runId);
       this.fetchApiByApps(runId);
     });
   }
@@ -50,7 +46,6 @@ export class ApiByAppComponent implements OnInit {
         }
       });
       if (appApiUsageReturned.cols && appApiUsageReturned.data) {
-        console.log(this.gridData.length);
         appApiUsageReturned.data.forEach(datum => {
           const innerArr: (string|number)[] = [];
           innerArr.push(datum.application);
@@ -63,10 +58,9 @@ export class ApiByAppComponent implements OnInit {
           });
           this.gridData.push(innerArr);
         });
-        console.log(this.gridColumns);
       }
     }, error => {
-      console.log(error);
+      pushErrorNotification(error, this.toastr);
     });
   }
 

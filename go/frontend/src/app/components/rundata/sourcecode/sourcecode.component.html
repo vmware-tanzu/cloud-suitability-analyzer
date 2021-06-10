@@ -14,10 +14,10 @@
       </div>
     </clr-dg-action-bar>
     <clr-dg-column [clrDgField]="'language'">Language</clr-dg-column>
-    <clr-dg-column [clrDgField]="'files'" [clrDgColType]="'number'">Files</clr-dg-column>
-    <clr-dg-column [clrDgField]="'blanklines'" [clrDgColType]="'number'">Blank lines</clr-dg-column>
-    <clr-dg-column [clrDgField]="'commentlines'" [clrDgColType]="'number'">Comment lines</clr-dg-column>
-    <clr-dg-column [clrDgField]="'loc'" [clrDgColType]="'number'">Lines of code</clr-dg-column>
+    <clr-dg-column [clrDgField]="'totalFiles'" [clrDgColType]="'number'">Files</clr-dg-column>
+    <clr-dg-column [clrDgField]="'blankLines'" [clrDgColType]="'number'">Blank lines</clr-dg-column>
+    <clr-dg-column [clrDgField]="'commentLines'" [clrDgColType]="'number'">Comment lines</clr-dg-column>
+    <clr-dg-column [clrDgField]="'codeLines'" [clrDgColType]="'number'">Lines of code</clr-dg-column>
     <clr-dg-placeholder>No source code information found</clr-dg-placeholder>
     <clr-dg-row *clrDgItems="let sloc of slocDetails  | searchFilter: 'name' : searchCrit">
       <clr-dg-cell>{{sloc.language}}</clr-dg-cell>

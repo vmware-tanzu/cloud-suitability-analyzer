@@ -10,6 +10,8 @@ import {ApisByScore} from "../../model/apisbyscore";
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import {ChartElement} from "../../model/chartelement";
 import '@cds/core/search/register.js';
+import {pushErrorNotification, pushInfoNotification} from '../../utils/notificationutil';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'csa-executive-summary',
@@ -54,7 +56,7 @@ export class ExecutiveSummaryComponent implements OnInit {
     domain: ['#0095D3', '#00BFA9', '#60B515', '#8939AD', '#F57600']
   };
 
-  constructor(private router: Router, private route: ActivatedRoute, private executiveSummaryService: ExecutiveSummaryService) {
+  constructor(private router: Router, private route: ActivatedRoute, private executiveSummaryService: ExecutiveSummaryService, public toastr: ToastrService) {
     ClarityIcons.addIcons(pinboardIcon);
     ClarityIcons.addIcons(fileIcon);
     ClarityIcons.addIcons(codeIcon);
@@ -66,27 +68,13 @@ export class ExecutiveSummaryComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.resetPage();
       const runId = Number(params.get('id'));
-      console.log("runid is : "+runId);
       this.fetchAppScoresAndFindings(runId);
       this.fetchTop5ApisByScore(runId);
       this.fetchTop5LanguagesByLoc(runId);
     });
   }
 
-/*  ngOnChanges(): void {
-    console.log("in ngOnChanges");
-    this.resetPage();
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      const runId = Number(params.get('id'));
-      console.log("runid is : "+runId);
-      this.fetchAppScoresAndFindings(runId);
-      this.fetchTop5ApisByScore(runId);
-      this.fetchTop5LanguagesByLoc(runId);
-    });
-  }*/
-
   resetPage(): void{
-    console.log("resetting pageeeeeee");
     this.findings = 0;
     this.applicationScores = [];
     this.numFilesByRun = 0;
@@ -107,13 +95,13 @@ export class ExecutiveSummaryComponent implements OnInit {
       if (scores.scores.appScores) {
         this.applicationScores = scores.scores.appScores;
         this.findings = scores.scores.findings;
-        console.log(scores.scores.appScores.length);
         scores.scores.appScores.forEach(appScore => {
           this.filteredApplicationScores.push(appScore);
         });
+        pushInfoNotification('Found [' + this.applicationScores.length + '] applications!', this.toastr);
       }
     }, error => {
-      console.log(error);
+      pushErrorNotification(error, this.toastr);
     });
     if (runid === 0 || runid === null) {
       this.numAppsByRun = runSlocBlank.applicationCount;
@@ -125,8 +113,8 @@ export class ExecutiveSummaryComponent implements OnInit {
         this.locByRun = runSlocReturned.codeLines;
         this.numFilesByRun = runSlocReturned.totalFiles;
       }, error => {
-        console.log(error);
-      })
+        pushErrorNotification(error, this.toastr);
+      });
     }
 }
 
@@ -137,10 +125,9 @@ export class ExecutiveSummaryComponent implements OnInit {
       top5LanguagesByLoc.forEach(languageByLoc => {
         let chartElement: ChartElement = new ChartElement(languageByLoc.codeLines, languageByLoc.language);
         this.top5LanguagesByLocData.push(chartElement);
-      })
-      console.log(this.top5LanguagesByLocData);
+      });
     }, error => {
-      console.log(error);
+      pushErrorNotification(error, this.toastr);
     });
   }
 
@@ -151,10 +138,9 @@ export class ExecutiveSummaryComponent implements OnInit {
       top5ApisByScore.forEach(apiScore => {
         let chartElement: ChartElement = new ChartElement(apiScore.usageCount, apiScore.api);
         this.top5ApisByScoreData.push(chartElement);
-      })
-      console.log(this.top5ApisByScoreData);
+      });
     }, error => {
-      console.log(error);
+      pushErrorNotification(error, this.toastr);
     });
   }
 

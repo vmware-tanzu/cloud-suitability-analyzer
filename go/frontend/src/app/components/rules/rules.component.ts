@@ -5,6 +5,8 @@ import '@cds/core/search/register.js';
 import {Router} from "@angular/router";
 import {RulesService} from "../../services/rules.service";
 import {Rule} from "../../model/rules";
+import {ToastrService} from 'ngx-toastr';
+import { pushErrorNotification } from '../../utils/notificationutil';
 
 @Component({
   selector: 'app-rules',
@@ -16,7 +18,7 @@ export class RulesComponent implements OnInit {
   rules: Rule[] = [];
   public searchCrit: any = '';
 
-  constructor(private router: Router, private rulesService: RulesService) {
+  constructor(private router: Router, private rulesService: RulesService, public toastr: ToastrService) {
     ClarityIcons.addIcons(downloadIcon);
   }
 
@@ -24,13 +26,13 @@ export class RulesComponent implements OnInit {
     this.fetchRules();
   }
 
-  fetchRules() : void {
+  fetchRules(): void {
     this.rulesService.getRules().subscribe(rulesReturned => {
       if (rulesReturned.rules) {
         this.rules = rulesReturned.rules;
       }
     }, error => {
-      console.log(error);
+      pushErrorNotification(error, this.toastr);
     });
   }
 }

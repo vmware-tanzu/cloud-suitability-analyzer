@@ -6,9 +6,14 @@
     </a>
   </div>
   <div class="header-nav">
-    <a [routerLink]="['/runs', selectedRunId, 'summary']" routerLinkActive="active" [skipLocationChange]="true" [routerLinkActiveOptions]="{exact : true}" class="nav-link nav-text">Summary</a>
-    <a [routerLink]="['/runs', selectedRunId, 'application']"  routerLinkActive="active" [skipLocationChange]="true" class="nav-link nav-text">Application</a>
-    <a [routerLink]="['/runs', selectedRunId, 'data']"  routerLinkActive="active" [skipLocationChange]="true" class="nav-link nav-text">Data</a>
-    <a [routerLink]="['/rules']" routerLinkActive="active"  [skipLocationChange]="true" class="nav-link nav-text">Rule</a>
+      <a [routerLink]="['/runs', selectedRunId, 'summary']" routerLinkActive="active" [skipLocationChange]="true"
+         [routerLinkActiveOptions]="{exact : true}" class="nav-link nav-text">Summary</a>
+      <a [routerLink]="['/runs', selectedRunId, 'application']" routerLinkActive="active" [skipLocationChange]="true"
+         class="nav-link nav-text">Application</a>
+      <a [routerLink]="['/runs', selectedRunId, 'data']" routerLinkActive="active" [skipLocationChange]="true"
+         class="nav-link nav-text">Data</a>
+      <a [routerLink]="['/rules']" routerLinkActive="active" [skipLocationChange]="true"
+         class="nav-link nav-text">Rule</a>
   </div>
+  <div class="version-title">{{forgeVersion}}</div>
 </header>

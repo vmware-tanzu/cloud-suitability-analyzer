@@ -3,6 +3,8 @@ import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {RundataService} from "../../../services/rundata.service";
 import {Ruleusage} from "../../../model/apprulescore";
 import {ClrDatagridStringFilterInterface} from "@clr/angular";
+import {ToastrService} from 'ngx-toastr';
+import { pushErrorNotification } from '../../../utils/notificationutil';
 
 @Component({
   selector: 'rulebyapp',
@@ -18,7 +20,7 @@ export class RuleByAppComponent implements OnInit {
   public gridData: (string|number)[][]=[];
   public gridColumns: string[]=[];
 
-  constructor(private router: Router, private route: ActivatedRoute, private rundataService: RundataService) {
+  constructor(private router: Router, private route: ActivatedRoute, private rundataService: RundataService, public toastr: ToastrService) {
 
   }
 
@@ -57,10 +59,9 @@ export class RuleByAppComponent implements OnInit {
           });
           this.gridData.push(innerArr);
         });
-        console.log(this.gridColumns);
-      };
+      }
     }, error => {
-      console.log(error);
+      pushErrorNotification(error, this.toastr);
     });
   }
 
