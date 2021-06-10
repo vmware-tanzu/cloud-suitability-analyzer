@@ -1,6 +1,4 @@
-import { Component, OnChanges } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { HttpHeaders , HttpErrorResponse} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/index';
 import { UriConstants } from 'src/app/constants/uri-constants';
@@ -11,15 +9,6 @@ import { ApplicationFinding } from '../model/applicationfinding';
 import { ApplicationScoreCard } from '../model/applicationscorecard';
 import { Bin, Tag } from '../model/applicationscore';
 import { TagRequest, TagRequests } from '../model/tagrequest';
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Access-Control-Request-Headers': '*',
-    'Access-Control-Allow-Origin': '*'
-  })
-};
-
 @Injectable({
   providedIn: 'root'
 })
@@ -78,7 +67,7 @@ export class ApplicationSummaryService {
 
     return this.http.post<ApplicationFinding[]>(url, tagsRequest);
   }
-  
+
   getApplicationScorecard(runid: number, appName: string): Observable<ApplicationScoreCard>  {
     const url = UriConstants.RUNS_URI + runid + '/apps/' + appName + '/scorecard?includeFF=false';
     return this.http.post<ApplicationScoreCard>(url, "");

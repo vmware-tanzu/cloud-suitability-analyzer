@@ -25,7 +25,6 @@ export class ThirdPartyComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.resetPage();
       const runId = Number(params.get('id'));
-      console.log("runid is : "+runId);
       this.fetchThirdPartyLibsUsage(runId);
     });
   }
@@ -36,7 +35,6 @@ export class ThirdPartyComponent implements OnInit {
 
   fetchThirdPartyLibsUsage(runId: number): void{
     this.rundataService.getThirdPartyData(runId).subscribe(thirdPartyLibsReturned => {
-      console.log(thirdPartyLibsReturned);
       this.thirdPartyLibs = thirdPartyLibsReturned;
     }, error => {
       pushErrorNotification(error, this.toastr);

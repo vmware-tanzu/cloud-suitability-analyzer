@@ -28,7 +28,6 @@ export class RuleByAppComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.resetPage();
       const runId = Number(params.get('id'));
-      console.log("runid is : "+runId);
       this.fetchRuleByApp(runId);
     });
   }
@@ -46,7 +45,6 @@ export class RuleByAppComponent implements OnInit {
         }
       });
       if (ruleByAppReturned.cols && ruleByAppReturned.data) {
-        console.log(this.gridData.length);
         ruleByAppReturned.data.forEach(datum => {
           let innerArr :(string|number)[] = [];
           innerArr.push(datum.application);

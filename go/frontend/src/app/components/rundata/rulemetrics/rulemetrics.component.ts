@@ -24,7 +24,6 @@ export class RuleMetricsComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.resetPage();
       const runId = Number(params.get('id'));
-      console.log("runid is : "+runId);
       this.fetchRuleMetrics(runId);
     });
   }
