@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {RundataService} from "../../../services/rundata.service";
 import {Ruleusage} from "../../../model/apprulescore";
+import {ClrDatagridStringFilterInterface} from "@clr/angular";
 
 @Component({
   selector: 'rulebyapp',
@@ -10,6 +11,7 @@ import {Ruleusage} from "../../../model/apprulescore";
 })
 export class RuleByAppComponent implements OnInit {
 
+  public appNameFilter = new AppNameFilter();
   public searchCrit: any = '';
   public fileName: string;
 
@@ -37,7 +39,9 @@ export class RuleByAppComponent implements OnInit {
   fetchRuleByApp(runId :number) : void {
     this.rundataService.getRuleByAppUsage(runId).subscribe(ruleByAppReturned => {
       ruleByAppReturned.cols.forEach(col => {
-        this.gridColumns.push(col);
+        if (col !== 'App') {
+          this.gridColumns.push(col);
+        }
       });
       if (ruleByAppReturned.cols && ruleByAppReturned.data) {
         console.log(this.gridData.length);
@@ -60,4 +64,11 @@ export class RuleByAppComponent implements OnInit {
     });
   }
 
+}
+
+class AppNameFilter implements ClrDatagridStringFilterInterface<[]> {
+  accepts(apiByAppRow: [], search: string): boolean {
+    // @ts-ignore
+    return apiByAppRow[0].toLowerCase().indexOf(search) >= 0;
+  }
 }
