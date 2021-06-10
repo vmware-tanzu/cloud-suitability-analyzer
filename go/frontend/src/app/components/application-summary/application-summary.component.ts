@@ -113,6 +113,8 @@ export class ApplicationSummaryComponent implements OnInit {
 
       this.allApplicationFindings = applicationFindings;
       this.displayApplicationFindings = applicationFindings;
+
+      pushInfoNotification('Found [' + this.displayApplicationFindings.length + '] findings!', this.toastr);
     }, error => {
       pushErrorNotification(error, this.toastr);
     })

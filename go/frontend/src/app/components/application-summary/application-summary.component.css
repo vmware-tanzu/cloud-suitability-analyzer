@@ -3,7 +3,7 @@
   width: 300px;
   height: 24px;
   left: 130px;
-  top: 210px;
+  top: 230px;
 }
 
 .select-app-option {
@@ -26,7 +26,7 @@
   width: 100px;
   height: 24px;
   left: 25px;
-  top: 210px;
+  top: 230px;
   font-family: Metropolis;
   font-style: normal;
   font-weight: 500;
@@ -40,7 +40,7 @@
   width: 100px;
   height: 24px;
   left: 100px;
-  top: 210px;
+  top: 230px;
   font-family: Metropolis;
   font-style: normal;
   font-weight: 500;
@@ -59,12 +59,12 @@
   width: 123px;
   height: 36px;
   left: 25px;
-  top: 250px;
+  top: 260px;
 }
 
 .summary-tabs{
   position: absolute;
-  top: 250px;
+  top: 260px;
   width: 95%;
 }
 
