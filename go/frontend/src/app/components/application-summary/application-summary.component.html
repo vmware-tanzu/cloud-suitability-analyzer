@@ -17,12 +17,14 @@
       <clr-tab-content *clrIfActive>
 
         <div class="clr-row">
-          <div *ngFor="let binTag of binTags">
-            <span class="label label-light-blue" id="{{binTag.name}}" (click)="highlightBinTags($event)" style="cursor: pointer">{{binTag.name}}<span class="badge badge-light-blue">{{binTag.count}}</span></span>
-          </div>
+            <span>&nbsp;&nbsp;&nbsp;</span>
+            <div *ngFor="let binTag of binTags; let i = index">
+              <span class="label label-light-blue" id="{{binTag.name}}" (click)="highlightBinTags($event)" style="cursor: pointer">{{binTag.name}}<span class="badge badge-light-blue">{{binTag.count}}</span></span>
+            </div>
         </div>
 
         <div class="clr-row">
+          <span>&nbsp;&nbsp;&nbsp;</span>
           <div *ngFor="let tag of tags">
             <span class="label label-info" id="{{tag.name}}" style="cursor: pointer" (click)="highlightTags($event)">{{tag.name}}<span class="badge badge-info">{{tag.count}}</span></span>
           </div>
@@ -116,14 +118,14 @@
           <clr-dg-column [clrDgField]="'recipes'" [clrDgColType]="'number'"># Recipes</clr-dg-column>
 
           <clr-dg-row *clrDgItems="let applicationFinding of displayApplicationFindings | searchFilter: 'filename' : searchCrit">
-            <clr-dg-cell>{{applicationFinding.id}}</clr-dg-cell>
+            <clr-dg-cell><a id="findingLink" [routerLink]="" (click)="fetchFindingById(applicationFinding.id)">{{applicationFinding.id}}</a></clr-dg-cell>
             <clr-dg-cell>{{applicationFinding.level}}</clr-dg-cell>
             <clr-dg-cell>{{applicationFinding.value}}</clr-dg-cell>
             <clr-dg-cell>{{applicationFinding.filename}}</clr-dg-cell>
             <clr-dg-cell>{{applicationFinding.line}}</clr-dg-cell>
             <clr-dg-cell>{{applicationFinding.effort}}</clr-dg-cell>
             <clr-dg-cell>{{applicationFinding.tags.length}}</clr-dg-cell>
-            <clr-dg-cell>{{applicationFinding.recipes}}</clr-dg-cell>
+            <clr-dg-cell><a id="findingrecipeLink" [routerLink]="" (click)="fetchFindingById(applicationFinding.id)">{{applicationFinding.recipes.length}}</a></clr-dg-cell>
           </clr-dg-row>
 
           <clr-dg-footer>
@@ -134,6 +136,7 @@
             </clr-dg-pagination>
           </clr-dg-footer>
         </clr-datagrid>
+        <app-finding-details [selectedFinding]="selectedFinding" [(isOpen)]="isOpen" *ngIf="findingLoaded"></app-finding-details>
       </clr-tab-content>
     </clr-tab>
     <clr-tab>
