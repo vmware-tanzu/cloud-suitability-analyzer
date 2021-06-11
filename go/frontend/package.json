@@ -10,7 +10,8 @@
     "source-map": "cd dist/ng-app && source-map-explorer *.js",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "concurrently \"pushd .. && go generate && popd && go run rules-admin.go --database-dir=./data\" \"ng e2e\"",
+    "webdriver-manager": "webdriver-manager update"
   },
   "private": true,
   "dependencies": {
@@ -38,7 +39,8 @@
     "tslib": "^2.0.0",
     "xlsx": "^0.16.4",
     "zone.js": "~0.11.3",
-    "ngx-toastr": "^14.0.0"
+    "ngx-toastr": "^14.0.0",
+    "webdriver-manager": "^12.1.8"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1102.2",

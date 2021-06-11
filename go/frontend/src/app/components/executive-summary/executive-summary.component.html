@@ -45,7 +45,7 @@
           <clr-dg-action-bar>
             <div class="action-bar">
               <div class="action-bar-item-left">
-            <app-excel-export [data]="filteredApplicationScores" [file_name]="'app-summary.xlsx'"></app-excel-export>
+            <app-excel-export id="excel-export" [data]="filteredApplicationScores" [file_name]="'app-summary.xlsx'"></app-excel-export>
               </div>
               <div class="action-bar-item-right">
                 <cds-search control-width="shrink">
