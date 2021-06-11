@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { RulesService } from './rules.service';
 import {of} from 'rxjs';
 import * as mockRulesDataJson from '../../../public/mock/rules.json';
-import {CsaRules} from "../model/rules";
+import {CsaRules} from '../model/rules';
 describe('RulesService', () => {
   let mockRulesService: jasmine.SpyObj<RulesService>;
   mockRulesService = jasmine.createSpyObj('RulesService', ['getRules']);

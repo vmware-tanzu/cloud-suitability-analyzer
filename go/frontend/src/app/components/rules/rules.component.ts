@@ -7,6 +7,7 @@ import {RulesService} from "../../services/rules.service";
 import {Rule} from "../../model/rules";
 import {ToastrService} from 'ngx-toastr';
 import { pushErrorNotification } from '../../utils/notificationutil';
+import {ClrDatagridStringFilterInterface} from "@clr/angular";
 
 @Component({
   selector: 'app-rules',
@@ -17,6 +18,7 @@ export class RulesComponent implements OnInit {
 
   rules: Rule[] = [];
   public searchCrit: any = '';
+  public tagFilter = new TagFilter();
 
   constructor(private router: Router, private rulesService: RulesService, public toastr: ToastrService) {
     ClarityIcons.addIcons(downloadIcon);
@@ -34,5 +36,15 @@ export class RulesComponent implements OnInit {
     }, error => {
       pushErrorNotification(error, this.toastr);
     });
+  }
+}
+
+class TagFilter implements ClrDatagridStringFilterInterface<Rule> {
+  accepts(ruleRow: Rule, search: string): boolean {
+    // @ts-ignore
+    if (ruleRow.Tags) {
+      return ruleRow.Tags.filter(tag => tag.Value.toLowerCase().includes(search)).length > 0;
+    }
+    return false;
   }
 }

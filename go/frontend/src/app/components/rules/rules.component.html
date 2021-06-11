@@ -19,7 +19,10 @@
             </div>
           </clr-dg-action-bar>
           <clr-dg-column [clrDgField]="'Name'"  [clrDgColType]="'string'">Name</clr-dg-column>
-          <clr-dg-column [clrDgField]="'Tags'"  [clrDgColType]="'string'">Tags</clr-dg-column>
+          <clr-dg-column [clrDgField]="'Tags'"  [clrDgColType]="'string'">Tags
+            <clr-dg-string-filter id='tagFilterCustom' [clrDgStringFilter]="tagFilter">
+            </clr-dg-string-filter>
+          </clr-dg-column>
           <clr-dg-column [clrDgField]="'FileType'" [clrDgColType]="'string'">FileType</clr-dg-column>
           <clr-dg-column [clrDgField]="'Target'" [clrDgColType]="'string'">Target</clr-dg-column>
           <clr-dg-column [clrDgField]="'Advice'" [clrDgColType]="'string'">Advice</clr-dg-column>
