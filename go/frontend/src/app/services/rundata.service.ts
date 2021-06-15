@@ -69,7 +69,7 @@ export class RundataService {
   getFinding(runid, id: number): Observable<Findings> {
     const url = UriConstants.CSA_BASE_URI + 'findings/' + id;
     return this.http.get<Findings>(url);
-  };
+  }
 
   getRunIndexDetails(runid: number): Observable<RunIndex> {
     const url = UriConstants.RUNS_URI  + runid + '/index';

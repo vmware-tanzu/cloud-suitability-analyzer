@@ -114,13 +114,13 @@ describe('RulesComponent', () => {
     expect(returnVal).toBeTrue();
   });
 
-  it('tagFilter by valid partial string isFalsey', () => {
+  it('tagFilter by invalid partial string isFalsey', () => {
     fixture.detectChanges();
     const returnVal = component.tagFilter.accepts(mockData.rules[1], 'test');
     expect(returnVal).toBeFalse();
   });
 
-  it('when componentDidMount then fetchRules called 1 time', fakeAsync(() => {
+  it('when component initializes then fetchRules called 1 time', fakeAsync(() => {
     fixture.detectChanges();
     expect(mockRulesService.getRules).toHaveBeenCalledTimes(1);
   }));
