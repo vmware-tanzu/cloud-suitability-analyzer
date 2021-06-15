@@ -1,6 +1,7 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
+const jasmineSeedReporter = require('karma-jasmine-seed-reporter');
 module.exports = function (config) {
   config.set({
     basePath: '',
@@ -11,6 +12,9 @@ module.exports = function (config) {
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma'),
+      require('karma-spec-reporter'),
+      require("karma-junit-reporter"),
+      jasmineSeedReporter
     ],
     client: {
       jasmine: {
@@ -21,21 +25,27 @@ module.exports = function (config) {
       },
       clearContext: false, // leave Jasmine Spec Runner output visible in browser
     },
-    jasmineHtmlReporter: {
-      suppressAll: true, // removes the duplicated traces
-    },
     coverageReporter: {
       dir: require('path').join(__dirname, './coverage/cloud-suitability-analyzer'),
       subdir: '.',
       reporters: [{ type: 'html' }, { type: 'text-summary' }],
     },
-    reporters: ['progress', 'kjhtml'],
+    customLaunchers: {
+      ChromeHeadless: {
+        base: 'Chrome',
+        flags: ['--headless', '--disable-gpu', '--no-sandbox', '--remote-debugging-port=9222']
+      }
+    },
+    specReporter: {
+      suppressSkipped: true
+    },
+    reporters: ['progress', 'kjhtml', 'jasmine-seed', 'spec'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
     singleRun: false,
     restartOnFileChange: true,
+    browsers: ['ChromeHeadless'], // ['Chrome'],
   });
 };
