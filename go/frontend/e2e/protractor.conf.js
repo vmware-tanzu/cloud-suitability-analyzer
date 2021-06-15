@@ -13,7 +13,7 @@ exports.config = {
   specs: ['./src/**/*.e2e-spec.ts'],
   capabilities: {
     chromeOptions: {
-      args: ['--headless', '--no-sandbox', '--window-size=1920,1080', '--allow-insecure-localhost', '--disable-dev-shm-usage'],
+      args: ['--no-sandbox', '--window-size=1920,1080', '--allow-insecure-localhost', '--disable-dev-shm-usage'],
       prefs: {
         download: {
           prompt_for_download: false,

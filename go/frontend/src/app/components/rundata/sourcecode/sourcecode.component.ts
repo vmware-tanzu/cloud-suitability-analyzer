@@ -14,7 +14,7 @@ export class SourceCodeComponent implements OnInit {
 
   public searchCrit: any = '';
   public fileName: string;
-  slocDetails :Sloc[]=[];
+  slocDetails: Sloc[] = [];
 
   constructor(private router: Router, private route: ActivatedRoute, private rundataService: RundataService, public toastr: ToastrService) {
 
@@ -30,7 +30,7 @@ export class SourceCodeComponent implements OnInit {
   }
 
   resetPage(): void {
-    this.slocDetails=[];
+    this.slocDetails = [];
   }
 
   fetchSloc(runId: number): void{

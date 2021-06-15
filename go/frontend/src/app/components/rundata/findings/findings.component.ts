@@ -9,13 +9,13 @@ import { pushInfoNotification } from '../../../utils/notificationutil';
 @Component({
   selector: 'findings',
   templateUrl: './findings.component.html',
-  styleUrls: ['./findings.component.css','../rundatasummary/rundatasummary.component.css']
+  styleUrls: ['./findings.component.css', '../rundatasummary/rundatasummary.component.css']
 })
 export class FindingsComponent implements OnInit {
 
   public searchCrit: any = '';
   public fileName: string;
-  findings :Findings[]=[];
+  findings: Findings[] = [];
   selectedRunId: number;
   selectedFinding: Findings;
   isOpen: boolean;
@@ -35,7 +35,7 @@ export class FindingsComponent implements OnInit {
   }
 
   resetPage(): void {
-    this.findings=[];
+    this.findings = [];
   }
 
   fetchFindings(runId: number): void{
@@ -43,10 +43,10 @@ export class FindingsComponent implements OnInit {
       this.findings = findingsReturned;
       pushInfoNotification('Found [' + this.findings.length + '] findings!', this.toastr);
       this.findings.map(finding => {
-        if(finding.recipes == null){
+        if (finding.recipes == null){
           finding.recipes = [];
         }
-      })
+      });
     }, error => {
       pushErrorNotification(error, this.toastr);
     });

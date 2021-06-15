@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import '@cds/core/alert/register.js';
 import { CdsModule } from '@cds/angular';
 import { ExecutiveSummaryComponent } from './components/executive-summary/executive-summary.component';
-import { SortArrayByPropPipe } from './pipes/sort-array-by-prop.pipe';
 import { AnalyzerRunComponent } from './components/analyzer-run/analyzer-run.component';
 import { AnalyzerRunDetailsComponent } from './components/analyzer-run-details/analyzer-run-details.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -37,7 +36,7 @@ import { FindingDetailsComponent } from './components/rundata/findings/finding-d
 import {ToastrModule} from 'ngx-toastr';
 
 @NgModule({
-  declarations: [AppComponent, ExecutiveSummaryComponent, SortArrayByPropPipe, AnalyzerRunComponent, AnalyzerRunDetailsComponent, HeaderComponent, ExcelExportComponent, SearchFilterPipe, ApplicationSummaryComponent, RulesComponent, AnnotationsComponent, ApiByAppComponent, ApiUsageDetailedComponent, ApiUsageSummaryComponent, FindingsComponent, RuleByAppComponent, RuleMetricsComponent, SourceCodeComponent, ThirdPartyComponent, RunDataSummaryComponent, FindingDetailsComponent],
+  declarations: [AppComponent, ExecutiveSummaryComponent, AnalyzerRunComponent, AnalyzerRunDetailsComponent, HeaderComponent, ExcelExportComponent, SearchFilterPipe, ApplicationSummaryComponent, RulesComponent, AnnotationsComponent, ApiByAppComponent, ApiUsageDetailedComponent, ApiUsageSummaryComponent, FindingsComponent, RuleByAppComponent, RuleMetricsComponent, SourceCodeComponent, ThirdPartyComponent, RunDataSummaryComponent, FindingDetailsComponent],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, CdsModule, ClarityModule, HttpClientModule, FormsModule, NgxChartsModule, BrowserAnimationsModule, ToastrModule.forRoot({
     positionClass : 'toast-top-right'
   })],

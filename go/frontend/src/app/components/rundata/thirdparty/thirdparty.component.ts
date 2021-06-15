@@ -14,7 +14,7 @@ export class ThirdPartyComponent implements OnInit {
 
   public searchCrit: any = '';
   public fileName: string = 'annotations.xlsx';
-  thirdPartyLibs :ThirdPartyLibsUsage[]=[];
+  thirdPartyLibs: ThirdPartyLibsUsage[] = [];
 
   constructor(private router: Router, private route: ActivatedRoute, private rundataService: RundataService, public toastr: ToastrService) {
 

@@ -1,4 +1,7 @@
 //http://localhost:3001/api/analyze-runs
+export class AnalyzerRuns {
+  runs: AnalyzerRun[];
+}
 export class AnalyzerRun {
   id: number;
   Alias: string;

@@ -15,9 +15,9 @@ import {ToastrService} from "ngx-toastr";
 })
 export class AnalyzerRunComponent implements OnInit {
 
-  analyzerRuns: AnalyzerRun[]=[];
+  analyzerRuns: AnalyzerRun[] = [];
 
-  runItemsDropDownItems: RunDropDownItem[]=[];
+  runItemsDropDownItems: RunDropDownItem[] = [];
 
   @Input()
   selectedRunId: number | undefined;

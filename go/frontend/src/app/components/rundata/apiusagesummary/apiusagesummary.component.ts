@@ -8,13 +8,13 @@ import { pushErrorNotification } from '../../../utils/notificationutil';
 @Component({
   selector: 'apiusagesummary',
   templateUrl: './apiusagesummary.component.html',
-  styleUrls: ['./apiusagesummary.component.css','../rundatasummary/rundatasummary.component.css']
+  styleUrls: ['./apiusagesummary.component.css', '../rundatasummary/rundatasummary.component.css']
 })
 export class ApiUsageSummaryComponent implements OnInit {
 
   public searchCrit: any = '';
   public fileName: string;
-  apiSummaries: ApiSummary[]=[];
+  apiSummaries: ApiSummary[] = [];
 
   constructor(private router: Router, private route: ActivatedRoute, private rundataService: RundataService, public toastr: ToastrService) {
 

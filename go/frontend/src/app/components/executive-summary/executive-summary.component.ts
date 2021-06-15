@@ -85,7 +85,7 @@ export class ExecutiveSummaryComponent implements OnInit {
     this.top5ApisByScoreData = [];
   }
   fetchAppScoresAndFindings(runid: number): void{
-    let runSlocBlank: RunSloc= {
+    let runSlocBlank: RunSloc = {
       blankLines: 0, commentLines: 0, runId: 0,
       applicationCount: 0,
       codeLines: 0,

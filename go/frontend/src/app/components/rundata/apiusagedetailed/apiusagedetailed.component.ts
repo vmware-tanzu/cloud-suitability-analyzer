@@ -8,7 +8,7 @@ import { pushErrorNotification } from '../../../utils/notificationutil';
 @Component({
   selector: 'apiusagedetailed',
   templateUrl: './apiusagedetailed.component.html',
-  styleUrls: ['./apiusagedetailed.component.css','../rundatasummary/rundatasummary.component.css']
+  styleUrls: ['./apiusagedetailed.component.css', '../rundatasummary/rundatasummary.component.css']
 })
 export class ApiUsageDetailedComponent implements OnInit {
 

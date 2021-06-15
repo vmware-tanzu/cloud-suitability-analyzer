@@ -230,7 +230,7 @@ describe('ApibyappComponent', () => {
     expect(returnVal).toBeFalse();
   });
 
-  it('when component initializes then fetchRules called 1 time', fakeAsync(() => {
+  it('when component initializes then getApiByAppUsage called 1 time', fakeAsync(() => {
     fixture.detectChanges();
     expect(mockRunDataService.getApiByAppUsage).toHaveBeenCalledTimes(1);
   }));

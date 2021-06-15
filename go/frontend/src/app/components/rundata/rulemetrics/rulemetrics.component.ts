@@ -14,7 +14,7 @@ export class RuleMetricsComponent implements OnInit {
 
   public searchCrit: any = '';
   public fileName: string;
-  ruleMetrics :Metric[]=[];
+  ruleMetrics: Metric[] = [];
 
   constructor(private router: Router, private route: ActivatedRoute, private rundataService: RundataService, public toastr: ToastrService) {
 
@@ -29,7 +29,7 @@ export class RuleMetricsComponent implements OnInit {
   }
 
   resetPage(): void {
-    this.ruleMetrics=[];
+    this.ruleMetrics = [];
   }
 
   fetchRuleMetrics(runId: number): void{
