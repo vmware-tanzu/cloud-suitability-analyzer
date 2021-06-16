@@ -46,7 +46,7 @@ export class ApplicationSummaryComponent implements OnInit {
   isOpen: boolean;
   findingLoaded: boolean = false;
 
-  view: [number, number] = [700, 400];
+  view: [number, number] = [1390, 400];
 
   // options
   gradient: boolean = false;
@@ -180,7 +180,7 @@ export class ApplicationSummaryComponent implements OnInit {
       });
     }, error => {
       pushErrorNotification(error, this.toastr);
-    })
+    });
   }
 
   fetchApisByApplicationRun(runid: number, applicationSelected: ApplicationScore): void {
@@ -191,7 +191,7 @@ export class ApplicationSummaryComponent implements OnInit {
       });
     }, error => {
       pushErrorNotification(error, this.toastr);
-    })
+    });
   }
 
   onSelectLanguage(language: Language[]): void {

@@ -65,7 +65,6 @@
 .summary-tabs{
   position: absolute;
   top: 260px;
-  width: 95%;
 }
 
 .summary-grid-divider{
@@ -104,7 +103,7 @@
   display: flex;
   justify-content: space-between;
   align-content: space-around;
-  width: 100%;
+  width: 1390px;
 }
 
 .summary-chart{
@@ -112,8 +111,8 @@
   box-sizing: border-box;
   box-shadow: 0px 3px 0px #d7d5d7;
   border-radius: 3px;
-  width: 43%;
   background-color: white;
+  width: 100%;
 }
 
 .badge-color-white{
