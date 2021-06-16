@@ -30,7 +30,7 @@ export class ThirdPartyComponent implements OnInit {
   }
 
   resetPage(): void {
-    this.thirdPartyLibs=[];
+    this.thirdPartyLibs = [];
   }
 
   fetchThirdPartyLibsUsage(runId: number): void{

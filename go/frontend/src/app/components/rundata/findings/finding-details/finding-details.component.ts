@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 import {Findings} from "../../../../model/findings";
 
 @Component({
@@ -12,7 +12,7 @@ export class FindingDetailsComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    }
+  }
 
   @Input()
   selectedFinding: Findings;

@@ -3,9 +3,9 @@ import {Router} from '@angular/router';
 import {AnalyzerRunService} from "../../services/analyzerrun.service";
 import {AnalyzerRun} from "../../model/analyzerrun";
 import {RunDropDownItem} from "../../model/rundropdownitem";
-import {ClarityIcons, calendarIcon, clockIcon, targetIcon, userIcon} from '@cds/core/icon';
+import {calendarIcon, ClarityIcons, clockIcon, targetIcon, userIcon} from '@cds/core/icon';
 import '@cds/core/icon/register.js';
-import { pushErrorNotification } from '../../utils/notificationutil';
+import {pushErrorNotification} from '../../utils/notificationutil';
 import {ToastrService} from "ngx-toastr";
 
 @Component({
@@ -44,7 +44,8 @@ export class AnalyzerRunComponent implements OnInit {
       });
       this.analyzerRuns.forEach((analyzerRun, index) => {
         this.runItemsDropDownItems.push(new RunDropDownItem(analyzerRun.id, analyzerRun.id+" - " +analyzerRun.Alias));
-        if ( index === 0 ) {
+        /* istanbul ignore else */
+if ( index === 0 ) {
           this.selectedRunId = analyzerRun.id;
           this.selectedRunDesc = analyzerRun.id+" - " +analyzerRun.Alias;
           this.analyzerRunSelected = analyzerRun;

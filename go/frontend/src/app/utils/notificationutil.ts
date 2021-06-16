@@ -1,6 +1,6 @@
-import {ToastrService} from "ngx-toastr";
+import {ToastrService} from 'ngx-toastr';
 
-export function pushErrorNotification(err, toastr: ToastrService): void{
+export function pushErrorNotification(err, toastr: ToastrService): void {
   if (toastr != null) {
     toastr.error(err.toString(), 'Error Message', {
       timeOut: 3000,
@@ -13,7 +13,7 @@ export function pushErrorNotification(err, toastr: ToastrService): void{
   }
 }
 
-export function pushInfoNotification(msg, toastr: ToastrService): void{
+export function pushInfoNotification(msg, toastr: ToastrService): void {
   if (toastr != null) {
     toastr.info(msg, 'Information', {
       timeOut: 3000,

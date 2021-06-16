@@ -1,10 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {RundataService} from "../../../services/rundata.service";
 import {Findings} from "../../../model/findings";
 import {ToastrService} from 'ngx-toastr';
-import { pushErrorNotification } from '../../../utils/notificationutil';
-import { pushInfoNotification } from '../../../utils/notificationutil';
+import {pushErrorNotification, pushInfoNotification} from '../../../utils/notificationutil';
 
 @Component({
   selector: 'findings',
@@ -38,12 +37,13 @@ export class FindingsComponent implements OnInit {
     this.findings = [];
   }
 
-  fetchFindings(runId: number): void{
+  fetchFindings(runId: number): void {
     this.rundataService.getRunFindings(runId).subscribe(findingsReturned => {
       this.findings = findingsReturned;
       pushInfoNotification('Found [' + this.findings.length + '] findings!', this.toastr);
       this.findings.map(finding => {
-        if (finding.recipes == null){
+        /* istanbul ignore else */
+        if (finding.recipes == null) {
           finding.recipes = [];
         }
       });
@@ -52,7 +52,7 @@ export class FindingsComponent implements OnInit {
     });
   }
 
-  fetchFindingById(findingId: number): void{
+  fetchFindingById(findingId: number): void {
     this.rundataService.getFinding(this.selectedRunId, findingId).subscribe(findingDataReturned => {
       this.selectedFinding = findingDataReturned;
       this.findingLoaded = true;

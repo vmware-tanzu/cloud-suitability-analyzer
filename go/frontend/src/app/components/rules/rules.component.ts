@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ClarityIcons, downloadIcon} from '@cds/core/icon';
 import '@cds/core/icon/register.js';
 import '@cds/core/search/register.js';
@@ -6,7 +6,7 @@ import {Router} from "@angular/router";
 import {RulesService} from "../../services/rules.service";
 import {Rule} from "../../model/rules";
 import {ToastrService} from 'ngx-toastr';
-import { pushErrorNotification } from '../../utils/notificationutil';
+import {pushErrorNotification} from '../../utils/notificationutil';
 import {ClrDatagridStringFilterInterface} from "@clr/angular";
 
 @Component({
@@ -30,6 +30,7 @@ export class RulesComponent implements OnInit {
 
   fetchRules(): void {
     this.rulesService.getRules().subscribe(rulesReturned => {
+      /* istanbul ignore else */
       if (rulesReturned.rules) {
         this.rules = rulesReturned.rules;
       }
@@ -42,6 +43,7 @@ export class RulesComponent implements OnInit {
 class TagFilter implements ClrDatagridStringFilterInterface<Rule> {
   accepts(ruleRow: Rule, search: string): boolean {
     // @ts-ignore
+    /* istanbul ignore else */
     if (ruleRow.Tags) {
       return ruleRow.Tags.filter(tag => tag.Value.toLowerCase().includes(search)).length > 0;
     }

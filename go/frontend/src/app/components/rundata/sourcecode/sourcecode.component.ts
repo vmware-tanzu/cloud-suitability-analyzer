@@ -19,8 +19,6 @@ export class SourceCodeComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private rundataService: RundataService, public toastr: ToastrService) {
 
   }
-
-
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.resetPage();

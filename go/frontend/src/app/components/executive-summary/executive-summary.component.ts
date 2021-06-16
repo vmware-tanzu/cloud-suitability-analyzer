@@ -1,13 +1,12 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {ExecutiveSummaryService} from "../../services/executivesummary.service";
 import {ApplicationScore} from "../../model/applicationscore";
 import {RunSloc} from "../../model/runsloc";
-import {ClarityIcons, pinboardIcon, fileIcon, codeIcon, applicationsIcon, downloadIcon} from '@cds/core/icon';
+import {applicationsIcon, ClarityIcons, codeIcon, downloadIcon, fileIcon, pinboardIcon} from '@cds/core/icon';
 import '@cds/core/icon/register.js';
 import {LanguagesByCodeLines} from "../../model/languagesbycodelines";
 import {ApisByScore} from "../../model/apisbyscore";
-import { NgxChartsModule } from '@swimlane/ngx-charts';
 import {ChartElement} from "../../model/chartelement";
 import '@cds/core/search/register.js';
 import {pushErrorNotification, pushInfoNotification} from '../../utils/notificationutil';
@@ -23,12 +22,12 @@ export class ExecutiveSummaryComponent implements OnInit {
   public searchCrit: any = '';
 
   applicationScores: ApplicationScore [] = [];
-  filteredApplicationScores: ApplicationScore[] =[];
+  filteredApplicationScores: ApplicationScore[] = [];
   numAppsByRun: number = 0;
   locByRun: number = 0;
   numFilesByRun: number = 0;
   findings: number = 0;
-  top5LanguagesByLocData: ChartElement[]= [];
+  top5LanguagesByLocData: ChartElement[] = [];
   top5ApisByScoreData: ChartElement[] = [];
   cardBackground: string = 'count card-background';
   activeIndex: number = 0;
@@ -74,7 +73,7 @@ export class ExecutiveSummaryComponent implements OnInit {
     });
   }
 
-  resetPage(): void{
+  resetPage(): void {
     this.findings = 0;
     this.applicationScores = [];
     this.numFilesByRun = 0;
@@ -84,7 +83,8 @@ export class ExecutiveSummaryComponent implements OnInit {
     this.top5LanguagesByLocData = [];
     this.top5ApisByScoreData = [];
   }
-  fetchAppScoresAndFindings(runid: number): void{
+
+  fetchAppScoresAndFindings(runid: number): void {
     let runSlocBlank: RunSloc = {
       blankLines: 0, commentLines: 0, runId: 0,
       applicationCount: 0,
@@ -92,6 +92,7 @@ export class ExecutiveSummaryComponent implements OnInit {
       totalFiles: 0
     };
     this.executiveSummaryService.getApplicationScoresByRun(runid).subscribe(scores => {
+      /* istanbul ignore else */
       if (scores.scores.appScores) {
         this.applicationScores = scores.scores.appScores;
         this.findings = scores.scores.findings;
@@ -107,7 +108,7 @@ export class ExecutiveSummaryComponent implements OnInit {
       this.numAppsByRun = runSlocBlank.applicationCount;
       this.locByRun = runSlocBlank.codeLines;
       this.numFilesByRun = runSlocBlank.totalFiles;
-    }else {
+    } else {
       this.executiveSummaryService.getSummaryFindingsByRun(runid).subscribe(runSlocReturned => {
         this.numAppsByRun = runSlocReturned.applicationCount;
         this.locByRun = runSlocReturned.codeLines;
@@ -116,11 +117,11 @@ export class ExecutiveSummaryComponent implements OnInit {
         pushErrorNotification(error, this.toastr);
       });
     }
-}
+  }
 
   fetchTop5LanguagesByLoc(runid: number) {
     this.executiveSummaryService.getLanguagesByLoc(runid).subscribe(languagesByLocReturned => {
-      languagesByLocReturned.sort((a,b) => b.codeLines - a.codeLines);
+      languagesByLocReturned.sort((a, b) => b.codeLines - a.codeLines);
       const top5LanguagesByLoc: LanguagesByCodeLines[] = languagesByLocReturned.slice(0, 5);
       top5LanguagesByLoc.forEach(languageByLoc => {
         let chartElement: ChartElement = new ChartElement(languageByLoc.codeLines, languageByLoc.language);
@@ -133,7 +134,7 @@ export class ExecutiveSummaryComponent implements OnInit {
 
   fetchTop5ApisByScore(runid: number) {
     this.executiveSummaryService.getApisByScore(runid).subscribe(apisByScoreReturned => {
-      apisByScoreReturned.sort((a,b) => b.usageCount - a.usageCount);
+      apisByScoreReturned.sort((a, b) => b.usageCount - a.usageCount);
       const top5ApisByScore: ApisByScore[] = apisByScoreReturned.slice(0, 5);
       top5ApisByScore.forEach(apiScore => {
         let chartElement: ChartElement = new ChartElement(apiScore.usageCount, apiScore.api);

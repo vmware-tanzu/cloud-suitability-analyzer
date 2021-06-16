@@ -1,10 +1,9 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import { cloudIcon } from '@cds/core/icon';
 import '@cds/core/icon/register.js';
 import {AnalyzerRunService} from '../../services/analyzerrun.service';
-import { pushErrorNotification } from '../../utils/notificationutil';
+import {pushErrorNotification} from '../../utils/notificationutil';
 import {ToastrService} from "ngx-toastr";
-import { ClarityIcons } from '@clr/icons';
+import {ClarityIcons} from '@clr/icons';
 
 @Component({
   selector: 'app-header',
@@ -35,6 +34,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.analyzerRunService.getForgeVersion().subscribe(version => {
+      /* istanbul ignore else */
       if (version && version.length > 0) {
         this.forgeVersion = version;
       }

@@ -29,6 +29,20 @@ module.exports = function (config) {
       dir: require('path').join(__dirname, './coverage/cloud-suitability-analyzer'),
       subdir: '.',
       reporters: [{ type: 'html' }, { type: 'text-summary' }],
+      check: {
+        global: {
+          statements: 70,
+          branches: 45,
+          functions: 50,
+          lines: 70
+        }
+      },
+      watermarks: {
+        statements: [ 40, 70 ],
+        functions: [ 30, 60 ],
+        branches: [ 20, 40 ],
+        lines: [ 40, 70 ]
+      }
     },
     customLaunchers: {
       ChromeHeadless: {

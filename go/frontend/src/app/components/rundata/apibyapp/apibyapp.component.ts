@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {RundataService} from '../../../services/rundata.service';
 import {Apiusage} from '../../../model/appapiusage';
 import {ToastrService} from 'ngx-toastr';
-import { pushErrorNotification } from '../../../utils/notificationutil';
+import {pushErrorNotification} from '../../../utils/notificationutil';
 import {ClrDatagridStringFilterInterface} from '@clr/angular';
 
 @Component({
@@ -16,7 +16,7 @@ export class ApiByAppComponent implements OnInit {
   public searchCrit: any = '';
   public fileName: string;
 
-  public gridData: (string|number)[][] = [];
+  public gridData: (string | number)[][] = [];
   public gridColumns: string[] = [];
 
   public appNameFilter = new AppNameFilter();
@@ -41,17 +41,20 @@ export class ApiByAppComponent implements OnInit {
   fetchApiByApps(runId: number): void {
     this.rundataService.getApiByAppUsage(runId).subscribe(appApiUsageReturned => {
       appApiUsageReturned.cols.forEach(col => {
+        /* istanbul ignore else */
         if (col !== 'App') {
           this.gridColumns.push(col);
         }
       });
+      /* istanbul ignore else */
       if (appApiUsageReturned.cols && appApiUsageReturned.data) {
         appApiUsageReturned.data.forEach(datum => {
-          const innerArr: (string|number)[] = [];
+          const innerArr: (string | number)[] = [];
           innerArr.push(datum.application);
           appApiUsageReturned.cols.forEach(col => {
             let apiusage: Apiusage;
-            apiusage = datum.apiusage.find(indApiUsage => indApiUsage.api.toLowerCase() == col.toLowerCase());
+            apiusage = datum.apiusage.find(indApiUsage => indApiUsage.api.toLowerCase() === col.toLowerCase());
+            /* istanbul ignore else */
             if (apiusage) {
               innerArr.push(apiusage.usageCount);
             }
