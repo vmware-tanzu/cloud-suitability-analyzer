@@ -9,7 +9,6 @@
     "production-build": "ng build --prod > /dev/null 2>&1",
     "source-map": "cd dist/ng-app && source-map-explorer *.js",
     "build": "ng build",
-    "build-release": "ng build --configuration=production",
     "test": "ng test --codeCoverage=true --source-map=false",
     "lint": "ng lint",
     "e2e": "concurrently \"pushd .. && go generate && popd && go run rules-admin.go --database-dir=./data\" \"ng e2e\"",

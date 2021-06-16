@@ -47,7 +47,7 @@
                 <div style="fontWeight: 'bold'">
                   Default Pattern:
                 </div>
-                <div>
+                <div *ngIf="rule.DefaultPattern; else nopattern">
                   {{rule.DefaultPattern}}
                 </div>
                 <div>

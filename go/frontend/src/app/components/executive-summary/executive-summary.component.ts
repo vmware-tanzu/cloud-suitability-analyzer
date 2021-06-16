@@ -146,26 +146,20 @@ export class ExecutiveSummaryComponent implements OnInit {
   }
 
   onSelectLanguagesByLoc(top5LanguagesByLoc: LanguagesByCodeLines[]): void {
-    console.log('Item clicked', JSON.parse(JSON.stringify(top5LanguagesByLoc)));
   }
 
   onActivateLanguagesByLoc(top5LanguagesByLoc: LanguagesByCodeLines[]): void {
-    console.log('Activate', JSON.parse(JSON.stringify(top5LanguagesByLoc)));
   }
 
   onDeactivateLanguagesByLoc(top5LanguagesByLoc: LanguagesByCodeLines[]): void {
-    console.log('Deactivate', JSON.parse(JSON.stringify(top5LanguagesByLoc)));
   }
 
   onSelectApisByScore(top5ApisByScoreData: ApisByScore[]): void {
-    console.log('Item clicked', JSON.parse(JSON.stringify(top5ApisByScoreData)));
   }
 
   onActivateApisByScore(top5ApisByScoreData: ApisByScore[]): void {
-    console.log('Activate', JSON.parse(JSON.stringify(top5ApisByScoreData)));
   }
 
   onDeactivateApisByScore(top5ApisByScoreData: ApisByScore[]): void {
-    console.log('Deactivate', JSON.parse(JSON.stringify(top5ApisByScoreData)));
   }
 }
