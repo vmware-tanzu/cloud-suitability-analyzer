@@ -27,7 +27,7 @@ export class ApplicationSummaryComponent implements OnInit {
   displayApplicationFindings: ApplicationFinding[] = [];
   runId: number = 0;
   findings: number = 0;
-  selectedAppId: number | undefined = 0;
+  selectedAppId: number = 0;
   filteredApplicationScores: ApplicationScore[] = [];
   applicationSelected: any;
   tags: TagSummary[] = [];
@@ -75,7 +75,7 @@ export class ApplicationSummaryComponent implements OnInit {
     this.apis = [];
     this.tags = [];
     this.binTags = [];
-    this.applicationSelected = this.filteredApplicationScores.find(applicationScore => applicationScore.appId === this.selectedAppId);
+    this.applicationSelected = this.filteredApplicationScores.find(applicationScore => applicationScore.appId == this.selectedAppId);
     this.fetchApplicationFindings(this.runId, this.applicationSelected);
     this.fetchScoreCardForApplication(this.runId, this.applicationSelected);
 

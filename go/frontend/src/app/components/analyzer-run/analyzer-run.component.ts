@@ -26,9 +26,9 @@ export class AnalyzerRunComponent implements OnInit {
   selectedRunIdChange = new EventEmitter();
 
 
-  selectedRunDesc: string='';
+  selectedRunDesc: string = '';
   analyzerRunSelected: any;
-  loaded:boolean = false;
+  loaded: boolean = false;
 
   constructor(private router: Router, private analyzerRunService: AnalyzerRunService, public toastr: ToastrService) {
     ClarityIcons.addIcons(calendarIcon);
@@ -37,32 +37,32 @@ export class AnalyzerRunComponent implements OnInit {
     ClarityIcons.addIcons(userIcon);
   }
 
-    ngOnInit(): void {
-      this.analyzerRunService.getDistinctRuns().subscribe(runList => {
+  ngOnInit(): void {
+    this.analyzerRunService.getDistinctRuns().subscribe(runList => {
       Object.keys(runList).forEach((key) => {
         this.analyzerRuns = runList[key];
       });
       this.analyzerRuns.forEach((analyzerRun, index) => {
-        this.runItemsDropDownItems.push(new RunDropDownItem(analyzerRun.id, analyzerRun.id+" - " +analyzerRun.Alias));
+        this.runItemsDropDownItems.push(new RunDropDownItem(analyzerRun.id, analyzerRun.id + " - " + analyzerRun.Alias));
         /* istanbul ignore else */
-if ( index === 0 ) {
+        if (index === 0) {
           this.selectedRunId = analyzerRun.id;
-          this.selectedRunDesc = analyzerRun.id+" - " +analyzerRun.Alias;
+          this.selectedRunDesc = analyzerRun.id + " - " + analyzerRun.Alias;
           this.analyzerRunSelected = analyzerRun;
           this.loaded = true;
           this.selectedRunIdChange.emit(this.selectedRunId);
-          this.router.navigateByUrl(`/runs/${this.selectedRunId}/summary`, { skipLocationChange: true });
+          this.router.navigateByUrl(`/runs/${this.selectedRunId}/summary`, {skipLocationChange: true});
         }
       });
     }, error => {
-        pushErrorNotification(error, this.toastr);
+      pushErrorNotification(error, this.toastr);
     });
   }
 
   runIdChanged(): void {
     this.analyzerRunSelected = this.analyzerRuns.find(analyzerRun => analyzerRun.id == this.selectedRunId);
     this.selectedRunIdChange.emit(this.selectedRunId);
-    this.router.navigateByUrl(`/runs/${this.selectedRunId}/summary`, { skipLocationChange: true });
+    this.router.navigateByUrl(`/runs/${this.selectedRunId}/summary`, {skipLocationChange: true});
   }
 
 }
