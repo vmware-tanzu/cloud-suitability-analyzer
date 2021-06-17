@@ -55,12 +55,12 @@
               </div>
             </div>
           </clr-dg-action-bar>
-          <clr-dg-column [clrDgField]="'application'">Application</clr-dg-column>
-          <clr-dg-column [clrDgField]="'loc'" [clrDgColType]="'number'">LOC</clr-dg-column>
-          <clr-dg-column [clrDgField]="'files'" [clrDgColType]="'number'">Files</clr-dg-column>
-          <clr-dg-column [clrDgField]="'rawscore'" [clrDgColType]="'number'" >Raw Score</clr-dg-column>
-          <clr-dg-column [clrDgField]="'scoringmodel'">Scoring Model</clr-dg-column>
-          <clr-dg-column [clrDgField]="'technicalscore'" [clrDgColType]="'number'">Technical Score</clr-dg-column>
+          <clr-dg-column [clrDgField]="'name'">Application</clr-dg-column>
+          <clr-dg-column [clrDgField]="'slocCnt'" [clrDgColType]="'number'">LOC</clr-dg-column>
+          <clr-dg-column [clrDgField]="'filesCnt'" [clrDgColType]="'number'">Files</clr-dg-column>
+          <clr-dg-column [clrDgField]="'rawScore'" [clrDgColType]="'number'" >Raw Score</clr-dg-column>
+          <clr-dg-column [clrDgField]="'model'">Scoring Model</clr-dg-column>
+          <clr-dg-column [clrDgField]="'score'" [clrDgColType]="'number'">Technical Score</clr-dg-column>
 
           <clr-dg-row *clrDgItems="let filteredApplicationScore of filteredApplicationScores  | searchFilter: 'name' : searchCrit">
             <clr-dg-cell>{{filteredApplicationScore.name}}</clr-dg-cell>
