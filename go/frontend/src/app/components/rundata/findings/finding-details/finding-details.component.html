@@ -1,0 +1,94 @@
+<clr-modal [(clrModalOpen)]="isOpen" (clrModalOpenChange)="onModalClose($event)" clrModalSize="lg">
+  <h1 class="modal-title" style="color: #138078">{{selectedFinding.id}}</h1>
+  <div class="modal-body" cds-layout="horizontal">
+    <div class="left">
+      <p>
+        <span class="kv-field">File:</span>
+        <span class="kv-value">
+          {{selectedFinding.filename}}
+        </span>
+      </p>
+      <p>
+        <span class="kv-field">FQN:</span>
+        <span class="kv-value">
+          {{selectedFinding.fqn}}
+        </span>
+      </p>
+      <p>
+        <span class="kv-field">Line:</span>
+        <span class="kv-value">
+          {{selectedFinding.line}}
+        </span>
+      </p>
+      <p>
+        <span class="kv-field">Rule:</span>
+        <span class="kv-value">
+          {{selectedFinding.rule}}
+        </span>
+      </p>
+      <p>
+        <span class="kv-field">Pattern:</span>
+        <span class="kv-value">
+          {{selectedFinding.pattern}}
+        </span>
+      </p>
+      <p>
+        <span class="kv-field">Value:</span>
+        <span class="kv-value">
+          {{selectedFinding.value}}
+        </span>
+      </p>
+      <p>
+        <span class="kv-field">Effort:</span>
+        <span class="kv-value">
+          {{selectedFinding.effort}}
+        </span>
+      </p>
+      <p>
+        <span class="kv-field">Category:</span>
+        <span class="kv-value">
+          {{selectedFinding.category}}
+        </span>
+      </p>
+      <p>
+        <span class="kv-field">Application:</span>
+        <span class="kv-value">
+          {{selectedFinding.application}}
+        </span>
+      </p>
+    </div>
+    <div style="width: 2%">
+    <cds-divider orientation="vertical"></cds-divider>
+    </div>
+    <div class="right">
+      <div>
+        <h3 class="finding-advice">Notes</h3>
+        <hr class="finding-rule"/>
+        <p>{{selectedFinding.note}}</p>
+      </div>
+      <div>
+        <h3 class="finding-advice">Advice</h3>
+        <hr class="finding-rule"/>
+        <p>{{selectedFinding.advice}}</p>
+      </div>
+      <div>
+        <h3>Tags</h3>
+        <hr class="finding-rule"/>
+        <ul *ngIf="selectedFinding.tags">
+          <li *ngFor="let findingtag of selectedFinding.tags">
+            {{findingtag}}
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3>Recipes</h3>
+        <hr class="finding-rule"/>
+        <ul *ngIf="selectedFinding.recipes">
+          <li *ngFor="let recipe of selectedFinding.recipes">
+            <a [href]="recipe.uri">{{recipe.id}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</clr-modal>

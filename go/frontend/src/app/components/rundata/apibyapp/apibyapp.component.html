@@ -1,0 +1,27 @@
+<div>
+<clr-datagrid class="run-data-grid">
+  <clr-dg-action-bar>
+    <div class="action-bar">
+      <div class="action-bar-item-left">
+        <app-excel-export [data]="gridData" [file_name]="'api-by-app.xlsx'"></app-excel-export>
+      </div>
+      <div class="action-bar-item-right">
+        <cds-search control-width="shrink">
+          <label>Search</label>
+          <input type="search" [(ngModel)]="searchCrit"/>
+        </cds-search>
+      </div>
+    </div>
+  </clr-dg-action-bar>
+  <clr-dg-column [clrDgField]="'App'" [clrDgColType]="'string'" class="first">App
+    <clr-dg-string-filter [clrDgStringFilter]="appNameFilter">
+    </clr-dg-string-filter>
+  </clr-dg-column>
+  <clr-dg-column *ngFor="let gridColumn of gridColumns" class="dg-cell">{{gridColumn.toUpperCase()}}
+  </clr-dg-column>
+  <clr-dg-placeholder>No API by app information found</clr-dg-placeholder>
+ <clr-dg-row *clrDgItems="let gridDataRow of gridData  | searchFilter: 'name' : searchCrit">
+   <clr-dg-cell *ngFor="let gridDataCell of gridDataRow; let first = first;" [ngClass]="{ first: first}" class="dg-cell">{{gridDataCell}}</clr-dg-cell>
+  </clr-dg-row>
+</clr-datagrid>
+</div>
