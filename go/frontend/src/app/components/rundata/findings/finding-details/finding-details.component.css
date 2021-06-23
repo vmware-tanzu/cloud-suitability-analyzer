@@ -8,14 +8,14 @@
 /* Control the left side */
 .left {
   left: 0;
-  width: 39%;
+  width: 35%;
   background-color: #FAFAFA;
 }
 
 /* Control the right side */
 .right {
   right: 0;
-  width: 59%;
+  width: 63%;
   background-color: white;
 }
 
@@ -40,6 +40,7 @@ p span {
   margin-right: 0px;
   line-height: 1;
   text-align: left;
+  word-break: break-all;
 }
 
 .kv-field {

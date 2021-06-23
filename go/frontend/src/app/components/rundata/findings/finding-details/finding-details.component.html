@@ -1,4 +1,5 @@
-<clr-modal [(clrModalOpen)]="isOpen" (clrModalOpenChange)="onModalClose($event)" clrModalSize="lg">
+<clr-modal [(clrModalOpen)]="isOpen" (clrModalOpenChange)="onModalClose($event)"
+           clrModalSize="xl">
   <h1 class="modal-title" style="color: #138078">{{selectedFinding.id}}</h1>
   <div class="modal-body" cds-layout="horizontal">
     <div class="left">
@@ -85,7 +86,7 @@
         <hr class="finding-rule"/>
         <ul *ngIf="selectedFinding.recipes">
           <li *ngFor="let recipe of selectedFinding.recipes">
-            <a [href]="recipe.uri">{{recipe.id}}</a>
+            <a [href]="recipe" style="word-break: break-all">{{recipe}}</a>
           </li>
         </ul>
       </div>

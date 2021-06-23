@@ -1,5 +1,3 @@
-import {FindingRecipe} from "./findingrecipe";
-
 export interface Findings {
   id: number;
   run: number;
@@ -19,5 +17,5 @@ export interface Findings {
   criticality: string;
   application: string;
   tags: string[];
-  recipes: FindingRecipe[];
+  recipes: string[];
 }

@@ -13,24 +13,24 @@
   <clr-tabs class="summary-tabs">
     <clr-tab class="findings-tab">
       <button clrTabLink>Findings</button>
-      
+
       <clr-tab-content *clrIfActive>
 
-        <div class="clr-row">
+        <div class="clr-row finding-cards">
             <span>&nbsp;&nbsp;&nbsp;</span>
             <div *ngFor="let binTag of binTags; let i = index">
               <span class="label label-light-blue" id="{{binTag.name}}" (click)="highlightBinTags($event)" style="cursor: pointer">{{binTag.name}}<span class="badge badge-light-blue">{{binTag.count}}</span></span>
             </div>
         </div>
 
-        <div class="clr-row">
+        <div class="clr-row finding-cards">
           <span>&nbsp;&nbsp;&nbsp;</span>
           <div *ngFor="let tag of tags">
             <span class="label label-info" id="{{tag.name}}" style="cursor: pointer" (click)="highlightTags($event)">{{tag.name}}<span class="badge badge-info">{{tag.count}}</span></span>
           </div>
         </div>
 
-        <div class="clr-row">
+        <div class="clr-row finding-cards">
           <div class="clr-col-lg-2">
             <div class="card card-green">
               <div class="card-img badge-color-white" align="center">
@@ -42,7 +42,7 @@
               </div>
             </div>
           </div>
-          
+
           <div class="clr-col-lg-2">
             <div class="card card-orange">
               <div class="card-img badge-color-white" align="center">
@@ -91,14 +91,14 @@
             </div>
           </div>
         </div>
-        
+
         <clr-datagrid class="summary-grid">
           <clr-dg-action-bar>
             <div class="action-bar">
               <div class="action-bar-item-left">
                 <app-excel-export [data]="displayApplicationFindings" [file_name]="'app-findings-summary.xlsx'"></app-excel-export>
               </div>
-    
+
               <div class="action-bar-item-right">
                 <cds-search control-width="shrink">
                   <label>Search</label>
