@@ -38,7 +38,7 @@ export class ExecutiveSummaryComponent implements OnInit {
 
   view: [number, number] = [500, 400];
 
-  // options
+  // chart display options
   showXAxis: boolean = true;
   showYAxis: boolean = true;
   gradient: boolean = true;
