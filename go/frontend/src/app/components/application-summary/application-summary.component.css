@@ -3,7 +3,7 @@
   width: 300px;
   height: 24px;
   left: 130px;
-  top: 230px;
+  top: 190px;
 }
 
 .select-app-option {
@@ -26,7 +26,7 @@
   width: 100px;
   height: 24px;
   left: 25px;
-  top: 230px;
+  top: 190px;
   font-family: Metropolis;
   font-style: normal;
   font-weight: 500;
@@ -40,7 +40,7 @@
   width: 100px;
   height: 24px;
   left: 100px;
-  top: 230px;
+  top: 190px;
   font-family: Metropolis;
   font-style: normal;
   font-weight: 500;
@@ -50,7 +50,15 @@
 }
 
 .finding-cards {
-  width: 1390px;
+  display: flex;
+  left: 24px;
+  align-content: center;
+  justify-content: space-between;
+  align-content: space-around;
+}
+.findings-card {
+  border-radius: 3px;
+  width: 18%;
 }
 
 .findings-tab{
@@ -58,21 +66,15 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 14px 0px 0px;
-
-  position: absolute;
-  width: 123px;
   height: 36px;
   left: 25px;
-  top: 260px;
 }
 
-.summary-tabs{
-  position: absolute;
-  top: 260px;
+.findings-tabs{
+  padding-top: 20px;
 }
 
 .summary-grid-divider{
-  position: absolute;
   height: 1px;
   left: 0%;
   right: 0%;
@@ -81,13 +83,10 @@
 }
 
 .summary-grid{
-  position: absolute;
-  width: 1390px;
-  left: 25px;
+  display: flex;
 }
 
 .summary-grid-export{
-  position: absolute;
   width: 74px;
   height: 36px;
   left: 25px;
@@ -103,11 +102,11 @@
 }
 
 .summary-charts{
-  align-content: center;
   display: flex;
   justify-content: space-between;
-  align-content: space-around;
-  width: 1390px;
+  align-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .summary-chart{
@@ -115,10 +114,10 @@
   box-sizing: border-box;
   box-shadow: 0px 3px 0px #d7d5d7;
   border-radius: 3px;
-  background-color: white;
   width: 100%;
+  background-color: white;
+  position: relative;
 }
-
 .badge-color-white{
   color: #FFFFFF
 }
@@ -146,14 +145,9 @@
 .action-bar{
   display: flex;
 }
-
 .action-bar-item-left{
-  width: 50%;
+  width: 80%;
 }
-
 .action-bar-item-right{
-  position: absolute;
-  width: 50%;
-  left: 1130px;
-  justify-content: flex-end;
+  width: 20%;
 }

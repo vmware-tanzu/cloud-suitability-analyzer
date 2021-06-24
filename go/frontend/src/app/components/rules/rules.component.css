@@ -3,53 +3,41 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 14px 0px 0px;
-
-  position: absolute;
-  width: 123px;
   height: 36px;
   left: 25px;
-  top: 212px;
 }
 
 .rules-tabs{
-  position: absolute;
-  top: 212px;
+  padding-top: 10px;
 }
 
 .rules-grid-divider{
-  position: absolute;
   height: 1px;
   left: 0%;
   right: 0%;
-  top: 248px;
+  top: 448px;
   background: #CCCCCC;
 }
 
 .rules-grid{
-  position: absolute;
-  width: 1390px;
-  left: 25px;
+  display: flex;
 }
 
 .rules-grid-export{
-  position: absolute;
   width: 74px;
   height: 36px;
   left: 25px;
-  top: 352px;
+  top: 552px;
 }
 
 .action-bar{
   display: flex;
 }
 .action-bar-item-left{
-  width: 50%;
+  width: 80%;
 }
 .action-bar-item-right{
-  position: absolute;
-  width: 50%;
-  left: 1130px;
-  justify-content: flex-end;
+  width: 20%;
 }
 
 .badge-tag{
