@@ -1,12 +1,15 @@
 <div class="clr-row">
-  <label for="select-full" class="clr-control-label select-app-text clr-col">Application</label>
-  <div class="clr-select-wrapper select-app-placeholder">
-    <select id="select-full" class="clr-select" [(ngModel)]="selectedAppId" [ngModelOptions]="{standalone: true}" (change)="appChanged()">
-      <option class="select-app-option" value="{{filteredApplicationScore.appId}}" *ngFor="let filteredApplicationScore of filteredApplicationScores">{{filteredApplicationScore.name}}</option>
-    </select>
-    <label *ngIf="applicationSelected" class="clr-col">LOC <span class="clr-col-2 badge badge-info" *ngIf="applicationSelected">{{applicationSelected.slocCnt}}</span></label>
-    <label *ngIf="applicationSelected" class="clr-col">Files <span class="clr-col-2 badge badge-info" *ngIf="applicationSelected">{{applicationSelected.filesCnt}}</span></label>
-  </div>
+    <label for="select-full" class="clr-control-label select-app-text clr-col">Application</label>
+    <div class="clr-control-container select-app-placeholder">
+      <div class="clr-select-wrapper">
+      <select id="select-full" class="clr-select" [(ngModel)]="selectedAppId" [ngModelOptions]="{standalone: true}" (change)="appChanged()">
+        <option class="select-app-option" value="{{filteredApplicationScore.appId}}" *ngFor="let filteredApplicationScore of filteredApplicationScores">{{filteredApplicationScore.name}}</option>
+      </select>
+      </div>
+      <label *ngIf="applicationSelected" class="clr-col">LOC <span class="clr-col-2 badge badge-info" *ngIf="applicationSelected">{{applicationSelected.slocCnt}}</span></label>
+      <label *ngIf="applicationSelected" class="clr-col">Files <span class="clr-col-2 badge badge-info" *ngIf="applicationSelected">{{applicationSelected.filesCnt}}</span></label>
+    </div>
+
 </div>
 
 <div *ngIf="applicationSelected" class="findings-tabs">

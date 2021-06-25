@@ -16,6 +16,7 @@
 }
 
 .select-run-option {
+  width: 50px;
   height: 24px;
   left: 6px;
   top: 0px;
@@ -30,6 +31,7 @@
 }
 .select-run-text {
   position: absolute;
+  width: 100px;
   height: 24px;
   left: 25px;
   top: 91px;
@@ -41,6 +43,7 @@
   color: #0079B8;
 }
 .select-run-caret {
+  width: 10px;
   height: 10px;
   right: -4px;
   top: 18px;
