@@ -35,8 +35,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.analyzerRunService.getForgeVersion().subscribe(version => {
       /* istanbul ignore else */
-      if (version && version.length > 0) {
-        this.forgeVersion = version;
+      if (version) {
+        Object.keys(version).forEach((key) => {
+          this.forgeVersion = version[key];
+        });
       }
     }, error => {
       pushErrorNotification(error, this.toastr);
