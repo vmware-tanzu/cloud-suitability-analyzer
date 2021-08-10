@@ -15,5 +15,7 @@
       <a [routerLink]="['/rules']" routerLinkActive="active" [skipLocationChange]="true"
          class="nav-link nav-text">Rule</a>
   </div>
-  <div class="version-title">{{forgeVersion}}</div>
+  <div>
+     <a href="https://github.com/vmware-tanzu/cloud-suitability-analyzer/tree/{{forgeVersion}}" class="version-title">{{forgeVersion}}</a>
+  </div>
 </header>
