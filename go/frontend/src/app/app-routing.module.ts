@@ -28,7 +28,6 @@ export const routes: Routes = [
   },
   {
     path: 'application',
-    pathMatch: 'full',
     component: ApplicationSummaryComponent
   }
 ];
