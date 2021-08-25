@@ -12,11 +12,11 @@ import (
 	"os"
 	"testing"
 
+	"github.com/stretchr/testify/assert"
 	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/db"
-	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/db/test_support"
+	db_test_support "github.com/vmware-tanzu/cloud-suitability-analyzer/go/db/test_support"
 	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/model"
 	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/util"
-	"github.com/stretchr/testify/assert"
 )
 
 func TestScoreModelValidatesRangesExist(t *testing.T) {
@@ -197,7 +197,7 @@ func TestScoreModelReturnsCorrectOutcome(t *testing.T) {
 	app := &model.Application{SlocCnt: 800, RawScore: 800, BusinessValue: -1.0}
 	err := app.CalculateScore(sm)
 	assert.Nil(t, err)
-	assert.Equal(t, "Rehost to PKS", app.Recommendation)
+	assert.Equal(t, "Rehost to TKG", app.Recommendation)
 	assert.Equal(t, 7.1, app.Score)
 
 	app.BusinessValue = 6.0
@@ -210,7 +210,7 @@ func TestScoreModelReturnsCorrectOutcome(t *testing.T) {
 	app.BusinessValue = 0
 	err = app.CalculateScore(sm)
 	assert.Nil(t, err)
-	assert.Equal(t, "Rehost to PKS", app.Recommendation)
+	assert.Equal(t, "Rehost to TKG", app.Recommendation)
 
 	app.BusinessValue = 10
 	err = app.CalculateScore(sm)
@@ -259,15 +259,15 @@ func createValidScoringModel(name string) *model.ScoringModel {
 	rBkt.AddRangeWithCalculatedScore(model.BV_BKT_TYPE, model.FLT_MIN, math.MaxFloat64, logExp, "Deploy to PAS")
 
 	rBkt2 := bkt1.AddRange(model.RAW_BKT_TYPE, 101, 10000)
-	rBkt2.AddRangeWithCalculatedScore(model.BV_BKT_TYPE, model.FLT_MIN, 5.0, logExp, "Rehost to PKS")
+	rBkt2.AddRangeWithCalculatedScore(model.BV_BKT_TYPE, model.FLT_MIN, 5.0, logExp, "Rehost to TKG")
 	rBkt2.AddRangeWithCalculatedScore(model.BV_BKT_TYPE, 5.01, math.MaxFloat64, logExp, "Refactor to PAS")
 
 	rBkt3 := bkt1.AddRange(model.RAW_BKT_TYPE, 10001, 10000000)
-	rBkt3.AddRangeWithCalculatedScore(model.BV_BKT_TYPE, model.FLT_MIN, 5.0, logExp, "Rehost to PKS")
+	rBkt3.AddRangeWithCalculatedScore(model.BV_BKT_TYPE, model.FLT_MIN, 5.0, logExp, "Rehost to TKG")
 	rBkt3.AddRangeWithCalculatedScore(model.BV_BKT_TYPE, 5.01, math.MaxFloat64, logExp, "Refactor to PAS")
 
 	rBkt4 := bkt1.AddRange(model.RAW_BKT_TYPE, 10000001, math.MaxInt64)
-	rBkt4.AddRangeWithCalculatedScore(model.BV_BKT_TYPE, model.FLT_MIN, 5.0, logExp, "Rehost to PKS")
+	rBkt4.AddRangeWithCalculatedScore(model.BV_BKT_TYPE, model.FLT_MIN, 5.0, logExp, "Rehost to TKG")
 	rBkt4.AddRangeWithCalculatedScore(model.BV_BKT_TYPE, 5.01, math.MaxFloat64, logExp, "Refactor to PAS")
 
 	return newModel

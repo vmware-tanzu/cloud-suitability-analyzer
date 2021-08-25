@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapScoringModelsTemplate.txt found under go/resources folder
-//Created @ 2021-06-30 19:04:59.6562349 +0000 UTC m=+27.109704101
+//Created @ 2021-08-25 14:55:18.703145 -0500 CDT m=+0.163548551
 
 func BootstrapModels() []ScoringModel {
     var BootstrapModels = []ScoringModel{
@@ -37,7 +37,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "5.00", Outcome: &Outcome{ Score: 0, Recommendation: "Rehost to PKS", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
+                                    End: "5.00", Outcome: &Outcome{ Score: 0, Recommendation: "Rehost to TKG", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
                                   }, 
                                   { Type: "bv",
                                     Start: "5.01",
@@ -52,7 +52,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "5.00", Outcome: &Outcome{ Score: 0, Recommendation: "Rehost to PKS", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
+                                    End: "5.00", Outcome: &Outcome{ Score: 0, Recommendation: "Rehost to TKG", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
                                   }, 
                                   { Type: "bv",
                                     Start: "5.01",
@@ -67,7 +67,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "5.00", Outcome: &Outcome{ Score: 0, Recommendation: "Rehost to PKS", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
+                                    End: "5.00", Outcome: &Outcome{ Score: 0, Recommendation: "Rehost to TKG", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
                                   }, 
                                   { Type: "bv",
                                     Start: "5.01",
@@ -369,7 +369,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "2.0", Outcome: &Outcome{ Score: 0, Recommendation: "Rehost to PKS (consider modernization)", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
+                                    End: "2.0", Outcome: &Outcome{ Score: 0, Recommendation: "Rehost to TKG (consider modernization)", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
                                   }, 
                                   { Type: "bv",
                                     Start: "2.01",

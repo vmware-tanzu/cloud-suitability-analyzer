@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2021-06-30 19:04:33.2776387 +0000 UTC m=+0.731106701
+//Created @ 2021-08-25 14:55:18.59191 -0500 CDT m=+0.052316168
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -2504,6 +2504,82 @@ func BootstrapRules() []Rule {
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "property.filename", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "python-cf", FileType: "py$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Check for cloud foundry support.", Effort: -1, Readiness: 10, Impact: "", Category: "cloud-foundry", Criticality: "",
+            Tags:
+            []Tag{  { Value: "cloud-ready",}, },
+            Recipes:
+            []Recipe{  { URI: "https://app-transformation-cookbook-internal.cfapps.io/backing-services-port-binding/persistence/", },  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "cfenv", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "VCAP_SERVICES", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "python-database", FileType: "py$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Check for cloud foundry support.", Effort: 4, Readiness: 10, Impact: "", Category: "services", Criticality: "",
+            Tags:
+            []Tag{  { Value: "database",}, },
+            Recipes:
+            []Recipe{  { URI: "https://app-transformation-cookbook-internal.cfapps.io/backing-services-port-binding/persistence/", },  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "mysql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MySQL", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "aiomysql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import peewee", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "python-fileIO", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Relying on the local filesystem to store state is unreliable in a cloud platform. Since containers are immutable, restarts will lose any written changes. Refactor this logic to use an external service to store state.", Effort: 8, Readiness: 8, Impact: "", Category: "io", Criticality: "",
+            Tags:
+            []Tag{  { Value: "api",}, { Value: "io",}, { Value: "python-fileio",}, },
+            Recipes:
+            []Recipe{  { URI: "https://app-transformation-cookbook-internal.cfapps.io/backing-services-port-binding/persistence/", },  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "open", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "os.open", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "os.rename", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "os.path", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "os.mkdir", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "os.makedirs", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "os.chown", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "os.chmod", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "os.remove", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "os.removedirs", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "os.renames", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "os.replace", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "os.rmdir", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "os.symlink", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "os.unlink", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "chmod", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "python-rabbitmq", FileType: "py$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Check for cloud foundry support.", Effort: 4, Readiness: 10, Impact: "", Category: "services", Criticality: "",
+            Tags:
+            []Tag{  { Value: "rabbitmq",}, },
+            Recipes:
+            []Recipe{  { URI: "https://app-transformation-cookbook-internal.cfapps.io/backing-services-port-binding/persistence/", },  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "import pika", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import aio_pika", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "python-redis", FileType: "py$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Check for cloud foundry support.", Effort: 4, Readiness: 10, Impact: "", Category: "services", Criticality: "",
+            Tags:
+            []Tag{  { Value: "redis",}, },
+            Recipes:
+            []Recipe{  { URI: "https://app-transformation-cookbook-internal.cfapps.io/backing-services-port-binding/persistence/", },  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "import redis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import aioredis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "python-sqlite", FileType: "py$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Migrate to an external database.", Effort: 6, Readiness: 8, Impact: "", Category: "DatabaseAccess", Criticality: "",
+            Tags:
+            []Tag{  { Value: "database",}, },
+            Recipes:
+            []Recipe{  { URI: "https://app-transformation-cookbook-internal.cfapps.io/backing-services-port-binding/persistence/", },  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "sqlite", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "SqliteDatabase", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "sqlserver-ssis", FileType: "(dtsx$)", Target: "line", Type: "contains", DefaultPattern: "", Advice: "SSIS is not supported on CloudFoundry.", Effort: 100, Readiness: 0, Impact: "", Category: "Unsupported modules", Criticality: "",

@@ -26,7 +26,7 @@ ranges:
       outcome:
         calculate: true
         expression: max_score - log(10,raw_score)
-        recommendation: Rehost to PKS
+        recommendation: Rehost to TKG
     - type: bv
       start: "5.01"
       end: flt.max
@@ -44,7 +44,7 @@ ranges:
       outcome:
         calculate: true
         expression: max_score - log(10,raw_score)
-        recommendation: Rehost to PKS
+        recommendation: Rehost to TKG
     - type: bv
       start: "5.01"
       end: flt.max
@@ -62,7 +62,7 @@ ranges:
       outcome:
         calculate: true
         expression: max_score - log(10,raw_score)
-        recommendation: Rehost to PKS
+        recommendation: Rehost to TKG
     - type: bv
       start: "5.01"
       end: flt.max

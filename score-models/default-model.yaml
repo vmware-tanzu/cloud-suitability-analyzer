@@ -279,7 +279,7 @@ ranges:
             outcome:
               calculate: true
               expression: max_score - log(10,raw_score)
-              recommendation: Rehost to PKS (consider modernization)
+              recommendation: Rehost to TKG (consider modernization)
           - type: bv
             start: 2.01
             end: 8.0
