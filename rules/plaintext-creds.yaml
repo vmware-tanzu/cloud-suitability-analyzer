@@ -1,0 +1,14 @@
+name: plaintext-creds
+filetype:
+target: line
+type: contains
+advice: never save passwords or login information in files
+effort: 11
+readiness: 9
+category: Security
+tags:
+- value: Security
+patterns:
+- value: Password=
+- value: User=
+- value: User Id=

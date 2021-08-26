@@ -1,0 +1,12 @@
+name: dotnet-connectionstrings
+filetype: (yaml|yaml|json|property|config)
+target: line
+type: contains
+advice: Remove connection strings from files, use environment variables (or mount configmap into pod)
+effort: 10
+readiness: 5
+category: env-config
+tags:
+- value: env-config
+patterns:
+- value: ConnectionString
