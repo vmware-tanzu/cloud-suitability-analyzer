@@ -31,7 +31,7 @@ export class ExcelExportComponent implements OnInit {
 
     worksheet['!cols'] = worksheetColumns;
     XLSX.writeFile(workbook, this.file_name, {
-      bookType: 'xlsx',
+      bookType: 'csv',
       type: 'buffer'
     });
   }
