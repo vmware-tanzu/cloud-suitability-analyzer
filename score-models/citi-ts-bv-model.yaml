@@ -15,7 +15,7 @@ ranges:
       outcome:
         calculate: true
         expression: max_score - log(10,raw_score)
-        recommendation: Deploy to PAS
+        recommendation: Deploy to TAS
   - type: raw
     start: "101"
     end: "10000"
@@ -33,7 +33,7 @@ ranges:
       outcome:
         calculate: true
         expression: max_score - log(10,raw_score)
-        recommendation: Refactor to PAS
+        recommendation: Refactor to TAS
   - type: raw
     start: "10001"
     end: "10000000"
@@ -51,7 +51,7 @@ ranges:
       outcome:
         calculate: true
         expression: max_score - log(10,raw_score)
-        recommendation: Refactor to PAS
+        recommendation: Refactor to TAS
   - type: raw
     start: "10000001"
     end: int.max
@@ -69,4 +69,4 @@ ranges:
       outcome:
         calculate: true
         expression: max_score - log(10,raw_score)
-        recommendation: Refactor to PAS
+        recommendation: Refactor to TAS

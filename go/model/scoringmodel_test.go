@@ -203,7 +203,7 @@ func TestScoreModelReturnsCorrectOutcome(t *testing.T) {
 	app.BusinessValue = 6.0
 	err = app.CalculateScore(sm)
 	assert.Nil(t, err)
-	assert.Equal(t, "Refactor to PAS", app.Recommendation)
+	assert.Equal(t, "Refactor to TAS", app.Recommendation)
 
 	app.SlocCnt = 48324
 	app.RawScore = 78987987
@@ -215,7 +215,7 @@ func TestScoreModelReturnsCorrectOutcome(t *testing.T) {
 	app.BusinessValue = 10
 	err = app.CalculateScore(sm)
 	assert.Nil(t, err)
-	assert.Equal(t, "Refactor to PAS", app.Recommendation)
+	assert.Equal(t, "Refactor to TAS", app.Recommendation)
 
 }
 
@@ -256,19 +256,19 @@ func createValidScoringModel(name string) *model.ScoringModel {
 	bkt1 := newModel.AddRange(model.SLOC_BKT_TYPE, 0, math.MaxInt64)
 
 	rBkt := bkt1.AddRange(model.RAW_BKT_TYPE, math.MinInt64, 100)
-	rBkt.AddRangeWithCalculatedScore(model.BV_BKT_TYPE, model.FLT_MIN, math.MaxFloat64, logExp, "Deploy to PAS")
+	rBkt.AddRangeWithCalculatedScore(model.BV_BKT_TYPE, model.FLT_MIN, math.MaxFloat64, logExp, "Deploy to TAS")
 
 	rBkt2 := bkt1.AddRange(model.RAW_BKT_TYPE, 101, 10000)
 	rBkt2.AddRangeWithCalculatedScore(model.BV_BKT_TYPE, model.FLT_MIN, 5.0, logExp, "Rehost to TKG")
-	rBkt2.AddRangeWithCalculatedScore(model.BV_BKT_TYPE, 5.01, math.MaxFloat64, logExp, "Refactor to PAS")
+	rBkt2.AddRangeWithCalculatedScore(model.BV_BKT_TYPE, 5.01, math.MaxFloat64, logExp, "Refactor to TAS")
 
 	rBkt3 := bkt1.AddRange(model.RAW_BKT_TYPE, 10001, 10000000)
 	rBkt3.AddRangeWithCalculatedScore(model.BV_BKT_TYPE, model.FLT_MIN, 5.0, logExp, "Rehost to TKG")
-	rBkt3.AddRangeWithCalculatedScore(model.BV_BKT_TYPE, 5.01, math.MaxFloat64, logExp, "Refactor to PAS")
+	rBkt3.AddRangeWithCalculatedScore(model.BV_BKT_TYPE, 5.01, math.MaxFloat64, logExp, "Refactor to TAS")
 
 	rBkt4 := bkt1.AddRange(model.RAW_BKT_TYPE, 10000001, math.MaxInt64)
 	rBkt4.AddRangeWithCalculatedScore(model.BV_BKT_TYPE, model.FLT_MIN, 5.0, logExp, "Rehost to TKG")
-	rBkt4.AddRangeWithCalculatedScore(model.BV_BKT_TYPE, 5.01, math.MaxFloat64, logExp, "Refactor to PAS")
+	rBkt4.AddRangeWithCalculatedScore(model.BV_BKT_TYPE, 5.01, math.MaxFloat64, logExp, "Refactor to TAS")
 
 	return newModel
 

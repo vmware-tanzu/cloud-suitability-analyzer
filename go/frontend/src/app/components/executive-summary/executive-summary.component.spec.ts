@@ -37,7 +37,7 @@ describe('ExecutiveSummaryComponent', () => {
           score: 6.27,
           originalScore: 6.27,
           scoreModified: false,
-          recommendation: 'Refactor to PAS (consider modernization)',
+          recommendation: 'Refactor to TAS (consider modernization)',
           slocCnt: 173526,
           filesCnt: 662,
           findingsRatio: 15.028248587570621,

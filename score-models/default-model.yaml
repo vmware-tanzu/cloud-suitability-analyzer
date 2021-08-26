@@ -261,7 +261,7 @@ ranges:
             outcome:
               calculate: true
               expression: max_score - log(10,raw_score)
-              recommendation: Refactor to PAS (consider modernization)
+              recommendation: Refactor to TAS (consider modernization)
           - type: bv
             start: 8.01
             end: flt.max
@@ -286,7 +286,7 @@ ranges:
             outcome:
               calculate: true
               expression: max_score - log(10,raw_score)
-              recommendation: Refactor to PAS (consider modernization)
+              recommendation: Refactor to TAS (consider modernization)
           - type: bv
             start: 8.01
             end: flt.max
