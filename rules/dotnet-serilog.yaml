@@ -1,0 +1,13 @@
+name: dotnet-serilog
+filetype: cs
+target: line
+type: contains
+advice: Logging with Serilog. Make sure not to log to file or to
+effort: 3
+readiness: 8
+category: logging
+tags:
+- value: logging
+patterns:
+- value: Serilog.Sinks
+- value: .UseSerilog()
