@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {ActivatedRoute, NavigationExtras, ParamMap, Router} from "@angular/router";
 import {ApplicationScore} from "../../model/applicationscore";
 import {ApplicationSummaryService} from "../../services/applicationsummary.service";
 import {ClarityIcons, downloadIcon, pinboardIcon, thermometerIcon} from '@cds/core/icon';
@@ -12,6 +12,7 @@ import {ApplicationFinding} from 'src/app/model/applicationfinding';
 import {SelectedTag} from 'src/app/model/selectedtag';
 import {ToastrService} from 'ngx-toastr';
 import {pushErrorNotification, pushInfoNotification} from 'src/app/utils/notificationutil';
+import {Observable} from "rxjs/index";
 
 @Component({
   selector: 'csa-application-summary',
@@ -25,9 +26,9 @@ export class ApplicationSummaryComponent implements OnInit {
   applicationScores: ApplicationScore [] = [];
   allApplicationFindings: any;
   displayApplicationFindings: ApplicationFinding[] = [];
-  runId: number = 0;
-  findings: number = 0;
-  selectedAppId: number = 0;
+  runId = 0;
+  findings = 0;
+  selectedAppId = 0;
   filteredApplicationScores: ApplicationScore[] = [];
   applicationSelected: any;
   tags: TagSummary[] = [];
@@ -44,22 +45,30 @@ export class ApplicationSummaryComponent implements OnInit {
   selectedFinding: ApplicationFinding;
 
   isOpen: boolean;
-  findingLoaded: boolean = false;
+  findingLoaded = false;
 
   view: [number, number] = [1390, 400];
 
   // options
-  gradient: boolean = false;
-  animations: boolean = true;
+  gradient = false;
+  animations = true;
 
   colorScheme = {
     domain: ['#0095D3', '#00BFA9', '#60B515', '#8939AD', '#F57600', '#6870C4']
   };
 
+  // tslint:disable-next-line:max-line-length
   constructor(private router: Router, private route: ActivatedRoute, private applicationSummaryService: ApplicationSummaryService, public toastr: ToastrService) {
     ClarityIcons.addIcons(pinboardIcon);
     ClarityIcons.addIcons(downloadIcon);
     ClarityIcons.addIcons(thermometerIcon);
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      return false;
+    };
+  }
+
+  getParams(): Observable<ParamMap> {
+    return this.route.paramMap;
   }
 
   ngOnInit(): void {
@@ -75,6 +84,18 @@ export class ApplicationSummaryComponent implements OnInit {
     this.apis = [];
     this.tags = [];
     this.binTags = [];
+    this.route.queryParamMap.subscribe((queryParams: ParamMap) => {
+      const appName = queryParams.get('app');
+      if (appName && appName !== undefined) {
+        let navigationExtras: NavigationExtras = {
+          queryParams: { 'app': appName }
+        };
+        this.selectedAppId = this.filteredApplicationScores.find(applicationScore => applicationScore.name === appName).appId;
+        if (!this.runId) {
+          this.router.navigate(['/runs/1/application'], navigationExtras);
+        }
+      }
+    });
     this.applicationSelected = this.filteredApplicationScores.find(applicationScore => applicationScore.appId == this.selectedAppId);
     this.fetchApplicationFindings(this.runId, this.applicationSelected);
     this.fetchScoreCardForApplication(this.runId, this.applicationSelected);

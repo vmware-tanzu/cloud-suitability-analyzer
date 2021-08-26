@@ -1,0 +1,13 @@
+name: dotnet-serilog-elasticsearch
+filetype: (cs|yaml|yml|json)
+target: line
+type: contains
+advice: Make sure to have reachable ELK stack from deployed app
+effort: 5
+readiness: 8
+category: logging
+tags:
+- value: logging
+patterns:
+- value: using Serilog.Sinks.Elasticsearch
+- value: ElasticConfiguration

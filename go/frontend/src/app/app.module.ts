@@ -34,13 +34,14 @@ import { ThirdPartyComponent } from './components/rundata/thirdparty/thirdparty.
 import { RunDataSummaryComponent } from './components/rundata/rundatasummary/rundatasummary.component';
 import { FindingDetailsComponent } from './components/rundata/findings/finding-details/finding-details.component';
 import {ToastrModule} from 'ngx-toastr';
+import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent, ExecutiveSummaryComponent, AnalyzerRunComponent, AnalyzerRunDetailsComponent, HeaderComponent, ExcelExportComponent, SearchFilterPipe, ApplicationSummaryComponent, RulesComponent, AnnotationsComponent, ApiByAppComponent, ApiUsageDetailedComponent, ApiUsageSummaryComponent, FindingsComponent, RuleByAppComponent, RuleMetricsComponent, SourceCodeComponent, ThirdPartyComponent, RunDataSummaryComponent, FindingDetailsComponent],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, CdsModule, ClarityModule, HttpClientModule, FormsModule, NgxChartsModule, BrowserAnimationsModule, ToastrModule.forRoot({
     positionClass : 'toast-top-right'
   })],
-  providers: [AnalyzerRunService, ExecutiveSummaryService, RulesService],
+  providers: [AnalyzerRunService, ExecutiveSummaryService, RulesService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

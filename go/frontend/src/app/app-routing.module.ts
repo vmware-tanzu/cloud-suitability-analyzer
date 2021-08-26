@@ -26,10 +26,13 @@ export const routes: Routes = [
     path: 'rules',
     component: RulesComponent
   },
-  { path: '', redirectTo: '/', pathMatch: 'full'},
+  {
+    path: 'application',
+    component: ApplicationSummaryComponent
+  }
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
