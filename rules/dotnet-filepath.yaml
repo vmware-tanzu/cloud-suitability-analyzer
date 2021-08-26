@@ -1,5 +1,5 @@
 name: dotnet-filepath
-filetype: [cs|yaml|yml|json]
+filetype: (cs|yaml|yml|json)
 target: line
 type: contains
 advice: don't use local files, log to console or to server if logging, else store data in database

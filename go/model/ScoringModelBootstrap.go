@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapScoringModelsTemplate.txt found under go/resources folder
-//Created @ 2021-08-25 18:43:15.313865 -0400 EDT m=+0.322868188
+//Created @ 2021-08-26 09:31:16.953595 -0500 CDT m=+0.228542991
 
 func BootstrapModels() []ScoringModel {
     var BootstrapModels = []ScoringModel{
@@ -26,7 +26,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Deploy to PAS", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Deploy to TAS", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
                                   }, 
                                },
                             },
@@ -37,11 +37,11 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "5.00", Outcome: &Outcome{ Score: 0, Recommendation: "Rehost to PKS", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
+                                    End: "5.00", Outcome: &Outcome{ Score: 0, Recommendation: "Rehost to TKG", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
                                   }, 
                                   { Type: "bv",
                                     Start: "5.01",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to PAS", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
                                   }, 
                                },
                             },
@@ -52,11 +52,11 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "5.00", Outcome: &Outcome{ Score: 0, Recommendation: "Rehost to PKS", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
+                                    End: "5.00", Outcome: &Outcome{ Score: 0, Recommendation: "Rehost to TKG", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
                                   }, 
                                   { Type: "bv",
                                     Start: "5.01",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to PAS", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
                                   }, 
                                },
                             },
@@ -67,11 +67,11 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "5.00", Outcome: &Outcome{ Score: 0, Recommendation: "Rehost to PKS", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
+                                    End: "5.00", Outcome: &Outcome{ Score: 0, Recommendation: "Rehost to TKG", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
                                   }, 
                                   { Type: "bv",
                                     Start: "5.01",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to PAS", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
                                   }, 
                                },
                             },
@@ -354,7 +354,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "8.0", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to PAS (consider modernization)", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
+                                    End: "8.0", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS (consider modernization)", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
                                   }, 
                                   { Type: "bv",
                                     Start: "8.01",
@@ -369,11 +369,11 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "2.0", Outcome: &Outcome{ Score: 0, Recommendation: "Rehost to PKS (consider modernization)", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
+                                    End: "2.0", Outcome: &Outcome{ Score: 0, Recommendation: "Rehost to TKG (consider modernization)", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
                                   }, 
                                   { Type: "bv",
                                     Start: "2.01",
-                                    End: "8.0", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to PAS (consider modernization)", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
+                                    End: "8.0", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS (consider modernization)", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
                                   }, 
                                   { Type: "bv",
                                     Start: "8.01",
