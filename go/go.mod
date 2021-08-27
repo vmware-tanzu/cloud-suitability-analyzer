@@ -17,7 +17,7 @@ require (
 	github.com/facebookgo/subset v0.0.0-20200203212716-c811ad88dec4 // indirect
 	github.com/fatih/camelcase v1.0.0
 	github.com/gin-gonic/contrib v0.0.0-20201101042839-6a891bf89f19
-	github.com/gin-gonic/gin v1.6.3
+	github.com/gin-gonic/gin v1.7.0
 	github.com/jinzhu/gorm v1.9.16
 	github.com/jmhodges/levigo v1.0.0 // indirect
 	github.com/joho/sqltocsv v0.0.0-20190824231449-5650f27fd5b6
