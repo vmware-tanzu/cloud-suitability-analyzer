@@ -61,6 +61,6 @@ pushd ${WORKING_DIR}/go > /dev/null
 
   if [[ "$OS" == *"$LINUX"* ]]; then
     echo "~~~> Building linux version"
-    env CGO_ENABLED=1 CC=musl-gcc go build --ldflags '-linkmode external -extldflags "-static"'  -o ${OUTPUT_DIR}/csa-l csa.go >&2
+    env CGO_ENABLED=1 CC=musl-gcc go build -ldflags "-linkmode external -extldflags \"-static\" ${LD_FLAGS}" -o ${OUTPUT_DIR}/csa-l csa.go >&2
     chmod +x ${OUTPUT_DIR}/csa-l  
   fi
