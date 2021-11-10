@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2021-08-26 09:31:16.78446 -0500 CDT m=+0.059412369
+//Created @ 2021-11-10 01:56:25.4856001 +0000 UTC m=+0.782621801
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -510,7 +510,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "X509Store", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-serilog", FileType: "cs", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Logging with Serilog. Make sure not to log to file or to", Effort: 3, Readiness: 8, Impact: "", Category: "logging", Criticality: "",
+            { Name: "dotnet-serilog", FileType: "cs", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Logging with Serilog. Make sure not to log to file. Remote logging sinks need to be reachable on network.", Effort: 3, Readiness: 8, Impact: "", Category: "logging", Criticality: "",
             Tags:
             []Tag{  { Value: "logging",}, },
             Recipes:
