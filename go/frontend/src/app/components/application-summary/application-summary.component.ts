@@ -8,11 +8,11 @@ import '@cds/core/search/register.js';
 import {Language} from 'src/app/model/language';
 import {Api} from 'src/app/model/api';
 import {TagSummary} from 'src/app/model/tagsummary';
-import {ApplicationFinding} from 'src/app/model/applicationfinding';
 import {SelectedTag} from 'src/app/model/selectedtag';
 import {ToastrService} from 'ngx-toastr';
 import {pushErrorNotification, pushInfoNotification} from 'src/app/utils/notificationutil';
 import {Observable} from "rxjs/index";
+import {Findings} from "../../model/findings";
 
 @Component({
   selector: 'csa-application-summary',
@@ -25,7 +25,7 @@ export class ApplicationSummaryComponent implements OnInit {
 
   applicationScores: ApplicationScore [] = [];
   allApplicationFindings: any;
-  displayApplicationFindings: ApplicationFinding[] = [];
+  displayApplicationFindings: Findings[] = [];
   runId = 0;
   findings = 0;
   selectedAppId = 0;
@@ -42,10 +42,9 @@ export class ApplicationSummaryComponent implements OnInit {
   selectedBinTags: string[] = [];
   selectedTags: SelectedTag[] = [];
 
-  selectedFinding: ApplicationFinding;
-
+  selectedFinding: Findings;
   isOpen: boolean;
-  findingLoaded = false;
+  findingLoaded: boolean = false;
 
   view: [number, number] = [1390, 400];
 
@@ -62,9 +61,6 @@ export class ApplicationSummaryComponent implements OnInit {
     ClarityIcons.addIcons(pinboardIcon);
     ClarityIcons.addIcons(downloadIcon);
     ClarityIcons.addIcons(thermometerIcon);
-    this.router.routeReuseStrategy.shouldReuseRoute = () => {
-      return false;
-    };
   }
 
   getParams(): Observable<ParamMap> {
@@ -381,7 +377,7 @@ export class ApplicationSummaryComponent implements OnInit {
 
   fetchFindingById(findingId: number): void {
     this.displayApplicationFindings.forEach(finding => {
-      /* istanbul ignore else */
+      // tslint:disable-next-line:triple-equals
       if (finding.id == findingId) {
         this.selectedFinding = finding;
         this.findingLoaded = true;

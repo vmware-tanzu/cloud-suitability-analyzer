@@ -127,9 +127,12 @@
             <clr-dg-cell>{{applicationFinding.filename}}</clr-dg-cell>
             <clr-dg-cell>{{applicationFinding.line}}</clr-dg-cell>
             <clr-dg-cell>{{applicationFinding.effort}}</clr-dg-cell>
-            <clr-dg-cell>{{applicationFinding.tags.length}}</clr-dg-cell>
+            <clr-dg-cell> <div *ngIf="applicationFinding.tags?.length; else zerotags">{{applicationFinding.tags.length}} </div>
+            <ng-template #zerotags>0</ng-template>
+            </clr-dg-cell>
             <clr-dg-cell><a id="findingrecipeLink" [routerLink]="" (click)="fetchFindingById(applicationFinding.id)">{{applicationFinding.recipes.length}}</a></clr-dg-cell>
           </clr-dg-row>
+
 
           <clr-dg-footer>
             <clr-dg-pagination #pagination [clrDgPageSize]="25">
