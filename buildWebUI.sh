@@ -72,7 +72,7 @@ then
    pushd ${WORKING_DIR}/go > /dev/null
 
    echo "~~~> Binding rules and bins"
-   go generate >&2
+   go generate #>&2
 
   if [ $? -eq 0 ]
   then

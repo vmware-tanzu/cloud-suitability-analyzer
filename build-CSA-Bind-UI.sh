@@ -33,8 +33,8 @@ export GOSUMDB=off
 export G0111MODULE=onS
 export GOBIN=/go/bin
 export PATH=$GOPATH/bin:$PATH
-export WORKING_DIR="/cloud-suitability-analyzer"
-export OUTPUT_DIR="$WORKING_DIR/go/exe"
+export WORKING_DIR="${PWD}"
+export OUTPUT_DIR="${WORKING_DIR}/go/exe"
 
 
 pushd ${WORKING_DIR}/go > /dev/null
@@ -49,18 +49,23 @@ pushd ${WORKING_DIR}/go > /dev/null
   echo "OSX: $OSX"
   if [[ "$OS" == *"$OSX"* ]]; then
     echo "~~~> Building osx version"
-    env CGO_ENABLED=1 CC=o64-clang GOOS=darwin GOARCH=amd64 go build -ldflags "${LD_FLAGS}" -o ${OUTPUT_DIR}/csa csa.go  >&2
+    
+    #env CGO_ENABLED=1 GOOS=darwin GOARCH=amd64 go build -ldflags "${LD_FLAGS}" -o ${OUTPUT_DIR}/csa csa.go
+    GOOS=darwin GOARCH=amd64 go build -o ${OUTPUT_DIR}/csa csa.go
     chmod +x ${OUTPUT_DIR}/csa
   fi
 
   if [[ "$OS" == *"$WINDOWS"* ]]; then
     echo "~~~> Building windows version"
-    env CGO_ENABLED=1 CC=x86_64-w64-mingw32-gcc GOOS=windows GOARCH=amd64 go build -ldflags "${LD_FLAGS}" -o ${OUTPUT_DIR}/csa.exe csa.go >&2
+    #env CGO_ENABLED=1 CC=x86_64-w64-mingw32-gcc CXX=x86_64-w64-mingw32-g++ GOOS=windows GOARCH=amd64 go build -ldflags "${LD_FLAGS}" -o ${OUTPUT_DIR}/csa.exe csa.go >&2
+    GOOS=windows GOARCH=amd64 go build -o ${OUTPUT_DIR}/csa.exe csa.go
     chmod +x ${OUTPUT_DIR}/csa.exe
   fi 
 
   if [[ "$OS" == *"$LINUX"* ]]; then
     echo "~~~> Building linux version"
-    env CGO_ENABLED=1 CC=musl-gcc go build -ldflags "-linkmode external -extldflags \"-static\" ${LD_FLAGS}" -o ${OUTPUT_DIR}/csa-l csa.go >&2
+    
+    #env GOOS=linux GOARCH=amd64 go build -ldflags "${LD_FLAGS}" -o ${OUTPUT_DIR}/csa-l csa.go >&2
+    GOOS=linux GOARCH=amd64 go build -o ${OUTPUT_DIR}/csa-l csa.go
     chmod +x ${OUTPUT_DIR}/csa-l  
   fi
