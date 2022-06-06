@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2022-04-26 11:52:41.556105788 -0500 CDT m=+0.040813591
+//Created @ 2022-06-06 09:50:56.363442306 -0500 CDT m=+0.042725570
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -2583,31 +2583,36 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "User Id=", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "python-cf", FileType: "py$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Check for cloud foundry support.", Effort: -1, Readiness: 10, Impact: "", Category: "cloud-foundry", Criticality: "",
+            { Name: "python-cf", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Check for cloud foundry support.", Effort: -1, Readiness: 10, Impact: "", Category: "cloud-foundry", Criticality: "",
             Tags:
             []Tag{  { Value: "cloud-ready",}, },
             Recipes:
-            []Recipe{  { URI: "https://app-transformation-cookbook-internal.cfapps.io/backing-services-port-binding/persistence/", },  },
+            []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "cfenv", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "VCAP_SERVICES", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "load_from_vcap_services", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "python-database", FileType: "py$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Check for cloud foundry support.", Effort: 4, Readiness: 10, Impact: "", Category: "services", Criticality: "",
+            { Name: "python-db-peewee", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Check for cloud foundry support.", Effort: 4, Readiness: 10, Impact: "", Category: "database", Criticality: "",
             Tags:
-            []Tag{  { Value: "database",}, },
+            []Tag{  { Value: "peewee",}, },
             Recipes:
-            []Recipe{  { URI: "https://app-transformation-cookbook-internal.cfapps.io/backing-services-port-binding/persistence/", },  },
+            []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "mysql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MySQL", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "aiomysql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "import peewee", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "peewee", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "python-db-redis", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Check for cloud foundry support.", Effort: 4, Readiness: 10, Impact: "", Category: "database", Criticality: "",
+            Tags:
+            []Tag{  { Value: "redis",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "redis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "python-fileIO", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Relying on the local filesystem to store state is unreliable in a cloud platform. Since containers are immutable, restarts will lose any written changes. Refactor this logic to use an external service to store state.", Effort: 8, Readiness: 8, Impact: "", Category: "io", Criticality: "",
             Tags:
-            []Tag{  { Value: "api",}, { Value: "io",}, { Value: "python-fileio",}, },
+            []Tag{  { Value: "io",}, },
             Recipes:
             []Recipe{  { URI: "https://app-transformation-cookbook-internal.cfapps.io/backing-services-port-binding/persistence/", },  },
             Patterns:
