@@ -1,14 +1,13 @@
-name: python-cf
+name: python-db-peewee
 filetype: py$
 target: line
 type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Check for cloud foundry support.
-# TODO
-effort: -1
+effort: 4
 readiness: 10
-category: cloud-foundry
+category: database
 tags:
-- value: cloud-ready
+- value: peewee
 patterns:
-- value: load_from_vcap_services
+- value: peewee
