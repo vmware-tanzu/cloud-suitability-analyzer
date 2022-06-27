@@ -1,0 +1,38 @@
+<div>
+  <clr-datagrid class="run-data-grid">
+    <clr-dg-action-bar>
+      <div class="action-bar">
+        <div class="action-bar-item-left">
+          <app-excel-export [data]="slocDetails" [file_name]="'source-code.csv'"></app-excel-export>
+        </div>
+        <div class="action-bar-item-right">
+          <cds-search control-width="shrink">
+            <label>Search</label>
+            <input type="search" [(ngModel)]="searchCrit"/>
+          </cds-search>
+        </div>
+      </div>
+    </clr-dg-action-bar>
+    <clr-dg-column [clrDgField]="'language'">Language</clr-dg-column>
+    <clr-dg-column [clrDgField]="'totalFiles'" [clrDgColType]="'number'">Files</clr-dg-column>
+    <clr-dg-column [clrDgField]="'blankLines'" [clrDgColType]="'number'">Blank lines</clr-dg-column>
+    <clr-dg-column [clrDgField]="'commentLines'" [clrDgColType]="'number'">Comment lines</clr-dg-column>
+    <clr-dg-column [clrDgField]="'codeLines'" [clrDgColType]="'number'">Lines of code</clr-dg-column>
+    <clr-dg-placeholder>No source code information found</clr-dg-placeholder>
+    <clr-dg-row *clrDgItems="let sloc of slocDetails  | searchFilter: 'name' : searchCrit">
+      <clr-dg-cell>{{sloc.language}}</clr-dg-cell>
+      <clr-dg-cell>{{sloc.totalFiles}}</clr-dg-cell>
+      <clr-dg-cell>{{sloc.blankLines}}</clr-dg-cell>
+      <clr-dg-cell>{{sloc.commentLines}}</clr-dg-cell>
+      <clr-dg-cell>{{sloc.codeLines}}</clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>
+      <clr-dg-pagination #pagination [clrDgPageSize]="25">
+        <clr-dg-page-size [clrPageSizeOptions]="[25,50,100]">Source code findings per page</clr-dg-page-size>
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+        of {{pagination.totalItems}} Source code findings (filtered) showing for portfolio...
+      </clr-dg-pagination>
+    </clr-dg-footer>
+  </clr-datagrid>
+</div>

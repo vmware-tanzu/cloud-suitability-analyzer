@@ -1,0 +1,49 @@
+.rules-tab{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 14px 0px 0px;
+  height: 36px;
+  left: 25px;
+}
+
+.rules-tabs{
+  padding-top: 10px;
+}
+
+.rules-grid-divider{
+  height: 1px;
+  left: 0%;
+  right: 0%;
+  top: 448px;
+  background: #CCCCCC;
+}
+
+.rules-grid{
+  display: flex;
+}
+
+.rules-grid-export{
+  width: 74px;
+  height: 36px;
+  left: 25px;
+  top: 552px;
+}
+
+.action-bar{
+  display: flex;
+}
+.action-bar-item-left{
+  width: 80%;
+}
+.action-bar-item-right{
+  width: 20%;
+}
+
+.badge-tag{
+  background-color: white;
+  color: #565656;
+  border: 1px solid #004A70;
+  box-sizing: border-box;
+  border-radius: 11px;
+}

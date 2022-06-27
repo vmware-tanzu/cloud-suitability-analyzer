@@ -1,0 +1,53 @@
+.run-container{
+  display: flex;
+}
+.run-container-left{
+  width: 30%;
+}
+.run-container-right{
+  width: 70%;
+}
+.select-run-placeholder{
+  position: absolute;
+  width: 83px;
+  height: 24px;
+  left: 130px;
+  top: 91px;
+}
+
+.select-run-option {
+  width: 50px;
+  height: 24px;
+  left: 6px;
+  top: 0px;
+  font-family: Metropolis;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 24px;
+  color: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.54;
+}
+.select-run-text {
+  position: absolute;
+  width: 100px;
+  height: 24px;
+  left: 25px;
+  top: 91px;
+  font-family: Metropolis;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #0079B8;
+}
+.select-run-caret {
+  width: 10px;
+  height: 10px;
+  right: -4px;
+  top: 18px;
+  mix-blend-mode: normal;
+  opacity: 0.54;
+  transform: rotate(-180deg);
+}

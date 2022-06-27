@@ -1,0 +1,47 @@
+<div>
+  <clr-datagrid class="run-data-grid">
+    <clr-dg-action-bar>
+      <div class="action-bar">
+        <div class="action-bar-item-left">
+          <app-excel-export [data]="findings" [file_name]="'findings.csv'"></app-excel-export>
+        </div>
+        <div class="action-bar-item-right">
+          <cds-search control-width="shrink">
+            <label>Search</label>
+            <input type="search" [(ngModel)]="searchCrit"/>
+          </cds-search>
+        </div>
+      </div>
+    </clr-dg-action-bar>
+    <clr-dg-column [clrDgField]="'id'">Id</clr-dg-column>
+    <clr-dg-column [clrDgField]="'application'">Application</clr-dg-column>
+    <clr-dg-column [clrDgField]="'category'">Category</clr-dg-column>
+    <clr-dg-column [clrDgField]="'value'">Value</clr-dg-column>
+    <clr-dg-column [clrDgField]="'filename'">Filename</clr-dg-column>
+    <clr-dg-column [clrDgField]="'line'" [clrDgColType]="'number'">Line</clr-dg-column>
+    <clr-dg-column [clrDgField]="'effort'" [clrDgColType]="'number'">Effort</clr-dg-column>
+    <clr-dg-column [clrDgField]="'recipes'" [clrDgColType]="'number'"># Recipes</clr-dg-column>
+
+    <clr-dg-row *clrDgItems="let finding of findings  | searchFilter: 'name' : searchCrit">
+      <clr-dg-cell><a id="findingLink" [routerLink]="" (click)="fetchFindingById(finding.id)">{{finding.id}}</a></clr-dg-cell>
+      <clr-dg-cell>{{finding.application}}</clr-dg-cell>
+      <clr-dg-cell>{{finding.category}}</clr-dg-cell>
+      <clr-dg-cell>{{finding.value}}</clr-dg-cell>
+      <clr-dg-cell>{{finding.filename}}</clr-dg-cell>
+      <clr-dg-cell>{{finding.line}}</clr-dg-cell>
+      <clr-dg-cell>{{finding.effort}}</clr-dg-cell>
+      <clr-dg-cell>
+         <a id="findingrecipeLink" [routerLink]="" (click)="fetchFindingById(finding.id)">{{finding.recipes.length}}</a>
+      </clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>
+      <clr-dg-pagination #pagination [clrDgPageSize]="100">
+        <clr-dg-page-size [clrPageSizeOptions]="[50,100,250,500]">Findings per page</clr-dg-page-size>
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+        of {{pagination.totalItems}} Findings (filtered) showing for portfolio...
+      </clr-dg-pagination>
+    </clr-dg-footer>
+  </clr-datagrid>
+    <app-finding-details [selectedFinding]="selectedFinding" [(isOpen)]="isOpen" *ngIf="findingLoaded"></app-finding-details>
+</div>

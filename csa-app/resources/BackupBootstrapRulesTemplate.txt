@@ -1,0 +1,6 @@
+package model
+
+//Created By BootstrapTemplate.txt found under go/resources folder
+//Created @ {{now}}
+
+var BootstrapRules = []Rule{}

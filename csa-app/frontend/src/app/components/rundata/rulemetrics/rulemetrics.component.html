@@ -1,0 +1,48 @@
+<div>
+  <clr-datagrid class="run-data-grid">
+    <clr-dg-action-bar>
+      <div class="action-bar">
+        <div class="action-bar-item-left">
+          <app-excel-export [data]="ruleMetrics" [file_name]="'rule-metrics.csv'"></app-excel-export>
+        </div>
+        <div class="action-bar-item-right">
+          <cds-search control-width="shrink">
+            <label>Search</label>
+            <input type="search" [(ngModel)]="searchCrit"/>
+          </cds-search>
+        </div>
+      </div>
+    </clr-dg-action-bar>
+    <clr-dg-column [clrDgField]="'rule'">Rule</clr-dg-column>
+    <clr-dg-column [clrDgField]="'checks'" [clrDgColType]="'number'">Checks</clr-dg-column>
+    <clr-dg-column [clrDgField]="'patternchecks'" [clrDgColType]="'number'">Pattern checks</clr-dg-column>
+    <clr-dg-column [clrDgField]="'hits'" [clrDgColType]="'number'">Hits</clr-dg-column>
+    <clr-dg-column [clrDgField]="'totaltime'">Total time</clr-dg-column>
+    <clr-dg-column [clrDgField]="'longest'">Longest</clr-dg-column>
+    <clr-dg-column [clrDgField]="'shortest'">Shortest</clr-dg-column>
+    <clr-dg-column [clrDgField]="'avgrule'">Avg-rule</clr-dg-column>
+    <clr-dg-column [clrDgField]="'avgpattern'">Avg-pattern</clr-dg-column>
+    <clr-dg-column [clrDgField]="'avghit'">Avg-hit</clr-dg-column>
+    <clr-dg-placeholder>No rule metrics found</clr-dg-placeholder>
+    <clr-dg-row *clrDgItems="let ruleMetric of ruleMetrics  | searchFilter: 'name' : searchCrit">
+      <clr-dg-cell>{{ruleMetric.rule}}</clr-dg-cell>
+      <clr-dg-cell>{{ruleMetric.checks}}</clr-dg-cell>
+      <clr-dg-cell>{{ruleMetric.patternChecks}}</clr-dg-cell>
+      <clr-dg-cell>{{ruleMetric.hits}}</clr-dg-cell>
+      <clr-dg-cell>{{ruleMetric.totalTime}}</clr-dg-cell>
+      <clr-dg-cell>{{ruleMetric.longest}}</clr-dg-cell>
+      <clr-dg-cell>{{ruleMetric.shortest}}</clr-dg-cell>
+      <clr-dg-cell>{{ruleMetric.avgRule}}</clr-dg-cell>
+      <clr-dg-cell>{{ruleMetric.avgPat}}</clr-dg-cell>
+      <clr-dg-cell>{{ruleMetric.avgHit}}</clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>
+      <clr-dg-pagination #pagination [clrDgPageSize]="25">
+        <clr-dg-page-size [clrPageSizeOptions]="[25,50,100]">Rule metrics per page</clr-dg-page-size>
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+        of {{pagination.totalItems}} Rule metrics (filtered) showing for portfolio...
+      </clr-dg-pagination>
+    </clr-dg-footer>
+  </clr-datagrid>
+</div>

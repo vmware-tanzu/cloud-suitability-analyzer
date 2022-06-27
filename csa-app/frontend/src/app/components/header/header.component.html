@@ -1,0 +1,21 @@
+<header class="header-6 container-header">
+  <div class="branding">
+    <a href="javascript://" class="nav-link">
+      <cds-icon shape="csa" badge="success"></cds-icon>
+      <span class="title">Cloud Suitability Analyzer</span>
+    </a>
+  </div>
+  <div class="header-nav">
+      <a [routerLink]="['/runs', selectedRunId, 'summary']" routerLinkActive="active" [skipLocationChange]="true"
+         class="nav-link nav-text">Summary</a>
+      <a [routerLink]="['/runs', selectedRunId, 'application']" routerLinkActive="active" [skipLocationChange]="true"
+         class="nav-link nav-text">Application</a>
+      <a [routerLink]="['/runs', selectedRunId, 'data']" routerLinkActive="active" [skipLocationChange]="true"
+         class="nav-link nav-text" id="datatab">Data</a>
+      <a [routerLink]="['/rules']" routerLinkActive="active" [skipLocationChange]="true"
+         class="nav-link nav-text">Rule</a>
+  </div>
+  <div>
+     <a href="https://github.com/vmware-tanzu/cloud-suitability-analyzer/tree/{{forgeVersion}}" class="version-title">{{forgeVersion}}</a>
+  </div>
+</header>

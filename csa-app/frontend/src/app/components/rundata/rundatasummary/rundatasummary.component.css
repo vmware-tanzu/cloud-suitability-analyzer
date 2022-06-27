@@ -1,0 +1,41 @@
+.run-data-tab{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 14px 0px 0px;
+  height: 36px;
+  left: 25px;
+}
+
+.run-data-tabs{
+  padding-top: 10px;
+}
+
+.run-data-tab-grid-divider{
+  height: 1px;
+  left: 0%;
+  right: 0%;
+  top: 448px;
+  background: #CCCCCC;
+}
+
+.run-data-grid{
+  display: flex;
+}
+
+.run-data-grid-export{
+  width: 74px;
+  height: 36px;
+  left: 25px;
+  top: 352px;
+}
+
+.action-bar{
+  display: flex;
+}
+.action-bar-item-left{
+  width: 80%;
+}
+.action-bar-item-right{
+  width: 20%;
+}

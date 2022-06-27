@@ -1,0 +1,92 @@
+<div class="rules-tabs">
+  <clr-tabs>
+    <clr-tab class="rules-tab">
+      <button clrTabLink>Rules</button>
+      <clr-tab-content *clrIfActive>
+        <div>
+        <clr-datagrid class="rules-grid">
+          <clr-dg-action-bar>
+            <div class="action-bar">
+              <div class="action-bar-item-left">
+                <app-excel-export [data]="rules" [file_name]="'rules-summary.csv'"></app-excel-export>
+              </div>
+              <div class="action-bar-item-right">
+                <cds-search control-width="shrink">
+                  <label>Search</label>
+                  <input type="search" [(ngModel)]="searchCrit"/>
+                </cds-search>
+              </div>
+            </div>
+          </clr-dg-action-bar>
+          <clr-dg-column [clrDgField]="'Name'"  [clrDgColType]="'string'">Name</clr-dg-column>
+          <clr-dg-column [clrDgField]="'Tags'"  [clrDgColType]="'string'">Tags
+            <clr-dg-string-filter id='tagFilterCustom' [clrDgStringFilter]="tagFilter">
+            </clr-dg-string-filter>
+          </clr-dg-column>
+          <clr-dg-column [clrDgField]="'FileType'" [clrDgColType]="'string'">FileType</clr-dg-column>
+          <clr-dg-column [clrDgField]="'Target'" [clrDgColType]="'string'">Target</clr-dg-column>
+          <clr-dg-column [clrDgField]="'Advice'" [clrDgColType]="'string'">Advice</clr-dg-column>
+          <clr-dg-column [clrDgField]="'Effort'" [clrDgColType]="'number'">Effort</clr-dg-column>
+          <clr-dg-column [clrDgField]="'Category'" [clrDgColType]="'string'">Category</clr-dg-column>
+          <clr-dg-column [clrDgField]="'Criticality'" [clrDgColType]="'string'">Criticality</clr-dg-column>
+
+          <clr-dg-row *clrDgItems="let rule of rules  | searchFilter: 'name' : searchCrit">
+            <clr-dg-cell>{{rule.Name}}</clr-dg-cell>
+            <clr-dg-cell>
+              <span class="badge badge-tag" *ngFor="let tag of rule.Tags">{{tag.Value}}</span>
+            </clr-dg-cell>
+            <clr-dg-cell>{{rule.FileType}}</clr-dg-cell>
+            <clr-dg-cell>{{rule.Target}}</clr-dg-cell>
+            <clr-dg-cell>{{rule.Advice}}</clr-dg-cell>
+            <clr-dg-cell>{{rule.Effort}}</clr-dg-cell>
+            <clr-dg-cell>{{rule.Category}}</clr-dg-cell>
+            <clr-dg-cell></clr-dg-cell>
+            <clr-dg-row-detail *clrIfExpanded>
+
+              <div>
+                <div style="fontWeight: 'bold'">
+                  Default Pattern:
+                </div>
+                <div *ngIf="rule.DefaultPattern; else nopattern">
+                  {{rule.DefaultPattern}}
+                </div>
+                <div>
+                  <div style="fontWeight: 'bold'">
+                    Patterns:
+                  </div>
+                  <ul *ngIf="rule.Patterns; else nopattern">
+                    <li *ngFor="let pattern of rule.Patterns">
+                      {{pattern.Value}}
+                    </li>
+                  </ul>
+                  <ng-template #nopattern>None</ng-template>
+                </div>
+                <div>
+                  <div style="fontWeight: 'bold'">
+                    Recipes:
+                  </div>
+                  <ul *ngIf="rule.recipes; else norecipe">
+                    <li *ngFor="let recipe of rule.recipes">
+                      <a [href]="recipe.uri">{{recipe.id}}</a>
+                    </li>
+                  </ul>
+                  <ng-template #norecipe>None</ng-template>
+                </div>
+              </div>
+
+            </clr-dg-row-detail>
+          </clr-dg-row>
+
+          <clr-dg-footer>
+            <clr-dg-pagination #pagination [clrDgPageSize]="25">
+              <clr-dg-page-size [clrPageSizeOptions]="[25,50,100]">Rules per page</clr-dg-page-size>
+              {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+              of {{pagination.totalItems}} rules
+            </clr-dg-pagination>
+          </clr-dg-footer>
+        </clr-datagrid>
+        </div>
+      </clr-tab-content>
+    </clr-tab>
+  </clr-tabs>
+</div>

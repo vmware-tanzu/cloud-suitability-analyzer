@@ -1,0 +1,184 @@
+<div class="clr-row">
+    <label for="select-full" class="clr-control-label select-app-text clr-col">Application</label>
+    <div class="clr-control-container select-app-placeholder">
+      <div class="clr-select-wrapper">
+      <select id="select-full" class="clr-select" [(ngModel)]="selectedAppId" [ngModelOptions]="{standalone: true}" (change)="appChanged()">
+        <option class="select-app-option" value="{{filteredApplicationScore.appId}}" *ngFor="let filteredApplicationScore of filteredApplicationScores">{{filteredApplicationScore.name}}</option>
+      </select>
+      </div>
+      <label *ngIf="applicationSelected" class="clr-col">LOC <span class="clr-col-2 badge badge-info" *ngIf="applicationSelected">{{applicationSelected.slocCnt}}</span></label>
+      <label *ngIf="applicationSelected" class="clr-col">Files <span class="clr-col-2 badge badge-info" *ngIf="applicationSelected">{{applicationSelected.filesCnt}}</span></label>
+    </div>
+
+</div>
+
+<div *ngIf="applicationSelected" class="findings-tabs">
+  <clr-tabs>
+    <clr-tab class="findings-tab">
+      <button clrTabLink>Findings</button>
+
+      <clr-tab-content *clrIfActive>
+
+        <div class="clr-row findings-cards">
+            <span>&nbsp;&nbsp;&nbsp;</span>
+            <div *ngFor="let binTag of binTags; let i = index">
+              <span class="label label-light-blue" id="{{binTag.name}}" (click)="highlightBinTags($event)" style="cursor: pointer">{{binTag.name}}<span class="badge badge-light-blue">{{binTag.count}}</span></span>
+            </div>
+        </div>
+
+        <div class="clr-row findings-cards">
+          <span>&nbsp;&nbsp;&nbsp;</span>
+          <div *ngFor="let tag of tags">
+            <span class="label label-info" id="{{tag.name}}" style="cursor: pointer" (click)="highlightTags($event)">{{tag.name}}<span class="badge badge-info">{{tag.count}}</span></span>
+          </div>
+        </div>
+
+        <div class="clr-row findings-cards" style="height: 144px;">
+          <div class="clr-col-lg-2 findings-card">
+            <div class="card card-green">
+              <div class="card-img badge-color-white" align="center">
+                <cds-icon shape="thermometer"></cds-icon>
+              </div>
+              <div class="card-block">
+                <h4 class="card-title badge-color-white" align="center">Low</h4>
+                <p class="card-text badge-color-white" align="center" *ngIf="scoreCard">{{scoreCard.low}}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="clr-col-lg-2 findings-card">
+            <div class="card card-orange">
+              <div class="card-img badge-color-white" align="center">
+                <cds-icon shape="thermometer"></cds-icon>
+              </div>
+              <div class="card-block">
+                <h4 class="card-title badge-color-white" align="center">Medium</h4>
+                <p class="card-text badge-color-white" align="center" *ngIf="scoreCard">{{scoreCard.medium}}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="clr-col-lg-2 findings-card">
+            <div class="card card-red">
+              <div class="card-img badge-color-white" align="center">
+                <cds-icon shape="thermometer"></cds-icon>
+              </div>
+              <div class="card-block">
+                <h4 class="card-title badge-color-white" align="center">High</h4>
+                <p class="card-text badge-color-white" align="center" *ngIf="scoreCard">{{scoreCard.high}}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="clr-col-lg-2 findings-card">
+            <div class="card card-grey">
+              <div class="card-img badge-color-white" align="center">
+                <cds-icon shape="pinboard"></cds-icon>
+              </div>
+              <div class="card-block">
+                <h4 class="card-title badge-color-white" align="center">Findings</h4>
+                <p class="card-text badge-color-white" align="center" *ngIf="scoreCard">{{scoreCard.total}}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="clr-col-lg-2 findings-card">
+            <div class="card card-blue">
+              <div class="card-img badge-color-white" align="center">
+                <cds-icon shape="target"></cds-icon>
+              </div>
+              <div class="card-block">
+                <h4 class="card-title badge-color-white" align="center">Score</h4>
+                <p class="card-text badge-color-white" align="center">{{applicationSelected.score}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <clr-datagrid class="summary-grid">
+          <clr-dg-action-bar>
+            <div class="action-bar">
+              <div class="action-bar-item-left">
+                <app-excel-export [data]="displayApplicationFindings" [file_name]="'app-findings-summary.csv'"></app-excel-export>
+              </div>
+
+              <div class="action-bar-item-right">
+                <cds-search control-width="shrink">
+                  <label>Search</label>
+                  <input type="search" [(ngModel)]="searchCrit"/>
+                </cds-search>
+              </div>
+            </div>
+          </clr-dg-action-bar>
+
+          <clr-dg-column [clrDgField]="'id'">ID</clr-dg-column>
+          <clr-dg-column [clrDgField]="'level'" [clrDgColType]="'string'">Level</clr-dg-column>
+          <clr-dg-column [clrDgField]="'value'" [clrDgColType]="'string'">Value</clr-dg-column>
+          <clr-dg-column [clrDgField]="'filename'" [clrDgColType]="'string'" >Filename</clr-dg-column>
+          <clr-dg-column [clrDgField]="'line'" [clrDgColType]="'number'">Line #</clr-dg-column>
+          <clr-dg-column [clrDgField]="'effort'" [clrDgColType]="'number'">Effort</clr-dg-column>
+          <clr-dg-column [clrDgField]="'tags'" [clrDgColType]="'number'"># Tags</clr-dg-column>
+          <clr-dg-column [clrDgField]="'recipes'" [clrDgColType]="'number'"># Recipes</clr-dg-column>
+
+          <clr-dg-row *clrDgItems="let applicationFinding of displayApplicationFindings | searchFilter: 'filename' : searchCrit">
+            <clr-dg-cell><a id="findingLink" [routerLink]="" (click)="fetchFindingById(applicationFinding.id)">{{applicationFinding.id}}</a></clr-dg-cell>
+            <clr-dg-cell>{{applicationFinding.level}}</clr-dg-cell>
+            <clr-dg-cell>{{applicationFinding.value}}</clr-dg-cell>
+            <clr-dg-cell>{{applicationFinding.filename}}</clr-dg-cell>
+            <clr-dg-cell>{{applicationFinding.line}}</clr-dg-cell>
+            <clr-dg-cell>{{applicationFinding.effort}}</clr-dg-cell>
+            <clr-dg-cell> <div *ngIf="applicationFinding.tags?.length; else zerotags">{{applicationFinding.tags.length}} </div>
+            <ng-template #zerotags>0</ng-template>
+            </clr-dg-cell>
+            <clr-dg-cell><a id="findingrecipeLink" [routerLink]="" (click)="fetchFindingById(applicationFinding.id)">{{applicationFinding.recipes.length}}</a></clr-dg-cell>
+          </clr-dg-row>
+
+
+          <clr-dg-footer>
+            <clr-dg-pagination #pagination [clrDgPageSize]="25">
+              <clr-dg-page-size [clrPageSizeOptions]="[25,50,100]">Findings per page</clr-dg-page-size>
+              {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+              of {{pagination.totalItems}} findings (filtered) showing for portfolio...
+            </clr-dg-pagination>
+          </clr-dg-footer>
+        </clr-datagrid>
+        <app-finding-details [selectedFinding]="selectedFinding" [(isOpen)]="isOpen" *ngIf="findingLoaded"></app-finding-details>
+      </clr-tab-content>
+    </clr-tab>
+    <clr-tab>
+      <button clrTabLink>Languages</button>
+      <clr-tab-content *clrIfActive="false">
+        <div class="summary-charts">
+          <div class="summary-chart" #containerRef>
+            <ngx-charts-tree-map
+              [view]="[containerRef.offsetWidth, 400]"
+              [scheme]="colorScheme"
+              [results]="languages"
+              [gradient]="gradient"
+              [animations]="animations"
+              (select)="onSelectLanguage($event)">
+            </ngx-charts-tree-map>
+          </div>
+        </div>
+      </clr-tab-content>
+    </clr-tab>
+    <clr-tab>
+      <button clrTabLink>APIs</button>
+      <clr-tab-content *clrIfActive="false">
+        <div class="summary-charts">
+          <div class="summary-chart" #containerRef>
+            <ngx-charts-tree-map
+              [view]="[containerRef.offsetWidth, 400]"
+              [scheme]="colorScheme"
+              [results]="apis"
+              [gradient]="gradient"
+              [animations]="animations"
+              (select)="onSelectApis($event)">
+            </ngx-charts-tree-map>
+          </div>
+        </div>
+      </clr-tab-content>
+    </clr-tab>
+  </clr-tabs>
+
+</div>

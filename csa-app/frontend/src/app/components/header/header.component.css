@@ -1,0 +1,12 @@
+.container-header{
+  height: 60px;
+}
+
+.version-title {
+  font-size: 10px;
+  font-weight: bold;
+  color: white;
+  padding: 0 0 0 20px;
+  position:absolute;
+  right: 20px;
+}

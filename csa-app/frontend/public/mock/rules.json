@@ -1,0 +1,5344 @@
+{
+  "rules": [
+    {
+      "Name": "ant-build",
+      "FileType": "xml",
+      "Target": "file",
+      "Type": "simple-text",
+      "Advice": "Refer to cookbook URIs",
+      "Effort": 2,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "file"
+        },
+        {
+          "Value": "build"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/general/replatforming-ant/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/modernization/mavenize-from-ant/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "build.xml"
+        }
+      ]
+    },
+    {
+      "Name": "application.properties",
+      "FileType": "xml",
+      "Target": "file",
+      "Type": "simple-text",
+      "Advice": "Web application config file",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "file"
+        },
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/general/test-properties/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/general/spring-profiles-d99f10135859d60ae62971fa792a23f1/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "persistence.xml"
+        },
+        {
+          "Value": "web.xml"
+        },
+        {
+          "Value": "applicationContext.xml"
+        }
+      ]
+    },
+    {
+      "Name": "asax-dotNet",
+      "FileType": "asax",
+      "Target": "file",
+      "Type": "simple-text",
+      "Advice": "Convert to Spring based application configuration.",
+      "Effort": 1,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "file"
+        },
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/dotnet-framework-externalizing-connection-strings/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "Global.asax"
+        }
+      ]
+    },
+    {
+      "Name": "config-logging",
+      "FileType": "config",
+      "Target": "line",
+      "Type": "contains",
+      "Advice": "Logging to the Event Log is not recommended for cloud native apps.  Consider refactoring to use a ConsoleTraceListener with the System.Diagnostics logging system.",
+      "Effort": 1,
+      "Category": "Logging",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "EventLogTraceListener"
+        }
+      ]
+    },
+    {
+      "Name": "config-newrelic",
+      "FileType": "wsdl",
+      "Target": "file",
+      "Type": "simple-text",
+      "Advice": "Refer to cookbook URIs",
+      "Effort": 2,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "file"
+        },
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/modernization/new-relic-dotnet-core/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/modernization/creating-alerts-in-new-relic/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/modernization/new-relic-noticeerror/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/telemetry/configuring-new-relic/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/telemetry/alerting-with-new-relic/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/telemetry/alerting-with-new-relic-legacy/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "newrelic.config"
+        }
+      ]
+    },
+    {
+      "Name": "config-securiy",
+      "FileType": "config",
+      "Target": "line",
+      "Type": "contains",
+      "Advice": "Use of generated machine keys can cause problems in cloud applications when they are scaled.  Consider disabling use of Machine Keys, or explicitly set the key in your configuration.",
+      "Effort": 1,
+      "Category": "Security",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "validationKey=\"AutoGenerate\""
+        },
+        {
+          "Value": "decryptionKey=\"AutoGenerate\""
+        }
+      ]
+    },
+    {
+      "Name": "config-sessionState",
+      "FileType": "config",
+      "Target": "line",
+      "Type": "contains",
+      "Advice": "App should be executed as a stateless process. Store session state externally",
+      "Effort": 3,
+      "Category": "SessionStateConfig",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "mode=\"InProc\""
+        },
+        {
+          "Value": "mode=\"StateServer\""
+        }
+      ]
+    },
+    {
+      "Name": "config-wcf",
+      "FileType": "config",
+      "Target": "line",
+      "Type": "contains",
+      "Category": "WCF",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "\u003csystem.serviceModel\u003e",
+          "Advice": "WCF is supported with no transport security"
+        },
+        {
+          "Value": "basicHttpsBinding",
+          "Advice": "Disable HTTPS at the container and allow the external load balancer to terminate SSL",
+          "Effort": 1
+        },
+        {
+          "Value": "mode=\"Transport\"",
+          "Advice": "Transport security at the container is not supported.  Disable transport security on the service",
+          "Effort": 2
+        }
+      ]
+    },
+    {
+      "Name": "cs-database-access",
+      "FileType": "cs$",
+      "Target": "line",
+      "Type": "contains",
+      "Advice": "Typically, applications using databases need to be converted to receive their connection strings from the environment.  Use Project Steeltoe (steeltoe.io) to easily inject cloud provided service bindings.",
+      "Effort": 1,
+      "Category": "DatabaseAccess",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "using System.Data.Olemodel",
+          "Advice": "Class importing System.Data.Olemodel"
+        },
+        {
+          "Value": "using System.Data.Omodelc",
+          "Advice": "Class importing System.Data.Omodelc"
+        },
+        {
+          "Value": "using System.Data",
+          "Advice": "Class importing System.Data (ADO.NET)"
+        },
+        {
+          "Value": "using System.Data.Entity",
+          "Advice": "Class importing System.Data.Entity (Entity Framework)"
+        }
+      ]
+    },
+    {
+      "Name": "cs-fileIO",
+      "FileType": "cs$",
+      "Target": "line",
+      "Type": "contains",
+      "Advice": "Relying on the local filesystem to store state is unreliable in a cloud platform.  Since containers are immutable, restarts will lose any written changes.  Refactor this logic to use an external service to store state.",
+      "Effort": 3,
+      "Category": "LocalFilesystemAccess",
+      "Criticality": "high",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "File.Append",
+          "Advice": "Appending to a file (File.Append*)"
+        },
+        {
+          "Value": "File.Create",
+          "Advice": "Calling File.Create"
+        },
+        {
+          "Value": "File.Move",
+          "Advice": "Calling File.Move"
+        },
+        {
+          "Value": "File.Open",
+          "Advice": "Calling File.Open (investigate further to determine refactor rating)"
+        },
+        {
+          "Value": "File.OpenWrite",
+          "Advice": "Calling File.OpenWrite"
+        },
+        {
+          "Value": "File.Replace",
+          "Advice": "Calling File.Replace"
+        },
+        {
+          "Value": "File.Set",
+          "Advice": "Setting File Metadata (File.Set*)"
+        },
+        {
+          "Value": "File.Write",
+          "Advice": "Writing to a file (File.Write*)"
+        },
+        {
+          "Value": "new FileStream(",
+          "Advice": "Direct construction of FileStream (investigate further to determine refactor rating)"
+        },
+        {
+          "Value": "FileSystemWatcher",
+          "Advice": "Use of FileSystemWatcher"
+        }
+      ]
+    },
+    {
+      "Name": "cs-launchProcess",
+      "FileType": "cs$",
+      "Target": "line",
+      "Type": "contains",
+      "Advice": "Launching additional processes within a container is not recommended.  Consider refactoring this code to either embed the functionality, or establish a separate service.",
+      "Effort": 2,
+      "Category": "LocalProcess",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "Process()"
+        },
+        {
+          "Value": "Process ()"
+        },
+        {
+          "Value": "Process."
+        }
+      ]
+    },
+    {
+      "Name": "cs-logging",
+      "FileType": "cs$",
+      "Target": "line",
+      "Type": "contains",
+      "Advice": "Logging to the Event Log is not recommended for cloud native apps.  Consider refactoring to use a ConsoleTraceListener with the System.Diagnostics logging system.",
+      "Effort": 1,
+      "Category": "Logging",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "EventLogTraceListener"
+        },
+        {
+          "Value": "EventLog"
+        }
+      ]
+    },
+    {
+      "Name": "cs-security",
+      "FileType": "cs$",
+      "Target": "line",
+      "Type": "contains",
+      "Advice": "Relying on Windows certificate stores is problematic in a cloud environment.  Ensure that you either load the certificates you need into the store Just-in-Time or consider refactoring your code to lookup certificates from the environment or another external service.",
+      "Effort": 3,
+      "Category": "Security",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "X509Store"
+        }
+      ]
+    },
+    {
+      "Name": "cs-visualStudio",
+      "FileType": "cs$",
+      "Target": "file",
+      "Type": "simple-text",
+      "Advice": "Refer to cookbook URIs",
+      "Effort": 3,
+      "Category": "IDE",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "file"
+        },
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/dotnet-core-standard-startup/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "Program.cs"
+        },
+        {
+          "Value": "Startup.cs"
+        }
+      ]
+    },
+    {
+      "Name": "cs-wcf",
+      "FileType": "cs$",
+      "Target": "line",
+      "Type": "contains",
+      "Advice": "When using HTTPS, terminate SSL at load balancer",
+      "Effort": 1,
+      "Category": "WCF",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "BasicHttpSecurityMode.Transport",
+          "Advice": "Disable HTTPS at the container and allow the external load balancer to terminate SSL"
+        },
+        {
+          "Value": "SecurityMode.Transport",
+          "Advice": "Transport security at the container is not supported.  Disable transport security on the service",
+          "Effort": 2
+        }
+      ]
+    },
+    {
+      "Name": "cs-windowsRegistry",
+      "FileType": "cs$",
+      "Target": "line",
+      "Type": "contains",
+      "Advice": "External configurations should be made available by environment variables or some other external service such as Spring Cloud Config Server.  App should have no dependencies on OS registry.",
+      "Effort": 1,
+      "Category": "AccessingRegistry",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "RegistryKey"
+        },
+        {
+          "Value": "Registry"
+        },
+        {
+          "Value": "Microsoft.Win32"
+        }
+      ]
+    },
+    {
+      "Name": "P-P-WindowsServices_~cs",
+      "FileType": "cs$",
+      "Target": "line",
+      "Type": "contains",
+      "Advice": "Don't rely on Windows Services as CloudFoundry manages the lifecycle of your service.  Convert any Windows service to a console application to run in Cloud Foundry.",
+      "Effort": 1,
+      "Category": "WindowsServices",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": ": ServiceBase"
+        },
+        {
+          "Value": "ServiceController"
+        },
+        {
+          "Value": "System.ServiceProcess"
+        }
+      ]
+    },
+    {
+      "Name": "csproj-netFramework",
+      "FileType": "csproj",
+      "Target": "line",
+      "Type": "contains",
+      "Advice": "Switch to .NET Framework 4.0 or later, or consider migration to .NET Core",
+      "Effort": 3,
+      "Category": "NetFramework",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "\u003cTargetFrameworkVersion\u003ev1.0\u003c/TargetFrameworkVersion\u003e"
+        },
+        {
+          "Value": "\u003cTargetFrameworkVersion\u003ev1.1\u003c/TargetFrameworkVersion\u003e"
+        },
+        {
+          "Value": "\u003cTargetFrameworkVersion\u003ev2.0\u003c/TargetFrameworkVersion\u003e"
+        },
+        {
+          "Value": "\u003cTargetFrameworkVersion\u003ev3.0\u003c/TargetFrameworkVersion\u003e",
+          "Effort": 1
+        },
+        {
+          "Value": "\u003cTargetFrameworkVersion\u003ev3.5\u003c/TargetFrameworkVersion\u003e",
+          "Effort": 1
+        },
+        {
+          "Value": "\u003cTargetFrameworkVersion\u003ev4.0\u003c/TargetFrameworkVersion\u003e"
+        },
+        {
+          "Value": "\u003cTargetFrameworkVersion\u003ev4.5\u003c/TargetFrameworkVersion\u003e"
+        },
+        {
+          "Value": "\u003cTargetFrameworkVersion\u003ev4.5.1\u003c/TargetFrameworkVersion\u003e"
+        },
+        {
+          "Value": "\u003cTargetFrameworkVersion\u003ev4.5.2\u003c/TargetFrameworkVersion\u003e"
+        },
+        {
+          "Value": "\u003cTargetFrameworkVersion\u003ev4.6\u003c/TargetFrameworkVersion\u003e"
+        },
+        {
+          "Value": "\u003cTargetFrameworkVersion\u003ev4.6.1\u003c/TargetFrameworkVersion\u003e"
+        },
+        {
+          "Value": "\u003cTargetFrameworkVersion\u003ev4.6.2\u003c/TargetFrameworkVersion\u003e"
+        }
+      ]
+    },
+    {
+      "Name": "java-3rdPartyImports",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "^import\\s*.*%s\\..*$",
+      "Advice": "Refer to 3rd party organization for cloud affinity of library",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "imports"
+        },
+        {
+          "Value": "third-party"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "47deg"
+        },
+        {
+          "Value": "advantageous"
+        },
+        {
+          "Value": "agileclick"
+        },
+        {
+          "Value": "agilej"
+        },
+        {
+          "Value": "aicer"
+        },
+        {
+          "Value": "airlift"
+        },
+        {
+          "Value": "akka"
+        },
+        {
+          "Value": "alibaba"
+        },
+        {
+          "Value": "alsocan"
+        },
+        {
+          "Value": "amazon"
+        },
+        {
+          "Value": "androidtransfuse"
+        },
+        {
+          "Value": "angular"
+        },
+        {
+          "Value": "apache"
+        },
+        {
+          "Value": "apache.commons"
+        },
+        {
+          "Value": "apitrary"
+        },
+        {
+          "Value": "apptik"
+        },
+        {
+          "Value": "aranea-apps"
+        },
+        {
+          "Value": "argonaut"
+        },
+        {
+          "Value": "armemodelear"
+        },
+        {
+          "Value": "arnx"
+        },
+        {
+          "Value": "asm"
+        },
+        {
+          "Value": "aspectj"
+        },
+        {
+          "Value": "asynchttpclient"
+        },
+        {
+          "Value": "atmosphere"
+        },
+        {
+          "Value": "attoparser"
+        },
+        {
+          "Value": "avast"
+        },
+        {
+          "Value": "aws-java"
+        },
+        {
+          "Value": "axion"
+        },
+        {
+          "Value": "azure"
+        },
+        {
+          "Value": "baracus"
+        },
+        {
+          "Value": "bcel"
+        },
+        {
+          "Value": "beangle"
+        },
+        {
+          "Value": "beanshell"
+        },
+        {
+          "Value": "bgee"
+        },
+        {
+          "Value": "blep"
+        },
+        {
+          "Value": "bluelinelabs"
+        },
+        {
+          "Value": "bluestemsoftware"
+        },
+        {
+          "Value": "brightify"
+        },
+        {
+          "Value": "bsc.bean"
+        },
+        {
+          "Value": "bsc.framework"
+        },
+        {
+          "Value": "bsf"
+        },
+        {
+          "Value": "bytebuddy"
+        },
+        {
+          "Value": "caffeine"
+        },
+        {
+          "Value": "cassandra"
+        },
+        {
+          "Value": "ccil"
+        },
+        {
+          "Value": "celum"
+        },
+        {
+          "Value": "cemerick"
+        },
+        {
+          "Value": "ceylon"
+        },
+        {
+          "Value": "cglib"
+        },
+        {
+          "Value": "circe"
+        },
+        {
+          "Value": "circumflex"
+        },
+        {
+          "Value": "ciris"
+        },
+        {
+          "Value": "cisco"
+        },
+        {
+          "Value": "clapper"
+        },
+        {
+          "Value": "clojure"
+        },
+        {
+          "Value": "codahale"
+        },
+        {
+          "Value": "codehaus"
+        },
+        {
+          "Value": "codingwell"
+        },
+        {
+          "Value": "cojen"
+        },
+        {
+          "Value": "com.m3"
+        },
+        {
+          "Value": "com.sun"
+        },
+        {
+          "Value": "commonjava"
+        },
+        {
+          "Value": "commons-configuration"
+        },
+        {
+          "Value": "commons-digester"
+        },
+        {
+          "Value": "commons-logging"
+        },
+        {
+          "Value": "constretto"
+        },
+        {
+          "Value": "contaazul"
+        },
+        {
+          "Value": "critero"
+        },
+        {
+          "Value": "cronutils"
+        },
+        {
+          "Value": "ctrlaltdev"
+        },
+        {
+          "Value": "cyrusinnovation"
+        },
+        {
+          "Value": "darwinsys"
+        },
+        {
+          "Value": "databene"
+        },
+        {
+          "Value": "databinder"
+        },
+        {
+          "Value": "datanucleus"
+        },
+        {
+          "Value": "datoin"
+        },
+        {
+          "Value": "davfx"
+        },
+        {
+          "Value": "modeltools"
+        },
+        {
+          "Value": "djodjo"
+        },
+        {
+          "Value": "dreampie"
+        },
+        {
+          "Value": "dropwizard"
+        },
+        {
+          "Value": "dslplatform"
+        },
+        {
+          "Value": "easygson"
+        },
+        {
+          "Value": "easymetrics"
+        },
+        {
+          "Value": "easymock"
+        },
+        {
+          "Value": "ebay"
+        },
+        {
+          "Value": "eclipse"
+        },
+        {
+          "Value": "eclipsesource"
+        },
+        {
+          "Value": "eed3si9n"
+        },
+        {
+          "Value": "enblom"
+        },
+        {
+          "Value": "esotericsoftware"
+        },
+        {
+          "Value": "everit"
+        },
+        {
+          "Value": "exparity"
+        },
+        {
+          "Value": "experlog"
+        },
+        {
+          "Value": "factati"
+        },
+        {
+          "Value": "fasterxml"
+        },
+        {
+          "Value": "flexjson"
+        },
+        {
+          "Value": "foursquare"
+        },
+        {
+          "Value": "frege-lang"
+        },
+        {
+          "Value": "frugalmechanic"
+        },
+        {
+          "Value": "gatling"
+        },
+        {
+          "Value": "gilt"
+        },
+        {
+          "Value": "github"
+        },
+        {
+          "Value": "glassfish"
+        },
+        {
+          "Value": "gmock"
+        },
+        {
+          "Value": "goggle"
+        },
+        {
+          "Value": "golo-lang"
+        },
+        {
+          "Value": "googlecode"
+        },
+        {
+          "Value": "gosu"
+        },
+        {
+          "Value": "grails"
+        },
+        {
+          "Value": "greenrobot"
+        },
+        {
+          "Value": "groovy"
+        },
+        {
+          "Value": "grouplens"
+        },
+        {
+          "Value": "guava"
+        },
+        {
+          "Value": "h2database"
+        },
+        {
+          "Value": "helger"
+        },
+        {
+          "Value": "henix"
+        },
+        {
+          "Value": "hibernate"
+        },
+        {
+          "Value": "higgs"
+        },
+        {
+          "Value": "hmil"
+        },
+        {
+          "Value": "hmsonline"
+        },
+        {
+          "Value": "hsqlmodel"
+        },
+        {
+          "Value": "htmlcleaner"
+        },
+        {
+          "Value": "http4s"
+        },
+        {
+          "Value": "hydra"
+        },
+        {
+          "Value": "ikoskela"
+        },
+        {
+          "Value": "ini4j"
+        },
+        {
+          "Value": "inject"
+        },
+        {
+          "Value": "inspiracio"
+        },
+        {
+          "Value": "intarsys"
+        },
+        {
+          "Value": "io.sari"
+        },
+        {
+          "Value": "io.spray"
+        },
+        {
+          "Value": "io.wcm"
+        },
+        {
+          "Value": "itextpdf"
+        },
+        {
+          "Value": "j256"
+        },
+        {
+          "Value": "j4Unit"
+        },
+        {
+          "Value": "jamon"
+        },
+        {
+          "Value": "jasonjson"
+        },
+        {
+          "Value": "javaclub"
+        },
+        {
+          "Value": "javalite"
+        },
+        {
+          "Value": "javassist"
+        },
+        {
+          "Value": "jayway"
+        },
+        {
+          "Value": "jbee"
+        },
+        {
+          "Value": "jboss"
+        },
+        {
+          "Value": "jboss-cache"
+        },
+        {
+          "Value": "jcabi"
+        },
+        {
+          "Value": "jcache"
+        },
+        {
+          "Value": "jclouds"
+        },
+        {
+          "Value": "jconfig"
+        },
+        {
+          "Value": "jmodelc-wrappers"
+        },
+        {
+          "Value": "jdev"
+        },
+        {
+          "Value": "jdub"
+        },
+        {
+          "Value": "jentz"
+        },
+        {
+          "Value": "jmemcache"
+        },
+        {
+          "Value": "jmetrix"
+        },
+        {
+          "Value": "jmock"
+        },
+        {
+          "Value": "jmockring"
+        },
+        {
+          "Value": "joda-time"
+        },
+        {
+          "Value": "jodd"
+        },
+        {
+          "Value": "joestelmach"
+        },
+        {
+          "Value": "jolbox"
+        },
+        {
+          "Value": "jpattern"
+        },
+        {
+          "Value": "jpox"
+        },
+        {
+          "Value": "jruby"
+        },
+        {
+          "Value": "jsog"
+        },
+        {
+          "Value": "json4s"
+        },
+        {
+          "Value": "jsonbuddy"
+        },
+        {
+          "Value": "jsoup"
+        },
+        {
+          "Value": "jtidy"
+        },
+        {
+          "Value": "jvnet"
+        },
+        {
+          "Value": "kasource"
+        },
+        {
+          "Value": "kie"
+        },
+        {
+          "Value": "kirgor"
+        },
+        {
+          "Value": "kodein"
+        },
+        {
+          "Value": "kohesive"
+        },
+        {
+          "Value": "kohsuke"
+        },
+        {
+          "Value": "kopitubruk"
+        },
+        {
+          "Value": "kotlin"
+        },
+        {
+          "Value": "ktor"
+        },
+        {
+          "Value": "kuali"
+        },
+        {
+          "Value": "lambdista"
+        },
+        {
+          "Value": "latte-lang"
+        },
+        {
+          "Value": "librato"
+        },
+        {
+          "Value": "liftweb"
+        },
+        {
+          "Value": "lihaoyi"
+        },
+        {
+          "Value": "littleshoot"
+        },
+        {
+          "Value": "log4j"
+        },
+        {
+          "Value": "log4s"
+        },
+        {
+          "Value": "logback"
+        },
+        {
+          "Value": "loof"
+        },
+        {
+          "Value": "loopj"
+        },
+        {
+          "Value": "lowagie"
+        },
+        {
+          "Value": "lyft"
+        },
+        {
+          "Value": "m-m-m"
+        },
+        {
+          "Value": "madgag"
+        },
+        {
+          "Value": "madisp"
+        },
+        {
+          "Value": "mapmodel"
+        },
+        {
+          "Value": "mashape"
+        },
+        {
+          "Value": "mchange"
+        },
+        {
+          "Value": "mckoi"
+        },
+        {
+          "Value": "metamx"
+        },
+        {
+          "Value": "metrics4j"
+        },
+        {
+          "Value": "meza"
+        },
+        {
+          "Value": "minidev"
+        },
+        {
+          "Value": "mockachino"
+        },
+        {
+          "Value": "mockejb"
+        },
+        {
+          "Value": "mockito"
+        },
+        {
+          "Value": "mockk"
+        },
+        {
+          "Value": "mockobjects"
+        },
+        {
+          "Value": "mockrunner"
+        },
+        {
+          "Value": "mongo"
+        },
+        {
+          "Value": "mortbay"
+        },
+        {
+          "Value": "mozilla"
+        },
+        {
+          "Value": "moznion"
+        },
+        {
+          "Value": "msebera"
+        },
+        {
+          "Value": "msoliter"
+        },
+        {
+          "Value": "mybatis"
+        },
+        {
+          "Value": "mynah"
+        },
+        {
+          "Value": "n3twork"
+        },
+        {
+          "Value": "nekohtml"
+        },
+        {
+          "Value": "netflix"
+        },
+        {
+          "Value": "nield"
+        },
+        {
+          "Value": "nikedlab"
+        },
+        {
+          "Value": "ning"
+        },
+        {
+          "Value": "nryotaro"
+        },
+        {
+          "Value": "nscala"
+        },
+        {
+          "Value": "objectlab"
+        },
+        {
+          "Value": "objectos"
+        },
+        {
+          "Value": "objectweb"
+        },
+        {
+          "Value": "ocpsoft"
+        },
+        {
+          "Value": "oneeyedman"
+        },
+        {
+          "Value": "openbouquet"
+        },
+        {
+          "Value": "opensynphony"
+        },
+        {
+          "Value": "ops4j"
+        },
+        {
+          "Value": "org.json"
+        },
+        {
+          "Value": "outerj"
+        },
+        {
+          "Value": "outr"
+        },
+        {
+          "Value": "ow2"
+        },
+        {
+          "Value": "p6spy"
+        },
+        {
+          "Value": "paralleluniverse"
+        },
+        {
+          "Value": "parfait"
+        },
+        {
+          "Value": "perf4j"
+        },
+        {
+          "Value": "picocontainer"
+        },
+        {
+          "Value": "pistol"
+        },
+        {
+          "Value": "plausible"
+        },
+        {
+          "Value": "plexus"
+        },
+        {
+          "Value": "plukh"
+        },
+        {
+          "Value": "pnuts"
+        },
+        {
+          "Value": "pojava"
+        },
+        {
+          "Value": "pojomvcc"
+        },
+        {
+          "Value": "polyforms"
+        },
+        {
+          "Value": "polyjmodelc"
+        },
+        {
+          "Value": "powermock"
+        },
+        {
+          "Value": "proofpoint"
+        },
+        {
+          "Value": "propensive"
+        },
+        {
+          "Value": "proxool"
+        },
+        {
+          "Value": "rabbitmq"
+        },
+        {
+          "Value": "remodelrick"
+        },
+        {
+          "Value": "redis"
+        },
+        {
+          "Value": "rhq"
+        },
+        {
+          "Value": "roboguice"
+        },
+        {
+          "Value": "rootdev"
+        },
+        {
+          "Value": "rubicon"
+        },
+        {
+          "Value": "saliman"
+        },
+        {
+          "Value": "savant"
+        },
+        {
+          "Value": "scala-lang"
+        },
+        {
+          "Value": "scala-tools"
+        },
+        {
+          "Value": "scalaj"
+        },
+        {
+          "Value": "scalamock"
+        },
+        {
+          "Value": "scaldi"
+        },
+        {
+          "Value": "segoia"
+        },
+        {
+          "Value": "sejda"
+        },
+        {
+          "Value": "senanque"
+        },
+        {
+          "Value": "sf.corn"
+        },
+        {
+          "Value": "sf.json-lib"
+        },
+        {
+          "Value": "shadesmodel"
+        },
+        {
+          "Value": "sharegov"
+        },
+        {
+          "Value": "sigwned"
+        },
+        {
+          "Value": "sirona"
+        },
+        {
+          "Value": "skife"
+        },
+        {
+          "Value": "skinny-framework"
+        },
+        {
+          "Value": "slf4j"
+        },
+        {
+          "Value": "slf4j-api"
+        },
+        {
+          "Value": "smacke"
+        },
+        {
+          "Value": "snaq"
+        },
+        {
+          "Value": "socialmetrix"
+        },
+        {
+          "Value": "softsmithy"
+        },
+        {
+          "Value": "softwaremill"
+        },
+        {
+          "Value": "solarmosaic"
+        },
+        {
+          "Value": "soliveirajr"
+        },
+        {
+          "Value": "sorm-framework"
+        },
+        {
+          "Value": "soulgalore"
+        },
+        {
+          "Value": "soywiz"
+        },
+        {
+          "Value": "specs2"
+        },
+        {
+          "Value": "spring"
+        },
+        {
+          "Value": "squareup"
+        },
+        {
+          "Value": "squeryl"
+        },
+        {
+          "Value": "stackmob"
+        },
+        {
+          "Value": "statemonitor"
+        },
+        {
+          "Value": "sterlingcode"
+        },
+        {
+          "Value": "stickycode"
+        },
+        {
+          "Value": "strategicgains"
+        },
+        {
+          "Value": "streametry"
+        },
+        {
+          "Value": "studiomobile"
+        },
+        {
+          "Value": "sun"
+        },
+        {
+          "Value": "sun.mail"
+        },
+        {
+          "Value": "swinglabs"
+        },
+        {
+          "Value": "symentis"
+        },
+        {
+          "Value": "tedhi"
+        },
+        {
+          "Value": "tehuti"
+        },
+        {
+          "Value": "time4j"
+        },
+        {
+          "Value": "tophe"
+        },
+        {
+          "Value": "tornado"
+        },
+        {
+          "Value": "toucanpdf"
+        },
+        {
+          "Value": "trove4j"
+        },
+        {
+          "Value": "truecommons"
+        },
+        {
+          "Value": "truward"
+        },
+        {
+          "Value": "turbomanage"
+        },
+        {
+          "Value": "twitter"
+        },
+        {
+          "Value": "tynne"
+        },
+        {
+          "Value": "typesafe"
+        },
+        {
+          "Value": "uberfire"
+        },
+        {
+          "Value": "ujoframework"
+        },
+        {
+          "Value": "ujorm"
+        },
+        {
+          "Value": "unboundid"
+        },
+        {
+          "Value": "unimi"
+        },
+        {
+          "Value": "uniscala"
+        },
+        {
+          "Value": "usikkert"
+        },
+        {
+          "Value": "vaadin"
+        },
+        {
+          "Value": "vanillasoure"
+        },
+        {
+          "Value": "vertx"
+        },
+        {
+          "Value": "vibur"
+        },
+        {
+          "Value": "vvakame"
+        },
+        {
+          "Value": "whirlycott"
+        },
+        {
+          "Value": "wix"
+        },
+        {
+          "Value": "wvlet"
+        },
+        {
+          "Value": "yammer"
+        },
+        {
+          "Value": "ymock"
+        },
+        {
+          "Value": "zalando"
+        },
+        {
+          "Value": "zappos"
+        },
+        {
+          "Value": "zaxxer"
+        },
+        {
+          "Value": "zwitserloot"
+        }
+      ]
+    },
+    {
+      "Name": "java-alarmD-import",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "^import\\s*.*%s\\..*$",
+      "Advice": "Integrate with new alarmD service",
+      "Effort": 1,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "MQ"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/modernization/integration-with-new-alarmd/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "com.tfcci.ucs.manager"
+        }
+      ]
+    },
+    {
+      "Name": "java-annotations",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "^.*@%s$",
+      "Advice": "Refer to PCF/Spring documentation for remediation",
+      "Effort": 1,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "annotations"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "DeclareRoles"
+        },
+        {
+          "Value": "DenyAll"
+        },
+        {
+          "Value": "PermitAll"
+        },
+        {
+          "Value": "RolesAllowed"
+        },
+        {
+          "Value": "RunAs"
+        },
+        {
+          "Value": "Stateless"
+        },
+        {
+          "Value": "Stateful"
+        },
+        {
+          "Value": "MessageDriven"
+        },
+        {
+          "Value": "Entity"
+        },
+        {
+          "Value": "Init"
+        },
+        {
+          "Value": "Remove"
+        },
+        {
+          "Value": "ActivationConfigProperty"
+        },
+        {
+          "Value": "Local"
+        },
+        {
+          "Value": "Remote"
+        },
+        {
+          "Value": "LocalHome"
+        },
+        {
+          "Value": "RemoteHome"
+        },
+        {
+          "Value": "TransactionManagement"
+        },
+        {
+          "Value": "TransactionAttribute"
+        },
+        {
+          "Value": "PostActivate"
+        },
+        {
+          "Value": "PrePassivate"
+        }
+      ]
+    },
+    {
+      "Name": "java-apacheFop-import",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "^import\\s*.*%s\\..*$",
+      "Advice": "Refer to cookbook URIs",
+      "Effort": 3,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "imports"
+        },
+        {
+          "Value": "third-party"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/jfor_lib_base_path/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "org.apache.fop"
+        }
+      ]
+    },
+    {
+      "Name": "java-coherence-import",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "^import\\s*.*%s\\..*$",
+      "Advice": "Replace coherence with redis",
+      "Effort": 1,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "MQ"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/backing-services-port-binding/redis-9d9f60e405f795e4e0bf6393f662104e/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "com.tangosol.net"
+        }
+      ]
+    },
+    {
+      "Name": "java-corba",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "[ .]%s[ (]",
+      "Effort": 3,
+      "Category": "CorbaAPI",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "AnyHolder"
+        },
+        {
+          "Value": "AnySeqHelper"
+        },
+        {
+          "Value": "AnySeqHolder"
+        },
+        {
+          "Value": "BooleanHolder"
+        },
+        {
+          "Value": "BooleanSeqHelper"
+        },
+        {
+          "Value": "BooleanSeqHolder"
+        },
+        {
+          "Value": "ByteHolder"
+        },
+        {
+          "Value": "CharHolder"
+        },
+        {
+          "Value": "CharSeqHelper"
+        },
+        {
+          "Value": "CharSeqHolder"
+        },
+        {
+          "Value": "CompletionStatus"
+        },
+        {
+          "Value": "CompletionStatusHelper"
+        },
+        {
+          "Value": "ContextList"
+        },
+        {
+          "Value": "CurrentHelper"
+        },
+        {
+          "Value": "CurrentHolder"
+        },
+        {
+          "Value": "DefinitionKind"
+        },
+        {
+          "Value": "DefinitionKindHelper"
+        },
+        {
+          "Value": "DoubleHolder"
+        },
+        {
+          "Value": "DoubleSeqHelper"
+        },
+        {
+          "Value": "DoubleSeqHolder"
+        },
+        {
+          "Value": "DynamicImplementation"
+        },
+        {
+          "Value": "ExceptionList"
+        },
+        {
+          "Value": "FieldNameHelper"
+        },
+        {
+          "Value": "FixedHolder"
+        },
+        {
+          "Value": "FloatHolder"
+        },
+        {
+          "Value": "FloatSeqHelper"
+        },
+        {
+          "Value": "FloatSeqHolder"
+        },
+        {
+          "Value": "IdentifierHelper"
+        },
+        {
+          "Value": "IDLTypeHelper"
+        },
+        {
+          "Value": "IntHolder"
+        },
+        {
+          "Value": "LocalObject"
+        },
+        {
+          "Value": "LongHolder"
+        },
+        {
+          "Value": "LongLongSeqHelper"
+        },
+        {
+          "Value": "LongLongSeqHolder"
+        },
+        {
+          "Value": "LongSeqHelper"
+        },
+        {
+          "Value": "LongSeqHolder"
+        },
+        {
+          "Value": "NamedValue"
+        },
+        {
+          "Value": "NameValuePair"
+        },
+        {
+          "Value": "NameValuePairHelper"
+        },
+        {
+          "Value": "NVList"
+        },
+        {
+          "Value": "ObjectHelper"
+        },
+        {
+          "Value": "ObjectHolder"
+        },
+        {
+          "Value": "OctetSeqHelper"
+        },
+        {
+          "Value": "OctetSeqHolder"
+        },
+        {
+          "Value": "ORB"
+        },
+        {
+          "Value": "ParameterMode"
+        },
+        {
+          "Value": "ParameterModeHelper"
+        },
+        {
+          "Value": "ParameterModeHolder"
+        },
+        {
+          "Value": "PolicyErrorCodeHelper"
+        },
+        {
+          "Value": "PolicyErrorHelper"
+        },
+        {
+          "Value": "PolicyErrorHolder"
+        },
+        {
+          "Value": "PolicyHelper"
+        },
+        {
+          "Value": "PolicyHolder"
+        },
+        {
+          "Value": "PolicyListHelper"
+        },
+        {
+          "Value": "PolicyListHolder"
+        },
+        {
+          "Value": "PolicyTypeHelper"
+        },
+        {
+          "Value": "Principal"
+        },
+        {
+          "Value": "PrincipalHolder"
+        },
+        {
+          "Value": "RepositoryIdHelper"
+        },
+        {
+          "Value": "ServerRequest"
+        },
+        {
+          "Value": "ServiceDetail"
+        },
+        {
+          "Value": "ServiceDetailHelper"
+        },
+        {
+          "Value": "ServiceInformation"
+        },
+        {
+          "Value": "ServiceInformationHelper"
+        },
+        {
+          "Value": "ServiceInformationHolder"
+        },
+        {
+          "Value": "SetOverrideType"
+        },
+        {
+          "Value": "SetOverrideTypeHelper"
+        },
+        {
+          "Value": "ShortHolder"
+        },
+        {
+          "Value": "ShortSeqHelper"
+        },
+        {
+          "Value": "ShortSeqHolder"
+        },
+        {
+          "Value": "StringHolder"
+        },
+        {
+          "Value": "StringSeqHelper"
+        },
+        {
+          "Value": "StringSeqHolder"
+        },
+        {
+          "Value": "StringValueHelper"
+        },
+        {
+          "Value": "StructMember"
+        },
+        {
+          "Value": "StructMemberHelper"
+        },
+        {
+          "Value": "TCKind"
+        },
+        {
+          "Value": "TypeCode"
+        },
+        {
+          "Value": "TypeCodeHolder"
+        },
+        {
+          "Value": "ULongLongSeqHelper"
+        },
+        {
+          "Value": "ULongLongSeqHolder"
+        },
+        {
+          "Value": "ULongSeqHelper"
+        },
+        {
+          "Value": "ULongSeqHolder"
+        },
+        {
+          "Value": "UnionMember"
+        },
+        {
+          "Value": "UnionMemberHelper"
+        },
+        {
+          "Value": "UnknownUserExceptionHelper"
+        },
+        {
+          "Value": "UnknownUserExceptionHolder"
+        },
+        {
+          "Value": "UShortSeqHelper"
+        },
+        {
+          "Value": "UShortSeqHolder"
+        },
+        {
+          "Value": "ValueBaseHelper"
+        },
+        {
+          "Value": "ValueBaseHolder"
+        },
+        {
+          "Value": "ValueMember"
+        },
+        {
+          "Value": "ValueMemberHelper"
+        },
+        {
+          "Value": "VersionSpecHelper"
+        },
+        {
+          "Value": "VisibilityHelper"
+        },
+        {
+          "Value": "WCharSeqHelper"
+        },
+        {
+          "Value": "WCharSeqHolder"
+        },
+        {
+          "Value": "WrongTransactionHelper"
+        },
+        {
+          "Value": "WrongTransactionHolder"
+        },
+        {
+          "Value": "WStringSeqHelper"
+        },
+        {
+          "Value": "WStringSeqHolder"
+        },
+        {
+          "Value": "WStringValueHelper"
+        }
+      ]
+    },
+    {
+      "Name": "java-ejb",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "[ .]%s[ (]",
+      "Advice": "Refer to cookbook URIs",
+      "Effort": 1,
+      "Category": "EjbAPI",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/general/removermi/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/ejbmigration/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "EJBContext"
+        },
+        {
+          "Value": "EJBHome"
+        },
+        {
+          "Value": "EJBLocalHome"
+        },
+        {
+          "Value": "EJBLocalObject"
+        },
+        {
+          "Value": "EJBMetaData"
+        },
+        {
+          "Value": "EJBObject"
+        },
+        {
+          "Value": "EnterpriseBean"
+        },
+        {
+          "Value": "EntityBean"
+        },
+        {
+          "Value": "EntityContext"
+        },
+        {
+          "Value": "Handle"
+        },
+        {
+          "Value": "HomeHandle"
+        },
+        {
+          "Value": "MessageDrivenBean"
+        },
+        {
+          "Value": "MessageDrivenContext"
+        },
+        {
+          "Value": "SessionBean"
+        },
+        {
+          "Value": "SessionContext"
+        },
+        {
+          "Value": "SessionSynchronization"
+        },
+        {
+          "Value": "TimedObject"
+        },
+        {
+          "Value": "Timer"
+        },
+        {
+          "Value": "TimerHandle"
+        },
+        {
+          "Value": "TimerService"
+        },
+        {
+          "Value": "RMISecurityManager"
+        },
+        {
+          "Value": "RemoteException"
+        },
+        {
+          "Value": "MarshalException"
+        },
+        {
+          "Value": "PortableRemoteObject"
+        },
+        {
+          "Value": "exportObject"
+        },
+        {
+          "Value": "unexportObject"
+        },
+        {
+          "Value": "AccessException"
+        },
+        {
+          "Value": "AlreadyBoundException"
+        },
+        {
+          "Value": "ConnectException"
+        },
+        {
+          "Value": "ConnectIOException"
+        },
+        {
+          "Value": "MarshalException"
+        },
+        {
+          "Value": "NoSuchObjectException"
+        },
+        {
+          "Value": "NotBoundException"
+        },
+        {
+          "Value": "RemoteException"
+        },
+        {
+          "Value": "RMISecurityException"
+        },
+        {
+          "Value": "ServerError"
+        },
+        {
+          "Value": "ServerException"
+        },
+        {
+          "Value": "ServerRuntimeException"
+        },
+        {
+          "Value": "StubNotFoundException"
+        },
+        {
+          "Value": "UnexpectedException"
+        },
+        {
+          "Value": "UnknownHostException"
+        },
+        {
+          "Value": "UnmarshalException"
+        },
+        {
+          "Value": "ActivationInstantiator"
+        },
+        {
+          "Value": "ActivationMonitor"
+        },
+        {
+          "Value": "ActivationSystem"
+        },
+        {
+          "Value": "Activatable"
+        },
+        {
+          "Value": "ActivationDesc"
+        },
+        {
+          "Value": "ActivationGroup"
+        },
+        {
+          "Value": "ActivationGroup_Stub"
+        },
+        {
+          "Value": "ActivationGroupDesc"
+        },
+        {
+          "Value": "ActivationGroupDesc.CommandEnvironment"
+        },
+        {
+          "Value": "ActivationGroupID"
+        },
+        {
+          "Value": "ActivationID"
+        },
+        {
+          "Value": "LocateRegistry"
+        },
+        {
+          "Value": "LoaderHandler"
+        },
+        {
+          "Value": "RemoteCall"
+        },
+        {
+          "Value": "RemoteRef"
+        },
+        {
+          "Value": "RMIClientSocketFactory"
+        },
+        {
+          "Value": "RMIFailureHandler"
+        },
+        {
+          "Value": "RMIServerSocketFactory"
+        },
+        {
+          "Value": "LogStream"
+        },
+        {
+          "Value": "ObjID"
+        },
+        {
+          "Value": "Operation"
+        },
+        {
+          "Value": "RemoteObject"
+        },
+        {
+          "Value": "RemoteObjectInvocationHandler"
+        },
+        {
+          "Value": "RemoteServer"
+        },
+        {
+          "Value": "RemoteStub"
+        },
+        {
+          "Value": "RMIClassLoader"
+        },
+        {
+          "Value": "RMIClassLoaderSpi"
+        },
+        {
+          "Value": "RMISocketFactory"
+        },
+        {
+          "Value": "UID"
+        },
+        {
+          "Value": "UnicastRemoteObject"
+        }
+      ]
+    },
+    {
+      "Name": "java-fileIO",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "[ .]%s[ (]",
+      "Advice": "Move to cloud friendly alternative",
+      "Effort": 3,
+      "Category": "FileIoAPI",
+      "Criticality": "high",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/general/s3-storage-service/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/backing-services-port-binding/fileaccess/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/backing-services-port-binding/persistence/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/backing-services-port-binding/replace-filesystem-with-s3/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "canExecute"
+        },
+        {
+          "Value": "canRead"
+        },
+        {
+          "Value": "canWrite"
+        },
+        {
+          "Value": "createNewFile"
+        },
+        {
+          "Value": "getAbsoluteFile"
+        },
+        {
+          "Value": "getFile"
+        },
+        {
+          "Value": "getAbsolutePath"
+        },
+        {
+          "Value": "getCanonicalFile"
+        },
+        {
+          "Value": "getCanonicalPath"
+        },
+        {
+          "Value": "getFreeSpace"
+        },
+        {
+          "Value": "getTotalSpace"
+        },
+        {
+          "Value": "getUsableSpace"
+        },
+        {
+          "Value": "isDirectory"
+        },
+        {
+          "Value": "isFile"
+        },
+        {
+          "Value": "isHidden"
+        },
+        {
+          "Value": "lastModified"
+        },
+        {
+          "Value": "listFiles"
+        },
+        {
+          "Value": "mkdir"
+        },
+        {
+          "Value": "mkdirs"
+        },
+        {
+          "Value": "renameTo"
+        },
+        {
+          "Value": "setExecutable"
+        },
+        {
+          "Value": "setLastModified"
+        },
+        {
+          "Value": "setReadOnly"
+        },
+        {
+          "Value": "setReadable"
+        },
+        {
+          "Value": "setWritable"
+        },
+        {
+          "Value": "Console"
+        },
+        {
+          "Value": "FileDescriptor"
+        },
+        {
+          "Value": "FileInputStream"
+        },
+        {
+          "Value": "FileOutputStream"
+        },
+        {
+          "Value": "FilePermission"
+        },
+        {
+          "Value": "FileReader"
+        },
+        {
+          "Value": "FileWriter"
+        },
+        {
+          "Value": "LineNumberInputStream"
+        },
+        {
+          "Value": "LineNumberReader"
+        },
+        {
+          "Value": "RandomAccessFile"
+        }
+      ]
+    },
+    {
+      "Name": "java-glassfish-import",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "^import\\s*.*%s\\..*$",
+      "Advice": "Refer to 3rd party organization for cloud affinity of library",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "imports"
+        },
+        {
+          "Value": "third-party"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/modernization/jersey-client-to-glassfish-jersey-client-upgrade/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "com.sun.jersey"
+        }
+      ]
+    },
+    {
+      "Name": "java-importResource",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "^.*@%s$",
+      "Advice": "Change to annotation based config",
+      "Effort": 1,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "annotations"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/general/import-resources/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "ImportResource"
+        }
+      ]
+    },
+    {
+      "Name": "java-iop",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "[ .]%s[ (]",
+      "Advice": "Move to cloud friendly alternatives",
+      "Effort": 3,
+      "Category": "IopAPI",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "PortableRemoteObject"
+        },
+        {
+          "Value": "CodecFactory"
+        },
+        {
+          "Value": "CodecOperations"
+        },
+        {
+          "Value": "TransactionService"
+        },
+        {
+          "Value": "ServiceContext"
+        },
+        {
+          "Value": "TaggedComponent"
+        },
+        {
+          "Value": "TaggedProfile"
+        }
+      ]
+    },
+    {
+      "Name": "java-javaConfig",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "^.*@%s$",
+      "Advice": "Change to javaConfig",
+      "Effort": 1,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "annotations"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/modernization/adding-javaconfig-beans-to-test/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "PropertySource"
+        }
+      ]
+    },
+    {
+      "Name": "java-jaxrs-import",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "^import\\s*.*%s\\..*$",
+      "Advice": "Refer to PCF/Spring documentation for remediation",
+      "Effort": 1,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "MQ"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/general/recipe_converting_jax-rs_to_native_spring_controllers/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/general/jax-rs-to-native-rest-controllers-migration/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "javax.ws.rs"
+        }
+      ]
+    },
+    {
+      "Name": "java-jboss",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "contains",
+      "Advice": "Convert to Spring based POJOs instead of using container specific functionality",
+      "Effort": 3,
+      "Category": "JBoss",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/jbossbuildpackcustomizationguide/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/jbossdistroconfigandminimize/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/migratingjavaeeappstothecloud/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/jbossbp-userguide/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/message-driven-beans/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "import org.jboss."
+        }
+      ]
+    },
+    {
+      "Name": "java-jcaAnnotations",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "^.*@%s$",
+      "Effort": 3,
+      "Category": "JCA",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "annotations"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "AdministeredObjectDefinition"
+        },
+        {
+          "Value": "ConnectionFactoryDefinition"
+        },
+        {
+          "Value": "ConnectionFactoryDefinitions"
+        }
+      ]
+    },
+    {
+      "Name": "java-jms",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "[ .]%s[ (]",
+      "Advice": "Refer to cookbook URIs",
+      "Effort": 1,
+      "Category": "JmsAPI",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/general/embedded-jms-provider-7d975db1628925439d32eb51783830f3/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/spring-boot-mq-listeners/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "MessageConsumer"
+        },
+        {
+          "Value": "ConnectionFactory"
+        },
+        {
+          "Value": "JmsException"
+        },
+        {
+          "Value": "BytesMessage"
+        },
+        {
+          "Value": "CompletionListener"
+        },
+        {
+          "Value": "ConnectionConsumer"
+        },
+        {
+          "Value": "ConnectionFactory"
+        },
+        {
+          "Value": "ConnectionMetaData"
+        },
+        {
+          "Value": "DeliveryMode"
+        },
+        {
+          "Value": "Destination"
+        },
+        {
+          "Value": "ExceptionListener"
+        },
+        {
+          "Value": "JMSConsumer"
+        },
+        {
+          "Value": "JMSContext"
+        },
+        {
+          "Value": "JMSProducer"
+        },
+        {
+          "Value": "MapMessage"
+        },
+        {
+          "Value": "Message"
+        },
+        {
+          "Value": "MessageConsumer"
+        },
+        {
+          "Value": "MessageListener"
+        },
+        {
+          "Value": "MessageProducer"
+        },
+        {
+          "Value": "ObjectMessage"
+        },
+        {
+          "Value": "Queue"
+        },
+        {
+          "Value": "QueueBrowser"
+        },
+        {
+          "Value": "QueueConnection"
+        },
+        {
+          "Value": "QueueConnectionFactory"
+        },
+        {
+          "Value": "QueueReceiver"
+        },
+        {
+          "Value": "QueueSender"
+        },
+        {
+          "Value": "QueueSession"
+        },
+        {
+          "Value": "ServerSession"
+        },
+        {
+          "Value": "ServerSessionPool"
+        },
+        {
+          "Value": "StreamMessage"
+        },
+        {
+          "Value": "TemporaryQueue"
+        },
+        {
+          "Value": "TemporaryTopic"
+        },
+        {
+          "Value": "TextMessage"
+        },
+        {
+          "Value": "Topic"
+        },
+        {
+          "Value": "TopicConnection"
+        },
+        {
+          "Value": "TopicConnectionFactory"
+        },
+        {
+          "Value": "TopicPublisher"
+        },
+        {
+          "Value": "TopicSession"
+        },
+        {
+          "Value": "TopicSubscriber"
+        },
+        {
+          "Value": "XAConnection"
+        },
+        {
+          "Value": "XAConnectionFactory"
+        },
+        {
+          "Value": "XAJMSContext"
+        },
+        {
+          "Value": "XAQueueConnection"
+        },
+        {
+          "Value": "XAQueueConnectionFactory"
+        },
+        {
+          "Value": "XAQueueSession"
+        },
+        {
+          "Value": "XASession"
+        },
+        {
+          "Value": "XATopicConnection"
+        },
+        {
+          "Value": "XATopicConnectionFactory"
+        },
+        {
+          "Value": "XATopicSession"
+        }
+      ]
+    },
+    {
+      "Name": "java-jndi",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "[ .]%s[ (]",
+      "Advice": "Remove jndi provider",
+      "Effort": 1,
+      "Category": "JndiAPI",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/general/remove-jndi-provider-dependency-7d975db1628925439d32eb51783830f3/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "NamingEnumeration"
+        },
+        {
+          "Value": "NameClassPair"
+        },
+        {
+          "Value": "NameParser"
+        },
+        {
+          "Value": "DirContext"
+        },
+        {
+          "Value": "BinaryRefAddr"
+        },
+        {
+          "Value": "CompositeName"
+        },
+        {
+          "Value": "CompoundName"
+        },
+        {
+          "Value": "InitialContext"
+        },
+        {
+          "Value": "LinkRef"
+        },
+        {
+          "Value": "NameClassPair"
+        },
+        {
+          "Value": "RefAddr"
+        },
+        {
+          "Value": "StringRefAddr"
+        },
+        {
+          "Value": "BasicControl"
+        },
+        {
+          "Value": "ControlFactory"
+        },
+        {
+          "Value": "InitialLdapContext"
+        },
+        {
+          "Value": "LdapName"
+        },
+        {
+          "Value": "ManageReferralControl"
+        },
+        {
+          "Value": "PagedResultsControl"
+        },
+        {
+          "Value": "PagedResultsResponseControl"
+        },
+        {
+          "Value": "Rdn"
+        },
+        {
+          "Value": "SortControl"
+        },
+        {
+          "Value": "SortKey"
+        },
+        {
+          "Value": "SortResponseControl"
+        },
+        {
+          "Value": "StartTlsRequest"
+        },
+        {
+          "Value": "StartTlsResponse"
+        },
+        {
+          "Value": "UnsolicitedNotificationEvent"
+        },
+        {
+          "Value": "NamingEvent"
+        },
+        {
+          "Value": "NamingExceptionEvent"
+        }
+      ]
+    },
+    {
+      "Name": "java-jndiSpring",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "contains",
+      "Advice": "Convert to Spring Beans and dependency injection",
+      "Effort": 1,
+      "Category": "SpringJNDI",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "import org.springframework.jndi."
+        }
+      ]
+    },
+    {
+      "Name": "java-jni",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "[ ]%s[ ]",
+      "Advice": "Refer to cookbook URI",
+      "Effort": 5,
+      "Category": "JniApi",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/jni/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "public native"
+        },
+        {
+          "Value": "private native"
+        },
+        {
+          "Value": "static native"
+        }
+      ]
+    },
+    {
+      "Name": "java-jpa-import",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "^import\\s*.*%s\\..*$",
+      "Advice": "Refer to cookbook URI",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "imports"
+        },
+        {
+          "Value": "third-party"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/client/recipe_migrating_from_open-jpa_to_hibernate_implementation_of_jpa/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "javax.persistence"
+        }
+      ]
+    },
+    {
+      "Name": "java-jpa",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "contains",
+      "Advice": "JPA will work inside of Cloud Native applications, but changes may need to be made to the way JPA is configured to get connections",
+      "Effort": 2,
+      "Category": "JPA",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/replace-vanila-jpa-configuration/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/jpaconfigurationforschema/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "import javax.persistence."
+        }
+      ]
+    },
+    {
+      "Name": "java-jsf",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "[ .]%s[ (]",
+      "Advice": "Refer to this recipe URIs",
+      "Effort": 3,
+      "Category": "JsfAPI",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/general/jsf-to-spring/"
+        },
+        {
+          "URI": "https://auth0.com/blog/developing-jsf-applications-with-spring-boot/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/jsf_boot_packaging/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/convert_webxml_servletregbean/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/facesconverter_wiring/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/primefaces-boot/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/spring/velocity_templates_classpath/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "ApplicationConfigurationPopulator"
+        },
+        {
+          "Value": "ApplicationFactory"
+        },
+        {
+          "Value": "ApplicationWrapper"
+        },
+        {
+          "Value": "ConfigurableNavigationHandler"
+        },
+        {
+          "Value": "ConfigurableNavigationHandlerWrapper"
+        },
+        {
+          "Value": "FacesMessage"
+        },
+        {
+          "Value": "FacesMessage.Severity"
+        },
+        {
+          "Value": "NavigationCase"
+        },
+        {
+          "Value": "NavigationCaseWrapper"
+        },
+        {
+          "Value": "NavigationHandler"
+        },
+        {
+          "Value": "NavigationHandlerWrapper"
+        },
+        {
+          "Value": "Resource"
+        },
+        {
+          "Value": "ResourceHandler"
+        },
+        {
+          "Value": "ResourceHandlerWrapper"
+        },
+        {
+          "Value": "ResourceWrapper"
+        },
+        {
+          "Value": "StateManager"
+        },
+        {
+          "Value": "StateManagerWrapper"
+        },
+        {
+          "Value": "ViewHandler"
+        },
+        {
+          "Value": "ViewHandlerWrapper"
+        },
+        {
+          "Value": "ViewResource"
+        },
+        {
+          "Value": "ApplicationScoped"
+        },
+        {
+          "Value": "CustomScoped"
+        },
+        {
+          "Value": "Managemodelean"
+        },
+        {
+          "Value": "ManagedProperty"
+        },
+        {
+          "Value": "NoneScoped"
+        },
+        {
+          "Value": "Referencemodelean"
+        },
+        {
+          "Value": "RequestScoped"
+        },
+        {
+          "Value": "SessionScoped"
+        },
+        {
+          "Value": "ViewScoped"
+        },
+        {
+          "Value": "ActionSource"
+        },
+        {
+          "Value": "ActionSource2"
+        },
+        {
+          "Value": "ContextCallback"
+        },
+        {
+          "Value": "EditableValueHolder"
+        },
+        {
+          "Value": "NamingContainer"
+        },
+        {
+          "Value": "PartialStateHolder"
+        },
+        {
+          "Value": "StateHelper"
+        },
+        {
+          "Value": "StateHolder"
+        },
+        {
+          "Value": "TransientStateHelper"
+        },
+        {
+          "Value": "TransientStateHolder"
+        },
+        {
+          "Value": "UniqueIdVendor"
+        },
+        {
+          "Value": "ValueHolder"
+        },
+        {
+          "Value": "UIColumn"
+        },
+        {
+          "Value": "UICommand"
+        },
+        {
+          "Value": "UIComponent"
+        },
+        {
+          "Value": "UIComponentBase"
+        },
+        {
+          "Value": "UIData"
+        },
+        {
+          "Value": "UIForm"
+        },
+        {
+          "Value": "UIGraphic"
+        },
+        {
+          "Value": "UIInput"
+        },
+        {
+          "Value": "UIMessage"
+        },
+        {
+          "Value": "UIMessages"
+        },
+        {
+          "Value": "UINamingContainer"
+        },
+        {
+          "Value": "UIOutcomeTarget"
+        },
+        {
+          "Value": "UIOutput"
+        },
+        {
+          "Value": "UIPanel"
+        },
+        {
+          "Value": "UIParameter"
+        },
+        {
+          "Value": "UISelectBoolean"
+        },
+        {
+          "Value": "UISelectItem"
+        },
+        {
+          "Value": "UISelectItems"
+        },
+        {
+          "Value": "UISelectMany"
+        },
+        {
+          "Value": "UISelectOne"
+        },
+        {
+          "Value": "UIViewAction"
+        },
+        {
+          "Value": "UIViewParameter"
+        },
+        {
+          "Value": "UIViewParameter.Reference"
+        },
+        {
+          "Value": "UIViewRoot"
+        }
+      ]
+    },
+    {
+      "Name": "java-jsp",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "[ .]%s[ (]",
+      "Advice": "Refer to cookbook URIs",
+      "Effort": 1,
+      "Category": "JspAPI",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/how-to-deploy-jsps-to-pcf/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/legacylib_springcontext/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/refactor-jsp/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/jsp-compile/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/jsp-spring-boot-limitations/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/spring/jsp_placement_bootwar/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "TagSupport"
+        },
+        {
+          "Value": "JspException"
+        },
+        {
+          "Value": "BodyContent"
+        },
+        {
+          "Value": "HttpJspPage"
+        },
+        {
+          "Value": "JspApplicationContext"
+        },
+        {
+          "Value": "JspPage"
+        },
+        {
+          "Value": "JspContext"
+        },
+        {
+          "Value": "JspEngineInfo"
+        },
+        {
+          "Value": "JspFactory"
+        },
+        {
+          "Value": "JspWriter"
+        },
+        {
+          "Value": "PageContext"
+        },
+        {
+          "Value": "JspException"
+        },
+        {
+          "Value": "JspTagException"
+        },
+        {
+          "Value": "SkipPageException"
+        }
+      ]
+    },
+    {
+      "Name": "java-jta",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "[ .]%s[ (]",
+      "Advice": "Refer to cookbook URIs",
+      "Effort": 5,
+      "Category": "jtaAPI",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://www.javaworld.com/article/2077963/open-source-tools/distributed-transactions-in-spring--with-and-without-xa.html"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/modernization/xatrans/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "UserTransaction"
+        },
+        {
+          "Value": "InvalidTransactionException"
+        },
+        {
+          "Value": "TransactionRequiredException"
+        },
+        {
+          "Value": "TransactionRollemodelackException"
+        },
+        {
+          "Value": "Synchronization"
+        },
+        {
+          "Value": "Transaction"
+        },
+        {
+          "Value": "TransactionManager"
+        },
+        {
+          "Value": "TransactionSynchronizationRegistry"
+        },
+        {
+          "Value": "UserTransaction"
+        },
+        {
+          "Value": "HeuristicCommitException"
+        },
+        {
+          "Value": "HeuristicMixedException"
+        },
+        {
+          "Value": "HeuristicRollbackException"
+        },
+        {
+          "Value": "InvalidTransactionException"
+        },
+        {
+          "Value": "NotSupportedException"
+        },
+        {
+          "Value": "RollbackException"
+        },
+        {
+          "Value": "SystemException"
+        },
+        {
+          "Value": "TransactionalException"
+        },
+        {
+          "Value": "TransactionRequiredException"
+        },
+        {
+          "Value": "TransactionRollemodelackException"
+        },
+        {
+          "Value": "XAResource"
+        },
+        {
+          "Value": "Xid"
+        },
+        {
+          "Value": "XAException"
+        }
+      ]
+    },
+    {
+      "Name": "java-log4j-import",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "^import\\s*.*%s\\..*$",
+      "Advice": "Change to logback",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "imports"
+        },
+        {
+          "Value": "third-party"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/modernization/logging-refactoring/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "org.apache.log4j.Logger"
+        }
+      ]
+    },
+    {
+      "Name": "java-mqseries",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "[ .]%s[ (]",
+      "Advice": "Refer to cookbook URIs",
+      "Effort": 1,
+      "Category": "IBM-MQ",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/patterns/service-to-mq/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/configuring-mq-for-pcf/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/mdb_to_jms_listener/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/xml-serialization/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/spring-boot-mq-connections/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/mq-adapter/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/spring/mq-spring/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "MQQueueConnectionFactory"
+        },
+        {
+          "Value": "QueueConnection"
+        },
+        {
+          "Value": "QueueSession"
+        },
+        {
+          "Value": "TextMessage"
+        },
+        {
+          "Value": "QueueSender"
+        },
+        {
+          "Value": "QueueReceiver"
+        },
+        {
+          "Value": "WMQConstants"
+        }
+      ]
+    },
+    {
+      "Name": "java-mulesoft-excp",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "[ .]%s[ (]",
+      "Advice": "Refer to cookbook URIs",
+      "Effort": 3,
+      "Category": "ETL",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/cxf-webservice/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/mule-to-pcf/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/mule-soft/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/spring/muletospringboot/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "TransformerException"
+        }
+      ]
+    },
+    {
+      "Name": "java-mulesoft-import",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "^import\\s*.*%s\\..*$",
+      "Advice": "Refer to cookbook URIs",
+      "Effort": 3,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "imports"
+        },
+        {
+          "Value": "third-party"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/cxf-webservice/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/mule-to-pcf/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/mule-soft/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/spring/muletospringboot/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "org.mule"
+        }
+      ]
+    },
+    {
+      "Name": "java-mulesoft-intf",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "[ .]%s[ {]",
+      "Advice": "Refer to cookbook URIs",
+      "Effort": 3,
+      "Category": "ETL",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/cxf-webservice/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/mule-to-pcf/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/mule-soft/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/spring/muletospringboot/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "AbstractMessageTransformer"
+        },
+        {
+          "Value": "AbstractTransformer"
+        }
+      ]
+    },
+    {
+      "Name": "java-nio",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "[ .]%s[ (]",
+      "Advice": "Move to cloud friendly alternative",
+      "Effort": 1,
+      "Category": "NioAPI",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "BufferOverflowException"
+        },
+        {
+          "Value": "BufferUnderflowException"
+        },
+        {
+          "Value": "InvalidMarkException"
+        },
+        {
+          "Value": "ReadOnlyBufferException"
+        },
+        {
+          "Value": "FileSystemProvider"
+        },
+        {
+          "Value": "GroupPrincipal"
+        },
+        {
+          "Value": "UserPrincipal"
+        },
+        {
+          "Value": "BasicFileAttributeView"
+        },
+        {
+          "Value": "UserPrincipalLookupService"
+        },
+        {
+          "Value": "BasicFileAttributeView"
+        },
+        {
+          "Value": "BasicFileAttributes"
+        },
+        {
+          "Value": "PosixFileAttributeView"
+        },
+        {
+          "Value": "PosixFileAttributes"
+        },
+        {
+          "Value": "PosixFilePermission"
+        },
+        {
+          "Value": "PosixFilePermissions"
+        },
+        {
+          "Value": "SocketChannel"
+        },
+        {
+          "Value": "CharacterCodingException"
+        },
+        {
+          "Value": "ServerSocketChannel"
+        },
+        {
+          "Value": "SelectionKey"
+        },
+        {
+          "Value": "CancelledKeyException"
+        },
+        {
+          "Value": "DatagramChannel"
+        },
+        {
+          "Value": "StandardOpenOption"
+        },
+        {
+          "Value": "MappemodelyteBuffer"
+        },
+        {
+          "Value": "ClosedChannelException"
+        },
+        {
+          "Value": "StandardOpenOption"
+        },
+        {
+          "Value": "AsynchronousChannelGroup"
+        },
+        {
+          "Value": "AsynchronousFileChannel"
+        },
+        {
+          "Value": "AsynchronousServerSocketChannel"
+        },
+        {
+          "Value": "AsynchronousSocketChannel"
+        },
+        {
+          "Value": "Channels"
+        },
+        {
+          "Value": "DatagramChannel"
+        },
+        {
+          "Value": "FileChannel"
+        },
+        {
+          "Value": "FileChannel.MapMode"
+        },
+        {
+          "Value": "FileLock"
+        },
+        {
+          "Value": "MembershipKey"
+        },
+        {
+          "Value": "Pipe"
+        },
+        {
+          "Value": "Pipe.SinkChannel"
+        },
+        {
+          "Value": "Pipe.SourceChannel"
+        },
+        {
+          "Value": "SelectableChannel"
+        },
+        {
+          "Value": "SelectionKey"
+        },
+        {
+          "Value": "Selector"
+        },
+        {
+          "Value": "ServerSocketChannel"
+        },
+        {
+          "Value": "SocketChannel"
+        }
+      ]
+    },
+    {
+      "Name": "java-oracle-import",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "^import\\s*.*%s\\..*$",
+      "Advice": "Refer to PCF/Spring documentation for remediation",
+      "Effort": 1,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "MQ"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/backing-services-port-binding/oracle-database-connectivity/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "com.oracle"
+        }
+      ]
+    },
+    {
+      "Name": "java-rabbitmq-import",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "^import\\s*.*%s\\..*$",
+      "Advice": "Refer to PCF/Spring documentation for remediation",
+      "Effort": 1,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "MQ"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/general/mdbmigration/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/general/configurerabbitmq/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/modernization/rabbitmq-heartbeat/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/backing-services-port-binding/test_rabbitmq/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/telemetry/monitoring_rabbit/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/day2-ops/rabbitmq-retry/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "com.rabbitmq"
+        }
+      ]
+    },
+    {
+      "Name": "java-resource-cci",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "[ .]%s[ (]",
+      "Effort": 2,
+      "Category": "JCA",
+      "Criticality": "high",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "ConnectionFactory"
+        },
+        {
+          "Value": "ConnectionMetaData"
+        },
+        {
+          "Value": "ConnectionSpec"
+        },
+        {
+          "Value": "IndexedRecord"
+        },
+        {
+          "Value": "Interaction"
+        },
+        {
+          "Value": "InteractionSpec"
+        },
+        {
+          "Value": "LocalTransaction"
+        },
+        {
+          "Value": "MappedRecord"
+        },
+        {
+          "Value": "MessageListener"
+        },
+        {
+          "Value": "Record"
+        },
+        {
+          "Value": "RecordFactory"
+        },
+        {
+          "Value": "ResourceAdapterMetaData"
+        },
+        {
+          "Value": "ResultSet"
+        },
+        {
+          "Value": "ResultSetInfo"
+        },
+        {
+          "Value": "Streamable"
+        }
+      ]
+    },
+    {
+      "Name": "java-resource-spi",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "[ .]%s[ (]",
+      "Effort": 2,
+      "Category": "JCA",
+      "Criticality": "high",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "BootstrapContext"
+        },
+        {
+          "Value": "ConnectionEventListener"
+        },
+        {
+          "Value": "ConnectionManager"
+        },
+        {
+          "Value": "ConnectionRequestInfo"
+        },
+        {
+          "Value": "DissociatableManagedConnection"
+        },
+        {
+          "Value": "LazyAssociatableConnectionManager"
+        },
+        {
+          "Value": "LazyEnlistableConnectionManager"
+        },
+        {
+          "Value": "LazyEnlistableManagedConnection"
+        },
+        {
+          "Value": "LocalTransaction"
+        },
+        {
+          "Value": "ManagedConnection"
+        },
+        {
+          "Value": "ManagedConnectionFactory"
+        },
+        {
+          "Value": "ManagedConnectionMetaData"
+        },
+        {
+          "Value": "ResourceAdapter"
+        },
+        {
+          "Value": "ResourceAdapterAssociation"
+        },
+        {
+          "Value": "RetryableException"
+        },
+        {
+          "Value": "TransactionSupport"
+        },
+        {
+          "Value": "ValidatingManagedConnectionFactory"
+        },
+        {
+          "Value": "XATerminator"
+        },
+        {
+          "Value": "MessageEndpointFactory"
+        },
+        {
+          "Value": "GenericCredential"
+        },
+        {
+          "Value": "PasswordCredential"
+        },
+        {
+          "Value": "DistributableWork"
+        },
+        {
+          "Value": "DistributableWorkManager"
+        },
+        {
+          "Value": "Work"
+        },
+        {
+          "Value": "WorkContext"
+        },
+        {
+          "Value": "WorkContextLifecycleListener"
+        },
+        {
+          "Value": "WorkContextProvider"
+        },
+        {
+          "Value": "WorkListener"
+        },
+        {
+          "Value": "WorkManager"
+        },
+        {
+          "Value": "ExecutionContext"
+        },
+        {
+          "Value": "HintsContext"
+        },
+        {
+          "Value": "SecurityContext"
+        },
+        {
+          "Value": "TransactionContext"
+        },
+        {
+          "Value": "WorkAdapter"
+        },
+        {
+          "Value": "WorkContextErrorCodes"
+        },
+        {
+          "Value": "WorkEvent"
+        },
+        {
+          "Value": "WorkCompletedException"
+        },
+        {
+          "Value": "WorkException"
+        },
+        {
+          "Value": "WorkRejectedException"
+        }
+      ]
+    },
+    {
+      "Name": "java-restlet-import",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "^import\\s*.*%s\\..*$",
+      "Advice": "Refer to cookbook URI",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "imports"
+        },
+        {
+          "Value": "third-party"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/spring/migrate_restlet_to_spring_mvc/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "org.restlet"
+        }
+      ]
+    },
+    {
+      "Name": "java-selenium-import",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "^import\\s*.*%s\\..*$",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "imports"
+        },
+        {
+          "Value": "third-party"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "selenium"
+        }
+      ]
+    },
+    {
+      "Name": "java-selenium",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "[ .]%s[ \u003e({]",
+      "Effort": 1,
+      "Category": "WebTest",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "DesiredCapabilities"
+        },
+        {
+          "Value": "FirefoxOptions"
+        },
+        {
+          "Value": "ChromeOptions"
+        },
+        {
+          "Value": "InternetExplorerOptions"
+        },
+        {
+          "Value": "setPreference"
+        },
+        {
+          "Value": "WebDriver"
+        },
+        {
+          "Value": "TestListenerAdapter"
+        },
+        {
+          "Value": "ITestContext"
+        },
+        {
+          "Value": "ITestResult"
+        },
+        {
+          "Value": "ISuiteResult"
+        },
+        {
+          "Value": "ISuite"
+        },
+        {
+          "Value": "ExtentHtmlReporter"
+        }
+      ]
+    },
+    {
+      "Name": "java-servlet",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "contains",
+      "Advice": "Servlet Java API Import",
+      "Effort": 2,
+      "Category": "WebProfile",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "import javax.servlet."
+        }
+      ]
+    },
+    {
+      "Name": "java-soap",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "[ .]%s[ (]",
+      "Advice": "Refer to cookbook URIs",
+      "Effort": 2,
+      "Category": "SoapAPI",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/soap/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/enable-jaxws-client/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/soap-message-interceptors/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "SOAPBody"
+        },
+        {
+          "Value": "SOAPBodyElement"
+        },
+        {
+          "Value": "SOAPConstants"
+        },
+        {
+          "Value": "SOAPElement"
+        },
+        {
+          "Value": "SOAPEnvelope"
+        },
+        {
+          "Value": "SOAPFault"
+        },
+        {
+          "Value": "SOAPFaultElement"
+        },
+        {
+          "Value": "SOAPHeader"
+        },
+        {
+          "Value": "SOAPHeaderElement"
+        },
+        {
+          "Value": "AttachmentPart"
+        },
+        {
+          "Value": "MessageFactory"
+        },
+        {
+          "Value": "MimeHeader"
+        },
+        {
+          "Value": "MimeHeaders"
+        },
+        {
+          "Value": "SAAJMetaFactory"
+        },
+        {
+          "Value": "SAAJResult"
+        },
+        {
+          "Value": "SOAPConnection"
+        },
+        {
+          "Value": "SOAPConnectionFactory"
+        },
+        {
+          "Value": "SOAPElementFactory"
+        },
+        {
+          "Value": "SOAPFactory"
+        },
+        {
+          "Value": "SOAPMessage"
+        },
+        {
+          "Value": "SOAPPart"
+        }
+      ]
+    },
+    {
+      "Name": "java-spring",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "contains",
+      "Advice": "Spring Java API Import",
+      "Category": "Spring",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "import org.springframework."
+        }
+      ]
+    },
+    {
+      "Name": "java-struts",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "[ .]%s[ (]",
+      "Advice": "Refer to cookbook URIs",
+      "Effort": 3,
+      "Category": "StrutsAPI",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/spring/spring_boot_struts/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "LibaryBaseAction"
+        },
+        {
+          "Value": "ActionForward"
+        },
+        {
+          "Value": "ActionForm"
+        },
+        {
+          "Value": "RequestProcessor"
+        },
+        {
+          "Value": "DynaValidationForm"
+        },
+        {
+          "Value": "ActionComponent"
+        },
+        {
+          "Value": "ActionError"
+        },
+        {
+          "Value": "ActionMessage"
+        },
+        {
+          "Value": "Anchor"
+        },
+        {
+          "Value": "AppendIterator"
+        },
+        {
+          "Value": "Checkbox"
+        },
+        {
+          "Value": "CheckboxList"
+        },
+        {
+          "Value": "ClosingUIBean"
+        },
+        {
+          "Value": "ComboBox"
+        },
+        {
+          "Value": "Component"
+        },
+        {
+          "Value": "ComponentUrlProvider"
+        },
+        {
+          "Value": "ContextBean"
+        },
+        {
+          "Value": "DateTextField"
+        },
+        {
+          "Value": "DoubleListUIBean"
+        },
+        {
+          "Value": "DoubleSelect"
+        },
+        {
+          "Value": "FieldError"
+        },
+        {
+          "Value": "FormButton"
+        },
+        {
+          "Value": "GenericUIBean"
+        },
+        {
+          "Value": "InputTransferSelect"
+        },
+        {
+          "Value": "IteratorComponent"
+        },
+        {
+          "Value": "ListUIBean"
+        },
+        {
+          "Value": "MergeIterator"
+        },
+        {
+          "Value": "OptGroup"
+        },
+        {
+          "Value": "OptionTransferSelect"
+        },
+        {
+          "Value": "Radio"
+        },
+        {
+          "Value": "Reset"
+        },
+        {
+          "Value": "Select"
+        },
+        {
+          "Value": "ServletUrlRenderer"
+        },
+        {
+          "Value": "TextArea"
+        },
+        {
+          "Value": "TextField"
+        },
+        {
+          "Value": "UIBean"
+        },
+        {
+          "Value": "UpDownSelect"
+        }
+      ]
+    },
+    {
+      "Name": "java-swing",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "[ .]%s[ (]",
+      "Effort": 3,
+      "Category": "SwingAPI",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "JApplet"
+        },
+        {
+          "Value": "JButton"
+        },
+        {
+          "Value": "JCheckBox"
+        },
+        {
+          "Value": "JCheckBoxMenuItem"
+        },
+        {
+          "Value": "JColorChooser"
+        },
+        {
+          "Value": "JComboBox"
+        },
+        {
+          "Value": "JComponent"
+        },
+        {
+          "Value": "JDesktopPane"
+        },
+        {
+          "Value": "JDialog"
+        },
+        {
+          "Value": "JEditorPane"
+        },
+        {
+          "Value": "JFileChooser"
+        },
+        {
+          "Value": "JFormattedTextField"
+        },
+        {
+          "Value": "JFormattedTextField.AbstractFormatter"
+        },
+        {
+          "Value": "JFormattedTextField.AbstractFormatterFactory"
+        },
+        {
+          "Value": "JFrame"
+        },
+        {
+          "Value": "JInternalFrame"
+        },
+        {
+          "Value": "JInternalFrame.JDesktopIcon"
+        },
+        {
+          "Value": "JLabel"
+        },
+        {
+          "Value": "JLayer"
+        },
+        {
+          "Value": "JLayeredPane"
+        },
+        {
+          "Value": "JList"
+        },
+        {
+          "Value": "JList.DropLocation"
+        },
+        {
+          "Value": "JMenu"
+        },
+        {
+          "Value": "JMenuBar"
+        },
+        {
+          "Value": "JMenuItem"
+        },
+        {
+          "Value": "JOptionPane"
+        },
+        {
+          "Value": "JPanel"
+        },
+        {
+          "Value": "JPasswordField"
+        },
+        {
+          "Value": "JPopupMenu"
+        },
+        {
+          "Value": "JPopupMenu.Separator"
+        },
+        {
+          "Value": "JProgressBar"
+        },
+        {
+          "Value": "JRadioButton"
+        },
+        {
+          "Value": "JRadioButtonMenuItem"
+        },
+        {
+          "Value": "JRootPane"
+        },
+        {
+          "Value": "JScrollBar"
+        },
+        {
+          "Value": "JScrollPane"
+        },
+        {
+          "Value": "JSeparator"
+        },
+        {
+          "Value": "JSlider"
+        },
+        {
+          "Value": "JSpinner"
+        },
+        {
+          "Value": "JSpinner.DateEditor"
+        },
+        {
+          "Value": "JSpinner.DefaultEditor"
+        },
+        {
+          "Value": "JSpinner.ListEditor"
+        },
+        {
+          "Value": "JSpinner.NumberEditor"
+        },
+        {
+          "Value": "JSplitPane"
+        },
+        {
+          "Value": "JTabbedPane"
+        },
+        {
+          "Value": "JTable"
+        },
+        {
+          "Value": "JTable.DropLocation"
+        },
+        {
+          "Value": "JTextArea"
+        },
+        {
+          "Value": "JTextField"
+        },
+        {
+          "Value": "JTextPane"
+        },
+        {
+          "Value": "JToggleButton"
+        },
+        {
+          "Value": "JToggleButton.ToggleButtonModel"
+        },
+        {
+          "Value": "JToolBar"
+        },
+        {
+          "Value": "JToolBar.Separator"
+        },
+        {
+          "Value": "JToolTip"
+        },
+        {
+          "Value": "JTree"
+        },
+        {
+          "Value": "JTree.DropLocation"
+        },
+        {
+          "Value": "JTree.DynamicUtilTreeNode"
+        },
+        {
+          "Value": "JTree.EmptySelectionModel"
+        },
+        {
+          "Value": "JViewport"
+        },
+        {
+          "Value": "JWindow"
+        }
+      ]
+    },
+    {
+      "Name": "java-tibco-jms",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "[ .]%s[ (]",
+      "Advice": "Refer to cookbook URIs",
+      "Effort": 1,
+      "Category": "TibcoAPI",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/how-to-send-and-recieve-jms-messages/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "TibjmsConnectionFactory"
+        }
+      ]
+    },
+    {
+      "Name": "java-weblogic",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "contains",
+      "Advice": "Move away from container specific APIs to portal APIs such as Spring",
+      "Effort": 3,
+      "Category": "WebLogic",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "import weblogic."
+        }
+      ]
+    },
+    {
+      "Name": "java-websphere",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "contains",
+      "Advice": "Move away from container specific APIs to portal APIs such as Spring",
+      "Effort": 3,
+      "Category": "Websphere",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "import ibm.websphere."
+        },
+        {
+          "Value": "import ibm.wsspi."
+        }
+      ]
+    },
+    {
+      "Name": "java-xmlpath",
+      "FileType": "java",
+      "Target": "line",
+      "Type": "regex",
+      "DefaultPattern": "^.*@%s$",
+      "Advice": "Refer to cookbook URIs",
+      "Effort": 1,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "annotations"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/spring/declarative_xml_parsing/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "XmlPath"
+        }
+      ]
+    },
+    {
+      "Name": "js-elinter",
+      "FileType": "js",
+      "Target": "file",
+      "Type": "simple-text",
+      "Advice": "Utilize elinter to improve maintainiblity",
+      "Effort": 1,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "file"
+        },
+        {
+          "Value": "JS"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/code-organization/eslint-and-prettier/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": ".*\\.js"
+        }
+      ]
+    },
+    {
+      "Name": "xlm-sql-beanInjection",
+      "FileType": "sql",
+      "Target": "file",
+      "Type": "simple-text",
+      "Advice": "Refer to cookbook URIs",
+      "Effort": 1,
+      "Category": "SQL",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "file"
+        },
+        {
+          "Value": "sql"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/sql-bean-injection/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "*\\.sql"
+        }
+      ]
+    },
+    {
+      "Name": "wsdl-soap",
+      "FileType": "wsdl",
+      "Target": "file",
+      "Type": "simple-text",
+      "Advice": "Refer to cookbook URIs",
+      "Effort": 2,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "file"
+        },
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/client/recipe_connecting_to_external_soap_services_without_jndi/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/client/recipe_calling_soap_services_with_ws-security_headers/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/client/recipe_add_soap_mocks_soapui_/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/client/recipe_add_soap_logging_handler/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/general/cxf-code-gen/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/general/convert-soap-to-springboot/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/general/how-to-consume-soap-service/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/spring/spring-boot-soap-services/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/enable-jaxws-client/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/enable-jaxws-service/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/generate-jaxws/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/generate-jaxb/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/migrate_axis2_to_spring_web_services/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/soap-message-interceptors/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/spring/recipe_using_keeping_jax-ws_web_services_with_spring_boot/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "*\\.wsdl"
+        }
+      ]
+    },
+    {
+      "Name": "xml-activeMQ",
+      "FileType": "xml",
+      "Target": "line",
+      "Type": "contains",
+      "Advice": "Convert to rabbitmq",
+      "Effort": 1,
+      "Category": "JavaEEConfig",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": ""
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "amq:broker"
+        }
+      ]
+    },
+    {
+      "Name": "xlm-jboss",
+      "FileType": "xml",
+      "Target": "file",
+      "Type": "simple-text",
+      "Advice": "Refer to cookbook URIs",
+      "Effort": 1,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "file"
+        },
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/spring/jboss-to-spring-boot/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/jbossbuildpackcustomizationguide/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/jbossdistroconfigandminimize/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/migratingjavaeeappstothecloud/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/jbossbp-userguide/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/message-driven-beans/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "jaws.xml"
+        },
+        {
+          "Value": "jboss.xml"
+        },
+        {
+          "Value": "jbosscmp-jmodelc.xml"
+        },
+        {
+          "Value": "jboss-service.xml"
+        },
+        {
+          "Value": "jboss-web.xml"
+        }
+      ]
+    },
+    {
+      "Name": "xml-jee",
+      "FileType": "xml",
+      "Target": "file",
+      "Type": "simple-text",
+      "Advice": "Convert to Spring based application configuration",
+      "Effort": 1,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "file"
+        },
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "application.xml"
+        },
+        {
+          "Value": "application-client.xml"
+        },
+        {
+          "Value": "ejb-jar.xml"
+        },
+        {
+          "Value": "ra.xml"
+        },
+        {
+          "Value": "webservices.xml"
+        }
+      ]
+    },
+    {
+      "Name": "xml-jee2",
+      "FileType": "xml",
+      "Target": "line",
+      "Type": "contains",
+      "Advice": "Convert to Spring based application configuration",
+      "Effort": 1,
+      "Category": "JavaEEConfig",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "xmlns.jcp.org/xml/ns/javaee"
+        }
+      ]
+    },
+    {
+      "Name": "xlm-manifest",
+      "FileType": "xml",
+      "Target": "file",
+      "Type": "simple-text",
+      "Advice": "Refer to cookbook URIs",
+      "Effort": 1,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "file"
+        },
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "manifest.xml"
+        }
+      ]
+    },
+    {
+      "Name": "xml-tomcat",
+      "FileType": "xml",
+      "Target": "file",
+      "Type": "simple-text",
+      "Advice": "Refer to cookbook URIs",
+      "Effort": 2,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "file"
+        },
+        {
+          "Value": "TomCat"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/client/tomcat-ide-server-configuration/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/client/troubleshooting-apache-tomcat-servlet-startup/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/general/tomcat-jdbc-pool/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/general/tomcat-gc-measurement/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/general/tomcat-context-path/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/custom-context-jarscanner-filter/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/customizing-java-buildpack-tomcat/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/embedded-tomcat/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/configure-resource-in-tomee-buildpack/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/specify-webapp-root-context/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/persistent-session/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/migratingjavaeeappstothecloud/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/spring/configuring_connection_pool/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "configure.xml"
+        },
+        {
+          "Value": "WEB-INF"
+        }
+      ]
+    },
+    {
+      "Name": "xlm-webConfig",
+      "FileType": "xml",
+      "Target": "file",
+      "Type": "simple-text",
+      "Advice": "Convert to Spring based application configuration",
+      "Effort": 1,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "file"
+        },
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/client/configuration_in_core/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/dotnet-framework-externalizing-connection-strings/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "web.config"
+        },
+        {
+          "Value": "Web.config"
+        }
+      ]
+    },
+    {
+      "Name": "xml-weblogic",
+      "FileType": "xml",
+      "Target": "file",
+      "Type": "simple-text",
+      "Advice": "Convert to Spring based application configuration",
+      "Effort": 1,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "file"
+        },
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/code-organization/fast-props-config-server/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "weblogic.xml"
+        },
+        {
+          "Value": "weblogic-cmp-rmodelms-jar.xml"
+        },
+        {
+          "Value": "weblogic-ejb-jar.xml"
+        },
+        {
+          "Value": "weblogic-ra.xml"
+        },
+        {
+          "Value": "persistence-configuration.xml"
+        },
+        {
+          "Value": "weblogic-webservices.xml"
+        },
+        {
+          "Value": "weblogic-wsee-clientHandlerChain.xml"
+        },
+        {
+          "Value": "webservice-policy-ref.xml"
+        },
+        {
+          "Value": "weblogic-wsee-standaloneclient.xml"
+        },
+        {
+          "Value": "weblogic-application.xml"
+        }
+      ]
+    },
+    {
+      "Name": "xml-webprofile",
+      "FileType": "xml",
+      "Target": "file",
+      "Type": "simple-text",
+      "Advice": "Web application config file",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "file"
+        },
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/client/web-xml-to-java-webconfiguration-class/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/general/servlet-filter/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/general/servlet-registration/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/convert_webxml_spring/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "persistence.xml"
+        },
+        {
+          "Value": "web.xml"
+        },
+        {
+          "Value": "applicationContext.xml"
+        }
+      ]
+    },
+    {
+      "Name": "xml-websphere",
+      "FileType": "xm[li]",
+      "Target": "file",
+      "Type": "simple-text",
+      "Advice": "Convert to Spring based application configuration",
+      "Effort": 4,
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "file"
+        },
+        {
+          "Value": "api"
+        }
+      ],
+      "Recipes": [
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/replacing_ibm_workmanager_with_java_executors/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/replatforming/workstation/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/eliminate_workitem/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/migratingjavaeeappstothecloud/"
+        },
+        {
+          "URI": "https://app-transformation-cookbook-internal.cfapps.io/javaee/liberty-users-guide/"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "client-resource.xmi"
+        },
+        {
+          "Value": "ibm-application-bnd.xmi"
+        },
+        {
+          "Value": "ibm-application-bnd.xml"
+        },
+        {
+          "Value": "ibm-application-client-bnd.xmi"
+        },
+        {
+          "Value": "ibm-application-client-bnd.xml"
+        },
+        {
+          "Value": "ibm-application-client-ext.xmi"
+        },
+        {
+          "Value": "ibm-application-client-ext.xml"
+        },
+        {
+          "Value": "ibm-application-ext.xmi"
+        },
+        {
+          "Value": "ibm-application-ext.xml"
+        },
+        {
+          "Value": "ibm-ejb-access-bean.xml"
+        },
+        {
+          "Value": "ibm-ejb-jar-bnd.xmi"
+        },
+        {
+          "Value": "ibm-ejb-jar-bnd.xml"
+        },
+        {
+          "Value": "ibm-ejb-jar-ext.xmi"
+        },
+        {
+          "Value": "ibm-ejb-jar-ext.xml"
+        },
+        {
+          "Value": "ibm-ejb-jar-ext-pme.xmi"
+        },
+        {
+          "Value": "ibm-ejb-jar-ext-pme.xml"
+        },
+        {
+          "Value": "ibm-webservices-bnd.xmi"
+        },
+        {
+          "Value": "ibm-webservices-ext.xml"
+        },
+        {
+          "Value": "ibm-web-bnd.xmi"
+        },
+        {
+          "Value": "ibm-web-bnd.xml"
+        },
+        {
+          "Value": "ibm-web-ext.xmi"
+        },
+        {
+          "Value": "ibm-web-ext.xml"
+        },
+        {
+          "Value": "ibm-web-ext-pme.xmi"
+        },
+        {
+          "Value": "ibm-web-ext-pme.xml"
+        },
+        {
+          "Value": "j2c_plugin.xml"
+        }
+      ]
+    },
+    {
+      "Name": "yml-12factor",
+      "FileType": "yml",
+      "Target": "line",
+      "Type": "contains",
+      "Advice": "12 Factor",
+      "Effort": 1,
+      "Category": "12Factor",
+      "Criticality": "medium",
+      "Tags": [
+        {
+          "Value": "api"
+        }
+      ],
+      "Patterns": [
+        {
+          "Value": "http://",
+          "Advice": "Externalize URLs"
+        },
+        {
+          "Value": "https://",
+          "Advice": "Externalize URLs"
+        },
+        {
+          "Value": "password",
+          "Advice": "Review to ensure password is not in cleartext"
+        },
+        {
+          "Value": "apiKey",
+          "Advice": "Review to ensure API Key is not in cleartext"
+        }
+      ]
+    }
+  ]
+}
