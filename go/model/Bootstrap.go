@@ -6,10 +6,14 @@ package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
 <<<<<<< HEAD
+<<<<<<< HEAD
 //Created @ 2022-10-03 17:56:47.625869 -0400 EDT m=+0.125718363
 =======
 //Created @ 2022-06-27 13:51:59.774096 -0500 CDT m=+0.062766657
 >>>>>>> 21df02c (Title: Add newly revised rules)
+=======
+//Created @ 2022-06-27 14:22:18.466851 -0500 CDT m=+0.110758078
+>>>>>>> 35d7036 (Title: Add new rules)
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
