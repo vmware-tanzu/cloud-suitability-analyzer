@@ -14,10 +14,15 @@ tags:
 patterns:
 #--- major etl vendors, add more as needed
 - value: org.talend
+  tag: talend
 - value: oracle.odi
+  tag: oracle-odi
 - value: com.ibm.is
+  tag: ibm-is
 - value: net.sf.jasper
+  tag: jasper
 - value: org.pentaho
+  tag: pentaho
 
 
 ##import org.talend

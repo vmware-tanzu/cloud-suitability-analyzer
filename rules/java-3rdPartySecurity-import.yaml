@@ -8,17 +8,25 @@ effort: 7
 readiness: 10
 category: security
 tags:
-- value: third-party
 - value: security
-- value: api
 patterns:
 - value: com.netegrity.policyserver.smapi
+  tag: netegrity
 - value: com.netegrity.sdk.apiutil
+  tag: netegrity
 - value: com.ibm.tspm
+  tag: ibm-tspm
 - value: com.oblix.access
+  tag: oblix
 - value: com.netegrity.sdk.imspolicyapi
+  tag: netegrity
 - value: com.netegrity.sdk.policyapi
+  tag: netegrity
 - value: netegrity.siteminder.javaagent
+  tag: netegrity
 - value: com.rsa
+  tag: rsa
 - value: com.oracle.am.asdk
+  tag: oracle-am-asdk
 - value: com.netegrity.sdk.dmsapi
+  tag: netegrity

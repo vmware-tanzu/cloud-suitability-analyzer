@@ -2,16 +2,12 @@ name: java-processexit
 filetype: java$
 target: line
 type: regex
-effort: 3
+effort: 9
 readiness: 10
 advice: Refer to IBM documentation
 defaultpattern: '^.*[.]%s[ (].*$'
 category: process
 tags:
-- value: cloud
-- value: api
-- value: deprecated
-- value: java
 - value: processexit
 patterns:
 - value: exit

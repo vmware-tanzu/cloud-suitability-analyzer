@@ -8,9 +8,9 @@ advice: Refer to platform documentation
 effort: 10
 readiness: 7
 tags:
-- value: api
 - value: jsf
 - value: webprofile
+- value: trinidad
 patterns:
 - value: myfaces.apache.org/trinidad/config
 ##myfaces.apache.org/trinidad/config

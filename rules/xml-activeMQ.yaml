@@ -7,9 +7,8 @@ advice: Convert to rabbitmq or use TKG
 effort: 5
 readiness: 10
 tags:
-  - value: api
   - value: amqp
-  - value: messaging
+  - value: MessageQueue
 patterns:
   - value: amq:broker
 ## amq:broker

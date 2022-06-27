@@ -8,8 +8,9 @@ effort: 5
 category: annotations
 tags:
 - value: annotations
-- value: javaee
+- value: message-driven
 patterns:
 - value: MessageDriven
+  tag: message-driven
 - value: ActivationConfigProperty
-  tag: messaging
+  tag: message-driven

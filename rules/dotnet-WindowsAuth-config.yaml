@@ -8,6 +8,8 @@ category: Unsupported modules
 advice: Ensure compatible configuation
 effort: 500
 readiness: 1
+tag:
+- value: Windows-Auth
 patterns:
 - value: //system.webServer/security/authentication/windowsAuthentication[translate(@enabled, "abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ") = "TRUE"][1]
 - value: /configuration/system.serviceModel/bindings//binding/security/transport[translate(@clientCredentialType, "abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ")="WINDOWS"][1]

@@ -8,8 +8,7 @@ effort: 6
 readiness: 7
 category: struts
 tags:
-  - value: api
-  - value: ui
+  - value: struts
   - value: webapp
   - value: webcontainer
 patterns:
@@ -26,7 +25,6 @@ patterns:
   - value: CheckboxList
   - value: ClosingUIBean
   - value: ComboBox
-  ## - value: Component
   - value: ComponentUrlProvider
   - value: ContextBean
   - value: DateTextField
@@ -42,8 +40,6 @@ patterns:
   - value: OptGroup
   - value: OptionTransferSelect
   - value: Radio
-  ## - value: Reset
-  ## - value: Select
   - value: ServletUrlRenderer
   - value: TextArea
   - value: TextField

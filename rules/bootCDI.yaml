@@ -11,8 +11,14 @@ tags:
   - value: cdi
 patterns:
   - value: javaee-api
+    tag: javaee-api
   - value: javax.inject
+    tag: javax-ingect
   - value: cdi-api
+    tag: cdi-api
   - value: jboss-ejb-api_3.0_spec
+    tag: jboss-ejb-api_3.0_spec 
   - value: jboss-ejb-api_3.1_spec
+    tag: jboss-ejb-api_3.1_spec
   - value: jboss-ejb-api_3.2_spec
+    tag: jboss-ejb-api_3.2_spec

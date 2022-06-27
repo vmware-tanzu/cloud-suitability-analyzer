@@ -9,7 +9,6 @@ advice: Refer to platform documentation
 effort: 10
 readiness: 0
 tags:
-  - value: api
   - value: jdbc
   - value: sql
   - value: snap

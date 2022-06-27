@@ -7,6 +7,8 @@ advice: Refer to platform documentation
 category: Unsupported IIS modules
 effort: 1000
 readiness: 0
+tags:
+- value: isapi-Filter
 patterns:
 - value: /configuration/system.webServer/isapiFilters[1]
 ## <isapiFilters

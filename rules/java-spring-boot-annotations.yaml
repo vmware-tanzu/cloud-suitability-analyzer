@@ -9,9 +9,6 @@ readiness: 0
 defaultpattern: ^\s*@%s
 category: spring-boot
 tags:
-- value: annotations
-- value: spring
 - value: spring-boot
-- value: api
 patterns:
 - value: SpringBootApplication

@@ -10,9 +10,7 @@ advice: Refer to platform documentation
 defaultpattern: "^.*[ .]%s[ {].*"
 category: etl
 tags:
-  - value: api
-  - value: mule
-  - value: api-gateway
+  - value: mulesoft
 patterns:
   - value: AbstractMessageTransformer
   - value: AbstractTransformer

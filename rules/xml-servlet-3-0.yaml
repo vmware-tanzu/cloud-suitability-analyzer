@@ -8,7 +8,6 @@ advice: Refer to platform documentation
 effort: 8
 readiness: 10
 tags:
-- value: api
 - value: servlet
 - value: webcontainer
 patterns:

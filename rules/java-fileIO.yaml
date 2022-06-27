@@ -8,11 +8,9 @@ defaultpattern: "^.*[ .]%s[ (].*"
 advice: Move to cloud friendly alternative or TKG
 effort: 8
 readiness: 8
-category: io
+category: I/O
 tags:
-  - value: api
-  - value: io
-  - value: java-fileio
+  - value: I/O
 patterns:
   - value: getNextEntry
   - value: putNextEntry

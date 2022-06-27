@@ -10,4 +10,6 @@ tags:
 - value: logging
 patterns:
 - value: Serilog.Sinks
+  tag: Serilog
 - value: .UseSerilog()
+  tag: Serilog

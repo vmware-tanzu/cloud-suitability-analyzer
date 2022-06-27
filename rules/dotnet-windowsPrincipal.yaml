@@ -6,6 +6,8 @@ advice: Operations requiring a Windows domain are not supported.
 effort: 1000
 readiness: 8
 category: Unsupported modules
+tags:
+- value: Security-Principal
 patterns:
 - value: System.Security.Principal.Windows
   advice: Operations requiring a Windows domain are not supported

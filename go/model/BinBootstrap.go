@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapBinsTemplate.txt found under go/resources folder
-//Created @ 2022-06-22 12:44:21.827705386 -0500 CDT m=+0.091927904
+//Created @ 2022-06-27 13:51:59.907081 -0500 CDT m=+0.195750200
 
 func BootstrapBins() []Bin {
     var BootstrapBins = []Bin{
@@ -27,7 +27,7 @@ func BootstrapBins() []Bin {
         
             { Name: "CONTAINER",
             Tags:
-            []*BinTag{  { Name: "term", Type: 1, Action: "OR", },  { Name: "metrics", Type: 1, Action: "OR", },  { Name: "sudo", Type: 1, Action: "OR", },  { Name: "healthcheck", Type: 1, Action: "OR", },  { Name: "ehcache", Type: 1, Action: "OR", },  { Name: "non-root", Type: 1, Action: "OR", },  { Name: "hardip", Type: 1, Action: "OR", },  { Name: "processexit", Type: 1, Action: "OR", },  { Name: "distcache", Type: 1, Action: "OR", },  { Name: "wscluster", Type: 1, Action: "OR", },  { Name: "wlcluster", Type: 0, Action: "ORs", },  { Name: "io", Type: 1, Action: "OR", },  { Name: "log2file", Type: 1, Action: "OR", },  { Name: "docker", Type: 1, Action: "OR", },  { Name: "transaction", Type: 1, Action: "OR", },  },
+            []*BinTag{  { Name: "term", Type: 1, Action: "OR", },  { Name: "metrics", Type: 1, Action: "OR", },  { Name: "sudo", Type: 1, Action: "OR", },  { Name: "healthcheck", Type: 1, Action: "OR", },  { Name: "ehcache", Type: 1, Action: "OR", },  { Name: "non-root", Type: 1, Action: "OR", },  { Name: "hardip", Type: 1, Action: "OR", },  { Name: "processexit", Type: 1, Action: "OR", },  { Name: "distcache", Type: 1, Action: "OR", },  { Name: "wscluster", Type: 1, Action: "OR", },  { Name: "wlcluster", Type: 0, Action: "ORs", },  { Name: "I/O", Type: 1, Action: "OR", },  { Name: "log2file", Type: 1, Action: "OR", },  { Name: "docker", Type: 1, Action: "OR", },  { Name: "transaction", Type: 1, Action: "OR", },  },
              },
         
             { Name: "BOOT",
@@ -57,7 +57,7 @@ func BootstrapBins() []Bin {
         
             { Name: "Thick Java Clients",
             Tags:
-            []*BinTag{  { Name: "fat-client", Type: 1, Action: "OR", },  },
+            []*BinTag{  { Name: "desktop-app", Type: 1, Action: "OR", },  },
              },
         
             { Name: "Caching",
@@ -67,7 +67,7 @@ func BootstrapBins() []Bin {
         
             { Name: "Data",
             Tags:
-            []*BinTag{  { Name: "io", Type: 1, Action: "OR", },  },
+            []*BinTag{  { Name: "I/O", Type: 1, Action: "OR", },  },
              },
         
             { Name: "Monolith",

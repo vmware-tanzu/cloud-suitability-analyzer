@@ -10,10 +10,8 @@ readiness: 6
 advice: Run embedded service broker as a JMS Provider. 
 category: jms
 tags:
-  - value: api
   - value: jms
-  - value: messaging
-  - value: fullprofile
+  - value: MessageQueue
 patterns:
   - value: MessageConsumer
     tag: jms-listener

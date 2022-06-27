@@ -4,15 +4,19 @@ target: line
 type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Indicates existance of healthcheck endpoint, which is positive finding
-effort: 1
+effort: -100
 readiness: 7
 category: healthcheck
 tags:
-  - value: api
   - value: healthcheck
 patterns:
   - value: netflix.karyon.transport.http.health.HealthCheckEndpoint
+    tag: karyon-healthcheck
   - value: com.netflix.runtime.health.guice
+    tag: netflix-healthcheck
   - value: com.netflix.runtime.health.api.HealthCheckAggregator
+    tag: netflix-healthcheck
   - value: com.netflix.runtime.health.api.HealthCheckStatus
+    tag: netflix-healthcheck
   - value: com.netflix.runtime.health.api.IndicatorMatcher
+    tag: netflix-healthcheck

@@ -7,9 +7,7 @@ advice: Convert to Spring based application configuration
 effort: 500
 readiness: 1000
 tags:
-  - value: api
   - value: websphere
-  - value: javaee
   - value: fullprofile
 patterns:
   - value: client-resource.xmi

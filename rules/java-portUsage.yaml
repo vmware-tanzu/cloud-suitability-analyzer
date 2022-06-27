@@ -9,9 +9,6 @@ readiness: 6
 category: portUsage
 tags:
   - value: portUsage
-  - value: api
-  - value: protocol
-  - value: url
 patterns:
   - value: https
   - value: http

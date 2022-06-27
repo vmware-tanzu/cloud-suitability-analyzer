@@ -8,8 +8,6 @@ effort: 0
 readiness: 0
 tags:
 - value: buildSystem
-- value: api
-- value: snap
 patterns:
 - value: build.xml
   tag: ant

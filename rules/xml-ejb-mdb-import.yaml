@@ -12,7 +12,6 @@ tags:
 - value: ejb
 - value: javaee
 - value: fullprofile
-- value: api
 patterns:
 - value: MessageDriven
 ##MessageDriven

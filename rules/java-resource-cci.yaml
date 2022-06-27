@@ -8,8 +8,7 @@ readiness: 7
 advice: Consult with TAS documetation for configuration or use TKG
 category: jca
 tags:
-  - value: api
-  - value: jca
+  - value: cci
   - value: resource-adapter
 patterns:
   - value: createInteraction

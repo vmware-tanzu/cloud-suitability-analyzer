@@ -8,9 +8,7 @@ effort: 10
 readiness: 7
 category: restlet
 tags:
-  - value: api
   - value: rest
-  - value: json
   - value: restlet
 patterns:
   - value: org.restlet

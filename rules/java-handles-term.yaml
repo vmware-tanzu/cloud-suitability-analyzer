@@ -8,7 +8,6 @@ effort: 1
 readiness: 6
 category: termsignal
 tags:
-  - value: api
   - value: term
 patterns:
   - value: Runtime.getRuntime().addShutdownHook

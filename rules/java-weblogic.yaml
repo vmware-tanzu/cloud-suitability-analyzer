@@ -7,9 +7,7 @@ effort: 50
 readiness: 10
 category: webLogic
 tags:
-  - value: api
   - value: weblogic
-  - value: weblogic-imports
 patterns:
   - value: import weblogic.
 ## import weblogic.

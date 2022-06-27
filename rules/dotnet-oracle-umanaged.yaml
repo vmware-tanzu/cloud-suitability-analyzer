@@ -6,9 +6,10 @@ type: contains
 advice: Oracle unmanaged driver requires including binaries with app 
 readiness: 8
 effort: 3
-category: DatabaseAccess
+category: Database
 tags:
 - value: Database
 patterns:
 - value: Oracle.DataAccess
+  tag: Oracle
   advice: Oracle unmanaged driver requires including binaries with app -- can use buildpack. 

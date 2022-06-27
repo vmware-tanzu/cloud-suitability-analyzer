@@ -5,10 +5,9 @@ type: regex
 defaultpattern: ^\s*@%s
 advice: Relies on container for shared state and will require a rewrite to Stateless or move to TKG
 effort: 5
-category: annotations
+category: stateful
 tags:
-- value: annotations
-- value: javaee
+- value: stateful
 patterns:
 - value: Stateful
 - value: Init

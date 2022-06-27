@@ -8,20 +8,24 @@ effort: 50
 readiness: 10
 category: nondistcache
 tags:
-  - value: imports
-  - value: stateful
-  - value: cache-import
   - value: cache
-  - value: api
   - value: nondistcache
 patterns:
   - value: com.tangosol
+    tag: tangosol
   - value: org.apache.commons-jcs-jcache
+    tag: jcs-jcache
   - value: com.ibm.websphere.cache
-  - value: com.hazelcast
+    tag: websphere-cache
   - value: org.jboss.ha.cachemanager
+    tag: jboss-ha-cachemanager
   - value: javax.cache
+    tag: javax-cache
   - value: net.spy.memcached
+    tag: net-spy-memcached
   - value: com.opensymphony.oscache
+    tag: opensymphony-oscache
   - value: org.shiftone-cache
+    tag: shiftone-casche
   - value: com.ibm.websphere.objectgrid
+    tag: websphere-objectgrid

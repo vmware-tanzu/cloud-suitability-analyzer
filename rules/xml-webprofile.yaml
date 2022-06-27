@@ -7,8 +7,6 @@ readiness: 1000
 type: simple-text
 advice: Web application config file
 tags:
-  - value: api
-  - value: javaee
   - value: webprofile
 patterns:
   - value: persistence.xml

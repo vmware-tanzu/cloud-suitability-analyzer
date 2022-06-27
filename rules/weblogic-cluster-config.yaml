@@ -8,7 +8,6 @@ advice: weblogic clusters cannot run in K8S
 effort: 1
 readiness: 0
 tags:
-  - value: api
   - value: wlcluster
 patterns:
   #--- cluster property

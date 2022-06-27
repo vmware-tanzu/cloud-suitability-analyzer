@@ -7,8 +7,7 @@ advice: Convert to Spring based application configuration
 effort: 0
 readiness: 0
 tags:
-- value: file
-- value: api
+- value: web-config
 patterns:
 - value: web.config
 - value: Web.config

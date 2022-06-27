@@ -8,7 +8,6 @@ advice: Refer to platform documentation
 effort: 600
 readiness: 700
 tags:
-- value: api
 - value: webapp
 - value: weblogic
 patterns:

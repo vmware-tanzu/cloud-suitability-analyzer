@@ -7,6 +7,9 @@ category: Unsupported modules
 advice: Ensure compatible configuation
 effort: 400
 readiness: 5
+tags:
+- value: StaticFileModule
+- value: webserver
 patterns:
 - value: /configuration/system.webServer/handlers/add[contains(@modules, "StaticFileModule")][1]
 ## StaticFileModule

@@ -11,21 +11,37 @@ tags:
   - value: api
 patterns:
   - value: "t3:"
+    tag: t3
   - value: "iiop:"
+    tag: iiop
   - value: "corbaloc"
+    tag: corba
   - value: "tcp:"
+    tag: tcp
   - value: "ssl:"
+    tag: ssl
   - value: "udp:"
+    tag: udp
   - value: "imap:"
+    tag: imap
   - value: "jdbc:"
+    tag: jdbc
   - value: "ldap:"
+    tag: ldap
   - value: "ldaps:"
+    tag: ldaps
   - value: "pop2:"
+    tag: pop2
   - value: "smtp:"
+    tag: smtp
   - value: "ssl:"
+    tag: ssl
   - value: "tcp:"
+    tag: tcp
   - value: "ftp:"
+    tag: ftp
   - value: "sftp:"
+    tag: sftp
 ## t3:
 ## iiop:
 ## corbaloc

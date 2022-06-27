@@ -9,8 +9,6 @@ readiness: 10
 category: threading
 tags:
 - value: threading
-- value: api
 - value: jetty
-- value: jetty-import
 patterns:
 - value: org.eclipse.jetty

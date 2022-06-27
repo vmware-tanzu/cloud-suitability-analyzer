@@ -11,3 +11,4 @@ tags:
   - value: struts
 patterns:
   - value: struts2-core
+    tag: struts-2

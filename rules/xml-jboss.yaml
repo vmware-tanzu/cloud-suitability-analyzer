@@ -9,7 +9,6 @@ readiness: 5
 tags:
 - value: jboss
 - value: javaee
-- value: api
 patterns:
 - value: jaws.xml
   tag: orm

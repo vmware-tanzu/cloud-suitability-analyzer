@@ -2,12 +2,11 @@ name: log4j-properties
 filetype: log4j2.properties$
 target: line
 type: contains
-category: logtofile
+category: log2file
 advice: Refer to platform documentation
 effort: 1
 readiness: 0
 tags:
-  - value: api
   - value: log2file
 patterns:
   #--- SQL command

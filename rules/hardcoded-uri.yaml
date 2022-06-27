@@ -7,7 +7,8 @@ effort: 3
 readiness: 8
 category: env-config
 tags:
-- value: env-config
+- value: hardcoded-uri
 patterns:
 - value: http://
 - value: https://
+#review

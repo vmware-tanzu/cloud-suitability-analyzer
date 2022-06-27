@@ -7,8 +7,6 @@ effort: 1000
 readiness: 10
 category: Process
 tags:
-  - value: api
-  - value: java
   - value: jni
 patterns:
   - value: System.loadLibrary

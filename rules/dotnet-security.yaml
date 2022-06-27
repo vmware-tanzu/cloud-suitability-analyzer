@@ -7,7 +7,8 @@ readiness: 10
 effort: 3
 category: Security
 tags:
-- value: api
+- value: Security
 patterns:
 - value: X509Store
+  tag: X509Store
 ## X509Store

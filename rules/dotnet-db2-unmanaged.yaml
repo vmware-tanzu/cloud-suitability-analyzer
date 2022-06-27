@@ -6,9 +6,10 @@ type: contains
 advice: Refer to platform documentation
 patterns:
 - value: IBM.Data.DB2
+  tag: DB2
   advice: IBM.Data.DB2 can require a special procedure so that the driver's native components are deployed with the application. 
 readiness: 9
 effort: 10
-category: DatabaseAccess
+category: Database
 tags:
 - value: Database

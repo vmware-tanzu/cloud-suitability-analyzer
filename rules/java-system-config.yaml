@@ -5,9 +5,9 @@ type: contains
 advice: Review usage of environment variables and system properties and externalize.
 effort: 3
 readiness: 10 
-category: env-config
+category: config
 tags:
-- value: env-config
+- value: config
 patterns:
 - value: System.getenv(
 - value: System.getProperty(

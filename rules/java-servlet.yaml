@@ -7,7 +7,6 @@ readiness: 0
 advice: Servlet Java API Import
 category: servlet
 tags:
-- value: api
 - value: servlet
 - value: webcontainer
 patterns:

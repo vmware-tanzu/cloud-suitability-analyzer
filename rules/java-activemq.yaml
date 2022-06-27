@@ -10,8 +10,7 @@ effort: 7
 readiness: 7
 category: activemq
 tags:
-  - value: api
   - value: activemq
-  - value: messaging
+  - value: MessageQueue
 patterns:
   - value: createActiveMQConnection

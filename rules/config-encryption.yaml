@@ -7,6 +7,6 @@ advice: Use of encrypted sections is problematic in cloud environments
 effort: 300
 category: Security
 tags:
-- value: config
+- value: Protection-Provider
 patterns:
   - value: //*[@configProtectionProvider][1]
