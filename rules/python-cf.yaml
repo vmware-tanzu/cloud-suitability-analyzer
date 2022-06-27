@@ -5,7 +5,7 @@ type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Check for cloud foundry support.
 # TODO
-effort: -1
+effort: -10
 readiness: 10
 category: cloud-foundry
 tags:

@@ -9,8 +9,6 @@ readiness: 8
 category: jax-rs
 tags:
   - value: jaxrs
-  - value: api
-  - value: json
   - value: rest
 patterns:
   - value: javax.ws.rs

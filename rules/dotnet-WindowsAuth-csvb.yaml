@@ -6,6 +6,8 @@ category: Unsupported modules
 advice: Ensure compatible configuation
 effort: 500
 readiness: 1
+tags:
+- value: WIndows-Auth
 patterns:
 - value: GetSection(system.webServer/security/authentication/windowsAuthentication
 ## GetSection(system.webServer/security/authentication/windowsAuthentication

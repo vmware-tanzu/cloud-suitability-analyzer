@@ -6,7 +6,8 @@ advice: Unsupported protocols
 effort: 500
 category: WCF
 tags:
-- value: api
+- value: udp
+- value: wcf
 patterns:
 - value: <udpBinding>
   advice: UDP protocol not supported on PCF

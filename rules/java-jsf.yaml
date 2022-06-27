@@ -9,7 +9,6 @@ effort: 5
 readiness: 4
 category: jsf
 tags:
-  - value: api
   - value: jsf
   - value: ui
 advice: The conversion of a JSF application to a Spring Boot application requires several steps

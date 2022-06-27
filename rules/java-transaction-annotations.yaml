@@ -5,16 +5,13 @@ type: regex
 defaultpattern: ^\s*@%s
 advice: Distributed transcations are problematic and should be remediated or use TKG
 effort: 5
-category: annotations
+category: transaction
 defaultpattern: ^\s*@%s
 tags:
-- value: annotations
 - value: transaction
-- value: javaee
 patterns:
 - value: Remote
 - value: LocalHome
 - value: RemoteHome
 - value: TransactionManagement
 - value: TransactionAttribute
-  tag: transaction

@@ -7,6 +7,8 @@ category: Unsupported IIS modules
 advice: Caches windows security tokens for password based authentication schemes (anonymous authentication; basic authentication; IIS client certificate authentication). Ensure compabible configuration.
 effort: 1000
 readiness: 5
+tags:
+- value: TokenCacheModule
 patterns:
   - value: /configuration/system.webServer/globalModules/add[@name="TokenCacheModule"][1]
 ## TokenCacheModule

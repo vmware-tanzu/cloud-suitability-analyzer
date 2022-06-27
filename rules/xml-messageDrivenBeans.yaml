@@ -8,10 +8,8 @@ advice: Refer to platform documentation
 effort: 10
 readiness: 10
 tags:
-- value: api
 - value: ejb
-- value: javaee
-- value: fullprofile
+- value: mdb
 patterns:
 - value: <ejb-ref>
 ##<ejb-ref>

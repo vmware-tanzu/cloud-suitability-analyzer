@@ -6,7 +6,7 @@ advice: Unsupported protocols
 effort: 1000
 category: WCF
 tags:
-- value: api
+- value: wcf
 patterns:
 - value: <ws.+HttpBinding>
   advice: Many features of WS* protocols are problematic in the cloud like distributed transactions and reliable sessions

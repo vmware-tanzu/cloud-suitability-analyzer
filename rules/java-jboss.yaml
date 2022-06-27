@@ -9,9 +9,7 @@ effort: 50
 readiness: 5
 category: jboss
 tags:
-  - value: api
   - value: jboss
-  - value: jboss-import
 patterns:
   - value: import org.jboss.
 ## import org.jboss.

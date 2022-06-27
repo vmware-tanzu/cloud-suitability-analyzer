@@ -8,7 +8,6 @@ readiness: 7
 category: jca
 advice: Migrate to backing service or move to TKG
 tags:
-  - value: api
   - value: resource-adapter
   - value: spi
   - value: jca

@@ -10,7 +10,6 @@ effort: 5
 readiness: 1000
 tags:
   - value: docker
-  - value: config
 patterns:
   - value: Dockerfile
 ##F Dockerfile

@@ -5,11 +5,10 @@ type: regex
 defaultpattern: ^\s*@%s
 advice: Replace with the Spring annotation @Component or move to TKG
 effort: 5
-category: annotations
+category: stateless
 tags:
-  - value: annotations
   - value: stateless
-  - value: javaee
+  - value: ejb
 patterns:
   - value: Stateless
     tag: ejb

@@ -7,9 +7,10 @@ readiness: 3
 effort: 100
 category: Logging
 tags:
-- value: api
+- value: EventLog
 patterns:
 - value: EventLogTraceListener
+  tag: EventLogTraceListener
 - value: EventLog
 ## EventLogTraceListener
 ## EventLog

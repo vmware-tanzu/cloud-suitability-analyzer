@@ -10,10 +10,11 @@ recipes:
 defaultpattern: '^import\s*%s.*'
 tags:
 - value: websocket
-- value: io
+- value: I/O
 patterns:
 - value: javax.websocket
 - value: javax.websocket.Endpoint
   effort: 100
 - value: io.vertx.core.http.ServerWebSocket;
+  tag: vertx
   effort: 100

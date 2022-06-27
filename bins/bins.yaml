@@ -64,7 +64,7 @@ tags:
     type: OR
   - name: wlcluster
     type: ORs
-  - name: io
+  - name: I/O
     type: OR
   - name: log2file
     type: OR
@@ -138,7 +138,7 @@ tags:
 ---
 name: Thick Java Clients
 tags:
-  - name: fat-client
+  - name: desktop-app
     type: OR
 
 ---
@@ -152,7 +152,7 @@ tags:
 ---
 name: Data
 tags:
-  - name: io
+  - name: I/O
     type: OR
 
 ---

@@ -7,6 +7,8 @@ category: Unsupported IIS modules
 advice: Implements a generic cache for URL-specific server state; such as configuration. With this module; the server only reads configuration for the first request for a particular URL. And reuse it on subsequent requests until it changes.
 effort: 1000
 readiness: 5
+tags:
+- value: UriCache
 patterns:
   - value: /configuration/system.webServer/globalModules/add[@name="UriCacheModule"][1]
 ## UriCacheModule

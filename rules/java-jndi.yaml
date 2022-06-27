@@ -10,8 +10,6 @@ readiness: 7
 category: jndi
 advice: Remove jndi provider or move to TKG
 tags:
-  - value: api
-  - value: lookup
   - value: jndi
   - value: webcontainer
 patterns:

@@ -8,7 +8,7 @@ effort: 1
 readiness: 8
 category: log2file
 tags:
-  - value: api
   - value: log2file
 patterns:
   - value: java.util.logging.FileHandler
+    tag: java.util.logging

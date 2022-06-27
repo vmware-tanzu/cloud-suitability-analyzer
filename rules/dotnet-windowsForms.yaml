@@ -6,6 +6,8 @@ advice: Windows Forms module is not supported. Refactor to a web application.
 effort: 10
 readiness: 5
 category: Unsupported modules
+tags:
+- value: Windows-Forms
 patterns:
 - value: System.Windows.Forms
   advice: Windows Forms module is not supported. Refactor to a web application.

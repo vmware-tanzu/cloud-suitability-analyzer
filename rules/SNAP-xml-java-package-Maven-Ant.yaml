@@ -8,8 +8,6 @@ advice: Refer to platform documentation
 effort: 100
 readiness: 0
 tags:
-  - value: api
-  - value: ear
   - value: maven
   - value: snap
 patterns:

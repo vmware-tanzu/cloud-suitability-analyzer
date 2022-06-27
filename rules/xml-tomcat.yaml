@@ -7,10 +7,7 @@ category: Tomcat
 advice: Refer to platform documentation
 type: simple-text
 tags:
-  - value: file
-  - value: appprofile
   - value: tomcat
-  - value: api
 patterns:
   - value: configure.xml
   - value: context.xml

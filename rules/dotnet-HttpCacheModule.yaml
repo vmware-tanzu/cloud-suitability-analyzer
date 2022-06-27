@@ -9,4 +9,5 @@ effort: 1000
 readiness: 5
 patterns:
 - value: /configuration/system.webServer/staticContent/clientCache[@cacheControlMode][1]
+  tag: cacheControlMode
 ## <cacheControl 

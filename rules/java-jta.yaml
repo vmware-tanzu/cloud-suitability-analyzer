@@ -9,10 +9,10 @@ defaultpattern: "^.*[ .]%s[ (.{].*"
 effort: 50
 readiness: 6
 category: jta
-advice: Distributed transcations are problematic and should be remediated.
+advice: Distributed transactions are problematic and should be remediated.
 recipes:
 tags:
-  - value: api
+  - value: transactions
   - value: jta
   - value: webprofile
 patterns:

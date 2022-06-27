@@ -6,6 +6,8 @@ advice: Refer to platform documentation
 category: Unsupported IIS modules
 effort: 1000
 readiness: 0
+tags:
+- value: isapi-Filter
 patterns:
 - value: GetSection(system.webServer/isapiFilters)
 ## GetSection(system.webServer/isapiFilters)

@@ -8,9 +8,8 @@ advice: Not compatable with TAS, change to TransportSecurity.NONE or move to TKG
 effort: 10
 readiness: 10
 tags:
-  - value: api
+  - value: security
   - value: transportSecurity
-  - value: security-guarantee
 patterns:
   - value: TransportGuarantee.CONFIDENTIAL
 ##TransportGuarantee.CONFIDENTIAL

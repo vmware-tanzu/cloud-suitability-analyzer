@@ -8,8 +8,7 @@ readiness: 100
 advice: Swing applications cannot move to the cloud
 category: Swing
 tags:
-- value: api
-- value: fat-client
+- value: desktop-app
 - value: ui
 patterns:
 - value: JApplet

@@ -11,6 +11,10 @@ tags:
   - value: webservlet
 patterns:
   - value: ejb-api
+    tag: ejb
   - value: websocket-api
+    tag: websocket
   - value: javax.websocket-client-api
+    tag: websocket-client
   - value: javax.websocket-all
+    tag: websocket-all

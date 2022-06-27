@@ -7,7 +7,7 @@ readiness: 10
 effort: 100
 category: transactions
 tags:
-- value: api
+- value: transactions
 patterns:
 - value: TransactionScope
 

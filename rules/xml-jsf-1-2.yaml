@@ -8,7 +8,6 @@ advice: Refer to platform documentation
 effort: 1000
 readiness: 0
 tags:
-- value: api
 - value: jsf
 - value: webapp
 patterns:

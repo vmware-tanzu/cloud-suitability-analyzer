@@ -5,8 +5,8 @@ type: contains
 advice: don't use local files, log to console or to server if logging, else store data in database
 effort: 8
 readiness: 3
-category: io
+category: I/O
 tags:
-- value: io
+- value: I/O
 patterns:
 - value: FilePath

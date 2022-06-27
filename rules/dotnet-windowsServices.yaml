@@ -5,13 +5,16 @@ type: contains
 advice: Don't rely on Windows Services as CloudFoundry manages the lifecycle of your service.  Convert any Windows service to a console application to run in Cloud Foundry.
 effort: 0
 readiness: 4
-category: WindowsServices
+category: Windows-Services
 tags:
-- value: api
+- value: Windows-Services
 patterns:
 - value: ': ServiceBase'
+  tag: ServiceBase
 - value: ServiceController
+  tag: ServiceController
 - value: System.ServiceProcess
+  tag: ServiceProcess
 ## ServiceBase
 ## ServiceController
 ## System.ServiceProcess

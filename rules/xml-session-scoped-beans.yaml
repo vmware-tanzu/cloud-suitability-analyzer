@@ -7,7 +7,6 @@ advice: Review usage and determine if externalizing session state will resolve.
 effort: 100
 readiness: 100
 tags:
-- value: api
 - value: stateful
 - value: session
 patterns:

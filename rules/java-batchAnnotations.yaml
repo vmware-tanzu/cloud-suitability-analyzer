@@ -9,10 +9,6 @@ category: batch
 effort: 10
 readiness: 7
 tags:
-- value: io
 - value: batch
-- value: api
-- value: fullprofile
-- value: javaee
 patterns:
 - value: BatchProperty

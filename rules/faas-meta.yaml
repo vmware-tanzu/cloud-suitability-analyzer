@@ -7,8 +7,7 @@ readiness: 2
 effort: 200
 category: boottime
 tags:
-  - value: authentication
-  - value: boottime
-  - value: runtime
+  - value: faas
 patterns:
   - value: /libraries[@count>13]
+#review

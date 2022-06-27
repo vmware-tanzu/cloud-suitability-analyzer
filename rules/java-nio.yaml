@@ -8,8 +8,6 @@ readiness: 8
 advice: Storage on TAS is emphemerol, so nio based actions may not behave well
 category: nio
 tags:
-  - value: api
-  - value: java
   - value: nio
 patterns:
   - value: BufferOverflowException

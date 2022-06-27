@@ -7,7 +7,6 @@ advice: Avoid reliance on SSL
 effort: 5
 readiness: 10
 tags:
-- value: api
 - value: certificates
 - value: auth
 - value: security

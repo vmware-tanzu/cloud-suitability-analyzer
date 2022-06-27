@@ -8,8 +8,6 @@ effort: 3
 readiness: 5
 category: logging
 tags:
-  - value: imports
-  - value: third-party
   - value: api
   - value: logging
 patterns:
@@ -20,5 +18,6 @@ patterns:
   - value: org.apache.commons.logging
     tag: commons-logging
   - value: org.osgi.service.log
+    tag: org-osgi
   - value: org.jboss.logging.Logger
     tag: jboss-logging

@@ -8,9 +8,8 @@ readiness: 7
 advice: You need to make sure that you are using the dependencies that match the version of IBM MQ on the server 
 category: ibm-mq
 tags:
-  - value: api
   - value: ibm-mq
-  - value: messaging
+  - value: MessageQueue
 patterns:
   - value: MQQueueConnectionFactory
   - value: WMQConstants

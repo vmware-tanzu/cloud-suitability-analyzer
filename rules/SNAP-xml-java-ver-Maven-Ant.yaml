@@ -8,7 +8,7 @@ advice: Refer to platform documentation
 effort: 100
 readiness: 0
 tags:
-- value: api
+- value: java-version
 - value: snap
 patterns:
 #-- Maven

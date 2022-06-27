@@ -9,7 +9,6 @@ readiness: 100
 tags:
 - value: RemoteEJB
 - value: ejb
-- value: api
 - value: javaee
 - value: fullprofile
 patterns:

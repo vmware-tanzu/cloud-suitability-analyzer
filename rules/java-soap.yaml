@@ -8,7 +8,6 @@ effort: 4
 readiness: 3
 category: soap
 tags:
-  - value: api
   - value: webservices
   - value: soap
 patterns:

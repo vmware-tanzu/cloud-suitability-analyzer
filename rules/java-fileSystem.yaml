@@ -5,11 +5,9 @@ target: line
 type: contains
 effort: 100
 readiness: 10
-category: io
+category: I/O
 tags:
-  - value: io
-  - value: api
-  - value: java-filesystem
+  - value: I/O
 patterns:
   - value: "file://"
 ## file://

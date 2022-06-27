@@ -8,8 +8,8 @@ advice: Refer to IBM documentation
 defaultpattern: '^.*[ .]%s[ (].*'
 category: webSphere
 tags:
-- value: api
 - value: websphere
+- value: liberty
 - value: ltpa
 - value: security
 patterns:

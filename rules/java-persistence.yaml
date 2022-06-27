@@ -8,7 +8,7 @@ effort: 5
 readiness: 5
 category: persistence
 tags:
-- value: persistence
-- value: api
+- value: javax-persistence
+- value: I/o
 patterns:
 - value: javax.persistence

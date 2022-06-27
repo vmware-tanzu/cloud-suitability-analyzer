@@ -8,14 +8,17 @@ effort: 50
 readiness: 10
 category: distcache
 tags:
-  - value: imports
   - value: stateful
-  - value: cache-import
+  - value: cache
   - value: distcache
-  - value: api
 patterns:
   - value: org.ehcache #--- dist
+    tag: ehcache
   - value: com.hazelcast #--- dist
+    tag: hazelcast
   - value: org.apache.ignite #--- dist
+    tag: apache-ignite
   - value: org.infinispan #--- dist
+    tag: infinispan
   - value: net.spy.memcached #--- dist
+    tag: net-spy-memcached

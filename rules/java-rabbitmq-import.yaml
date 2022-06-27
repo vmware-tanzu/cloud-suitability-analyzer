@@ -8,9 +8,7 @@ effort: 5
 readiness: 5
 category: mq
 tags:
-  - value: messaging
-  - value: api
-  - value: amqp
+  - value: MessageQueue
   - value: rabbitmq
 patterns:
   - value: com.rabbitmq

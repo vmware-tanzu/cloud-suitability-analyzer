@@ -4,12 +4,11 @@ target: line
 type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Use Managed Executor
-effort: 10
+effort: 100
 readiness: 10
 category: threading
 tags:
-- value: api
-- value: deprecated
+- value: threading
 recipes:
 patterns:
 - value: java.lang.Thread

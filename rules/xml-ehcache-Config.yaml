@@ -7,7 +7,6 @@ advice: Consult 3rd party documentation
 effort: 50
 readiness: 10
 tags:
-- value: api
 - value: cache
 - value: ehcache
 patterns:

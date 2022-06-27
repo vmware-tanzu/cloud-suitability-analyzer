@@ -8,8 +8,7 @@ readiness: 8
 category: DatabaseAccess
 tags:
 - value: database
-recipes:
-- uri: https://app-transformation-cookbook-internal.cfapps.io/backing-services-port-binding/persistence/
+- value: sqlite
 patterns:
 - value: sqlite
 - value: SqliteDatabase

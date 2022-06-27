@@ -8,12 +8,13 @@ effort: 6
 readiness: 7
 category: struts
 tags:
-  - value: api
   - value: struts
   - value: webapp
-  - value: ui
   - value: webcontainer
 patterns:
   - value: org.apache.struts
+    tag: struts
   - value: org.apache.struts2
+    tag: struts
   - value: com.opensymphony
+    tag: opensymphony

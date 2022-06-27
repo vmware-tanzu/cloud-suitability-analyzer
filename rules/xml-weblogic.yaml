@@ -7,9 +7,7 @@ advice: Convert to Spring based application configuration
 effort: 100
 readiness: 100
 tags:
-  - value: api
   - value: weblogic
-  - value: javaee
   - value: fullprofile
 patterns:
   - value: weblogic.xml

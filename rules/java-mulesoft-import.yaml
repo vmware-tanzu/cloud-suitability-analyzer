@@ -8,9 +8,7 @@ effort: 100
 readiness: 10
 category: etl
 tags:
-  - value: api
-  - value: mule
+  - value: mulesoft
   - value: etl
-  - value: api-gateway
 patterns:
   - value: org.mule

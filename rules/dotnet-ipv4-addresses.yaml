@@ -5,8 +5,8 @@ type: regex
 advice: Found hard-coded IPv4s. Make configurable, put into environment or config map
 effort: 3
 readiness: 8
-category: env-config
+category: hard-code-ip
 tags:
-- value: env-config
+- value: hard-code-ip
 patterns:
 - value: (([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])
