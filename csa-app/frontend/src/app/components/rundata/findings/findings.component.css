@@ -1,0 +1,7 @@
+.findingmodal-dialog {
+  position: fixed;
+  margin: auto;
+  width: 320px;
+  height: 100%;
+  right: 0px;
+}

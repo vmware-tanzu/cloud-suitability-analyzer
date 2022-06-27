@@ -1,0 +1,59 @@
+<div class="run-data-tabs">
+  <clr-tabs>
+    <clr-tab class="run-data-tab">
+      <button clrTabLink>Api By App</button>
+      <clr-tab-content *clrIfActive>
+        <apibyapp></apibyapp>
+      </clr-tab-content>
+    </clr-tab>
+    <clr-tab class="run-data-tab">
+      <button clrTabLink>Api Usage (Detailed)</button>
+      <clr-tab-content *clrIfActive="false">
+        <apiusagedetailed></apiusagedetailed>
+      </clr-tab-content>
+    </clr-tab>
+    <clr-tab class="run-data-tab">
+      <button clrTabLink>Api Usage (Summary)</button>
+      <clr-tab-content *clrIfActive="false">
+        <apiusagesummary></apiusagesummary>
+      </clr-tab-content>
+    </clr-tab>
+    <clr-tab class="run-data-tab">
+      <button clrTabLink>Annotations</button>
+      <clr-tab-content *clrIfActive="false">
+        <annotations></annotations>
+      </clr-tab-content>
+    </clr-tab>
+    <clr-tab class="run-data-tab">
+      <button clrTabLink>Third Party Libs</button>
+      <clr-tab-content *clrIfActive="false">
+        <thirdparty></thirdparty>
+      </clr-tab-content>
+    </clr-tab>
+    <clr-tab class="run-data-tab">
+      <button clrTabLink>Source Code</button>
+      <clr-tab-content *clrIfActive="false">
+        <sourcecode></sourcecode>
+      </clr-tab-content>
+    </clr-tab>
+    <clr-tab class="run-data-tab">
+      <button clrTabLink id="findingstab">All findings</button>
+      <clr-tab-content *clrIfActive="false">
+        <findings></findings>
+      </clr-tab-content>
+    </clr-tab>
+    <clr-tab class="run-data-tab">
+      <button clrTabLink>Rule By App</button>
+      <clr-tab-content *clrIfActive="false">
+        <rulebyapp></rulebyapp>
+      </clr-tab-content>
+    </clr-tab>
+    <clr-tab class="run-data-tab">
+      <button clrTabLink>Rule Metrics</button>
+      <clr-tab-content *clrIfActive="false">
+        <rulemetrics></rulemetrics>
+      </clr-tab-content>
+    </clr-tab>
+  </clr-tabs>
+
+</div>

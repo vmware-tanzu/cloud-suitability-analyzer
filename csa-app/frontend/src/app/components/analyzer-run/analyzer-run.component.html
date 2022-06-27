@@ -1,0 +1,18 @@
+<div class="content-container run-container">
+  <div class="run-container-left">
+      <label for="select-full" class="clr-control-label select-run-text">Select Run</label>
+      <div class="clr-control-container select-run-placeholder">
+        <div class="clr-select-wrapper">
+          <select id="select-full" class="clr-select" [(ngModel)]="selectedRunId" [ngModelOptions]="{standalone: true}"
+                  (change)="runIdChanged()">
+            <option class="select-run-option" value="{{runItemsDropDownItem.id}}"
+                    *ngFor="let runItemsDropDownItem of runItemsDropDownItems">{{runItemsDropDownItem.desc}}</option>
+          </select>
+        </div>
+    </div>
+
+  </div>
+  <div class="run-container-right">
+    <app-analyzer-run-details [analyzerRun]="analyzerRunSelected" *ngIf="loaded"></app-analyzer-run-details>
+  </div>
+</div>

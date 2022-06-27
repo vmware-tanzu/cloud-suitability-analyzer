@@ -1,0 +1,41 @@
+<div>
+  <clr-datagrid class="run-data-grid">
+    <clr-dg-action-bar>
+      <div class="action-bar">
+        <div class="action-bar-item-left">
+          <app-excel-export [data]="apiDetailedUsages" [file_name]="'api-detailed-usage.csv'"></app-excel-export>
+        </div>
+        <div class="action-bar-item-right">
+          <cds-search control-width="shrink">
+            <label>Search</label>
+            <input type="search" [(ngModel)]="searchCrit"/>
+          </cds-search>
+        </div>
+      </div>
+    </clr-dg-action-bar>
+    <clr-dg-column [clrDgField]="'application'">Application</clr-dg-column>
+    <clr-dg-column [clrDgField]="'api'">API</clr-dg-column>
+    <clr-dg-column [clrDgField]="'filename'">Filename</clr-dg-column>
+    <clr-dg-column [clrDgField]="'value'">Value</clr-dg-column>
+    <clr-dg-column [clrDgField]="'advice'">Advice</clr-dg-column>
+    <clr-dg-column [clrDgField]="'effort'" [clrDgColType]="'number'">Effort</clr-dg-column>
+    <clr-dg-column [clrDgField]="'level'">Level</clr-dg-column>
+    <clr-dg-placeholder>No API usage details found</clr-dg-placeholder>
+    <clr-dg-row *clrDgItems="let apiDetailedUsage of apiDetailedUsages  | searchFilter: 'name' : searchCrit">
+      <clr-dg-cell>{{apiDetailedUsage.application}}</clr-dg-cell>
+      <clr-dg-cell>{{apiDetailedUsage.api}}</clr-dg-cell>
+      <clr-dg-cell>{{apiDetailedUsage.filename}}</clr-dg-cell>
+      <clr-dg-cell>{{apiDetailedUsage.value}}</clr-dg-cell>
+      <clr-dg-cell>{{apiDetailedUsage.advice}}</clr-dg-cell>
+      <clr-dg-cell>{{apiDetailedUsage.effort}}</clr-dg-cell>
+      <clr-dg-cell>{{apiDetailedUsage.level}}</clr-dg-cell>
+    </clr-dg-row>
+    <clr-dg-footer>
+      <clr-dg-pagination #pagination [clrDgPageSize]="25">
+        <clr-dg-page-size [clrPageSizeOptions]="[25,50,100]">API usage per page</clr-dg-page-size>
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+        of {{pagination.totalItems}} API Usages (filtered) showing for portfolio...
+      </clr-dg-pagination>
+    </clr-dg-footer>
+  </clr-datagrid>
+</div>

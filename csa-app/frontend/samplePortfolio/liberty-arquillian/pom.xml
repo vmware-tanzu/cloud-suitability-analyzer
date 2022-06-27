@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <!-- Parent -->
+  <parent>
+    <groupId>net.wasdev.maven.parent</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.4</version>
+    <relativePath />
+  </parent>
+
+  <!-- Model Version -->
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Artifact Configuration -->
+  <groupId>io.openliberty.arquillian</groupId>
+  <artifactId>arquillian-parent-liberty</artifactId>
+  <version>1.0.7-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Arquillian Container Liberty Parent</name>
+  <description>Liberty Container integrations for the Arquillian Project</description>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>https://raw.github.com/OpenLiberty/liberty-arquillian/master/LICENSE</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:git:git@github.com:OpenLiberty/liberty-arquillian.git</connection>
+    <developerConnection>scm:git:git@github.com:OpenLiberty/liberty-arquillian.git</developerConnection>
+    <url>git@github.com:OpenLiberty/liberty-arquillian.git</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <!-- Properties -->
+  <properties>
+    <!-- Versioning -->
+    <version.arquillian_core>1.4.0.Final</version.arquillian_core>
+    <version.surefire.plugin>2.21.0</version.surefire.plugin>
+
+    <!-- override from parent -->
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.7</maven.compiler.source>
+
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.jboss.arquillian</groupId>
+        <artifactId>arquillian-bom</artifactId>
+        <version>${version.arquillian_core}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jboss.arquillian</groupId>
+        <artifactId>arquillian-build</artifactId>
+        <version>${version.arquillian_core}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <modules>
+    <module>liberty-managed</module>
+    <module>liberty-remote</module>
+    <module>liberty-support-feature</module>
+  </modules>
+
+  <!-- Profiles for WLP vs OL -->
+  <profiles>
+    <profile>
+      <id>wlp-its</id>
+      <activation>
+          <property>
+            <name>runtime</name>
+            <value>wlp</value>
+          </property>
+      </activation>
+      <properties>
+          <runtime>wlp</runtime>
+          <runtimeGroupId>com.ibm.websphere.appserver.runtime</runtimeGroupId>
+          <runtimeArtifactId>wlp-javaee7</runtimeArtifactId>
+          <runtimeVersion>${runtimeVersion}</runtimeVersion>
+      </properties>
+    </profile>
+    <profile>
+      <id>ol-its</id>
+      <activation>
+        <property>
+          <name>runtime</name>
+          <value>ol</value>
+        </property>
+      </activation>
+      <properties>
+        <runtime>ol</runtime>
+        <runtimeGroupId>io.openliberty</runtimeGroupId>
+        <runtimeArtifactId>openliberty-runtime</runtimeArtifactId>
+        <runtimeVersion>${runtimeVersion}</runtimeVersion>
+      </properties>
+    </profile>
+    <profile>
+      <id>default-its</id>
+      <activation>
+        <property>
+          <name>runtime</name>
+          <value>ol</value>
+        </property>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <runtime>ol</runtime>
+        <runtimeGroupId>io.openliberty</runtimeGroupId>
+        <runtimeArtifactId>openliberty-runtime</runtimeArtifactId>
+        <runtimeVersion>18.0.0.4</runtimeVersion>
+      </properties>
+    </profile>
+  </profiles>
+
+</project>

@@ -1,0 +1,39 @@
+/*******************************************************************************
+ * Copyright (c) 2018 - Present VMWare, Inc. All Rights Reserved.
+ ******************************************************************************/
+
+package model
+
+//Created By BootstrapScoringModelsTemplate.txt found under go/resources folder
+//Created @ {{now}}
+
+func BootstrapModels() []ScoringModel {
+    var BootstrapModels = []ScoringModel{
+        {{ range . }}
+            { Name: "{{.Name}}",
+              MaxScore: {{.MaxScore}},
+              MinScore: {{.MinScore}},
+                Ranges:
+                []*Bucket{ {{ range .Ranges }}
+                    //Bucket
+                    { Type: "{{.Type}}", Start: "{{.Start}}", End: "{{.End}}",
+                        {{if.Ranges}} Ranges:
+                        []*Bucket{ {{ range .Ranges }}
+                            { Type: "{{.Type}}",
+                              Start: "{{.Start}}",
+                              End: "{{.End}}", {{if.Outcome}} Outcome: &Outcome{ Score: {{.Outcome.Score}}, Recommendation: "{{.Outcome.Recommendation}}", Calculate: {{.Outcome.Calculate}}, Expression: "{{.Outcome.Expression}}", }, {{end}}
+                              {{if.Ranges}} Ranges:
+                               []*Bucket{ {{ range .Ranges }}
+                                  { Type: "{{.Type}}",
+                                    Start: "{{.Start}}",
+                                    End: "{{.End}}",{{if.Outcome}} Outcome: &Outcome{ Score: {{.Outcome.Score}}, Recommendation: "{{.Outcome.Recommendation}}", Calculate: {{.Outcome.Calculate}}, Expression: "{{.Outcome.Expression}}", }, {{end}}
+                                  }, {{end}}
+                               },{{end}}
+                            },{{end}}
+                        }, {{end}}{{if.Outcome}}Outcome: &Outcome{ Score: {{.Outcome.Score}}, Recommendation: "{{.Outcome.Recommendation}}", Calculate: {{.Outcome.Calculate}}, Expression: "{{.Outcome.Expression}}", }, {{end}}
+                    }, {{end}}
+                },
+            }, {{end}}
+    }
+    return BootstrapModels
+}

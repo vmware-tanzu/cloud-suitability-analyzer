@@ -49,6 +49,7 @@ pushd ${WORKING_DIR}/go > /dev/null
   echo "OSX: $OSX"
   if [[ "$OS" == *"$OSX"* ]]; then
     echo "~~~> Building osx version"
+    set -x
     
     #env CGO_ENABLED=1 GOOS=darwin GOARCH=amd64 go build -ldflags "${LD_FLAGS}" -o ${OUTPUT_DIR}/csa csa.go
     GOOS=darwin GOARCH=amd64 go build -ldflags "${LD_FLAGS}" -o ${OUTPUT_DIR}/csa csa.go

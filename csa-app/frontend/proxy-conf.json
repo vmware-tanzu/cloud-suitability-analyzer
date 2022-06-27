@@ -1,0 +1,27 @@
+{
+  "/api/version": {
+    "target": "http://localhost:3001/",
+    "secure": false,
+    "logLevel": "debug"
+  },
+  "/api/runs": {
+    "target": "http://localhost:3001/",
+    "secure": false,
+    "logLevel": "debug"
+  },
+  "/api/analyze-runs": {
+    "target": "http://localhost:3001/",
+    "secure": false,
+    "logLevel": "debug"
+  },
+  "/api/rules": {
+    "target": "http://localhost:3001/",
+    "secure": false,
+    "logLevel": "debug"
+  },
+  "/api/findings": {
+    "target": "http://localhost:3001/",
+    "secure": false,
+    "logLevel": "debug"
+  }
+}

@@ -1,0 +1,37 @@
+.run-summary {
+  width: 377px;
+  height: 140px;
+  left: 343px;
+  top: 91px;
+}
+
+.run-summary-line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.run-summary-icon-line {
+  width: 10%;
+  height: 22px;
+}
+
+.run-summary-icon {
+  left: 13.89%;
+  right: 13.89%;
+  top: 8.33%;
+  bottom: 8.33%;
+  background: #737373;
+}
+
+.run-summary-text-line{
+  width: 90%;
+  height: 22px;
+  font-family: Metropolis;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: left;
+  color: grey;
+  align-content: flex-end;
+}
