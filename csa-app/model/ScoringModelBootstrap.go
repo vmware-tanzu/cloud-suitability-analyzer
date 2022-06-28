@@ -7,6 +7,7 @@ package model
 //Created By BootstrapScoringModelsTemplate.txt found under go/resources folder
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:go/model/ScoringModelBootstrap.go
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -26,6 +27,9 @@ package model
 =======
 //Created @ 2022-06-27 20:06:27.393071 -0500 CDT m=+0.181195651
 >>>>>>> 0405f37 (Title:  Fix some binning errors)
+=======
+//Created @ 2022-06-28 08:54:27.413137 -0500 CDT m=+0.181809344
+>>>>>>> ae9093c (Title: Fix errors in rules/bins)
 
 func BootstrapModels() []ScoringModel {
     var BootstrapModels = []ScoringModel{

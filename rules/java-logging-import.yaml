@@ -8,7 +8,6 @@ effort: 3
 readiness: 5
 category: logging
 tags:
-  - value: api
   - value: logging
 patterns:
   - value: java.util.logging
