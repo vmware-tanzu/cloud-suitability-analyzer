@@ -10,7 +10,7 @@ package model_test
 //	"os"
 //	"testing"
 //
-//	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/util"
+//	"csa-app/util"
 //	"github.com/stretchr/testify/assert"
 //)
 //

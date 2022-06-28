@@ -5,6 +5,7 @@
 package model
 
 //Created By BootstrapBinsTemplate.txt found under go/resources folder
+<<<<<<< HEAD
 <<<<<<< HEAD:go/model/BinBootstrap.go
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -18,6 +19,9 @@ package model
 =======
 //Created @ 2022-06-27 15:42:06.022387 -0500 CDT m=+0.217892932
 >>>>>>> dacc802 (Title: Create a local build):csa-app/model/BinBootstrap.go
+=======
+//Created @ 2022-06-27 19:36:34.54469 -0500 CDT m=+0.207755122
+>>>>>>> 32e5db1 (Title:  Fix local build with not github path)
 
 func BootstrapBins() []Bin {
     var BootstrapBins = []Bin{

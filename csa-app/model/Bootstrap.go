@@ -5,6 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
+<<<<<<< HEAD
 <<<<<<< HEAD:go/model/Bootstrap.go
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -18,6 +19,9 @@ package model
 =======
 //Created @ 2022-06-27 15:42:05.886463 -0500 CDT m=+0.081968913
 >>>>>>> dacc802 (Title: Create a local build):csa-app/model/Bootstrap.go
+=======
+//Created @ 2022-06-27 19:36:34.400945 -0500 CDT m=+0.064009878
+>>>>>>> 32e5db1 (Title:  Fix local build with not github path)
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{

@@ -14,7 +14,7 @@ export GO111MODULE=on
 export WORKING_DIR=${PWD}
 
 echo "~~~> Compile/Minify UI"
-pushd ${WORKING_DIR}/go/frontend > /dev/null
+pushd ${WORKING_DIR}/csa-app/frontend > /dev/null
 
   echo "~~~> Running npm ci"
   export NODE_OPTIONS="--max_old_space_size=4096"
@@ -42,7 +42,7 @@ pushd ${WORKING_DIR}/go/frontend > /dev/null
     exit 1
   fi
 
-  bindDataFile=${WORKING_DIR}/go/frontend/resources/web-site.go
+  bindDataFile=${WORKING_DIR}/csa-app/frontend/resources/web-site.go
 
   if [ -f "$bindDataFile" ]; then
     echo "~~~> web-site.go found, removing"
@@ -50,7 +50,7 @@ pushd ${WORKING_DIR}/go/frontend > /dev/null
   fi
 
   echo "~~~> Binding in web assets"
-  mkdir -p ${WORKING_DIR}/go/frontend/resources
+  mkdir -p ${WORKING_DIR}/csa-app/frontend/resources
   go-bindata -o resources/web-site.go -pkg resources build/...
 
   if [ $? -eq 0 ]
@@ -70,7 +70,7 @@ runGenerate=1
 if [ $runGenerate -eq 1 ]
 then
 
-   pushd ${WORKING_DIR}/go > /dev/null
+   pushd ${WORKING_DIR}/csa-app > /dev/null
 
    echo "~~~> Binding rules and bins"
    go generate #>&2

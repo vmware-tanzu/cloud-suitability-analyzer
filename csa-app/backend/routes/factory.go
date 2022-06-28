@@ -11,15 +11,18 @@ import (
 	"strconv"
 	"strings"
 
+	"csa-app/frontend/resources"
+
 	assetfs "github.com/elazarl/go-bindata-assetfs"
-	"csa-app/go/frontend/resources"
+	"github.com/pkg/browser"
+
+	"csa-app/backend/services"
+	"csa-app/db"
+	"csa-app/util"
 
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
-	"csa-app/backend/services"
-	"csa-app/db"
-	"csa-app/util"
 )
 
 const BROWSER_URL = "http://localhost:3001"

@@ -5,6 +5,7 @@
 package model
 
 //Created By BootstrapScoringModelsTemplate.txt found under go/resources folder
+<<<<<<< HEAD
 <<<<<<< HEAD:go/model/ScoringModelBootstrap.go
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -18,6 +19,9 @@ package model
 =======
 //Created @ 2022-06-27 15:42:06.015881 -0500 CDT m=+0.211386837
 >>>>>>> dacc802 (Title: Create a local build):csa-app/model/ScoringModelBootstrap.go
+=======
+//Created @ 2022-06-27 19:36:34.536928 -0500 CDT m=+0.199993582
+>>>>>>> 32e5db1 (Title:  Fix local build with not github path)
 
 func BootstrapModels() []ScoringModel {
     var BootstrapModels = []ScoringModel{
