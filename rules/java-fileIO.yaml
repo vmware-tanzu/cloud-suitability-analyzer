@@ -8,9 +8,9 @@ defaultpattern: "^.*[ .]%s[ (].*"
 advice: Move to cloud friendly alternative or TKG
 effort: 8
 readiness: 8
-category: I/O
+category: io
 tags:
-  - value: I/O
+  - value: io
 patterns:
   - value: getNextEntry
   - value: putNextEntry

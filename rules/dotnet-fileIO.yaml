@@ -6,9 +6,9 @@ type: contains
 advice: Relying on the local filesystem to store state is unreliable in a cloud platform.  
 effort: 3
 readiness: 8
-category: I/O
+category: io
 tags:
-- value: I/O
+- value: io
 patterns:
 - value: 'File.Append'
 ## File.Append

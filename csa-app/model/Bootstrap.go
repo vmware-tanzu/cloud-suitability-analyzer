@@ -5,14 +5,14 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2022-06-27 20:06:27.266243 -0500 CDT m=+0.054371072
+//Created @ 2022-06-28 08:54:27.287498 -0500 CDT m=+0.056170725
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
         
             { Name: "SNAP-ETL-import", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^import\\s*.*%s.*$", Advice: "Refer to IBM documentation", Effort: 100, Readiness: 0, Impact: "", Category: "etl", Criticality: "",
             Tags:
-            []Tag{  { Value: "api",}, { Value: "etl",}, { Value: "snap",}, },
+            []Tag{  { Value: "etl",}, { Value: "snap",}, },
             Recipes:
             []Recipe{  },
             Patterns:
@@ -111,7 +111,7 @@ func BootstrapRules() []Rule {
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "javaee-api", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "javaee-api", Recipe: "", },
-             { Type: "", Pattern: "", Value: "javax.inject", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "javax-ingect", Recipe: "", },
+             { Type: "", Pattern: "", Value: "javax.inject", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "javax-inject", Recipe: "", },
              { Type: "", Pattern: "", Value: "cdi-api", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "cdi-api", Recipe: "", },
              { Type: "", Pattern: "", Value: "jboss-ejb-api_3.0_spec", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jboss-ejb-api_3.0_spec", Recipe: "", },
              { Type: "", Pattern: "", Value: "jboss-ejb-api_3.1_spec", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jboss-ejb-api_3.1_spec", Recipe: "", },
@@ -437,9 +437,9 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: ".AddJsonFile(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-fileIO", FileType: "(cs$|vb$)", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Relying on the local filesystem to store state is unreliable in a cloud platform.", Effort: 3, Readiness: 8, Impact: "", Category: "I/O", Criticality: "",
+            { Name: "dotnet-fileIO", FileType: "(cs$|vb$)", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Relying on the local filesystem to store state is unreliable in a cloud platform.", Effort: 3, Readiness: 8, Impact: "", Category: "io", Criticality: "",
             Tags:
-            []Tag{  { Value: "I/O",}, },
+            []Tag{  { Value: "io",}, },
             Recipes:
             []Recipe{  },
             Patterns:
@@ -464,9 +464,9 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "FilePath", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-ipv4-addresses", FileType: "(yaml|yml|cs|json|txt)", Target: "line", Type: "regex", DefaultPattern: "", Advice: "Found hard-coded IPv4s. Make configurable, put into environment or config map", Effort: 3, Readiness: 8, Impact: "", Category: "hard-code-ip", Criticality: "",
+            { Name: "dotnet-ipv4-addresses", FileType: "(yaml|yml|cs|json|txt)", Target: "line", Type: "regex", DefaultPattern: "", Advice: "Found hard-coded IPv4s. Make configurable, put into environment or config map", Effort: 3, Readiness: 8, Impact: "", Category: "hard-ip", Criticality: "",
             Tags:
-            []Tag{  { Value: "hard-code-ip",}, },
+            []Tag{  { Value: "hard-ip",}, },
             Recipes:
             []Recipe{  },
             Patterns:
@@ -1372,9 +1372,9 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "FlowHandlerFactoryWrapper", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-fileIO", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Move to cloud friendly alternative or TKG", Effort: 8, Readiness: 8, Impact: "", Category: "I/O", Criticality: "",
+            { Name: "java-fileIO", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Move to cloud friendly alternative or TKG", Effort: 8, Readiness: 8, Impact: "", Category: "io", Criticality: "",
             Tags:
-            []Tag{  { Value: "I/O",}, },
+            []Tag{  { Value: "io",}, },
             Recipes:
             []Recipe{  },
             Patterns:
@@ -1416,9 +1416,9 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "RandomAccessFile", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-file-system", FileType: "java$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Use backing service or use TKG", Effort: 100, Readiness: 10, Impact: "", Category: "I/O", Criticality: "",
+            { Name: "java-file-system", FileType: "java$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Use backing service or use TKG", Effort: 100, Readiness: 10, Impact: "", Category: "io", Criticality: "",
             Tags:
-            []Tag{  { Value: "I/O",}, },
+            []Tag{  { Value: "io",}, },
             Recipes:
             []Recipe{  },
             Patterns:
@@ -1452,9 +1452,9 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "Runtime.getRuntime().addShutdownHook", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-hardIP", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "%s", Advice: "Hardcoded IP addresses are problematic in K8S", Effort: 9, Readiness: 8, Impact: "", Category: "hardip", Criticality: "",
+            { Name: "java-hardIP", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "%s", Advice: "Hardcoded IP addresses are problematic in K8S", Effort: 9, Readiness: 8, Impact: "", Category: "hard-ip", Criticality: "",
             Tags:
-            []Tag{  { Value: "hardip",}, },
+            []Tag{  { Value: "hard-ip",}, },
             Recipes:
             []Recipe{  },
             Patterns:
@@ -1827,7 +1827,7 @@ func BootstrapRules() []Rule {
         
             { Name: "java-logging-import", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Change to an implementation of SLF4J i.e. Logback", Effort: 3, Readiness: 5, Impact: "", Category: "logging", Criticality: "",
             Tags:
-            []Tag{  { Value: "api",}, { Value: "logging",}, },
+            []Tag{  { Value: "logging",}, },
             Recipes:
             []Recipe{  },
             Patterns:
@@ -1993,7 +1993,7 @@ func BootstrapRules() []Rule {
         
             { Name: "java-nonstandard-protocol", FileType: "java$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Ensure protocol dependencies are cloud friendly or move to TKG", Effort: 100, Readiness: 10, Impact: "", Category: "protocol", Criticality: "",
             Tags:
-            []Tag{  { Value: "nonstandard-protocol",}, { Value: "api",}, },
+            []Tag{  { Value: "nonstandard-protocol",}, },
             Recipes:
             []Recipe{  },
             Patterns:
@@ -2488,7 +2488,7 @@ func BootstrapRules() []Rule {
         
             { Name: "java-websockets-import", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Refer to platform documentation", Effort: 100, Readiness: 100, Impact: "", Category: "websockets", Criticality: "",
             Tags:
-            []Tag{  { Value: "websocket",}, { Value: "I/O",}, },
+            []Tag{  { Value: "websocket",}, { Value: "io",}, },
             Recipes:
             []Recipe{  },
             Patterns:
@@ -2609,9 +2609,9 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "redis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "python-fileIO", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Relying on the local filesystem to store state is unreliable in a cloud platform. Since containers are immutable, restarts will lose any written changes. Refactor this logic to use an external service to store state.", Effort: 8, Readiness: 8, Impact: "", Category: "I/O", Criticality: "",
+            { Name: "python-fileIO", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Relying on the local filesystem to store state is unreliable in a cloud platform. Since containers are immutable, restarts will lose any written changes. Refactor this logic to use an external service to store state.", Effort: 8, Readiness: 8, Impact: "", Category: "io", Criticality: "",
             Tags:
-            []Tag{  { Value: "I/O",}, },
+            []Tag{  { Value: "io",}, },
             Recipes:
             []Recipe{  },
             Patterns:
@@ -2728,7 +2728,7 @@ func BootstrapRules() []Rule {
         
             { Name: "xml-ejb-2-1", FileType: "xml$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 10, Readiness: 10, Impact: "", Category: "ejb", Criticality: "",
             Tags:
-            []Tag{  { Value: "api",}, { Value: "ejb",}, { Value: "javaee",}, { Value: "fullprofile",}, },
+            []Tag{  { Value: "ejb",}, { Value: "javaee",}, { Value: "fullprofile",}, },
             Recipes:
             []Recipe{  },
             Patterns:

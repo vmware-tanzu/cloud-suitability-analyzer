@@ -5,9 +5,9 @@ target: line
 type: contains
 effort: 100
 readiness: 10
-category: I/O
+category: io
 tags:
-  - value: I/O
+  - value: io
 patterns:
   - value: "file://"
 ## file://

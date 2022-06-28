@@ -13,7 +13,7 @@ patterns:
   - value: javaee-api
     tag: javaee-api
   - value: javax.inject
-    tag: javax-ingect
+    tag: javax-inject
   - value: cdi-api
     tag: cdi-api
   - value: jboss-ejb-api_3.0_spec

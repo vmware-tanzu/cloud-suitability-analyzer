@@ -54,7 +54,7 @@ tags:
     type: OR
   - name: non-root-user
     type: OR
-  - name: hardip
+  - name: hard-ip
     type: OR
   - name: processexit
     type: OR
@@ -144,9 +144,7 @@ name: Caching
 tags:
   - name: cache
     type: OR
-  - name: persistence
-    type: OR
-
+ 
 ---
 name: Data
 tags:
@@ -184,11 +182,9 @@ tags:
 ---
 name: FAAS
 tags:
-  - name: persistence
+  - name: I/O
     type: OR
   - name: security
-    type: OR  
-  - name: authentication
     type: OR
-  - name: boottime
+  - name: faas
     type: OR
