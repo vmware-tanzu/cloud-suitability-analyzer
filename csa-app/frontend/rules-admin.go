@@ -5,12 +5,12 @@
 package main
 
 import (
-	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/db"
-	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/model"
-	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/util"
+	"csa-app/db"
+	"csa-app/model"
+	"csa-app/util"
 	"github.com/sirupsen/logrus"
 
-	"github.com/vmware-tanzu/cloud-suitability-analyzer/go/backend/routes"
+	"csa-app/backend/routes"
 	"os"
 )
 
