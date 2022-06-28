@@ -12,7 +12,7 @@ advice: JPA will work inside of Cloud Native applications, but changes may need 
 category: jpa
 tags:
   - value: jpa
-  - value: webprofile
+  - value: web-profile
   - value: entity-manager
 patterns:
   - value: createEntityManagerFactory

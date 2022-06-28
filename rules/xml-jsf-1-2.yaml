@@ -9,7 +9,7 @@ effort: 1000
 readiness: 0
 tags:
 - value: jsf
-- value: webapp
+- value: web-app
 patterns:
 - value: web-facesconfig_1_2.xsd
 ##web-facesconfig_1_2.xsd

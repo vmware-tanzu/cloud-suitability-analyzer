@@ -5,8 +5,8 @@ type: contains
 advice: Remove connection strings from files, use environment variables (or mount configmap into pod)
 effort: 10
 readiness: 5
-category: Connection-String
+category: connection-string
 tags:
-- value: Connection-String
+- value: sonnection-string
 patterns:
 - value: ConnectionString

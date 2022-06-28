@@ -9,7 +9,7 @@ effort: 500
 readiness: 700
 tags:
 - value: portlet
-- value: webcontainer
+- value: web-container
 patterns:
 - value: portlet-app_1_0.xsd
 ##portlet-app_1_0.xsd

@@ -8,9 +8,9 @@ advice: Refer to platform documentation
 effort: 10
 readiness: 1
 tags:
-- value: MessageQueue
+- value: message-queue
 patterns:
-- value: MessageQueue
+- value: message-queue
 - value: using System.Messaging
 ## MessageQueue
 ## using System.Messaging

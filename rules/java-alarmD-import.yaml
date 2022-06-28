@@ -6,7 +6,7 @@ defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Integrate with new alarmD service
 category: ThirdParty
 tags:
-  - value: alarmD
+  - value: alarm-d
   - value: scheduler
 patterns:
   - value: com.tfcci.ucs.manager

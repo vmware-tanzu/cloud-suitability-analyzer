@@ -8,7 +8,7 @@ effort: 2
 readiness: 8
 category: jax-rs
 tags:
-  - value: jaxrs
+  - value: jax-rs
   - value: rest
 patterns:
   - value: javax.ws.rs

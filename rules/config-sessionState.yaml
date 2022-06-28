@@ -9,6 +9,6 @@ effort: 200
 category: stateful
 tags:
   - value: stateful
-  - value: TAS
+  - value: tas
 patterns:
   - value: /configuration/system.web/sessionState[@mode="InProc" or @mode="StateServer"][1]

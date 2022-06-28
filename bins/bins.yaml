@@ -8,11 +8,11 @@ tags:
     type: AND
   - name: javaee
     type: AND
-  - name: fullprofile
+  - name: full-profile
     type: AND
   - name: jni
     type: OR
-  - name: nonstandard-protocol
+  - name: non-standard-protocol
     type: OR
   - name: corba
     type: OR
@@ -20,13 +20,13 @@ tags:
 ---
 name: TAS
 tags:
-  - name: webprofile
+  - name: web-profile
     type: OR
   - name: spring
     type: OR
   - name: spring-boot
     type: OR
-  - name: webcontainer
+  - name: web-container
     type: OR
   - name: rest
     type: OR
@@ -48,7 +48,7 @@ tags:
     type: OR
   - name: sudo
     type: OR
-  - name: healthcheck
+  - name: health-check
     type: OR
   - name: ehcache
     type: OR
@@ -56,15 +56,15 @@ tags:
     type: OR
   - name: hard-ip
     type: OR
-  - name: processexit
+  - name: process-exit
     type: OR
-  - name: distcache
+  - name: dist-cache
     type: OR
-  - name: wscluster
+  - name: ws-cluster
     type: OR
-  - name: wlcluster
-    type: ORs
-  - name: I/O
+  - name: wl-cluster
+    type: OR
+  - name: io
     type: OR
   - name: log2file
     type: OR
@@ -80,7 +80,7 @@ tags:
     type: OR
   - name: ejb
     type: OR
-  - name: jaxws
+  - name: jax-ws
     type: OR
   - name: jsf
     type: OR
@@ -90,7 +90,7 @@ tags:
     type: OR
   - name: txn
     type: OR
-  - name: webservlet
+  - name: web-servlet
     type: OR
 
 ---
@@ -118,9 +118,9 @@ name: Web MVC
 tags:
   - name: ui
     type: OR
-  - name: webapp
+  - name: web-app
     type: AND
-  - name: webcontainer
+  - name: web-container
     type: AND
   - name: jsp
     type: OR
@@ -148,7 +148,7 @@ tags:
 ---
 name: Data
 tags:
-  - name: I/O
+  - name: io
     type: OR
 
 ---
@@ -156,7 +156,7 @@ name: Monolith
 tags:
   - name: soap
     type: AND
-  - name: webservices
+  - name: web-service
     type: AND
   - name: messaging
     type: AND
@@ -182,7 +182,7 @@ tags:
 ---
 name: FAAS
 tags:
-  - name: I/O
+  - name: io
     type: OR
   - name: security
     type: OR

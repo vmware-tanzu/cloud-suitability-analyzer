@@ -8,7 +8,7 @@ advice: Automatic remediation with Bootifier
 effort: 2
 readiness: 2
 tags:
-  - value: webservlet
+  - value: web-servlet
 patterns:
   - value: ejb-api
     tag: ejb

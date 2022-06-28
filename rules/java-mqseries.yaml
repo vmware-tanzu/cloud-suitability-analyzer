@@ -9,7 +9,7 @@ advice: You need to make sure that you are using the dependencies that match the
 category: ibm-mq
 tags:
   - value: ibm-mq
-  - value: MessageQueue
+  - value: message-queue
 patterns:
   - value: MQQueueConnectionFactory
   - value: WMQConstants

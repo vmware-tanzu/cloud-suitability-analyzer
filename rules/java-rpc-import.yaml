@@ -6,9 +6,9 @@ defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Adapt to cloud friendly protocl or use TKG
 effort: 2
 readiness: 10
-category: webService
+category: web-service
 tags:
-  - value: webservices
+  - value: web-service
   - value: rpc
   - value: soap
 patterns:

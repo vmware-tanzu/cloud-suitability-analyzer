@@ -9,8 +9,8 @@ readiness: 7
 category: struts
 tags:
   - value: struts
-  - value: webapp
-  - value: webcontainer
+  - value: web-app
+  - value: web-container
 patterns:
   - value: LibaryBaseAction
   - value: ActionForward

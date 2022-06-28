@@ -5,9 +5,9 @@ type: contains
 advice: never save passwords or login information in files
 effort: 11
 readiness: 9
-category: Security
+category: security
 tags:
-- value: Security
+- value: security
 patterns:
 - value: Password=
 - value: User=

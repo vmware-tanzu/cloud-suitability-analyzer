@@ -12,7 +12,7 @@ category: jsp
 tags:
   - value: ui
   - value: jsp
-  - value: webcontainer
+  - value: web-container
 patterns:
   - value: TagSupport
   - value: JspException

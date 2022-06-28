@@ -9,7 +9,6 @@ effort: 5
 readiness: 2
 tags:
 - value: struts
-- value: webapp
 - value: ui
 - value: tiles
 patterns:

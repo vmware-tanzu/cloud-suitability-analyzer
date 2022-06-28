@@ -7,7 +7,7 @@ category: Unsupported modules
 effort: 100
 readiness: 1
 tags:
--value: RequestFiltering
+-value: request-filtering
 patterns:
 - value: /configuration/system.webServer/security/requestFiltering/requestLimits[1]
 ## <requestFiltering 

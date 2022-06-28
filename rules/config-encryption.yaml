@@ -5,8 +5,8 @@ target: file
 type: xpath
 advice: Use of encrypted sections is problematic in cloud environments
 effort: 300
-category: Security
+category: security
 tags:
-- value: Protection-Provider
+- value: protection-provider
 patterns:
   - value: //*[@configProtectionProvider][1]

@@ -8,7 +8,7 @@ advice: Servlet Java API Import
 category: servlet
 tags:
 - value: servlet
-- value: webcontainer
+- value: web-container
 patterns:
 - value: import javax.servlet.
 ##import javax.servlet.

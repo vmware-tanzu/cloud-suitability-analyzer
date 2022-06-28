@@ -7,7 +7,7 @@ effort: 5
 readiness: 8
 category: logging
 tags:
-- value: Elasticsearch
+- value: elasticsearch
 patterns:
 - value: using Serilog.Sinks.Elasticsearch
 - value: ElasticConfiguration

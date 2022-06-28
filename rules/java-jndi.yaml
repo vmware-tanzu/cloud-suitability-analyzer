@@ -11,7 +11,7 @@ category: jndi
 advice: Remove jndi provider or move to TKG
 tags:
   - value: jndi
-  - value: webcontainer
+  - value: web-container
 patterns:
   - value: NamingEnumeration
   - value: NameClassPair

@@ -5,7 +5,7 @@ type: contains
 advice: Remediate to cloud friendly implentation or move to TKG
 effort: 1000
 readiness: 10
-category: Process
+category: process-launch
 tags:
   - value: jni
 patterns:

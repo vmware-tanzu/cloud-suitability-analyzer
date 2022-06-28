@@ -10,7 +10,7 @@ readiness: 2
 tags:
 - value: facelets
 - value: jsf
-- value: webapp
+- value: web-app
 patterns:
 - value: jsf/facelets
 ##jsf/facelets

@@ -15,4 +15,4 @@ patterns:
 - value: PostActivate
 - value: PrePassivate
   tag: ejb
-  tag: Stateful
+  tag: stateful

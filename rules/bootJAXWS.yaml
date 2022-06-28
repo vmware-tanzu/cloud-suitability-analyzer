@@ -8,7 +8,7 @@ advice: Automatic remediation with Bootifier
 effort: 2
 readiness: 2
 tags:
-- value: jaxws
+- value: jax-ws
 patterns:
 - value: jboss-annotations-api_1.3_spec
   tag: jboss-annotations-1-3

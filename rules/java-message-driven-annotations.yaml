@@ -8,7 +8,7 @@ effort: 5
 category: annotations
 tags:
 - value: annotations
-- value: message-driven
+- value: mdb
 patterns:
 - value: MessageDriven
   tag: message-driven

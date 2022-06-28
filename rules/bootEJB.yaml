@@ -11,7 +11,7 @@ tags:
   - value: ejb
 patterns:
   - value: ejb-api
-    tag: ejb-api
+    tag: ejb
   - value: jboss-ejb-api_3.0_spec
     tag: jboss-ejb-api_3.0_spec
   - value: jboss-ejb-api_3.1_spec
