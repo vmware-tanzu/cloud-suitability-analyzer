@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapBinsTemplate.txt found under go/resources folder
-//Created @ 2022-06-27 19:36:34.54469 -0500 CDT m=+0.207755122
+//Created @ 2022-06-27 20:06:27.39696 -0500 CDT m=+0.185085096
 
 func BootstrapBins() []Bin {
     var BootstrapBins = []Bin{
@@ -27,7 +27,7 @@ func BootstrapBins() []Bin {
         
             { Name: "CONTAINER",
             Tags:
-            []*BinTag{  { Name: "term", Type: 1, Action: "OR", },  { Name: "metrics", Type: 1, Action: "OR", },  { Name: "sudo", Type: 1, Action: "OR", },  { Name: "healthcheck", Type: 1, Action: "OR", },  { Name: "ehcache", Type: 1, Action: "OR", },  { Name: "non-root", Type: 1, Action: "OR", },  { Name: "hardip", Type: 1, Action: "OR", },  { Name: "processexit", Type: 1, Action: "OR", },  { Name: "distcache", Type: 1, Action: "OR", },  { Name: "wscluster", Type: 1, Action: "OR", },  { Name: "wlcluster", Type: 0, Action: "ORs", },  { Name: "I/O", Type: 1, Action: "OR", },  { Name: "log2file", Type: 1, Action: "OR", },  { Name: "docker", Type: 1, Action: "OR", },  { Name: "transaction", Type: 1, Action: "OR", },  },
+            []*BinTag{  { Name: "term", Type: 1, Action: "OR", },  { Name: "metrics", Type: 1, Action: "OR", },  { Name: "sudo", Type: 1, Action: "OR", },  { Name: "healthcheck", Type: 1, Action: "OR", },  { Name: "ehcache", Type: 1, Action: "OR", },  { Name: "non-root-user", Type: 1, Action: "OR", },  { Name: "hardip", Type: 1, Action: "OR", },  { Name: "processexit", Type: 1, Action: "OR", },  { Name: "distcache", Type: 1, Action: "OR", },  { Name: "wscluster", Type: 1, Action: "OR", },  { Name: "wlcluster", Type: 0, Action: "ORs", },  { Name: "I/O", Type: 1, Action: "OR", },  { Name: "log2file", Type: 1, Action: "OR", },  { Name: "docker", Type: 1, Action: "OR", },  { Name: "transaction", Type: 1, Action: "OR", },  },
              },
         
             { Name: "BOOT",
@@ -37,7 +37,7 @@ func BootstrapBins() []Bin {
         
             { Name: "Modern Microservices",
             Tags:
-            []*BinTag{  { Name: "spring-boot", Type: 0, Action: "AND", },  { Name: "jar", Type: 0, Action: "AND", },  },
+            []*BinTag{  { Name: "spring-boot", Type: 0, Action: "AND", },  },
              },
         
             { Name: "Spring",
