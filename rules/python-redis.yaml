@@ -8,8 +8,6 @@ readiness: 10
 category: services
 tags:
 - value: redis
-recipes:
-- uri: https://app-transformation-cookbook-internal.cfapps.io/backing-services-port-binding/persistence/
 patterns:
 - value: import redis
 - value: import aioredis

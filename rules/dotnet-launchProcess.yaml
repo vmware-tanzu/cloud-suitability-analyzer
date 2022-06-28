@@ -6,9 +6,9 @@ defaultpattern: '^ +%s[.(].*'
 advice: Launching additional processes within a container is not recommended. 
 readiness: 7
 effort: 300
-category: Process-Launch
+category: process-launch
 tags:
-- value: Process-Launch
+- value: process-launch
 patterns:
 - value: Process
 

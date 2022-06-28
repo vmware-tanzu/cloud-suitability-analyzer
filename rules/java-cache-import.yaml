@@ -9,7 +9,7 @@ readiness: 10
 category: nondistcache
 tags:
   - value: cache
-  - value: nondistcache
+  - value: non-dist-cache
 patterns:
   - value: com.tangosol
     tag: tangosol

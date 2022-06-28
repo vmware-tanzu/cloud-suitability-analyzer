@@ -7,7 +7,7 @@ advice: Align with standard build system
 effort: 0
 readiness: 0
 tags:
-- value: buildSystem
+- value: build-system
 patterns:
 - value: build.xml
   tag: ant

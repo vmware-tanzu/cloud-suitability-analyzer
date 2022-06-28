@@ -8,6 +8,7 @@ package model
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:go/model/ScoringModelBootstrap.go
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -30,6 +31,9 @@ package model
 =======
 //Created @ 2022-06-28 08:54:27.413137 -0500 CDT m=+0.181809344
 >>>>>>> ae9093c (Title: Fix errors in rules/bins)
+=======
+//Created @ 2022-06-28 10:47:48.975553 -0500 CDT m=+0.173371515
+>>>>>>> 92324ac (Title: standard tags/categories)
 
 func BootstrapModels() []ScoringModel {
     var BootstrapModels = []ScoringModel{

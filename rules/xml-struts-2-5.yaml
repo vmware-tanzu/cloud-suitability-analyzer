@@ -9,7 +9,6 @@ effort: 7
 readiness: 7
 tags:
 - value: struts
-- value: webapp
 - value: ui
 patterns:
 - value: struts-2.5.dtd

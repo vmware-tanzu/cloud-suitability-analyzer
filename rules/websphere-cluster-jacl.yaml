@@ -8,6 +8,6 @@ advice: websphere clusters cannot run in K8S
 effort: 1
 readiness: 0
 tags:
-  - value: wscluster
+  - value: ws-cluster
 patterns:
   - value: _CLUSTERS

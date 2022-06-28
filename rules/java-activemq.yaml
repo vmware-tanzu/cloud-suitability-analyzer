@@ -11,6 +11,6 @@ readiness: 7
 category: activemq
 tags:
   - value: activemq
-  - value: MessageQueue
+  - value: message-queue
 patterns:
   - value: createActiveMQConnection

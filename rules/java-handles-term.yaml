@@ -6,7 +6,7 @@ type: contains
 advice: For containerization, the TERM signal must be handled, this pattern is a positive finding.
 effort: 1
 readiness: 6
-category: termsignal
+category: term-signal
 tags:
   - value: term
 patterns:

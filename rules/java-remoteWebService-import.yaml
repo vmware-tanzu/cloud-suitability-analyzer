@@ -6,9 +6,9 @@ defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Ensure valid configuration for TAS or use TKG
 effort: 10
 readiness: 10
-category: webService
+category: web-service
 tags:
-  - value: webservices
+  - value: web-service
 patterns:
   - value: javax.xml.ws.AsyncHandler
     tag: javax-xml-ws 

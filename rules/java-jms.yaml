@@ -11,7 +11,7 @@ advice: Run embedded service broker as a JMS Provider.
 category: jms
 tags:
   - value: jms
-  - value: MessageQueue
+  - value: message-queue
 patterns:
   - value: MessageConsumer
     tag: jms-listener

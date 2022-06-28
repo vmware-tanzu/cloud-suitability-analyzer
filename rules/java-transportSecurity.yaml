@@ -9,7 +9,7 @@ effort: 10
 readiness: 10
 tags:
   - value: security
-  - value: transportSecurity
+  - value: transport-security
 patterns:
   - value: TransportGuarantee.CONFIDENTIAL
 ##TransportGuarantee.CONFIDENTIAL

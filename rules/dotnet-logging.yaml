@@ -5,12 +5,12 @@ type: contains
 advice: Logging to the Event Log is not recommended for cloud native apps.
 readiness: 3
 effort: 100
-category: Logging
+category: logging
 tags:
-- value: EventLog
+- value: eventlog
 patterns:
 - value: EventLogTraceListener
-  tag: EventLogTraceListener
+  tag: event-log-trace-listener
 - value: EventLog
 ## EventLogTraceListener
 ## EventLog

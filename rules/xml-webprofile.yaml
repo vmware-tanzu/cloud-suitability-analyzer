@@ -7,14 +7,14 @@ readiness: 1000
 type: simple-text
 advice: Web application config file
 tags:
-  - value: webprofile
+  - value: web-profile
 patterns:
   - value: persistence.xml
     tag: jpa
   - value: web.xml
     tag: webapp
   - value: applicationContext.xml
-    tag: FileSystemXmlApplicationContext
+    tag: file-system-xml-application-context
 ##F persistence.xml
 ##F web.xml
 ##F applicationContext.xml

@@ -6,17 +6,17 @@ defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Indicates existance of healthcheck endpoint, which is positive finding
 effort: -100
 readiness: 7
-category: healthcheck
+category: health-check
 tags:
-  - value: healthcheck
+  - value: health-check
 patterns:
   - value: netflix.karyon.transport.http.health.HealthCheckEndpoint
-    tag: karyon-healthcheck
+    tag: karyon-health-check
   - value: com.netflix.runtime.health.guice
-    tag: netflix-healthcheck
+    tag: netflix-health-check
   - value: com.netflix.runtime.health.api.HealthCheckAggregator
-    tag: netflix-healthcheck
+    tag: netflix-health-check
   - value: com.netflix.runtime.health.api.HealthCheckStatus
-    tag: netflix-healthcheck
+    tag: netflix-health-check
   - value: com.netflix.runtime.health.api.IndicatorMatcher
-    tag: netflix-healthcheck
+    tag: netflix-health-check

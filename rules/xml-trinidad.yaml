@@ -9,7 +9,7 @@ effort: 10
 readiness: 7
 tags:
 - value: jsf
-- value: webprofile
+- value: web-profile
 - value: trinidad
 patterns:
 - value: myfaces.apache.org/trinidad/config

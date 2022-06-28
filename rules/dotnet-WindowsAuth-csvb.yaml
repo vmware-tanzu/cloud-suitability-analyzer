@@ -7,7 +7,7 @@ advice: Ensure compatible configuation
 effort: 500
 readiness: 1
 tags:
-- value: WIndows-Auth
+- value: windows-auth
 patterns:
 - value: GetSection(system.webServer/security/authentication/windowsAuthentication
 ## GetSection(system.webServer/security/authentication/windowsAuthentication

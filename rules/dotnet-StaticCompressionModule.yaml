@@ -7,6 +7,8 @@ category: Unsupported modules
 advice: Ensure compatible configuration
 effort: 100
 readiness: 5
+tags:
+- value: static-compression
 patterns:
 - value: /configuration/system.webServer/httpCompression[1]
 ##<httpCompression

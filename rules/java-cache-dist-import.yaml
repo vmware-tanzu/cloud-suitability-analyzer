@@ -10,7 +10,7 @@ category: distcache
 tags:
   - value: stateful
   - value: cache
-  - value: distcache
+  - value: dist-cache
 patterns:
   - value: org.ehcache #--- dist
     tag: ehcache

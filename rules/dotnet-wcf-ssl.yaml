@@ -5,15 +5,14 @@ type: contains
 advice: When using HTTPS, terminate SSL at load balancer
 effort: 1
 readiness: 10
-category: WCF
+category: wcf
 tags:
 - value: wcf
 - value: ssl
 patterns:
 - value: BasicHttpSecurityMode.Transport
 ## BasicHttpSecurityMode.Transport
-  advice: Disable HTTPS at the container and allow the external load balancer to terminate
-    SSL
+  advice: Disable HTTPS at the container and allow the external load balancer to terminate SSL
 - value: SecurityMode.Transport
 ## SecurityMode.Transport
   advice: Transport security at the container is not supported.  Disable transport

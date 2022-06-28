@@ -5,9 +5,9 @@ type: contains
 advice: SharePoint is not supported on CloudFoundry.
 effort: 100
 readiness: 0
-category: Unsupported modules
+category: unsupported-modules
 tags:
-- value: SharePoint
+- value: sharepoint
 patterns:
 - value: Microsoft.SharePoint
   advice: SharePoint is not supported on CloudFoundry.

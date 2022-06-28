@@ -5,10 +5,10 @@ type: contains
 advice: Relying on Windows certificate stores is problematic in a cloud environment.
 readiness: 10
 effort: 3
-category: Security
+category: security
 tags:
-- value: Security
+- value: security
 patterns:
 - value: X509Store
-  tag: X509Store
+  tag: x509-store
 ## X509Store

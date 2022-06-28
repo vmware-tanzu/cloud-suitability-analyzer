@@ -8,7 +8,7 @@ effort: 500
 readiness: 1000
 tags:
   - value: websphere
-  - value: fullprofile
+  - value: full-profile
 patterns:
   - value: client-resource.xmi
   - value: ibm-application-bnd.xmi

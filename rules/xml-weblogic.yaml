@@ -8,7 +8,7 @@ effort: 100
 readiness: 100
 tags:
   - value: weblogic
-  - value: fullprofile
+  - value: full-profile
 patterns:
   - value: weblogic.xml
   - value: weblogic-cmp-rmodelms-jar.xml
