@@ -52,7 +52,7 @@ tags:
     type: OR
   - name: ehcache
     type: OR
-  - name: non-root
+  - name: non-root-user
     type: OR
   - name: hardip
     type: OR
@@ -98,9 +98,7 @@ name: Modern Microservices
 tags:
   - name: spring-boot
     type: AND
-  - name: jar
-    type: AND
-
+  
 ---
 name: Spring
 tags:
