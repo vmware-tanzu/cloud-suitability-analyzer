@@ -2,7 +2,8 @@
 name: java-handles-term
 filetype: java$
 target: line
-type: contains
+type: regex
+defaultpattern: ^.*%s
 advice: For containerization, the TERM signal must be handled, this pattern is a positive finding.
 effort: 1
 readiness: 6
@@ -11,3 +12,5 @@ tags:
   - value: term
 patterns:
   - value: Runtime.getRuntime().addShutdownHook
+
+  #- Runtime.getRuntime().addShutdownHook

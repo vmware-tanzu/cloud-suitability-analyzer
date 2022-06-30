@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2022-06-28 10:47:48.857773 -0500 CDT m=+0.055591078
+//Created @ 2022-06-30 11:37:53.251025 -0500 CDT m=+0.067006635
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -2544,6 +2544,131 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "getLTPACookieFromSSOToken", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
+            { Name: "js-bool-comparison", FileType: "js$", Target: "line", Type: "regex", DefaultPattern: "(!|=)=\\\\s+%s", Advice: "Boolean literals should be avoided in comparison expressions == and != to improve code readability.", Effort: 1, Readiness: 10, Impact: "", Category: "design", Criticality: "",
+            Tags:
+            []Tag{  { Value: "bool-compare",}, { Value: "readability",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "true", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "false", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "js-cache", FileType: "js$", Target: "line", Type: "regex", DefaultPattern: ".*(%s)\\s*\\[.*\\]", Advice: "However, the default configuration is to store session data in a temporary file on the local disk. Again, this will not work if you’re using multiple nodes. Store sessions in a centralized caching server or cluster. So stop putting everything into $_SESSION or $_COOKIE", Effort: 20, Readiness: 1000, Impact: "", Category: "session_management", Criticality: "",
+            Tags:
+            []Tag{  { Value: "cache",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "cache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "CACHE", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "js-cipher-algorithms-should-be-robust", FileType: "js$", Target: "line", Type: "regex", DefaultPattern: "(%s+.+,+)", Advice: "Weak cipher algorithms are used. A general recommendation is to only use cipher algorithms intensively tested and promoted by the cryptographic community.", Effort: 10, Readiness: 1000, Impact: "", Category: "vulnerability", Criticality: "",
+            Tags:
+            []Tag{  { Value: "vulnerability",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "DES", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "DES-EDE", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "DES-EDE3", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "RC2", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "RC4", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "js-continue", FileType: "js$", Target: "line", Type: "regex", DefaultPattern: "(\\\\s+)?%s(\\\\s+)?;", Advice: "continue is an unstructured control flow statement. It makes code less testable, less readable and less maintainable. Structured control flow statements such as if should be used instead.", Effort: 1, Readiness: 10, Impact: "", Category: "design", Criticality: "",
+            Tags:
+            []Tag{  { Value: "testability",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "continue", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "js-document-write.yaml", FileType: "js$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "The use of document.write where native DOM alternatives such as document.createElement are more appropriate. document.write has been grossly misused over the years and has quite a few disadvantages, including that if it’s executed after the page has been loaded, it can actually overwrite the page. Opting for more DOM-friendly methods such as document.createElement is more favourable", Effort: 5, Readiness: 1000, Impact: "", Category: "code_smell", Criticality: "",
+            Tags:
+            []Tag{  { Value: "code_smell",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "document.write", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "js-fileIO", FileType: "js$", Target: "line", Type: "regex", DefaultPattern: "\\\\.%s", Advice: "Cloud-native applications should not rely on a local filesystem to store information, configuration or logs. Choose a cloud-friendly alternative.", Effort: 30, Readiness: 8, Impact: "", Category: "io", Criticality: "",
+            Tags:
+            []Tag{  { Value: "io",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "appendFile", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "writeFile", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "js-function", FileType: "js$", Target: "line", Type: "regex", DefaultPattern: "(%s)\\\\s+[A-Z]", Advice: "Shared naming conventions allow teams to collaborate efficiently. This rule checks that all function names match a provided regular expression.", Effort: 1, Readiness: 10, Impact: "", Category: "design", Criticality: "",
+            Tags:
+            []Tag{  { Value: "function",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "function", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "js-jwt-signed-verify-with-strong-cipher-algorithms", FileType: "js$", Target: "line", Type: "regex", DefaultPattern: ".*\\s*{\\s(%s\\s*:+\\s*.none.\\s*}|.*\\s*(%ss:+\\s*\\[\\s*.*,+\\s*.*none.*\\s*]+))", Advice: "If a JSON Web Token (JWT) is not signed with a strong cipher algorithm (or not signed at all) an attacker can forge it and impersonate user identities. Do not use none algorithm to sign or verify the validity of a token. Do not use a token without verifying its signature before.", Effort: 10, Readiness: 1000, Impact: "", Category: "vulnerability", Criticality: "",
+            Tags:
+            []Tag{  { Value: "vulnerability",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "algorithm", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "js-stdout", FileType: "js$", Target: "line", Type: "regex", DefaultPattern: "(%s)\\s*\\(.*\\)", Advice: "Debug statements are always useful during development. But include them in production code - particularly in code that runs client-side - and you run the risk of inadvertently exposing sensitive information, slowing down the browser, or even erroring-out the site for some users.", Effort: 2, Readiness: 4, Impact: "", Category: "design", Criticality: "",
+            Tags:
+            []Tag{  { Value: "vulnerability",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "console.log", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "js-symbol", FileType: "js$", Target: "line", Type: "regex", DefaultPattern: "new\\\\s+%s", Advice: "Symbol is a primitive type introduced in ECMAScript2015. Its instances are mainly used as unique property keys. An instance can only be created by using Symbol as a function. Using Symbol with the new operator will raise a TypeError.", Effort: 1, Readiness: 10, Impact: "", Category: "design", Criticality: "",
+            Tags:
+            []Tag{  { Value: "type-error",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "Symbol", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "js-throw-literal", FileType: "js$", Target: "line", Type: "regex", DefaultPattern: "(%s)\\\\s+(\\\\d|''.+''|\\\".+\\\")", Advice: "It is a bad practice to throw something that's not derived at some level from Error. If you can't find an existing Error type that suitably conveys what you need to convey, then you should extend Error to create one.", Effort: 1, Readiness: 10, Impact: "", Category: "design", Criticality: "",
+            Tags:
+            []Tag{  { Value: "exception",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "throw", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "js-md5-sha1-noncompliant", FileType: "js$", Target: "line", Type: "regex", DefaultPattern: ".*(%s)\\s*(1.1)+", Advice: "TLS1.1 is not secure", Effort: 5, Readiness: 1000, Impact: "", Category: "security", Criticality: "",
+            Tags:
+            []Tag{  { Value: "vulnerability",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "tls", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "TLS", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "js-var", FileType: "js$", Target: "line", Type: "regex", DefaultPattern: "(\\\\s+)?%s\\\\s+", Advice: "ECMAScript 2015 introduced the let and const keywords for block-scope variable declaration. Using const creates a read-only (constant) variable.", Effort: 1, Readiness: 10, Impact: "", Category: "design", Criticality: "",
+            Tags:
+            []Tag{  { Value: "read-only",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "var", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
             { Name: "log2file-import", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Logging should be to console", Effort: 1, Readiness: 8, Impact: "", Category: "log2file", Criticality: "",
             Tags:
             []Tag{  { Value: "log2file",}, },
@@ -2569,6 +2694,222 @@ func BootstrapRules() []Rule {
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "property.filename", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "php-allow-url-in-config", FileType: "ini$", Target: "line", Type: "regex", DefaultPattern: "\\s*(%s)=1$", Advice: "allow_url_fopen and allow_url_include allow code to be read into a script from URL’s. The ability to suck in executable code from outside your site, coupled with imperfect input cleansing could lay your site bare to attackers explicitly disable allow_url_fopen and allow_url_include'", Effort: 5, Readiness: 1000, Impact: "", Category: "Vulnerability", Criticality: "",
+            Tags:
+            []Tag{  { Value: "vulnerability",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "allow_url_fopen", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "allow_url_include", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "php-cache", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(%s)\\s*\\[.*\\]", Advice: "However, the default configuration is to store session data in a temporary file on the local disk. Again, this will not work if you’re using multiple nodes", Effort: 20, Readiness: 1000, Impact: "", Category: "session_management", Criticality: "",
+            Tags:
+            []Tag{  { Value: "cache",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "cache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "CACHE", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "php-cgi-force-redirect-enabled", FileType: "ini$", Target: "line", Type: "regex", DefaultPattern: "\\s*(%s)=+0$", Advice: "The cgi.force_redirect php.ini configuration is on by default, and it prevents unauthenticated access to scripts when PHP is running as a CGI.", Effort: 5, Readiness: 1000, Impact: "", Category: "Vulnerability", Criticality: "",
+            Tags:
+            []Tag{  { Value: "vulnerability",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "cgi.force_redirect", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "php-deprecated-feature-parse_str", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: "([^_]%s)\\s*\\(.*[^,]\\)", Advice: "parse_str() without second argument is deprecated", Effort: 3, Readiness: 1000, Impact: "", Category: "deprecation", Criticality: "",
+            Tags:
+            []Tag{  { Value: "deprecated",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "parse_str", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "php-deprecated-feature-should-not-be-used", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: "([^_]%s)\\s*\\(+.*\\)", Advice: "Deprecated language features are those that have been retained temporarily for backward compatibility, but which will eventually be removed from the language. In effect, deprecation announces a grace period to allow the smooth transition from the old features to the new ones. In that period, no use of the deprecated features should be added to the code. Refactor or upgrade to use Php 7+", Effort: 7, Readiness: 1000, Impact: "", Category: "deprecation", Criticality: "",
+            Tags:
+            []Tag{  { Value: "deprecated",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "call_user_method", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "call_user_method_array", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "define_syslog_variables", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "dl", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ereg", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ereg_replace", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "eregi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "eregi_replace", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "set_magic_quotes_runtime", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "magic_quotes_runtime", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "session_register", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "session_unregister", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "session_is_registered", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "set_socket_blocking", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "split", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spliti", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "sql_regcase", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "mysql_db_query", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "mysql_escape_string", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "create_function", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "gmp_random", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "php-disabled-enable-dl", FileType: "ini$", Target: "line", Type: "regex", DefaultPattern: "\\s*(%s)=+1$", Advice: "enable_dl is on by default and allows open_basedir restrictions, which limit the files a script can access, to be ignored enable_dl should be explicitly turned off in php.ini", Effort: 5, Readiness: 1000, Impact: "", Category: "Vulnerability", Criticality: "",
+            Tags:
+            []Tag{  { Value: "vulnerability",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "enable_dl", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "php-disabled-file-uploads", FileType: "ini$", Target: "line", Type: "regex", DefaultPattern: "\\s*(%s)=+1$", Advice: "file_uploads is an on-by-default PHP configuration that allows files to be uploaded to your site.", Effort: 5, Readiness: 1000, Impact: "", Category: "Vulnerability", Criticality: "",
+            Tags:
+            []Tag{  { Value: "vulnerability",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "file_uploads", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "php-enable-session-use-trans-sid", FileType: "ini$", Target: "line", Type: "regex", DefaultPattern: "\\s*(%s)=+1$", Advice: "PHP’s session.use_trans_sid automatically appends the user’s session id to urls when cookies are disabled.", Effort: 5, Readiness: 1000, Impact: "", Category: "Vulnerability", Criticality: "",
+            Tags:
+            []Tag{  { Value: "vulnerability",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "session.use_trans_sid", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "php-file-system-manipulation", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(%s)\\s*\\(.*\\)", Advice: "Filesystem manipulation is not encouraged in cloud-native applications. Keep your content off the filesystem", Effort: 50, Readiness: 1000, Impact: "", Category: "filesystem", Criticality: "",
+            Tags:
+            []Tag{  { Value: "io",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "file_put_contents", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "filemtime", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "fputcsv", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "fputs", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "fopen", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "fsync", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ftell", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ftruncate", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "fwrite", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "is_writable", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "mkdir", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "move_uploaded_file", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "readfile", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "rmdir", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "touch", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "chown", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "copy", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "fflush", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "tmpfile", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "tempnam", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "php-function-method-naming-convention", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: "^(%s)\\s+[a-z]+[a-zA-Z0-9]*\\(.*\\)", Advice: "Shared naming conventions allow teams to collaborate efficiently. All function names match a provided regular expression.", Effort: 2, Readiness: 1000, Impact: "", Category: "naming_convention", Criticality: "",
+            Tags:
+            []Tag{  { Value: "code-smell",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "function", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "php-global-variable", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(\\$%s)\\s*\\[.*\\]", Advice: "The default configuration is to store session data in a temporary file on the local disk. Again, this will not work if you’re using multiple nodes", Effort: 20, Readiness: 1000, Impact: "", Category: "session_management", Criticality: "",
+            Tags:
+            []Tag{  { Value: "cache",}, { Value: "session",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "_SESSION", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "_COOKIE", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "php-goto-stmt-should-not-be-used", FileType: "ini$", Target: "line", Type: "regex", DefaultPattern: "\\s*(%s\\s*.+)", Advice: "goto is an unstructured control flow statement. It makes code less readable and maintainable. Structured control flow statements such as if, for, while, continue or break should be used instead.", Effort: 3, Readiness: 1000, Impact: "", Category: "code_smell", Criticality: "",
+            Tags:
+            []Tag{  { Value: "unstructured",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "goto", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "php-md5-sha1-noncompliant", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(%s\\(.*\\))", Advice: "Cryptographic hash algorithms such as MD2, MD4, MD5, MD6, HAVAL-128, HMAC-MD5, DSA (which uses SHA-1), RIPEMD, RIPEMD-128, RIPEMD-160, HMACRIPEMD160 and SHA-1 are no longer considered secure, because it is possible to have collisions (little computational effort is enough to find two or more different inputs that produce the same hash). Safer alternatives, such as SHA-256, SHA-512, SHA-3 are recommended, and for password hashing, it is even better to use algorithms that do not compute too quickly, like bcrypt, scrypt, argon2 or pbkdf2 because it slows down brute force attacks.", Effort: 10, Readiness: 1000, Impact: "", Category: "security", Criticality: "",
+            Tags:
+            []Tag{  { Value: "security",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "md5", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "sha1", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "md2", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "sha1", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "md4", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "haval128", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "dsa", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "php-reading-std-Input-security-sensitive", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(%s)\\s*\\(.*\\)", Advice: "Reading Standard Input is security-sensitive. It has led in the past to the following vulnerabilities:CVE-2005-2337,CVE-2017-11449", Effort: 50, Readiness: 1000, Impact: "", Category: "security", Criticality: "",
+            Tags:
+            []Tag{  { Value: "security",}, { Value: "filesystem",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "stream_get_line", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stream_copy_to_stream", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "file_get_contents", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "readfile", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "fopen", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stream_socket_server", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stream_socket_client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stream_socket_pair", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "php-references-should-not-be-passed-to-func-call", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*\\s*\\(%s+.*\\)", Advice: "Passing a reference to a function parameter means that any modifications the method makes to the parameter will be made to the original value as well, since references have the effect of pointing two variables at the same memory space. This feature can be difficult to use correctly, particularly if the callee is not expecting a reference, and the improper use of references in function calls can make code less efficient rather than more efficient.", Effort: 3, Readiness: 1000, Impact: "", Category: "code_smell", Criticality: "",
+            Tags:
+            []Tag{  { Value: "code_smell",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "&", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "php-socket-security-sensitive", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(%s)\\s*\\(.*\\)", Advice: "Using sockets is security-sensitive. It has led in the past to the following vulnerabilities:CVE-2011-178,CVE-2017-5645,CVE-2018-6597", Effort: 50, Readiness: 1000, Impact: "", Category: "anti-pattern", Criticality: "",
+            Tags:
+            []Tag{  { Value: "anti-pattern",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "socket_create", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "socket_create_listen", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "socket_addrinfo_bind", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "socket_addrinfo_connect", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "socket_create_pair", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stream_socket_server", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stream_socket_client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stream_socket_pair", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "php-php-url-not-hardcoded", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(%s://).*", Advice: "Url Hardcoding in code is anti-pattern", Effort: 2, Readiness: 1000, Impact: "", Category: "anti-pattern", Criticality: "",
+            Tags:
+            []Tag{  { Value: "code_smell",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "http", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "https", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "plaintext-creds", FileType: "", Target: "line", Type: "contains", DefaultPattern: "", Advice: "never save passwords or login information in files", Effort: 11, Readiness: 9, Impact: "", Category: "security", Criticality: "",

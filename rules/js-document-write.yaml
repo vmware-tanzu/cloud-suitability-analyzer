@@ -1,0 +1,13 @@
+name: js-document-write.yaml
+filetype: js$
+target: line
+type: regex
+defaultpattern: (%s)
+category: code_smell
+advice:  The use of document.write where native DOM alternatives such as document.createElement are more appropriate. document.write has been grossly misused over the years and has quite a few disadvantages, including that if it’s executed after the page has been loaded, it can actually overwrite the page. Opting for more DOM-friendly methods such as document.createElement is more favourable
+effort: 5
+readiness: 1000
+tags:
+  - value: code_smell
+patterns:
+  - value: document.write

@@ -11,5 +11,5 @@ tags:
 patterns:
   - value: System.loadLibrary
   - value: System.load
-##System.loadLibrary
-##System.load
+#- System.loadLibrary
+#- System.load
