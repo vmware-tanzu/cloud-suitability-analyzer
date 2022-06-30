@@ -9,6 +9,7 @@ package model
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD:go/model/BinBootstrap.go
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -34,6 +35,9 @@ package model
 =======
 //Created @ 2022-06-28 10:47:48.980137 -0500 CDT m=+0.177954690
 >>>>>>> 92324ac (Title: standard tags/categories)
+=======
+//Created @ 2022-06-30 11:37:53.404689 -0500 CDT m=+0.220669229
+>>>>>>> 64ece2d (Title: Remove contains rules where possible)
 
 func BootstrapBins() []Bin {
     var BootstrapBins = []Bin{

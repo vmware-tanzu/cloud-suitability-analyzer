@@ -1,7 +1,8 @@
 name: java-security
 filetype: java$
 target: line
-type: contains
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
 advice:
 recipes:
 effort: 10
@@ -24,3 +25,11 @@ patterns:
   tag: javax-net-ssl
 - value: java.security
   tag: x509
+
+#- import javax.net.ssl.keyStore
+#- import javax.net.ssl.keyStoreType
+#- import javax.net.ssl.keyStorePassword
+#- import javax.net.ssl.trustStore
+#- import javax.net.ssl.trustStoreType
+#- import javax.net.ssl.trustStorePassword
+#- import java.security

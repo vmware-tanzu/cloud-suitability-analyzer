@@ -1,7 +1,8 @@
 name: java-jvm-runtimeConfigProps
 filetype: java$
 target: line
-type: contains
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Do not change these properties at runtime in application code
 recipes:
 effort: 50
@@ -18,12 +19,12 @@ patterns:
   tag: xml-parser
 
 
-##javax.net.ssl.keyStore
-##javax.net.ssl.keyStoreType
-##javax.net.ssl.keyStorePassword
-##javax.net.ssl.trustStore
-##javax.net.ssl.trustStoreType
-##javax.net.ssl.trustStorePassword
-##javax.xml.soap.SOAPFactory
-##javax.xml.parsers.DocumentBuilderFactory
-##javax.xml.parsers.SAXParserFactory
+#- import javax.net.ssl.keyStore
+#- import javax.net.ssl.keyStoreType
+#- import javax.net.ssl.keyStorePassword
+#- import javax.net.ssl.trustStore
+#- import javax.net.ssl.trustStoreType
+#- import javax.net.ssl.trustStorePassword
+#- import javax.xml.soap.SOAPFactory
+#- import javax.xml.parsers.DocumentBuilderFactory
+#- import javax.xml.parsers.SAXParserFactory
