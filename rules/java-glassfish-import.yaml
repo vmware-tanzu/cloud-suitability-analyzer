@@ -17,7 +17,7 @@ patterns:
 - value: com.bea.logging
   tag: bea
 - value: com.bea.security.saml2.providers
-  tag: bea-import
+  tag: bea
   tag: saml2
 - value: com.bea.security.saml2.providers.registry
   tag: bea

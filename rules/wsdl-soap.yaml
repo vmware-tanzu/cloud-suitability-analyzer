@@ -8,7 +8,7 @@ advice: Refer to platform documentation
 type: regex
 tags:
   - value: wsdl
-  - value: web-services
+  - value: web-service
   - value: soap
 patterns:
   - value: .*\.wsdl
