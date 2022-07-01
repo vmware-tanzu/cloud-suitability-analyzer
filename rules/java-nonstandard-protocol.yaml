@@ -7,7 +7,7 @@ readiness: 10
 advice: Ensure protocol dependencies are cloud friendly or move to TKG
 category: protocol
 tags:
-  - value: nonstandard-protocol
+  - value: non-standard-protocol
 patterns:
   - value: "t3:"
     tag: t3

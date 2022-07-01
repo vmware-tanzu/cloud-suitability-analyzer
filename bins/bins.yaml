@@ -94,19 +94,19 @@ tags:
     type: OR
 
 ---
-name: Modern Microservices
+name: MICRO-SERVICE
 tags:
   - name: spring-boot
     type: AND
   
 ---
-name: Spring
+name: SPRING
 tags:
   - name: spring
     type: OR
 
 ---
-name: Stateful
+name: STATEFUL
 tags:
   - name: stateful
     type: OR
@@ -114,7 +114,7 @@ tags:
     type: EXCLUDE
 
 ---
-name: Web MVC
+name: WEB-MVC
 tags:
   - name: ui
     type: OR
@@ -134,25 +134,19 @@ tags:
     type: OR
 
 ---
-name: Thick Java Clients
+name: JAVA-DESKTOP
 tags:
   - name: desktop-app
     type: OR
 
 ---
-name: Caching
+name: CACHING
 tags:
   - name: cache
     type: OR
  
 ---
-name: Data
-tags:
-  - name: io
-    type: OR
-
----
-name: Monolith
+name: MONOLITH
 tags:
   - name: soap
     type: AND
