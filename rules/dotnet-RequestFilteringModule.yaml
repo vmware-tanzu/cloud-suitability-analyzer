@@ -10,4 +10,5 @@ patterns:
 category: unsupported-iis-module
 tags:
 - value: iis-module
+- value: request-filtering
 #- <configuration><system.webServer><security><requestFiltering><requestLimits

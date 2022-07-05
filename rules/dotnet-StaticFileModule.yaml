@@ -13,3 +13,5 @@ patterns:
 #- <configuration><system.webServer><handlers><add name="StaticFileModule" image="%windir%\system32\inetsrv\static.dll" />
 tags:
 - value: iis-module
+- value: static-file-module
+- value: web-server
