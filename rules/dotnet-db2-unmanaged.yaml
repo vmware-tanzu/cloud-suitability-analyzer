@@ -2,14 +2,16 @@
 name: dotnet-db2-unmanaged
 filetype: (cs$|vb$)
 target: line
-type: contains
+type: regex
+defaultpattern: .*\s*%s$
 advice: Refer to platform documentation
 patterns:
 - value: IBM.Data.DB2
-  tag: db2
   advice: IBM.Data.DB2 can require a special procedure so that the driver's native components are deployed with the application. 
 readiness: 9
 effort: 10
-category: database
+category: DatabaseAccess
 tags:
 - value: database
+#- Imports IBM.Data.DB2
+#- using IBM.Data.DB2

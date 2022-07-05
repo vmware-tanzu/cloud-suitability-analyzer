@@ -7,9 +7,9 @@ category: Unsupported modules
 advice: Ensure compatible configuation
 effort: 400
 readiness: 5
-tags:
-- value: static-file-module
-- value: web-server
 patterns:
 - value: /configuration/system.webServer/handlers/add[contains(@modules, "StaticFileModule")][1]
 ## StaticFileModule
+#- <configuration><system.webServer><handlers><add name="StaticFileModule" image="%windir%\system32\inetsrv\static.dll" />
+tags:
+- value: iis-module

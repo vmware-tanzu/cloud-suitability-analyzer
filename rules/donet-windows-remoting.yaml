@@ -1,0 +1,16 @@
+name: donet-windows-remoting
+filetype: config$
+target: file
+type: xpath
+advice: Unsupported, consider inter-process communication (IPC) System.IO.Pipes class or the MemoryMappedFile class.Also StreamJsonRpc or ASP.NET Core (either using gRPC or RESTful Web API services).
+patterns:
+- value: /configuration/system.runtime.remoting
+readiness: 5
+effort: 500
+category: Unsupported
+tags:
+- value: remoting
+- value: unsupported
+
+#- <configuration><system.runtime.remoting><application>
+

@@ -8,7 +8,7 @@ category: Unsupported modules
 advice: Ensure compatible configuation
 effort: 500
 readiness: 1
-tag:
+tags:
 - value: windows-auth
 patterns:
 - value: //system.webServer/security/authentication/windowsAuthentication[translate(@enabled, "abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ") = "TRUE"][1]
@@ -18,3 +18,4 @@ patterns:
 #- value: Integrated Security=True
 #  effort: 100
 ## <windowsAuthentication
+#- <system.webServer><security><authentication><windowsAuthentication enabled="true" />

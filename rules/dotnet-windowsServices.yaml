@@ -1,20 +1,19 @@
 name: dotnet-windowsServices
 filetype: (cs$|vb$)
 target: line
-type: contains
+type: regex
+defaultpattern: .*%s.*
 advice: Don't rely on Windows Services as CloudFoundry manages the lifecycle of your service.  Convert any Windows service to a console application to run in Cloud Foundry.
 effort: 0
 readiness: 4
-category: windows-service
+category: WindowsServices
 tags:
 - value: windows-service
+- value: process
 patterns:
 - value: ': ServiceBase'
-  tag: service-base
 - value: ServiceController
-  tag: service-controller
 - value: System.ServiceProcess
-  tag: service-process
-## ServiceBase
-## ServiceController
-## System.ServiceProcess
+#- ServiceBase
+#- ServiceController
+#- System.ServiceProcess

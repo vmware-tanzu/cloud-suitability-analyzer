@@ -6,12 +6,11 @@ defaultpattern: '^ +%s[.(].*'
 advice: Launching additional processes within a container is not recommended. 
 readiness: 7
 effort: 300
-category: process-launch
+category: LocalProcess
 tags:
-- value: process-launch
+- value: api
 patterns:
-- value: Process
-
-## Process()
-## Process ()
-## Process.
+- value: process
+#- Process()
+#- Process ()
+#- Process.

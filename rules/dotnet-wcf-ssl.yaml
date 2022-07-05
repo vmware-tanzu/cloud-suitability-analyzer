@@ -1,22 +1,26 @@
 name: dotnet-wcf-ssl
 filetype: (cs$|vb$)
 target: line
-type: contains
+type: regex
+defaultpattern: .*%s.*
 advice: When using HTTPS, terminate SSL at load balancer
 effort: 1
 readiness: 10
-category: wcf
+category: WCF
 tags:
-- value: wcf
+- value: windows-wcf
+- value: communication
+- value: api
 - value: ssl
 patterns:
 - value: BasicHttpSecurityMode.Transport
-## BasicHttpSecurityMode.Transport
-  advice: Disable HTTPS at the container and allow the external load balancer to terminate SSL
+#- BasicHttpSecurityMode.Transport
+  advice: Disable HTTPS at the container and allow the external load balancer to terminate
+    SSL
 - value: SecurityMode.Transport
-## SecurityMode.Transport
+#- SecurityMode.Transport
   advice: Transport security at the container is not supported.  Disable transport
     security on the service
 - value: mode="Transport"
-## mode="Transport"
+#- mode="Transport"
   advice: Transport security at the container is not supported.  Disable transport security on the service

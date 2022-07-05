@@ -1,0 +1,13 @@
+name: dotnet-asp-session-state
+filetype: config$
+target: file
+type: xpath
+advice: Use of session 
+patterns:
+- value: /configuration/system.web/sessionState
+readiness: 9
+effort: 0
+category: session
+tags:
+- value: asp
+- value: session
