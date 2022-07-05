@@ -1,13 +1,16 @@
 name: dotnet-windowsForms
 filetype: (cs$|vb$|csproj$)
 target: line
-type: contains
+type: regex
+defaultpattern: .*%s.*
 advice: Windows Forms module is not supported. Refactor to a web application.
-effort: 10
+effort: 1000
 readiness: 5
 category: Unsupported modules
 tags:
 - value: windows-forms
+- value: windows-desktop
 patterns:
 - value: System.Windows.Forms
   advice: Windows Forms module is not supported. Refactor to a web application.
+#- using System.Windows.Forms;

@@ -1,13 +1,15 @@
 name: dotnet-WindowsAuth-csvb
 filetype: (cs$|vb$)
 target: line
-type: contains
+defaultpattern: .*%s.*
+type: regex
 category: Unsupported modules
 advice: Ensure compatible configuation
 effort: 500
 readiness: 1
+patterns:
+- value: GetSection\(system.webServer/security/authentication/windowsAuthentication
+- value: GetSection\("system.webServer/security/authentication/windowsAuthentication
 tags:
 - value: windows-auth
-patterns:
-- value: GetSection(system.webServer/security/authentication/windowsAuthentication
-## GetSection(system.webServer/security/authentication/windowsAuthentication
+#- GetSection(system.webServer/security/authentication/windowsAuthentication

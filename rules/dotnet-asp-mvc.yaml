@@ -1,0 +1,15 @@
+name: dotnet-asp-mvc
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Not supported on .netCore, Replace with Microsoft.AspNetCore.Mvc
+readiness: 9
+effort: 0
+category: unsupported-netcore
+patterns:
+- value: System.Web.Mvc
+tags:
+- value: mvc
+- value: asp
+#-public abstract class Controller : System.Web.Mvc.ControllerBase,

@@ -1,0 +1,17 @@
+name: dotnet-asp-child-action
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*\[%s\].*
+advice: Not supported, replace with a new View Component feature
+readiness: 9
+effort: 0
+patterns:
+- value: ChildActionOnly
+category: unsupported-netcore
+tags:
+- value: asp
+- value: mvc
+
+#- [ChildActionOnly]
+#- public ActionResult Countries(List<String> countryData)

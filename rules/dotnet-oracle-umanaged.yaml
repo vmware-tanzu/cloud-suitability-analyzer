@@ -2,14 +2,16 @@
 name: dotnet-oracle-umanaged
 filetype: (cs$|vb$)
 target: line
-type: contains
+type: regex
+defaultpattern: .*%s.*
 advice: Oracle unmanaged driver requires including binaries with app 
 readiness: 8
 effort: 3
-category: database
+category: database-access
 tags:
 - value: database
+- value: oracle
 patterns:
 - value: Oracle.DataAccess
-  tag: oracle
   advice: Oracle unmanaged driver requires including binaries with app -- can use buildpack. 
+#- using Oracle.DataAccess.Client;
