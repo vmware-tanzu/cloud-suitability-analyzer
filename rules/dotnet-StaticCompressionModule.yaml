@@ -12,3 +12,4 @@ patterns:
 #- <configuration><system.webServer><httpCompression
 tags:
 - value: iis-module
+- value: static-compression

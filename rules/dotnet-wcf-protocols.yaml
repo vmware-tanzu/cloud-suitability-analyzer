@@ -12,6 +12,7 @@ tags:
 patterns:
 - value: <udpBinding>
   advice: UDP protocol not supported on PCF
+  tag: udp
 #- <udpBinding><binding closeTimeout="TimeSpan"
 - value: <.*NamedPipeBinding>
   advice: NamedPipe protocol not supported on PCF
@@ -20,6 +21,7 @@ patterns:
 - value: <.*MsmqBinding>
 #- <netMsmqBinding><binding closeTimeout="TimeSpan"
   advice: Msmq protocol not supported on PCF
+  tag: msmq
 - value: <net.+Binding>
 #- <netTcpContextBinding><binding closeTimeout="TimeSpan"
 #- <netTcpBinding><binding closeTimeout="TimeSpan"

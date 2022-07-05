@@ -7,7 +7,7 @@ defaultpattern: .*%s.*
 advice: Oracle unmanaged driver requires including binaries with app 
 readiness: 8
 effort: 3
-category: database-access
+category: database
 tags:
 - value: database
 - value: oracle

@@ -6,9 +6,10 @@ defaultpattern: .*%s.*
 advice: Logging to the Event Log is not recommended for cloud native apps.
 readiness: 3
 effort: 100
-category: Logging
+category: logging
 tags:
 - value: logging
+- value: eventlog
 patterns:
 - value: EventLogTraceListener
 - value: EventLog

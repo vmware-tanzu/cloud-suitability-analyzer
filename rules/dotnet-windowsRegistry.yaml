@@ -6,7 +6,7 @@ defaultpattern: '^.*%s.*'
 advice: External configurations should be made available by environment variables or some other external service. 
 effort: 100
 readiness: 2
-category: AccessingRegistry
+category: windows-registry
 tags:
 - value: windows-registry
 patterns:
