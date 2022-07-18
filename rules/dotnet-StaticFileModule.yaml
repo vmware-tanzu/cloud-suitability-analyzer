@@ -9,6 +9,7 @@ effort: 400
 readiness: 5
 patterns:
 - value: /configuration/system.webServer/handlers/add[contains(@modules, "StaticFileModule")][1]
+- value: /configuration/system.webServer/handlers/add[@name="StaticFileModule"][1]
 ## StaticFileModule
 #- <configuration><system.webServer><handlers><add name="StaticFileModule" image="%windir%\system32\inetsrv\static.dll" />
 tags:
