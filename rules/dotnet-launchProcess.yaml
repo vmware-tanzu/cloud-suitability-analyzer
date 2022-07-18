@@ -10,7 +10,9 @@ category: process-launch
 tags:
 - value: process-launch
 patterns:
-- value: process
+- value: Process()
+- value: Process ()
+- value: Process.
 #- Process()
 #- Process ()
 #- Process.
