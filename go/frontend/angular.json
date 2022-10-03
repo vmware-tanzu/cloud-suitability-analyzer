@@ -30,7 +30,6 @@
             "styles": [
               "node_modules/@clr/icons/clr-icons.min.css",
               "node_modules/@clr/ui/clr-ui.min.css",
-              "src/styles.scss",
               "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
@@ -93,7 +92,6 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
             "scripts": []
           }
         },
