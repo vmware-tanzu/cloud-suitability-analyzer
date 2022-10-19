@@ -5,39 +5,7 @@
 package model
 
 //Created By BootstrapBinsTemplate.txt found under go/resources folder
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD:go/model/BinBootstrap.go
-<<<<<<< HEAD
-<<<<<<< HEAD
-//Created @ 2022-10-03 17:56:47.792169 -0400 EDT m=+0.292018818
-=======
-//Created @ 2022-06-27 13:51:59.907081 -0500 CDT m=+0.195750200
->>>>>>> 21df02c (Title: Add newly revised rules)
-=======
-//Created @ 2022-06-27 14:22:18.596326 -0500 CDT m=+0.240233474
->>>>>>> 35d7036 (Title: Add new rules)
-=======
-//Created @ 2022-06-27 15:42:06.022387 -0500 CDT m=+0.217892932
->>>>>>> dacc802 (Title: Create a local build):csa-app/model/BinBootstrap.go
-=======
-//Created @ 2022-06-27 19:36:34.54469 -0500 CDT m=+0.207755122
->>>>>>> 32e5db1 (Title:  Fix local build with not github path)
-=======
-//Created @ 2022-06-27 20:06:27.39696 -0500 CDT m=+0.185085096
->>>>>>> 0405f37 (Title:  Fix some binning errors)
-=======
-//Created @ 2022-06-28 08:54:27.417499 -0500 CDT m=+0.186170956
->>>>>>> ae9093c (Title: Fix errors in rules/bins)
-=======
-//Created @ 2022-06-28 10:47:48.980137 -0500 CDT m=+0.177954690
->>>>>>> 92324ac (Title: standard tags/categories)
-=======
-//Created @ 2022-06-30 11:37:53.404689 -0500 CDT m=+0.220669229
->>>>>>> 64ece2d (Title: Remove contains rules where possible)
+//Created @ 2022-10-19 15:39:47.579998 -0400 EDT m=+0.300674434
 
 func BootstrapBins() []Bin {
     var BootstrapBins = []Bin{
@@ -67,42 +35,37 @@ func BootstrapBins() []Bin {
             []*BinTag{  { Name: "cdi", Type: 1, Action: "OR", },  { Name: "ejb", Type: 1, Action: "OR", },  { Name: "jax-ws", Type: 1, Action: "OR", },  { Name: "jsf", Type: 1, Action: "OR", },  { Name: "mdb", Type: 1, Action: "OR", },  { Name: "struts", Type: 1, Action: "OR", },  { Name: "txn", Type: 1, Action: "OR", },  { Name: "web-servlet", Type: 1, Action: "OR", },  },
              },
         
-            { Name: "Modern Microservices",
+            { Name: "MICRO-SERVICE",
             Tags:
             []*BinTag{  { Name: "spring-boot", Type: 0, Action: "AND", },  },
              },
         
-            { Name: "Spring",
+            { Name: "SPRING",
             Tags:
             []*BinTag{  { Name: "spring", Type: 1, Action: "OR", },  },
              },
         
-            { Name: "Stateful",
+            { Name: "STATEFUL",
             Tags:
             []*BinTag{  { Name: "stateful", Type: 1, Action: "OR", },  { Name: "spring", Type: 2, Action: "EXCLUDE", },  },
              },
         
-            { Name: "Web MVC",
+            { Name: "WEB-MVC",
             Tags:
             []*BinTag{  { Name: "ui", Type: 1, Action: "OR", },  { Name: "web-app", Type: 0, Action: "AND", },  { Name: "web-container", Type: 0, Action: "AND", },  { Name: "jsp", Type: 1, Action: "OR", },  { Name: "jsf", Type: 1, Action: "OR", },  { Name: "portlet", Type: 1, Action: "OR", },  { Name: "struts", Type: 1, Action: "OR", },  { Name: "jetty", Type: 1, Action: "OR", },  },
              },
         
-            { Name: "Thick Java Clients",
+            { Name: "JAVA-DESKTOP",
             Tags:
             []*BinTag{  { Name: "desktop-app", Type: 1, Action: "OR", },  },
              },
         
-            { Name: "Caching",
+            { Name: "CACHING",
             Tags:
             []*BinTag{  { Name: "cache", Type: 1, Action: "OR", },  },
              },
         
-            { Name: "Data",
-            Tags:
-            []*BinTag{  { Name: "io", Type: 1, Action: "OR", },  },
-             },
-        
-            { Name: "Monolith",
+            { Name: "MONOLITH",
             Tags:
             []*BinTag{  { Name: "soap", Type: 0, Action: "AND", },  { Name: "web-service", Type: 0, Action: "AND", },  { Name: "messaging", Type: 0, Action: "AND", },  { Name: "ear", Type: 0, Action: "AND", },  { Name: "stateful", Type: 0, Action: "AND", },  { Name: "rpc", Type: 1, Action: "OR", },  { Name: "ant", Type: 1, Action: "OR", },  { Name: "websphere", Type: 1, Action: "OR", },  { Name: "weblogic", Type: 1, Action: "OR", },  { Name: "glassfish", Type: 1, Action: "OR", },  { Name: "jboss", Type: 1, Action: "OR", },  { Name: "security", Type: 1, Action: "OR", },  },
              },

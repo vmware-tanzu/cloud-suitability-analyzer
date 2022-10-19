@@ -5,39 +5,7 @@
 package model
 
 //Created By BootstrapScoringModelsTemplate.txt found under go/resources folder
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD:go/model/ScoringModelBootstrap.go
-<<<<<<< HEAD
-<<<<<<< HEAD
-//Created @ 2022-10-03 17:56:47.78384 -0400 EDT m=+0.283689696
-=======
-//Created @ 2022-06-27 13:51:59.901432 -0500 CDT m=+0.190101183
->>>>>>> 21df02c (Title: Add newly revised rules)
-=======
-//Created @ 2022-06-27 14:22:18.591091 -0500 CDT m=+0.234998174
->>>>>>> 35d7036 (Title: Add new rules)
-=======
-//Created @ 2022-06-27 15:42:06.015881 -0500 CDT m=+0.211386837
->>>>>>> dacc802 (Title: Create a local build):csa-app/model/ScoringModelBootstrap.go
-=======
-//Created @ 2022-06-27 19:36:34.536928 -0500 CDT m=+0.199993582
->>>>>>> 32e5db1 (Title:  Fix local build with not github path)
-=======
-//Created @ 2022-06-27 20:06:27.393071 -0500 CDT m=+0.181195651
->>>>>>> 0405f37 (Title:  Fix some binning errors)
-=======
-//Created @ 2022-06-28 08:54:27.413137 -0500 CDT m=+0.181809344
->>>>>>> ae9093c (Title: Fix errors in rules/bins)
-=======
-//Created @ 2022-06-28 10:47:48.975553 -0500 CDT m=+0.173371515
->>>>>>> 92324ac (Title: standard tags/categories)
-=======
-//Created @ 2022-06-30 11:37:53.399988 -0500 CDT m=+0.215968101
->>>>>>> 64ece2d (Title: Remove contains rules where possible)
+//Created @ 2022-10-19 15:39:47.574841 -0400 EDT m=+0.295517547
 
 func BootstrapModels() []ScoringModel {
     var BootstrapModels = []ScoringModel{
