@@ -10,10 +10,9 @@ effort: 2
 readiness: 5
 category: jsp
 tags:
-  - value: api
   - value: ui
   - value: jsp
-  - value: webcontainer
+  - value: web-container
 patterns:
   - value: TagSupport
   - value: JspException

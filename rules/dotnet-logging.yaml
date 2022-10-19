@@ -1,15 +1,17 @@
 name: dotnet-logging
 filetype: (cs$|vb$)
 target: line
-type: contains
+type: regex
+defaultpattern: .*%s.*
 advice: Logging to the Event Log is not recommended for cloud native apps.
 readiness: 3
 effort: 100
-category: Logging
+category: logging
 tags:
-- value: api
+- value: logging
+- value: eventlog
 patterns:
 - value: EventLogTraceListener
 - value: EventLog
-## EventLogTraceListener
-## EventLog
+#- EventLogTraceListener
+#- EventLog

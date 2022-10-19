@@ -8,8 +8,7 @@ advice: Refer to platform documentation
 effort: 7
 readiness: 7
 tags:
-- value: api
-- value: webapp
+- value: struts
 - value: ui
 patterns:
 - value: struts-2.5.dtd

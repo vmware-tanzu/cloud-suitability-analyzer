@@ -9,9 +9,8 @@ readiness: 6
 advice: Convert to redis
 category: cache
 tags:
-- value: api
 - value: cache
-- value: external-services
+- value: tangosol
 patterns:
 - value: getConfigurableCacheFactory
 - value: NamedCache

@@ -6,18 +6,21 @@ defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Ensure valid configuration for TAS or use TKG
 effort: 10
 readiness: 10
-category: webService
+category: web-service
 tags:
-  - value: webservices
-  - value: client
-  - value: jaxws
-  - value: api
+  - value: web-service
 patterns:
   - value: javax.xml.ws.AsyncHandler
+    tag: javax-xml-ws 
   - value: javax.xml.ws.Service
+    tag: javax-xml-ws
   - value: javax.xml.ws.Service.Mode
+    tag: javax-xml-ws
   - value: javax.xml.ws.WebServiceClient
+    tag: javax-xml-ws
   - value: javax.xml.ws.WebServiceRef
+    tag: javax-xml-ws
   - value: javax.xml.ws.WebServiceRefs
+    tag: javax-xml-ws
   - value: org.apache.client.wink.client
     tag: wink

@@ -5,13 +5,11 @@ type: regex
 defaultpattern: ^\s*@%s
 advice: Replace with spring security org.springframework.security.access.annotation or move to TKG
 effort: 5
-category: annotations
+category: security
 tags:
-  - value: annotations
-  - value: javaee
+  - value: security
 patterns:
   - value: DeclareRoles
   - value: DenyAll
   - value: PermitAll
   - value: RolesAllowed
-    tag: security

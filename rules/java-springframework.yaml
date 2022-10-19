@@ -7,12 +7,13 @@ effort: 0
 readiness: 0
 category: springFramework
 tags:
-  - value: api
   - value: spring
 patterns:
   - value: import org.springframework
   - value: import org.springframework.mongo
+    tag: mongo
     effort: 100
   - value: import org.springframework.cassandra
+    tag: cassandra
     effort: 100
 ## import org.springframework

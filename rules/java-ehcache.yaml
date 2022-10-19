@@ -10,8 +10,6 @@ advice: Convert to redis
 category: cache
 tags:
 - value: cache
-- value: api
-- value: persistence
 - value: ehcache
 patterns:
 - value: CacheConfigurationBuilder

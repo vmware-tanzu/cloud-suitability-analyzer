@@ -8,8 +8,7 @@ advice: Refer to platform documentation
 effort: 700
 readiness: 700
 tags:
-- value: api
-- value: webapp
+- value: web-app
 - value: weblogic
 patterns:
 - value: 1.5/weblogic-web-app.xsd

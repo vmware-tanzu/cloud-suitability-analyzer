@@ -10,7 +10,6 @@ readiness: 6
 advice: Convert to redis or consider TKG
 category: cache
 tags:
-  - value: api
   - value: cache
   - value: jcache
 patterns:

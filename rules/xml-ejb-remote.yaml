@@ -7,11 +7,10 @@ advice: Refer to platform documentation
 effort: 100
 readiness: 100
 tags:
-- value: RemoteEJB
+- value: remote-ejb
 - value: ejb
-- value: api
 - value: javaee
-- value: fullprofile
+- value: full-profile
 patterns:
 - value: <remote>
 ##<remote>

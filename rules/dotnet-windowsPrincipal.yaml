@@ -1,11 +1,16 @@
 name: dotnet-windowsPrincipal
 filetype: (cs$|vb$|csproj$)
 target: line
-type: contains
+type: regex
+defaultpattern: .*%s.*
 advice: Operations requiring a Windows domain are not supported.
-effort: 1000
+effort: 100
 readiness: 8
 category: Unsupported modules
+tags:
+- value: windows-principal
+- value: windows-domain
 patterns:
-- value: System.Security.Principal.Windows
+- value: System.Security.Principal
   advice: Operations requiring a Windows domain are not supported
+#- using System.Security.Principal;

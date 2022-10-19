@@ -7,10 +7,9 @@ category: soap
 advice: Refer to platform documentation
 type: regex
 tags:
-  - value: file
-  - value: api
   - value: wsdl
-  - value: webservices
+  - value: web-service
+  - value: soap
 patterns:
   - value: .*\.wsdl
 ## "*.wsdl"

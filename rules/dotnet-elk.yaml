@@ -1,13 +1,15 @@
 name: dotnet-serilog-elasticsearch
 filetype: (cs|yaml|yml|json)
 target: line
-type: contains
+type: regex
+defaultpattern: .*%s.*
 advice: Make sure to have reachable ELK stack from deployed app
 effort: 5
 readiness: 8
 category: logging
 tags:
-- value: logging
+- value: elasticsearch
 patterns:
 - value: using Serilog.Sinks.Elasticsearch
 - value: ElasticConfiguration
+#- using Serilog.Sinks.Elasticsearch;

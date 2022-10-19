@@ -6,16 +6,21 @@ defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Adapt to cloud friendly protocl or use TKG
 effort: 2
 readiness: 10
-category: webService
+category: web-service
 tags:
-  - value: webservices
-  - value: api
+  - value: web-service
   - value: rpc
   - value: soap
 patterns:
   - value: org.apache.soap.rpc
+    tag: apach-soap
   - value: javax.xml.rpc.Call
+    tag: javax.xml.rpc
   - value: javax.xml.rpc.Service
+    tag: javax.xml.rpc
   - value: javax.xml.rpc.Stub
+    tag: javax.xml.rpc
   - value: javax.xml.rpc.ServiceFactory
+    tag: javax.xml.rpc
   - value: javax.xml.rpc.ServiceException
+    tag: javax.xml.rpc

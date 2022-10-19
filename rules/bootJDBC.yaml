@@ -9,7 +9,7 @@ readiness: 5
 category: persistence
 tags:
 - value: spring-boot
-- value: persistence
-- value: api
+- value: jdbc
 patterns:
 - value: org.springframework.jdbc
+  tag: srping-jdbc 

@@ -6,7 +6,7 @@ echo "~~~> Version..............: $2"
 export OS=$1
 export VERSION=$2
 
-rm -rf go/exe/* go/frontend/build
+rm -rf csa-app/exe/* csa-app/frontend/build
 
 #--- building web app
 ./buildWebUI.sh

@@ -8,14 +8,13 @@ effort: 10
 readiness: 6
 category: iop
 tags:
-- value: api
-- value: ejb
 - value: non-standard-protocol
-- value: imports
 - value: corba
 patterns:
 - value: import javax.rmi
+  tag: javax-rmi
 - value: inport org.omg.IOP
+  tag: omg-IOP
 
 ##  PortableRemoteObject(
 ##  CodecFactory(

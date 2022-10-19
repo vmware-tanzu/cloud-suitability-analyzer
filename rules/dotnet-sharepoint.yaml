@@ -1,13 +1,16 @@
 name: dotnet-sharepoint
 filetype: (cs$|vb$)
 target: line
-type: contains
+type: regex
+defaultpattern: .*%s.*
 advice: SharePoint is not supported on CloudFoundry.
 effort: 100
 readiness: 0
-category: Unsupported modules
+category: unsupported-module
 tags:
-- value: SharePoint
+- value: sharepoint
 patterns:
 - value: Microsoft.SharePoint
   advice: SharePoint is not supported on CloudFoundry.
+  #- Microsoft.SharePoint
+  #- using Microsoft.SharePoint.Client;

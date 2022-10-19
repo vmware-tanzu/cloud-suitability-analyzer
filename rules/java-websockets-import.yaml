@@ -9,11 +9,12 @@ advice: Refer to platform documentation
 recipes:
 defaultpattern: '^import\s*%s.*'
 tags:
-- value: websocket
+- value: web-socket
 - value: io
 patterns:
 - value: javax.websocket
 - value: javax.websocket.Endpoint
   effort: 100
 - value: io.vertx.core.http.ServerWebSocket;
+  tag: vertx
   effort: 100

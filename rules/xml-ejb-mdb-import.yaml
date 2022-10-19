@@ -8,11 +8,10 @@ advice: Refer to platform documentation
 effort: 7
 readiness: 7
 tags:
-- value: MessageDriven
+- value: mdb
 - value: ejb
 - value: javaee
 - value: fullprofile
-- value: api
 patterns:
 - value: MessageDriven
 ##MessageDriven

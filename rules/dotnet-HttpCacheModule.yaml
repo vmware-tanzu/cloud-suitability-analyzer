@@ -9,4 +9,6 @@ effort: 1000
 readiness: 5
 patterns:
 - value: /configuration/system.webServer/staticContent/clientCache[@cacheControlMode][1]
-## <cacheControl 
+tags:
+- value: cache-control-mode
+#- <configuration><system.webServer><staticContent><clientCache cacheControlMode="DisableCache" />

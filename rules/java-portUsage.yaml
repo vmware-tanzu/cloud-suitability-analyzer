@@ -6,12 +6,9 @@ advice: Ensure port usage is cloud-friendly or use TKG
 defaultpattern: ^*.(%s?:.*):(\d*)\/?(.*)
 effort: 5
 readiness: 6
-category: portUsage
+category: port-usage
 tags:
-  - value: portUsage
-  - value: api
-  - value: protocol
-  - value: url
+  - value: port-usage
 patterns:
   - value: https
   - value: http

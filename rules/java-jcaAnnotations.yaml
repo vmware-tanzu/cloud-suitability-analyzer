@@ -12,10 +12,6 @@ readiness: 7
 tags:
   - value: annotations
   - value: jca
-  - value: resource-adapter
-  - value: connector
-  - value: javaee
-  - value: api
 patterns:
   - value: AdministeredObjectDefinition
   - value: ConnectionFactoryDefinition

@@ -6,9 +6,9 @@ type: xpath
 advice: Use of generated machine keys is problematic
 effort: 100
 readiness: 100
-category: Security
+category: security
 tags:
-- value: config
+- value: auto-gen-key
 patterns:
 - value: /configuration/system.web/machineKey[contains(@validationKey, "AutoGenerate") or contains(@decryptionKey, "AutoGenerate")]
 

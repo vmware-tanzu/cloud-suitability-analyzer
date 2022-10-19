@@ -8,12 +8,8 @@ category: jersey
 advice: Refer to 3rd party organization for cloud affinity of library
 defaultpattern: '^import\s*%s.*'
 tags:
-  - value: imports
-  - value: third-party
   - value: jersey
-  - value: json
   - value: rest
-  - value: api
 patterns:
   - value: com.sun.jersey
 ##import com.sun.jersey

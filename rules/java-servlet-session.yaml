@@ -7,9 +7,9 @@ readiness: 0
 advice: HTTP Sesssion Java API Import. Typically remediated by exernalizing session state.
 category: servlet
 tags:
-- value: api
+- value: servlet
 - value: session
-- value: webcontainer
+- value: web-container
 patterns:
 - value: import javax.servlet.http.HttpSession
 ##import javax.servlet.

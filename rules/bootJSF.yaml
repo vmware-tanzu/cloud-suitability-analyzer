@@ -10,12 +10,22 @@ readiness: 2
 tags:
   - value: jsf
 patterns:
-  - value: javax.faces-api
+  - value: javax.faces-
+  
+    tag: javax-faces
   - value: jsf-api
+    tag: jsf
   - value: myfaces-api
+    tag: myfaces
   - value: myfaces-impl
+    tag: myfaces
   - value: jsf-impl
+    tag: jsf
   - value: jboss-jsf-api_2.3_spec
+    tag: jboss-jsf-2.3
   - value: jboss-jsf-api_2.2_spec
+    tag: jboss-jsf-2.2
   - value: jboss-jsf-api_2.1_spec
+    tag: jboss-jsf-2.1
   - value: jboss-jsf-api_2.0_spec
+    tag: jboss-jsf-2.0

@@ -1,15 +1,17 @@
 name: python-rabbitmq
 filetype: py$
 target: line
-type: contains
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Check for cloud foundry support.
 effort: 4
 readiness: 10
 category: services
 tags:
 - value: rabbitmq
-recipes:
-- uri: https://app-transformation-cookbook-internal.cfapps.io/backing-services-port-binding/persistence/
 patterns:
-- value: import pika
-- value: import aio_pika
+- value: pika
+- value: aio_pika
+
+#- import pika
+#- import aio_pika

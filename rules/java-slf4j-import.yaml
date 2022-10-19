@@ -8,9 +8,7 @@ effort: 0
 readiness: 0
 category: slf4j
 tags:
-  - value: imports
-  - value: third-party
-  - value: api
+  - value: slf4j
   - value: logging
 patterns:
   - value: org.slf4j

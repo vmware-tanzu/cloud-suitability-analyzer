@@ -8,9 +8,8 @@ advice: Refer to platform documentation
 effort: 1000
 readiness: 0
 tags:
-- value: api
 - value: jsf
-- value: webapp
+- value: web-app
 patterns:
 - value: web-facesconfig_1_1.dtd
 ##web-facesconfig_1_1.dtd

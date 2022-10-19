@@ -9,9 +9,7 @@ effort: 7
 readiness: 6
 category: tibco
 tags:
-  - value: api
   - value: tibco
-  - value: external-services
 patterns:
   - value: TibjmsConnectionFactory
 ## TibjmsConnectionFactory(

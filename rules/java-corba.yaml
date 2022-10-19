@@ -11,10 +11,9 @@ effort: 10
 readiness: 6
 category: corba
 tags:
-  - value: api
   - value: rpc
   - value: corba
-  - value: non-standard
+  - value: non-standard-protocol
 patterns:
   - value: AnyHolder
   - value: AnySeqHelper

@@ -1,15 +1,14 @@
 name: java-weblogic
 filetype: java$
 target: line
-type: contains
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Move away from container specific APIs to portal APIs such as Spring
 effort: 50
 readiness: 10
 category: webLogic
 tags:
-  - value: api
   - value: weblogic
-  - value: weblogic-imports
 patterns:
-  - value: import weblogic.
+  - value: weblogic.
 ## import weblogic.

@@ -7,9 +7,8 @@ category: struts
 advice: Refer to platform documentation
 effort: 7
 readiness: 7
-tags:
-- value: api  
-- value: webapp
+tags:  
+- value: struts
 - value: ui
 patterns:
 - value: struts-2.4.dtd

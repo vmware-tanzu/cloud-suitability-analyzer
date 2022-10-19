@@ -6,7 +6,7 @@ defaultpattern: "^%s"
 category: docker
 advice: Using root inside a container is a serious vulnerability.
 recipes:
-effort: 1
+effort: 100
 readiness: 10
 tags:
   - value: docker

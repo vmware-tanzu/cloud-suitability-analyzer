@@ -11,7 +11,6 @@ effort: 1000
 readiness: 7
 category: jni
 tags:
-  - value: api
   - value: native
   - value: jni
 patterns:

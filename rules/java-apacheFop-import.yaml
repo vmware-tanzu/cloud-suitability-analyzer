@@ -8,9 +8,7 @@ readiness: 10
 advice: Usage requires configuration remdiation
 category: thirdParty
 tags:
-  - value: third-party
-  - value: api
-  - value: fop
+  - value: apache-fop
 patterns:
   - value: FopFactory
   - value: Fop

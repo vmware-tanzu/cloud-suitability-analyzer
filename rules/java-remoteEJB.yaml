@@ -12,8 +12,6 @@ category: ejb
 tags:
   - value: annotations
   - value: ejb
-  - value: api
-  - value: javaee
   - value: fullprofile
 patterns:
   - value: RemoteHome

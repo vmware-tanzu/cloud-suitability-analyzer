@@ -9,8 +9,6 @@ advice: Refer to platform documentation
 effort: 0
 readiness: 0
 tags:
-  - value: api
-  - value: jar
   - value: gradle
   - value: snap
 patterns:

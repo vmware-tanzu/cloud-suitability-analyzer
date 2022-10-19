@@ -9,10 +9,7 @@ readiness: 4
 category: ejb
 tags:
   - value: ejb
-  - value: api
-  - value: ejbcontainer
-  - value: javaee
-  - value: fullprofile
+  - value: stateless
 patterns:
   - value: EJBContext
   - value: EJBHome

@@ -8,9 +8,8 @@ advice: Refer to platform documentation
 effort: 5
 readiness: 5
 tags:
-- value: api
 - value: servlet
-- value: webcontainer
+- value: web-container
 patterns:
 - value: web-app_3_1.xsd
 ##web-app_3_1.xsd

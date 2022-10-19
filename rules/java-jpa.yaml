@@ -11,9 +11,8 @@ readiness: 6
 advice: JPA will work inside of Cloud Native applications, but changes may need to be made to the way JPA is configured to get connections. 
 category: jpa
 tags:
-  - value: api
   - value: jpa
-  - value: webprofile
+  - value: web-profile
   - value: entity-manager
 patterns:
   - value: createEntityManagerFactory

@@ -9,8 +9,8 @@ effort: 600
 readiness: 200
 tags:
 - value: jsf
-- value: webprofile
-- value: api
+- value: web-profile
+- value: tomahawk
 patterns:
 - value: myfaces.apache.org/tomahawk
 ##myfaces.apache.org/tomahawk

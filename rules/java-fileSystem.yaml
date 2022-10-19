@@ -8,8 +8,6 @@ readiness: 10
 category: io
 tags:
   - value: io
-  - value: api
-  - value: java-filesystem
 patterns:
   - value: "file://"
 ## file://

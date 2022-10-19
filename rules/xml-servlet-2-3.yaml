@@ -8,9 +8,8 @@ advice: Refer to platform documentation
 effort: 700
 readiness: 700
 tags:
-- value: api
 - value: servlet
-- value: webcontainer
+- value: web-container
 patterns:
 - value: web-app_2_3.dtd
 ##web-app_2_3.dtd

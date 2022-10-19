@@ -2,41 +2,39 @@
 name: dotnet-fileIO
 filetype: (cs$|vb$)
 target: line
-type: contains
+type: regex
+defaultpattern: .*%s.*\(.*
 advice: Relying on the local filesystem to store state is unreliable in a cloud platform.  
-effort: 3
+effort: 100
 readiness: 8
-category: I/O
+category: io
 tags:
-- value: I/O
+- value: io
 patterns:
 - value: 'File.Append'
-## File.Append
+#- File.Append(
   advice: Appending to a file (File.Append*)
 - value: File.Create
-## File.Create
+#- File.Create(
   advice: Calling File.Create
 - value: File.Move
-## File.Move
+#- File.Move(
   advice: Calling File.Move
-- value: File.Open
-## File.Open
-  advice: Calling File.Open (investigate further to determine refactor rating)
 - value: File.OpenWrite
-## File.OpenWrite
+#- File.OpenWrite(
   advice: Calling File.OpenWrite
 - value: File.Replace
-## File.Replace
+#- File.Replace(
   advice: Calling File.Replace
 - value: File.Set
-## File.Set
+#- File.Set(
   advice: Setting File Metadata (File.Set*)
 - value: File.Write
-## File.Write
+#- File.Write(
   advice: Writing to a file (File.Write*)
-- value: 'new FileStream('
-## new FileStream(
+- value: 'new FileStream'
+#- new FileStream(
   advice: Direct construction of FileStream
 - value: FileSystemWatcher
-## FileSystemWatcher
+#- FileSystemWatcher(
   advice: Use of FileSystemWatcher
