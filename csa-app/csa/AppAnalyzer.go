@@ -82,7 +82,7 @@ func (csaService *CsaService) analyzeFile(run *model.Run, app *model.Application
 
 	for i := range app.Rules {
 
-		if app.Rules[i].Applies(file.GetCleanedExt()) {
+		if app.Rules[i].Applies(file.GetCleanedExt(), file.Name) {
 			rulesUsed = append(rulesUsed, app.Rules[i].Name)
 			//Rule applies to this file!
 			if *util.Verbose {

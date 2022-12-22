@@ -21,6 +21,7 @@ type Rule struct {
 	UpdatedAt       time.Time      `json:"-" yaml:"-"`
 	Name            string         `gorm:"type:text;unique_index;not null"`
 	FileType        string         `gorm:"type:text" json:",omitempty" yaml:",omitempty"` //Extension if empty or * then rule applies to all files. Else, rule only applies to files with this extension (sans '.')
+	FileNamePattern string         `gorm:"type:text" json:",omitempty" yaml:",omitempty"`
 	Target          string         `gorm:"type:text"`                                     //File, Line
 	Type            string         `gorm:"type:text"`                                     //Regex, SimpleText, StartsWith, Contains, EndsWith, SimpleTextCaseInsensitive
 	DefaultPattern  string         `gorm:"type:text" json:",omitempty" yaml:",omitempty"` //Pattern with a placeholder that follows standard GO fmt.Sprintf rules. I.E. "[ .]%s[ (]" uses %s for string Pattern Value substitution before compilation!
@@ -33,22 +34,24 @@ type Rule struct {
 	Tags            []Tag          `json:",omitempty" yaml:",omitempty"`
 	Recipes         []Recipe       `gorm:"foreignkey:RuleID" json:",omitempty" yaml:",omitempty"`
 	Patterns        []Pattern      `gorm:"foreignkey:RuleID"`
+	fileNameRegex   *regexp.Regexp `gorm:"-" json:"-" yaml:"-"`
 	regex           *regexp.Regexp `gorm:"-" json:"-" yaml:"-"`
 	Metric          *RuleMetric    `gorm:"-" json:"-" yaml:"-"`
 	overrideApplies bool           `gorm:"-" json:"-" yaml:"-"`
+	Negative        bool           `gorm:"type:integer"`
 	sync.Mutex      `gorm:"-" json:"-" yaml:"-"`
 }
 
-func (r *Rule) Applies(fileExt string) bool {
+func (r *Rule) Applies(fileExt string, fileName string) bool {
 	if *util.Verbose {
-		fmt.Printf("Checking to see if rule [%s] applies to extension [%s] with pattern [%s]\n", r.Name, fileExt, r.FileType)
+		fmt.Printf("Checking to see if rule [%s] applies to extension [%s] with pattern [%s], and applies to file name [%s] with pattern [%s]\n", r.Name, fileExt, r.FileType, fileName, r.FileNamePattern)
 	}
 
 	if r.overrideApplies {
 		return true
 	}
 
-	return r.regex.MatchString(fileExt)
+	return r.regex.MatchString(fileExt) && r.fileNameRegex.MatchString(fileName)
 }
 
 func (r *Rule) IsValid() (isValid bool, err error) {
@@ -64,6 +67,15 @@ func (r *Rule) IsValid() (isValid bool, err error) {
 		_, err = regexp.Compile(r.FileType)
 		if err != nil {
 			return false, fmt.Errorf("FileType must be a empty (nil, not specified), or \"*\", or valid regex! FileType: %s Fails with error: %v", r.FileType, err)
+		}
+	}
+
+	//FileNamePattern
+	if r.FileNamePattern != "" && r.FileNamePattern != "*" {
+		//Check FileNamePattern is valid regex!
+		_, err = regexp.Compile(r.FileNamePattern)
+		if err != nil {
+			return false, fmt.Errorf("FileNamePattern must be a empty (nil, not specified), or \"*\", or valid regex! FileType: %s Fails with error: %v", r.FileNamePattern, err)
 		}
 	}
 
@@ -152,6 +164,9 @@ func (r *Rule) CompilePatterns() {
 
 	//Compile the rule file type regex!
 	r.regex = regexp.MustCompile(r.FileType)
+
+	//Compile the rule file name regex!
+	r.fileNameRegex = regexp.MustCompile(r.FileNamePattern)
 
 	for i, _ := range r.Patterns {
 		r.Patterns[i].compile(r)

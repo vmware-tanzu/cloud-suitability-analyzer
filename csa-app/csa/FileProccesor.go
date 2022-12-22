@@ -20,11 +20,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/antchfx/xmlquery"
 	"csa-app/db"
 	"csa-app/gocloc"
 	"csa-app/model"
 	"csa-app/util"
+
+	"github.com/antchfx/xmlquery"
 	"gopkg.in/yaml.v3"
 )
 
@@ -337,7 +338,8 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 			}
 
 			// if value, ok := path.String(root); ok
-			if ok, result := matchFunc(); ok {
+			ok, result := matchFunc()
+			if ok && !rule.Negative {
 				if len(result) > 0 {
 					target = regexp.MustCompile(`\r?\n`).ReplaceAllString(result, " ")
 				}
@@ -346,7 +348,12 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 
 				findings++
 				cnt++
-			} //End Match Condition
+			} else if !ok && rule.Negative {
+				csaService.handleRuleMatched(run, app, file, 0, target, rule, rule.Patterns[i], output, "", nil)
+
+				findings++
+				cnt++
+			}
 
 		}
 
