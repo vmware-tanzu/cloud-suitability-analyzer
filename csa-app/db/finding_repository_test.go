@@ -112,8 +112,6 @@ func TestTopApisInFindings(t *testing.T) {
 	findingRepository.SaveFinding(finding2)
 	finding3 := createASampleFindingWithPatternAndTag(21, "app-1", 2, "api2", "", "api")
 	findingRepository.SaveFinding(finding3)
-	finding4 := createASampleFindingWithPatternAndTag(21, "app-1", 1, "api2", "", "api")
-	findingRepository.SaveFinding(finding4)
 
 	finding5 := createASampleFindingWithPatternAndTag(21, "app-2", 3, "api3", "", "api")
 	findingRepository.SaveFinding(finding5)
@@ -126,7 +124,7 @@ func TestTopApisInFindings(t *testing.T) {
 	assert.Equal(t, 3, len(topApisForRun))
 	assert.Equal(t, model.ApiUsage{Api: "api3", UsageCount: 3}, topApisForRun[0])
 	assert.Equal(t, model.ApiUsage{Api: "api1", UsageCount: 2}, topApisForRun[1])
-	assert.Equal(t, model.ApiUsage{Api: "api2", UsageCount: 2}, topApisForRun[2])
+	assert.Equal(t, model.ApiUsage{Api: "api2", UsageCount: 1}, topApisForRun[2])
 }
 
 func TestGetApisForRunAndApplication(t *testing.T) {

@@ -436,7 +436,7 @@ func (r *Rule) typeIsValid() (isValid bool, err error) {
 		r.Type != ENDS_WITH_CI_MATCH_TYPE &&
 		r.Type != CONTAINS_MATCH_TYPE &&
 		r.Type != CONTAINS_CI_MATCH_TYPE {
-		return false, fmt.Errorf("Rule Type must be (%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s) but was: %s",
+		return false, fmt.Errorf("Rule Type must be (%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s) but was: %s",
 			REGEX_MATCH_TYPE,
 			XPATH_MATCH_TYPE,
 			YAMLPATH_MATCH_TYPE,
