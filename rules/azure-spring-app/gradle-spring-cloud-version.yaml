@@ -1,0 +1,27 @@
+name: gradle-spring-cloud-version
+filetype: gradle$
+target: line
+type: regex
+criticality: Critical
+advice: Spring cloud version is too low
+effort: 500
+category: version
+tags:
+  - value: azure spring apps
+  - value: spring cloud
+defaultpattern: (?i)(springCloudVersion|org\.springframework\.cloud)(.*)(%s)
+patterns:
+  - value: Edgware|Dalston
+
+# e.g.
+# extra["springCloudVersion"] = "2021.0.5"
+# dependencies {
+#   implementation("org.springframework.cloud:spring-cloud-starter-config")
+#   testImplementation("org.springframework.boot:spring-boot-starter-test")
+# }
+
+# dependencyManagement {
+#   imports {
+#     mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+#   }
+# }

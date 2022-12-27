@@ -1,0 +1,13 @@
+name: maven-war
+filetype: xml$
+target: contents
+type: xpath
+criticality: Critical
+advice: The application is packaging to war. Azure Spring Apps only support jar
+effort: 500
+category: packaging
+tags:
+  - value: azure spring apps
+  - value: packaging
+patterns:
+  - value: //*[matches(text(),"(?i)^war$")]

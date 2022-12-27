@@ -1,0 +1,13 @@
+name: yaml-eureka-client-configs
+filetype: (yaml$|yml$)
+target: contents
+type: yamlpath
+criticality: Warn
+advice: ASA will inject the eureka connection info upon app start
+category: eureka
+effort: 3
+tags:
+  - value: azure spring apps
+  - value: eureka
+patterns:
+  - value: $.eureka.client["service-url","serviceUrl"]

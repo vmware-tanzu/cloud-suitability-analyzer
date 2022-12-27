@@ -1,0 +1,20 @@
+name: maven-spring-boot-support-version
+filetype: xml$
+target: contents
+type: xpath
+criticality: Warn
+advice: Spring boot version is out of spring boot OSS support scope
+effort: 6
+category: version
+defaultpattern: //*[groupId="org.springframework.boot" and starts-with(version,"%s")]/version
+tags:
+  - value: azure spring apps
+  - value: spring boot
+patterns:
+  - value: 2.0
+  - value: 2.1
+  - value: 2.2
+  - value: 2.3
+  - value: 2.4
+  - value: 2.5
+  - value: 2.6

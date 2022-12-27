@@ -1,0 +1,17 @@
+name: maven-spring-cloud-version
+filetype: xml$
+target: contents
+type: xpath
+criticality: Critical
+advice: Spring cloud version is too low
+effort: 500
+category: version
+tags:
+  - value: azure spring apps
+  - value: spring cloud
+patterns:
+  - value: //*[groupId="org.springframework.cloud" and matches(version,"(?i)^Edgware")]/version
+  - value: //*[groupId="org.springframework.cloud" and matches(version,"(?i)^Dalston")]/version
+  - value: //*[matches(name(), "spring-?cloud.version") and matches(text(),"(?i)^Edgware")]
+  - value: //*[matches(name(), "spring-?cloud.version") and matches(text(),"(?i)^Dalston")]
+

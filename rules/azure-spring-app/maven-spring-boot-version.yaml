@@ -1,0 +1,14 @@
+name: maven-spring-boot-version
+filetype: xml$
+target: contents
+type: xpath
+criticality: Critical
+advice: Spring boot version is too low
+effort: 500
+category: version
+defaultpattern: //*[groupId="org.springframework.boot" and starts-with(version,"%s")]/version
+tags:
+  - value: azure spring apps
+  - value: spring boot
+patterns:
+  - value: 1

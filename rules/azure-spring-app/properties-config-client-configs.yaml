@@ -1,0 +1,14 @@
+name: properties-config-client-configs
+filetype: properties$
+target: line
+type: regex
+criticality: Warn
+advice: ASA will inject the config server connection info upon app start
+category: config server
+effort: 3
+tags:
+  - value: azure spring apps
+  - value: config server
+patterns:
+  - value: (^|\s)spring\.config\.import
+  - value: (^|\s)spring\.cloud\.config\.uri

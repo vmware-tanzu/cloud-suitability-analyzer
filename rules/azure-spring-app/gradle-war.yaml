@@ -1,0 +1,17 @@
+name: gradle-war
+filetype: gradle$
+target: line
+type: regex
+criticality: Critical
+advice: The application is packaging to war. Azure Spring Apps only support jar
+effort: 500
+category: packaging
+tags:
+  - value: azure spring apps
+  - value: packaging
+defaultpattern: (^|['"\s])(%s)($|['"\s])
+patterns:
+  - value: war
+
+# e.g.
+# apply plugin: 'war'

@@ -1,0 +1,14 @@
+name: gradle-spring-cloud-support-version
+filetype: gradle$
+target: line
+type: regex
+criticality: Warn
+advice: Spring cloud version is out of spring boot OSS support scope
+effort: 6
+category: version
+tags:
+  - value: azure spring apps
+  - value: spring cloud
+defaultpattern: (?i)(springCloudVersion|org\.springframework\.cloud)(.*)(%s)
+patterns:
+  - value: 2020\.|ilford|Hoxton|Greenwich|Finchley

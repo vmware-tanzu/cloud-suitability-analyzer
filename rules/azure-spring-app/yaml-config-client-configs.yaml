@@ -1,0 +1,16 @@
+name: yaml-config-client-configs
+filetype: (yaml$|yml$)
+target: contents
+type: yamlpath
+criticality: Warn
+advice: ASA will inject the config server connection info upon app start
+category: config server
+effort: 3
+tags:
+  - value: azure spring apps
+  - value: config server
+patterns:
+  - value: $.spring.config.import
+  - value: $.spring.cloud.config.uri
+
+ # refer to https://docs.spring.io/spring-cloud-config/docs/4.0.0-RC2/reference/html/#_spring_cloud_config_client
