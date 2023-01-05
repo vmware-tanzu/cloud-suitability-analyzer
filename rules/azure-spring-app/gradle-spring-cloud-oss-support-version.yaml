@@ -1,14 +1,14 @@
-name: gradle-spring-cloud-support-version
+name: gradle-spring-cloud-oss-support-version
 filetype: gradle$
 target: line
 type: regex
 criticality: Warn
-advice: Spring cloud version is out of any support. Please update to newer version
-effort: 6
+advice: Spring cloud version is out of OSS support. If you don't have commercial support, please update to newer version
+effort: 4
 category: version
 tags:
   - value: azure spring apps
   - value: spring cloud
 defaultpattern: (?i)(springCloudVersion|org\.springframework\.cloud)(.*)(%s)
 patterns:
-  - value: Hoxton|Greenwich|Finchley
+  - value: 2020\.|ilford

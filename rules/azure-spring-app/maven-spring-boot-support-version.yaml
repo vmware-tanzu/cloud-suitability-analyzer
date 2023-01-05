@@ -3,7 +3,7 @@ filetype: xml$
 target: contents
 type: xpath
 criticality: Warn
-advice: Spring boot version is out of spring boot OSS support scope
+advice: Spring boot version is out of any spring boot support(https://spring.io/projects/spring-boot#support). Please update to newer version
 effort: 6
 category: version
 defaultpattern: //*[groupId="org.springframework.boot" and starts-with(version,"%s")]/version
@@ -15,6 +15,3 @@ patterns:
   - value: 2.1
   - value: 2.2
   - value: 2.3
-  - value: 2.4
-  - value: 2.5
-  - value: 2.6

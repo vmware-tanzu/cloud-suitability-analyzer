@@ -1,0 +1,16 @@
+name: maven-spring-cloud-oss-support-version
+filetype: xml$
+target: contents
+type: xpath
+criticality: Warn
+advice: Spring cloud version is out of OSS support. If you don't have commercial support, please update to newer version
+effort: 4
+category: version
+tags:
+  - value: azure spring apps
+  - value: spring cloud
+patterns:
+  - value: //*[groupId="org.springframework.cloud" and matches(version,"(?i)^2020")]/version
+  - value: //*[groupId="org.springframework.cloud" and matches(version,"(?i)^ilford")]/version
+  - value: //*[matches(name(), "spring-?cloud.version") and matches(text(),"(?i)^2020")]
+  - value: //*[matches(name(), "spring-?cloud.version") and matches(text(),"(?i)^ilford")]

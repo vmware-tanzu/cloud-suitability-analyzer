@@ -4,7 +4,7 @@ target: line
 type: regex
 criticality: Critical
 advice: Spring cloud version is too low
-effort: 500
+effort: 50
 category: version
 tags:
   - value: azure spring apps

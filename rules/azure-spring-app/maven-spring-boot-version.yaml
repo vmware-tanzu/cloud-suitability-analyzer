@@ -4,7 +4,7 @@ target: contents
 type: xpath
 criticality: Critical
 advice: Spring boot version is too low
-effort: 500
+effort: 50
 category: version
 defaultpattern: //*[groupId="org.springframework.boot" and starts-with(version,"%s")]/version
 tags:
