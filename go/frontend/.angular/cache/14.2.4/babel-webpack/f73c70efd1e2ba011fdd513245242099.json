@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { CdsInternalControlInline as s } from \"@cds/core/forms\";\nimport e from \"./checkbox.element.scss.js\";\n\nclass t extends s {\n  static get styles() {\n    return [...super.styles, e];\n  }\n\n}\n\nexport { t as CdsCheckbox }; //# sourceMappingURL=checkbox.element.js.map","map":null,"metadata":{},"sourceType":"module"}

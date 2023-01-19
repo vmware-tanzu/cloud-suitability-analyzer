@@ -1,1 +1,0 @@
-{"ast":null,"code":"export class ChartElement {\n  constructor(value, name) {\n    this.value = value;\n    this.name = name;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

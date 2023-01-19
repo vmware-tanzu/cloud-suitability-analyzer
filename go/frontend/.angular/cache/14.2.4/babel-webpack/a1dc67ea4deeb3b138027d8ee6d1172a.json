@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { registerElementSafely as e } from \"@cds/core/internal\";\nimport { CdsSelect as r } from \"./select.element.js\";\nimport \"@cds/core/forms/register.js\";\nimport \"@cds/core/button-expand/register.js\";\ne(\"cds-select\", r); //# sourceMappingURL=register.js.map","map":null,"metadata":{},"sourceType":"module"}

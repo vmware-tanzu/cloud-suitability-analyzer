@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { CdsInternalControlGroup as o } from \"@cds/core/forms\";\n\nclass r extends o {}\n\nexport { r as CdsCheckboxGroup }; //# sourceMappingURL=checkbox-group.element.js.map","map":null,"metadata":{},"sourceType":"module"}

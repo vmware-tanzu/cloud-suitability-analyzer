@@ -1,1 +1,0 @@
-{"ast":null,"code":"export default function _arrayFromIterator(iter) {\n  var list = [];\n  var next;\n\n  while (!(next = iter.next()).done) {\n    list.push(next.value);\n  }\n\n  return list;\n}","map":null,"metadata":{},"sourceType":"module"}

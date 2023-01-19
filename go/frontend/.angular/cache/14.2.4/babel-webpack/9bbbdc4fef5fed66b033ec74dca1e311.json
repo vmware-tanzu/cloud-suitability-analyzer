@@ -1,1 +1,0 @@
-{"ast":null,"code":"export default function _isObject(x) {\n  return Object.prototype.toString.call(x) === '[object Object]';\n}","map":null,"metadata":{},"sourceType":"module"}

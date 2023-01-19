@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { CdsButton as t } from \"./button.element.js\";\n\nclass e extends t {\n  constructor() {\n    super();\n    this.size = \"icon\";\n  }\n\n}\n\nexport { e as CdsIconButton }; //# sourceMappingURL=icon-button.element.js.map","map":null,"metadata":{},"sourceType":"module"}

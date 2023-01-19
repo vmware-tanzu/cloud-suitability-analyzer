@@ -1,1 +1,0 @@
-{"ast":null,"code":"export default function _isPlaceholder(a) {\n  return a != null && typeof a === 'object' && a['@@functional/placeholder'] === true;\n}","map":null,"metadata":{},"sourceType":"module"}

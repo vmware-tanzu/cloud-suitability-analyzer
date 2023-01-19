@@ -1,1 +1,0 @@
-{"ast":null,"code":"export default function _has(prop, obj) {\n  return Object.prototype.hasOwnProperty.call(obj, prop);\n}","map":null,"metadata":{},"sourceType":"module"}

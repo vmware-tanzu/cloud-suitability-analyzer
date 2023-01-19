@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { isNil as n } from \"./identity.js\";\n\nfunction o(o = window) {\n  return !n(o);\n}\n\nfunction i() {\n  return void 0 !== globalThis?.process?.env?.JEST_WORKER_ID;\n}\n\nexport { o as isBrowser, i as isJestTest }; //# sourceMappingURL=environment.js.map","map":null,"metadata":{},"sourceType":"module"}

@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { css as t } from \"lit\";\nvar a = t`cds-datalist input::-webkit-calendar-picker-indicator{opacity:0;cursor:text}`;\nexport { a as default }; //# sourceMappingURL=datalist.global.scss.js.map","map":null,"metadata":{},"sourceType":"module"}

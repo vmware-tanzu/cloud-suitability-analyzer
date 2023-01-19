@@ -1,1 +1,0 @@
-{"ast":null,"code":"export default function _complement(f) {\n  return function () {\n    return !f.apply(this, arguments);\n  };\n}","map":null,"metadata":{},"sourceType":"module"}

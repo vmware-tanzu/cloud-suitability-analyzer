@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { css as i } from \"lit\";\nvar t = i`:host{--internal-label-min-width:initial;display:block;width:100%}.private-host{width:100%}`;\nexport { t as default }; //# sourceMappingURL=form-group.element.scss.js.map","map":null,"metadata":{},"sourceType":"module"}

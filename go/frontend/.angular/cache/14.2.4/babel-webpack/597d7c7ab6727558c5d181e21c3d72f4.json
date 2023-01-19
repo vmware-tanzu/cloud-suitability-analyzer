@@ -1,1 +1,0 @@
-{"ast":null,"code":"export class TagSummary {\n  constructor(name, count, tagData) {\n    this.name = name;\n    this.count = count;\n    this.tagData = tagData;\n  }\n\n}\nexport class TagsSummary {\n  constructor(tags) {\n    this.tags = tags;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

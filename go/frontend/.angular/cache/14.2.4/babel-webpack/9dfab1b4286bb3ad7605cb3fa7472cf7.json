@@ -1,1 +1,0 @@
-{"ast":null,"code":"export default {\n  init: function () {\n    return this.xf['@@transducer/init']();\n  },\n  result: function (result) {\n    return this.xf['@@transducer/result'](result);\n  }\n};","map":null,"metadata":{},"sourceType":"module"}
