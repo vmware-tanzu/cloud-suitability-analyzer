@@ -1,0 +1,1 @@
+{"ast":null,"code":"const o = [{\n  opacity: 0\n}, {\n  opacity: 1\n}];\nexport { o as fadeInKeyframes }; //# sourceMappingURL=fade-in.js.map","map":null,"metadata":{},"sourceType":"module"}

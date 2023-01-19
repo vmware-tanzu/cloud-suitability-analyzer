@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class TagRequest {\n  constructor(name, selected) {\n    this.name = name;\n    this.selected = selected;\n  }\n\n}\nexport class TagRequests {\n  constructor(tags) {\n    this.tags = tags;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

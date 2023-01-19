@@ -1,0 +1,1 @@
+{"ast":null,"code":"function e(e = 10) {\n  return new Promise(t => setTimeout(t, e));\n}\n\nexport { e as sleep }; //# sourceMappingURL=async.js.map","map":null,"metadata":{},"sourceType":"module"}

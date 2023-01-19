@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default function _isTransformer(obj) {\n  return obj != null && typeof obj['@@transducer/step'] === 'function';\n}","map":null,"metadata":{},"sourceType":"module"}

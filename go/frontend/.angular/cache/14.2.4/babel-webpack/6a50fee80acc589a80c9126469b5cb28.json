@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { css as t } from \"lit\";\nvar a = t`cds-search input[type=search]::-webkit-search-cancel-button{display:none!important}`;\nexport { a as default }; //# sourceMappingURL=search.global.scss.js.map","map":null,"metadata":{},"sourceType":"module"}

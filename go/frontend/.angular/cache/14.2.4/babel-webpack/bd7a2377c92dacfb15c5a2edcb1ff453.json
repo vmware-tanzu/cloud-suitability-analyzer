@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { registerElementSafely as r } from \"@cds/core/internal\";\nimport { CdsProgressCircle as e } from \"./progress-circle.element.js\";\nr(\"cds-progress-circle\", e); //# sourceMappingURL=register.js.map","map":null,"metadata":{},"sourceType":"module"}

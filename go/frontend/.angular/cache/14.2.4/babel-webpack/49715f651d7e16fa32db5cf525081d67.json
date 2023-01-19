@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default function _cloneRegExp(pattern) {\n  return new RegExp(pattern.source, (pattern.global ? 'g' : '') + (pattern.ignoreCase ? 'i' : '') + (pattern.multiline ? 'm' : '') + (pattern.sticky ? 'y' : '') + (pattern.unicode ? 'u' : ''));\n}","map":null,"metadata":{},"sourceType":"module"}

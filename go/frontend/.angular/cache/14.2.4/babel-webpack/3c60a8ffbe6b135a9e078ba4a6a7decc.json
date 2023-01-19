@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { renderIcon as n } from \"../icon.renderer.js\";\nconst o = \"minus\",\n      r = [\"minus\", n({\n  outline: '<path d=\"M26,17H10a1,1,0,0,0,0,2H26a1,1,0,0,0,0-2Z\"/>'\n})];\nexport { r as minusIcon, o as minusIconName }; //# sourceMappingURL=minus.js.map","map":null,"metadata":{},"sourceType":"module"}

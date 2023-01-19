@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { CdsControl as s } from \"@cds/core/forms\";\nimport e from \"./input.element.scss.js\";\n\nclass t extends s {\n  static get styles() {\n    return [...super.styles, e];\n  }\n\n}\n\nexport { t as CdsInput }; //# sourceMappingURL=input.element.js.map","map":null,"metadata":{},"sourceType":"module"}

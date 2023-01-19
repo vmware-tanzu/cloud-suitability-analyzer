@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { registerElementSafely as o } from \"@cds/core/internal\";\nimport { CdsIcon as r } from \"./icon.element.js\";\no(\"cds-icon\", r); //# sourceMappingURL=register.js.map","map":null,"metadata":{},"sourceType":"module"}

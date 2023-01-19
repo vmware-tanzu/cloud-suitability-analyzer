@@ -165,7 +165,7 @@
     <clr-tab>
       <button clrTabLink>APIs</button>
       <clr-tab-content *clrIfActive="false">
-        <div class="summary-charts">
+        <div *ngIf="apis?.length" class="summary-charts">
           <div class="summary-chart" #containerRef>
             <ngx-charts-tree-map
               [view]="[containerRef.offsetWidth, 400]"

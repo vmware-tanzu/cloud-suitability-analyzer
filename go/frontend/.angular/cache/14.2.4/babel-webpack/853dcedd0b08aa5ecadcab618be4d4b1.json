@@ -1,0 +1,1 @@
+{"ast":null,"code":"import _indexOf from \"./_indexOf.js\";\nexport default function _includes(a, list) {\n  return _indexOf(list, a, 0) >= 0;\n}","map":null,"metadata":{},"sourceType":"module"}

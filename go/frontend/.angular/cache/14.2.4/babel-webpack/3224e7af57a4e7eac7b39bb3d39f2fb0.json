@@ -1,0 +1,1 @@
+{"ast":null,"code":"function n(n, t) {\n  const e = n.find(n => !0 === n[0]());\n  return e ? e[1]() : t();\n}\n\nfunction t(n, t, e) {\n  return n.map(n => n()).indexOf(!0) > -1 || !(t.map(n => n()).indexOf(!0) > -1) && e;\n}\n\nexport { t as anyPassOrAnyFail, n as returnOrFallthrough }; //# sourceMappingURL=conditional.js.map","map":null,"metadata":{},"sourceType":"module"}

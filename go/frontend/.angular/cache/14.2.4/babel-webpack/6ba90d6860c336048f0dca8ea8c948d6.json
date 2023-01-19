@@ -1,0 +1,1 @@
+{"ast":null,"code":"const t = [{\n  opacity: 0,\n  transform: \"translateY(-15rem)\"\n}, {\n  opacity: 1,\n  transform: \"translateY(0)\"\n}];\nexport { t as fadeAndSlideInKeyframes }; //# sourceMappingURL=fade-in-and-slide-down.js.map","map":null,"metadata":{},"sourceType":"module"}

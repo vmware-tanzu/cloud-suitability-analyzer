@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { registerElementSafely as r } from \"@cds/core/internal\";\nimport { CdsTextarea as e } from \"./textarea.element.js\";\nimport \"@cds/core/forms/register.js\";\nr(\"cds-textarea\", e); //# sourceMappingURL=register.js.map","map":null,"metadata":{},"sourceType":"module"}

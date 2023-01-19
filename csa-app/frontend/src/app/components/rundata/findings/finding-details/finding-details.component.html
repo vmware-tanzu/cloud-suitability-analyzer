@@ -1,7 +1,7 @@
 <clr-modal [(clrModalOpen)]="isOpen" (clrModalOpenChange)="onModalClose($event)"
            clrModalSize="xl">
   <h1 class="modal-title" style="color: #138078">{{selectedFinding.id}}</h1>
-  <div class="modal-body" cds-layout="horizontal">
+  <div class="modal-body" cds-layout="horizontal gap:xs wrap:none">
     <div class="left">
       <p>
         <span class="kv-field">File:</span>

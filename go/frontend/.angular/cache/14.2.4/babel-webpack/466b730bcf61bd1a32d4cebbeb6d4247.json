@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class SelectedTag {\n  constructor(name, isBinTag) {\n    this.name = name;\n    this.isBinTag = isBinTag;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

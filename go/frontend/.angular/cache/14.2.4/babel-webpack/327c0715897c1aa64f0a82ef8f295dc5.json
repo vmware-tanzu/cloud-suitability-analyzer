@@ -1,0 +1,1 @@
+{"ast":null,"code":"function n(n) {\n  return n;\n}\n\nexport { n as renderIcon }; //# sourceMappingURL=icon.renderer.js.map","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { registerElementSafely as r } from \"@cds/core/internal\";\nimport { CdsRange as e } from \"./range.element.js\";\nimport \"@cds/core/forms/register.js\";\nr(\"cds-range\", e); //# sourceMappingURL=register.js.map","map":null,"metadata":{},"sourceType":"module"}

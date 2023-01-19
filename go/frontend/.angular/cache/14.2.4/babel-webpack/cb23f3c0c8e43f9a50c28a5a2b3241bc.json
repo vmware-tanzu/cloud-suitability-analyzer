@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { renderIcon as e } from \"../icon.renderer.js\";\nconst c = \"check\",\n      o = [\"check\", e({\n  outline: '<path d=\"M13.72,27.69,3.29,17.27a1,1,0,0,1,1.41-1.41l9,9L31.29,7.29a1,1,0,0,1,1.41,1.41Z\"/>'\n})];\nexport { o as checkIcon, c as checkIconName }; //# sourceMappingURL=check.js.map","map":null,"metadata":{},"sourceType":"module"}
