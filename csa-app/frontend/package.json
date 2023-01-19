@@ -6,7 +6,7 @@
     "dev-start-frontend-backend": "concurrently \"pushd .. && go generate && popd && go run rules-admin.go --database-dir=./data\" \"ng serve --proxy-config proxy-conf.json\"",
     "dev-start-frontend": "ng serve --proxy-config proxy-conf.json",
     "dev-start-backend": "go run rules-admin.go --database-dir=../exe",
-    "production-build": "ng build --configuration production",
+    "production-build": "ng build --configuration production > /dev/null 2>&1",
     "source-map": "cd dist/ng-app && source-map-explorer *.js",
     "build": "ng build",
     "test": "ng test --codeCoverage=true --source-map=false",
