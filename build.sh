@@ -6,7 +6,7 @@ export GO111MODULE=on
 export WORKING_DIR=${PWD}
 
 echo "~~~> Compile/Minify UI"
-pushd ${PWD}/go/frontend
+pushd ${PWD}/csa-app/frontend
 
 export NODE_OPTIONS="--max_old_space_size=4096"
 
@@ -35,7 +35,7 @@ fi
 
 popd
 
-pushd ${PWD}/go
+pushd ${PWD}/csa-app
     go generate
 
     if [ $? -eq 0 ]

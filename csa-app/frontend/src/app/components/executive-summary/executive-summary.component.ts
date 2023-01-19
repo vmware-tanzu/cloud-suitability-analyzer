@@ -11,6 +11,7 @@ import {ChartElement} from "../../model/chartelement";
 import '@cds/core/search/register.js';
 import {pushErrorNotification, pushInfoNotification} from '../../utils/notificationutil';
 import {ToastrService} from "ngx-toastr";
+import { Color, ScaleType } from '@swimlane/ngx-charts';
 
 @Component({
   selector: 'csa-executive-summary',
@@ -51,8 +52,11 @@ export class ExecutiveSummaryComponent implements OnInit {
   barPadding: number = 40;
   showGridLines: boolean = true;
 
-  colorScheme = {
-    domain: ['#0095D3', '#00BFA9', '#60B515', '#8939AD', '#F57600']
+  colorScheme: Color = {
+    name: 'executiveSummary',
+    selectable: true,
+    group: ScaleType.Ordinal,
+    domain: ['#0095D3', '#00BFA9', '#60B515', '#8939AD', '#F57600', '#6870C4']
   };
 
   constructor(private router: Router, private route: ActivatedRoute, private executiveSummaryService: ExecutiveSummaryService, public toastr: ToastrService) {

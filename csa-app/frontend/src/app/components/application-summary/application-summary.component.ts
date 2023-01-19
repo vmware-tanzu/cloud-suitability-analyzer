@@ -13,6 +13,7 @@ import {ToastrService} from 'ngx-toastr';
 import {pushErrorNotification, pushInfoNotification} from 'src/app/utils/notificationutil';
 import {Observable} from "rxjs/index";
 import {Findings} from "../../model/findings";
+import { Color, ScaleType } from '@swimlane/ngx-charts';
 
 @Component({
   selector: 'csa-application-summary',
@@ -52,7 +53,10 @@ export class ApplicationSummaryComponent implements OnInit {
   gradient = false;
   animations = true;
 
-  colorScheme = {
+  colorScheme: Color = {
+    name: 'applicationSummary',
+    selectable: true,
+    group: ScaleType.Ordinal,
     domain: ['#0095D3', '#00BFA9', '#60B515', '#8939AD', '#F57600', '#6870C4']
   };
 

@@ -177,4 +177,5 @@ target
 /target
 
 env/
-
+*.db
+.npmrc
