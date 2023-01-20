@@ -10,14 +10,13 @@ Executable will be generated here => csa-app/exe/csa
 
 Release builds containing all required GO dependencies can be generated using a docker build
 
-1. Update Release Version in build-Dockerfile
+1. Run Docker Built
 
-ARG releaseVersion=v3.2.10-rc1
+docker build -f build-Dockerfile -t csa-release:latest .
 
-2. Run Docker Built
+2. Extract Generated Artifacts
 
-docker build -f build-Dockerfile -t csa-release:3.2.10-rc1 .
-
-3. Extract Generated Artifacts
-
-docker run -v /Users/[somewhere on your machine]:/dist csa-release:3.2.10-rc1
+```
+cd ~/.../cloud-suitability-analyzer
+docker run -v ${PWD}:/app -e VERSION=v3.2.10-rc1 csa-release:latest
+```

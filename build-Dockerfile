@@ -1,23 +1,9 @@
 FROM golang:1.19.0-alpine3.16 AS builder
 
-ARG releaseVersion=v3.2.10-rc1
-
 RUN apk update
 
-RUN apk add --no-cache gcc g++ git openssh-client npm bash go-bindata
-RUN apk add mingw-w64-gcc
-WORKDIR /go/src/app
-ADD . /go/src/app
-RUN mkdir build
-RUN ./build-Local.sh -L $releaseVersion
-RUN cp csa-app/exe/csa-l /go/src/app/build/
-RUN ./build-Local.sh -W $releaseVersion
-RUN cp csa-app/exe/csa.exe /go/src/app/build/
+RUN apk add --no-cache gcc g++ git openssh-client nodejs npm bash go-bindata
+RUN apk add mingw-w64-gcc build-base
+WORKDIR /app
 
-FROM alpine:3.16.2
-RUN mkdir dist
-RUN mkdir build
-COPY --from=builder /go/src/app/build/csa-l /build/csa-l
-COPY --from=builder /go/src/app/build/csa.exe /build/csa.exe
-
-CMD ["cp", "-a", "/build/.", "/dist"]
+CMD ["./build-Local.sh","LW", "$VERSION"]

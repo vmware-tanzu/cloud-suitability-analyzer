@@ -14,9 +14,11 @@ jobs:
     steps:
 
     - name: Check out code into the Go module directory
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
-
+    - name: Install Dependencies
+      run: sudo apt install go-bindata mingw-w64
+      
     - name: Build
       run: ./build-Local.sh OWL
     
@@ -24,5 +26,5 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: buildFiles
-        path: go/exe
+        path: csa-app/exe
 
