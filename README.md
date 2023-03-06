@@ -73,19 +73,28 @@ Clone the repo into your the directory of your choice.
 
 ### Build & Run
 
-**Run the build script**
+## MACOS
 
-Make sure your in the root directory of your project and run the build script
 ```
-$> ./buildDocker.sh [executable type] or buildDocker.ps1
+> ./build-Local.sh -O
 ```
 
-**Executable Type Options**
+Executable will be generated here => csa-app/exe/csa
+
+## LINUX & WINDOWS
+
+Release builds containing all required GO dependencies can be generated using a docker build
+
+1. Run Docker Build
+
 ```
-   O     creates a OSX executable
-   L     creates a Linux executable
-   W     creates a Windows executable
-   OWL   builds all three
+$> docker build -f build-Dockerfile -t csa-release:latest .
+```
+
+2. Generate executables
+
+```
+$> docker run -v ${PWD}:/app -e VERSION=v3.2.10-rc1 csa-release:latest
 ```
 
 **Verify docker created directory has correct ownership**
@@ -95,7 +104,7 @@ $> sudo chown -R $USER:`id -g -n $USER` $WORKING_DIR/go/exe
 
 **Check that the exe runs**
 
-The executable(s) can be found in  `<project root dir>/go/exe` directory
+The executable(s) can be found in  `<project root dir>/csa-app/exe` directory
 
 # Documentation
 
