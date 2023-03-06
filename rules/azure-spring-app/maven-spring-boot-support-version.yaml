@@ -1,0 +1,17 @@
+name: maven-spring-boot-support-version
+filetype: xml$
+target: contents
+type: xpath
+criticality: Warn
+advice: Spring boot version is out of any spring boot support(https://spring.io/projects/spring-boot#support). Please update to newer version
+effort: 6
+category: version
+defaultpattern: //*[groupId="org.springframework.boot" and starts-with(version,"%s")]/version
+tags:
+  - value: azure spring apps
+  - value: spring boot
+patterns:
+  - value: 2.0
+  - value: 2.1
+  - value: 2.2
+  - value: 2.3

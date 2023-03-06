@@ -1,0 +1,18 @@
+name: gradle-spring-boot-version
+filetype: gradle$
+target: line
+type: regex
+criticality: Critical
+advice: Spring boot version is too low
+effort: 50
+category: version
+tags:
+  - value: azure spring apps
+  - value: spring boot
+patterns:
+  - value: org\.springframework\.boot(.*)([\r\n]*)version( *[:=]? *)['"]?(1\.)
+  - value: (?i)(springBootVersion)(.*)(1\.)
+  - value: org\.springframework\.boot['"]?( *[:=]? *)['"]?(1\.)
+
+# id("org.springframework.boot") version "2.7.6"
+# id 'org.springframework.boot' version '2.7.6'
