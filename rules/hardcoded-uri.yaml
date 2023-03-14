@@ -1,5 +1,5 @@
-name: hard-coded-uri-config
-filetype: (java$|vb$|py$|go$|aspx$|c$|h$|cs$|csx$|cpp$|c\+\+$|cob$|cfm$|cfml$|dockerfile$|jsp$|php$|vb$|r$|ts$|yaml$|yml$|json$|jsons$|)
+name: hardcode-uri
+filetype: (java$|vb$|py$|go$|aspx$|c$|h$|cs$|csx$|cpp$|cob$|cfm$|cfml$|dockerfile$|jsp$|php$|vb$|r$|ts$|yaml$|yml$|json$|jsons$|)
 target: line
 type: regex
 defaultpattern: (%s)\:{1}\/{2}
