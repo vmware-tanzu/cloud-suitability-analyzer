@@ -5,7 +5,7 @@ target: line
 type: regex
 defaultpattern: "%s"
 advice: Hardcoded IP addresses are problematic in K8S
-effort: 9
+effort: 1
 readiness: 8
 category: hard-ip
 tags:

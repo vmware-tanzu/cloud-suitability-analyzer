@@ -4,7 +4,7 @@ target: file
 effort: 100
 readiness: 0
 category: Tomcat
-advice: Refer to platform documentation
+advice: Web Server coupling
 type: simple-text
 tags:
   - value: tomcat

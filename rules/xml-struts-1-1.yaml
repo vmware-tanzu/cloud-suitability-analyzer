@@ -2,9 +2,10 @@
 name: xml-struts-1-1
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: struts
-advice: Refer to platform documentation
+advice: Consider upgrading to modern cloud native UI framework
 effort: 10
 readiness: 10
 tags:

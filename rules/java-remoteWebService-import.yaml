@@ -3,7 +3,7 @@ filetype: (jsp$|java$)
 target: line
 type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
-advice: Ensure valid configuration for TAS or use TKG
+advice: Consider rearchitecting the application to use Cloud friendly remote communications - http or messaging
 effort: 10
 readiness: 10
 category: web-service

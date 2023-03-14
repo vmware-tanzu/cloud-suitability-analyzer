@@ -2,9 +2,10 @@
 name: SNAP-java-ver-Maven-Ant
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: java-ver
-advice: Refer to platform documentation
+advice: Legacy Java detected.  Consider upgrading.
 effort: 100
 readiness: 0
 tags:

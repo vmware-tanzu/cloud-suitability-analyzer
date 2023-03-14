@@ -5,10 +5,10 @@ filetype: java$
 target: line
 type: regex
 defaultpattern: "^.*[ .]%s[ (].*"
-effort: 10
+effort: 250
 readiness: 7
 category: jndi
-advice: Remove jndi provider or move to TKG
+advice: Refactor jndi calls
 tags:
   - value: jndi
   - value: web-container

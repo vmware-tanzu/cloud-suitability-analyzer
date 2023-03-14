@@ -2,7 +2,7 @@ name: java-struts
 filetype: java$
 target: line
 type: regex
-advice: Refer to platform documentation
+advice: Consider upgrading to modern cloud native UI framework
 defaultpattern: "^.*[ .]%s[ (].*"
 effort: 6
 readiness: 7

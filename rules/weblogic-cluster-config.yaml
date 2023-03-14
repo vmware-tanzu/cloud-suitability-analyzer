@@ -4,7 +4,7 @@ target: line
 type: regex
 defaultpattern: "^%s.*"
 category: wlcluster
-advice: weblogic clusters cannot run in K8S
+advice: Weblogic clusters cannot run in K8S
 effort: 1
 readiness: 0
 tags:

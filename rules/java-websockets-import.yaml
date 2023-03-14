@@ -5,7 +5,7 @@ type: regex
 effort: 100
 readiness: 100
 category: websockets
-advice: Refer to platform documentation
+advice: Make sure that target platform supports websocket api
 recipes:
 defaultpattern: '^import\s*%s.*'
 tags:

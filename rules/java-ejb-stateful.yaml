@@ -13,5 +13,3 @@ tags:
 patterns:
 - value: Stateful
 - value: StatefulTimeout
-##@Stateful
-##@StatefulTimeout

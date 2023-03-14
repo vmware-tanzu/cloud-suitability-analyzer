@@ -1,14 +1,17 @@
 #SW
+#todo search for mdb imports or annotations
 name: bootMDB
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: mdb
 advice: Automatic remediation with Bootifier
 effort: 2
 readiness: 2
 tags:
   - value: mdb
+  - value: migrate-off-legacy-server  
 patterns:
   - value: javax.ejb-api
     tag: javax.ejb

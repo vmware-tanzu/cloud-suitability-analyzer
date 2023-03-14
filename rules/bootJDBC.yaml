@@ -4,7 +4,7 @@ target: line
 type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Consult 3rd party documentation
-effort: 5
+effort: 0
 readiness: 5
 category: persistence
 tags:
@@ -12,4 +12,4 @@ tags:
 - value: jdbc
 patterns:
 - value: org.springframework.jdbc
-  tag: srping-jdbc 
+  tag: spring-jdbc 

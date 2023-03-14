@@ -1,13 +1,14 @@
 name: python-redis
 filetype: py$
 target: line
-type: contains
-advice: Check for cloud foundry support.
-effort: 4
+type: regex
+defaultpattern: (import)\s+(%s)
+advice: Redis is being used
+effort: 0
 readiness: 10
 category: services
 tags:
 - value: redis
 patterns:
-- value: import redis
-- value: import aioredis
+- value: redis
+- value: aioredis

@@ -5,7 +5,7 @@ category: config
 effort: 50
 readiness: 1000
 type: simple-text
-advice: Web application config file
+advice: Consider rearchitecting if decision is made to move off application server
 tags:
   - value: web-profile
 patterns:

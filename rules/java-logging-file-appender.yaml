@@ -1,7 +1,8 @@
 name: java-logging-file-appender
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 effort: 3
 readiness: 5
 advice: Replace file appender with console appender

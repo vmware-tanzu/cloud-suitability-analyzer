@@ -3,7 +3,7 @@ filetype: java$
 target: line
 type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
-advice: Move away from container specific APIs to portal APIs such as Spring
+advice: Consider rearchitecting if decision is made to move off application server
 effort: 50
 readiness: 10
 category: webLogic

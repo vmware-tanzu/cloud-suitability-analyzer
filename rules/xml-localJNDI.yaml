@@ -2,7 +2,8 @@
 name: xml-localJNDI
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: jndi
 advice: WebSphere does not allow local JNDI, refer to documentation
 effort: 10

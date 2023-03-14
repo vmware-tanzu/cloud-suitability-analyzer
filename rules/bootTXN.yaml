@@ -2,13 +2,15 @@
 name: bootTXN
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: txn
 advice: Automatic remediation with Bootifier
 effort: 2
 readiness: 2
 tags:
   - value: txn
+  - value: migrate-off-legacy-server  
 patterns:
   - value: javax.ejb-api
     tag: javax-ejb

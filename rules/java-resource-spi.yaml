@@ -4,9 +4,9 @@ target: line
 type: regex
 defaultpattern: "^.*[ .]%s[ (].*"
 effort: 10
-readiness: 7
+readiness: 70
 category: jca
-advice: Migrate to backing service or move to TKG
+advice: Consider rearchitecting the application to use Cloud friendly remote communications - http or messaging
 tags:
   - value: resource-adapter
   - value: spi

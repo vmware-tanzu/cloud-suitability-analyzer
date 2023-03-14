@@ -4,7 +4,7 @@ target: line
 type: regex
 defaultpattern: "^ *%s.*"
 category: wscluster
-advice: websphere clusters cannot run in K8S
+advice: Websphere clusters cannot run in K8S
 effort: 1
 readiness: 0
 tags:

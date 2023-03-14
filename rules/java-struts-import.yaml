@@ -3,7 +3,7 @@ filetype: (jsp$|java$)
 target: line
 type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
-advice: Refer to platform documentation 
+advice: Consider upgrading to modern cloud native UI framework
 effort: 6
 readiness: 7
 category: struts

@@ -1,7 +1,8 @@
 name: sqlserver-ssis
 filetype: (dtsx$)
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 advice: SSIS is not supported on CloudFoundry.
 effort: 100
 readiness: 0

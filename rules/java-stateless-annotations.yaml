@@ -3,7 +3,7 @@ filetype: (jsp$|java$)
 target: line
 type: regex
 defaultpattern: ^\s*@%s
-advice: Replace with the Spring annotation @Component or move to TKG
+advice: Consider rearchitecting if decisions is made to not use application server
 effort: 5
 category: stateless
 tags:

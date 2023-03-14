@@ -2,9 +2,10 @@
 name: SNAP-java-package-Maven-Ant
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: packaging
-advice: Refer to platform documentation
+advice: Application Server coupling detected
 effort: 100
 readiness: 0
 tags:

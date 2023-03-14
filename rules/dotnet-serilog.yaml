@@ -1,7 +1,8 @@
 name: dotnet-serilog
-filetype: cs
+filetype: cs$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 advice: Logging with Serilog. Make sure not to log to file. Remote logging sinks need to be reachable on network.
 effort: 3
 readiness: 8

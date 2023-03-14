@@ -5,7 +5,7 @@ target: line
 type: regex
 defaultpattern: "[{] *%s"
 category: packaging
-advice: Refer to platform documentation
+advice: Executable jar packaging is used
 effort: 0
 readiness: 0
 tags:

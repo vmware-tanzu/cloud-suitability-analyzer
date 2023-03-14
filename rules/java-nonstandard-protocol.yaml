@@ -1,10 +1,11 @@
 name: java-nonstandard-protocol
 filetype: java$
 target: line
-type: contains
-effort: 100
+type: regex
+defaultpattern: (%s)
+effort: 50
 readiness: 10
-advice: Ensure protocol dependencies are cloud friendly or move to TKG
+advice: Ensure cloud friendly communication protocols
 category: protocol
 tags:
   - value: non-standard-protocol

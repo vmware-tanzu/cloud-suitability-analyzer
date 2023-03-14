@@ -3,7 +3,7 @@ filetype: (jsp$|java$)
 target: line
 type: regex
 defaultpattern: ^\s*@%s
-advice: Distributed transcations are problematic and should be remediated or use TKG
+advice: Review if distributed transcations are used and consider rearchitecting using eventual consistency
 effort: 5
 category: transaction
 defaultpattern: ^\s*@%s

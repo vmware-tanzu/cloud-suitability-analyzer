@@ -2,9 +2,10 @@
 name: xml-ejb-3-2
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: ejb
-advice: Refer to platform documentation
+advice: Application server coupling
 effort: 7
 readiness: 7
 tags:

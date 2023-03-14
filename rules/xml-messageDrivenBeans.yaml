@@ -2,9 +2,10 @@
 name: xml-messageDrivenBeans
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: mdb
-advice: Refer to platform documentation
+advice: Application server coupling
 effort: 10
 readiness: 10
 tags:

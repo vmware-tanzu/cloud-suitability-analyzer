@@ -1,8 +1,9 @@
 name: java-MBeans
 filetype: java$
 target: line
-type: contains
-advice: MBean is application server specific, change to current server equivalent or consider TKG
+type: regex
+defaultpattern: (%s)\:{1}
+advice: MBean is application server specific, change to refactor using cloud friendly technology
 effort: 100
 readiness: 10
 category: websphere

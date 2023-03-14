@@ -1,9 +1,10 @@
 name: xml-session-scoped-beans
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: session
-advice: Review usage and determine if externalizing session state will resolve.
+advice: Relies on application server for shared state and will require a rewrite to Stateless or externalize state storage
 effort: 100
 readiness: 100
 tags:

@@ -1,8 +1,9 @@
 name: python-sqlite
 filetype: py$
 target: line
-type: contains
-advice: Migrate to an external database.
+type: regex
+defaultpattern: (%s)
+advice: Consider migration to an external database.
 effort: 6
 readiness: 8
 category: DatabaseAccess

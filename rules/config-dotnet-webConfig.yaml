@@ -3,7 +3,7 @@ filetype: config$
 target: file
 category: Config
 type: simple-text
-advice: Convert to Spring based application configuration
+advice: Upgrade to .Net Core
 effort: 0
 readiness: 0
 tags:
@@ -11,6 +11,3 @@ tags:
 patterns:
 - value: web.config
 - value: Web.config
-
-##F web.config
-##F Web.config

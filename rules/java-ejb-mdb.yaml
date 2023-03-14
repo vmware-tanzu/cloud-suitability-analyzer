@@ -1,4 +1,3 @@
-#SW
 name: java-ejb-mdb
 filetype: java$
 target: line
@@ -15,5 +14,3 @@ tags:
 patterns:
 - value: javax.ejb.MessageDriven
 - value: javax.ejb.ActivationConfigProperty
-#-import javax.ejb.MessageDriven
-#-import javax.ejb.ActivationConfigProperty

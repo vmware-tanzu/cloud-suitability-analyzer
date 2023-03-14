@@ -1,14 +1,22 @@
 name: plaintext-creds
 filetype:
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)\s*=+
 advice: never save passwords or login information in files
-effort: 11
+effort: 0
 readiness: 9
 category: security
 tags:
 - value: security
 patterns:
-- value: Password=
-- value: User=
-- value: User Id=
+- value: Password
+- value: User
+- value: User Id
+- value: username
+- value: Username
+- value: Login
+- value: Loginname
+- value: login
+- value: Loginname
+- value: password

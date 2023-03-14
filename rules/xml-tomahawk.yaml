@@ -2,9 +2,10 @@
 name: xml-tomahawk
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: tomahawk
-advice: Refer to platform documentation
+advice: Consider upgrading to modern UI framework
 effort: 600
 readiness: 200
 tags:

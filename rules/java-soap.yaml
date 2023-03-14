@@ -2,7 +2,7 @@ name: java-soap
 filetype: java$
 target: line
 type: regex
-advice: There occasionally exists use cases where a message interceptor is required.
+advice: Consider upgrading to modern cloud native messaging
 defaultpattern: ^.* %s.*[(].*
 effort: 4
 readiness: 3
