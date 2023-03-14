@@ -2,7 +2,8 @@
 name: dotnet-asp-web-form
 filetype: (aspx$)
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 advice: Not supported by many PAS
 readiness: 9
 effort: 0

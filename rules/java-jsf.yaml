@@ -1,5 +1,4 @@
 ---
-#--- updated from 8/8/18 Survey
 name: java-jsf
 filetype: java$
 target: line
@@ -11,7 +10,7 @@ category: jsf
 tags:
   - value: jsf
   - value: ui
-advice: The conversion of a JSF application to a Spring Boot application requires several steps
+advice: Consider migrating to modern frameworks that have better support for the cloud.
 recipes:
 patterns:
   - value: ApplicationConfigurationPopulator

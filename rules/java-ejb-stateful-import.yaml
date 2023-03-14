@@ -13,4 +13,3 @@ tags:
 - value: stateful
 patterns:
 - value: javax.ejb.Stateful
-#- import javax.ejb.Stateful

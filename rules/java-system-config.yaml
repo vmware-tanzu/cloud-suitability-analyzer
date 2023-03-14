@@ -1,7 +1,8 @@
 name: java-system-config
 filetype: $
 target: line
-type: contains
+type: regex
+defaultpattern: (System.)%s\(
 advice: Review usage of environment variables and system properties and externalize.
 effort: 3
 readiness: 10 
@@ -9,6 +10,6 @@ category: config
 tags:
 - value: config
 patterns:
-- value: System.getenv(
-- value: System.getProperty(
-- value: System.setProperty(
+- value: getenv
+- value: getProperty
+- value: setProperty

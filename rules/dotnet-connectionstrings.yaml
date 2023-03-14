@@ -1,7 +1,8 @@
 name: dotnet-connectionstrings
 filetype: (yaml|yaml|json|property|config)
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 advice: Remove connection strings from files, use environment variables (or mount configmap into pod)
 effort: 10
 readiness: 5

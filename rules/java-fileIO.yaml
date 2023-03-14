@@ -5,7 +5,7 @@ filetype: java$
 target: line
 type: regex
 defaultpattern: "^.*[ .]%s[ (].*"
-advice: Move to cloud friendly alternative or TKG
+advice: Move to cloud friendly alternative storage service
 effort: 8
 readiness: 8
 category: io
@@ -48,40 +48,3 @@ patterns:
   - value: LineNumberInputStream
   - value: LineNumberReader
   - value: RandomAccessFile
-##  getNextEntry(
-##  putNextEntry(
-##  canExecute(
-##  canRead(
-##  canWrite(
-##  createNewFile(
-##  getAbsoluteFile(
-##  getFile(
-##  getAbsolutePath(
-##  getCanonicalFile(
-##  getCanonicalPath(
-##  getFreeSpace(
-##  getTotalSpace(
-##  getUsableSpace(
-##  isDirectory(
-##  isFile(
-##  isHidden(
-##  lastModified(
-##  listFiles(
-##  mkdir(
-##  mkdirs(
-##  renameTo(
-##  setExecutable(
-##  setLastModified(
-##  setReadOnly(
-##  setReadable(
-##  setWritable(
-##  Console(
-##  FileDescriptor(
-##  FileInputStream(
-##  FileOutputStream(
-##  FilePermission(
-##  FileReader(
-##  FileWriter(
-##  LineNumberInputStream(
-##  LineNumberReader(
-##  RandomAccessFile(

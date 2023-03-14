@@ -5,7 +5,7 @@ target: line
 type: regex
 defaultpattern: apply\s*plugin:\s*[']%s[']
 category: packaging
-advice: Refer to platform documentation
+advice: Application Server coupling detected.  Consider repackaging artifact as either war or executable jar
 effort: 100
 readiness: 0
 tags:

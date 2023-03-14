@@ -3,7 +3,7 @@ filetype: (jsp$|java$)
 target: line
 type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
-advice: The Restlet library appears to be dead at this point in time. 
+advice: The Restlet library appears to be dead at this point in time. Consider upgrading to a Cloud friendly UI framework.
 effort: 10
 readiness: 7
 category: restlet

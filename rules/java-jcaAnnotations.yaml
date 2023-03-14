@@ -5,7 +5,7 @@ filetype: java$
 target: line
 type: regex
 defaultpattern: ^.*@%s$
-advice: Java messaging can present problems in TAS due to its emphemeral. Convert to a backing service or use TKG.
+advice: Convert to a cloud friendly backing service.
 category: jca
 effort: 100
 readiness: 7
@@ -16,6 +16,3 @@ patterns:
   - value: AdministeredObjectDefinition
   - value: ConnectionFactoryDefinition
   - value: ConnectionFactoryDefinitions
-##@AdministeredObjectDefinition
-##@ConnectionFactoryDefinition
-##@ConnectionFactoryDefinitions

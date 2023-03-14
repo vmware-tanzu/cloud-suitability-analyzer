@@ -1,4 +1,3 @@
-#--- updated from 8/8/18 Survey
 name: java-hazelcast
 filetype: java$
 target: line
@@ -6,7 +5,7 @@ type: regex
 defaultpattern: '^.*[ .]%s[ ({.<].*'
 effort: 100
 readiness: 6
-advice: Convert to redis
+advice: Make sure Cache instance is externalized
 category: cache
 tags:
 - value: hazelcast
@@ -21,13 +20,3 @@ patterns:
 - value: setMapEvictionPolicy
 - value: MapEvictionPolicy
 - value: newHazelcastInstance
-
-##  HazelcastInstance(
-##  NearCacheClientSupport(
-##  Hazelcast(
-##  QueryCacheConfig(
-##  HazelcastClient(
-##  newHazelcastClient(
-##  setMapEvictionPolicy(
-##  MapEvictionPolicy(
-##  newHazelcastInstance(

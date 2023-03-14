@@ -2,9 +2,10 @@
 name: xml-transportSecurity
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: security
-advice: Change to NONE
+advice: Application Server coupling
 effort: 2
 readiness: 10
 tags:

@@ -1,37 +1,14 @@
-#--- updated from 8/8/18 Survey
 name: java-ehcache
 filetype: java$
 target: line
 type: regex
-defaultpattern: '^.*[ .]%s[ ({.<]'
+defaultpattern: ^.*import(\s*|=")%s.*$
 effort: 100
 readiness: 6
-advice: Convert to redis
+advice: Consider to externalize cache if not already
 category: cache
 tags:
 - value: cache
 - value: ehcache
 patterns:
-- value: CacheConfigurationBuilder
-- value: newCacheConfigurationBuilder
-- value: PersistableResourceService
-- value: ClusteredCacheIdentifier
-- value: newResourcePoolsBuilder
-- value: CacheLoaderWriterProvider
-- value: BulkCacheLoadingException
-- value: EhcacheResult
-- value: EhCacheConfiguration
-- value: EhCacheImpl
-- value: CacheManagerPersistenceConfiguration
-
-##  CacheConfigurationBuilder(
-##  newCacheConfigurationBuilder(
-##  PersistableResourceService(
-##  ClusteredCacheIdentifier(
-##  newResourcePoolsBuilder(
-##  CacheLoaderWriterProvider(
-##  BulkCacheLoadingException(
-##  EhcacheResult(
-##  EhCacheConfiguration(
-##  EhCacheImpl(
-##  CacheManagerPersistenceConfiguration(
+- value: net.sf.ehcache

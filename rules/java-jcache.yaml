@@ -1,5 +1,3 @@
----
-#--- updated from 8/8/18 Survey
 name: java-jcache
 filetype: java$
 target: line
@@ -7,7 +5,7 @@ type: regex
 defaultpattern: "^.*[ .]%s[ ({.<].*"
 effort: 50
 readiness: 6
-advice: Convert to redis or consider TKG
+advice: Make sure its externalized and using Cloud Friendly cache implementation.
 category: cache
 tags:
   - value: cache

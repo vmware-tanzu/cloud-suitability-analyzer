@@ -3,9 +3,9 @@ filetype: java$
 target: line
 type: regex
 defaultpattern: '^.*[ .]%s[ (].*'
-effort: 100
+effort: 500
 readiness: 100
-advice: Swing applications cannot move to the cloud
+advice: Consider upgrading to modern cloud native UI framework
 category: Swing
 tags:
 - value: desktop-app

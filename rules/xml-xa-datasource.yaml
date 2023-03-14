@@ -2,9 +2,10 @@
 name: xml-xa-dataSource
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: datasource
-advice: Refer to documetation
+advice: Consider rearchitecting if decision is made to move off application server
 effort: 1000
 readiness: 10
 tags:

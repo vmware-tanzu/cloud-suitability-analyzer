@@ -2,9 +2,10 @@
 name: xml-servlet-2-5
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: servlet
-advice: Refer to platform documentation
+advice: Web Server coupling. Consider upgrading to modern framework.
 effort: 400
 readiness: 500
 tags:

@@ -4,7 +4,7 @@ target: line
 type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Use Managed Executor
-effort: 100
+effort: 0
 readiness: 10
 category: threading
 tags:

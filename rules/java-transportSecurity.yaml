@@ -2,9 +2,10 @@
 name: java-transportSecurity
 filetype: java$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: Security
-advice: Not compatable with TAS, change to TransportSecurity.NONE or move to TKG
+advice: Servlet data protection is used, make sure that it is supported by target platform runtime
 effort: 10
 readiness: 10
 tags:

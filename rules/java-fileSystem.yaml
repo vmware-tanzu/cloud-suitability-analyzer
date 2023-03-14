@@ -1,13 +1,13 @@
 name: java-file-system
 filetype: java$
-advice: Use backing service or use TKG
+advice: Use backing storage service
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)\:{1}\/{2}
 effort: 100
 readiness: 10
 category: io
 tags:
   - value: io
 patterns:
-  - value: "file://"
-## file://
+  - value: "file"

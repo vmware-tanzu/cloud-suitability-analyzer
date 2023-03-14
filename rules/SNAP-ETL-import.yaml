@@ -4,7 +4,7 @@ target: line
 type: regex
 effort: 100
 readiness: 0
-advice: Refer to IBM documentation
+advice: Vendor specific integration implementation
 defaultpattern: ^import\s*.*%s.*$
 category: etl
 tags:

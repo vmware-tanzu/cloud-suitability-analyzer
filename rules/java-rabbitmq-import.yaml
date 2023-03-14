@@ -3,8 +3,8 @@ filetype: (jsp$|java$)
 target: line
 type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
-advice: Refer to PCF/Spring documentation for remediation
-effort: 5
+advice: Make sure that configuration is Cloud friendly
+effort: 0
 readiness: 5
 category: mq
 tags:

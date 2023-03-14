@@ -1,14 +1,15 @@
 #SW
-name: bootWEBSERVLET
+name: bootWEBSOCKET
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: WebServlet
 advice: Automatic remediation with Bootifier
-effort: 2
+effort: 0
 readiness: 2
 tags:
-  - value: web-servlet
+  - value: web-socket
 patterns:
   - value: ejb-api
     tag: ejb

@@ -4,7 +4,7 @@ target: file
 effort: 7
 readiness: 7
 category: security
-advice: 
+advice: Make sure to externalize jks store
 recipes:
 type: regex
 tags:

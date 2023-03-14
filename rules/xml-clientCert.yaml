@@ -1,7 +1,8 @@
 name: xml-clientCert
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: security
 advice: Avoid reliance on SSL
 effort: 5

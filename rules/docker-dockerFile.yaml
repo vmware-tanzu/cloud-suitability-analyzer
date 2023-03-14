@@ -4,12 +4,13 @@ filetype: $
 target: file
 type: simple-text
 category: docker
-advice: Determine if TKG is more prescriptive
+advice: Determine if TKG is more prescriptive and TBS or Choreographer can be used to containerize
 recipes:
 effort: 5
 readiness: 1000
 tags:
   - value: docker
+  - value: tkg
 patterns:
   - value: Dockerfile
 ##F Dockerfile

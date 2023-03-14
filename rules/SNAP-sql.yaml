@@ -5,7 +5,7 @@ target: line
 type: regex
 defaultpattern: "^.*[ .]%s[ (].*"
 category: jdbc
-advice: Refer to platform documentation
+advice: Database coupling detected consider using ORM framework
 effort: 10
 readiness: 0
 tags:

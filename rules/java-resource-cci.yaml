@@ -3,9 +3,9 @@ filetype: java$
 target: line
 type: regex
 defaultpattern: "^.*[ .]%s[ (].*"
-effort: 7
+effort: 70
 readiness: 7
-advice: Consult with TAS documetation for configuration or use TKG
+advice: Consider rearchitecting the application to use Cloud friendly remote communications - http or messaging
 category: jca
 tags:
   - value: cci

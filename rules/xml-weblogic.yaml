@@ -3,7 +3,7 @@ filetype: xml$
 target: file
 type: simple-text
 category: webLogic
-advice: Convert to Spring based application configuration
+advice: Consider rearchitecting if decision is made to move off application server
 effort: 100
 readiness: 100
 tags:

@@ -4,7 +4,7 @@ target: line
 type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Refer to platform documentation
-effort: 2
+effort: 0
 readiness: 8
 category: jax-rs
 tags:

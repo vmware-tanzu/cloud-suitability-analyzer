@@ -2,9 +2,10 @@
 name: xml-myfaces
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: myfaces
-advice: Refer to platform documentation
+advice: Consider upgrading to modern UI framework
 effort: 5
 readiness: 2
 tags:

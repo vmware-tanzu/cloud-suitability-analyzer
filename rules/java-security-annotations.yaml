@@ -3,7 +3,7 @@ filetype: (jsp$|java$)
 target: line
 type: regex
 defaultpattern: ^\s*@%s
-advice: Replace with spring security org.springframework.security.access.annotation or move to TKG
+advice: Java EE security appears to be used
 effort: 5
 category: security
 tags:

@@ -4,7 +4,7 @@ name: java-remoteEJB
 filetype: java$
 target: line
 type: regex
-advice: Refer to TASS/Spring documentation for remediation or move to TKG
+advice: Consider rearchitecting the application to use Cloud friendly remote communications - http or messaging
 effort: 10
 readiness: 10
 defaultpattern: ^\s*@%s

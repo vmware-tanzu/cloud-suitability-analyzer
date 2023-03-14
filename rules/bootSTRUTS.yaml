@@ -2,7 +2,8 @@
 name: bootSTRUTS
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: struts
 advice: Automatic remediation with Bootifier
 effort: 2

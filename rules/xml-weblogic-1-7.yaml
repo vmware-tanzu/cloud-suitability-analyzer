@@ -2,9 +2,10 @@
 name: xml-webLogic-1-7
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: weblogic-webapp
-advice: Refer to platform documentation
+advice: Consider rearchitecting if decision is made to move off application server
 effort: 600
 readiness: 700
 tags:

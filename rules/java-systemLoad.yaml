@@ -1,15 +1,16 @@
 name: java-systemLoad
 filetype: java$
 target: line
-type: contains
-advice: Remediate to cloud friendly implentation or move to TKG
+type: regex
+defaultpattern: (System.)%s
+advice: Remediate to cloud friendly implentation
 effort: 1000
 readiness: 10
 category: process-launch
 tags:
   - value: jni
 patterns:
-  - value: System.loadLibrary
-  - value: System.load
+  - value: loadLibrary
+  - value: load
 #- System.loadLibrary
 #- System.load

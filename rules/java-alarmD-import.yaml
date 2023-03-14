@@ -3,7 +3,7 @@ filetype: (jsp$|java$)
 target: line
 type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
-advice: Integrate with new alarmD service
+advice: Integrate with new alarmD service or migrate to Spring Boot scheduler
 category: ThirdParty
 tags:
   - value: alarm-d

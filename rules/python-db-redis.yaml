@@ -3,8 +3,8 @@ filetype: py$
 target: line
 type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
-advice: Check for cloud foundry support.
-effort: 4
+advice: Redis is being used
+effort: 0
 readiness: 10
 category: database
 tags:

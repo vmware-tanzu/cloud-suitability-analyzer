@@ -12,5 +12,3 @@ tags:
   - value: term
 patterns:
   - value: Runtime.getRuntime().addShutdownHook
-
-  #- Runtime.getRuntime().addShutdownHook

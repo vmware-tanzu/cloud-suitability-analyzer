@@ -2,9 +2,10 @@
 name: xml-statefulEJB
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: ejb
-advice: Stateful EJBs may be better suited to TKG
+advice: Relies on application server for shared state and will require a rewrite to Stateless or externalize state storage
 effort: 1000
 readiness: 1000
 tags:

@@ -2,9 +2,10 @@
 name: xml-facelets
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: Facelets
-advice: Refer to platform documentation
+advice: Consider upgrading to modern UI framework
 effort: 2
 readiness: 2
 tags:

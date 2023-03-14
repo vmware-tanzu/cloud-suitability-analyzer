@@ -2,9 +2,10 @@
 name: xml-jsf-1-1
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: jsf
-advice: Refer to platform documentation
+advice: Consider upgrading to modern UI framework
 effort: 1000
 readiness: 0
 tags:

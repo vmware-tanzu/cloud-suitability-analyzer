@@ -4,7 +4,7 @@ target: file
 effort: 4
 readiness: 3
 category: soap
-advice: Refer to platform documentation
+advice: Consider upgrading to cloud friendly communication protocol
 type: regex
 tags:
   - value: wsdl

@@ -1,7 +1,8 @@
 name: log4j-xml
 filetype: log4j2.xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: log2file
 advice: Refer to platform documentation
 effort: 1

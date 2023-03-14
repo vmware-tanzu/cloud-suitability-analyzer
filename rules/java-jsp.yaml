@@ -4,7 +4,7 @@ name: java-jsp
 filetype: java$
 target: line
 type: regex
-advice: You can also host legacy Java Web applications with JSPs on TAS
+advice: Consider migrating to modern UI frameworks that have better support for the cloud.
 defaultpattern: "^.*[ .]%s[ (].*"
 effort: 2
 readiness: 5

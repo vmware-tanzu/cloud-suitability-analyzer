@@ -2,9 +2,10 @@
 name: java-mdb
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: MDB
-advice: Consider stateless alternative or move to TKG
+advice: Application server coupling
 effort: 7
 readiness: 7
 tags:

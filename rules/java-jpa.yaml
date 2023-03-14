@@ -1,6 +1,4 @@
 ---
-#--- updated from 8/8/18 Survey
-#---  converted from import to class usage pattern SW
 name: java-jpa
 filetype: java$
 target: line
@@ -8,7 +6,7 @@ type: regex
 defaultpattern: "^.*[ @.]%s[ (].*"
 effort: 2
 readiness: 6
-advice: JPA will work inside of Cloud Native applications, but changes may need to be made to the way JPA is configured to get connections. 
+advice: JPA will work inside of Cloud Native applications, make sure to use best practices to externalize connection parameters. 
 category: jpa
 tags:
   - value: jpa

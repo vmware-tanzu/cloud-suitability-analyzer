@@ -1,9 +1,10 @@
 name: xml-activeMQ
 filetype: xml$
 target: line
-type: contains
+type: regex
+defaultpattern: (%s)
 category: mq
-advice: Convert to rabbitmq or use TKG
+advice: Make sure that Active MQ broker is available on target platform
 effort: 5
 readiness: 10
 tags:

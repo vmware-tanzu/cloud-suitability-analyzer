@@ -3,7 +3,7 @@ filetype: (jsp$|java$)
 target: line
 type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
-advice: Refer to IBM documentation
+advice: Vendor proprietary implementation.  Consider rearchitecting if decision is made to move off application server
 effort: 10
 readiness: 10
 category: webSphere
