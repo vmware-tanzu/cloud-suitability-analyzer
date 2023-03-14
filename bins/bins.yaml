@@ -90,8 +90,13 @@ tags:
     type: OR
   - name: txn
     type: OR
-  - name: web-servlet
+  - name: java-servlet
     type: OR
+  - name: javax-servlet
+    type: OR
+  - name: xml-servlet
+    type: OR
+
 
 ---
 name: MICRO-SERVICE
