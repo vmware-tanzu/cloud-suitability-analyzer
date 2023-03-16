@@ -19,7 +19,6 @@ import (
 	"crypto/sha256"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
@@ -93,7 +92,7 @@ func build3rdpartylicensesTxt() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "build/3rdpartylicenses.txt", size: 48865, mode: os.FileMode(0644), modTime: time.Unix(1678990976, 0)}
+	info := bindataFileInfo{name: "build/3rdpartylicenses.txt", size: 48865, mode: os.FileMode(0644), modTime: time.Unix(1679007049, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xf5, 0x1e, 0x17, 0x70, 0x53, 0x56, 0x2d, 0x87, 0x65, 0x8e, 0xf7, 0xff, 0x27, 0xa0, 0xf7, 0x10, 0x4b, 0x9c, 0xa7, 0xaa, 0xd0, 0x12, 0x9c, 0x82, 0x62, 0x33, 0x19, 0x92, 0xde, 0xf2, 0x0, 0xe4}}
 	return a, nil
 }
@@ -113,7 +112,7 @@ func buildAssetsCsaIconPng() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "build/assets/csa-icon.png", size: 6975, mode: os.FileMode(0644), modTime: time.Unix(1678990977, 0)}
+	info := bindataFileInfo{name: "build/assets/csa-icon.png", size: 6975, mode: os.FileMode(0644), modTime: time.Unix(1679007051, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x66, 0xb8, 0x38, 0x1c, 0xd4, 0x3e, 0x45, 0x71, 0xe, 0xb1, 0xa8, 0x47, 0x0, 0xc4, 0xec, 0x4c, 0x8f, 0x17, 0x55, 0xe8, 0xdd, 0x3c, 0x20, 0xa6, 0x2e, 0x68, 0x76, 0x4c, 0xff, 0x42, 0xbd, 0xdc}}
 	return a, nil
 }
@@ -133,7 +132,7 @@ func buildAssetsCsaIconSvg() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "build/assets/csa-icon.svg", size: 1678, mode: os.FileMode(0644), modTime: time.Unix(1678990977, 0)}
+	info := bindataFileInfo{name: "build/assets/csa-icon.svg", size: 1678, mode: os.FileMode(0644), modTime: time.Unix(1679007051, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x4e, 0x4c, 0x3e, 0x31, 0x9f, 0x2d, 0x9c, 0x83, 0x5c, 0xa1, 0xe7, 0x22, 0x25, 0xc4, 0xba, 0x11, 0xaf, 0x44, 0xa5, 0xd3, 0xce, 0x38, 0x3, 0xb0, 0x8d, 0xa3, 0xeb, 0xea, 0xb5, 0x5e, 0xd2, 0x3c}}
 	return a, nil
 }
@@ -153,7 +152,7 @@ func buildFaviconIco() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "build/favicon.ico", size: 6975, mode: os.FileMode(0644), modTime: time.Unix(1678990977, 0)}
+	info := bindataFileInfo{name: "build/favicon.ico", size: 6975, mode: os.FileMode(0644), modTime: time.Unix(1679007051, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x66, 0xb8, 0x38, 0x1c, 0xd4, 0x3e, 0x45, 0x71, 0xe, 0xb1, 0xa8, 0x47, 0x0, 0xc4, 0xec, 0x4c, 0x8f, 0x17, 0x55, 0xe8, 0xdd, 0x3c, 0x20, 0xa6, 0x2e, 0x68, 0x76, 0x4c, 0xff, 0x42, 0xbd, 0xdc}}
 	return a, nil
 }
@@ -173,7 +172,7 @@ func buildIndexHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "build/index.html", size: 179890, mode: os.FileMode(0644), modTime: time.Unix(1678990977, 0)}
+	info := bindataFileInfo{name: "build/index.html", size: 179890, mode: os.FileMode(0644), modTime: time.Unix(1679007051, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xa9, 0x67, 0xa0, 0x46, 0xe, 0xa0, 0x9a, 0xcd, 0xd1, 0x78, 0x9, 0xf8, 0xc6, 0xf3, 0x97, 0x9c, 0x51, 0x27, 0x3c, 0xb5, 0x8b, 0x3c, 0x12, 0xd3, 0x3f, 0x11, 0x90, 0xc6, 0xb6, 0xb0, 0xda, 0xf6}}
 	return a, nil
 }
@@ -193,7 +192,7 @@ func buildMain2b8de41b3f6f22f2Js() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "build/main.2b8de41b3f6f22f2.js", size: 1367708, mode: os.FileMode(0644), modTime: time.Unix(1678990976, 0)}
+	info := bindataFileInfo{name: "build/main.2b8de41b3f6f22f2.js", size: 1367708, mode: os.FileMode(0644), modTime: time.Unix(1679007049, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xab, 0x2c, 0x5a, 0x42, 0x57, 0xec, 0x88, 0xe2, 0x68, 0x98, 0xc, 0x3e, 0xf1, 0xc2, 0x6, 0x17, 0x92, 0x78, 0xac, 0xe5, 0x6b, 0xf5, 0x5b, 0x3d, 0x41, 0x75, 0x51, 0xf0, 0xc8, 0x8d, 0x86, 0x91}}
 	return a, nil
 }
@@ -213,7 +212,7 @@ func buildPolyfillsBfdca2da5bddadfcJs() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "build/polyfills.bfdca2da5bddadfc.js", size: 46256, mode: os.FileMode(0644), modTime: time.Unix(1678990976, 0)}
+	info := bindataFileInfo{name: "build/polyfills.bfdca2da5bddadfc.js", size: 46256, mode: os.FileMode(0644), modTime: time.Unix(1679007049, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x27, 0x73, 0x7, 0x5, 0x91, 0xa7, 0xa4, 0x88, 0x8, 0xb6, 0x6, 0x9d, 0x67, 0xd0, 0x1e, 0xa4, 0x52, 0xce, 0x10, 0x76, 0x85, 0xc7, 0x6e, 0x76, 0x91, 0xb6, 0xc9, 0xb6, 0x3, 0x8, 0x9a, 0xe5}}
 	return a, nil
 }
@@ -233,7 +232,7 @@ func buildRuntime73ebcf602cfcd028Js() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "build/runtime.73ebcf602cfcd028.js", size: 1117, mode: os.FileMode(0644), modTime: time.Unix(1678990976, 0)}
+	info := bindataFileInfo{name: "build/runtime.73ebcf602cfcd028.js", size: 1117, mode: os.FileMode(0644), modTime: time.Unix(1679007049, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x98, 0xa8, 0x72, 0x2, 0x3c, 0x7e, 0x8a, 0x3f, 0xd3, 0xbf, 0x9c, 0x69, 0x5b, 0x24, 0x7c, 0x55, 0xa2, 0x57, 0x47, 0x3f, 0xc8, 0xff, 0xb7, 0xe7, 0xa2, 0xd0, 0xd1, 0x64, 0x66, 0x73, 0x3, 0x8}}
 	return a, nil
 }
@@ -253,7 +252,7 @@ func buildScripts62898dd72f9cb47dJs() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "build/scripts.62898dd72f9cb47d.js", size: 682929, mode: os.FileMode(0644), modTime: time.Unix(1678990976, 0)}
+	info := bindataFileInfo{name: "build/scripts.62898dd72f9cb47d.js", size: 682929, mode: os.FileMode(0644), modTime: time.Unix(1679007049, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xf4, 0x36, 0x43, 0x4f, 0xd8, 0xc3, 0x24, 0xa0, 0xb1, 0x29, 0xb6, 0xb4, 0xe9, 0xd3, 0xcf, 0xd0, 0x58, 0xe9, 0x3f, 0x53, 0xcb, 0x4c, 0x3b, 0x60, 0x7f, 0x36, 0x50, 0x25, 0xc4, 0xf7, 0xfc, 0xe1}}
 	return a, nil
 }
@@ -273,7 +272,7 @@ func buildStyles9774d960ad9e84eeCss() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "build/styles.9774d960ad9e84ee.css", size: 580626, mode: os.FileMode(0644), modTime: time.Unix(1678990976, 0)}
+	info := bindataFileInfo{name: "build/styles.9774d960ad9e84ee.css", size: 580626, mode: os.FileMode(0644), modTime: time.Unix(1679007049, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x7c, 0x82, 0xf5, 0x1a, 0x3, 0x9e, 0xdb, 0x6b, 0x43, 0xc7, 0x4f, 0x78, 0xa1, 0xb8, 0x9e, 0xb8, 0x52, 0xdd, 0x7, 0x32, 0x66, 0xb, 0x4e, 0xe7, 0x70, 0xb4, 0x8b, 0xa3, 0xe5, 0x2d, 0x4c, 0x32}}
 	return a, nil
 }
@@ -388,11 +387,13 @@ const AssetDebug = false
 // directory embedded in the file by go-bindata.
 // For example if you run go-bindata on data/... and data contains the
 // following hierarchy:
-//     data/
-//       foo.txt
-//       img/
-//         a.png
-//         b.png
+//
+//	data/
+//	  foo.txt
+//	  img/
+//	    a.png
+//	    b.png
+//
 // then AssetDir("data") would return []string{"foo.txt", "img"},
 // AssetDir("data/img") would return []string{"a.png", "b.png"},
 // AssetDir("foo.txt") and AssetDir("notexist") would return an error, and
@@ -455,7 +456,7 @@ func RestoreAsset(dir, name string) error {
 	if err != nil {
 		return err
 	}
-	err = ioutil.WriteFile(_filePath(dir, name), data, info.Mode())
+	err = os.WriteFile(_filePath(dir, name), data, info.Mode())
 	if err != nil {
 		return err
 	}

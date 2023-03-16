@@ -11,5 +11,5 @@ rm -rf csa-app/exe/* csa-app/frontend/build
 #--- building web app
 ./buildWebUI.sh
 
-#--- binding UI and other resources
-./build-CSA-Bind-UI.sh
+# #--- binding UI and other resources
+# ./build-CSA-Bind-UI.sh

@@ -1,0 +1,102 @@
+# This is an example .goreleaser.yml file with some sensible defaults.
+# Make sure to check the documentation at https://goreleaser.com
+# before:
+#   hooks:
+    # You may remove this if you don't use go modules.
+    # - ./buildWebUI.sh
+project_name: cloud-suitability-analyzer
+    
+builds:
+  - id: windows
+    binary: csa
+    no_unique_dist_dir: true
+
+    env:
+      - CGO_ENABLED=1
+      - >-
+        {{- if eq .Os "windows" }}
+          {{- if eq .Arch "amd64" }}CC=x86_64-w64-mingw32-gcc{{- end }}
+        {{- end }}
+
+    tags:
+      - sqlite_omit_load_extension
+
+    ldflags:
+      - -s -w -X main.build={{.Version}}
+      - -extldflags=-static
+
+    goos:
+      - windows
+
+    goarch:
+      - amd64
+
+  - id: darwin
+    binary: csa
+    no_unique_dist_dir: true
+    env:
+      - CGO_ENABLED=1
+
+    tags:
+      - sqlite_omit_load_extension
+
+    ldflags:
+      - -s -w -X main.Version={{.Version}}
+
+    goos:
+      - darwin
+
+    goarch:
+      - amd64
+
+  - id: linux
+    binary: csa-l
+    no_unique_dist_dir: true
+    env:
+      - CGO_ENABLED=1
+      - >-
+        {{- if eq .Os "linux" }}
+          {{- if eq .Arch "amd64" }}CC=x86_64-linux-musl-gcc{{- end }}
+        {{- end }}
+    tags:
+    - sqlite_omit_load_extension
+
+    ldflags:
+      - -s -w -X main.Version={{.Version}}
+      - -extldflags=-static
+
+    goos:
+      - linux
+
+    goarch:
+      - amd64      
+
+archives:
+  - format: tar.gz
+    # this name template makes the OS and Arch compatible with the results of uname.
+    name_template: >-
+      {{ .ProjectName }}_
+      {{- title .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
+      {{- if .Arm }}v{{ .Arm }}{{ end }}
+    # use zip for windows archives
+    format_overrides:
+    - goos: windows
+      format: zip
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ incpatch .Version }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+
+# The lines beneath this are called `modelines`. See `:help modeline`
+# Feel free to remove those if you don't want/use them.
+# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+# vim: set ts=2 sw=2 tw=0 fo=cnqoj
