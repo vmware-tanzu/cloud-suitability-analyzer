@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapBinsTemplate.txt found under go/resources folder
-//Created @ 2023-03-14 15:56:37.053353 -0500 CDT m=+0.379015095
+//Created @ 2023-03-15 12:57:58.376667 -0500 CDT m=+0.367984358
 
 func BootstrapBins() []Bin {
     var BootstrapBins = []Bin{
