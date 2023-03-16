@@ -73,15 +73,22 @@ Clone the repo into your the directory of your choice.
 
 ### Build & Run
 
-## MACOS
+## Generating all binaries from your MACOS
 
 ```
-> ./build-Local.sh -O
+> ./build.sh
 ```
 
-Executable will be generated here => csa-app/exe/csa
+Executable will be generated here:
+```
+=> csa-app/dist/csa
+=> csa-app/dist/csa-l
+=> csa-app/dist/csa.exe
+```
 
-## LINUX & WINDOWS
+## Generating LINUX & WINDOWS binaries from your LINUX (DEBIAN) OS
+
+### 1. Docker Option
 
 Release builds containing all required GO dependencies can be generated using a docker build
 
@@ -95,6 +102,18 @@ $> docker build -f build-Dockerfile -t csa-release:latest .
 
 ```
 $> docker run -v ${PWD}:/app -e VERSION=v3.2.10-rc1 csa-release:latest
+```
+
+
+### 2. Using goreleaser
+```
+> ./build.sh
+```
+
+```
+Executable will be generated here 
+=> csa-app/dist/csa-l
+=> csa-app/dist/csa.exe
 ```
 
 **Verify docker created directory has correct ownership**
