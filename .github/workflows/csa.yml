@@ -17,14 +17,17 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Install Dependencies
-      run: sudo apt install go-bindata mingw-w64
+      run: sudo apt install -y nodejs npm golang go-bindata musl-tools gcc-mingw-w64 build-essential
+    
+    - name: Install goreleaser
+      run: sudo snap install goreleaser --classic
       
     - name: Build
-      run: ./build-Local.sh WL
+      run: ./build.sh
     
     - name: Upload artifacts
       uses: actions/upload-artifact@master
       with:
         name: buildFiles
-        path: csa-app/exe
+        path: csa-app/dist
 
