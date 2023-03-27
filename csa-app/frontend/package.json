@@ -37,7 +37,7 @@
     "normalize.css": "^8.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.4.1",
-    "webdriver-manager": "^12.1.8",
+    "webdriver-manager": "^12.1.9",
     "xlsx": ">=0.18.5",
     "zone.js": "~0.12.0"
   },
@@ -59,7 +59,7 @@
     "karma-junit-reporter": "~2.0.1",
     "karma-spec-reporter": "0.0.36",
     "postcss-cli": "10.1.0",
-    "protractor": "~7.0.0",
+    "protractor": "^7.0.0",
     "sass": "1.57.1",
     "ts-node": "~10.9.1",
     "tslint": "~6.1.0",
