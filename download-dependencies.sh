@@ -1,13 +1,19 @@
 #!/bin/bash
 
-MAC_CLIS=(nodejs npm go go-bindata musl-cross mingw-w64 goreleaser)
-LINUX_CLIS=(nodejs npm go go-bindata musl-tools gcc-mingw-w64 build-essential)
+MAC_CLIS=("nodejs" "npm" "go" "go-bindata" "musl-cross|filosottile/musl-cross" "mingw-w64" "goreleaser")
+LINUX_CLIS=("nodejs" "npm" "go" "go-bindata" "musl-tools" "gcc-mingw-w64" "build-essential")
 OS=$(uname)
 
 install_mac_clis() {
     for cli in "${MAC_CLIS[@]}"; do
-        if [[ -z $(brew list | grep $cli) ]]; then
-            brew install $cli
+        package_name=$(echo ${cli} | awk '{split($0,a,"|"); print a[1]}')
+        tap_name=$(echo ${cli} | awk '{split($0,a,"|"); print a[2]}')
+        
+        if [[ -z $(brew list | grep ${package_name}) ]]; then
+            if [[ ! -z ${tap_name} ]]; then
+                brew tap ${tap_name}
+            fi
+            brew install ${cli}
         fi
     done
 }
