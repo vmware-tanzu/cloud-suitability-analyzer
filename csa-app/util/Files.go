@@ -20,14 +20,14 @@ import (
 )
 
 type FileInfo struct {
-	Dir        string
-	FQN        string
-	Name       string
-	Ext        string
-	TargetPath string
-	Comment    string
-	Exists     bool
-	MatchedRules   map[string]int
+	Dir          string
+	FQN          string
+	Name         string
+	Ext          string
+	TargetPath   string
+	Comment      string
+	Exists       bool
+	MatchedRules map[string]int
 	sync.Mutex
 }
 
@@ -61,22 +61,20 @@ type FileUtil struct {
 	useDecompileRegex             bool
 }
 
-
 /***********************************************************************************************************************
 														FILEUTIL API
 ***********************************************************************************************************************/
 
-
-func NewFileInfo(dir string, fqn string, name string, ext string, targetpath string, comments string, exists bool) *FileInfo{
+func NewFileInfo(dir string, fqn string, name string, ext string, targetpath string, comments string, exists bool) *FileInfo {
 	return &FileInfo{
-		Dir:dir,
-		FQN:fqn,
-		Name:name,
-		Ext:ext,
-		TargetPath:targetpath,
-		Comment:comments,
-		Exists:exists,
-		MatchedRules:make(map[string]int),
+		Dir:          dir,
+		FQN:          fqn,
+		Name:         name,
+		Ext:          ext,
+		TargetPath:   targetpath,
+		Comment:      comments,
+		Exists:       exists,
+		MatchedRules: make(map[string]int),
 	}
 }
 
@@ -234,7 +232,7 @@ func (fu *FileUtil) GetFileList(searchDir string, expression string) (files []Fi
 					ext := filepath.Ext(f.Name())
 					domainPath := strings.Replace(path, searchDir, "", -1)
 					domainPath = strings.Replace(domainPath, f.Name(), "", -1)
-					files = append(files, *NewFileInfo(domain,path,f.Name(),ext,domainPath,"",true))
+					files = append(files, *NewFileInfo(domain, path, f.Name(), ext, domainPath, "", true))
 				}
 
 			}
@@ -260,7 +258,7 @@ func (fu *FileUtil) GetFilesWithExtension(searchDir string, extension string) (m
 			domain := "TBD"
 			matchingFiles = append(matchingFiles, *NewFileInfo(
 				domain,
-				searchDir + PathSeparator + file.Name(),
+				searchDir+PathSeparator+file.Name(),
 				file.Name(),
 				extension,
 				searchDir,
@@ -369,7 +367,7 @@ func (f *FileInfo) GetCleanedExt() string {
 
 	if f.Ext == "" {
 		//We have a file without an extension
-		return ""
+		return f.Name
 	}
 
 	if len(f.Ext) > 1 && strings.HasPrefix(f.Ext, ".") {
