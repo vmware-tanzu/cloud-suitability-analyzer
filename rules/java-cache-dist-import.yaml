@@ -6,7 +6,7 @@ type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Distributed caches must be remediated to function in K8S
 effort: 50
-readiness: 10
+readiness: -100
 category: distcache
 tags:
   - value: stateful
@@ -14,12 +14,12 @@ tags:
   - value: dist-cache
 patterns:
   - value: org.ehcache #--- dist
-    tag: ehcache
+    tag: cache
   - value: com.hazelcast #--- dist
-    tag: hazelcast
+    tag: cache
   - value: org.apache.ignite #--- dist
-    tag: apache-ignite
+    tag: cache
   - value: org.infinispan #--- dist
-    tag: infinispan
+    tag: cache
   - value: net.spy.memcached #--- dist
-    tag: net-spy-memcached
+    tag: cache

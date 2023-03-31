@@ -5,27 +5,27 @@ type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Cloud readiness issue as potential state information that is not persisted to a backing service
 effort: 50
-readiness: 10
+readiness: -100
 category: nondistcache
 tags:
   - value: cache
   - value: non-dist-cache
 patterns:
   - value: com.tangosol
-    tag: tangosol
+    tag: cache
   - value: org.apache.commons-jcs-jcache
-    tag: jcs-jcache
+    tag: cache
   - value: com.ibm.websphere.cache
-    tag: websphere-cache
+    tag: cache
   - value: org.jboss.ha.cachemanager
-    tag: jboss-ha-cachemanager
+    tag: cache
   - value: javax.cache
-    tag: javax-cache
+    tag: cache
   - value: net.spy.memcached
-    tag: net-spy-memcached
+    tag: cached
   - value: com.opensymphony.oscache
-    tag: opensymphony-oscache
+    tag: cache
   - value: org.shiftone-cache
-    tag: shiftone-casche
+    tag: cache
   - value: com.ibm.websphere.objectgrid
-    tag: websphere-objectgrid
+    tag: cache

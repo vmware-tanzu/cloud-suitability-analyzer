@@ -12,7 +12,7 @@ tags:
   - value: cache
 patterns:
   - value: cache
-  - value: CACHE
+  
 
 
 #- $_SESSION["KEY"]

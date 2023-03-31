@@ -9,7 +9,7 @@ tags:
 - value: third-party
 patterns:
 - value: ehcache
-  tag: ehcache
+  tag: cache
 - value: 47deg
   tag: 47deg
 - value: advantageous
@@ -177,7 +177,7 @@ patterns:
 - value: easygson
   tag: easygson
 - value: easymetrics
-  tag: easymetrics
+  tag: metrics
 - value: easymock
   tag: easymock
 - value: ebay
@@ -299,11 +299,11 @@ patterns:
 - value: jboss
   tag: jboss
 - value: jboss-cache
-  tag: jboss-cache
+  tag: cache
 - value: jcabi
   tag: jcabi
 - value: jcache
-  tag: jcache
+  tag: cache
 - value: jclouds
   tag: jclouds
 - value: jconfig
@@ -317,7 +317,7 @@ patterns:
 - value: jentz
   tag: jentz
 - value: jmemcache
-  tag: jmemcache
+  tag: cache
 - value: jmetrix
   tag: jmetrix
 - value: jmock
@@ -413,7 +413,7 @@ patterns:
 - value: metamx
   tag: metamx
 - value: metrics4j
-  tag: metrics4j
+  tag: metrics
 - value: meza
   tag: meza
 - value: minidev
