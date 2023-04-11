@@ -1,0 +1,16 @@
+name: java-apm-dependency-maven
+filetype: xml$
+filenamepattern: ^pom.xml$
+target: file
+type: xpath
+criticality: Info
+advice: The application has integrated an Application Performance Management (APM) tool as a dependency
+category: apm
+tags: 
+- value: apm
+effort: 0
+patterns:
+  - value: //*[contains(groupId, "applicationinsights") or contains(artifactId, "applicationinsights")]
+  - value: //*[contains(groupId, "newrelic") or contains(artifactId, "newrelic")]
+  - value: //*[contains(groupId, "elastic.apm")]
+  - value: //*[contains(groupId, "dynatrace.oneagent")]

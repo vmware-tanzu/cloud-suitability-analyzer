@@ -1,0 +1,14 @@
+name: java-version-gradle
+filetype: gradle$|kts$
+target: line
+type: regex
+criticality: Critical
+advice: JDK version is found to be lower than JAVA_8
+effort: 50
+category: version
+defaultpattern: (^|\.|\s)targetCompatibility(\s|=)[^\d]+(%s)
+tags:
+  - value: java version
+patterns:
+  - value: 1\.[0-7]
+

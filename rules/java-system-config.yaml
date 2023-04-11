@@ -13,3 +13,4 @@ patterns:
 - value: getenv
 - value: getProperty
 - value: setProperty
+- value: setProperties

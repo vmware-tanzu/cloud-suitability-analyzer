@@ -1,0 +1,20 @@
+name: java-non-lts-version-gradle
+filetype: gradle$|kts$
+target: line
+type: regex
+criticality: Warn
+advice: The application is using non-LTS version Java. JDK on LTS version is recommended, i.e., JAVA_8, JAVA_11 or JAVA_17.
+effort: 6
+category: version
+defaultpattern: (^|\.|\s)targetCompatibility(\s|=)[^\d]+(%s)
+tags:
+  - value: java version
+patterns:
+  - value: 9
+  - value: 10
+  - value: 12
+  - value: 13
+  - value: 14
+  - value: 15
+  - value: 16
+  - value: 19

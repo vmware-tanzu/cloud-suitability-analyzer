@@ -1,4 +1,4 @@
-name: maven-spring-cloud-version
+name: java-spring-cloud-version-maven
 filetype: xml$
 target: contents
 type: xpath
@@ -7,7 +7,6 @@ advice: Spring cloud version is too low
 effort: 50
 category: version
 tags:
-  - value: azure spring apps
   - value: spring cloud
 patterns:
   - value: //*[groupId="org.springframework.cloud" and matches(version,"(?i)^Edgware")]/version

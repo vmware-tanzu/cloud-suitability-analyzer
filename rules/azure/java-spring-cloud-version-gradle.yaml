@@ -1,5 +1,5 @@
-name: gradle-spring-cloud-version
-filetype: gradle$
+name: java-spring-cloud-version-gradle
+filetype: gradle$|kts$
 target: line
 type: regex
 criticality: Critical
@@ -7,7 +7,6 @@ advice: Spring cloud version is too low
 effort: 50
 category: version
 tags:
-  - value: azure spring apps
   - value: spring cloud
 defaultpattern: (?i)(springCloudVersion|org\.springframework\.cloud)(.*)(%s)
 patterns:
