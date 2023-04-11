@@ -1,0 +1,18 @@
+name: java-RDS-connection-string-user-password-properties
+filetype: properties$
+target: line
+type: regex
+criticality: Info
+advice: relational database service connection string, username or password are detected
+category: relational database service
+tags: 
+ - value: relational database service
+effort: 0
+patterns:
+ - value: (^|\.|\s)datasource\.(.*\.)?(url|jdbc-url|u\-r\-l)
+ - value: (^|\.|\s)datasource\.(.*\.)?(username|user|password)
+ - value: (^|\.|\s)r2dbc\.url
+ - value: (^|\.|\s)r2dbc\.(username|password)
+ - value: (^|\.|\s)jdbc\.url
+ - value: (^|\.|\s)jdbc\.(username|password)
+ - value: =\s*jdbc:.+:.+

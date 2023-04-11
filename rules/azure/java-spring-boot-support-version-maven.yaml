@@ -1,4 +1,4 @@
-name: maven-spring-boot-support-version
+name: java-spring-boot-support-version-maven
 filetype: xml$
 target: contents
 type: xpath
@@ -8,7 +8,6 @@ effort: 6
 category: version
 defaultpattern: //*[groupId="org.springframework.boot" and starts-with(version,"%s")]/version
 tags:
-  - value: azure spring apps
   - value: spring boot
 patterns:
   - value: 2.0

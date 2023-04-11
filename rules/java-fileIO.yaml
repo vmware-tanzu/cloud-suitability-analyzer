@@ -11,6 +11,7 @@ readiness: 8
 category: io
 tags:
   - value: io
+  - value: file storage
 patterns:
   - value: getNextEntry
   - value: putNextEntry

@@ -1,0 +1,21 @@
+name: java-RDS-connection-string-user-password-yaml
+filetype: (yaml$|yml$|json$|jsn$)
+target: contents
+type: yamlpath
+criticality: Info
+advice: relational database service connection string, username or password are detected
+category: relational database service
+tags: 
+ - value: relational database service
+effort: 0
+patterns:
+ - value: $..datasource.url
+ - value: $..datasource.username
+ - value: $..datasource.password
+ - value: $..datasource[*]["jdbc-url","url","u-r-l"]
+ - value: $..datasource[*]["username","user","password"]
+ - value: $..r2dbc["url"]
+ - value: $..r2dbc["username","password"]
+ - value: $..jdbc["url"]
+ - value: $..jdbc["username","password"]
+ - value: $..[?(@=~/(?i)jdbc:.+:.+/)]

@@ -1,4 +1,4 @@
-name: maven-spring-cloud-support-version
+name: java-spring-cloud-support-version-maven
 filetype: xml$
 target: contents
 type: xpath
@@ -7,7 +7,6 @@ advice: Spring cloud version is out of any support. Please update to newer versi
 effort: 6
 category: version
 tags:
-  - value: azure spring apps
   - value: spring cloud
 patterns:
   - value: //*[groupId="org.springframework.cloud" and matches(version,"(?i)^Hoxton")]/version

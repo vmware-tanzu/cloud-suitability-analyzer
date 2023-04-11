@@ -10,13 +10,15 @@ category: logging
 tags:
   - value: logging
 patterns:
-  - value: java.util.logging
+  - value: java\.util\.logging
     tag: java-util
-  - value: org.apache.log4j
+  - value: org\.apache\.log4j
     tag: log4j
-  - value: org.apache.commons.logging
+  - value: org\.apache\.logging\.log4j
+    tag: log4j2
+  - value: org\.apache\.commons\.logging
     tag: commons-logging
-  - value: org.osgi.service.log
+  - value: org\.osgi\.service\.log
     tag: org-osgi
-  - value: org.jboss.logging.Logger
+  - value: org\.jboss\.logging\.Logger
     tag: jboss-logging
