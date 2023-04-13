@@ -42,7 +42,7 @@
     "zone.js": "~0.12.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^15.1.2",
+    "@angular-devkit/build-angular": "^15.2.6",
     "@angular/cli": "~15.1.2",
     "@angular/compiler-cli": "^15.2.2",
     "@types/jasmine": "~4.3.1",
@@ -94,6 +94,12 @@
       "d3-transition": "3.0.1",
       "rfdc": "^1.3.0",
       "tslib": "^2.0.0"
+    },
+    "protractor": {
+      "selenium-webdriver": "4.8.2"
+    },
+    "webdriver-manager": {
+      "xml2js": "0.5.0"
     }
   }
 }
