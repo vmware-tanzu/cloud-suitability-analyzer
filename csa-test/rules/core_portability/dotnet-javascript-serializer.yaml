@@ -1,0 +1,22 @@
+# -----METADATA FOR MAT-------
+mat_sno: 58
+mat_category: .NETCORE PORTABILITY
+mat_title: Dotnet Javascript Serializer
+mat_description: Use JSON.NET instead.
+mat_group: NOT SUPPORTED IN .NETCORE
+mat_criticality: Low
+# -----------------------------
+name: dotnet-javascript-serializer
+filetype: (cs$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Use JSON.NET instead.
+effort: 0
+readiness: 10
+category: API
+patterns:
+- value: JavaScriptSerializer
+tags:
+- value: api
+- value: unsupported-netcore

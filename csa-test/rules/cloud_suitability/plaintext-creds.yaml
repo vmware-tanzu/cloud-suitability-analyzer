@@ -1,0 +1,30 @@
+name: plaintext-creds
+# -----METADATA FOR MAT-------
+mat_sno: 3
+mat_category: CLOUD DEBT
+mat_title: Plain Text Credentials
+mat_description: Found plain text credentials. Never save passwords or login information in files. Make configurable, put into environment or config map
+mat_group: HARD CODED CONFIG
+mat_criticality: Low
+# -----------------------------
+target: line
+type: regex
+defaultpattern: (%s)\s*=+\s*[^${(\s][^"${(\s]
+advice: Found plain text crdentials. Never save passwords or login information in files. Make configurable, put into environment or config map
+readiness: 9
+category: security
+tags:
+- value: security
+
+patterns:
+- value: Password
+- value: User
+- value: User Id
+- value: username
+- value: Username
+- value: Login
+- value: Loginname
+- value: login
+- value: Loginname
+- value: password
+negative: false

@@ -1,0 +1,21 @@
+name: dotnet-logging-config
+# -----METADATA FOR MAT-------
+mat_sno: 14
+mat_category: CLOUD BLOCKER
+mat_title: Dotnet Logging Configuration
+mat_description: Logging to the Event Log is not recommended for cloud native apps. write to or manage logfiles. Instead, each running process should write its event stream, unbuffered, to stdout
+mat_group: LOGGING
+mat_criticality: Low
+# -----------------------------
+filetype: config$
+target: file
+type: xpath
+category: logging
+advice: Logging to the Event Log is not recommended for cloud native apps. write to or manage logfiles. Instead, each running process should write its event stream, unbuffered, to stdout
+effort: 100
+readiness: 5
+tags:
+- value: logging
+- value: eventlog
+patterns:
+- value: /configuration/system.diagnostics/trace/listeners/add[@type="System.Diagnostics.EventLogTraceListener"]

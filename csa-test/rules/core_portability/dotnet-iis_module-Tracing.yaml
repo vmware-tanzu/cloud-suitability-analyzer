@@ -1,0 +1,24 @@
+name: dotnet-iis_module-Tracing
+# -----METADATA FOR MAT-------
+mat_sno: 53
+mat_category: .NETCORE PORTABILITY
+mat_title: Tracing IIS Module
+mat_description: Windows and IIS server dependency. Not supported in .netCore targeting linux.
+mat_group: IIS MODULE
+mat_criticality: Medium
+# -----------------------------
+filetype: config$
+target: file
+type: xpath
+advice: Windows and IIS server dependency. Not supported in .netCore targeting linux.
+patterns:
+- value: /configuration/system.webServer/tracing
+- value: /configuration/system.webServer/httpTracing
+readiness: 9
+effort: 0
+category: unsupported-iis-module
+tags:
+- value: iis-module
+#- <configuration><system.webServer><tracing
+#- <configuration><system.webServer><httpTracing
+# Mostly a challenge if moving to .NetCore

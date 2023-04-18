@@ -1,0 +1,23 @@
+#qc1
+name: dotnet-FileCacheModule
+# -----METADATA FOR MAT-------
+mat_sno: 9
+mat_category: CLOUD BLOCKER
+mat_title: File caching IIS module
+mat_description: Caching should be managed externally. Relying on IIS Modules won't work in Linux environment.
+mat_group: STATEFUL
+mat_criticality: High
+# -----------------------------
+filetype: config$
+target: file
+type: xpath
+category: caching
+advice: Caching should be managed externally. Relying on IIS Modules won't work in Linux environment.
+effort: 1000
+readiness: 5
+tags:
+- value: cache
+patterns:
+- value: /configuration/location/system.webServer/serverRuntime[@frequentHitThreshold or @frequentHitTimePeriod][1]
+#- <configuration><location><system.webServer><serverRuntime frequentHitThreshold="5"
+#- <configuration><location><system.webServer><serverRuntime frequentHitTimePeriod="00:00:20"

@@ -1,0 +1,23 @@
+name: dotnet-wcf-service-model-config
+# -----METADATA FOR MAT-------
+mat_sno: 68
+mat_category: .NETCORE PORTABILITY
+mat_title: Dotnet WCF Service Model Config
+mat_description: Upgrade to CoreWCF https://devblogs.microsoft.com/dotnet/upgrading-a-wcf-service-to-dotnet-6/
+mat_group: NOT SUPPORTED IN .NETCORE
+mat_criticality: High
+# -----------------------------
+filetype: config$
+target: file
+type: xpath
+advice: Upgrade to CoreWCF https://devblogs.microsoft.com/dotnet/upgrading-a-wcf-service-to-dotnet-6/
+patterns:
+- value: /configuration/system.serviceModel
+readiness: 9
+effort: 0
+category: unsupported-iis-module
+tags:
+- value: windows-wcf
+- value: communication
+- value: api
+- value: unsupported-netcore

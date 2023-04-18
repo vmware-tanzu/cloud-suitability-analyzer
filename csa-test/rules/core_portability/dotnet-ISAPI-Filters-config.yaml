@@ -1,0 +1,23 @@
+#qc1
+name: dotnet-ISAPI-Filters-config
+# -----METADATA FOR MAT-------
+mat_sno: 56
+mat_category: .NETCORE PORTABILITY
+mat_title: ISAPI Filter IIS Module
+mat_description: Windows and IIS server dependency. Not supported in .netCore targeting linux.
+mat_group: IIS MODULE
+mat_criticality: Medium
+# -----------------------------
+filetype: config$
+target: file
+type: xpath
+advice: Windows and IIS server dependency. Not supported in .netCore targeting linux.
+category: unsupported-iis-module
+effort: 1000
+readiness: 0
+patterns:
+- value: /configuration/system.webServer/isapiFilters[1]
+#- <configuration><system.webServer><isapiFilters
+tags:
+- value: iis-module
+# Mostly a challenge if moving to .NetCore

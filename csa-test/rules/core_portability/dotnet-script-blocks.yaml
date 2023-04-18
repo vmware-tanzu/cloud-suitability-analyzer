@@ -1,0 +1,24 @@
+name: dotnet-script-blocks
+# -----METADATA FOR MAT-------
+mat_sno: 62
+mat_category: .NETCORE PORTABILITY
+mat_title: Dotnet Script Blocks
+mat_description: Script blocks are supported only in .NET Framework. They are not supported on .NET Core or .NET 5 or later.
+mat_group: NOT SUPPORTED IN .NETCORE
+mat_criticality: Medium
+# -----------------------------
+filetype: (xsl)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Script blocks are supported only in .NET Framework. They are not supported on .NET Core or .NET 5 or later.
+effort: 0
+readiness: 10
+category: WCF
+tags:
+- value: windows-wcf
+- value: communication
+- value: api
+- value: unsupported-netcore
+patterns:
+- value: msxsl:script

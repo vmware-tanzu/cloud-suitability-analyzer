@@ -1,0 +1,22 @@
+name: dotnet-ip-address
+# -----METADATA FOR MAT-------
+mat_sno: 55
+mat_category: .NETCORE PORTABILITY
+mat_title: Dotnet IP Address
+mat_description: Not supported in .netCore, Use IHttpContextAccessor instead
+mat_group: TO REPLACE WITH RIGHT GROUP
+mat_criticality: Low
+# -----------------------------
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+patterns:
+- value: Request.UserHostAddress
+advice: Not supported in .netCore, Use IHttpContextAccessor instead
+readiness: 9
+effort: 0
+category: unsupported-netcore
+tags:
+- value: debt
+#teLine(Server.HtmlEncode(Request.UserHostAddress));

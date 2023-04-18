@@ -1,0 +1,24 @@
+name: dotnet-windows-application-domain
+# -----METADATA FOR MAT-------
+mat_sno: 17
+mat_category: CLOUD BLOCKER
+mat_title: Dotnet Application Domain
+mat_description: Unsupported, For .NET Core, there is exactly one AppDomain. Isolation and unloading are provided through AssemblyLoadContext. Security boundaries should be provided by process boundaries and appropriate remoting techniques
+mat_group: WINDOWS LEGACY API
+mat_criticality: Medium
+# -----------------------------
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Unsupported, For .NET Core, there is exactly one AppDomain. Isolation and unloading are provided through AssemblyLoadContext. Security boundaries should be provided by process boundaries and appropriate remoting techniques
+patterns:
+- value: AppDomain.CreateDomain
+readiness: 9
+effort: 1000
+category: windows-domain
+tags:
+- value: app-domain
+- value: security
+- value: unsupported-netcore
+#- AppDomain newDomain = AppDomain.CreateDomain("newDomain", evidence, setup);

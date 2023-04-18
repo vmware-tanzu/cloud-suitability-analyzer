@@ -1,0 +1,22 @@
+name: dotnet-workflow
+# -----METADATA FOR MAT-------
+mat_sno: 77
+mat_category: .NETCORE PORTABILITY
+mat_title: Dotnet Windows Workflow Foundation
+mat_description: Windows Workflow Foundation (WF) won't be ported to .NET Core. See https://aka.ms/unsupported-netfx-api.
+mat_group: NOT SUPPORTED IN .NETCORE
+mat_criticality: Medium
+# -----------------------------
+filetype: (cs$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Windows Workflow Foundation (WF) won't be ported to .NET Core. See https://aka.ms/unsupported-netfx-api.
+effort: 0
+readiness: 10
+category: API
+patterns:
+- value: System.Workflow.
+tags:
+- value: api
+- value: unsupported-netcore

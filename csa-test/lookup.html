@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <script type="text/javascript" src="data/catalog.js"></script>
+        <style>
+         table, tr, td {
+             border: 1px solid black;
+         }
+        </style>
+    </head>
+
+
+
+    <body>
+        <div id="report">
+            
+        </div>
+
+        <script>
+
+            let html = "<table>"
+    
+            html += "<th>Index</th><th>Type</th><th>Name</th><th>FullName</th><th>Parent</th><th>Metadata</th>"
+                
+            //API => 943373
+           //Count: 243119 => With Advice 769
+            console.log("API => "+data.Apis.length)
+            let count = 0
+            let countWithRecommendation = 0
+            for (let api of data.Apis) {
+                if (api.Targets) {
+                    let supportsFramework = false
+                    let supportsNetCore = false
+                    for (let target of api.Targets) {
+                     
+                        if (target.includes(".NET Framework")) {
+                            supportsFramework = true
+                        }
+                        if (target.includes(".NET Core")) {
+                            supportsNetCore = true
+                        }
+                    }
+    
+                    if (supportsFramework && !supportsNetCore) {
+                        //console.log("API => "+api.FullName)
+                        count++
+                        if (api.Metadata) {
+                            countWithRecommendation++
+                            var metaDataHtml = "<ul>"
+                            for (let meta of api.Metadata) {
+                                //console.log("Advice: "+meta.MetadataKey+" => "+meta.Value)
+                                metaDataHtml+="<li>Advice: "+meta.MetadataKey+" => "+meta.Value+"</li>"
+                            }
+                            metaDataHtml+="</ul>"
+                            html += "<tr><td>"+countWithRecommendation+"</td><td>"+api.Type+"</td><td>"+api.Name+"</td><td>"+api.FullName+"</td><td>"+api.Parent+"</td><td>"+metaDataHtml+"</td></tr>"
+                        }
+                        if (!api.Metadata) {
+                        
+                            //html += "<tr><td>"+countWithRecommendation+"</td><td>"+api.Type+"</td><td>"+api.Name+"</td><td>"+api.FullName+"</td><td>"+api.Parent+"</td><td></td></tr>"
+                        }
+                        
+                    }
+    
+                   
+                }
+            }
+            console.log("Count: "+count+" => With Advice "+countWithRecommendation)
+            html += "</table>"
+    
+            const vmCountDiv = document.getElementById('report');
+            vmCountDiv.innerHTML = html
+        </script>
+    </body>
+</html>

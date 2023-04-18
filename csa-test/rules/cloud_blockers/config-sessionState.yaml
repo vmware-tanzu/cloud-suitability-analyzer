@@ -1,0 +1,21 @@
+name: config-sessionState
+# -----METADATA FOR MAT-------
+mat_sno: 5
+mat_category: CLOUD BLOCKER
+mat_title: Stafeful Application
+mat_description: App should be executed as a stateless process
+mat_group: STATEFUL
+mat_criticality: High
+# -----------------------------
+filetype: config$
+target: file
+type: xpath
+advice: App should be executed as a stateless process
+readiness: 2
+effort: 200
+category: stateful
+tags:
+  - value: stateful
+  - value: session
+patterns:
+  - value: /configuration/system.web/sessionState[@mode="InProc" or @mode="StateServer"][1]

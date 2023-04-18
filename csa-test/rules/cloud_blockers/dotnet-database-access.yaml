@@ -1,0 +1,21 @@
+#qc1
+name: dotnet-database-access
+# -----METADATA FOR MAT-------
+mat_sno: 7
+mat_category: CLOUD BLOCKER
+mat_title: Hard coded connection strings in configurations
+mat_description: Connection strings should be externally managed.
+mat_group: HARD CODED CONFIG
+mat_criticality: Low
+# -----------------------------
+filetype: config$
+target: file
+type: xpath
+advice: Connection strings should be externally managed.
+readiness: 10
+effort: 100
+category: database
+tags:
+- value: database
+patterns:
+- value: /configuration/connectionStrings[1]

@@ -1,0 +1,2 @@
+ Password=${somevariable}
+ User= (

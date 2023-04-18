@@ -1,0 +1,22 @@
+name: dotnet-serialization
+# -----METADATA FOR MAT-------
+mat_sno: 63
+mat_category: .NETCORE PORTABILITY
+mat_title: Dotnet Serialization
+mat_description: Not supported in .netCore
+mat_group: NOT SUPPORTED IN .NETCORE
+mat_criticality: Medium
+# -----------------------------
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+category: unsupported-module
+advice: Not supported in .netCore
+effort: 10
+readiness: 1
+patterns:
+- value: System.Runtime.Serialization
+tags:
+- value: serialization
+- value: unsupported-netcore

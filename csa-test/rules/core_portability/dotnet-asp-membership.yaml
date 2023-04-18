@@ -1,0 +1,23 @@
+name: dotnet-asp-membership
+# -----METADATA FOR MAT-------
+mat_sno: 28
+mat_category: .NETCORE PORTABILITY
+mat_title: Dotnet ASP Membership
+mat_description: Not supported, replaced by ASP.NET Core Identity. Manage users in Database.
+mat_group: NOT SUPPORTED IN .NETCORE
+mat_criticality: Medium
+# -----------------------------
+filetype: config$
+target: file
+type: xpath
+advice: Not supported, replaced by ASP.NET Core Identity. Manage users in Database.
+patterns:
+- value: /configuration/system.web/membership
+readiness: 9
+effort: 0
+category: unsupported-netcore
+tags:
+- value: authentication
+- value: asp
+- value: unsupported-netcore
+#- <configuration><system.web><membership

@@ -1,0 +1,118 @@
+---
+category:
+- rules-directory: "rules/cloud_blockers_triaged"
+  tests:
+  - name: "File IO Create/Update/Delete"
+    rule-name: dotnet-fileIO
+    test-filename: file_io.cs
+    assert: true
+    assert-count: 9
+    assert-value: "null"
+  - name: "Session in Memory"
+    rule-name: config-sessionState
+    test-filename: server_session.config
+    assert: true
+    assert-count: 1
+    assert-value: "null"
+  - name: "Windows Form"
+    rule-name: dotnet-windowsForms
+    test-filename: windows_form.cs
+    assert: true
+    assert-count: 2
+    assert-value: "using System.Windows.Forms;public class Form : System.Windows.Forms.ContainerControl"
+  - name: "Application Domain"
+    rule-name: dotnet-windows-application-domain
+    test-filename: test.cs
+    assert: true
+    assert-count: 1
+    assert-value: "AppDomain newDomain = AppDomain.CreateDomain(\"newDomain\", evidence, setup);"
+  - name: "File Caching Config"
+    rule-name: dotnet-FileCacheModule
+    test-filename: file_caching_module.config
+    assert: true
+    assert-count: 1
+    assert-value: "null"
+  - name: "Launch Process"
+    rule-name: dotnet-launchProcess
+    test-filename: launch_process.cs
+    assert: true
+    assert-count: 3
+    assert-value: " Process() Process () Process."
+  - name: "Windows Registry"
+    rule-name: dotnet-windowsRegistry
+    test-filename: windows_registry.cs
+    assert: true
+    assert-count: 3
+    assert-value: "null"
+  - name: "Windows MSMQ"
+    rule-name: dotnet-MSMQ-vbcs
+    test-filename: windows_msmq.cs
+    assert: true
+    assert-count: 15
+    assert-value: "null"
+  - name: "Dotnet Logging"
+    rule-name: dotnet-logging
+    test-filename: dotnet_logging.vb
+    assert: true
+    assert-count: 2
+    assert-value: "null"
+  - name: "Dotnet Logging Config"
+    rule-name: dotnet-logging-config
+    test-filename: dotnet_logging_config.config
+    assert: true
+    assert-count: 1
+    assert-value: "null"
+  - name: "File Path"
+    rule-name: dotnet-filepath
+    test-filename: file_path.cs
+    assert: true
+    assert-count: 1
+    assert-value: "null"
+  - name: "Dotnet Transaction"
+    rule-name: dotnet-transactions
+    test-filename: dotnet_transactions.cs
+    assert: true
+    assert-count: 1
+    assert-value: "null"
+  - name: "File Based Config"
+    rule-name: dotnet-file-based-config
+    test-filename: dotnet-file-based-config.cs
+    assert: true
+    assert-count: 1
+    assert-value: "null"
+  - name: "Security"
+    rule-name: dotnet-security
+    test-filename: dotnet-security.cs
+    assert: true
+    assert-count: 1
+    assert-value: "null"
+  - name: "Serilog"
+    rule-name: dotnet-serilog
+    test-filename: dotnet-serilog.cs
+    assert: true
+    assert-count: 2
+    assert-value: "null"
+  - name: "Windows Presentation Foundation"
+    rule-name: dotnet-windows-presentation-foundation
+    test-filename: dotnet-windows-presentation-foundation.xaml
+    assert: true
+    assert-count: 1
+    assert-value: "null"
+  - name: "Windows Principal"
+    rule-name: dotnet-windowsPrincipal
+    test-filename: dotnet-windowsPrincipal.cs
+    assert: true
+    assert-count: 1
+    assert-value: "null"
+  - name: "Windows Services"
+    rule-name: dotnet-windowsServices
+    test-filename: dotnet-windowsServices.cs
+    assert: true
+    assert-count: 3
+    assert-value: "null"
+  - name: "Encryption Config"
+    rule-name: config-encryption
+    test-filename: config-encryption.config
+    assert: true
+    assert-count: 1
+    assert-value: "null"                                                                      

@@ -1,0 +1,22 @@
+name: dotnet-filepath
+# -----METADATA FOR MAT-------
+mat_sno: 11
+mat_category: CLOUD BLOCKER
+mat_title: Dotnet File Path
+mat_description: Relying on the local filesystem to store state is unreliable in a cloud platform. Don't use local files, log to console or to server if logging, else store data in database
+mat_group: LOCAL FILE
+mat_criticality: Medium
+# -----------------------------
+filetype: (cs|yaml|yml|json)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Relying on the local filesystem to store state is unreliable in a cloud platform. Don't use local files, log to console or to server if logging, else store data in database
+effort: 8
+readiness: 3
+category: io
+tags:
+- value: io
+patterns:
+- value: FilePath
+#- System.FilePath.Windows 

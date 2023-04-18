@@ -1,0 +1,23 @@
+name: dotnet-delegate-begininvoke
+# -----METADATA FOR MAT-------
+mat_sno: 35
+mat_category: .NETCORE PORTABILITY
+mat_title: Dotnet Delegate Begin and Invoke
+mat_description: BeginInvoke and EndInvoke methods on delegates are supported on .NET Core. See https://devblogs.microsoft.com/dotnet/migrating-delegate-begininvoke-calls-for-net-core/
+mat_group: NOT SUPPORTED IN .NETCORE
+mat_criticality: Medium
+# -----------------------------
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: BeginInvoke and EndInvoke methods on delegates are supported on .NET Core. See https://devblogs.microsoft.com/dotnet/migrating-delegate-begininvoke-calls-for-net-core/
+readiness: 9
+effort: 0
+patterns:
+- value: BeginInvoke\(
+- value: EndInvoke\(
+category: unsupported-netcore
+tags:
+- value: netcore
+- value: mvc

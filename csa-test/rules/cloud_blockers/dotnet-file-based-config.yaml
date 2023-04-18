@@ -1,0 +1,22 @@
+name: dotnet-file-based-config
+# -----METADATA FOR MAT-------
+mat_sno: 8
+mat_category: CLOUD BLOCKER
+mat_title: File bases configuration
+mat_description: Externalize configuration to environment or use ConfigMap as file-mount into a K8S pod
+mat_group: HARD CODE CONFIG
+mat_criticality: Low
+# -----------------------------
+filetype: cs
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Externalize configuration to environment or use ConfigMap as file-mount into a K8S pod
+effort: 10
+readiness: 3
+category: env-config
+tags:
+- value: env-config
+patterns:
+- value: .AddJsonFile\(
+#- Configuration = new Configuration().AddJsonFile("config.json")

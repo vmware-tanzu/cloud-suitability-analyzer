@@ -1,0 +1,20 @@
+name: config-encryption
+# -----METADATA FOR MAT-------
+mat_sno: 4
+mat_category: CLOUD BLOCKER
+mat_title: Configuration Encryption
+mat_description: Use of encrypted sections is problematic in cloud environments
+mat_group: SECURITY
+mat_criticality: Low
+# -----------------------------
+filetype: config$
+target: file
+type: xpath
+advice: Use of encrypted sections is problematic in cloud environments
+effort: 300
+category: security
+tags:
+- value: security
+- value: encryption
+patterns:
+  - value: //*[@configProtectionProvider][1]

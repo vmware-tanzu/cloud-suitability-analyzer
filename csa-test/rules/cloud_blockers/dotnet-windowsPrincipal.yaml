@@ -1,0 +1,24 @@
+name: dotnet-windowsPrincipal
+# -----METADATA FOR MAT-------
+mat_sno: 20
+mat_category: CLOUD BLOCKER
+mat_title: Dotnet Windows Principal
+mat_description: Operations requiring a Windows domain are not supported in a container like environment.
+mat_group: WINDOWS LEGACY API
+mat_criticality: Medium
+# -----------------------------
+filetype: (cs$|vb$|csproj$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Operations requiring a Windows domain are not supported in a container like environment.
+effort: 100
+readiness: 8
+category: Unsupported modules
+tags:
+- value: windows-principal
+- value: windows-domain
+patterns:
+- value: System.Security.Principal
+  advice: Operations requiring a Windows domain are not supported
+#- using System.Security.Principal;

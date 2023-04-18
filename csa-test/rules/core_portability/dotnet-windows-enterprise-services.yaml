@@ -1,0 +1,25 @@
+name: dotnet-windows-enterprise-services
+# -----METADATA FOR MAT-------
+mat_sno: 73
+mat_category: .NETCORE PORTABILITY
+mat_title: Dotnet Enterprise Services
+mat_description: Not Supported on .Net Core
+mat_group: NOT SUPPORTED IN .NETCORE
+mat_criticality: Medium
+# -----------------------------
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Not Supported on .Net Core
+patterns:
+- value: System.EnterpriseService
+readiness: 9
+effort: 0
+category: unsupported-netcore
+tags:
+- value: com+
+- value: api
+- value: distributed-transaction
+- value: unsupported-netcore
+#- using System.EnterpriseServices;

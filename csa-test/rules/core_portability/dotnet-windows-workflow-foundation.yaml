@@ -1,0 +1,25 @@
+name: dotnet-windows-workflow-foundation
+# -----METADATA FOR MAT-------
+mat_sno: 76
+mat_category: .NETCORE PORTABILITY
+mat_title: Dotnet Windows Workflow Foundation
+mat_description: Use alternatives, see CoreWF and CoreWCF, runs on windows only and would need to be ran by a console application
+mat_group: NOT SUPPORTED IN .NETCORE
+mat_criticality: Medium
+# -----------------------------
+# ignore development config files
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+category: unsupported-netcore
+advice: Use alternatives, see CoreWF and CoreWCF, runs on windows only and would need to be ran by a console application
+effort: 0
+readiness: 1
+patterns:
+- value: WorkflowService
+tags:
+- value: windows-wcf
+- value: windows-workflow-service
+- value: unsupported-netcore
+#-   WorkflowService service = new WorkflowService()

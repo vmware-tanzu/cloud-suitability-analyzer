@@ -1,0 +1,22 @@
+name: dotnet-managed-addin
+# -----METADATA FOR MAT-------
+mat_sno: 59
+mat_category: .NETCORE PORTABILITY
+mat_title: Dotnet Managed Addin
+mat_description: Use JSON.NET instead.
+mat_group: NOT SUPPORTED IN .NETCORE
+mat_criticality: Low
+# -----------------------------
+filetype: (cs$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Managed Addin Framework (MAF) won't be ported to .NET Core. See https://aka.ms/unsupported-netfx-api.
+effort: 0
+readiness: 10
+category: API
+patterns:
+- value: System.AddIn
+tags:
+- value: api
+- value: unsupported-netcore

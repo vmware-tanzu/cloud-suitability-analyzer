@@ -1,0 +1,39 @@
+category:
+- rules-directory: "rules/cloud_suitability_triaged"
+  tests:
+  - name: "Plain Text Credentials"
+    rule-name: plaintext-creds
+    test-filename: plain_text_credentials.cs
+    assert: true
+    assert-count: 2
+    assert-value: "null"
+  - name: "Plain Text Credentials False positive"
+    rule-name: plaintext-creds
+    test-filename: plain_text_credentials_false_positive.cs
+    assert: false
+    assert-count: 0
+    assert-value: "null"
+  - name: "Hard Coded IP False Positive"
+    rule-name: dotnet-ipv4-addresses
+    test-filename: hard_code_ip_false_positive.cs
+    assert: false
+    assert-count: 0
+    assert-value: "null"
+  - name: "Hard Coded IP"
+    rule-name: dotnet-ipv4-addresses
+    test-filename: hard_code_ip.cs
+    assert: true
+    assert-count: 1
+    assert-value: "conn.connect(\"http://10.180.142.31/\")"
+  - name: "Hard Coded URI False Positive"
+    rule-name: hardcode-uri
+    test-filename: hard_code_uri_false_positive.cs
+    assert: false
+    assert-count: 0
+    assert-value: "null"
+  - name: "Hard Coded URI"
+    rule-name: hardcode-uri
+    test-filename: hard_code_uri.cs
+    assert: true
+    assert-count: 1
+    assert-value: "https://some-uri.com"
