@@ -3,7 +3,7 @@ name: dotnet-windowsRegistry
 mat_sno: 21
 mat_category: CLOUD BLOCKER
 mat_title: Dotnet Windows Registry
-mat_description: External configurations should be made available by environment variables or some other external service. 
+mat_description: External configurations should be made available by environment variables or some another external service (Property Management Service). 
 mat_group: HARD CODED CONFIG
 mat_criticality: Medium
 # -----------------------------
@@ -11,7 +11,7 @@ filetype: (cs$|vb$)
 target: line
 type: regex
 defaultpattern: '^.*%s.*'
-advice: External configurations should be made available by environment variables or some other external service. 
+advice: External configurations should be made available by environment variables or some another external service (Property Management Service). 
 effort: 100
 readiness: 2
 category: windows-registry

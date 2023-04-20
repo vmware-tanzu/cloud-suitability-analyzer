@@ -12,7 +12,7 @@ target: line
 type: regex
 defaultpattern: .*%s.*
 advice: Unsupported, consider inter-process communication (IPC) System.IO.Pipes class or the MemoryMappedFile class.Also StreamJsonRpc or ASP.NET Core (either using gRPC or RESTful Web API services).
-effort: 0
+effort: 10
 readiness: 10
 category: API
 patterns:

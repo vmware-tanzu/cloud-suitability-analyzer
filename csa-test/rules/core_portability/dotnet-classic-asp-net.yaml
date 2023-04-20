@@ -3,7 +3,7 @@ name: dotnet-classic-asp-net
 mat_sno: 34
 mat_category: .NETCORE PORTABILITY
 mat_title: Dotnet ASP Classic
-mat_description: System.Web (AKA classic ASP.NET) won't be ported to .NET Core. See https://aka.ms/unsupported-netfx-api.
+mat_description: Unsupported-netcore. Not supported by many PAS. ASP .net pages will have to be replaced by ASP .NetCore. See https://learn.microsoft.com/en-us/dotnet/architecture/porting-existing-aspnet-apps/migrate-web-forms
 mat_group: NOT SUPPORTED IN .NETCORE
 mat_criticality: High
 # -----------------------------
@@ -11,8 +11,8 @@ filetype: (cs$)
 target: line
 type: regex
 defaultpattern: .*%s.*
-advice: System.Web (AKA classic ASP.NET) won't be ported to .NET Core. See https://aka.ms/unsupported-netfx-api.
-effort: 0
+advice: Unsupported-netcore. Not supported by many PAS. ASP .net pages will have to be replaced by ASP .NetCore. See https://learn.microsoft.com/en-us/dotnet/architecture/porting-existing-aspnet-apps/migrate-web-forms
+effort: 10
 readiness: 10
 category: API
 patterns:

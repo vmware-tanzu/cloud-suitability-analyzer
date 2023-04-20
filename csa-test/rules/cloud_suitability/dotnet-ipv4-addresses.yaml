@@ -3,14 +3,14 @@ name: dotnet-ipv4-addresses
 mat_sno: 1
 mat_category: CLOUD DEBT
 mat_title: Hard Coded IP Addresses
-mat_description: Found hard-coded IPv4s. Make configurable, put into environment or config map
+mat_description: Found hard-coded IPv4s. Make configurable, put into environment variables. Leverage config maps in a kubernetes like environment.
 mat_group: HARD CODED CONFIG
 mat_criticality: Low
 # -----------------------------
-filetype: (yaml|yml|cs|json|txt)
+filetype: (yaml|yml|cs$|json|txt)
 target: line
 type: regex
-advice: Found hard-coded IPv4s. Make configurable, put into environment or config map
+advice: Found hard-coded IPv4s. Make configurable, put into environment variables. Leverage config maps in a kubernetes like environment.
 effort: 3
 readiness: 8
 category: hard-ip

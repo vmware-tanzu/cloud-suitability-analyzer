@@ -4,7 +4,7 @@ name: dotnet-asp-classic-2-0
 mat_sno: 26
 mat_category: .NETCORE PORTABILITY
 mat_title: Dotnet ASP Classic 2.0
-mat_description: Not supported, replace with a new View Component feature
+mat_description: Not supported by many PAS. ASP .net pages will have to be replaced by ASP .NetCore
 mat_group: NOT SUPPORTED IN .NETCORE
 mat_criticality: High
 # -----------------------------
@@ -12,12 +12,12 @@ filetype: (asp$)
 target: line
 type: regex
 defaultpattern: \s%s.*
-advice: Not supported by many PAS
+advice: Not supported by many PAS. ASP .net pages will have to be replaced by ASP .NetCore
 patterns:
 - value: runat="server"
 - value: runat="Server"
 readiness: 9
-effort: 0
+effort: 10
 category: Unsupported
 tags:
 - value: asp-classic

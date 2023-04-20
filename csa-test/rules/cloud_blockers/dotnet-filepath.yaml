@@ -3,7 +3,7 @@ name: dotnet-filepath
 mat_sno: 11
 mat_category: CLOUD BLOCKER
 mat_title: Dotnet File Path
-mat_description: Relying on the local filesystem to store state is unreliable in a cloud platform. Don't use local files, log to console or to server if logging, else store data in database
+mat_description: Relying on the local filesystem to store state is unreliable in a cloud platform. Containers are ephemerals and data could be lost. Data could be stored in database or the application should leverage File Sharing Systems like NFS Persistent Volume (PV) in Kubernetes environment.
 mat_group: LOCAL FILE
 mat_criticality: Medium
 # -----------------------------
@@ -11,7 +11,7 @@ filetype: (cs|yaml|yml|json)
 target: line
 type: regex
 defaultpattern: .*%s.*
-advice: Relying on the local filesystem to store state is unreliable in a cloud platform. Don't use local files, log to console or to server if logging, else store data in database
+advice: Relying on the local filesystem to store state is unreliable in a cloud platform. Containers are ephemerals and data could be lost. Data could be stored in database or the application should leverage File Sharing Systems like NFS Persistent Volume (PV) in Kubernetes environment.
 effort: 8
 readiness: 3
 category: io

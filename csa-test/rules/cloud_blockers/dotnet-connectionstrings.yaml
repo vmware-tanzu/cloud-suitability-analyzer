@@ -13,7 +13,7 @@ filetype: (yaml|xml|json|property|config)
 target: line
 type: regex
 defaultpattern: .*(%s)
-advice: Remove connection strings from files, use environment variables (or mount configmap into pod)
+advice: Remove connection strings from files, use environment variables (or mount configmap into pod in a docker like environment)
 effort: 10
 readiness: 5
 category: connection-string

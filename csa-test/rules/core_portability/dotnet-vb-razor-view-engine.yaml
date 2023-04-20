@@ -14,7 +14,7 @@ type: regex
 defaultpattern: (%s)
 advice: Not supported in .netCore https://aka.ms/vb-angular-and-web-api
 readiness: 9
-effort: 0
+effort: 10
 category: unsupported-netcore. 
 tags:
 - value: asp

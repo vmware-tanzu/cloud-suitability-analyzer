@@ -1,0 +1,21 @@
+name: dotnet-package-microsoft-owin-cors
+# -----METADATA FOR MAT-------
+mat_sno: 127
+mat_category: .NETCORE PORTABILITY
+mat_title: dotnet-package-microsoft-owin-cors
+mat_description: Not Supported in .NetCore 
+mat_group: NOT AVAILABLE IN .NETCORE
+mat_criticality: Medium
+# -----------------------------
+filetype: (config$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Not Supported in .NetCore 
+effort: 10
+readiness: 10
+category: package
+patterns:
+- value: Microsoft.Owin.Cors
+tags:
+- value: unsupported-netcore

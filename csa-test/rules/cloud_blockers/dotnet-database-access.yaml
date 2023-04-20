@@ -4,14 +4,14 @@ name: dotnet-database-access
 mat_sno: 7
 mat_category: CLOUD BLOCKER
 mat_title: Hard coded connection strings in configurations
-mat_description: Connection strings should be externally managed.
+mat_description: Remove connection strings from files, use environment variables (or mount configmap into pod in a docker like environment)
 mat_group: HARD CODED CONFIG
 mat_criticality: Low
 # -----------------------------
 filetype: config$
 target: file
 type: xpath
-advice: Connection strings should be externally managed.
+advice: Remove connection strings from files, use environment variables (or mount configmap into pod in a docker like environment)
 readiness: 10
 effort: 100
 category: database

@@ -15,7 +15,7 @@ patterns:
 - value: Request.UserHostAddress
 advice: Not supported in .netCore, Use IHttpContextAccessor instead
 readiness: 9
-effort: 0
+effort: 10
 category: unsupported-netcore
 tags:
 - value: debt

@@ -12,7 +12,7 @@ target: line
 type: regex
 defaultpattern: .*%s.*
 advice: Script blocks are supported only in .NET Framework. They are not supported on .NET Core or .NET 5 or later.
-effort: 0
+effort: 10
 readiness: 10
 category: WCF
 tags:

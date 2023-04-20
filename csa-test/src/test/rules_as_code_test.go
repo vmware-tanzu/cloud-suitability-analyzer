@@ -18,8 +18,12 @@ var rulesCorePortabilityDir = "/Users/scarbonell/Workspace/bankofamerica/csa-tes
 var corePortabilityRuleSet = csa.Setup(rulesCorePortabilityDir)
 var rulesCloudSuitabilityDir = "/Users/scarbonell/Workspace/bankofamerica/csa-test/rules/cloud_suitability"
 var cloudSuitabilityRuleSet = csa.Setup(rulesCloudSuitabilityDir)
+var rulesPackagePortabilityDir = "/Users/scarbonell/Workspace/bankofamerica/csa-test/rules/package_portability"
+var packagePortabilityRuleSet = csa.Setup(rulesPackagePortabilityDir)
+var rules3rdPartyDir = "/Users/scarbonell/Workspace/bankofamerica/csa-test/rules/third_party_packages"
+var thirdPartyRuleSet = csa.Setup(rules3rdPartyDir)
 
-var ruleCount = len(cloudBlockerRuleSet) + len(corePortabilityRuleSet) + len(cloudSuitabilityRuleSet)
+var ruleCount = len(cloudBlockerRuleSet) + len(corePortabilityRuleSet) + len(cloudSuitabilityRuleSet) + len(packagePortabilityRuleSet) + len(thirdPartyRuleSet)
 var rulesCovered = make(map[string]struct{})
 var rulesTested [100]string
 var testCount = 0
@@ -47,7 +51,9 @@ func TestCloudBlockerSuite(t *testing.T) {
 	// File Caching
 	testRuleByName(t, "File Caching Config", csa.RuleByName(t, cloudBlockerRuleSet, "dotnet-FileCacheModule"), "file_caching_module.config", true, 1, "null")
 	// Launch Process
-	testRuleByName(t, "Launch Process", csa.RuleByName(t, cloudBlockerRuleSet, "dotnet-launchProcess"), "launch_process.cs", true, 3, " Process() Process () Process.")
+	testRuleByName(t, "Launch Process", csa.RuleByName(t, cloudBlockerRuleSet, "dotnet-launchProcess"), "launch_process.cs", true, 3, "null")
+	// Launch Process False Posytives
+	testRuleByName(t, "Launch Process with False Positives", csa.RuleByName(t, cloudBlockerRuleSet, "dotnet-launchProcess"), "launch_process_false_positives.cs", false, 0, "null")
 	// Windows Registry
 	testRuleByName(t, "Windows Registry", csa.RuleByName(t, cloudBlockerRuleSet, "dotnet-windowsRegistry"), "windows_registry.cs", true, 3, "null")
 	// Dotnet Logging
@@ -186,6 +192,149 @@ func TestCloudSuitabilitySuite(t *testing.T) {
 	// Hard Coded URI
 	testRuleByName(t, "Hard Coded URI False Positive", csa.RuleByName(t, cloudSuitabilityRuleSet, "hardcode-uri"), "hard_code_uri_false_positive.cs", false, 0, "null")
 	testRuleByName(t, "Hard Coded URI", csa.RuleByName(t, cloudSuitabilityRuleSet, "hardcode-uri"), "hard_code_uri.cs", true, 1, "https://some-uri.com")
+}
+
+func TestUnsupportedNugetPackages(t *testing.T) {
+
+	testRuleByName(t, "dotnet-package-app-metrics-extensions-hosting", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-app-metrics-extensions-hosting"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-dotnetopenauth-core", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-dotnetopenauth-core"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-diagnostics-tracing-eventsource-redist", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-diagnostics-tracing-eventsource-redist"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-miniprofiler", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-miniprofiler"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-aspnet-mvc", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-aspnet-mvc"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-system-net-http-formatting-extension", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-system-net-http-formatting-extension"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-build-tasks-git", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-build-tasks-git"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-crmsdk-coreassemblies", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-crmsdk-coreassemblies"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-visualstudio-slowcheetah", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-visualstudio-slowcheetah"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-aspnet-identity-entityframework", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-aspnet-identity-entityframework"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-autofac-mvc5", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-autofac-mvc5"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-ninject-web-common-webhost", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-ninject-web-common-webhost"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-visualstudio-azure-fabric-msbuild", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-visualstudio-azure-fabric-msbuild"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-netframework-referenceassemblies", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-netframework-referenceassemblies"), "dotnet-packages.config", true, 6, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-build-locator", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-build-locator"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-autofac-webapi2", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-autofac-webapi2"), "dotnet-packages.config", true, 2, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-netframework-referenceassemblies-net461", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-netframework-referenceassemblies-net461"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-netframework-referenceassemblies-net472", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-netframework-referenceassemblies-net472"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-web-redissessionstateprovider", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-web-redissessionstateprovider"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-data-sqlclient-sni", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-data-sqlclient-sni"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-system-data-sqlite-linq", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-system-data-sqlite-linq"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-razorengine", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-razorengine"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-visualstudio-azure-containers-tools-targets", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-visualstudio-azure-containers-tools-targets"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-aspnet-signalr", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-aspnet-signalr"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-codeanalysis-workspaces-msbuild", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-codeanalysis-workspaces-msbuild"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-owin-security-oauth", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-owin-security-oauth"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-owin-cors", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-owin-cors"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-owin-security-openidconnect", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-owin-security-openidconnect"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-unity-aspnet-webapi", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-unity-aspnet-webapi"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-fluentvalidation-mvc5", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-fluentvalidation-mvc5"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-unity-mvc", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-unity-mvc"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-azure-common-dependencies", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-azure-common-dependencies"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-autofac-webapi2-owin", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-autofac-webapi2-owin"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-stub-system-data-sqlite-core-netframework", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-stub-system-data-sqlite-core-netframework"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-imageprocessor-web", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-imageprocessor-web"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-runtime-aot-system-reflection-primitives", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-runtime-aot-system-reflection-primitives"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-imageprocessor", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-imageprocessor"), "dotnet-packages.config", true, 2, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-crmsdk-deployment", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-crmsdk-deployment"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-aspnet-friendlyurls-core", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-aspnet-friendlyurls-core"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-portable-dataannotations", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-portable-dataannotations"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-netframework-referenceassemblies-net48", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-netframework-referenceassemblies-net48"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-netframework-referenceassemblies-net45", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-netframework-referenceassemblies-net45"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-owin-selfhost", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-owin-selfhost"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-owin-testing", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-owin-testing"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-crmsdk-xrmtooling-coreassembly", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-crmsdk-xrmtooling-coreassembly"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-nlog-extended", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-nlog-extended"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-aspnet-webapi-versioning", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-aspnet-webapi-versioning"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-owin-security-wsfederation", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-owin-security-wsfederation"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-autofac-owin", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-autofac-owin"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-netframework-referenceassemblies-net462", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-netframework-referenceassemblies-net462"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-crmsdk-workflow", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-crmsdk-workflow"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-sqlitepclraw-provider-e_sqlite3-net45", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-sqlitepclraw-provider-e_sqlite3-net45"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-servicefabric-aspnetcore-abstractions", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-servicefabric-aspnetcore-abstractions"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-ninject-web-webapi", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-ninject-web-webapi"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-imageresizer", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-imageresizer"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-system-reactive-windows-threading", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-system-reactive-windows-threading"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-owin-security-activedirectory", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-owin-security-activedirectory"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-servicefabric-aspnetcore-kestrel", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-servicefabric-aspnetcore-kestrel"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-owin-diagnostics", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-owin-diagnostics"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-glimpse", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-glimpse"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-owin-staticfiles", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-owin-staticfiles"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-fluentvalidation-webapi", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-fluentvalidation-webapi"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-nlog-web", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-nlog-web"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-ninject-mvc5", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-ninject-mvc5"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-owin-filesystems", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-owin-filesystems"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-microsoft-owin-filesystems", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-microsoft-owin-filesystems"), "dotnet-packages.config", true, 1, "null")
+
+	testRuleByName(t, "dotnet-package-telerik-dataaccess-web", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-telerik-dataaccess-web"), "dotnet-packages.config", true, 1, "null")
+	testRuleByName(t, "dotnet-package-telerik-dataaccess-core", csa.RuleByName(t, packagePortabilityRuleSet, "dotnet-package-telerik-dataaccess-core"), "dotnet-packages.config", true, 1, "null")
+
+}
+
+func Test3rdPartyRuleSuite(t *testing.T) {
+	testRuleByName(t, "dotnet-thirdparty-telerik", csa.RuleByName(t, thirdPartyRuleSet, "dotnet-thirdparty-telerik"), "dotnet-packages.config", true, 3, "null")
 }
 
 func TestCoverage(t *testing.T) {

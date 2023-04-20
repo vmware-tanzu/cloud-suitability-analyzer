@@ -14,7 +14,7 @@ advice: Windows and IIS server dependency. Not supported in .netCore targeting l
 patterns:
 - value: /configuration/system.webServer/iisClientCertificateMappingAuthentication
 readiness: 9
-effort: 0
+effort: 10
 category: unsupported-iis-module
 tags:
 - value: iis-module

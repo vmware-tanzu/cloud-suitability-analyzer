@@ -13,7 +13,7 @@ type: regex
 defaultpattern: .*%s.*
 advice: BeginInvoke and EndInvoke methods on delegates are supported on .NET Core. See https://devblogs.microsoft.com/dotnet/migrating-delegate-begininvoke-calls-for-net-core/
 readiness: 9
-effort: 0
+effort: 10
 patterns:
 - value: BeginInvoke\(
 - value: EndInvoke\(

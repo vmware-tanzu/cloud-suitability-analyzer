@@ -15,7 +15,7 @@ patterns:
 - value: FormCollection
 advice: Not supported, Replace with IFormCollection
 readiness: 9
-effort: 0
+effort: 10
 category: unsupported-netcore
 tags:
 - value: mvc

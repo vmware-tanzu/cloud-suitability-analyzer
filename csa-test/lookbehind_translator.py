@@ -1,6 +1,6 @@
 negativePrefixes = [  
-"Version(x",
-"Version=x"
+",z",
+"xmlns=z"
 ]  
   
 def removeDuplicateChars(s):  

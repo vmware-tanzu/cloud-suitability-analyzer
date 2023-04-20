@@ -12,7 +12,7 @@ target: line
 type: regex
 defaultpattern: .*%s.*
 advice: Upgrade to CoreWCF https://devblogs.microsoft.com/dotnet/upgrading-a-wcf-service-to-dotnet-6/ or more modern rest api
-effort: 0
+effort: 10
 readiness: 10
 category: WCF
 tags:

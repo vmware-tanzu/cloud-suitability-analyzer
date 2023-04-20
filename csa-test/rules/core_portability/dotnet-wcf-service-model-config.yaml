@@ -14,7 +14,7 @@ advice: Upgrade to CoreWCF https://devblogs.microsoft.com/dotnet/upgrading-a-wcf
 patterns:
 - value: /configuration/system.serviceModel
 readiness: 9
-effort: 0
+effort: 10
 category: unsupported-iis-module
 tags:
 - value: windows-wcf

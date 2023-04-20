@@ -1,0 +1,21 @@
+name: dotnet-package-microsoft-data-sqlclient-sni
+# -----METADATA FOR MAT-------
+mat_sno: 120
+mat_category: .NETCORE PORTABILITY
+mat_title: dotnet-package-microsoft-data-sqlclient-sni
+mat_description: Not Supported in .NetCore 
+mat_group: NOT AVAILABLE IN .NETCORE
+mat_criticality: Medium
+# -----------------------------
+filetype: (config$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Not Supported in .NetCore 
+effort: 10
+readiness: 10
+category: package
+patterns:
+- value: Microsoft.Data.SqlClient.SNI
+tags:
+- value: unsupported-netcore

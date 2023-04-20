@@ -13,7 +13,7 @@ type: regex
 defaultpattern: .*\s%s<.*
 advice: Not supported in .NetCore, Replace with TryUpdateModelAsync
 readiness: 9
-effort: 0
+effort: 10
 patterns:
 - value: TryUpdateModel
 category: unsupported-netcore

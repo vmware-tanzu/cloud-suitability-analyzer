@@ -3,7 +3,7 @@ name: dotnet-asp-mvc
 mat_sno: 31
 mat_category: .NETCORE PORTABILITY
 mat_title: Dotnet ASP MVC
-mat_description: Not supported on .netCore, Replace with Microsoft.AspNetCore.Mvc
+mat_description: Not supported on .netCore. Migrate to ASP .NetCore and replace with Microsoft.AspNetCore.Mvc
 mat_group: NOT SUPPORTED IN .NETCORE
 mat_criticality: Medium
 # -----------------------------
@@ -11,9 +11,9 @@ filetype: (cs$|vb$)
 target: line
 type: regex
 defaultpattern: .*%s.*
-advice: Not supported on .netCore, Replace with Microsoft.AspNetCore.Mvc
+advice: Not supported on .netCore. Migrate to ASP .NetCore and replace with Microsoft.AspNetCore.Mvc
 readiness: 9
-effort: 0
+effort: 10
 category: unsupported-netcore
 patterns:
 - value: System.Web.Mvc

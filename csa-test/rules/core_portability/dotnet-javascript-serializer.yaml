@@ -12,7 +12,7 @@ target: line
 type: regex
 defaultpattern: .*%s.*
 advice: Use JSON.NET instead.
-effort: 0
+effort: 10
 readiness: 10
 category: API
 patterns:

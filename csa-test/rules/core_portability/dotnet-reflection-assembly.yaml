@@ -12,7 +12,7 @@ target: line
 type: regex
 defaultpattern: .*%s.*
 advice: Use AssemblyLoadContext. Evidence is not supported in .NET Core.
-effort: 0
+effort: 10
 readiness: 10
 category: API
 tags:

@@ -3,14 +3,14 @@ name: config-encryption
 mat_sno: 4
 mat_category: CLOUD BLOCKER
 mat_title: Configuration Encryption
-mat_description: Use of encrypted sections is problematic in cloud environments
+mat_description: Use of encrypted sections is problematic in cloud environments. Configurations should be externalized as environment variables instead of encrypting them in configuration file.
 mat_group: SECURITY
 mat_criticality: Low
 # -----------------------------
 filetype: config$
 target: file
 type: xpath
-advice: Use of encrypted sections is problematic in cloud environments
+advice: Use of encrypted sections is problematic in cloud environments. Configurations should be externalized as environment variables instead of encrypting them in configuration file.
 effort: 300
 category: security
 tags:

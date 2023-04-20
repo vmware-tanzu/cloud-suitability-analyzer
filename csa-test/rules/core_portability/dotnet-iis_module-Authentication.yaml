@@ -3,18 +3,18 @@ name: dotnet-iis_module-Authentication
 mat_sno: 38
 mat_category: .NETCORE PORTABILITY
 mat_title: Authentication IIS Module
-mat_description: Windows and IIS server dependency. Not supported in .netCore targeting linux.
+mat_description: Windows and IIS server dependency. Not supported in .netCore targeting linux. Use Microsoft.AspNetCore.Authentication.Negotiate instead.
 mat_group: IIS MODULE
 mat_criticality: Medium
 # -----------------------------
 filetype: config$
 target: file
 type: xpath
-advice: Windows and IIS server dependency. Not supported in .netCore targeting linux.
+advice: Windows and IIS server dependency. Not supported in .netCore targeting linux. Use Microsoft.AspNetCore.Authentication.Negotiate instead.
 patterns:
 - value: /configuration/system.web/authentication
 readiness: 9
-effort: 0
+effort: 10
 category: unsupported-iis-module
 tags:
 - value: iis-module

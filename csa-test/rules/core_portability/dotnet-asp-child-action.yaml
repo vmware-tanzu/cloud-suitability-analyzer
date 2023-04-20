@@ -3,7 +3,7 @@ name: dotnet-asp-child-action
 mat_sno: 25
 mat_category: .NETCORE PORTABILITY
 mat_title: Dotnet ASP child action
-mat_description: Not supported, replace with a new View Component feature
+mat_description: Not supported, replace with a new View Component feature https://learn.microsoft.com/en-us/aspnet/core/mvc/views/view-components?view=aspnetcore-7.0
 mat_group: NOT SUPPORTED IN .NETCORE
 mat_criticality: Low
 # -----------------------------
@@ -11,9 +11,9 @@ filetype: (cs$|vb$)
 target: line
 type: regex
 defaultpattern: .*\[%s\].*
-advice: Not supported, replace with a new View Component feature
+advice: Not supported, replace with a new View Component feature https://learn.microsoft.com/en-us/aspnet/core/mvc/views/view-components?view=aspnetcore-7.0
 readiness: 9
-effort: 0
+effort: 10
 patterns:
 - value: ChildActionOnly
 category: unsupported-netcore

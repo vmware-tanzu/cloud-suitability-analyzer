@@ -15,7 +15,7 @@ patterns:
 - value: /configuration/system.webServer/tracing
 - value: /configuration/system.webServer/httpTracing
 readiness: 9
-effort: 0
+effort: 10
 category: unsupported-iis-module
 tags:
 - value: iis-module

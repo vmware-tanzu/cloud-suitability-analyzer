@@ -15,7 +15,7 @@ advice: Not Supported on .Net Core
 patterns:
 - value: System.EnterpriseService
 readiness: 9
-effort: 0
+effort: 10
 category: unsupported-netcore
 tags:
 - value: com+

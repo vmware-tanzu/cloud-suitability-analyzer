@@ -4,7 +4,7 @@ name: dotnet-asp-web-form
 mat_sno: 33
 mat_category: .NETCORE PORTABILITY
 mat_title: Dotnet ASP Web Form
-mat_description: unsupported-netcore. https://learn.microsoft.com/en-us/dotnet/architecture/porting-existing-aspnet-apps/migrate-web-forms
+mat_description: Unsupported-netcore. Not supported by many PAS. ASP .net pages will have to be replaced by ASP .NetCore. See https://learn.microsoft.com/en-us/dotnet/architecture/porting-existing-aspnet-apps/migrate-web-forms
 mat_group: NOT SUPPORTED IN .NETCORE
 mat_criticality: High
 # -----------------------------
@@ -12,10 +12,10 @@ filetype: (aspx$)
 target: line
 type: regex
 defaultpattern: (%s)
-advice: Not supported by many PAS
+advice: Unsupported-netcore. Not supported by many PAS. ASP .net pages will have to be replaced by ASP .NetCore. See https://learn.microsoft.com/en-us/dotnet/architecture/porting-existing-aspnet-apps/migrate-web-forms
 readiness: 9
-effort: 0
-category: unsupported-netcore. https://learn.microsoft.com/en-us/dotnet/architecture/porting-existing-aspnet-apps/migrate-web-forms
+effort: 10
+category: unsupported-netcore. 
 tags:
 - value: asp
 - value: asp-web-form
