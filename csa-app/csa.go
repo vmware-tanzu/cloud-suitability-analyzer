@@ -49,6 +49,7 @@ var (
 )
 
 func main() {
+	
 
 	//--- trace code start
 	/*
@@ -76,6 +77,9 @@ func main() {
 		defer pprof.StopCPUProfile()
 		//--- profile code end
 	*/
+
+
+
 	adminMode := false
 
 	debug.SetMaxThreads(100000)
@@ -84,10 +88,22 @@ func main() {
 	util.App.Version(Version)
 	util.App.Author("Steve Woods (VMware)")
 
+
 	var run = model.NewRun()
 
 	procsAndThreads()
+	if *util.Zap {
 
+	   var dbFile = *util.DbDir + "/" + *util.DBName + ".db"
+	   
+	   fmt.Printf("Removing current DB: %s\n", dbFile)
+	   var err = os.Remove(dbFile)
+	   if err != nil {
+		 fmt.Println(err)
+		 os.Exit(1)
+	   }
+   }
+	
 	run.DB = db.OpenDB(run)
 	defer run.Cleanup()
 
@@ -207,6 +223,7 @@ func main() {
 		run.CompletionMessage()
 	}
 }
+
 
 func procsAndThreads() {
 
