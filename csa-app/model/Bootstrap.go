@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-04-13 09:46:16.882567 -0500 CDT m=+0.142976825
+//Created @ 2023-04-25 12:29:53.982689 -0500 CDT m=+0.153587517
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -62,7 +62,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "CallableStatement", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "SNAP-java-package-Gradle", FileType: "gradle$", Target: "line", Type: "regex", DefaultPattern: "apply\\s*plugin:\\s*['']%s['']", Advice: "Application Server coupling detected.  Consider repackaging artifact as either war or executable jar", Effort: 100, Readiness: 0, Impact: "", Category: "packaging", Criticality: "",
+            { Name: "SNAP-java-package-Gradle", FileType: "gradle$|kts$", Target: "line", Type: "regex", DefaultPattern: "apply\\s*plugin:\\s*['']%s['']", Advice: "Application Server coupling detected.  Consider repackaging artifact as either war or executable jar", Effort: 100, Readiness: 0, Impact: "", Category: "packaging", Criticality: "",
             Tags:
             []Tag{  { Value: "gradle",}, { Value: "snap",}, },
             Recipes:
@@ -104,9 +104,215 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "<javac target=\"1.6\"", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "gradle-spring-boot-oss-support-version", FileType: "gradle$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "Spring boot version is out of spring boot OSS support(https://spring.io/projects/spring-boot#support). If you don't have commercial support, please update to newer version", Effort: 4, Readiness: 0, Impact: "", Category: "version", Criticality: "Warn",
+            { Name: "java-RDS-connection-string-user-password-properties", FileType: "properties$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "relational database service connection string, username or password are detected", Effort: 0, Readiness: 0, Impact: "", Category: "relational database service", Criticality: "Info",
             Tags:
-            []Tag{  { Value: "azure spring apps",}, { Value: "spring boot",}, },
+            []Tag{  { Value: "relational database service",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "(^|\\.|\\s)datasource\\.(.*\\.)?(url|jdbc-url|u\\-r\\-l)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)datasource\\.(.*\\.)?(username|user|password)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)r2dbc\\.url", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)r2dbc\\.(username|password)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)jdbc\\.url", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)jdbc\\.(username|password)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "=\\s*jdbc:.+:.+", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-RDS-connection-string-user-password-yaml", FileType: "(yaml$|yml$|json$|jsn$)", Target: "contents", Type: "yamlpath", DefaultPattern: "", Advice: "relational database service connection string, username or password are detected", Effort: 0, Readiness: 0, Impact: "", Category: "relational database service", Criticality: "Info",
+            Tags:
+            []Tag{  { Value: "relational database service",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "$..datasource.url", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..datasource.username", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..datasource.password", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..datasource[*][\"jdbc-url\",\"url\",\"u-r-l\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..datasource[*][\"username\",\"user\",\"password\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..r2dbc[\"url\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..r2dbc[\"username\",\"password\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..jdbc[\"url\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..jdbc[\"username\",\"password\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..[?(@=~/(?i)jdbc:.+:.+/)]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-apm-dependency-maven", FileType: "xml$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "The application has integrated an Application Performance Management (APM) tool as a dependency", Effort: 0, Readiness: 0, Impact: "", Category: "apm", Criticality: "Info",
+            Tags:
+            []Tag{  { Value: "apm",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "//*[contains(groupId, \"applicationinsights\") or contains(artifactId, \"applicationinsights\")]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "//*[contains(groupId, \"newrelic\") or contains(artifactId, \"newrelic\")]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "//*[contains(groupId, \"elastic.apm\")]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "//*[contains(groupId, \"dynatrace.oneagent\")]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-mq-connection-string-user-password-properties", FileType: "properties$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "Message queue connection string, username or password are detected", Effort: 0, Readiness: 0, Impact: "", Category: "message queue", Criticality: "Info",
+            Tags:
+            []Tag{  { Value: "message queue",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "(^|\\.|\\s)kafka\\.(.*\\.)?bootstrap-servers", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)kafka\\.(.*\\.)?properties\\.(bootstrap\\.servers|bootstrap-servers)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)kafka\\.(.*\\.)?properties\\.sasl\\.jaas\\.config", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)kafka\\.(.*\\.)?properties\\.schema\\.registry\\.url", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)kafka\\.(.*\\.)?properties\\.schema\\.registry\\.basic\\.auth\\.user\\.info", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)rabbitmq\\.(.*\\.)?(addresses|host|virtual-host)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)rabbitmq\\.(.*\\.)?(username|password)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)artemis\\.(broker-url)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)artemis\\.(user|password)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring\\.cloud\\.azure\\.(eventhub|eventhubs|servicebus)\\.(.*\\.)?(connection-string)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring\\.cloud\\.azure\\.(eventhub|eventhubs|servicebus)\\.(.*\\.)?credential\\.(password|username)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring\\.cloud\\.azure\\.(eventhub|eventhubs|servicebus)\\.(.*\\.)?credential\\.(client-id|client-secret)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring\\.jms\\.servicebus\\.(connection-string|password|username)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring\\.cloud\\.stream\\.rocketmq\\.binder.(name-server|access-key|secret-key)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-mq-connection-string-user-password-yaml", FileType: "(yaml$|yml$|json$|jsn$)", Target: "contents", Type: "yamlpath", DefaultPattern: "", Advice: "Message queue connection string, username or password are detected", Effort: 0, Readiness: 0, Impact: "", Category: "message queue", Criticality: "Info",
+            Tags:
+            []Tag{  { Value: "message queue",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "$..kafka.bootstrap-servers", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..kafka[*][\"bootstrap-servers\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..kafka.properties[\"bootstrap-servers\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..kafka[*][\"properties\"][\"bootstrap-servers\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..kafka.properties.bootstrap.servers", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..kafka[*][\"properties\"][\"bootstrap\"][\"servers\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..kafka.properties.sasl.jaas.config", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..kafka[*][\"properties\"][\"sasl\"][\"jaas\"][\"config\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..kafka.properties.schema.registry.url", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..kafka[*][\"properties\"][\"schema\"][\"registry\"][\"url\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..kafka.properties.schema.registry.basic.auth.user.info", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..kafka[*][\"properties\"][\"schema\"][\"registry\"][\"basic\"][\"auth\"][\"user\"][\"info\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..rabbitmq[\"addresses\",\"host\",\"virtual-host\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..rabbitmq[*][\"addresses\",\"host\",\"virtual-host\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..rabbitmq[\"username\",\"password\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..rabbitmq[*][\"username\",\"password\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..artemis.broker-url", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..artemis[\"user\",\"password\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-non-lts-version-gradle", FileType: "gradle$|kts$", Target: "line", Type: "regex", DefaultPattern: "(^|\\.|\\s)targetCompatibility(\\s|=)[^\\d]+(%s)", Advice: "The application is using non-LTS version Java. JDK on LTS version is recommended, i.e., JAVA_8, JAVA_11 or JAVA_17.", Effort: 6, Readiness: 0, Impact: "", Category: "version", Criticality: "Warn",
+            Tags:
+            []Tag{  { Value: "java version",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "9", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "10", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "12", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "13", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "14", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "15", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "16", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "19", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-non-lts-version-maven", FileType: "xml$", Target: "contents", Type: "xpath", DefaultPattern: "//*[starts-with(java.version,\"%s\")]/java.version", Advice: "The application is using non-LTS version Java. JDK on LTS version is recommended, i.e., JAVA_8, JAVA_11 or JAVA_17.", Effort: 6, Readiness: 0, Impact: "", Category: "java", Criticality: "Warn",
+            Tags:
+            []Tag{  { Value: "java version",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "9", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "10", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "12", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "13", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "14", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "15", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "16", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "19", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-properties-config-client-configs", FileType: "properties$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "The application is using spring config server and setting the connection string", Effort: 0, Readiness: 0, Impact: "", Category: "config server", Criticality: "Info",
+            Tags:
+            []Tag{  { Value: "config server",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "(^|\\s)spring\\.config\\.import", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\s)spring\\.cloud\\.config\\.uri", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-properties-eureka-client-configs", FileType: "properties$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "The application is using eureka and setting the connection string", Effort: 0, Readiness: 0, Impact: "", Category: "eureka", Criticality: "Info",
+            Tags:
+            []Tag{  { Value: "eureka",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "(^|\\s)eureka\\.client\\.(service-url|serviceUrl)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-properties-logging-console-appender", FileType: "xml$", Target: "contents", Type: "regex", DefaultPattern: "", Advice: "Please enable logging to console", Effort: 5, Readiness: 0, Impact: "", Category: "logging", Criticality: "Warn",
+            Tags:
+            []Tag{  { Value: "logging",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "(?i)(appender.*=.*ConsoleAppender|appender.*\\.type.*=.*Console|(org/springframework/boot/logging/logback/base.xml)|(org/springframework/boot/logging/log4j2/log4j2.xml))", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-redis-connection-string-user-password-properties", FileType: "properties$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "Redis connection string, username and password are detected", Effort: 0, Readiness: 0, Impact: "", Category: "redis", Criticality: "Info",
+            Tags:
+            []Tag{  { Value: "redis",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "(^|\\.|\\s)redis\\.(.*\\.)?(url|host|nodes)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)redis\\.(.*\\.)?(username|password)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)jedis\\.(url|host)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)jedis\\.(username|password)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)lettuce\\.(url|host)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)lettuce\\.(username|password)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-redis-connection-string-user-password-yaml", FileType: "yaml$|yml$", Target: "contents", Type: "yamlpath", DefaultPattern: "", Advice: "Redis connection string, username and password are detected", Effort: 0, Readiness: 0, Impact: "", Category: "redis", Criticality: "Info",
+            Tags:
+            []Tag{  { Value: "redis",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "$..redis[\"url\",\"host\",\"nodes\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..redis[\"username\",\"password\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..redis[*][\"url\",\"host\",\"nodes\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..redis[*][\"username\",\"password\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..jedis[\"url\",\"host\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..jedis[\"username\",\"password\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..lettuce[\"url\",\"host\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..lettuce[\"username\",\"password\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-scheduled-job-annotation", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^\\s*@%s", Advice: "The application has scheduled jobs such as Quartz Scheduler tasks or cron jobs. Please be aware that after migrating to the cloud and scaling out, scheduled jobs in applications may run more than once per scheduled period and lead to unintended consequences.", Effort: 6, Readiness: 0, Impact: "", Category: "scheduled job", Criticality: "Warn",
+            Tags:
+            []Tag{  { Value: "scheduled job",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "Scheduled", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-scheduled-job-import", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*import\\s*%s.*", Advice: "The application has scheduled jobs such as Quartz Scheduler tasks or cron jobs. Please be aware that after migrating to the cloud and scaling out, scheduled jobs in applications may run more than once per scheduled period and lead to unintended consequences.", Effort: 6, Readiness: 0, Impact: "file", Category: "scheduled job", Criticality: "Warn",
+            Tags:
+            []Tag{  { Value: "scheduled job",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "java\\.util\\.concurrent\\.ScheduledExecutorService", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "java\\.util\\.concurrent\\.ScheduledFuture", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org\\.quartz", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org\\.apache\\.commons\\.scheduler", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com\\.google\\.common\\.util\\.concurrent\\.AbstractScheduledService", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com\\.google\\.common\\.util\\.concurrent\\.ListeningScheduledExecutorService", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-spring-boot-oss-support-version-gradle", FileType: "gradle$|kts$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "Spring boot version is out of spring boot open source support support(https://spring.io/projects/spring-boot#support). If you don't have commercial support, please update to newer version", Effort: 4, Readiness: 0, Impact: "", Category: "version", Criticality: "Warn",
+            Tags:
+            []Tag{  { Value: "spring boot",}, },
             Recipes:
             []Recipe{  },
             Patterns:
@@ -115,58 +321,9 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "org\\.springframework\\.boot[''\"]?( *[:=]? *)[''\"]?(2\\.[4-6])", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "gradle-spring-boot-support-version", FileType: "gradle$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "Spring boot version is out of any spring boot support(https://spring.io/projects/spring-boot#support). Please update to newer version", Effort: 6, Readiness: 0, Impact: "", Category: "version", Criticality: "Warn",
+            { Name: "java-spring-boot-oss-support-version-maven", FileType: "xml$", Target: "contents", Type: "xpath", DefaultPattern: "//*[groupId=\"org.springframework.boot\" and starts-with(version,\"%s\")]/version", Advice: "Spring boot version is out of spring boot open source support support(https://spring.io/projects/spring-boot#support). If you don't have commercial support, please update to newer version", Effort: 4, Readiness: 0, Impact: "", Category: "version", Criticality: "Warn",
             Tags:
-            []Tag{  { Value: "azure spring apps",}, { Value: "spring boot",}, },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "org\\.springframework\\.boot(.*)([\\r\\n]*)version( *[:=]? *)[''\"]?(2\\.[0-3])", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "(?i)(springBootVersion)(.*)(2\\.[0-3])", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org\\.springframework\\.boot[''\"]?( *[:=]? *)[''\"]?(2\\.[0-3])", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "gradle-spring-boot-version", FileType: "gradle$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "Spring boot version is too low", Effort: 50, Readiness: 0, Impact: "", Category: "version", Criticality: "Critical",
-            Tags:
-            []Tag{  { Value: "azure spring apps",}, { Value: "spring boot",}, },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "org\\.springframework\\.boot(.*)([\\r\\n]*)version( *[:=]? *)[''\"]?(1\\.)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "(?i)(springBootVersion)(.*)(1\\.)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org\\.springframework\\.boot[''\"]?( *[:=]? *)[''\"]?(1\\.)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "gradle-spring-cloud-oss-support-version", FileType: "gradle$", Target: "line", Type: "regex", DefaultPattern: "(?i)(springCloudVersion|org\\.springframework\\.cloud)(.*)(%s)", Advice: "Spring cloud version is out of OSS support. If you don't have commercial support, please update to newer version", Effort: 4, Readiness: 0, Impact: "", Category: "version", Criticality: "Warn",
-            Tags:
-            []Tag{  { Value: "azure spring apps",}, { Value: "spring cloud",}, },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "2020\\.|ilford", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "gradle-spring-cloud-support-version", FileType: "gradle$", Target: "line", Type: "regex", DefaultPattern: "(?i)(springCloudVersion|org\\.springframework\\.cloud)(.*)(%s)", Advice: "Spring cloud version is out of any support. Please update to newer version", Effort: 6, Readiness: 0, Impact: "", Category: "version", Criticality: "Warn",
-            Tags:
-            []Tag{  { Value: "azure spring apps",}, { Value: "spring cloud",}, },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "Hoxton|Greenwich|Finchley", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "gradle-spring-cloud-version", FileType: "gradle$", Target: "line", Type: "regex", DefaultPattern: "(?i)(springCloudVersion|org\\.springframework\\.cloud)(.*)(%s)", Advice: "Spring cloud version is too low", Effort: 50, Readiness: 0, Impact: "", Category: "version", Criticality: "Critical",
-            Tags:
-            []Tag{  { Value: "azure spring apps",}, { Value: "spring cloud",}, },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "Edgware|Dalston", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "maven-spring-boot-oss-support-version", FileType: "xml$", Target: "contents", Type: "xpath", DefaultPattern: "//*[groupId=\"org.springframework.boot\" and starts-with(version,\"%s\")]/version", Advice: "Spring boot version is out of spring boot OSS support(https://spring.io/projects/spring-boot#support). If you don't have commercial support, please update to newer version", Effort: 4, Readiness: 0, Impact: "", Category: "version", Criticality: "Warn",
-            Tags:
-            []Tag{  { Value: "azure spring apps",}, { Value: "spring boot",}, },
+            []Tag{  { Value: "spring boot",}, },
             Recipes:
             []Recipe{  },
             Patterns:
@@ -175,9 +332,34 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "2.6", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "maven-spring-boot-support-version", FileType: "xml$", Target: "contents", Type: "xpath", DefaultPattern: "//*[groupId=\"org.springframework.boot\" and starts-with(version,\"%s\")]/version", Advice: "Spring boot version is out of any spring boot support(https://spring.io/projects/spring-boot#support). Please update to newer version", Effort: 6, Readiness: 0, Impact: "", Category: "version", Criticality: "Warn",
+            { Name: "java-spring-boot-starter", FileType: "gradle$|kts$|xml$", Target: "contents", Type: "regex", DefaultPattern: "", Advice: "The application has spring boot/spring cloud starter dependencies", Effort: 0, Readiness: 0, Impact: "", Category: "spring boot", Criticality: "Info",
             Tags:
-            []Tag{  { Value: "azure spring apps",}, { Value: "spring boot",}, },
+            []Tag{  { Value: "spring boot",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "spring-boot-admin-starter-server", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring-boot-starter-web|spring-boot-starter-webflux", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring-boot-starter-undertow|spring-boot-starter-tomcat|spring-boot-starter-jetty", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring-cloud-starter-gateway", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring-cloud-config-server", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring-cloud-starter-netflix-eureka-server", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-spring-boot-support-version-gradle", FileType: "gradle$|kts$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "Spring boot version is out of any spring boot support(https://spring.io/projects/spring-boot#support). Please update to newer version", Effort: 6, Readiness: 0, Impact: "", Category: "version", Criticality: "Warn",
+            Tags:
+            []Tag{  { Value: "spring boot",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "org\\.springframework\\.boot(.*)([\\r\\n]*)version( *[:=]? *)[''\"]?(2\\.[0-3])", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(?i)(springBootVersion)(.*)(2\\.[0-3])", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org\\.springframework\\.boot[''\"]?( *[:=]? *)[''\"]?(2\\.[0-3])", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-spring-boot-support-version-maven", FileType: "xml$", Target: "contents", Type: "xpath", DefaultPattern: "//*[groupId=\"org.springframework.boot\" and starts-with(version,\"%s\")]/version", Advice: "Spring boot version is out of any spring boot support(https://spring.io/projects/spring-boot#support). Please update to newer version", Effort: 6, Readiness: 0, Impact: "", Category: "version", Criticality: "Warn",
+            Tags:
+            []Tag{  { Value: "spring boot",}, },
             Recipes:
             []Recipe{  },
             Patterns:
@@ -187,18 +369,38 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "2.3", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "maven-spring-boot-version", FileType: "xml$", Target: "contents", Type: "xpath", DefaultPattern: "//*[groupId=\"org.springframework.boot\" and starts-with(version,\"%s\")]/version", Advice: "Spring boot version is too low", Effort: 50, Readiness: 0, Impact: "", Category: "version", Criticality: "Critical",
+            { Name: "java-spring-boot-version-gradle", FileType: "gradle$|kts$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "Spring boot version is too low", Effort: 50, Readiness: 0, Impact: "", Category: "version", Criticality: "Critical",
             Tags:
-            []Tag{  { Value: "azure spring apps",}, { Value: "spring boot",}, },
+            []Tag{  { Value: "spring boot",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "org\\.springframework\\.boot(.*)([\\r\\n]*)version( *[:=]? *)[''\"]?(1\\.)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(?i)(springBootVersion)(.*)(1\\.)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org\\.springframework\\.boot[''\"]?( *[:=]? *)[''\"]?(1\\.)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-spring-boot-version-maven", FileType: "xml$", Target: "contents", Type: "xpath", DefaultPattern: "//*[groupId=\"org.springframework.boot\" and starts-with(version,\"%s\")]/version", Advice: "Spring boot version is too low", Effort: 50, Readiness: 0, Impact: "", Category: "version", Criticality: "Critical",
+            Tags:
+            []Tag{  { Value: "spring boot",}, },
             Recipes:
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "1", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "maven-spring-cloud-oss-support-version", FileType: "xml$", Target: "contents", Type: "xpath", DefaultPattern: "", Advice: "Spring cloud version is out of OSS support. If you don't have commercial support, please update to newer version", Effort: 4, Readiness: 0, Impact: "", Category: "version", Criticality: "Warn",
+            { Name: "java-spring-cloud-oss-support-version-gradle", FileType: "gradle$|kts$", Target: "line", Type: "regex", DefaultPattern: "(?i)(springCloudVersion|org\\.springframework\\.cloud)(.*)(%s)", Advice: "Spring cloud version is out of open source support support. If you don't have commercial support, please update to newer version", Effort: 4, Readiness: 0, Impact: "", Category: "version", Criticality: "Warn",
             Tags:
-            []Tag{  { Value: "azure spring apps",}, { Value: "spring cloud",}, },
+            []Tag{  { Value: "spring cloud",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "2020\\.|ilford", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-spring-cloud-oss-support-version-maven", FileType: "xml$", Target: "contents", Type: "xpath", DefaultPattern: "", Advice: "Spring cloud version is out of open source support support. If you don't have commercial support, please update to newer version", Effort: 4, Readiness: 0, Impact: "", Category: "version", Criticality: "Warn",
+            Tags:
+            []Tag{  { Value: "spring cloud",}, },
             Recipes:
             []Recipe{  },
             Patterns:
@@ -208,9 +410,18 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "//*[matches(name(), \"spring-?cloud.version\") and matches(text(),\"(?i)^ilford\")]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "maven-spring-cloud-support-version", FileType: "xml$", Target: "contents", Type: "xpath", DefaultPattern: "", Advice: "Spring cloud version is out of any support. Please update to newer version", Effort: 6, Readiness: 0, Impact: "", Category: "version", Criticality: "Warn",
+            { Name: "java-spring-cloud-support-version-gradle", FileType: "gradle$|kts$", Target: "line", Type: "regex", DefaultPattern: "(?i)(springCloudVersion|org\\.springframework\\.cloud)(.*)(%s)", Advice: "Spring cloud version is out of any support. Please update to newer version", Effort: 6, Readiness: 0, Impact: "", Category: "version", Criticality: "Warn",
             Tags:
-            []Tag{  { Value: "azure spring apps",}, { Value: "spring cloud",}, },
+            []Tag{  { Value: "spring cloud",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "Hoxton|Greenwich|Finchley", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-spring-cloud-support-version-maven", FileType: "xml$", Target: "contents", Type: "xpath", DefaultPattern: "", Advice: "Spring cloud version is out of any support. Please update to newer version", Effort: 6, Readiness: 0, Impact: "", Category: "version", Criticality: "Warn",
+            Tags:
+            []Tag{  { Value: "spring cloud",}, },
             Recipes:
             []Recipe{  },
             Patterns:
@@ -222,9 +433,18 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "//*[matches(name(), \"spring-?cloud.version\") and matches(text(),\"(?i)^Finchley\")]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "maven-spring-cloud-version", FileType: "xml$", Target: "contents", Type: "xpath", DefaultPattern: "", Advice: "Spring cloud version is too low", Effort: 50, Readiness: 0, Impact: "", Category: "version", Criticality: "Critical",
+            { Name: "java-spring-cloud-version-gradle", FileType: "gradle$|kts$", Target: "line", Type: "regex", DefaultPattern: "(?i)(springCloudVersion|org\\.springframework\\.cloud)(.*)(%s)", Advice: "Spring cloud version is too low", Effort: 50, Readiness: 0, Impact: "", Category: "version", Criticality: "Critical",
             Tags:
-            []Tag{  { Value: "azure spring apps",}, { Value: "spring cloud",}, },
+            []Tag{  { Value: "spring cloud",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "Edgware|Dalston", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-spring-cloud-version-maven", FileType: "xml$", Target: "contents", Type: "xpath", DefaultPattern: "", Advice: "Spring cloud version is too low", Effort: 50, Readiness: 0, Impact: "", Category: "version", Criticality: "Critical",
+            Tags:
+            []Tag{  { Value: "spring cloud",}, },
             Recipes:
             []Recipe{  },
             Patterns:
@@ -234,47 +454,43 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "//*[matches(name(), \"spring-?cloud.version\") and matches(text(),\"(?i)^Dalston\")]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "maven-zipkin", FileType: "xml$", Target: "contents", Type: "xpath", DefaultPattern: "", Advice: "The application uses Zipkin. Update the application to use Azure Monitor(https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing) instead. You can refer to doc Spring Boot to Azure - identify Zipkin dependencies(https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-kubernetes-service#identify-zipkin-dependencies)", Effort: 5, Readiness: 0, Impact: "", Category: "zipkin", Criticality: "Warn",
+            { Name: "java-version-gradle", FileType: "gradle$|kts$", Target: "line", Type: "regex", DefaultPattern: "(^|\\.|\\s)targetCompatibility(\\s|=)[^\\d]+(%s)", Advice: "JDK version is found to be lower than JAVA_8", Effort: 50, Readiness: 0, Impact: "", Category: "version", Criticality: "Critical",
             Tags:
-            []Tag{  { Value: "azure spring apps",}, { Value: "zipkin",}, },
+            []Tag{  { Value: "java version",}, },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "//*[matches(groupId, \"io.zipkin\")]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "//*[groupId=\"org.springframework.boot\" and artifactId=\"spring-cloud-starter-zipkin\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "1\\.[0-7]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "properties-config-client-configs", FileType: "properties$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "ASA will inject the config server connection info upon app start", Effort: 3, Readiness: 0, Impact: "", Category: "config server", Criticality: "Warn",
+            { Name: "java-version-maven", FileType: "xml$", Target: "contents", Type: "xpath", DefaultPattern: "//*[starts-with(java.version,\"%s\")]/java.version", Advice: "JDK version is found to be lower than JAVA_8", Effort: 50, Readiness: 0, Impact: "", Category: "java", Criticality: "Critical",
             Tags:
-            []Tag{  { Value: "azure spring apps",}, { Value: "config server",}, },
+            []Tag{  { Value: "java version",}, },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "(^|\\s)spring\\.config\\.import", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "(^|\\s)spring\\.cloud\\.config\\.uri", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "1.0", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "1.1", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "1.2", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "1.3", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "1.4", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "1.5", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "1.6", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "1.7", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "properties-eureka-client-configs", FileType: "properties$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "ASA will inject the eureka connection info upon app start", Effort: 3, Readiness: 0, Impact: "", Category: "eureka", Criticality: "Warn",
+            { Name: "java-xml-logging-console-appender", FileType: "xml$", Target: "contents", Type: "regex", DefaultPattern: "", Advice: "Please enable logging to console", Effort: 5, Readiness: 0, Impact: "", Category: "logging", Criticality: "Warn",
             Tags:
-            []Tag{  { Value: "azure spring apps",}, { Value: "eureka",}, },
+            []Tag{  { Value: "logging",}, },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "(^|\\s)eureka\\.client\\.(service-url|serviceUrl)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "(?i)(ConsoleAppender|type(\\s)*=(\\s)*\"console\"|</console>|org/springframework/boot/logging/logback/base.xml|org/springframework/boot/logging/log4j2/log4j2.xml)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "properties-nonstandard-port", FileType: "properties$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "ASA overwrites the server.port setting in the deployed application. If any clients of the clients rely on the application being available on a port other than 443, you will need to modify them", Effort: 3, Readiness: 0, Impact: "", Category: "port", Criticality: "Warn",
+            { Name: "java-yaml-config-client-configs", FileType: "(yaml$|yml$)", Target: "contents", Type: "yamlpath", DefaultPattern: "", Advice: "The application is using spring config server and setting the connection string", Effort: 0, Readiness: 0, Impact: "", Category: "config server", Criticality: "Info",
             Tags:
-            []Tag{  { Value: "azure spring apps",}, { Value: "port",}, },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "(^|\\s)server\\.port", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "yaml-config-client-configs", FileType: "(yaml$|yml$)", Target: "contents", Type: "yamlpath", DefaultPattern: "", Advice: "ASA will inject the config server connection info upon app start", Effort: 3, Readiness: 0, Impact: "", Category: "config server", Criticality: "Warn",
-            Tags:
-            []Tag{  { Value: "azure spring apps",}, { Value: "config server",}, },
+            []Tag{  { Value: "config server",}, },
             Recipes:
             []Recipe{  },
             Patterns:
@@ -282,18 +498,75 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "$.spring.cloud.config.uri", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "yaml-eureka-client-configs", FileType: "(yaml$|yml$)", Target: "contents", Type: "yamlpath", DefaultPattern: "", Advice: "ASA will inject the eureka connection info upon app start", Effort: 3, Readiness: 0, Impact: "", Category: "eureka", Criticality: "Warn",
+            { Name: "java-yaml-eureka-client-configs", FileType: "(yaml$|yml$)", Target: "contents", Type: "yamlpath", DefaultPattern: "", Advice: "The application is using eureka and setting the connection string", Effort: 0, Readiness: 0, Impact: "", Category: "eureka", Criticality: "Info",
             Tags:
-            []Tag{  { Value: "azure spring apps",}, { Value: "eureka",}, },
+            []Tag{  { Value: "eureka",}, },
             Recipes:
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "$.eureka.client[\"service-url\",\"serviceUrl\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "yaml-nonstandard-port", FileType: "(yaml$|yml$)", Target: "contents", Type: "yamlpath", DefaultPattern: "", Advice: "ASA overwrites the server.port setting in the deployed application. If any clients of the clients rely on the application being available on a port other than 443, you will need to modify them", Effort: 3, Readiness: 0, Impact: "", Category: "port", Criticality: "Warn",
+            { Name: "java-yaml-json-log4j2-fileAppender", FileType: "yaml$|yml$|json$|jsn$", Target: "file", Type: "yamlpath", DefaultPattern: "", Advice: "Replace file appender with console appender", Effort: 3, Readiness: 0, Impact: "", Category: "logging", Criticality: "Warn",
             Tags:
-            []Tag{  { Value: "azure spring apps",}, { Value: "port",}, },
+            []Tag{  { Value: "log4j2",}, { Value: "logging",}, { Value: "log2file",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "$[*][\"appenders\",\"Appenders\"][?( @.File || @.file || @.appender[?(@.type=~/(?i)file/)])]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$[*][\"appenders\",\"Appenders\"][\"Routing\"][\"Routes\"][\"Route\"][?( @.File || @.file)]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$[*][\"appenders\",\"Appenders\"][?(@.RollingFile || @.rollingFile || @.appender[?(@.type=~/(?i)RollingFile/)])]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$[*][\"appenders\",\"Appenders\"][\"Routing\"][\"Routes\"][\"Route\"][?( @.RollingFile || @.rollingFile)]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-yamljson-logging-console-appender", FileType: "yaml$|yml$|json$|jsn$", Target: "file", Type: "yamlpath", DefaultPattern: "", Advice: "Please enable logging to console", Effort: 5, Readiness: 0, Impact: "", Category: "logging", Criticality: "Warn",
+            Tags:
+            []Tag{  { Value: "logging",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "$[*][\"appenders\",\"Appenders\"][?(@.console || @.Console || @.appender[?(@.type=~/(?i)console/)])]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-zipkin-maven", FileType: "xml$", Target: "contents", Type: "xpath", DefaultPattern: "", Advice: "The application uses Zipkin. Update the application to use Application Insights(https://learn.microsoft.com/en-us/azure/spring-apps/how-to-application-insights) instead if migrating to Azure", Effort: 5, Readiness: 0, Impact: "", Category: "zipkin", Criticality: "Warn",
+            Tags:
+            []Tag{  { Value: "azure",}, { Value: "zipkin",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "//*[contains(groupId, \"zipkin\") or contains(artifactId, \"zipkin\")]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "properties-port", FileType: "properties$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "The application is setting the server port. Please be aware of potential port reliance issues during the migration process", Effort: 0, Readiness: 0, Impact: "", Category: "port", Criticality: "Info",
+            Tags:
+            []Tag{  { Value: "port",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "(^|\\s)server\\.port", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "windows-dynamic-link-library", FileType: "dll$", Target: "file", Type: "regex", DefaultPattern: "", Advice: "This Dynamic-Link Library is Microsoft Windows platform dependent. It needs to be replaced with a Linux-style shared library", Effort: 10, Readiness: 0, Impact: "", Category: "os", Criticality: "Critical",
+            Tags:
+            []Tag{  { Value: "os",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "dll$", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "windows-file-path", FileType: "java$|properties$|xml$|yaml$|yml$|json$|jsn$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "This file system path is Microsoft Windows platform dependent. It needs to be replaced with a Linux-style path", Effort: 4, Readiness: 0, Impact: "", Category: "os", Criticality: "Critical",
+            Tags:
+            []Tag{  { Value: "os",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "(\"|''|`|\\s|^)(?:[a-zA-Z]\\:|\\\\\\\\[\\w\\s\\.]+\\\\[\\w\\s\\.$]+)([\\\\\\/][^\\n\\t]+)+", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "yaml-nonstandard-port", FileType: "(yaml$|yml$)", Target: "contents", Type: "yamlpath", DefaultPattern: "", Advice: "The application is setting the server port. Please be aware of potential port reliance issues during the migration process", Effort: 0, Readiness: 0, Impact: "", Category: "port", Criticality: "Info",
+            Tags:
+            []Tag{  { Value: "port",}, },
             Recipes:
             []Recipe{  },
             Patterns:
@@ -2007,7 +2280,7 @@ func BootstrapRules() []Rule {
         
             { Name: "java-fileIO", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Move to cloud friendly alternative storage service", Effort: 8, Readiness: 8, Impact: "", Category: "io", Criticality: "",
             Tags:
-            []Tag{  { Value: "io",}, },
+            []Tag{  { Value: "io",}, { Value: "file storage",}, },
             Recipes:
             []Recipe{  },
             Patterns:
@@ -2449,13 +2722,19 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "javax.xml.parsers.SAXParserFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "xml-parser", Recipe: "", },
              }, },
         
-            { Name: "java-logging-file-appender", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Replace file appender with console appender", Effort: 3, Readiness: 5, Impact: "", Category: "logging", Criticality: "",
+            { Name: "java-logging-file-appender", FileType: "xml$|properties$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Replace file appender with console appender", Effort: 3, Readiness: 5, Impact: "", Category: "logging", Criticality: "",
             Tags:
             []Tag{  { Value: "logging",}, { Value: "log2file",}, },
             Recipes:
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "fileappender", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "</File>", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "log4j2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "</RollingFile>", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "log4j2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "type(\\s)*=(\\s)*\"File\"", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "log4j2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "type(\\s)*=(\\s)*\"RollingFile\"", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "log4j2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "appender.rolling.type", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "log4j2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "appender.file.type", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "log4j2", Recipe: "", },
              }, },
         
             { Name: "java-logging-import", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Change to an implementation of SLF4J i.e. Logback", Effort: 3, Readiness: 5, Impact: "", Category: "logging", Criticality: "",
@@ -2464,11 +2743,12 @@ func BootstrapRules() []Rule {
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "java.util.logging", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "java-util", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.log4j", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "log4j", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.commons.logging", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "commons-logging", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.osgi.service.log", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "org-osgi", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.jboss.logging.Logger", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jboss-logging", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "java\\.util\\.logging", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "java-util", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org\\.apache\\.log4j", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "log4j", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org\\.apache\\.logging\\.log4j", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "log4j2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org\\.apache\\.commons\\.logging", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "commons-logging", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org\\.osgi\\.service\\.log", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "org-osgi", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org\\.jboss\\.logging\\.Logger", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jboss-logging", Recipe: "", },
              }, },
         
             { Name: "java-message-driven-annotations", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^\\s*@%s", Advice: "To convert a message driven bean to spring cloud stream with rabbitmq", Effort: 10, Readiness: 0, Impact: "", Category: "annotations", Criticality: "",
@@ -3056,6 +3336,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "getenv", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "getProperty", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "setProperty", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "setProperties", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "java-systemLoad", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(System.)%s", Advice: "Remediate to cloud friendly implentation", Effort: 1000, Readiness: 10, Impact: "", Category: "process-launch", Criticality: "",
@@ -3574,22 +3855,18 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "https", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "plaintext-creds", FileType: "", Target: "line", Type: "regex", DefaultPattern: "(%s)\\s*=+", Advice: "never save passwords or login information in files", Effort: 0, Readiness: 9, Impact: "", Category: "security", Criticality: "",
+            { Name: "plaintext-creds", FileType: "", Target: "line", Type: "regex", DefaultPattern: "(?i)(%s)\\s*=+", Advice: "never save passwords or login information in files", Effort: 0, Readiness: 9, Impact: "", Category: "security", Criticality: "",
             Tags:
             []Tag{  { Value: "security",}, },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "Password", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "User", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "User Id", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "password", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "user", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "user id", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "username", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Username", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Login", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Loginname", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "loginname", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "login", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Loginname", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "password", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "python-cf", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Check for cloud foundry support.", Effort: -10, Readiness: 10, Impact: "", Category: "cloud-foundry", Criticality: "",
