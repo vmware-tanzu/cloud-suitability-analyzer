@@ -54,7 +54,7 @@ func (csaService *CsaService) analyzeApp(run *model.Run, app *model.Application,
 				run.FileAnalyzed()
 				modResult := run.AnalyzedCnt % modCnt
 				if modResult == 0 {
-					util.WriteLogWithToken("Analyzing", fmt.Sprintf("%2.f%%", float64(run.AnalyzedCnt)/float64(run.Files)*100), "Filename: %s...done\n!", app.Files[idx].FQN)
+					util.WriteLogWithToken("Analyzing!", fmt.Sprintf("%2.f%%", float64(run.AnalyzedCnt)/float64(run.Files)*100), "Filename: %s...done\n!", app.Files[idx].FQN)
 				}
 			}
 		}(i)
@@ -65,8 +65,11 @@ func (csaService *CsaService) analyzeApp(run *model.Run, app *model.Application,
 	//Ensure we always get a percent complete message even if we have very few files in an app!
 	util.WriteLogWithToken("Analyzing", fmt.Sprintf("%2.f%%", float64(run.AnalyzedCnt)/float64(run.Files)*100), "App: %s...done\n!", app.Name)
 
-	run.StopActivity(fmt.Sprintf("%s-analysis", app.Name), fmt.Sprintf("Analyzing - %s...done!", app.Name), true)
-
+	if (!*util.Xtract) {
+		run.StopActivity(fmt.Sprintf("%s-analysis", app.Name), fmt.Sprintf("Analyzing$# - %s...done!", app.Name), true)
+	} else {
+		run.StopActivity(fmt.Sprintf("%s-analysis", app.Name), "", false)
+	}
 	return
 }
 

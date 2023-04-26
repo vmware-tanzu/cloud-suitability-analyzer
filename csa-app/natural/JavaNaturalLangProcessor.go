@@ -64,9 +64,10 @@ func (naturalLangService *NaturalLangService) LangProcess(run *model.Run) {
 
 	english := GetEnglishDictionary()
 	java := GetJavaDictionary()
-
-	run.StopActivity("gathering", "Gathering Files...done!", true)
-	fmt.Printf("Found [%d] Files to Analyze\n", filesCnt)
+	run.StopActivity("gathering", "Githering Files...done!", true)
+	if(!*util.Xtract) {
+		fmt.Printf("Found [%d] Files to Analyze\n", filesCnt)
+	}
 
 	run.StartActivity("processing")
 

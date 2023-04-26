@@ -104,29 +104,32 @@ func (r *Run) Cleanup() {
 
 func (r Run) CompletionMessage() {
 	if r.Files == 0 {
-		fmt.Printf("\n******** All done! Report Run [%d] Completed in %s ****************\n", r.ID, r.Runtime)
+		if (!*util.Xtract) {
+			fmt.Printf("\n******** All done! Report Run [%d] Completed in %s ****************\n", r.ID, r.Runtime)
+		}
 	} else {
 
 		completed := "Completed"
 		if util.HasErrors() {
 			completed = "Completed w/Errors"
 		}
-
-		fmt.Printf("\n******** All done! [%d] Findings in [%d] Files. Report Run [%d-%s] %s in %s ****************\n", r.Findings, r.Files, r.ID, r.GetAlias(), completed, r.Runtime)
-		fmt.Printf("\n\nRun: %d\nAlias: %s\nUser: %s\nCommand: %s\nTarget: %s\nFiles: %d\nFindings: %d\nRuntime: %s\nDB Path: %s\nRules-Dir: %s\nOutputPath: %s\nExe Path: %s\nTmp Path: %s\n\n",
-			r.ID,
-			r.GetAlias(),
-			r.User,
-			r.Command,
-			r.Target,
-			r.Files,
-			r.Findings,
-			r.Runtime,
-			r.DbPath,
-			r.RulesDir,
-			r.OutputPath,
-			r.Exepath,
-			r.TmpPath)
+		if (!*util.Xtract) {
+			fmt.Printf("\n******** All done! [%d] Findings in [%d] Files. Report Run [%d-%s] %s in %s ****************\n", r.Findings, r.Files, r.ID, r.GetAlias(), completed, r.Runtime)
+			fmt.Printf("\n\nRun: %d\nAlias: %s\nUser: %s\nCommand: %s\nTarget: %s\nFiles: %d\nFindings: %d\nRuntime: %s\nDB Path: %s\nRules-Dir: %s\nOutputPath: %s\nExe Path: %s\nTmp Path: %s\n\n",
+				r.ID,
+				r.GetAlias(),
+				r.User,
+				r.Command,
+				r.Target,
+				r.Files,
+				r.Findings,
+				r.Runtime,
+				r.DbPath,
+				r.RulesDir,
+				r.OutputPath,
+				r.Exepath,
+				r.TmpPath)
+		}
 	}
 }
 
@@ -156,10 +159,12 @@ func (r *Run) StopActivityLF(name, msg string, prelinefeed bool, printMsg bool) 
 	activity.Stop()
 
 	if printMsg {
-		if prelinefeed {
-			fmt.Printf("\n%s (%s)\n", msg, fmt.Sprintf("%v", activity.GetElapsed()))
-		} else {
-			fmt.Printf("%s (%s)\n", msg, fmt.Sprintf("%v", activity.GetElapsed()))
+		if (!*util.Xtract){
+			if prelinefeed {
+				fmt.Printf("\n%s (%s)\n", msg, fmt.Sprintf("%v", activity.GetElapsed()))
+			} else {
+				fmt.Printf("%s (%s)\n", msg, fmt.Sprintf("%v", activity.GetElapsed()))
+			}
 		}
 	}
 }

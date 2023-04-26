@@ -135,7 +135,11 @@ func (csaService *CsaService) concurrentAnalysis(run *model.Run) {
 		msg = "errors!"
 	}
 
-	run.StopActivityLF("analysis", fmt.Sprintf("Analyzing...%s", msg), false, true)
+	if (!*util.Xtract) {
+		run.StopActivityLF("analysis", fmt.Sprintf("Analyzing...%s", msg), false, true)
+	} else {
+		run.StopActivityLF("analysis", "", false, false)		
+	} 
 
 	csaService.analysisDone = true
 	close(csaService.saveChan)
@@ -160,8 +164,11 @@ func (csaService *CsaService) SerialAnalysis(run *model.Run) {
 	if util.ProcessHadErrors("Analysis") {
 		msg = "errors!"
 	}
-
-	run.StopActivityLF("analysis", fmt.Sprintf("Analyzing...%s", msg), false, true)
+	if (!*util.Xtract) {
+		run.StopActivityLF("analysis", fmt.Sprintf("Analyzing...%s", msg), false, true)
+	} else {
+		run.StopActivityLF("analysis", "", false, false)
+	}
 
 	csaService.analysisDone = true
 	close(csaService.saveChan)

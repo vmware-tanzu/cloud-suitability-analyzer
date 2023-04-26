@@ -115,16 +115,17 @@ func main() {
 	}
 
 	repoMgr := db.NewRepositoriesManagerForRun(run)
-
-	fmt.Printf("User: %s\nCommand: %s\nUser-Home: %s\nDB Path: %s\nRules-Dir: %s\nOutputPath: %s\nExe Path: %s\nTmp Path: %s\n\n",
-		run.User,
-		run.Command,
-		run.Homepath,
-		run.DbPath,
-		run.RulesDir,
-		run.OutputPath,
-		run.Exepath,
-		run.TmpPath)
+	if (!*util.Xtract) {
+		fmt.Printf("User: %s\nCommand: %s\nUser-Home: %s\nDB Path: %s\nRules-Dir: %s\nOutputPath: %s\nExe Path: %s\nTmp Path: %s\n\n",
+			run.User,
+			run.Command,
+			run.Homepath,
+			run.DbPath,
+			run.RulesDir,
+			run.OutputPath,
+			run.Exepath,
+			run.TmpPath)
+	}
 
 	switch run.Command {
 

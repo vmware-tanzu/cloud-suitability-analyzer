@@ -16,7 +16,7 @@ var (
 	App               = kingpin.New(APP_NAME, "CSA is used to analyze & collect data related to the cloud readiness of an application based on it's source-code.")
 	Verbose           = App.Flag("verbose", "enable verbose mode.").Short('v').Bool()
 	Profile           = App.Flag("profile", "enables profiling (cpu|mem)").Enum("cpu", "mem")
-	Xtract			  = App.Flag("xtract", "extract minimum output for pipeline usageca.").Short('x').Bool()
+	Xtract			  = App.Flag("xtract", "extract minimum output for pipeline usage.").Short('x').Bool()
 	Zap			      = App.Flag("zap", "zap (purge) the database before running").Short('z').Bool()
 	RulesDir          = App.Flag("rules-dir", "directory where csa rules are. Rules found in this directory will be automatically imported on tool startup. This will also be the default directory for `rules` import").Default(DEFAULT_RULES_DIR).String()
 	ModelsDir         = App.Flag("models-dir", "directory where csa scoring models are. Scoring Models found in this directory will be automatically imported on tool startup. This will also be the default directory for `scoring-models` import").Default(DEFAULT_MODELS_DIR).String()
