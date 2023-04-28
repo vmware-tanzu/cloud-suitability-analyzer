@@ -66,6 +66,10 @@ compilePackageFrontEnd() {
   popd
 }
 
+stashFiles() {
+  git stash
+}
+
 #--- Run go generate
 runGoGenerate() {
   pushd ${PWD}/csa-app
@@ -98,10 +102,10 @@ generateExecutables() {
     OS=$(uname)
     if [[ "$OS" == "Linux" ]]; then
       echo "Building executables for linux and windows"
-      goreleaser build --skip-validate --snapshot --id='linux' --id='windows' --clean
+      goreleaser build --id='linux' --id='windows' --clean
     elif [[ "$OS" == "Darwin" ]]; then
       echo "Building executables for darwin, linux and windows"
-        goreleaser build --skip-validate --snapshot --clean
+        goreleaser build --clean
     fi
   popd
 }
@@ -109,5 +113,6 @@ generateExecutables() {
 cleanup
 compilePackageFrontEnd
 runGoGenerate
+stashFiles
 generateExecutables
 echo "Build ended at $(date -u +%s)"
