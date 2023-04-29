@@ -102,7 +102,7 @@ generateExecutables() {
     OS=$(uname)
     if [[ "$OS" == "Linux" ]]; then
       echo "Building executables for linux and windows"
-      goreleaser build --id='linux' --id='windows' --clean
+      goreleaser build --skip-validate --snapshot --id='linux' --id='windows' --clean
     elif [[ "$OS" == "Darwin" ]]; then
       echo "Building executables for darwin, linux and windows"
         goreleaser build --clean
