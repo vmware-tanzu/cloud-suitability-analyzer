@@ -8,8 +8,6 @@ export GOSUMDB=off
 #--- set module mode
 export GO111MODULE=on
 
-./download-dependencies.sh
-
 cleanup() {
   rm -rf ${PWD}/csa-app/dist/* ${PWD}/csa-app/frontend/build
 }
@@ -103,16 +101,52 @@ generateExecutables() {
     if [[ "$OS" == "Linux" ]]; then
       echo "Building executables for linux and windows"
       goreleaser build --skip-validate --snapshot --id='linux' --id='windows' --clean
-    elif [[ "$OS" == "Darwin" ]]; then
+    elif [[ "$OS" == "Darwin" && "$RELEASE" == true ]]; then
       echo "Building executables for darwin, linux and windows"
         goreleaser build --clean
+    elif [[ "$OS" == "Darwin" ]]; then
+      echo "Building executables for darwin, linux and windows"
+      goreleaser build --skip-validate --snapshot --clean
     fi
   popd
 }
 
+helpText() {
+  echo "./build.sh - Generate binaries"
+  echo "  -h|--help       Help!!"
+  echo "  -r|--release    Specify this flag if you want to generate the release builds"
+}
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -r|--release)
+      RELEASE=true
+      shift
+      shift
+      ;;
+    -h|--help)
+      helpText
+      exit 1
+      ;;
+    *)
+      echo "Invalid option"
+      helpText
+      exit 1
+      ;;
+  esac  
+done
+
+./download-dependencies.sh
 cleanup
 compilePackageFrontEnd
 runGoGenerate
-stashFiles
+
+
+
+if [[ -z "$RELEASE" ]]; then
+  stashFiles
+fi
+
 generateExecutables
+
 echo "Build ended at $(date -u +%s)"

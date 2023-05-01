@@ -125,6 +125,27 @@ $> sudo chown -R $USER:`id -g -n $USER` $WORKING_DIR/go/exe
 
 The executable(s) can be found in  `<project root dir>/csa-app/exe` directory
 
+# Create release builds on Mac
+
+To create the release build do the following:
+* Tag release 
+
+  ```
+  git tag <tag-name>
+  ```
+
+* Execute 
+  
+  ```
+  ./buils.sh -r
+  ```
+
+* Push the tag out
+  
+  ```
+  git push --tags
+  ```
+
 # Documentation
 
 ## Contributing
