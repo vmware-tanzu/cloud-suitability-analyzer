@@ -139,7 +139,10 @@ func (p *Processor) AnalyzeApp(app *model.Application) (*Result, error) {
 			domainTotals[cf.Dir][cf.Lang].Total += (cf.Code + cf.Comments + cf.Blanks)
 
 			domainTotals[cf.Dir][cf.Lang].Files = append(domainTotals[cf.Dir][cf.Lang].Files, file)
-			util.WriteLog("SLOC Analysis", "CLOC of File [%s]done!\n", file.Name)
+			if (!*util.Xtract) {
+				util.WriteLog("SLOC Analysis", "CLOC of File [%s]done!\n", file.Name)
+			}
+
 		}
 
 		files := int32(len(language.Files))

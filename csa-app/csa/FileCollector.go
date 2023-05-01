@@ -49,8 +49,9 @@ func GetFileListExcludingDirs(searchDir string, fileUtil *util.FileUtil) (files 
 						domainPath,
 						"",
 						true))
-
-					util.WriteLog("Gathering Files", "Found File [%s]\n", f.Name())
+						if (!*util.Xtract) {	
+							util.WriteLog("Gathering Files", "Found File [%s]\n", f.Name())
+						}
 				}
 			}
 		}

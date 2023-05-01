@@ -258,8 +258,9 @@ func (reportService *ReportService) GenerateClocReport(run *model.Run, displayOn
 	reportService.reportDataRepository.SaveReportData(&model.ReportData{RunID: run.ID, ReportID: model.CLOC_REPORT_ID, Data1: model.TOTAL_FIELD,
 		Data2: fmt.Sprint(totalFiles), Data3: fmt.Sprint(totalBlank),
 		Data4: fmt.Sprint(totalComment), Data5: fmt.Sprint(totalCode)})
-
-	reportService.ExportReport(run.ID, model.CLOC_REPORT_ID, "SLOC SUMMARY", true, !displayOnly)
+	if (!*util.Xtract) {
+		reportService.ExportReport(run.ID, model.CLOC_REPORT_ID, "SLOC SUMMARY", true, !displayOnly)
+	}
 
 	if *util.DisplayUnknownExts && len(run.UnknownExts) > 0 {
 		fmt.Printf("Note: csa-cloc found the following unknown (???) file extensions => ")
@@ -309,6 +310,14 @@ func checkReportError(reportName string, err error) {
 
 func (reportService *ReportService) DisplayReport(headers []string, data [][]string, title string, sortByColumn bool) {
 
+	if (*util.Xtract) {
+		fmt.Print("Application,FilesAnalyzed,FilesIgnored,SLOC,Findings,Score\n")
+		for i := 0; i < len(data); i++ {
+			// printing the array elements
+			fmt.Printf("%s,%s,%s,%s,%s,%s\n", data[i][0], data[i][1], data[i][2], data[i][3], data[i][4], data[i][6])
+		}
+	}
+
 	fieldLens := make(map[string]int)
 
 	//get longest header
@@ -340,46 +349,55 @@ func (reportService *ReportService) DisplayReport(headers []string, data [][]str
 	divLength := paddlen/2 - len(title)/2
 	leftPad := fmt.Sprint(" " + util.Padd(" ", divLength))
 	rightPad := fmt.Sprint(util.Padd(" ", divLength) + "")
-
-	fmt.Printf("\n%s%s%s\n", leftPad, title, rightPad)
-	fmt.Print(util.Padd("-", paddlen+2) + "\n")
+	if (!*util.Xtract) {
+		fmt.Printf("\n%s%s%s\n", leftPad, title, rightPad)
+		fmt.Print(util.Padd("-", paddlen+2) + "\n")
+	}
 
 	//Write the headers
-	cnt := 0
-	for _, hdr := range headers {
-		if cnt == 0 {
-			fmt.Print("|")
-		}
-		fmt.Printf("%"+strconv.Itoa(fieldLens[hdr])+"v|", hdr)
-		cnt++
-	}
-
-	fmt.Print("\n")
-
-	cnt = 0
-	for _, hdr := range headers {
-		if cnt == 0 {
-			fmt.Print("|")
-		}
-		fmt.Printf("%s%s", util.Padd("-", fieldLens[hdr]), "|")
-		cnt++
-	}
-	fmt.Print("\n")
-
-	//Write the body
-	for _, line := range data {
-		for i := 0; i < len(line); i++ {
-			if i == 0 {
+	if (!*util.Xtract) {
+		cnt := 0
+		for _, hdr := range headers {
+			if cnt == 0 {
 				fmt.Print("|")
 			}
-			fmt.Printf("%"+strconv.Itoa(fieldLens[headers[i]])+"v|", line[i])
+			fmt.Printf("%"+strconv.Itoa(fieldLens[hdr])+"v|", hdr)
+			cnt++
+		}
+	}
 
+	if (!*util.Xtract) {
+		fmt.Print("\n")
+
+		cnt := 0
+		for _, hdr := range headers {
+				if cnt == 0 {
+					fmt.Print("|")
+				}
+				fmt.Printf("%s%s", util.Padd("-", fieldLens[hdr]), "|")
+				cnt++
 		}
 		fmt.Print("\n")
 	}
 
+	//Write the body
+	if (!*util.Xtract) {
+		for _, line := range data {
+			for i := 0; i < len(line); i++ {
+				if i == 0 {
+					fmt.Print("|")
+				}
+				fmt.Printf("%"+strconv.Itoa(fieldLens[headers[i]])+"v|", line[i])
+
+			}
+			fmt.Print("\n")
+		}
+	}
+
 	//Write Footer
-	fmt.Print(util.Padd("-", paddlen+2) + "\n")
+	if (!*util.Xtract) {
+		fmt.Print(util.Padd("-", paddlen+2) + "\n")
+	}
 
 }
 

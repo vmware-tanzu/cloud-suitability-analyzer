@@ -18,7 +18,7 @@ import (
 	"sort"
 	"strconv"
 	"strings"
-	"github.com/inancgumus/screen"
+	//"github.com/inancgumus/screen"
 	"time"
 
 	"csa-app/db"
@@ -86,7 +86,7 @@ func (csaService *CsaService) processFile(run *model.Run, app *model.Application
 					if rules[i].Target == model.LINE_TARGET {
 						findingCnt += csaService.processPatterns(run, app, file, line, curLine, rules[i], output)
 						if *util.Verbose {
-							util.WriteLog("Analyzing", "### Rule: %s Hit: %d times on File: %s Line: %d ###\n", rules[i].Name, findingCnt, file.Name, line)
+							util.WriteLog("A10nalyzing", "### Rule: %s Hit: %d times on File: %s Line: %d ###\n", rules[i].Name, findingCnt, file.Name, line)
 						}
 					}
 				}
@@ -99,7 +99,7 @@ func (csaService *CsaService) processFile(run *model.Run, app *model.Application
 				if rules[i].Target == model.CONTENTS_TARGET {
 					findingCnt += csaService.processPatterns(run, app, file, 0, contents, rules[i], output)
 					if *util.Verbose {
-						util.WriteLog("Analyzing", "### Rule: %s Hit: %d times on File: %s  ###\n", rules[i].Name, findingCnt, file.Name)
+						util.WriteLog("A11nalyzing", "### Rule: %s Hit: %d times on File: %s  ###\n", rules[i].Name, findingCnt, file.Name)
 					}
 				}
 			}
@@ -412,7 +412,7 @@ func (csaService *CsaService) generateSloc(run *model.Run) {
 	}
 	if (*util.Xtract) {
 		run.StopActivityLF("sloc", "", false, false)
-		screen.Clear()
+		//screen.Clear()
 	}
 
 }
@@ -520,30 +520,28 @@ func (csaService *CsaService) genAppCSAResults(run *model.Run) {
 
 	headers := []string{"name", "files analyzed", "files ignored", "sloc cnt", "# findings", "scoring-model", "score", "recommendation"}
 	var data [][]string
-	if (!*util.Xtract) {
-		for _, app := range run.Applications {
-			line := []string{app.Name, fmt.Sprint(len(app.Files)), fmt.Sprint(len(app.IgnoredFiles)),
-				fmt.Sprint(app.SlocCnt), fmt.Sprint(app.CIFindings), app.ScoringModel, fmt.Sprintf("%2.2f", app.Score), app.Recommendation}
-			data = append(data, line)
-
-			if *util.DisplayIgnoredFiles {
-				fmt.Printf("\n\n---- App [%s] Ignored Files ----\n", app.Name)
-				for _, file := range app.IgnoredFiles {
-					fmt.Printf("\t%s\t\t%s\n", file.Name, file.FQN)
-				}
-			}
-		}
+	
+	for _, app := range run.Applications {
+		line := []string{app.Name, fmt.Sprint(len(app.Files)), fmt.Sprint(len(app.IgnoredFiles)),
+			fmt.Sprint(app.SlocCnt), fmt.Sprint(app.CIFindings), app.ScoringModel, fmt.Sprintf("%2.2f", app.Score), app.Recommendation}
+		data = append(data, line)
 
 		if *util.DisplayIgnoredFiles {
-			fmt.Printf("\n\n--- END IGNORED FILES ---\n\n")
+			fmt.Printf("\n\n---- App [%s] Ignored Files ----\n", app.Name)
+			for _, file := range app.IgnoredFiles {
+				fmt.Printf("\t%s\t\t%s\n", file.Name, file.FQN)
+			}
 		}
-	} else {
-		screen.Clear()
 	}
 
-	if (!*util.Xtract) {
-		csaService.reportService.DisplayReport(headers, data, "CSA Results", false)
+	if *util.DisplayIgnoredFiles {
+		fmt.Printf("\n\n--- END IGNORED FILES ---\n\n")
 	}
+
+
+	
+	csaService.reportService.DisplayReport(headers, data, "CSA Results", false)
+	
 }
 
 func (csaService *CsaService) gatherFiles(run *model.Run) {
@@ -568,7 +566,7 @@ func (csaService *CsaService) gatherFiles(run *model.Run) {
 			fmt.Print("\nApp/File Details:\n\n")
 		} else {
 			run.StopActivityLF("", "\n", false, true)
-			screen.Clear()
+			//screen.Clear()
 		}
 		csaService.UpdateRunWithApplications(run, runConfig)
 		fmt.Println("")

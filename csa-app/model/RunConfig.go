@@ -101,7 +101,9 @@ func (rc *RunConfig) Populate() {
 		waitGroup.Add(1)
 		go func(idx int) {
 			defer waitGroup.Done()
-			util.WriteLog("Gathering", "Gathering Files for App[%s]\n", rc.Applications[idx].Name)
+			if (!*util.Xtract) {
+				util.WriteLog("Gathering", "Gathering Files for App[%s]\n", rc.Applications[idx].Name)
+			}
 			err := rc.Applications[idx].GatherFiles()
 			if err != nil {
 				log.Panicf("Error Gathering files for App[%s]...Details: %v\n", rc.Applications[idx].Name, err)

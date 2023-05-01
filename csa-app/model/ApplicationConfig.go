@@ -62,14 +62,18 @@ func (c *ApplicationConfig) AddFile(f os.FileInfo, path string) {
 	//Run this check for every file because it is a waste to actually analyze archives/binary files
 	isArchive := c.FileUtil.IsDecompilableArchive(path)
 	if isArchive && *util.AnalyzeArchives {
-		util.WriteLog("Gathering Files", "Found Archive [%s] @ %s within app [%s]\n", f.Name(), path, c.Name)
+		if (!*util.Xtract) {
+			util.WriteLog("Gathering Files", "Found Archive [%s] @ %s within app [%s]\n", f.Name(), path, c.Name)
+		}
 		decompilePath, _, decompiled := c.FileUtil.CheckForArchive(path)
 		if decompiled {
 			c.gatherFilesOnPath(decompilePath)
 			//File is decompiled and added so return
 			return
 		} else {
-			util.WriteLog("Gathering Files", "Archive [%s] @ %s within app [%s] could not be decompiled!\n", f.Name(), path, c.Name)
+			if (!*util.Xtract) {
+				util.WriteLog("Gathering Files", "Archive [%s] @ %s within app [%s] could not be decompiled!\n", f.Name(), path, c.Name)
+			}
 		}
 	}
 
@@ -87,16 +91,22 @@ func (c *ApplicationConfig) AddFile(f os.FileInfo, path string) {
 
 		if c.FileUtil.FileShouldBeProcessed(f.Name()) {
 			c.Files = append(c.Files, fInfo)
-			util.WriteLog("Gathering Files", "Found File [%s]\n", f.Name())
+			if (!*util.Xtract) {
+				util.WriteLog("Gathering Files", "Found File [%s]\n", f.Name())
+			}
 		} else {
 			msg := fmt.Sprintf("Found File [%s] @ %s within app [%s]. Ignoring as it is excluded!\n", f.Name(), path, c.Name)
-			util.WriteLog("Gathering Files", msg)
-			c.IgnoredFiles = append(c.IgnoredFiles, fInfo)
+			if (!*util.Xtract) {
+				util.WriteLog("Gathering Files", msg)
+				c.IgnoredFiles = append(c.IgnoredFiles, fInfo)
+			}
 		}
 	} else {
 		msg := fmt.Sprintf("Found Archive [%s] @ %s within app [%s]. Ignoring as 'analyze-archives' flag is false.\n", f.Name(), path, c.Name)
-		util.WriteLog("Gathering Files", msg)
-		c.IgnoredFiles = append(c.IgnoredFiles, fInfo)
+		if (!*util.Xtract) {
+			util.WriteLog("Gathering Files", msg)
+			c.IgnoredFiles = append(c.IgnoredFiles, fInfo)
+		}
 	}
 }
 

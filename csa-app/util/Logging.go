@@ -84,8 +84,9 @@ func WriteLogLineWithToken(line int, action string, token string, format string,
 			sp.index++
 			sp.Unlock()
 		}
-		//fmt.Printf("\033[0G%s...%s\033[0K", action, symbol)
-		fmt.Printf("%s...%s\r", action, symbol)
+		if (!*Xtract) {
+			fmt.Printf("%s...%s\r", action, symbol)
+		}
 	}
 }
 
