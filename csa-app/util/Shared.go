@@ -22,6 +22,7 @@ var (
 	ModelsDir         = App.Flag("models-dir", "directory where csa scoring models are. Scoring Models found in this directory will be automatically imported on tool startup. This will also be the default directory for `scoring-models` import").Default(DEFAULT_MODELS_DIR).String()
 	OutputDir         = App.Flag("output-dir", "directory path where csa results will be output").Default(DEFAULT_OUTPUT_DIR).String()
 	CICDDir           = App.Flag("cicd-dir", "directory path where csa CICD outputs will be written").Default(DEFAULT_CICD_DIR).String()
+	CICDFileName      = App.Flag("cicd-file-name", "name of the CICD output file").Default(DEFAULT_CICD_FILENAME).String()
 	ExcludedDirsRegEx = App.Flag(EXCLUDED_DIRS_FLAG, "regex pattern of directories not to be included in analysis").Default("^([.].*|target|bin|test|node_modules|eclipse|out|vendors|obj)$").String()
 	DB                = App.Flag("db", "which database engine to use (sqlite|postgres)").Default(SQLITE).Enum(SQLITE, POSTGRES)
 	DBName            = App.Flag("db-name", "name of database").Default(DEFAULT_DB_NAME).String()
@@ -175,6 +176,7 @@ const POSTGRES string = "postgres"
 const DEFAULT_RULES_DIR = "./rules"
 const DEFAULT_OUTPUT_DIR = "csa-reports"
 const DEFAULT_CICD_DIR = "CICD-outputs"
+const DEFAULT_CICD_FILENAME = "findings.csv"
 const DEFAULT_MODELS_DIR = "./scoring-models"
 const RULE_BOOTSTRAP_TEMPLATE = "BootstrapRulesTemplate.txt"
 const BIN_BOOTSTRAP_TEMPLATE = "BootstrapBinsTemplate.txt"

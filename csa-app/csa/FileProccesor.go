@@ -542,7 +542,7 @@ func (csaService *CsaService) genAppCSAResults(run *model.Run) {
 		`
 	
 		var sqlDBFile = *util.DbDir + string(os.PathSeparator) + *util.DBName
-		var CICDFile = *util.CICDDir + string(os.PathSeparator) + "findings.csv"
+		var CICDFile = *util.CICDDir + string(os.PathSeparator) + *util.CICDFileName
 
 		if err := os.MkdirAll(*util.CICDDir, os.ModePerm); err != nil {
 			fmt.Print(err)
