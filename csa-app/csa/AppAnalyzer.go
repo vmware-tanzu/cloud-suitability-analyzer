@@ -66,7 +66,7 @@ func (csaService *CsaService) analyzeApp(run *model.Run, app *model.Application,
 	util.WriteLogWithToken("Analyzing", fmt.Sprintf("%2.f%%", float64(run.AnalyzedCnt)/float64(run.Files)*100), "App: %s...done\n!", app.Name)
 
 	if (!*util.Xtract) {
-		run.StopActivity(fmt.Sprintf("%s-analysis", app.Name), fmt.Sprintf("Analyzing$# - %s...done!", app.Name), true)
+		run.StopActivity(fmt.Sprintf("%s-analysis", app.Name), fmt.Sprintf("Analyzing - %s...done!", app.Name), true)
 	} else {
 		run.StopActivity(fmt.Sprintf("%s-analysis", app.Name), "", false)
 	}

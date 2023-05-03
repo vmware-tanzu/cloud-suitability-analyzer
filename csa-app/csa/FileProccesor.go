@@ -18,6 +18,7 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+
 	//"github.com/inancgumus/screen"
 	"time"
 
@@ -26,7 +27,11 @@ import (
 	"csa-app/model"
 	"csa-app/util"
 
+	"database/sql"
+
 	"github.com/antchfx/xmlquery"
+
+	//"github.com/mattn/go-sqlite3"
 	"gopkg.in/yaml.v3"
 )
 
@@ -520,7 +525,90 @@ func (csaService *CsaService) genAppCSAResults(run *model.Run) {
 
 	headers := []string{"name", "files analyzed", "files ignored", "sloc cnt", "# findings", "scoring-model", "score", "recommendation"}
 	var data [][]string
+
+	//--- TODO: Move to function
+
+	if( util.CICDDir != nil ) {
+		qryFindings := `
+			SELECT 
+			application,
+			filename,
+			fqn,
+			line,
+			rule,
+			advice,
+			effort
+   		FROM findings;
+		`
 	
+		var sqlDBFile = *util.DbDir + string(os.PathSeparator) + *util.DBName
+		var CICDFile = *util.CICDDir + string(os.PathSeparator) + "findings.csv"
+
+		if err := os.MkdirAll(*util.CICDDir, os.ModePerm); err != nil {
+			fmt.Print(err)
+			os.Exit(1)
+		}
+
+		file, err := os.Create(CICDFile)
+     
+		if err != nil {
+			fmt.Printf("failed creating file: %s", err)
+		}
+		defer file.Close()
+
+
+
+
+		db, err := sql.Open("sqlite3", sqlDBFile )
+		if err != nil {
+			fmt.Print(err)
+			os.Exit(1)
+		}
+		defer db.Close()
+		rows, err := db.Query(qryFindings)
+		if err != nil {
+			fmt.Print(err)
+			os.Exit(1)
+		}
+		defer rows.Close()
+
+		var application string
+		var filename string
+		var fqn string
+		var line int
+		var rule string
+		var advice string
+		var effort int
+
+		_, err3 := file.WriteString("application,filename,fqn,line,rule,advice,effort\n")
+
+		if err3 != nil {
+			fmt.Print(err3)
+			os.Exit(1)
+		}
+		for rows.Next() {
+			err = rows.Scan(&application, &filename, &fqn, &line, &rule, &advice, &effort)
+			if err != nil {
+				fmt.Print(err)
+				os.Exit(1)
+			}
+			
+			line := fmt.Sprintf("%s,%s,%s,%d,%s,%s,%d\n", application, filename, fqn, line, rule, advice, effort)
+			_, err2 := file.WriteString(line)
+
+
+
+			if err2 != nil {
+				fmt.Print(err2)
+				os.Exit(1)
+			}
+
+
+
+		}
+		fmt.Printf("\n\nWrote CICD file %s\n", CICDFile)
+	}
+
 	for _, app := range run.Applications {
 		line := []string{app.Name, fmt.Sprint(len(app.Files)), fmt.Sprint(len(app.IgnoredFiles)),
 			fmt.Sprint(app.SlocCnt), fmt.Sprint(app.CIFindings), app.ScoringModel, fmt.Sprintf("%2.2f", app.Score), app.Recommendation}

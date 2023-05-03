@@ -102,7 +102,20 @@ func main() {
 		 fmt.Println(err)
 		 os.Exit(1)
 	   }
-   }
+   	}
+
+	//--- if CICD directory exists, remove it
+	if (*util.CICDDir != "") {
+		if _, err := os.Stat(*util.CICDDir); !os.IsNotExist(err) {
+			err := os.RemoveAll(*util.CICDDir)
+			if err != nil {
+				fmt.Println(err)
+				os.Exit(1)
+			}
+			fmt.Printf("Removing current CICD directory: %s\n", *util.CICDDir)
+		}
+
+	}
 	
 	run.DB = db.OpenDB(run)
 	defer run.Cleanup()
