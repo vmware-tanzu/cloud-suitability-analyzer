@@ -593,7 +593,7 @@ func (csaService *CsaService) genAppCSAResults(run *model.Run) {
 				os.Exit(1)
 			}
 			
-			line := fmt.Sprintf("%s,%s,%s,%d,%s,%s,%d\n", application, filename, fqn, line, rule, advice, effort)
+			line := fmt.Sprintf("\"%s\",\"%s\",\"%s\",%d,\"%s\",\"%s\",%d\n", application, filename, fqn, line, rule, advice, effort)
 			_, err2 := file.WriteString(line)
 
 
