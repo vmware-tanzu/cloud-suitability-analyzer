@@ -1,10 +1,10 @@
 name: dotnet-script-blocks
 # -----METADATA FOR MAT-------
 mat_sno: 62
-mat_category: .NETCORE PORTABILITY
-mat_title: Dotnet Script Blocks
+mat_category: platform-mandatory
+mat_title: Usage of Script Blocks
 mat_description: Script blocks are supported only in .NET Framework. They are not supported on .NET Core or .NET 5 or later.
-mat_group: NOT SUPPORTED IN .NETCORE
+mat_group: DOTNET_CORE_UNSUPPORTED
 mat_criticality: Medium
 # -----------------------------
 filetype: (xsl)

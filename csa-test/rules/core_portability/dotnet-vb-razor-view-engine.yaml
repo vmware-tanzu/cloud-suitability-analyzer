@@ -2,10 +2,10 @@
 name: dotnet-vb-razor-view-engine
 # -----METADATA FOR MAT-------
 mat_sno: 67
-mat_category: .NETCORE PORTABILITY
-mat_title: Dotnet VB Razor View Engine
+mat_category: platform-mandatory
+mat_title: Usage of VB Razor View Engine
 mat_description: Not supported in .netCore https://aka.ms/vb-angular-and-web-api
-mat_group: NOT SUPPORTED IN .NETCORE
+mat_group: DOTNET_CORE_UNSUPPORTED
 mat_criticality: High
 # -----------------------------
 filetype: (vbhtml$)

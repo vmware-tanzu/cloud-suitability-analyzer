@@ -1,10 +1,10 @@
 name: dotnet-ISAPI-Filters-vbcs
 # -----METADATA FOR MAT-------
 mat_sno: 57
-mat_category: .NETCORE PORTABILITY
+mat_category: platform-mandatory
 mat_title: ISAPI Filter VBCS IIS Module
 mat_description: Windows and IIS server dependency. Not supported in .netCore targeting linux.
-mat_group: IIS MODULE
+mat_group: DOTNET_CORE_UNSUPPORTED
 mat_criticality: Medium
 # -----------------------------
 filetype: (cs$|vb$)

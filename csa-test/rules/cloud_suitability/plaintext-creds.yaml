@@ -1,10 +1,10 @@
 name: plaintext-creds
 # -----METADATA FOR MAT-------
 mat_sno: 3
-mat_category: CLOUD DEBT
+mat_category: cloud-mandatory
 mat_title: Plain Text Credentials
 mat_description: Found plain text credentials. Never save passwords or login information in files. Make configurable, put into environment variables or config maps in a kubernetes like environment. Credentials could also be set and retrieved from cloud friendly crdential vaults. 
-mat_group: HARD CODED CONFIG
+mat_group: DOTNET_HARD_CODED_CONFIG
 mat_criticality: Low
 # -----------------------------
 target: line

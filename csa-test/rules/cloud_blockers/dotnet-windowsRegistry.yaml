@@ -1,10 +1,10 @@
 name: dotnet-windowsRegistry
 # -----METADATA FOR MAT-------
 mat_sno: 21
-mat_category: CLOUD BLOCKER
-mat_title: Dotnet Windows Registry
+mat_category: platform-mandatory
+mat_title: Usage of Windows Registry
 mat_description: External configurations should be made available by environment variables or some another external service (Property Management Service). 
-mat_group: HARD CODED CONFIG
+mat_group: DOTNET_WINDOWS_REGISTRY
 mat_criticality: Medium
 # -----------------------------
 filetype: (cs$|vb$)

@@ -1,10 +1,10 @@
 name: dotnet-connectionstrings
 # -----METADATA FOR MAT-------
 mat_sno: 6
-mat_category: CLOUD BLOCKER
-mat_title: Hard coded connection strings
+mat_category: cloud-mandatory
+mat_title: Usage of hard coded connection strings
 mat_description: Remove connection strings from files, use environment variables (or mount configmap into pod)
-mat_group: HARD CODED CONFIG
+mat_group: DOTNET_CLOUD_CONFIG
 mat_criticality: Low
 # -----------------------------
 title: Usage of hardcoded connection string

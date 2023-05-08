@@ -1,10 +1,10 @@
 name: dotnet-package-ninject-web-webapi
 # -----METADATA FOR MAT-------
 mat_sno: 154
-mat_category: .NETCORE PORTABILITY
-mat_title: dotnet-package-ninject-web-webapi
+mat_category: platform-mandatory
+mat_title: Usage of unsupported package ninject-web-webapi
 mat_description: Not Supported in .NetCore 
-mat_group: NOT AVAILABLE IN .NETCORE
+mat_group: DOTNET_CORE_UNSUPPORTED
 mat_criticality: Medium
 # -----------------------------
 filetype: (config$)

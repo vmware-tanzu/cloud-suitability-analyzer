@@ -2,10 +2,10 @@
 name: dotnet-FileCacheModule
 # -----METADATA FOR MAT-------
 mat_sno: 9
-mat_category: CLOUD BLOCKER
+mat_category: cloud-mandatory
 mat_title: File caching IIS module
 mat_description: Caching should be managed externally. Relying on IIS Modules won't work in Linux environment. Alternatives are distributed cache solutions like Redis, SQL Server distributed cache, NCache distributed cache.
-mat_group: STATEFUL
+mat_group: DOTNET_STATEFUL
 mat_criticality: High
 # -----------------------------
 filetype: config$

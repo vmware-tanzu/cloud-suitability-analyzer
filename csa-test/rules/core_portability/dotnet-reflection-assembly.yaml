@@ -1,10 +1,10 @@
 name: dotnet-reflection-assembly
 # -----METADATA FOR MAT-------
 mat_sno: 61
-mat_category: .NETCORE PORTABILITY
-mat_title: Dotnet Reflection Assembly
+mat_category: platform-mandatory
+mat_title: Usage of Reflection Assembly
 mat_description: Use AssemblyLoadContext. Evidence is not supported in .NET Core.
-mat_group: NOT SUPPORTED IN .NETCORE
+mat_group: DOTNET_CORE_UNSUPPORTED
 mat_criticality: Medium
 # -----------------------------
 filetype: (cs$|vb$)

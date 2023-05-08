@@ -1,10 +1,10 @@
 name: dotnet-windowsForms
 # -----METADATA FOR MAT-------
 mat_sno: 19
-mat_category: CLOUD BLOCKER
+mat_category: cloud-mandatory
 mat_title: Dotnet Windows Form
 mat_description: Windows Forms module is not supported in the cloud. Refactor to a web application.
-mat_group: WINDOWS DESKTOP
+mat_group: DOTNET_WINDOWS_DESKTOP
 mat_criticality: High
 # -----------------------------
 filetype: (cs$|vb$|csproj$)

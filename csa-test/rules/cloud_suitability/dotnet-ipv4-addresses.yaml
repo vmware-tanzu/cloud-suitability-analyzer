@@ -1,10 +1,10 @@
 name: dotnet-ipv4-addresses
 # -----METADATA FOR MAT-------
 mat_sno: 1
-mat_category: CLOUD DEBT
+mat_category: cloud-mandatory
 mat_title: Hard Coded IP Addresses
 mat_description: Found hard-coded IPv4s. Make configurable, put into environment variables. Leverage config maps in a kubernetes like environment.
-mat_group: HARD CODED CONFIG
+mat_group: DOTNET_HARD_CODED_CONFIG
 mat_criticality: Low
 # -----------------------------
 filetype: (yaml|yml|cs$|json|txt)

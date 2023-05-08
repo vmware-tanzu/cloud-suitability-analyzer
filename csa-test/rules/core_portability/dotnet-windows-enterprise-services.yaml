@@ -1,10 +1,10 @@
 name: dotnet-windows-enterprise-services
 # -----METADATA FOR MAT-------
 mat_sno: 73
-mat_category: .NETCORE PORTABILITY
-mat_title: Dotnet Enterprise Services
+mat_category: platform-mandatory
+mat_title: Usage of Enterprise Services
 mat_description: Not Supported on .Net Core
-mat_group: NOT SUPPORTED IN .NETCORE
+mat_group: DOTNET_CORE_UNSUPPORTED
 mat_criticality: Medium
 # -----------------------------
 filetype: (cs$|vb$)

@@ -1,10 +1,10 @@
 name: dotnet-windows-presentation-foundation
 # -----METADATA FOR MAT-------
 mat_sno: 18
-mat_category: CLOUD BLOCKER
+mat_category: cloud-mandatory
 mat_title: Dotnet Windows Presentation Foundation
 mat_description: Desktop technology only available on Windows platform
-mat_group: WINDOWS DESKTOP
+mat_group: DOTNET_WINDOWS_DESKTOP
 mat_criticality: High
 # -----------------------------
 # ignore development config files

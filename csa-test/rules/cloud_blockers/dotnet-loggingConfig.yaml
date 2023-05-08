@@ -1,10 +1,10 @@
 name: dotnet-logging-config
 # -----METADATA FOR MAT-------
 mat_sno: 14
-mat_category: CLOUD BLOCKER
-mat_title: Dotnet Logging Configuration
+mat_category: cloud-mandatory
+mat_title: Usage of EventLog
 mat_description: Logging to the Event Log is not recommended for cloud native apps. write to or manage logfiles. Instead, each running process should write its event stream, unbuffered, to stdout. https://docs.lacunasoftware.com/en-us/articles/amplia/on-premises/windows/enable-stdout-log.html
-mat_group: LOGGING
+mat_group: DOTNET_LOGGING
 mat_criticality: Low
 # -----------------------------
 filetype: config$

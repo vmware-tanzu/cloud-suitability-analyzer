@@ -1,10 +1,10 @@
 name: dotnet-package-miniprofiler
 # -----METADATA FOR MAT-------
 mat_sno: 104
-mat_category: .NETCORE PORTABILITY
-mat_title: dotnet-package-miniprofiler
+mat_category: platform-mandatory
+mat_title: Usage of unsupported package miniprofiler
 mat_description: Not Supported in .NetCore 
-mat_group: NOT AVAILABLE IN .NETCORE
+mat_group: DOTNET_CORE_UNSUPPORTED
 mat_criticality: Medium
 # -----------------------------
 filetype: (config$)

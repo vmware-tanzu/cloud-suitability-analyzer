@@ -1,10 +1,10 @@
 name: dotnet-windowsServices
 # -----METADATA FOR MAT-------
 mat_sno: 22
-mat_category: CLOUD BLOCKER
-mat_title: Dotnet Windows Services
+mat_category: cloud-mandatory
+mat_title: Usage of Windows Services
 mat_description: Traditional Windows services will not run on linux environments. Windows services should be turned into their own deployable console application. 
-mat_group: LAUNCH PROCESS
+mat_group: DOTNET_LAUNCH PROCESS
 mat_criticality: Medium
 # -----------------------------
 filetype: (cs$|vb$)

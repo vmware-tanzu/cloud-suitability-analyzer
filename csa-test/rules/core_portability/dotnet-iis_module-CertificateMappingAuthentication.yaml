@@ -1,10 +1,10 @@
 name: dotnet-iis_module-CertificateMappingAuthentication
 # -----METADATA FOR MAT-------
 mat_sno: 40
-mat_category: .NETCORE PORTABILITY
-mat_title: Certificate Mapping Authentication IIS Module
+mat_category: platform-mandatory
+mat_title: Usage of Certificate Mapping Authentication IIS Module
 mat_description: Windows and IIS server dependency. Not supported in .netCore targeting linux.
-mat_group: IIS MODULE
+mat_group: DOTNET_IIS_MODULE
 mat_criticality: Medium
 # -----------------------------
 filetype: config$

@@ -1,10 +1,10 @@
 name: dotnet-serilog
 # -----METADATA FOR MAT-------
 mat_sno: 16
-mat_category: CLOUD BLOCKER
-mat_title: Dotnet Serilog
+mat_category: cloud-mandatory
+mat_title: Logging with Serilog
 mat_description: Logging with Serilog. Make sure not to log to file. Remote logging sinks need to be reachable on network. Logging to the Event Log is not recommended for cloud native apps. Write to or manage logfiles. Instead, each running process should write its event stream, unbuffered, to stdout.
-mat_group: LOGGING
+mat_group: DOTNET_CLOUD_SERILOG
 mat_criticality: Low
 # -----------------------------
 filetype: cs$

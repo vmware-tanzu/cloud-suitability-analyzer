@@ -1,13 +1,13 @@
 name: hardcode-uri
 # -----METADATA FOR MAT-------
 mat_sno: 2
-mat_category: CLOUD DEBT
+mat_category: cloud-mandatory
 mat_title: Hard Coded URIs
 mat_description: Found hard-coded URIs. Make configurable, put into environment or config map
-mat_group: HARD CODED CONFIG
+mat_group: DOTNET_HARD_CODED_CONFIG
 mat_criticality: Low
 # -----------------------------
-filetype: (java$|vb$|py$|go$|aspx$|c$|h$|cs$|csx$|cpp$|cob$|cfm$|cfml$|dockerfile$|jsp$|php$|vb$|r$|ts$|yaml$|yml$|json$|jsons$)
+filetype: (java$|vb$|py$|go$|aspx$|c$|h$|cs$|csx$|cpp$|cob$|cfm$|cfml$|dockerfile$|jsp$|php$|vb$|r$|ts$|yaml$|yml$|jsons$)
 #filetype: (cs$|js$)
 target: line
 type: regex

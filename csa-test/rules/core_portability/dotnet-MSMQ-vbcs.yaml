@@ -1,10 +1,10 @@
 name: dotnet-MSMQ-vbcs
 # -----METADATA FOR MAT-------
 mat_sno: 60
-mat_category: .NETCORE PORTABILITY
-mat_title: Dotnet Messaging MSMQ
+mat_category: platform-mandatory
+mat_title: Usage of Messaging MSMQ
 mat_description: MSMQ is a proprietary Windows server-based messaging solution that is not supported by Linux based containers. Leverage bridging solutions like https://kubemq.io/helping-net-msmq-based-services-to-migrate-to-kubernetes/ on kubernetes
-mat_group: NOT SUPPORTED IN .NETCORE
+mat_group: DOTNET_CORE_UNSUPPORTED
 mat_criticality: Medium
 # -----------------------------
 filetype: (cs$|vb$)

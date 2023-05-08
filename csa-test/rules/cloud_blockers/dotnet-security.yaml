@@ -1,10 +1,10 @@
 name: dotnet-security
 # -----METADATA FOR MAT-------
 mat_sno: 15
-mat_category: CLOUD BLOCKER
-mat_title: Dotnet Security
+mat_category: cloud-mandatory
+mat_title: Usage of Windows Certificate Stores
 mat_description: Relying on Windows certificate stores is problematic in a cloud environment. Certificate stores could be shared via shared volume mounts. Ideally you should decouple certificates and SSL from your application. SSL could also be handled at the load balancer level.
-mat_group: SECURITY
+mat_group: DOTNET_SECURITY
 mat_criticality: Low
 # -----------------------------
 filetype: (cs$|vb$)

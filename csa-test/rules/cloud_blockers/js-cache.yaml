@@ -1,10 +1,10 @@
 name: js-cache
 # -----METADATA FOR MAT-------
 mat_sno: 23
-mat_category: CLOUD BLOCKER
+mat_category: cloud-mandatory
 mat_title: Javascript file caching
 mat_description: Using caching in memory will not scale when used in a multi nodes environment. Use distributed caching like redis instead. 
-mat_group: STATEFUL
+mat_group: DOTNET_STATEFUL
 mat_criticality: Medium
 # -----------------------------
 filetype: js$

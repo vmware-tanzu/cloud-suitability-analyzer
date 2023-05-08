@@ -1,10 +1,10 @@
 name: dotnet-package-imageprocessor-web
 # -----METADATA FOR MAT-------
 mat_sno: 135
-mat_category: .NETCORE PORTABILITY
-mat_title: dotnet-package-imageprocessor-web
+mat_category: platform-mandatory
+mat_title: Usage of unsupported package imageprocessor-web
 mat_description: Not Supported in .NetCore 
-mat_group: NOT AVAILABLE IN .NETCORE
+mat_group: DOTNET_CORE_UNSUPPORTED
 mat_criticality: Medium
 # -----------------------------
 filetype: (config$)

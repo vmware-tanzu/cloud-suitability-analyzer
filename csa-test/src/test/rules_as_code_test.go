@@ -5,22 +5,22 @@ import (
 	"test/csa-app/csa"
 	"test/csa-app/model"
 	"test/csa-app/util"
-	matt "test/mat"
+	"test/mat"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 )
 
 // Rules
-var rulesCloudBlockerDir = "/Users/scarbonell/Workspace/bankofamerica/csa-test/rules/cloud_blockers"
+var rulesCloudBlockerDir = "/Users/scarbonell/Workspace/boa-csa/cloud-suitability-analyzer/csa-test/rules/cloud_blockers"
 var cloudBlockerRuleSet = csa.Setup(rulesCloudBlockerDir)
-var rulesCorePortabilityDir = "/Users/scarbonell/Workspace/bankofamerica/csa-test/rules/core_portability"
+var rulesCorePortabilityDir = "/Users/scarbonell/Workspace/boa-csa/cloud-suitability-analyzer/csa-test/rules/core_portability"
 var corePortabilityRuleSet = csa.Setup(rulesCorePortabilityDir)
-var rulesCloudSuitabilityDir = "/Users/scarbonell/Workspace/bankofamerica/csa-test/rules/cloud_suitability"
+var rulesCloudSuitabilityDir = "/Users/scarbonell/Workspace/boa-csa/cloud-suitability-analyzer/csa-test/rules/cloud_suitability"
 var cloudSuitabilityRuleSet = csa.Setup(rulesCloudSuitabilityDir)
-var rulesPackagePortabilityDir = "/Users/scarbonell/Workspace/bankofamerica/csa-test/rules/package_portability"
+var rulesPackagePortabilityDir = "/Users/scarbonell/Workspace/boa-csa/cloud-suitability-analyzer/csa-test/rules/package_portability"
 var packagePortabilityRuleSet = csa.Setup(rulesPackagePortabilityDir)
-var rules3rdPartyDir = "/Users/scarbonell/Workspace/bankofamerica/csa-test/rules/third_party_packages"
+var rules3rdPartyDir = "/Users/scarbonell/Workspace/boa-csa/cloud-suitability-analyzer/csa-test/rules/third_party_packages"
 var thirdPartyRuleSet = csa.Setup(rules3rdPartyDir)
 
 var ruleCount = len(cloudBlockerRuleSet) + len(corePortabilityRuleSet) + len(cloudSuitabilityRuleSet) + len(packagePortabilityRuleSet) + len(thirdPartyRuleSet)
@@ -29,7 +29,7 @@ var rulesTested [100]string
 var testCount = 0
 
 // Code Samples
-var sampleBaseDir = "/Users/scarbonell/Workspace/bankofamerica/csa-test/src/test/test_samples"
+var sampleBaseDir = "/Users/scarbonell/Workspace/boa-csa/cloud-suitability-analyzer/csa-test/src/test/test_samples"
 
 /*************************************
 // Test Rule is Valid / Compiles
@@ -86,6 +86,10 @@ func TestCloudBlockerSuite(t *testing.T) {
 	// Javascript Anti Cloud Patterns
 	testRuleByName(t, "JS FileIO", csa.RuleByName(t, cloudBlockerRuleSet, "js-fileIO"), "js-fileIO.js", true, 1, "null")
 	testRuleByName(t, "JS Cache", csa.RuleByName(t, cloudBlockerRuleSet, "js-cache"), "js-cache.js", true, 3, "null")
+	// Windows Integrated Authentication
+	testRuleByName(t, "Windows Integrated Authentication", csa.RuleByName(t, cloudBlockerRuleSet, "dotnet-WindowsAuth-config"), "dotnet-WindowsAuth-config.config", true, 1, "null")
+	// Windows Integrated Authentication
+	testRuleByName(t, "Windows Integrated Authentication in Code", csa.RuleByName(t, cloudBlockerRuleSet, "dotnet-WindowsAuth-csvb"), "dotnet-WindowsAuth-csvb.cs", true, 1, "null")
 
 }
 
@@ -345,7 +349,9 @@ func TestCoverage(t *testing.T) {
 func TestExportForMat(t *testing.T) {
 	ruleList := append(cloudSuitabilityRuleSet, corePortabilityRuleSet...)
 	ruleList = append(ruleList, cloudBlockerRuleSet...)
-	matt.Export(ruleList)
+	ruleList = append(ruleList, packagePortabilityRuleSet...)
+	ruleList = append(ruleList, thirdPartyRuleSet...)
+	mat.Export(ruleList)
 
 	for _, r := range ruleList {
 		if rulesCovered[r.Name] != struct{}{} {

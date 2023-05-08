@@ -1,10 +1,10 @@
 name: dotnet-wcf-service-model-config
 # -----METADATA FOR MAT-------
 mat_sno: 68
-mat_category: .NETCORE PORTABILITY
-mat_title: Dotnet WCF Service Model Config
+mat_category: platform-mandatory
+mat_title: Usage of WCF Service Model Config
 mat_description: Upgrade to CoreWCF https://devblogs.microsoft.com/dotnet/upgrading-a-wcf-service-to-dotnet-6/
-mat_group: NOT SUPPORTED IN .NETCORE
+mat_group: DOTNET_CORE_UNSUPPORTED
 mat_criticality: High
 # -----------------------------
 filetype: config$

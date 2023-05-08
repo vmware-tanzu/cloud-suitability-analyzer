@@ -1,10 +1,10 @@
 name: dotnet-launchProcess
 # -----METADATA FOR MAT-------
 mat_sno: 12
-mat_category: CLOUD BLOCKER
-mat_title: Dotnet Launch Process
+mat_category: cloud-mandatory
+mat_title: Launch Additional Processes
 mat_description: Launching additional processes within a container like environment is not recommended. In a targeted docker like environment it is generally recommended that you separate areas of concern by using one service per container.
-mat_group: LAUNCH PROCESS
+mat_group: DOTNET_LAUNCH PROCESS
 mat_criticality: Medium
 # -----------------------------
 filetype: (cs$|vb$)

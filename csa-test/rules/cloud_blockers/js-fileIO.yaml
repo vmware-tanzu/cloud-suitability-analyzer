@@ -1,10 +1,10 @@
 name: js-fileIO
 # -----METADATA FOR MAT-------
 mat_sno: 24
-mat_category: CLOUD BLOCKER
+mat_category: cloud-mandatory
 mat_title: Javascript File IO
 mat_description: Cloud-native applications should not rely on a local filesystem to store information, configuration or logs. Some alternatives could be cloud storage (buckets), storing data in a shared database or leveraging shared mounted volumes in a kubernetes like environment.
-mat_group: STATEFUL
+mat_group: DOTNET_CLOUD_LOCALFILES
 mat_criticality: Medium
 # -----------------------------
 filetype: js$

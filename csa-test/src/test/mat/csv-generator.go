@@ -1,4 +1,4 @@
-package matt
+package mat
 
 import (
 	"encoding/csv"
@@ -7,7 +7,7 @@ import (
 	"test/csa-app/model"
 )
 
-var outputDir = "/Users/scarbonell/Workspace/bankofamerica/csa-test/mat_export.csv"
+var outputDir = "/Users/scarbonell/Workspace/boa-csa/cloud-suitability-analyzer/csa-test/mat_export.csv"
 
 func Export(rules []model.Rule) {
 
@@ -19,9 +19,9 @@ func Export(rules []model.Rule) {
 	w := csv.NewWriter(file)
 	defer w.Flush()
 	// Using Write
-	w.Write([]string{"SNO", "Rule ID", "Category", "Title", "Rule Group", "Rule Description"})
+	w.Write([]string{"SNO", "Rule ID", "Category", "Platform", "Title", "Rule Group", "Rule Description(From CSA)"})
 	for _, rule := range rules {
-		row := []string{rule.Mat_sno, rule.Name, rule.Mat_category, rule.Mat_title, rule.Mat_group, rule.Mat_description}
+		row := []string{rule.Mat_sno, rule.Name, rule.Mat_category, "Windows", rule.Mat_title, rule.Mat_group, rule.Mat_description}
 		if err := w.Write(row); err != nil {
 			log.Fatalln("error writing record to file", err)
 		}

@@ -1,10 +1,10 @@
 name: dotnet-serialization
 # -----METADATA FOR MAT-------
 mat_sno: 63
-mat_category: .NETCORE PORTABILITY
-mat_title: Dotnet Serialization
+mat_category: platform-mandatory
+mat_title: Usage of Serialization
 mat_description: Not supported in .netCore
-mat_group: NOT SUPPORTED IN .NETCORE
+mat_group: DOTNET_CORE_UNSUPPORTED
 mat_criticality: Medium
 # -----------------------------
 filetype: (cs$|vb$)

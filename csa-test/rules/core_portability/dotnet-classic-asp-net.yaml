@@ -1,10 +1,10 @@
 name: dotnet-classic-asp-net
 # -----METADATA FOR MAT-------
 mat_sno: 34
-mat_category: .NETCORE PORTABILITY
-mat_title: Dotnet ASP Classic
+mat_category: platform-mandatory
+mat_title: Usage of ASP Classic
 mat_description: Unsupported-netcore. Not supported by many PAS. ASP .net pages will have to be replaced by ASP .NetCore. See https://learn.microsoft.com/en-us/dotnet/architecture/porting-existing-aspnet-apps/migrate-web-forms
-mat_group: NOT SUPPORTED IN .NETCORE
+mat_group: DOTNET_CORE_UNSUPPORTED
 mat_criticality: High
 # -----------------------------
 filetype: (cs$)

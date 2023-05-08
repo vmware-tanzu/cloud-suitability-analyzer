@@ -1,10 +1,10 @@
 name: dotnet-ip-address
 # -----METADATA FOR MAT-------
 mat_sno: 55
-mat_category: .NETCORE PORTABILITY
-mat_title: Dotnet IP Address
+mat_category: platform-mandatory
+mat_title: Usage of IHttpContextAccessor to get IP Address
 mat_description: Not supported in .netCore, Use IHttpContextAccessor instead
-mat_group: TO REPLACE WITH RIGHT GROUP
+mat_group: DOTNET_CORE_UNSUPPORTED
 mat_criticality: Low
 # -----------------------------
 filetype: (cs$|vb$)
