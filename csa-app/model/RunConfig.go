@@ -55,14 +55,18 @@ func (rc *RunConfig) UnMarshall() {
 	} else {
 		if *util.DiscoveryMode {
 			rc.Applications = rc.portfolioDiscovery(rc.Run.Target)
-			fmt.Printf("Discovered [%d] apps @ path [%s]\n\n", len(rc.Applications), rc.Run.Target)
+			if (!*util.Xtract) {
+				fmt.Printf("Discovered [%d] apps @ path [%s]\n\n", len(rc.Applications), rc.Run.Target)
+			}
 		} else {
 			appConfig := NewApplicationConfig(rc)
 			appConfig.Path = rc.Run.Target
 			appConfig.Name = filepath.Base(rc.Run.Target)
 			appConfig.CheckForLocalAppConfig()
 			rc.Applications = append(rc.Applications, appConfig)
-			fmt.Printf("Targeting App => %s located @ path [%s]\n\n", appConfig.Name, appConfig.Path)
+			if (!*util.Xtract) {
+				fmt.Printf("Targeting App => %s located @ path [%s]\n\n", appConfig.Name, appConfig.Path)
+			}
 		}
 	}
 
@@ -97,7 +101,9 @@ func (rc *RunConfig) Populate() {
 		waitGroup.Add(1)
 		go func(idx int) {
 			defer waitGroup.Done()
-			util.WriteLog("Gathering", "Gathering Files for App[%s]\n", rc.Applications[idx].Name)
+			if (!*util.Xtract) {
+				util.WriteLog("Gathering", "Gathering Files for App[%s]\n", rc.Applications[idx].Name)
+			}
 			err := rc.Applications[idx].GatherFiles()
 			if err != nil {
 				log.Panicf("Error Gathering files for App[%s]...Details: %v\n", rc.Applications[idx].Name, err)

@@ -113,7 +113,9 @@ func ClocEmbeddedByApp(app *model.Application) *Result {
 	clocOpts.SkipDuplicated = opts.SkipDuplicated
 
 	processor := NewProcessor(languages, clocOpts)
-	util.WriteLog("SLOC Analysis", "Scanning Files...")
+	if (!*util.Xtract) {
+		util.WriteLog("SLOC Analysis", "Scanning Files...")
+	}
 
 	result, err := processor.AnalyzeApp(app)
 	if err != nil {

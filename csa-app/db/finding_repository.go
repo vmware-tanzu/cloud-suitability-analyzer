@@ -505,7 +505,7 @@ func (findingRepository *OrmRepository) GetScoreCard(runid uint, app string, tag
 
 		for _, finding := range findings {
 
-			scorecard.Total++
+			//scorecard.Total++
 
 			if finding.Effort <= model.Info_criticality_high_score {
 				scorecard.Info++
@@ -513,13 +513,21 @@ func (findingRepository *OrmRepository) GetScoreCard(runid uint, app string, tag
 			}
 			if finding.Effort <= model.Low_criticality_high_score {
 				scorecard.Low++
+				scorecard.Total++
 				continue
 			}
 			if finding.Effort <= model.Medium_criticality_high_score {
 				scorecard.Medium++
+				scorecard.Total++
 				continue
 			}
-			scorecard.High++
+			if finding.Effort <= model.High_criticality_high_score {
+				scorecard.High++
+				scorecard.Total++
+				continue
+			}
+
+			//scorecard.High++
 		}
 	}
 

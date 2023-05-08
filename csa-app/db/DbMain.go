@@ -70,7 +70,9 @@ func OpenDB(run *model.Run) *gorm.DB {
 	defer rows.Close()
 	for rows.Next() {
 		rows.Scan(&version)
-		fmt.Printf("CSA: %s DBEngine: %s-%s\tDBName: %s\n", util.App.Model().Version, *util.DB, version, *util.DBName)
+		if (!*util.Xtract) {
+			fmt.Printf("CSA: %s DBEngine: %s-%s\tDBName: %s\n", util.App.Model().Version, *util.DB, version, *util.DBName)
+		}
 	}
 
 	return DB

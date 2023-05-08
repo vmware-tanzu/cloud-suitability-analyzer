@@ -49,6 +49,7 @@ var (
 )
 
 func main() {
+	
 
 	//--- trace code start
 	/*
@@ -76,6 +77,9 @@ func main() {
 		defer pprof.StopCPUProfile()
 		//--- profile code end
 	*/
+
+
+
 	adminMode := false
 
 	debug.SetMaxThreads(100000)
@@ -84,10 +88,35 @@ func main() {
 	util.App.Version(Version)
 	util.App.Author("Steve Woods (VMware)")
 
+
 	var run = model.NewRun()
 
 	procsAndThreads()
+	if *util.Zap {
 
+	   var dbFile = *util.DbDir + "/" + *util.DBName + ".db"
+	   
+	   fmt.Printf("Removing current DB: %s\n", dbFile)
+	   var err = os.Remove(dbFile)
+	   if err != nil {
+		 fmt.Println(err)
+		 os.Exit(1)
+	   }
+   	}
+
+	//--- if CICD directory exists, remove it
+	if (*util.CICDDir != "") {
+		if _, err := os.Stat(*util.CICDDir); !os.IsNotExist(err) {
+			err := os.RemoveAll(*util.CICDDir)
+			if err != nil {
+				fmt.Println(err)
+				os.Exit(1)
+			}
+			fmt.Printf("Removing current CICD directory: %s\n", *util.CICDDir)
+		}
+
+	}
+	
 	run.DB = db.OpenDB(run)
 	defer run.Cleanup()
 
@@ -99,16 +128,17 @@ func main() {
 	}
 
 	repoMgr := db.NewRepositoriesManagerForRun(run)
-
-	fmt.Printf("User: %s\nCommand: %s\nUser-Home: %s\nDB Path: %s\nRules-Dir: %s\nOutputPath: %s\nExe Path: %s\nTmp Path: %s\n\n",
-		run.User,
-		run.Command,
-		run.Homepath,
-		run.DbPath,
-		run.RulesDir,
-		run.OutputPath,
-		run.Exepath,
-		run.TmpPath)
+	if (!*util.Xtract) {
+		fmt.Printf("User: %s\nCommand: %s\nUser-Home: %s\nDB Path: %s\nRules-Dir: %s\nOutputPath: %s\nExe Path: %s\nTmp Path: %s\n\n",
+			run.User,
+			run.Command,
+			run.Homepath,
+			run.DbPath,
+			run.RulesDir,
+			run.OutputPath,
+			run.Exepath,
+			run.TmpPath)
+	}
 
 	switch run.Command {
 
@@ -207,6 +237,7 @@ func main() {
 		run.CompletionMessage()
 	}
 }
+
 
 func procsAndThreads() {
 
