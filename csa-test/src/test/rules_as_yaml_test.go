@@ -1,14 +1,14 @@
 package main
 
 import (
-	"test/csa-app/csa"
-	"test/csa-app/model"
-	"test/csa-app/util"
-	"testing"
-
 	"fmt"
 	"io/ioutil"
 	"os"
+	"test/csa-app/csa"
+	"test/csa-app/model"
+	"test/csa-app/util"
+	"test/mat"
+	"testing"
 
 	"github.com/stretchr/testify/assert"
 	"gopkg.in/yaml.v2"
@@ -32,7 +32,9 @@ type Tests struct {
 	AssertValue  string `yaml:"assert-value"`
 }
 
+var testCount = 0
 var ruleCount = 0
+var ruleList []model.Rule
 var rulesCovered = make(map[string]struct{})
 
 // Code Samples
@@ -81,9 +83,10 @@ func TestRules(t *testing.T) {
 		for _, category := range fileInput.Categories {
 			rulesDirectory := cwd + "/../../" + category.RulesDirectory
 			var ruleSet = csa.Setup(rulesDirectory)
-
+			ruleCount += len(ruleSet)
+			ruleList = append(ruleList, ruleSet...)
 			for _, rule := range category.Tests {
-				ruleCount++
+
 				testRuleByName(t, rule.Name, csa.RuleByName(t, ruleSet, rule.RuleName), rule.TestFileName, rule.Assert, rule.AssertCount, rule.AssertValue)
 			}
 		}
@@ -91,7 +94,19 @@ func TestRules(t *testing.T) {
 }
 
 func TestCoverage(t *testing.T) {
-	t.Log("\033[43m\033[30m  Rules Covered with Test ", len(rulesCovered), "/", ruleCount, "\033[0m", "\033[0m")
+	t.Log("\033[43m\033[30m  #Test:", testCount, "\033[0m", "\033[0m")
+	t.Log("\033[43m\033[30m  Rules Covered with Test:", len(rulesCovered), "/", ruleCount, "\033[0m", "\033[0m")
+}
+
+func TestExportForMat(t *testing.T) {
+	mat.Export(ruleList)
+
+	for _, r := range ruleList {
+		if rulesCovered[r.Name] != struct{}{} {
+			fmt.Println("// Untested Rule: ")
+			fmt.Println(r.Name)
+		}
+	}
 }
 
 // Easily test one rule against targeted file
@@ -100,7 +115,7 @@ func testRuleByName(t *testing.T, testName string, rule model.Rule, targetFilePa
 	var exists = struct{}{}
 	rulesCovered[rule.Name] = exists
 	//t.Log("Default Pattern: " + rule.DefaultPattern)
-
+	testCount++
 	t.Log("\033[94m[Test: " + testName + "] Rule: \033[33m" + rule.Name + "\033[0m || File: " + targetFilePath + "\033[0m")
 	isValid, err := rule.IsValid()
 	assert.Equal(t, err, nil, "The rule should not fail during validation")
