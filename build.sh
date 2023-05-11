@@ -143,7 +143,7 @@ runGoGenerate
 
 
 
-if [[ -z "$RELEASE" ]]; then
+if [[ ! -z "$RELEASE" ]]; then
   stashFiles
 fi
 
