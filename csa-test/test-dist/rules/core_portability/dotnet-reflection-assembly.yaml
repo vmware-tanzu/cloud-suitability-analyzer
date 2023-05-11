@@ -1,0 +1,22 @@
+name: dotnet-reflection-assembly
+# -----METADATA FOR MAT-------
+mat_sno: 61
+mat_category: platform-mandatory
+mat_title: Usage of Reflection Assembly
+mat_description: Use AssemblyLoadContext. Evidence is not supported in .NET Core.
+mat_group: DOTNET_CORE_UNSUPPORTED
+mat_criticality: Medium
+# -----------------------------
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Use AssemblyLoadContext. Evidence is not supported in .NET Core.
+effort: 10
+readiness: 10
+category: API
+tags:
+- value: api
+- value: unsupported-netcore
+patterns:
+- value: Assembly.Load\(

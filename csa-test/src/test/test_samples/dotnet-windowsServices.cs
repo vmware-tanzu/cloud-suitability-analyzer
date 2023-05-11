@@ -1,3 +1,0 @@
-: ServiceBase
-ServiceController
-System.ServiceProcess

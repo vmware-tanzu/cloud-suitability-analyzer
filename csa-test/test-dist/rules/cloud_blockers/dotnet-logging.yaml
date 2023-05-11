@@ -1,0 +1,25 @@
+name: dotnet-logging
+# -----METADATA FOR MAT-------
+mat_sno: 13
+mat_category: cloud-mandatory
+mat_title: Usage of EventLog
+mat_description: Logging to the Event Log is not recommended for cloud native apps. Write to or manage logfiles. Instead, each running process should write its event stream, unbuffered, to stdout. https://docs.lacunasoftware.com/en-us/articles/amplia/on-premises/windows/enable-stdout-log.html
+mat_group: DOTNET_LOGGING
+mat_criticality: Low
+# -----------------------------
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Logging to the Event Log is not recommended for cloud native apps. Write to or manage logfiles. Instead, each running process should write its event stream, unbuffered, to stdout. https://docs.lacunasoftware.com/en-us/articles/amplia/on-premises/windows/enable-stdout-log.html
+readiness: 3
+effort: 100
+category: logging
+tags:
+- value: logging
+- value: eventlog
+patterns:
+- value: EventLogTraceListener
+- value: EventLog
+#- EventLogTraceListener
+#- EventLog

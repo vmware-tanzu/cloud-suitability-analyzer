@@ -1,0 +1,1 @@
+public abstract class Controller : System.Web.Mvc.ControllerBase,

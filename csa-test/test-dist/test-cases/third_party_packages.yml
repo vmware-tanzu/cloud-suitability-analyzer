@@ -1,0 +1,10 @@
+---
+category:
+- rules-directory: "rules/third_party_packages"
+  tests:
+  - name: "dotnet-thirdparty-telerik"
+    rule-name: dotnet-thirdparty-telerik
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  3
+    assert-value: "null"

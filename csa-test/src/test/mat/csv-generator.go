@@ -11,6 +11,12 @@ var outputDir = "/Users/scarbonell/Workspace/boa-csa/cloud-suitability-analyzer/
 
 func Export(rules []model.Rule) {
 
+	work_dir := os.Getenv("WORK_DIR")
+
+	if work_dir != "" {
+		outputDir = work_dir + "/mat_export.csv"
+	}
+
 	file, err := os.Create(outputDir)
 	defer file.Close()
 	if err != nil {

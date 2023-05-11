@@ -1,0 +1,24 @@
+name: dotnet-windowsForms
+# -----METADATA FOR MAT-------
+mat_sno: 19
+mat_category: cloud-mandatory
+mat_title: Dotnet Windows Form
+mat_description: Windows Forms module is not supported in the cloud. Refactor to a web application.
+mat_group: DOTNET_WINDOWS_DESKTOP
+mat_criticality: High
+# -----------------------------
+filetype: (cs$|vb$|csproj$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Windows Forms module is not supported in the cloud. Refactor to a web application.
+effort: 1000
+readiness: 5
+category: Unsupported modules
+tags:
+- value: windows-forms
+- value: windows-desktop
+patterns:
+- value: System.Windows.Forms
+  advice: Windows Forms module is not supported. Refactor to a web application.
+#- using System.Windows.Forms;

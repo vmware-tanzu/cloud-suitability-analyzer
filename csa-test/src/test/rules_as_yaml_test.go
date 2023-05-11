@@ -55,9 +55,18 @@ func TestRules(t *testing.T) {
 		return
 	}
 
-	sampleBaseDir = cwd + "/test_samples"
-
+	sampleBaseDir = cwd + "/test-samples"
 	directoryPath := cwd + "/../../test-cases"
+
+	work_dir := os.Getenv("WORK_DIR")
+
+	if work_dir != "" {
+		cwd = work_dir
+		sampleBaseDir = work_dir + "/test-samples"
+		directoryPath = work_dir + "/test-cases"
+	}
+
+	fmt.Println("Work Dir => ", cwd)
 
 	files, err := os.ReadDir(directoryPath)
 	if err != nil {
@@ -66,7 +75,9 @@ func TestRules(t *testing.T) {
 	}
 
 	for _, file := range files {
-		fmt.Println("Processing rules in" + directoryPath + "/" + file.Name())
+		fmt.Println("--------------------------------------------------------")
+		fmt.Println("Processing rules in " + directoryPath + "/" + file.Name())
+		fmt.Println("--------------------------------------------------------")
 		// Read the YAML file
 		file, err := ioutil.ReadFile(directoryPath + "/" + file.Name())
 		if err != nil {
@@ -82,11 +93,13 @@ func TestRules(t *testing.T) {
 
 		for _, category := range fileInput.Categories {
 			rulesDirectory := cwd + "/../../" + category.RulesDirectory
+			if work_dir != "" {
+				rulesDirectory = work_dir + "/" + category.RulesDirectory
+			}
 			var ruleSet = csa.Setup(rulesDirectory)
 			ruleCount += len(ruleSet)
 			ruleList = append(ruleList, ruleSet...)
 			for _, rule := range category.Tests {
-
 				testRuleByName(t, rule.Name, csa.RuleByName(t, ruleSet, rule.RuleName), rule.TestFileName, rule.Assert, rule.AssertCount, rule.AssertValue)
 			}
 		}
@@ -99,14 +112,8 @@ func TestCoverage(t *testing.T) {
 }
 
 func TestExportForMat(t *testing.T) {
+	t.Log("Export all rules => ", len(ruleList))
 	mat.Export(ruleList)
-
-	for _, r := range ruleList {
-		if rulesCovered[r.Name] != struct{}{} {
-			fmt.Println("// Untested Rule: ")
-			fmt.Println(r.Name)
-		}
-	}
 }
 
 // Easily test one rule against targeted file

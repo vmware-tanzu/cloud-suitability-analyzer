@@ -1,0 +1,22 @@
+name: dotnet-classic-asp-net
+# -----METADATA FOR MAT-------
+mat_sno: 34
+mat_category: platform-mandatory
+mat_title: Usage of ASP Classic
+mat_description: Unsupported-netcore. Not supported by many PAS. ASP .net pages will have to be replaced by ASP .NetCore. See https://learn.microsoft.com/en-us/dotnet/architecture/porting-existing-aspnet-apps/migrate-web-forms
+mat_group: DOTNET_CORE_UNSUPPORTED
+mat_criticality: High
+# -----------------------------
+filetype: (cs$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Unsupported-netcore. Not supported by many PAS. ASP .net pages will have to be replaced by ASP .NetCore. See https://learn.microsoft.com/en-us/dotnet/architecture/porting-existing-aspnet-apps/migrate-web-forms
+effort: 10
+readiness: 10
+category: API
+patterns:
+- value: System.Web.
+tags:
+- value: asp-classic
+- value: unsupported-netcore

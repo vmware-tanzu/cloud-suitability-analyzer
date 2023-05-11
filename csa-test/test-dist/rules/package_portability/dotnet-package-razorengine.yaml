@@ -1,0 +1,21 @@
+name: dotnet-package-razorengine
+# -----METADATA FOR MAT-------
+mat_sno: 122
+mat_category: platform-mandatory
+mat_title: Usage of unsupported package razorengine
+mat_description: Not Supported in .NetCore 
+mat_group: DOTNET_CORE_UNSUPPORTED
+mat_criticality: Medium
+# -----------------------------
+filetype: (config$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Not Supported in .NetCore 
+effort: 10
+readiness: 10
+category: package
+patterns:
+- value: RazorEngine
+tags:
+- value: unsupported-netcore

@@ -1,0 +1,21 @@
+name: dotnet-package-microsoft-owin-staticfiles
+# -----METADATA FOR MAT-------
+mat_sno: 161
+mat_category: platform-mandatory
+mat_title: Usage of unsupported package microsoft-owin-staticfiles
+mat_description: Not Supported in .NetCore 
+mat_group: DOTNET_CORE_UNSUPPORTED
+mat_criticality: Medium
+# -----------------------------
+filetype: (config$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Not Supported in .NetCore 
+effort: 10
+readiness: 10
+category: package
+patterns:
+- value: Microsoft.Owin.StaticFiles
+tags:
+- value: unsupported-netcore

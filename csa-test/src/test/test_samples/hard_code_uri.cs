@@ -1,1 +1,0 @@
-https://some-uri.com

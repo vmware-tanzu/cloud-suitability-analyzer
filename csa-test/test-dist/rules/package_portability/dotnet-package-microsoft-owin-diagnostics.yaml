@@ -1,0 +1,21 @@
+name: dotnet-package-microsoft-owin-diagnostics
+# -----METADATA FOR MAT-------
+mat_sno: 159
+mat_category: platform-mandatory
+mat_title: Usage of unsupported package microsoft-owin-diagnostics
+mat_description: Not Supported in .NetCore 
+mat_group: DOTNET_CORE_UNSUPPORTED
+mat_criticality: Medium
+# -----------------------------
+filetype: (config$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Not Supported in .NetCore 
+effort: 10
+readiness: 10
+category: package
+patterns:
+- value: Microsoft.Owin.Diagnostics
+tags:
+- value: unsupported-netcore

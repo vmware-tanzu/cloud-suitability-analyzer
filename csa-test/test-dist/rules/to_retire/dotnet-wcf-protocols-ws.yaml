@@ -1,0 +1,23 @@
+name: dotnet-wcf-protocols-ws
+# -----METADATA FOR MAT-------
+mat_sno: 17
+mat_category: TO REPLACE WITH RIGHT CATEGORY
+mat_title: Dotnet WCF WS Protocol
+mat_description: Relying on Windows certificate stores is problematic in a cloud environment. Logging to the Event Log is not recommended for cloud native apps. Write to or manage logfiles. Instead, each running process should write its event stream, unbuffered, to stdout.
+mat_group: TO REPLACE WITH RIGHT GROUP
+mat_criticality: Medium
+# -----------------------------
+filetype: config$
+target: line
+type: regex
+advice: Unsupported protocols
+effort: 1000
+category: wcf
+tags:
+- value: windows-wcf
+- value: communication
+- value: api
+patterns:
+- value: <wsHttpBinding
+  advice: Many features of WS* protocols are problematic in the cloud like distributed transactions and reliable sessions
+#- <wsHttpBinding><binding allowCookies="Boolean"

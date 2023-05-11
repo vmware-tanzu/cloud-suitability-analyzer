@@ -1,0 +1,24 @@
+name: dotnet-asp-mvc
+# -----METADATA FOR MAT-------
+mat_sno: 31
+mat_category: platform-mandatory
+mat_title: Usage of ASP MVC
+mat_description: Not supported on .netCore. Migrate to ASP .NetCore and replace with Microsoft.AspNetCore.Mvc
+mat_group: DOTNET_CORE_UNSUPPORTED
+mat_criticality: Medium
+# -----------------------------
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Not supported on .netCore. Migrate to ASP .NetCore and replace with Microsoft.AspNetCore.Mvc
+readiness: 9
+effort: 10
+category: unsupported-netcore
+patterns:
+- value: System.Web.Mvc
+tags:
+- value: mvc
+- value: asp
+- value: unsupported-netcore
+#-public abstract class Controller : System.Web.Mvc.ControllerBase,

@@ -1,0 +1,22 @@
+name: dotnet-windows-remoting-code
+# -----METADATA FOR MAT-------
+mat_sno: 74
+mat_category: platform-mandatory
+mat_title: Usage of Windows Remoting Code
+mat_description: Unsupported, consider inter-process communication (IPC) System.IO.Pipes class or the MemoryMappedFile class.Also StreamJsonRpc or ASP.NET Core (either using gRPC or RESTful Web API services).
+mat_group: DOTNET_CORE_UNSUPPORTED
+mat_criticality: Medium
+# -----------------------------
+filetype: (cs$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Unsupported, consider inter-process communication (IPC) System.IO.Pipes class or the MemoryMappedFile class.Also StreamJsonRpc or ASP.NET Core (either using gRPC or RESTful Web API services).
+effort: 10
+readiness: 10
+category: API
+patterns:
+- value: System.Runtime.Remoting.
+tags:
+- value: remoting
+- value: unsupported-netcore

@@ -1,0 +1,22 @@
+name: dotnet-transactions
+# -----METADATA FOR MAT-------
+mat_sno: 18
+mat_category: TO REPLACE WITH RIGHT CATEGORY
+mat_title: Dotnet Transactions
+mat_description: Potential use of distributed transactions which are unsupported
+mat_group: TO REPLACE WITH RIGHT GROUP
+mat_criticality: Medium
+# -----------------------------
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Potential use of distributed transactions which are unsupported
+readiness: 10
+effort: 100
+category: transaction
+tags:
+- value: distributed-transaction
+patterns:
+- value: TransactionScope
+#-  using (TransactionScope scope = new TransactionScope())

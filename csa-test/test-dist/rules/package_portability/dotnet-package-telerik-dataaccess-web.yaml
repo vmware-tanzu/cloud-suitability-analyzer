@@ -1,0 +1,21 @@
+name: dotnet-package-telerik-dataaccess-web
+# -----METADATA FOR MAT-------
+mat_sno: 201
+mat_category: platform-mandatory
+mat_title: Usage of unsupported package dotnet-package-telerik-dataaccess-web
+mat_description: Not Supported in .NetCore 
+mat_group: DOTNET_CORE_UNSUPPORTED
+mat_criticality: Medium
+# -----------------------------
+filetype: (config$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Not Supported in .NetCore 
+effort: 10
+readiness: 10
+category: package
+patterns:
+- value: Telerik.DataAccess.Web
+tags:
+- value: unsupported-netcore

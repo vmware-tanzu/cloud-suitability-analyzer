@@ -4,6 +4,16 @@
 - cd into /src/test
 - go test -v
 
+### Compile Unit Test Executable ###
+In csa-test/ root dir
+- sh build.sh (current platform) or sh build-linux.sh for Linux Arch
+- Artifacts are created in /dist
+
+### Run Unit Test Executable ###
+In dist/
+- WORK_DIR=[base dir] ./unit-test-l -test.v
+
+
 ### Sample Test ###
 
 - Sample code snippets should be placed in the "/test_sample" dir

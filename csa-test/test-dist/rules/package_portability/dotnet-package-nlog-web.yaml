@@ -1,0 +1,21 @@
+name: dotnet-package-nlog-web
+# -----METADATA FOR MAT-------
+mat_sno: 163
+mat_category: platform-mandatory
+mat_title: Usage of unsupported package nlog-web
+mat_description: Not Supported in .NetCore 
+mat_group: DOTNET_CORE_UNSUPPORTED
+mat_criticality: Medium
+# -----------------------------
+filetype: (config$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Not Supported in .NetCore 
+effort: 10
+readiness: 10
+category: package
+patterns:
+- value: NLog.Web
+tags:
+- value: unsupported-netcore

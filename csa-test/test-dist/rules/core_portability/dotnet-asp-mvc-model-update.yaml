@@ -1,0 +1,24 @@
+name: dotnet-asp-mvc-model-update
+# -----METADATA FOR MAT-------
+mat_sno: 30
+mat_category: platform-mandatory
+mat_title: Usage of ASP MVC Model Update
+mat_description: Not supported in .NetCore, Replace with TryUpdateModelAsync
+mat_group: DOTNET_CORE_UNSUPPORTED
+mat_criticality: Medium
+# -----------------------------
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*\s%s<.*
+advice: Not supported in .NetCore, Replace with TryUpdateModelAsync
+readiness: 9
+effort: 10
+patterns:
+- value: TryUpdateModel
+category: unsupported-netcore
+tags:
+- value: mvc
+- value: asp
+- value: unsupported-netcore
+#- protected internal bool TryUpdateModel<TModel>
