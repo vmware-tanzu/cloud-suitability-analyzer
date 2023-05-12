@@ -4,7 +4,7 @@ mat_sno: 140
 mat_category: platform-mandatory
 mat_title: Usage of unsupported package portable-dataannotations
 mat_description: Not Supported in .NetCore 
-mat_group: DOTNET_CORE_UNSUPPORTED
+mat_group: DOTNET_CORE_EOS_PKG_PORTABLE_DATA_ANNOTATIONS
 mat_criticality: Medium
 # -----------------------------
 filetype: (config$)

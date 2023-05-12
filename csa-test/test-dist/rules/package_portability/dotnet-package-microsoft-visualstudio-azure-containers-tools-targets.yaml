@@ -4,7 +4,7 @@ mat_sno: 123
 mat_category: platform-mandatory
 mat_title: Usage of unsupported package microsoft-visualstudio-azure-containers-tools-targets
 mat_description: Not Supported in .NetCore 
-mat_group: DOTNET_CORE_UNSUPPORTED
+mat_group: DOTNET_CORE_EOS_PKG_VS_STUDIO_AZURE
 mat_criticality: Medium
 # -----------------------------
 filetype: (config$)

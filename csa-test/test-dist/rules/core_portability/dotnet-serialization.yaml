@@ -4,7 +4,7 @@ mat_sno: 63
 mat_category: platform-mandatory
 mat_title: Usage of Serialization
 mat_description: Not supported in .netCore
-mat_group: DOTNET_CORE_UNSUPPORTED
+mat_group: DOTNET_CORE_SERIALIZATION
 mat_criticality: Medium
 # -----------------------------
 filetype: (cs$|vb$)

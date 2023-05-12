@@ -5,7 +5,7 @@ mat_sno: 67
 mat_category: platform-mandatory
 mat_title: Usage of VB Razor View Engine
 mat_description: Not supported in .netCore https://aka.ms/vb-angular-and-web-api
-mat_group: DOTNET_CORE_UNSUPPORTED
+mat_group: DOTNET_CORE_RAZOR_VIEW_ENGINE
 mat_criticality: High
 # -----------------------------
 filetype: (vbhtml$)

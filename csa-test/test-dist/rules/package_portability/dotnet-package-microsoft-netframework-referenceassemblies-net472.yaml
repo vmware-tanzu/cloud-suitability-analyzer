@@ -4,7 +4,7 @@ mat_sno: 118
 mat_category: platform-mandatory
 mat_title: Usage of unsupported package microsoft-netframework-referenceassemblies-net472
 mat_description: Not Supported in .NetCore 
-mat_group: DOTNET_CORE_UNSUPPORTED
+mat_group: DOTNET_CORE_EOS_PKG_NET_FWK_REF_ASSEMBLIES
 mat_criticality: Medium
 # -----------------------------
 filetype: (config$)

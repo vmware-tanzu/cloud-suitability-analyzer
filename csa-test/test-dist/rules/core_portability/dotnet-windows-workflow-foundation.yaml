@@ -4,7 +4,7 @@ mat_sno: 76
 mat_category: platform-mandatory
 mat_title: Usage of Windows Workflow Foundation
 mat_description: Use alternatives, see CoreWF and CoreWCF, runs on windows only and would need to be ran by a console application
-mat_group: DOTNET_CORE_UNSUPPORTED
+mat_group: DOTNET_CORE_WORKFLOW_FOUNDATION
 mat_criticality: Medium
 # -----------------------------
 # ignore development config files

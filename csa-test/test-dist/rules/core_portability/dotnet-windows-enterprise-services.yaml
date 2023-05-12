@@ -4,7 +4,7 @@ mat_sno: 73
 mat_category: platform-mandatory
 mat_title: Usage of Enterprise Services
 mat_description: Not Supported on .Net Core
-mat_group: DOTNET_CORE_UNSUPPORTED
+mat_group: DOTNET_CORE_ENTERPRISE_SERVICES
 mat_criticality: Medium
 # -----------------------------
 filetype: (cs$|vb$)

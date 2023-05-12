@@ -4,7 +4,7 @@ mat_sno: 25
 mat_category: platform-mandatory
 mat_title: Usage of ASP child action
 mat_description: Not supported, replace with a new View Component feature https://learn.microsoft.com/en-us/aspnet/core/mvc/views/view-components?view=aspnetcore-7.0
-mat_group: DOTNET_CORE_UNSUPPORTED
+mat_group: DOTNET_CORE_ASP_CHILD_ACTION
 mat_criticality: Low
 # -----------------------------
 filetype: (cs$|vb$)

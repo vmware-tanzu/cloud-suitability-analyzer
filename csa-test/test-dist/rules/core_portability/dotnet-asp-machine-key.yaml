@@ -4,7 +4,7 @@ mat_sno: 27
 mat_category: platform-mandatory
 mat_title: Usage of ASP Machine Key
 mat_description: Not supported in .NetCore. Will have to be replaced https://learn.microsoft.com/en-us/aspnet/core/security/data-protection/compatibility/replacing-machinekey?view=aspnetcore-7.0
-mat_group: DOTNET_CORE_UNSUPPORTED
+mat_group: DOTNET_CORE_ASP_MACHINE_KEY
 mat_criticality: Medium
 # -----------------------------
 filetype: config$

@@ -5,7 +5,7 @@ mat_sno: 26
 mat_category: platform-mandatory
 mat_title: Usage of ASP Classic 2.0
 mat_description: Not supported by many PAS. ASP .net pages will have to be replaced by ASP .NetCore
-mat_group: DOTNET_CORE_UNSUPPORTED
+mat_group: DOTNET_CORE_ASP_CLASSIC
 mat_criticality: High
 # -----------------------------
 filetype: (asp$)

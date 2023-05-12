@@ -4,7 +4,7 @@ mat_sno: 61
 mat_category: platform-mandatory
 mat_title: Usage of Reflection Assembly
 mat_description: Use AssemblyLoadContext. Evidence is not supported in .NET Core.
-mat_group: DOTNET_CORE_UNSUPPORTED
+mat_group: DOTNET_CORE_REFLECTION_ASSEMBLY
 mat_criticality: Medium
 # -----------------------------
 filetype: (cs$|vb$)

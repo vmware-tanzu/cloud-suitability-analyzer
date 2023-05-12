@@ -4,7 +4,7 @@ mat_sno: 101
 mat_category: platform-mandatory
 mat_title: Usage of unsupported package app-metrics-extensions-hosting
 mat_description: Not Supported in .NetCore 
-mat_group: DOTNET_CORE_UNSUPPORTED
+mat_group: DOTNET_CORE_EOS_PKG_APP_METRICS
 mat_criticality: Medium
 # -----------------------------
 filetype: (config$)

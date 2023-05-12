@@ -4,7 +4,7 @@ mat_sno: 32
 mat_category: platform-mandatory
 mat_title: Usage of ASP Session Context
 mat_description: Not supported, Replace with IHttpContextAccessor to manage session data
-mat_group: DOTNET_CORE_UNSUPPORTED
+mat_group: DOTNET_CORE_ASP_SESSION_CONTEXT
 mat_criticality: Medium
 # -----------------------------
 filetype: (cs$|vb$)

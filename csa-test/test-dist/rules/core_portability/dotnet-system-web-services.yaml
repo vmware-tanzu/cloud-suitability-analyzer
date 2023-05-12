@@ -4,7 +4,7 @@ mat_sno: 65
 mat_category: platform-mandatory
 mat_title: Usage of System Web Services
 mat_description: Upgrade to CoreWCF https://devblogs.microsoft.com/dotnet/upgrading-a-wcf-service-to-dotnet-6/ or more modern rest api
-mat_group: DOTNET_CORE_UNSUPPORTED
+mat_group: DOTNET_CORE_SYSYEM_WEB_SERVICES
 mat_criticality: Medium
 # -----------------------------
 filetype: (cs$|vb$)

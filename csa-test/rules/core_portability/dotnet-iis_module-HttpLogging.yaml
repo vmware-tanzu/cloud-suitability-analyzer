@@ -4,7 +4,7 @@ mat_sno: 45
 mat_category: platform-mandatory
 mat_title: Usage of Http Logging IIS Module
 mat_description: Windows and IIS server dependency. Not supported in .netCore targeting linux.
-mat_group: DOTNET_IIS_MODULE
+mat_group: DOTNET_IIS_MODULE_HTTP_LOGGING
 mat_criticality: Medium
 # -----------------------------
 filetype: config$

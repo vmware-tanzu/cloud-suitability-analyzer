@@ -4,7 +4,7 @@ mat_sno: 30
 mat_category: platform-mandatory
 mat_title: Usage of ASP MVC Model Update
 mat_description: Not supported in .NetCore, Replace with TryUpdateModelAsync
-mat_group: DOTNET_CORE_UNSUPPORTED
+mat_group: DOTNET_CORE_MODEL_UPDATE
 mat_criticality: Medium
 # -----------------------------
 filetype: (cs$|vb$)

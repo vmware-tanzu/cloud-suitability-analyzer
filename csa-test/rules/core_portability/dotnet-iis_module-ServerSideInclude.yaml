@@ -4,7 +4,7 @@ mat_sno: 52
 mat_category: platform-mandatory
 mat_title: Usage of Server Side Include IIS Module
 mat_description: Windows and IIS server dependency. Not supported in .netCore targeting linux.
-mat_group: DOTNET_IIS_MODULE
+mat_group: DOTNET_IIS_MODULE_SERVERSIDE_INCLUDE
 mat_criticality: Medium
 # -----------------------------
 filetype: config$

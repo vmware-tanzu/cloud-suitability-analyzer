@@ -5,7 +5,7 @@ mat_sno: 66
 mat_category: platform-mandatory
 mat_title: Usage of URI Cache IIS Module
 mat_description: Windows and IIS server dependency. Not supported in .netCore targeting linux. Implements a generic cache for URL-specific server state; such as configuration. With this module; the server only reads configuration for the first request for a particular URL. And reuse it on subsequent requests until it changes.
-mat_group: DOTNET_CORE_UNSUPPORTED
+mat_group: DOTNET_CORE_URI_CACHE_IIS_MODULE
 mat_criticality: Medium
 # -----------------------------
 filetype: config$

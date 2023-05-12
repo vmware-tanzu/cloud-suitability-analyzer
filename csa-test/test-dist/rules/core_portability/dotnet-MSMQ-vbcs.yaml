@@ -4,7 +4,7 @@ mat_sno: 60
 mat_category: platform-mandatory
 mat_title: Usage of Messaging MSMQ
 mat_description: MSMQ is a proprietary Windows server-based messaging solution that is not supported by Linux based containers. Leverage bridging solutions like https://kubemq.io/helping-net-msmq-based-services-to-migrate-to-kubernetes/ on kubernetes
-mat_group: DOTNET_CORE_UNSUPPORTED
+mat_group: DOTNET_CORE_MSMQ
 mat_criticality: Medium
 # -----------------------------
 filetype: (cs$|vb$)

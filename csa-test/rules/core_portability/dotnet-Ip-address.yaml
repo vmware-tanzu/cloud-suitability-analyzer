@@ -4,7 +4,7 @@ mat_sno: 55
 mat_category: platform-mandatory
 mat_title: Usage of IHttpContextAccessor to get IP Address
 mat_description: Not supported in .netCore, Use IHttpContextAccessor instead
-mat_group: DOTNET_CORE_UNSUPPORTED
+mat_group: DOTNET_CORE_IP_ADDRESS
 mat_criticality: Low
 # -----------------------------
 filetype: (cs$|vb$)

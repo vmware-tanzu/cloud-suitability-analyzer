@@ -4,7 +4,7 @@ mat_sno: 28
 mat_category: platform-mandatory
 mat_title: Usage of ASP Membership
 mat_description: Not supported, replaced by ASP.NET Core Identity. Manage users in Database.
-mat_group: DOTNET_CORE_UNSUPPORTED
+mat_group: DOTNET_CORE_ASP_MEMBERSHIP
 mat_criticality: Medium
 # -----------------------------
 filetype: config$

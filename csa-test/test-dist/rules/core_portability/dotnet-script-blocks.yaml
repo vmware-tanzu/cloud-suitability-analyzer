@@ -4,7 +4,7 @@ mat_sno: 62
 mat_category: platform-mandatory
 mat_title: Usage of Script Blocks
 mat_description: Script blocks are supported only in .NET Framework. They are not supported on .NET Core or .NET 5 or later.
-mat_group: DOTNET_CORE_UNSUPPORTED
+mat_group: DOTNET_CORE_SCRIPT_BLOCK
 mat_criticality: Medium
 # -----------------------------
 filetype: (xsl)
