@@ -1,0 +1,14 @@
+# from cfenv import AppEnv
+name: python-cfdev
+filetype: python$
+target: line
+type: regex
+defaultpattern: '^.*from %s'
+advice: Adapt to cloud foundry 
+effort: 0
+readiness: 0
+category: cf
+tags:
+  - value: cloud-foundry
+patterns:
+  - value: cfenv
