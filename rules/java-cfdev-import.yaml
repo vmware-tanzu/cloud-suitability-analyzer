@@ -1,0 +1,14 @@
+name: java-cfdev
+filetype: (java$)
+target: line
+type: regex
+defaultpattern: "^.*[ .]%s[ (].*" 
+advice: Adapt to cloud foundry 
+effort: 0
+readiness: 5
+category: cf
+tags:
+  - value: cloud-foundry
+patterns:
+  - value: CfEnv
+  - value: CfJdvcEnv
