@@ -7,14 +7,14 @@ import (
 	"test/csa-app/model"
 )
 
-var outputDir = "/Users/scarbonell/Workspace/boa-csa/cloud-suitability-analyzer/csa-test/mat_export.csv"
+var outputDir = "/Users/scarbonell/Workspace/boa-csa/cloud-suitability-analyzer/csa-test/mat_rule_list.csv"
 
 func Export(rules []model.Rule) {
 
 	work_dir := os.Getenv("WORK_DIR")
 
 	if work_dir != "" {
-		outputDir = work_dir + "/mat_export.csv"
+		outputDir = work_dir + "/mat_rule_list.csv"
 	}
 
 	file, err := os.Create(outputDir)

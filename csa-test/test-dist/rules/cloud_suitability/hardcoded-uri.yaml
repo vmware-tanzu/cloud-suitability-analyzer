@@ -7,7 +7,7 @@ mat_description: Found hard-coded URIs. Make configurable, put into environment 
 mat_group: DOTNET_HARD_CODED_CONFIG
 mat_criticality: Low
 # -----------------------------
-filetype: (java$|vb$|py$|go$|aspx$|c$|h$|cs$|csx$|cpp$|cob$|cfm$|cfml$|dockerfile$|jsp$|php$|vb$|r$|ts$|yaml$|yml$|jsons$)
+filetype: (java$|vb$|py$|go$|aspx$|^c$|h$|cs$|csx$|cpp$|cob$|cfm$|cfml$|dockerfile$|jsp$|php$|vb$|r$|ts$|yaml$|yml$|jsons$)
 #filetype: (cs$|js$)
 target: line
 type: regex

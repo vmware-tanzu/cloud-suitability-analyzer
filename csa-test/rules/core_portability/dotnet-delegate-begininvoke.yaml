@@ -4,7 +4,7 @@ mat_sno: 35
 mat_category: platform-mandatory
 mat_title: Usage of Delegate Begin and Invoke
 mat_description: BeginInvoke and EndInvoke methods on delegates are supported on .NET Core. See https://devblogs.microsoft.com/dotnet/migrating-delegate-begininvoke-calls-for-net-core/
-mat_group: DDOTNET_CORE_DELEGATE_BEGIN_INVOKE
+mat_group: DOTNET_CORE_DELEGATE_BEGIN_INVOKE
 mat_criticality: Medium
 # -----------------------------
 filetype: (cs$|vb$)
