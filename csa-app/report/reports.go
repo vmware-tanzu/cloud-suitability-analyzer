@@ -7,6 +7,10 @@ package report
 
 import (
 	"bytes"
+	"csa-app/db"
+	"csa-app/model"
+	"csa-app/util"
+	"embed"
 	"fmt"
 	"log"
 	"os"
@@ -15,15 +19,12 @@ import (
 	"sort"
 	"strconv"
 	"strings"
-
-	"csa-app/db"
-	"csa-app/model"
-	"csa-app/util"
 )
 
 type ReportService struct {
 	reportDataRepository db.ReportDataRepository
 	slocRepository       db.SlocRepository
+	reportTemplates      embed.FS
 }
 
 func NewReportService(reportDataRepository db.ReportDataRepository, slocRepository db.SlocRepository) *ReportService {
@@ -33,10 +34,11 @@ func NewReportService(reportDataRepository db.ReportDataRepository, slocReposito
 	}
 }
 
-func NewReportSvc(mgr *db.Repositories) *ReportService {
+func NewReportSvc(mgr *db.Repositories, reportTemplates embed.FS) *ReportService {
 	return &ReportService{
 		reportDataRepository: mgr.Reports,
 		slocRepository:       mgr.Sloc,
+		reportTemplates:      reportTemplates,
 	}
 }
 
@@ -222,6 +224,18 @@ func (reportService *ReportService) generateAnnotationReport(runId uint) {
 	reportService.ExportReport(runId, model.ANNOTATIONS_REPORT_ID, "ANNOTATIONS", false, true)
 }
 
+func (reportService *ReportService) GetTemplateByName(templateName string) (data string) {
+
+	fileData, err := reportService.reportTemplates.ReadFile("resources/report-templates/" + templateName)
+
+	if err != nil {
+		fmt.Print(err)
+		os.Exit(1)
+	}
+
+	return string(fileData)
+}
+
 func (reportService *ReportService) GenerateClocReport(run *model.Run, displayOnly bool) {
 
 	slocData, _ := reportService.slocRepository.GetSlocForRun(run.ID)
@@ -258,7 +272,7 @@ func (reportService *ReportService) GenerateClocReport(run *model.Run, displayOn
 	reportService.reportDataRepository.SaveReportData(&model.ReportData{RunID: run.ID, ReportID: model.CLOC_REPORT_ID, Data1: model.TOTAL_FIELD,
 		Data2: fmt.Sprint(totalFiles), Data3: fmt.Sprint(totalBlank),
 		Data4: fmt.Sprint(totalComment), Data5: fmt.Sprint(totalCode)})
-	if (!*util.Xtract) {
+	if !*util.Xtract {
 		reportService.ExportReport(run.ID, model.CLOC_REPORT_ID, "SLOC SUMMARY", true, !displayOnly)
 	}
 
@@ -310,7 +324,7 @@ func checkReportError(reportName string, err error) {
 
 func (reportService *ReportService) DisplayReport(headers []string, data [][]string, title string, sortByColumn bool) {
 
-	if (*util.Xtract) {
+	if *util.Xtract {
 		fmt.Print("Application,FilesAnalyzed,FilesIgnored,SLOC,Findings,Score\n")
 		for i := 0; i < len(data); i++ {
 			// printing the array elements
@@ -349,13 +363,13 @@ func (reportService *ReportService) DisplayReport(headers []string, data [][]str
 	divLength := paddlen/2 - len(title)/2
 	leftPad := fmt.Sprint(" " + util.Padd(" ", divLength))
 	rightPad := fmt.Sprint(util.Padd(" ", divLength) + "")
-	if (!*util.Xtract) {
+	if !*util.Xtract {
 		fmt.Printf("\n%s%s%s\n", leftPad, title, rightPad)
 		fmt.Print(util.Padd("-", paddlen+2) + "\n")
 	}
 
 	//Write the headers
-	if (!*util.Xtract) {
+	if !*util.Xtract {
 		cnt := 0
 		for _, hdr := range headers {
 			if cnt == 0 {
@@ -366,22 +380,22 @@ func (reportService *ReportService) DisplayReport(headers []string, data [][]str
 		}
 	}
 
-	if (!*util.Xtract) {
+	if !*util.Xtract {
 		fmt.Print("\n")
 
 		cnt := 0
 		for _, hdr := range headers {
-				if cnt == 0 {
-					fmt.Print("|")
-				}
-				fmt.Printf("%s%s", util.Padd("-", fieldLens[hdr]), "|")
-				cnt++
+			if cnt == 0 {
+				fmt.Print("|")
+			}
+			fmt.Printf("%s%s", util.Padd("-", fieldLens[hdr]), "|")
+			cnt++
 		}
 		fmt.Print("\n")
 	}
 
 	//Write the body
-	if (!*util.Xtract) {
+	if !*util.Xtract {
 		for _, line := range data {
 			for i := 0; i < len(line); i++ {
 				if i == 0 {
@@ -395,7 +409,7 @@ func (reportService *ReportService) DisplayReport(headers []string, data [][]str
 	}
 
 	//Write Footer
-	if (!*util.Xtract) {
+	if !*util.Xtract {
 		fmt.Print(util.Padd("-", paddlen+2) + "\n")
 	}
 

@@ -20,12 +20,11 @@ import (
 	"strings"
 
 	//"github.com/inancgumus/screen"
-	"time"
-
 	"csa-app/db"
 	"csa-app/gocloc"
 	"csa-app/model"
 	"csa-app/util"
+	"time"
 
 	"database/sql"
 
@@ -412,10 +411,10 @@ func (csaService *CsaService) generateSloc(run *model.Run) {
 	for _, config := range run.Applications {
 		csaService.gatherSLOCForApp(run, config)
 	}
-	if (!*util.Xtract) {
+	if !*util.Xtract {
 		run.StopActivityLF("sloc", "SLOC Analysis...done!", false, true)
 	}
-	if (*util.Xtract) {
+	if *util.Xtract {
 		run.StopActivityLF("sloc", "", false, false)
 		//screen.Clear()
 	}
@@ -528,38 +527,36 @@ func (csaService *CsaService) genAppCSAResults(run *model.Run) {
 
 	//--- TODO: Move to function
 
-	if( util.CICDDir != nil ) {
+	if util.ReportDir != nil {
 		qryFindings := `
 			SELECT 
-			application,
-			filename,
-			fqn,
-			line,
-			rule,
-			advice,
-			effort
-   		FROM findings;
+			    run_id,
+				application,
+				filename,
+				fqn,
+				line,
+				rule,
+				advice,
+				effort,
+				category,
+				criticality,
+				ext,
+				pattern,
+				value,
+				readiness
+			FROM findings where rule is not null and rule != ''
 		`
-	
-		var sqlDBFile = *util.DbDir + string(os.PathSeparator) + *util.DBName
-		var CICDFile = *util.CICDDir + string(os.PathSeparator) + *util.CICDFileName
 
-		if err := os.MkdirAll(*util.CICDDir, os.ModePerm); err != nil {
+		var sqlDBFile = *util.DbDir + string(os.PathSeparator) + *util.DBName
+
+		fileFindings := []model.Finding{}
+
+		if err := os.MkdirAll(*util.ReportDir, os.ModePerm); err != nil {
 			fmt.Print(err)
 			os.Exit(1)
 		}
 
-		file, err := os.Create(CICDFile)
-     
-		if err != nil {
-			fmt.Printf("failed creating file: %s", err)
-		}
-		defer file.Close()
-
-
-
-
-		db, err := sql.Open("sqlite3", sqlDBFile )
+		db, err := sql.Open("sqlite3", sqlDBFile)
 		if err != nil {
 			fmt.Print(err)
 			os.Exit(1)
@@ -576,37 +573,49 @@ func (csaService *CsaService) genAppCSAResults(run *model.Run) {
 		var filename string
 		var fqn string
 		var line int
+		var runId uint
 		var rule string
 		var advice string
 		var effort int
+		var category string
+		var criticality string
+		var ext string
+		var pattern string
+		var value string
+		var readiness int
 
-		_, err3 := file.WriteString("application,filename,fqn,line,rule,advice,effort\n")
-
-		if err3 != nil {
-			fmt.Print(err3)
-			os.Exit(1)
-		}
 		for rows.Next() {
-			err = rows.Scan(&application, &filename, &fqn, &line, &rule, &advice, &effort)
+			err = rows.Scan(&runId, &application, &filename, &fqn, &line, &rule, &advice, &effort, &category, &criticality, &ext, &pattern, &value, &readiness)
 			if err != nil {
 				fmt.Print(err)
 				os.Exit(1)
 			}
-			
-			line := fmt.Sprintf("\"%s\",\"%s\",\"%s\",%d,\"%s\",\"%s\",%d\n", application, filename, fqn, line, rule, advice, effort)
-			_, err2 := file.WriteString(line)
 
-
-
-			if err2 != nil {
-				fmt.Print(err2)
-				os.Exit(1)
+			fileFinding := model.Finding{
+				RunID:       runId,
+				Filename:    filename,
+				Fqn:         fqn,
+				Ext:         ext,
+				Category:    category,
+				Pattern:     pattern,
+				Value:       value,
+				Effort:      effort,
+				Rule:        rule,
+				Advice:      advice,
+				Readiness:   readiness,
+				Criticality: criticality,
+				Application: application,
+				Line:        line,
 			}
 
-
-
+			fileFindings = append(fileFindings, fileFinding)
 		}
-		fmt.Printf("\n\nWrote CICD file %s\n", CICDFile)
+		if util.CsvReportFileName != nil {
+			csaService.generateCsvReport(fileFindings)
+		}
+		if util.HtmlReportFileName != nil {
+			csaService.generateHtmlReport(fileFindings, run)
+		}
 	}
 
 	for _, app := range run.Applications {
@@ -626,10 +635,102 @@ func (csaService *CsaService) genAppCSAResults(run *model.Run) {
 		fmt.Printf("\n\n--- END IGNORED FILES ---\n\n")
 	}
 
-
-	
 	csaService.reportService.DisplayReport(headers, data, "CSA Results", false)
-	
+
+}
+
+func (csaService *CsaService) generateCsvReport(findings []model.Finding) {
+	var reportFile = *util.ReportDir + string(os.PathSeparator) + *util.CsvReportFileName
+
+	file, err := os.Create(reportFile)
+	if err != nil {
+		fmt.Printf("failed creating file: %s", err)
+	}
+	defer file.Close()
+	_, err1 := file.WriteString("application,filename,fqn,line,rule,advice,effort,category,criticality,ext,pattern,value,readiness,level\n")
+	if err1 != nil {
+		fmt.Printf("failed write to file file: %s", err1)
+	}
+	for _, finding := range findings {
+
+		finding.Value = strings.Replace(finding.Value, ",", "", -2)
+		finding.Value = strings.Replace(finding.Value, "\n", "", -2)
+		finding.Value = strings.Replace(finding.Value, "\r", "", -2)
+
+		line := fmt.Sprintf("\"%s\",\"%s\",\"%s\",%d,\"%s\",\"%s\",%d,\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\"\n", finding.Application, finding.Filename, finding.Fqn, finding.Line, finding.Rule, finding.Advice, finding.Effort, finding.Category, finding.Criticality, finding.Ext, finding.Pattern, finding.Value, finding.Readiness, GetLevelForScore(finding.Effort))
+		_, err2 := file.WriteString(line)
+		if err2 != nil {
+			fmt.Printf("failed write to file file: %s", err2)
+		}
+	}
+
+	fmt.Printf("\n\nWrote Csv Report file %s\n", reportFile)
+}
+
+func (csaService *CsaService) generateHtmlReport(findings []model.Finding, run *model.Run) {
+
+	var fileContent = csaService.reportService.GetTemplateByName("HtmlReportTemplate.html")
+	var reportFile = *util.ReportDir + string(os.PathSeparator) + *util.HtmlReportFileName
+
+	sort.Slice(findings[:], func(i, j int) bool {
+		return findings[i].Effort > findings[j].Effort
+	})
+
+	templateContentHtml := fileContent
+
+	file, err := os.Create(reportFile)
+	if err != nil {
+		fmt.Printf("failed creating file: %s", err)
+	}
+	defer file.Close()
+
+	metadataHtml := "<li>Target: " + run.Target + "</li>"
+	metadataHtml += "<li>Created Time: " + run.CreatedAt.Format(time.ANSIC) + "</li>"
+	metadataHtml += "<li>#Findings: " + strconv.Itoa(run.Findings) + "</li>"
+
+	tableHtml := "<table id=\"reportTable\">"
+	tableHtml += "<th>Run</th>"
+	tableHtml += "<th>Application</th>"
+	tableHtml += "<th>Category</th>"
+	tableHtml += "<th>Rule</th>"
+	tableHtml += "<th>FileName</th>"
+	tableHtml += "<th>Fqn</th>"
+	tableHtml += "<th>Line</th>"
+	tableHtml += "<th>Ext</th>"
+	tableHtml += "<th>Value</th>"
+	tableHtml += "<th>Effort</th>"
+	tableHtml += "<th>Level</th>"
+	tableHtml += "<th>Readiness</th>"
+	tableHtml += "<th>Advice</th>"
+
+	for _, finding := range findings {
+		tableHtml += "<tr>"
+		tableHtml += "<td>" + strconv.FormatUint(uint64(finding.RunID), 10) + "</td>"
+		tableHtml += "<td>" + finding.Application + "</td>"
+		tableHtml += "<td>" + finding.Category + "</td>"
+		tableHtml += "<td>" + finding.Rule + "</td>"
+		tableHtml += "<td>" + finding.Filename + "</td>"
+		tableHtml += "<td>" + finding.Fqn + "</td>"
+		tableHtml += "<td>" + strconv.Itoa(finding.Line) + "</td>"
+		tableHtml += "<td>" + finding.Ext + "</td>"
+		tableHtml += "<td>" + finding.Value + "</td>"
+		tableHtml += "<td>" + strconv.Itoa(finding.Effort) + "</td>"
+		tableHtml += "<td>" + GetLevelForScore(finding.Effort) + "</td>"
+		tableHtml += "<td>" + strconv.Itoa(finding.Readiness) + "</td>"
+		tableHtml += "<td>" + finding.Advice + "</td>"
+		tableHtml += "</tr>"
+	}
+	tableHtml += "</table>"
+
+	templateContentHtml = strings.Replace(templateContentHtml, "${metadata}", metadataHtml, -1)
+	templateContentHtml = strings.Replace(templateContentHtml, "${table}", tableHtml, -1)
+
+	_, err1 := file.WriteString(templateContentHtml)
+	if err1 != nil {
+		fmt.Printf("failed write to file file: %s", err1)
+	}
+
+	fmt.Printf("\n\nWrote Html Report file %s\n", reportFile)
 }
 
 func (csaService *CsaService) gatherFiles(run *model.Run) {
@@ -645,11 +746,11 @@ func (csaService *CsaService) gatherFiles(run *model.Run) {
 		run.SetAlias(runConfig.Alias)
 		run.StartActivity("gathering")
 		runConfig.Populate()
-		if (!*util.Xtract) {
+		if !*util.Xtract {
 			fmt.Printf("Found [%d] Applications...\n", len(runConfig.Applications))
 		}
-	
-		if (!*util.Xtract) {
+
+		if !*util.Xtract {
 			run.StopActivityLF("gathering", "Gathering Files...done!\n", false, true)
 			fmt.Print("\nApp/File Details:\n\n")
 		} else {
@@ -693,7 +794,7 @@ func (csaService *CsaService) UpdateRunWithApplications(run *model.Run, rc *mode
 		run.AssociateApplication(newApp)
 		//Write app msg for cli
 		if err == nil {
-			if (!*util.Xtract) {
+			if !*util.Xtract {
 				fmt.Printf(stdOutFmt, newApp.Name, cnt)
 			}
 		} else {
@@ -702,7 +803,7 @@ func (csaService *CsaService) UpdateRunWithApplications(run *model.Run, rc *mode
 	}
 
 	run.Files = filesCnt
-	if (!*util.Xtract) {
+	if !*util.Xtract {
 		fmt.Printf("\n**** Found [%d] total Files to Analyze ****\n", filesCnt)
 	}
 }
