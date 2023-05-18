@@ -353,7 +353,7 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 					target = regexp.MustCompile(`\r?\n`).ReplaceAllString(result, " ")
 				}
 				// Lets check if the result is valid
-				exclude := csaService.shouldResultBeExcluded(target, rule)
+				exclude := csaService.shouldFindingBeExcluded(target, rule)
 
 				if exclude == false {
 				   csaService.handleRuleMatched(run, app, file, line, target, rule, rule.Patterns[i], output, result, nil)
@@ -363,7 +363,7 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 				
 			} else if !ok && rule.Negative {
                 // Lets check if the result is valid
-				exclude := csaService.shouldResultBeExcluded(target, rule)
+				exclude := csaService.shouldFindingBeExcluded(target, rule)
 				if exclude == false {
 				    csaService.handleRuleMatched(run, app, file, 0, target, rule, rule.Patterns[i], output, "", nil)
 					findings++
@@ -384,7 +384,7 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 	return findings
 }
 
-func (csaService *CsaService) shouldResultBeExcluded(target string, rule model.Rule) (exclude bool){
+func (csaService *CsaService) shouldFindingBeExcluded(target string, rule model.Rule) (exclude bool){
 	exclude = false
 	if rule.Excludepatterns != nil {
 		for j := range rule.Excludepatterns {
