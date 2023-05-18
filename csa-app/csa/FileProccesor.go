@@ -677,7 +677,6 @@ func (csaService *CsaService) generateHtmlReport(findings []model.Finding, run *
 	})
 
 	templateContentHtml := fileContent
-
 	file, err := os.Create(reportFile)
 	if err != nil {
 		fmt.Printf("failed creating file: %s", err)
@@ -687,45 +686,48 @@ func (csaService *CsaService) generateHtmlReport(findings []model.Finding, run *
 	metadataHtml := "<li>Target: " + run.Target + "</li>"
 	metadataHtml += "<li>Created Time: " + run.CreatedAt.Format(time.ANSIC) + "</li>"
 	metadataHtml += "<li>#Findings: " + strconv.Itoa(run.Findings) + "</li>"
-
-	tableHtml := "<table id=\"reportTable\">"
-	tableHtml += "<th>Run</th>"
-	tableHtml += "<th>Application</th>"
-	tableHtml += "<th>Category</th>"
-	tableHtml += "<th>Rule</th>"
-	tableHtml += "<th>FileName</th>"
-	tableHtml += "<th>Fqn</th>"
-	tableHtml += "<th>Line</th>"
-	tableHtml += "<th>Ext</th>"
-	tableHtml += "<th>Value</th>"
-	tableHtml += "<th>Effort</th>"
-	tableHtml += "<th>Level</th>"
-	tableHtml += "<th>Readiness</th>"
-	tableHtml += "<th>Advice</th>"
+	var b bytes.Buffer
+	b.WriteString("<table id=\"reportTable\">")
+	b.WriteString("<th>Run</th>")
+	b.WriteString("<th>Application</th>")
+	b.WriteString("<th>Category</th>")
+	b.WriteString("<th>Rule</th>")
+	b.WriteString("<th>FileName</th>")
+	b.WriteString("<th>Fqn</th>")
+	b.WriteString("<th>Line</th>")
+	b.WriteString("<th>Ext</th>")
+	b.WriteString("<th>Value</th>")
+	b.WriteString("<th>Effort</th>")
+	b.WriteString("<th>Level</th>")
+	b.WriteString("<th>Readiness</th>")
+	b.WriteString("<th>Advice</th>")
+	
+	fmt.Printf("Findings [%d]", len(findings))
 
 	for _, finding := range findings {
-		tableHtml += "<tr>"
-		tableHtml += "<td>" + strconv.FormatUint(uint64(finding.RunID), 10) + "</td>"
-		tableHtml += "<td>" + finding.Application + "</td>"
-		tableHtml += "<td>" + finding.Category + "</td>"
-		tableHtml += "<td>" + finding.Rule + "</td>"
-		tableHtml += "<td>" + finding.Filename + "</td>"
-		tableHtml += "<td>" + finding.Fqn + "</td>"
-		tableHtml += "<td>" + strconv.Itoa(finding.Line) + "</td>"
-		tableHtml += "<td>" + finding.Ext + "</td>"
-		tableHtml += "<td>" + finding.Value + "</td>"
-		tableHtml += "<td>" + strconv.Itoa(finding.Effort) + "</td>"
-		tableHtml += "<td>" + GetLevelForScore(finding.Effort) + "</td>"
-		tableHtml += "<td>" + strconv.Itoa(finding.Readiness) + "</td>"
-		tableHtml += "<td>" + finding.Advice + "</td>"
-		tableHtml += "</tr>"
+		b.WriteString("<tr>")
+		b.WriteString("<td>" + strconv.FormatUint(uint64(finding.RunID), 10) + "</td>")
+		b.WriteString("<td>" + finding.Application + "</td>")
+		b.WriteString("<td>" + finding.Category + "</td>")
+		b.WriteString("<td>" + finding.Rule + "</td>")
+		b.WriteString("<td>" + finding.Filename + "</td>")
+		b.WriteString("<td>" + finding.Fqn + "</td>")
+		b.WriteString("<td>" + strconv.Itoa(finding.Line) + "</td>")
+		b.WriteString("<td>" + finding.Ext + "</td>")
+		b.WriteString("<td>" + finding.Value + "</td>")
+		b.WriteString("<td>" + strconv.Itoa(finding.Effort) + "</td>")
+		b.WriteString("<td>" + GetLevelForScore(finding.Effort) + "</td>")
+		b.WriteString("<td>" + strconv.Itoa(finding.Readiness) + "</td>")
+		b.WriteString("<td>" + finding.Advice + "</td>")
+		b.WriteString("</tr>")
 	}
-	tableHtml += "</table>"
+	b.WriteString("</table>")
 
 	templateContentHtml = strings.Replace(templateContentHtml, "${metadata}", metadataHtml, -1)
-	templateContentHtml = strings.Replace(templateContentHtml, "${table}", tableHtml, -1)
+	templateContentHtml = strings.Replace(templateContentHtml, "${table}", b.String(), -1)
 
-	_, err1 := file.WriteString(templateContentHtml)
+	data := []byte(templateContentHtml)
+	err1 := ioutil.WriteFile(reportFile, data, 0)
 	if err1 != nil {
 		fmt.Printf("failed write to file file: %s", err1)
 	}
