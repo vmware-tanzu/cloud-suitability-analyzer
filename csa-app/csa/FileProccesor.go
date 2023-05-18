@@ -36,6 +36,7 @@ import (
 )
 
 func (csaService *CsaService) processFile(run *model.Run, app *model.Application, file *util.FileInfo, rules []model.Rule, hasContentRules bool, output chan<- interface{}) (findingCnt int, err error) {
+	
 	if len(rules) > 0 {
 
 		//Get File Lang
@@ -84,12 +85,14 @@ func (csaService *CsaService) processFile(run *model.Run, app *model.Application
 			if redactComments {
 				curLine, process, midComment = util.HandleComments(curLine, midComment, lang)
 			}
-
+			
 			if process && len(strings.TrimSpace(curLine)) > 0 {
 				sloc++
 				for i := range rules {
+					
 					if rules[i].Target == model.LINE_TARGET {
 						findingCnt += csaService.processPatterns(run, app, file, line, curLine, rules[i], output)
+
 						if *util.Verbose {
 							util.WriteLog("A10nalyzing", "### Rule: %s Hit: %d times on File: %s Line: %d ###\n", rules[i].Name, findingCnt, file.Name, line)
 						}
@@ -349,16 +352,24 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 				if len(result) > 0 {
 					target = regexp.MustCompile(`\r?\n`).ReplaceAllString(result, " ")
 				}
+				// Lets check if the result is valid
+				exclude := csaService.shouldResultBeExcluded(target, rule)
 
-				csaService.handleRuleMatched(run, app, file, line, target, rule, rule.Patterns[i], output, result, nil)
-
-				findings++
-				cnt++
+				if exclude == false {
+				   csaService.handleRuleMatched(run, app, file, line, target, rule, rule.Patterns[i], output, result, nil)
+				   findings++
+				   cnt++
+				}
+				
 			} else if !ok && rule.Negative {
-				csaService.handleRuleMatched(run, app, file, 0, target, rule, rule.Patterns[i], output, "", nil)
+                // Lets check if the result is valid
+				exclude := csaService.shouldResultBeExcluded(target, rule)
+				if exclude == false {
+				    csaService.handleRuleMatched(run, app, file, 0, target, rule, rule.Patterns[i], output, "", nil)
+					findings++
+					cnt++
+				}
 
-				findings++
-				cnt++
 			}
 
 		}
@@ -371,6 +382,21 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 	rule.Metric.Accumulate(pcnt, cnt, time.Since(start))
 
 	return findings
+}
+
+func (csaService *CsaService) shouldResultBeExcluded(target string, rule model.Rule) (exclude bool){
+	exclude = false
+	if rule.Excludepatterns != nil {
+		for j := range rule.Excludepatterns {
+			regex := regexp.MustCompile(rule.Excludepatterns[j].Value)
+			findingExclude := regex.MatchString(target)
+			if findingExclude == true {
+				fmt.Println("Finding by rule "+rule.Name+" excluded by ExcludePattern => " + target)
+				exclude = true
+			}
+		}
+	}
+	return exclude
 }
 
 func (csaService *CsaService) scoreApps(run *model.Run) {

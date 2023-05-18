@@ -34,6 +34,7 @@ type Rule struct {
 	Tags            []Tag          `json:",omitempty" yaml:",omitempty"`
 	Recipes         []Recipe       `gorm:"foreignkey:RuleID" json:",omitempty" yaml:",omitempty"`
 	Patterns        []Pattern      `gorm:"foreignkey:RuleID"`
+	Excludepatterns []ExcludePattern      `gorm:"foreignkey:RuleID" json:",omitempty" yaml:",omitempty"`
 	fileNameRegex   *regexp.Regexp `gorm:"-" json:"-" yaml:"-"`
 	regex           *regexp.Regexp `gorm:"-" json:"-" yaml:"-"`
 	Metric          *RuleMetric    `gorm:"-" json:"-" yaml:"-"`

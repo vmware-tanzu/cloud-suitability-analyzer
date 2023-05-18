@@ -54,7 +54,7 @@ func NewRuleRepositoryForRun(run *model.Run) RuleRepository {
 
 func (ruleRepository *OrmRepository) GetRules() ([]model.Rule, error) {
 	var rules []model.Rule
-	resp := ruleRepository.dbconn.Preload("Patterns").Preload("Recipes").Preload("Tags").Find(&rules)
+	resp := ruleRepository.dbconn.Preload("Patterns").Preload("Recipes").Preload("Tags").Preload("Excludepatterns").Find(&rules)
 	return rules, resp.Error
 }
 
@@ -303,7 +303,7 @@ func (ruleRepository *OrmRepository) LoadRules() {
 		if len(rules) < 1 {
 			fmt.Printf("Loading rules from Bootstap...\n")
 			cnt := 0
-			for _, rule := range model.BootstrapRules() {
+			for _, rule := range model.BootstrapRules() {			
 				_, err := ruleRepository.SaveRule(rule)
 				if err != nil {
 					util.App.Fatalf("Error saving rule [%s]! Details: %s", rule.Name, err.Error())

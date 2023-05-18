@@ -13,6 +13,8 @@ func BootstrapRules() []Rule {
             { Name: "{{.Name}}", FileType: "{{.FileType}}", Target: "{{.Target}}", Type: "{{.Type}}", DefaultPattern: "{{.GetEscapedPattern}}", Advice: "{{.Advice}}", Effort: {{.Effort}}, Readiness: {{.Readiness}}, Impact: "{{.Impact}}", Category: "{{.Category}}", Criticality: "{{.Criticality}}",
             Tags:
             []Tag{ {{ range .Tags }} { Value: "{{.Value}}",},{{end}} },
+            Excludepatterns:
+            []ExcludePattern{ {{ range .Excludepatterns }} { Value: "{{.Value}}",},{{end}} },
             Recipes:
             []Recipe{ {{ range .Recipes }} { URI: "{{.URI}}", }, {{end}} },
             Patterns:
