@@ -158,6 +158,16 @@ func DeleteTags(tags []model.Tag) {
 	}
 }
 
+func DeleteExcludePatterns(excludePatterns []model.ExcludePattern) {
+
+	for _, excludePattern := range excludePatterns {
+		CheckDBError(false,
+			"Import Rules",
+			fmt.Sprintf("Failed Deleting Exclude Pattern [%s]", excludePattern.Value),
+			database.Delete(&excludePattern).Error)
+	}
+}
+
 func getTemplate(templatesDir string, filename string) *template.Template {
 	name := templatesDir + util.PathSeparator + filename
 

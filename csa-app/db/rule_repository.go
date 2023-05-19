@@ -86,7 +86,7 @@ func (ruleRepository *OrmRepository) SaveRule(rule model.Rule) (model.Rule, erro
 
 func (ruleRepository *OrmRepository) GetRuleByName(name string) (model.Rule, error) {
 	var rule model.Rule
-	res := ruleRepository.dbconn.Where(&model.Rule{Name: name}).Preload("Patterns").Preload("Recipes").Preload("Tags").Find(&rule)
+	res := ruleRepository.dbconn.Where(&model.Rule{Name: name}).Preload("Patterns").Preload("Recipes").Preload("Tags").Preload("Excludepatterns").Find(&rule)
 	return rule, res.Error
 }
 
@@ -365,10 +365,11 @@ func (ruleRepository *OrmRepository) unMarshalAndSaveRule(decoder util.FileDecod
 				if *util.Verbose {
 					fmt.Printf("Rule [%s] exists! Updating!", rule.Name)
 				}
-				deletedPatterns, deletedRecipes, deletedTags := existingRule.UpdateRule(rule)
+				deletedPatterns, deletedRecipes, deletedTags, deletedExcludePatterns := existingRule.UpdateRule(rule)
 				DeletePatterns(deletedPatterns)
 				DeleteRecipes(deletedRecipes)
 				DeleteTags(deletedTags)
+				DeleteExcludePatterns(deletedExcludePatterns)
 				ruleRepository.SaveRule(existingRule)
 			} else {
 				if *util.Verbose {

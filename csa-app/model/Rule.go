@@ -178,7 +178,7 @@ func (r *Rule) GetEscapedPattern() string {
 	return util.EscapeSpecials(r.DefaultPattern)
 }
 
-func (r *Rule) UpdateRule(newRule Rule) (deletedPatterns []Pattern, deletedRecipes []Recipe, deletedTags []Tag) {
+func (r *Rule) UpdateRule(newRule Rule) (deletedPatterns []Pattern, deletedRecipes []Recipe, deletedTags []Tag, deletedExcludePatterns []ExcludePattern) {
 
 	if newRule.Advice != "" && newRule.Advice != r.Advice {
 		r.Advice = newRule.Advice
@@ -219,6 +219,7 @@ func (r *Rule) UpdateRule(newRule Rule) (deletedPatterns []Pattern, deletedRecip
 	deletedPatterns = r.updatePatterns(newRule)
 	deletedRecipes = r.updateRecipes(newRule)
 	deletedTags = r.updateTags(newRule)
+	deletedExcludePatterns = r.updateExcludePatterns(newRule)
 
 	return
 }
@@ -345,6 +346,56 @@ func (r *Rule) updateRecipes(newRule Rule) (deleted []Recipe) {
 
 		if *util.Verbose {
 			fmt.Printf(" Recipes[added:%d deleted:%d] ", newRecipes, len(deleted))
+		}
+	}
+
+	return deleted
+}
+
+func (r *Rule) updateExcludePatterns(newRule Rule) (deleted []ExcludePattern) {
+
+	var newExcludePatterns int
+
+	if len(newRule.Excludepatterns) > 0 {
+
+		for _, excludePattern := range newRule.Excludepatterns {
+
+			var patternMatched = false
+
+			for i, _ := range r.Excludepatterns {
+
+				if excludePattern.Value == r.Excludepatterns[i].Value {
+					patternMatched = true
+				}
+			}
+
+			if !patternMatched {
+				r.Excludepatterns = append(r.Excludepatterns, excludePattern)
+				newExcludePatterns++
+			}
+		}
+
+		for i := len(r.Excludepatterns) - 1; i >= 0; i-- {
+
+			var found = false
+
+			excludePattern := r.Excludepatterns[i]
+
+			for _, matchedExcludePattern := range newRule.Excludepatterns {
+				if excludePattern.Value == matchedExcludePattern.Value {
+					found = true
+					break
+				}
+			}
+
+			if !found {
+				r.Excludepatterns = append(r.Excludepatterns[:i], r.Excludepatterns[i+1:]...)
+				deleted = append(deleted, excludePattern)
+			}
+		}
+
+		if *util.Verbose {
+			fmt.Printf(" Excludepatterns[added:%d deleted:%d] ", newExcludePatterns, len(deleted))
 		}
 	}
 
