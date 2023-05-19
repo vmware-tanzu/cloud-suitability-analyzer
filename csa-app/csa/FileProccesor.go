@@ -687,41 +687,21 @@ func (csaService *CsaService) generateHtmlReport(findings []model.Finding, run *
 	metadataHtml += "<li>Created Time: " + run.CreatedAt.Format(time.ANSIC) + "</li>"
 	metadataHtml += "<li>#Findings: " + strconv.Itoa(run.Findings) + "</li>"
 	var b bytes.Buffer
-	b.WriteString("<table id=\"reportTable\">")
-	b.WriteString("<th>Run</th>")
-	b.WriteString("<th>Application</th>")
-	b.WriteString("<th>Category</th>")
-	b.WriteString("<th>Rule</th>")
-	b.WriteString("<th>FileName</th>")
-	b.WriteString("<th>Fqn</th>")
-	b.WriteString("<th>Line</th>")
-	b.WriteString("<th>Ext</th>")
-	b.WriteString("<th>Value</th>")
-	b.WriteString("<th>Effort</th>")
-	b.WriteString("<th>Level</th>")
-	b.WriteString("<th>Readiness</th>")
-	b.WriteString("<th>Advice</th>")
-	
 	fmt.Printf("Findings [%d]", len(findings))
-
 	for _, finding := range findings {
 		b.WriteString("<tr>")
-		b.WriteString("<td>" + strconv.FormatUint(uint64(finding.RunID), 10) + "</td>")
+		b.WriteString("<td class=\"small\">" + strconv.FormatUint(uint64(finding.RunID), 10) + "</td>")
 		b.WriteString("<td>" + finding.Application + "</td>")
 		b.WriteString("<td>" + finding.Category + "</td>")
 		b.WriteString("<td>" + finding.Rule + "</td>")
-		b.WriteString("<td>" + finding.Filename + "</td>")
 		b.WriteString("<td>" + finding.Fqn + "</td>")
-		b.WriteString("<td>" + strconv.Itoa(finding.Line) + "</td>")
-		b.WriteString("<td>" + finding.Ext + "</td>")
+		b.WriteString("<td class=\"small\">" + strconv.Itoa(finding.Line) + "</td>")
 		b.WriteString("<td>" + finding.Value + "</td>")
-		b.WriteString("<td>" + strconv.Itoa(finding.Effort) + "</td>")
-		b.WriteString("<td>" + GetLevelForScore(finding.Effort) + "</td>")
-		b.WriteString("<td>" + strconv.Itoa(finding.Readiness) + "</td>")
+		b.WriteString("<td class=\"small\">" + GetLevelForScore(finding.Effort) + "</td>")
+		b.WriteString("<td class=\"small\">" + strconv.Itoa(finding.Effort) + "</td>")
 		b.WriteString("<td>" + finding.Advice + "</td>")
 		b.WriteString("</tr>")
 	}
-	b.WriteString("</table>")
 
 	templateContentHtml = strings.Replace(templateContentHtml, "${metadata}", metadataHtml, -1)
 	templateContentHtml = strings.Replace(templateContentHtml, "${table}", b.String(), -1)

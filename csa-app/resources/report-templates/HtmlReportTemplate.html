@@ -23,9 +23,6 @@
                 border: 1px solid #ddd;
                 padding: 8px;
             }
-            td {
-                max-width: 400px;
-            }
             tr:nth-child(even){background-color: #f2f2f2;}
             tr:hover {background-color: #ddd;}
             th {
@@ -38,31 +35,36 @@
             ul {
                 list-style-type: square;
             }
-            #appInput {
-                background-image: url('/css/searchicon.png'); /* Add a search icon to input */
-                background-position: 10px 12px; /* Position the search icon */
-                background-repeat: no-repeat; /* Do not repeat the icon image */
-                width: 100%; /* Full-width */
-                font-size: 16px; /* Increase font-size */
-                padding: 12px 20px 12px 40px; /* Add some padding */
-                border: 1px solid #ddd; /* Add a grey border */
-                margin-bottom: 12px; /* Add some space below the input */
-                margin-left: 15px;
-                margin-right: 15px;
+            td.small {
+                max-width: 60px;
+            }
+            .filter-input {
+                width: 100%;
+            }
+            .download-button {
+                margin-left: 0px;
+                margin-top: 5px;
+                color: white;
+                background-color: #3c3f42;
+                border-radius: 7px;
+                font-size: 14px;
+                padding: 3px;
+                text-align: center;
+                margin-bottom: 10px;
+                position: absolute;
+                top: 59px;
+                right: 1%;
             }
         </style>
         <script>
-            function filter() {
-              // Declare variables
+            function filter(inputId, columnIndex) {
               var input, filter, table, tr, td, i, txtValue;
-              input = document.getElementById("appInput");
+              input = document.getElementById(inputId);
               filter = input.value.toUpperCase();
               table = document.getElementById("reportTable");
               tr = table.getElementsByTagName("tr");
-            
-              // Loop through all table rows, and hide those who don't match the search query
               for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[1];
+                td = tr[i].getElementsByTagName("td")[columnIndex];
                 if (td) {
                   txtValue = td.textContent || td.innerText;
                   if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -73,6 +75,56 @@
                 }
               }
             }
+
+            function tableToCSV(id) {
+                var csv_data = [];
+                var headers
+                if (!id) {
+                    headers = Array.from(document.getElementsByTagName('thead'));
+                }
+                else {
+                    let table = document.getElementById(id);
+                    headers = Array.from(table.getElementsByTagName('thead'));
+                }
+                if (!id) {
+                    rows = Array.from(document.getElementsByTagName('tr'));
+                }
+                else {
+                    let table = document.getElementById(id);
+                    rows = Array.from(table.getElementsByTagName('tr'));
+                }
+            
+                rows = headers.concat(rows);
+
+                for (var i = 0; i < rows.length; i++) {
+
+                    var cols = rows[i].querySelectorAll('td,th');
+                    var csvrow = [];
+                    for (var j = 0; j < cols.length; j++) {
+                        var cellValue = cols[j].innerHTML
+                        if (i == 0) {
+                            cellValue = cellValue.substring(0, cellValue.indexOf("<br>"))
+                        }
+                        csvrow.push("\"" + cellValue + "\"");
+                    }
+                    csv_data.push(csvrow.join(","));
+                }
+                csv_data = csv_data.join('\n');
+                downloadCSVFile(csv_data)
+            }
+
+            function downloadCSVFile(csv_data) {
+                CSVFile = new Blob([csv_data], { type: "text/csv" });
+                var temp_link = document.createElement('a');
+                temp_link.download = "export.csv";
+                var url = window.URL.createObjectURL(CSVFile);
+                temp_link.href = url;
+                temp_link.style.display = "none";
+                document.body.appendChild(temp_link);
+                temp_link.click();
+                document.body.removeChild(temp_link);
+            }
+
             </script>
     </head>
     <body>
@@ -80,8 +132,24 @@
         <div class="metadata">
             <ul>${metadata}</ul>
         </div>
-        <input type="text" id="appInput" onkeyup="filter()" placeholder="Search by application name">
-        <div class="report">${table}</div>
+        
+        <input type="button" class="download-button" value="Download CSV" onclick="tableToCSV('reportTable')"></input>
+        <div class="report">
+            <table  id="reportTable">
+                <th>Run</br><input type="text" class="filter-input" id="run" onkeyup="filter('run',0)" placeholder="Run"></th>
+                <th>Application</br><input type="text" class="filter-input" id="application" onkeyup="filter('application',1)" placeholder="Application name"></th>
+                <th>Category</br><input type="text" class="filter-input" id="category" onkeyup="filter('category',2)" placeholder="Category"></th>
+                <th>Rule</br><input type="text" class="filter-input" id="rule" onkeyup="filter('rule',3)" placeholder="Rule"></th>
+                <th>File</br><input type="text" class="filter-input" id="file" onkeyup="filter('file',4)" placeholder="File"></th>
+                <th>Line</br><input type="text" class="filter-input" id="line" onkeyup="filter('line',5)" placeholder="Line"></th>
+                <th>Value</br><input type="text" class="filter-input" id="value" onkeyup="filter('value',6)" placeholder="Value"></th>
+                <th>Level</br><input type="text" class="filter-input" id="level" onkeyup="filter('level',7)" placeholder="Level"></th>
+                <th>Effort</br><input type="text" class="filter-input" id="effort" onkeyup="filter('effort',8)" placeholder="Effort"></th>
+                <th>Advice</br><input type="text" class="filter-input" id="advice" onkeyup="filter('advice',9)" placeholder="Advice"></th>
+                
+                ${table}
+           </table>
+        </div>
     </div>
     </body>
 </html>
