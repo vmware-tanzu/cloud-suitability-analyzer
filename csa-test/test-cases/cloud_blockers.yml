@@ -66,7 +66,13 @@ category:
     rule-name: dotnet-filepath
     test-filename: file_path.cs
     assert:  true
-    assert-count:  1
+    assert-count:  2
+    assert-value: "null"
+  - name: "File Path with False Positive"
+    rule-name: dotnet-filepath
+    test-filename: file_path_false_positive.cs
+    assert:  false
+    assert-count:  0
     assert-value: "null"
   - name: "File Based Config"
     rule-name: dotnet-file-based-config

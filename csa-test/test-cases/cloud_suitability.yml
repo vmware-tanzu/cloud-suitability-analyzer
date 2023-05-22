@@ -6,7 +6,7 @@ category:
     rule-name: plaintext-creds
     test-filename: plain_text_credentials.cs
     assert:  true
-    assert-count:  2
+    assert-count:  3
     assert-value: "null"
   - name: "Plain Text Credentials False positive"
     rule-name: plaintext-creds

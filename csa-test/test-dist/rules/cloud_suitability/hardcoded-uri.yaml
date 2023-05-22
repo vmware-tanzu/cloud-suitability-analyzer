@@ -21,9 +21,10 @@ category: env-config
 tags:
 - value: hardcoded-uri
 excludepatterns:
-- value: (https)\:{1}\/{2}some_cdn_library_url
 - value: xmlns="(http)\:{1}\/{2}[a-zA-Z0-9]
 - value: (https)\:{1}\/{2}registry.npmjs.org/@angular/
+- value: <meta.*content=.*
+- value: <!doctype.*
 patterns:
 - value: http
 - value: https

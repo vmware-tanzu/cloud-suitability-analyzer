@@ -16,5 +16,10 @@ readiness: 8
 category: hard-ip
 tags:
 - value: hard-ip
+excludepatterns:
+- value: .GeneratedCodeAttribute\(.*[,]
+- value: AssemblyFileVersion\(
+- value: AssemblyVersion\(
+- value: PackageReference.*Version="
 patterns:
-- value: (?:(?:^|[^"])|(?:^|[^\(=])"|(?:^|[^n])\("|(?:^|[^n])="|(?:^|[^o])n\("|(?:^|[^o])n="|(?:^|[^i])on\("|(?:^|[^i])on="|(?:^|[^s])ion\("|(?:^|[^s])ion="|(?:^|[^r])sion\("|(?:^|[^r])sion="|(?:^|[^e])rsion\("|(?:^|[^e])rsion="|(?:^|[^V])ersion\("|(?:^|[^V])ersion=")(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])
+- value: (([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])

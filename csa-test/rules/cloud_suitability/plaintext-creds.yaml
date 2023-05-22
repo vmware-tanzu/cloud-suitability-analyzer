@@ -9,7 +9,7 @@ mat_criticality: Low
 # -----------------------------
 target: line
 type: regex
-defaultpattern: (%s)\s*=+\s*[^${(\s][^"${(\s]
+defaultpattern: (%s)\s*=+\s*["'][^${(\s][^"${(\s].*
 advice: Found plain text crdentials. Never save passwords or login information in files. Make configurable, put into environment variables or config maps in a kubernetes like environment. Credentials could also be set and retrieved from cloud friendly crdential vaults. 
 readiness: 9
 category: security

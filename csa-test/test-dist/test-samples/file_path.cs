@@ -1,1 +1,2 @@
-System.FilePath.Windows 
+System.FilePath.Windows
+type FilePath = String

@@ -10,9 +10,9 @@ mat_criticality: Medium
 filetype: (cs$|vb$)
 target: line
 type: regex
-defaultpattern: .*%s\s.*
+defaultpattern: '%s'
 patterns:
-- value: FormCollection
+- value: .*Create.*\(FormCollection.*
 advice: Not supported, Replace with IFormCollection
 readiness: 9
 effort: 10

@@ -4,4 +4,5 @@
 
 "resolved": "https://registry.npmjs.org/@angular/cli/-/cli-1.5.0.tgz",
 
-"https://some_cdn_library_url"
+<meta content="http://schemas.microsoft.com/intellisense/ie5" name="" vs_targetSchema"">"""
+<!doctype html public "-//w3c//dtd html 4.01//en" "http://www.w3.org/tr/html4/strict.dtd>">

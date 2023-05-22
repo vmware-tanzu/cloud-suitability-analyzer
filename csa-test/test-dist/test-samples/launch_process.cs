@@ -1,4 +1,4 @@
- Process()
+ new Process()
  Process ()
  Process.
 

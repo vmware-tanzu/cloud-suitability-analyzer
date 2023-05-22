@@ -33,3 +33,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 PackageReference Include="Show.Common" Version="1.0.0.27"
+
+[global::System.CodeDom.Compiler.GeneratedCodeAttribute(System.Data.Design.TypedDataSetGenerator,"15.0.0.0")]"
+[System.CodeDom.Compiler.GeneratedCodeAttribute(XsdGenerator.UI,"3.1.10.5462")]
+ 
