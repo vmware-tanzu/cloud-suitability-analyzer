@@ -20,6 +20,12 @@ category:
     assert:  false
     assert-count:  0
     assert-value: "null"
+  - name: "Hard Coded IP False Positive for json"
+    rule-name: dotnet-ipv4-addresses
+    test-filename: hard_code_ip_false_positive.json
+    assert:  false
+    assert-count:  0
+    assert-value: "null"
   - name: "Hard Coded IP"
     rule-name: dotnet-ipv4-addresses
     test-filename: hard_code_ip.cs

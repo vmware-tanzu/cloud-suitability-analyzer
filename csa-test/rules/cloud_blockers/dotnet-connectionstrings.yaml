@@ -9,7 +9,7 @@ mat_criticality: Low
 # -----------------------------
 title: Usage of hardcoded connection string
 description: Helps with detecting if hard coded connection strings
-filetype: (yaml|xml|json|property|config)
+filetype: (json|property)
 target: line
 type: regex
 defaultpattern: .*(%s)
@@ -21,4 +21,4 @@ tags:
 - value: connection-string
 - value: database
 patterns:
-- value: ConnectionString
+- value: "ConnectionStrings"

@@ -118,7 +118,7 @@ category:
     assert-value: "null"
   - name: "Connection String"
     rule-name: dotnet-connectionstrings
-    test-filename: dotnet-connectionstrings.config
+    test-filename: dotnet-connectionstrings.json
     assert:  true
     assert-count:  1
     assert-value: "null"

@@ -18,5 +18,5 @@ category: env-config
 tags:
 - value: env-config
 patterns:
-- value: .AddJsonFile\(
+- value: .AddJsonFile\("
 #- Configuration = new Configuration().AddJsonFile("config.json")
