@@ -18,5 +18,7 @@ effort: 10
 category: unsupported-iis-module
 tags:
 - value: iis-module
+excludepatterns:
+- value: .authentication.*mode="None"
 #- <configuration><system.web><authentication
 # Mostly a challenge if moving to .NetCore

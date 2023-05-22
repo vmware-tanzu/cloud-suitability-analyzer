@@ -1,6 +1,11 @@
  Password=${somevariable}
  User= (
 
+     <ServiceInstall Id=wsi1" Name="MLOPTIMADTLTrigger" DisplayName="ML.OPTIMA.DTLTrigger" Type="ownProcess" Start="demand" ErrorControl="normal" Vital="yes" Description="ML.OPTIMA.DTLTrigger" Account="[MLVAROPTIMA_SERVICEID_COMMON]" Password="[MLVAROPTIMA_SERVICEID_PWD_COMMON]" />"
+ 
+        <Control Id=text1" Type="Edit" X="170" Y="135" Width="153" Height="18" Property="MLVAR_PCOE_COMPUS_EMS_PASSWORD" Password="yes" />"
+Login.SkipIFLogin = "true".Equals( Utility.Xml.AttributeValue( loginArgs "SkipMLIFLogin" null ) StringComparison.OrdinalIgnoreCase );"
+
      OL.LMECHLUser chlUser = msgOut.GetLMEOriginator().GetLMECHLUserCol().AddLMECHLUser();
                             OUE.CHLUserInfo oCHLUser = GetEmployeeInfo(chlUser.hrEmpNum);
             SLFBE.CHLUser chlUser = GenericNavigator.SelectSingleChildByProperty(superLoanfile.GetCHLUserCol().GetCHLUserCollection()
