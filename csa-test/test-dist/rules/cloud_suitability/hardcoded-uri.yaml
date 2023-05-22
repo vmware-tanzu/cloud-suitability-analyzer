@@ -25,6 +25,7 @@ excludepatterns:
 - value: (https)\:{1}\/{2}registry.npmjs.org/@angular/
 - value: <meta.*content=.*
 - value: <!doctype.*
+- value: <!DOCTYPE.*
 - value: http://activemq.apache.org
 - value: http://www.apache.org
 # Remove commented urls

@@ -17,7 +17,7 @@ tags:
 - value: security
 excludepatterns:
 - value: <Control.*Property.*Password="yes
-- value: (Login)\s*=+\s"true
+- value: (Login)\s*=+\s*"true
 patterns:
 - value: Password
 - value: User

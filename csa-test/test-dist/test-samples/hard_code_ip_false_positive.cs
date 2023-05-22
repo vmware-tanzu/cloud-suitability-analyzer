@@ -37,6 +37,8 @@ PackageReference Include="Show.Common" Version="1.0.0.27"
 [global::System.CodeDom.Compiler.GeneratedCodeAttribute(System.Data.Design.TypedDataSetGenerator,"15.0.0.0")]"
 [System.CodeDom.Compiler.GeneratedCodeAttribute(XsdGenerator.UI,"3.1.10.5462")]
 
+test = "test_6.3.4.1"
+
 string callstring = @CALL CXC551R('E''0000000540''2022-02-21-02.20.26.492481''''');";"
 string[] requiredAssemblies = { ML.PCOE.SERVER.UTILITY Version=4.5.0.0 Culture=neutral PublicKeyToken=5f27205f9bc90fc2" };"
  
