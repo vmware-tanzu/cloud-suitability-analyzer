@@ -3,12 +3,12 @@ name: node-cfdev
 filetype: js$
 target: line
 type: regex
-defaultpattern: '^.*require("%s"'
+defaultpattern: "^.*require.*%s"
 advice: Adapt to cloud foundry 
-effort: 0
+effort: 9
 readiness: 0
 category: cf
 tags:
   - value: cloud-foundry
 patterns:
-  - value: cdenv
+  - value: cfenv

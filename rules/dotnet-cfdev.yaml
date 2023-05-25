@@ -1,0 +1,14 @@
+name: dotnet-cfdev
+filetype: cs$
+target: line
+type: regex
+defaultpattern: ^.*%s
+advice: Adapt to cloud foundry usage
+effort: 9
+readiness: 0
+category: cf
+tags:
+- value: cloud-foundry
+patterns:
+- value: using Microsoft.Extensions.Configuration
+- value: using Steeltoe.Extensions.Configuration.CloudFoundry

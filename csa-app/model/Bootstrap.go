@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-05-11 13:38:30.176023 -0500 CDT m=+0.186893360
+//Created @ 2023-05-18 12:51:16.338236 -0500 CDT m=+0.122445565
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -974,6 +974,16 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "Page Language", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
+            { Name: "dotnet-cfdev", FileType: "cs$", Target: "line", Type: "regex", DefaultPattern: "^.*%s", Advice: "Adapt to cloud foundry usage", Effort: 9, Readiness: 0, Impact: "", Category: "cf", Criticality: "",
+            Tags:
+            []Tag{  { Value: "cloud-foundry",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "using Microsoft.Extensions.Configuration", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "using Steeltoe.Extensions.Configuration.CloudFoundry", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
             { Name: "dotnet-connectionstrings", FileType: "(yaml|yaml|json|property|config)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Remove connection strings from files, use environment variables (or mount configmap into pod)", Effort: 10, Readiness: 5, Impact: "", Category: "connection-string", Criticality: "",
             Tags:
             []Tag{  { Value: "sonnection-string",}, },
@@ -1001,7 +1011,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "IBM.Data.DB2", Advice: "IBM.Data.DB2 can require a special procedure so that the driver's native components are deployed with the application.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-serilog-elasticsearch", FileType: "(cs|yaml|yml|json)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Make sure to have reachable ELK stack from deployed app", Effort: 5, Readiness: 8, Impact: "", Category: "logging", Criticality: "",
+            { Name: "dotnet-elk", FileType: "(cs|yaml|yml|json)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Make sure to have reachable ELK stack from deployed app", Effort: 5, Readiness: 8, Impact: "", Category: "logging", Criticality: "",
             Tags:
             []Tag{  { Value: "elasticsearch",}, },
             Recipes:
@@ -1955,6 +1965,25 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "com.opensymphony.oscache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "opensymphony-oscache", Recipe: "", },
              { Type: "", Pattern: "", Value: "org.shiftone-cache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "shiftone-casche", Recipe: "", },
              { Type: "", Pattern: "", Value: "com.ibm.websphere.objectgrid", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "websphere-objectgrid", Recipe: "", },
+             }, },
+        
+            { Name: "java-cfdev-import", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Adapt to cloud foundry usage", Effort: 9, Readiness: 0, Impact: "", Category: "cf", Criticality: "",
+            Tags:
+            []Tag{  { Value: "cloud-foundry",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "io.pivotal.cfenv", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-cfdev", FileType: "(java$)", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Adapt to cloud foundry", Effort: 1, Readiness: 0, Impact: "", Category: "cf", Criticality: "",
+            Tags:
+            []Tag{  { Value: "cloud-foundry",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "CfEnv", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "CfJdvcEnv", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "java-corba", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: ".*[ .]%s[ (].*", Advice: "Replace with cloud-friendly framework or move to TKG", Effort: 10, Readiness: 6, Impact: "", Category: "corba", Criticality: "",
@@ -3639,6 +3668,15 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "property.filename", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
+            { Name: "node-cfdev", FileType: "js$", Target: "line", Type: "regex", DefaultPattern: "^.*require.*%s", Advice: "Adapt to cloud foundry", Effort: 9, Readiness: 0, Impact: "", Category: "cf", Criticality: "",
+            Tags:
+            []Tag{  { Value: "cloud-foundry",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "cfenv", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
             { Name: "php-allow-url-in-config", FileType: "ini$", Target: "line", Type: "regex", DefaultPattern: "\\s*(%s)=1$", Advice: "allow_url_fopen and allow_url_include allow code to be read into a script from URL’s. The ability to suck in executable code from outside your site, coupled with imperfect input cleansing could lay your site bare to attackers explicitly disable allow_url_fopen and allow_url_include'", Effort: 5, Readiness: 1000, Impact: "", Category: "Vulnerability", Criticality: "",
             Tags:
             []Tag{  { Value: "vulnerability",}, },
@@ -3869,6 +3907,15 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "login", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
+            { Name: "pom-cfdev", FileType: "pom$", Target: "line", Type: "regex", DefaultPattern: ">%s<", Advice: "Adapt to cloud foundry", Effort: 50, Readiness: 0, Impact: "", Category: "cf", Criticality: "",
+            Tags:
+            []Tag{  { Value: "cloud-foundry",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "io.pivotal.cfenv", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
             { Name: "python-cf", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Check for cloud foundry support.", Effort: -10, Readiness: 10, Impact: "", Category: "cloud-foundry", Criticality: "",
             Tags:
             []Tag{  { Value: "cloud-ready",}, },
@@ -3876,6 +3923,15 @@ func BootstrapRules() []Rule {
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "load_from_vcap_services", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "python-cfdev", FileType: "python$", Target: "line", Type: "regex", DefaultPattern: "^.*from %s", Advice: "Adapt to cloud foundry", Effort: 9, Readiness: 0, Impact: "", Category: "cf", Criticality: "",
+            Tags:
+            []Tag{  { Value: "cloud-foundry",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "cfenv", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "python-db-peewee", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Check target platform has support for this library", Effort: 0, Readiness: 10, Impact: "", Category: "database", Criticality: "",

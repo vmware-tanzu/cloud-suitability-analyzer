@@ -1,4 +1,4 @@
-name: dotnet-serilog-elasticsearch
+name: dotnet-elk
 filetype: (cs|yaml|yml|json)
 target: line
 type: regex

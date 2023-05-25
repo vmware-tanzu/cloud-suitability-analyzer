@@ -1,0 +1,13 @@
+name: java-cfdev-import
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Adapt to cloud foundry usage
+effort: 9
+readiness: 0
+category: cf
+tags:
+- value: cloud-foundry
+patterns:
+- value: io.pivotal.cfenv

@@ -1,14 +1,13 @@
-name: java-cfdev
-filetype: (java$)
+name: pom-cfdev
+filetype: pom$
 target: line
 type: regex
-defaultpattern: "^.*[ .]%s[ (].*" 
+defaultpattern: '>%s<'
 advice: Adapt to cloud foundry 
-effort: 1
+effort: 50
 readiness: 0
 category: cf
 tags:
   - value: cloud-foundry
 patterns:
-  - value: CfEnv
-  - value: CfJdvcEnv
+  - value: io.pivotal.cfenv
