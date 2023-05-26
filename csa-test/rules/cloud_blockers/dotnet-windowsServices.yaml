@@ -22,6 +22,9 @@ patterns:
 - value: '[:].*ServiceBase.*'
 - value: .*ServiceController.*
 - value: .*System.ServiceProcess.*
+# .NET 6 ways to build
+- value: .*[.]UseWindowsService
+- value: .*[.]ConfigureServices
 #- ServiceBase
 #- ServiceController
 #- System.ServiceProcess

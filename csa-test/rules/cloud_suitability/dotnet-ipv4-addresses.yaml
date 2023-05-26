@@ -24,6 +24,7 @@ excludepatterns:
 - value: '"assemblyVersion".*[:].".*"'
 - value: '"fileVersion".*[:].".*"'
 - value: PackageReference.*Version="
+- value: GeneratedCode\(
 # Remove dates formatted that could be interpreted as IPs
 # ('E''0000000540''2022-02-21-02.20.26.492481''''')
 - value: ([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))

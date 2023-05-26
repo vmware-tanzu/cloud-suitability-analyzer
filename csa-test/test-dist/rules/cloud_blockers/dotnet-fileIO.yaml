@@ -4,7 +4,7 @@ name: dotnet-fileIO
 mat_sno: 10
 mat_category: cloud-mandatory
 mat_title: Usage of Local File System
-mat_description: Relying on the local filesystem to store state is unreliable in a cloud platform. Containers are ephemerals and data could be lost. Data could be stored in database or the application should leverage File Sharing Systems like NFS Persistent Volume (PV) in Kubernetes environment.
+mat_description: Relying on the local filesystem to store data is unreliable in a cloud platform. Containers are ephemerals and data could be lost. Data could be stored in database or the application should leverage File Sharing Systems like NFS Persistent Volume (PV) in Kubernetes environment.
 mat_group: DOTNET_CLOUD_LOCALFILES
 mat_criticality: Medium
 # -----------------------------
@@ -12,7 +12,7 @@ filetype: (cs$|vb$)
 target: line
 type: regex
 defaultpattern: .*%s.*\(.*
-advice: Relying on the local filesystem to store state is unreliable in a cloud platform. Containers are ephemerals and data could be lost. Data could be stored in database or the application should leverage File Sharing Systems like NFS Persistent Volume (PV) in Kubernetes environment.
+advice: Relying on the local filesystem to store data is unreliable in a cloud platform. Containers are ephemerals and data could be lost. Data could be stored in database or the application should leverage File Sharing Systems like NFS Persistent Volume (PV) in Kubernetes environment.
 effort: 100
 readiness: 8
 category: io
