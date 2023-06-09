@@ -1,0 +1,15 @@
+#SW
+name: bootSTRUTS
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: struts
+advice: Automatic remediation with Bootifier
+effort: 2
+readiness: 2
+tags:
+  - value: struts
+patterns:
+  - value: struts2-core
+    tag: struts-2

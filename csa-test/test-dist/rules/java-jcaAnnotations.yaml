@@ -1,0 +1,18 @@
+---
+#--- updated from 8/8/18 Survey
+name: java-jcaAnnotations
+filetype: java$
+target: line
+type: regex
+defaultpattern: ^.*@%s$
+advice: Convert to a cloud friendly backing service.
+category: jca
+effort: 100
+readiness: 7
+tags:
+  - value: annotations
+  - value: jca
+patterns:
+  - value: AdministeredObjectDefinition
+  - value: ConnectionFactoryDefinition
+  - value: ConnectionFactoryDefinitions

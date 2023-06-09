@@ -1,0 +1,22 @@
+name: java-hazelcast
+filetype: java$
+target: line
+type: regex
+defaultpattern: '^.*[ .]%s[ ({.<].*'
+effort: 100
+readiness: 6
+advice: Make sure Cache instance is externalized
+category: cache
+tags:
+- value: hazelcast
+- value: cache
+patterns:
+- value: HazelcastInstance
+- value: NearCacheClientSupport
+- value: Hazelcast
+- value: QueryCacheConfig
+- value: HazelcastClient
+- value: newHazelcastClient
+- value: setMapEvictionPolicy
+- value: MapEvictionPolicy
+- value: newHazelcastInstance

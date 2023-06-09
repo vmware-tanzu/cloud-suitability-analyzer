@@ -1,0 +1,21 @@
+name: java-jcache
+filetype: java$
+target: line
+type: regex
+defaultpattern: "^.*[ .]%s[ ({.<].*"
+effort: 50
+readiness: 6
+advice: Make sure its externalized and using Cloud Friendly cache implementation.
+category: cache
+tags:
+  - value: cache
+  - value: jcache
+patterns:
+  - value: getConfigurableCacheFactory
+  - value: NamedCache
+  - value: ReflectionExtractor
+  - value: ChainedExtractor
+##  getConfigurableCacheFactory(
+##  NamedCache(
+##  ReflectionExtractor(
+##  ChainedExtractor(

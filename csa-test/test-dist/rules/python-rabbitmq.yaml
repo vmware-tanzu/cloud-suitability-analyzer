@@ -1,0 +1,17 @@
+name: python-rabbitmq
+filetype: py$
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: RabbitMq messaging is used
+effort: 0
+readiness: 10
+category: services
+tags:
+- value: rabbitmq
+patterns:
+- value: pika
+- value: aio_pika
+
+#- import pika
+#- import aio_pika

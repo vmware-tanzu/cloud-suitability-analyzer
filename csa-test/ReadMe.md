@@ -1,29 +1,24 @@
 ## CSA Rule Unit Testings ##
 
-### Run Tests ###
-- cd into /src/test
-- go test -v
-
 ### Compile Unit Test Executable ###
-In csa-test/ root dir
-- sh build.sh (current platform) or sh build-linux.sh for Linux Arch
-- Artifacts are created in /dist
+- cd csa-test/ 
+- sh build-unit-test-executable // It will generate the unit test executable for linux/mac/windows
+- Artifacts are created in /test-dist/
 
 ### Run Unit Test Executable ###
-In dist/
-- WORK_DIR=[base dir] ./unit-test-l -test.v
-
+cd csa-test/test-dist/
+- WORK_DIR=[base dir] ./unit-test -test.v
 
 ### Sample Test ###
 
-- Sample code snippets should be placed in the "/test_sample" dir
-- testRuleByName(t, "Title for the test", "csa.RuleByName(t, rules, "Name of the rule you are testing", "File or folder to test against", expected result => true or false, "Expected finding text")
-Ex: testRuleByName(t, "Application Domain", csa.RuleByName(t, rules, "dotnet-windows-application-domain"), "test.cs", true, "AppDomain newDomain = AppDomain.CreateDomain(\"newDomain\", evidence, setup);")
-
-### Run CSA against rule folder ###
-- ./csa -p ./dotnetApps
-- ./csa rules import --rules-dir=./DotNetRules/rules
-
-### Run Lookbehind Translator ###
-Change the values at the top of the script you want to translate
-python3 lookbehind_translator.py
+1. Choose the code sample to test against
+- Place the file with the right extension under "/test-dist/test-samples" directory
+2. Write a YAML test case for it in "/test-dist/test-cases"
+```
+  - name: "[Name of the Test]"
+    rule-name: [unique-name-for-rule] //ex: plaintext-creds
+    test-filename: [file-with-sample-of-code] //ex: plain_text_credentials.cs
+    assert: [true or false] //Is a match expected? ex: true
+    assert-count:  [number] //how many matches are expected? ex: 3
+    assert-value: "[text captured by the rule]" //Text expected to be captured by the rule ex: password=$453556 or "null" to skip that check
+```

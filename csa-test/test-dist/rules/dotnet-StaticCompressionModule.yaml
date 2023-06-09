@@ -1,0 +1,15 @@
+#qc1
+name: dotnet-StaticCompressionModule
+filetype: config$
+target: file
+type: xpath
+category: unsupported-iis-module
+advice: Ensure compatible configuration
+effort: 100
+readiness: 5
+patterns:
+- value: /configuration/system.webServer/httpCompression[1]
+#- <configuration><system.webServer><httpCompression
+tags:
+- value: iis-module
+- value: static-compression

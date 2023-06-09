@@ -7,7 +7,7 @@ import (
 	"test/csa-app/csa"
 	"test/csa-app/model"
 	"test/csa-app/util"
-	"test/mat"
+	"test/metadata"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -111,9 +111,9 @@ func TestCoverage(t *testing.T) {
 	t.Log("\033[43m\033[30m  Rules Covered with Test:", len(rulesCovered), "/", ruleCount, "\033[0m", "\033[0m")
 }
 
-func TestExportForMat(t *testing.T) {
+func TestExportAllRulesAsCSV(t *testing.T) {
 	t.Log("Export all rules => ", len(ruleList))
-	mat.Export(ruleList)
+	metadata.Export(ruleList)
 }
 
 // Easily test one rule against targeted file

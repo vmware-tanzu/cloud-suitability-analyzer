@@ -1,0 +1,17 @@
+#qc1
+name: dotnet-oracle-umanaged
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Oracle unmanaged driver requires including binaries with app 
+readiness: 8
+effort: 3
+category: database
+tags:
+- value: database
+- value: oracle
+patterns:
+- value: Oracle.DataAccess
+  advice: Oracle unmanaged driver requires including binaries with app -- can use buildpack. 
+#- using Oracle.DataAccess.Client;

@@ -1,0 +1,16 @@
+#qc1
+name: config-security
+filetype: config$
+target: file
+type: xpath
+advice: Use of generated machine keys is problematic
+effort: 100
+readiness: 100
+category: security
+tags:
+- value: auto-gen-key
+patterns:
+- value: /configuration/system.web/machineKey[contains(@validationKey, "AutoGenerate") or contains(@decryptionKey, "AutoGenerate")]
+
+##validationKey="AutoGenerate"
+##decryptionKey="AutoGenerate"

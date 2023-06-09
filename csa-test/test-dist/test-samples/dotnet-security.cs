@@ -1,1 +1,0 @@
-X509Store store = new X509Store(storeName, storeLocation);

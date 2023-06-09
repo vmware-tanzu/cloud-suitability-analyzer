@@ -1,0 +1,20 @@
+#qc1
+name: dotnet-MSMQ-vbcs
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+category: unsupported-module
+advice: Refer to platform documentation
+effort: 10
+readiness: 1
+patterns:
+- value: MessageQueue
+- value: using System.Messaging
+- value: ServiceHost
+- value: NetMsmqBinding
+tags:
+- value: msmq
+- value: messaging
+#- MessageQueue
+#- using System.Messaging

@@ -1,0 +1,14 @@
+name: java-java-fx-import
+filetype: java$
+target: line
+type: regex
+effort: 1000
+readiness: 100
+category: java-fx
+advice: Java-fx is not cloud compatible and requires the JRE on the remote device.
+recipes:
+defaultpattern: '^import\s*%s.*'
+tags:
+- value: java-fx
+patterns:
+- value: javafx

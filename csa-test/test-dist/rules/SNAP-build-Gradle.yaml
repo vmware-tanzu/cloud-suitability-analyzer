@@ -1,0 +1,15 @@
+name: SNAP-build-Gradle
+filetype: gradle$
+target: file
+type: simple-text
+category: buildSystem
+advice: Gradle is being used
+effort: 0
+readiness: 0
+tags:
+- value: gradle
+- value: snap
+patterns:
+- value: build.gradle
+
+##F build.gradle

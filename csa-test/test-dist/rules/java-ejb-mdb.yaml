@@ -1,0 +1,16 @@
+name: java-ejb-mdb
+filetype: java$
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+category: ejb
+advice: Consult MDB documentation
+effort: 7
+readiness: 7
+tags:
+- value: ejb
+- value: mdb
+- value: messaging
+patterns:
+- value: javax.ejb.MessageDriven
+- value: javax.ejb.ActivationConfigProperty

@@ -1,0 +1,16 @@
+#SW
+name: xml-servlet-3-0
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: servlet
+advice: Web Server coupling. Consider upgrading to modern framework.
+effort: 8
+readiness: 10
+tags:
+- value: servlet
+- value: web-container
+patterns:
+- value: web-app_3_0.xsd
+##web-app_3_0.xsd

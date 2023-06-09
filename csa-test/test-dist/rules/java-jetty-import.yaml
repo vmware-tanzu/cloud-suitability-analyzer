@@ -1,0 +1,14 @@
+name: java-jetty-import
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Use Managed Executor
+effort: 0
+readiness: 10
+category: threading
+tags:
+- value: threading
+- value: jetty
+patterns:
+- value: org.eclipse.jetty

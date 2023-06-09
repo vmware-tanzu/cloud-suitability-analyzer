@@ -1,0 +1,17 @@
+#SW
+name: xml-facelets
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: Facelets
+advice: Consider upgrading to modern UI framework
+effort: 2
+readiness: 2
+tags:
+- value: facelets
+- value: jsf
+- value: web-app
+patterns:
+- value: jsf/facelets
+##jsf/facelets

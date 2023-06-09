@@ -1,0 +1,16 @@
+#SW
+name: xml-webLogic-1-5
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: weblogic-webapp
+advice: Consider rearchitecting if decision is made to move off application server
+effort: 700
+readiness: 700
+tags:
+- value: web-app
+- value: weblogic
+patterns:
+- value: 1.5/weblogic-web-app.xsd
+##1.5/weblogic-web-app.xsd

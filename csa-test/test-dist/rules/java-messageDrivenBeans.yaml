@@ -1,0 +1,17 @@
+#--- updated from 8/8/18 Survey
+name: java-messageDrivenBeans
+filetype: java$
+target: line
+type: regex
+defaultpattern: ^.*@%s.*$
+category: mdb
+advice: Refer to platform documentation
+effort: 7
+readiness: 10
+tags:
+- value: annotations
+- value: mdb
+patterns:
+- value: 'EJB\(lookup'
+
+##@EJB(lookup=)

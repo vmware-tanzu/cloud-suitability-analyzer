@@ -1,0 +1,16 @@
+name: xml-tomcat
+filetype: xml$
+target: file
+effort: 100
+readiness: 0
+category: Tomcat
+advice: Web Server coupling
+type: simple-text
+tags:
+  - value: tomcat
+patterns:
+  - value: configure.xml
+  - value: context.xml
+  - value: server.xml
+##F configure.xml
+##F WEB-INF

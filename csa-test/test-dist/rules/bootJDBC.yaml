@@ -1,0 +1,15 @@
+name: bootJDBC
+filetype: java$
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Consult 3rd party documentation
+effort: 0
+readiness: 5
+category: persistence
+tags:
+- value: spring-boot
+- value: jdbc
+patterns:
+- value: org.springframework.jdbc
+  tag: spring-jdbc 

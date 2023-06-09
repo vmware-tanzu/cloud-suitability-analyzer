@@ -1,0 +1,17 @@
+name: java-ejb-invocation
+filetype: java$
+target: line
+type: regex
+defaultpattern: ^.*@%s.*$
+category: ejb
+advice: Refer to platform documentation
+effort: 7
+readiness: 10
+tags:
+- value: annotations
+- value: mdb
+- value: ejb
+patterns:
+- value: 'EJB\(lookup'
+
+##@EJB(lookup=)

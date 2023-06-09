@@ -1,0 +1,32 @@
+name: xml-weblogic
+filetype: xml$
+target: file
+type: simple-text
+category: webLogic
+advice: Consider rearchitecting if decision is made to move off application server
+effort: 100
+readiness: 100
+tags:
+  - value: weblogic
+  - value: full-profile
+patterns:
+  - value: weblogic.xml
+  - value: weblogic-cmp-rmodelms-jar.xml
+  - value: weblogic-ejb-jar.xml
+  - value: weblogic-ra.xml
+  - value: persistence-configuration.xml
+  - value: weblogic-webservices.xml
+  - value: weblogic-wsee-clientHandlerChain.xml
+  - value: webservice-policy-ref.xml
+  - value: weblogic-wsee-standaloneclient.xml
+  - value: weblogic-application.xml
+##F weblogic.xml
+##F weblogic-cmp-rmodelms-jar.xml
+##F weblogic-ejb-jar.xml
+##F weblogic-ra.xml
+##F persistence-configuration.xml
+##F weblogic-webservices.xml
+##F weblogic-wsee-clientHandlerChain.xml
+##F webservice-policy-ref.xml
+##F weblogic-wsee-standaloneclient.xml
+##F weblogic-application.xml

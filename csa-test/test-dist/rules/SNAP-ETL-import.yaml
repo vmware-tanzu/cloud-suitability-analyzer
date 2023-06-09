@@ -1,0 +1,31 @@
+name: SNAP-ETL-import
+filetype: java$
+target: line
+type: regex
+effort: 100
+readiness: 0
+advice: Vendor specific integration implementation
+defaultpattern: ^import\s*.*%s.*$
+category: etl
+tags:
+- value: etl
+- value: snap
+patterns:
+#--- major etl vendors, add more as needed
+- value: org.talend
+  tag: talend
+- value: oracle.odi
+  tag: oracle-odi
+- value: com.ibm.is
+  tag: ibm-is
+- value: net.sf.jasper
+  tag: jasper
+- value: org.pentaho
+  tag: pentaho
+
+
+##import org.talend
+##import oracle.odi
+##import com.ibm.is
+##import net.sf.jasper
+##import org.pentaho

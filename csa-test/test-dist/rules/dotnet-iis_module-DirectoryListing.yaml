@@ -1,0 +1,14 @@
+name: dotnet-iis_module-DirectoryListing
+filetype: config$
+target: file
+type: xpath
+advice: Refer to platform documentation
+patterns:
+- value: /configuration/system.webServer/directoryBrowse
+readiness: 9
+effort: 0
+category: unsupported-iis-module
+tags:
+- value: iis-module
+#- <configuration><system.webServer><directoryBrowse
+# Mostly a challenge if moving to .NetCore

@@ -1,0 +1,16 @@
+#SW
+name: xml-jsf-2-1
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: jsf
+advice: Consider upgrading to modern UI framework
+effort: 700
+readiness: 700
+tags:
+- value: jsf
+- value: web-app
+patterns:
+- value: web-facesconfig_2_1.xsd
+##web-facesconfig_2_1.xsd

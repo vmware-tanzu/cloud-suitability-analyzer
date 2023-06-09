@@ -1,0 +1,14 @@
+name: dotnet-transactions
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Potential use of distributed transactions which are unsupported
+readiness: 10
+effort: 100
+category: transaction
+tags:
+- value: distributed-transaction
+patterns:
+- value: TransactionScope
+#-  using (TransactionScope scope = new TransactionScope())

@@ -1,0 +1,13 @@
+name: java-properties-config-client-configs
+filetype: properties$
+target: line
+type: regex
+criticality: Info
+advice: The application is using spring config server and setting the connection string
+category: config server
+effort: 0
+tags:
+  - value: config server
+patterns:
+  - value: (^|\s)spring\.config\.import
+  - value: (^|\s)spring\.cloud\.config\.uri

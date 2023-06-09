@@ -1,0 +1,16 @@
+#SW
+name: xml-ejb-3-0
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: ejb
+advice: Application server coupling
+effort: 7
+readiness: 7
+tags:
+- value: javaee
+- value: ejb-lite
+patterns:
+- value: ejb-jar_3_0.xsd
+##ejb-jar_3_0.xsd

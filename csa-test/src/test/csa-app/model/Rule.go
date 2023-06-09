@@ -41,12 +41,12 @@ type Rule struct {
 	Negative        bool           `gorm:"type:integer"`
 	sync.Mutex      `gorm:"-" json:"-" yaml:"-"`
 	//Extra Metadata
-	Mat_sno         string `gorm:"type:text"`
-	Mat_category    string `gorm:"type:text"`
-	Mat_title       string `gorm:"type:text"`
-	Mat_description string `gorm:"type:text"`
-	Mat_group       string `gorm:"type:text"`
-	Mat_criticality string `gorm:"type:text"`
+	Metadata_sno         string `gorm:"type:text"`
+	Metadata_category    string `gorm:"type:text"`
+	Metadata_title       string `gorm:"type:text"`
+	Metadata_description string `gorm:"type:text"`
+	Metadata_group       string `gorm:"type:text"`
+	Metadata_criticality string `gorm:"type:text"`
 }
 
 func (r *Rule) Applies(fileExt string, fileName string) bool {

@@ -1,0 +1,16 @@
+#SW
+name: xml-struts-2-4
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: struts
+advice: Consider upgrading to modern cloud native UI framework
+effort: 7
+readiness: 7
+tags:  
+- value: struts
+- value: ui
+patterns:
+- value: struts-2.4.dtd
+##struts-2.4.dtd
