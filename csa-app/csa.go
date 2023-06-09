@@ -55,7 +55,7 @@ var (
 )
 
 func main() {
-	//embed
+
 	//--- trace code start
 	/*
 		f, err := os.Create("trace.out")

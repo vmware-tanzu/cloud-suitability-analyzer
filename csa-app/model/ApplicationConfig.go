@@ -70,7 +70,9 @@ func (c *ApplicationConfig) AddFile(f os.FileInfo, path string) {
 			//File is decompiled and added so return
 			return
 		} else {
-			util.WriteLog("Gathering Files", "Archive [%s] @ %s within app [%s] could not be decompiled!\n", f.Name(), path, c.Name)
+			if (!*util.Xtract) {
+				util.WriteLog("Gathering Files", "Archive [%s] @ %s within app [%s] could not be decompiled!\n", f.Name(), path, c.Name)
+			}
 		}
 	}
 
@@ -91,7 +93,9 @@ func (c *ApplicationConfig) AddFile(f os.FileInfo, path string) {
 			util.WriteLog("Gathering Files", "Found File [%s]\n", f.Name())
 		} else {
 			msg := fmt.Sprintf("Found File [%s] @ %s within app [%s]. Ignoring as it is excluded!\n", f.Name(), path, c.Name)
-			util.WriteLog("Gathering Files", msg)
+			if (!*util.Xtract) {
+				util.WriteLog("Gathering Files", msg)
+			}
 			c.IgnoredFiles = append(c.IgnoredFiles, fInfo)
 		}
 	} else {
