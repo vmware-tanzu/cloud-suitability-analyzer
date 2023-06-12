@@ -8,6 +8,7 @@ defaultpattern: ".*[ .]%s[ (].*"
 advice: Remediate any persistence issues 
 effort: 7
 readiness: 7
+criticality: 50:50
 category: activemq
 tags:
   - value: activemq

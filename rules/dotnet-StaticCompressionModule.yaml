@@ -7,6 +7,7 @@ category: unsupported-iis-module
 advice: Ensure compatible configuration
 effort: 100
 readiness: 5
+criticality: 50:50
 patterns:
 - value: /configuration/system.webServer/httpCompression[1]
 #- <configuration><system.webServer><httpCompression

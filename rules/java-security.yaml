@@ -7,6 +7,7 @@ advice: Application is using a java keystore
 recipes:
 effort: 10
 readiness: 0
+criticality: 50:50
 category: security
 tags: 
 - value: security

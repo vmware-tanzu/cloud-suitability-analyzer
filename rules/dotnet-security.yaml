@@ -6,6 +6,7 @@ defaultpattern: .*%s.*
 advice: Relying on Windows certificate stores is problematic in a cloud environment.
 readiness: 10
 effort: 3
+criticality: 50:50
 category: security
 tags:
 - value: security

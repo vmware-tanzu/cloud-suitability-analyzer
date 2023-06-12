@@ -5,6 +5,7 @@ target: file
 type: xpath
 advice: Use of encrypted sections is problematic in cloud environments
 effort: 300
+criticality: 50:50
 category: security
 tags:
 - value: protection-provider

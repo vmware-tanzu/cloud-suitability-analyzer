@@ -5,6 +5,7 @@ type: regex
 defaultpattern: '^.*[ .]%s[ (].*'
 effort: 500
 readiness: 100
+criticality: 50:50
 advice: Consider upgrading to modern cloud native UI framework
 category: Swing
 tags:

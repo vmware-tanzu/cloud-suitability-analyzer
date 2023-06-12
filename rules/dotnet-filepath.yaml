@@ -6,6 +6,7 @@ defaultpattern: .*%s.*
 advice: don't use local files, log to console or to server if logging, else store data in database
 effort: 8
 readiness: 3
+criticality: 50:50
 category: io
 tags:
 - value: io

@@ -8,6 +8,7 @@ category: myfaces
 advice: Consider upgrading to modern UI framework
 effort: 5
 readiness: 2
+criticality: 50:50
 tags:
 - value: jsf
 patterns:

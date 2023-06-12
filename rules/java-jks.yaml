@@ -3,6 +3,7 @@ filetype: jks$
 target: file
 effort: 7
 readiness: 7
+criticality: 50:50
 category: security
 advice: Make sure to externalize jks store
 recipes:

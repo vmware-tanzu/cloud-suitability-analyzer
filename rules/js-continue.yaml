@@ -6,6 +6,7 @@ defaultpattern: (\\s+)?%s(\\s+)?;
 advice: continue is an unstructured control flow statement. It makes code less testable, less readable and less maintainable. Structured control flow statements such as if should be used instead.
 effort: 1
 readiness: 10
+criticality: 50:50
 category: design
 tags:
 - value: testability

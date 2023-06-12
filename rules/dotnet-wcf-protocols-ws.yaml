@@ -4,6 +4,7 @@ target: line
 type: regex
 advice: Unsupported protocols
 effort: 1000
+criticality: 50:50
 category: wcf
 tags:
 - value: windows-wcf

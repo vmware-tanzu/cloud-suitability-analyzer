@@ -5,6 +5,7 @@ type: regex
 defaultpattern: "^.*[ .]%s[ ({.<].*"
 effort: 50
 readiness: 6
+criticality: 50:50
 advice: Make sure its externalized and using Cloud Friendly cache implementation.
 category: cache
 tags:

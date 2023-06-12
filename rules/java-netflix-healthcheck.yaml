@@ -6,6 +6,7 @@ defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Indicates existance of healthcheck endpoint, which is positive finding
 effort: -100
 readiness: 7
+criticality: 50:50
 category: health-check
 tags:
   - value: health-check

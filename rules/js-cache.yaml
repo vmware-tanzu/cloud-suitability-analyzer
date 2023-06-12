@@ -7,6 +7,7 @@ category: session_management
 advice:  However, the default configuration is to store session data in a temporary file on the local disk. Again, this will not work if you’re using multiple nodes. Store sessions in a centralized caching server or cluster. So stop putting everything into $_SESSION or $_COOKIE
 effort: 20
 readiness: 1000
+criticality: 50:50
 tags:
   - value: cache
 patterns:

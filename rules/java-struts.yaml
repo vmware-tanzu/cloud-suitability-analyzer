@@ -6,6 +6,7 @@ advice: Consider upgrading to modern cloud native UI framework
 defaultpattern: "^.*[ .]%s[ (].*"
 effort: 6
 readiness: 7
+criticality: 50:50
 category: struts
 tags:
   - value: struts

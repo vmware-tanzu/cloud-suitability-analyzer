@@ -7,6 +7,7 @@ category: naming_convention
 advice:  Shared naming conventions allow teams to collaborate efficiently. All function names match a provided regular expression.
 effort: 2
 readiness: 1000
+criticality: 50:50
 tags:
   - value: code-smell
 patterns:

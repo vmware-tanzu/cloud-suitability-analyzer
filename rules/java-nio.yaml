@@ -5,6 +5,7 @@ type: regex
 defaultpattern: "^.*[ .]%s[ (].*"
 effort: 8
 readiness: 8
+criticality: 50:50
 advice: Make sure to use Cloud Friendly storage provider.
 category: nio
 tags:

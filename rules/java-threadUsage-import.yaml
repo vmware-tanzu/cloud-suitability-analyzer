@@ -6,6 +6,7 @@ defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Use Managed Executor
 effort: 100
 readiness: 10
+criticality: 50:50
 category: threading
 tags:
 - value: threading

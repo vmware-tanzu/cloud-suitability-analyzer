@@ -7,6 +7,7 @@ type: regex
 defaultpattern: "^.*[ .]%s[ (].*"
 effort: 7
 readiness: 6
+criticality: 50:50
 category: tibco
 tags:
   - value: tibco

@@ -6,6 +6,7 @@ advice: Removing RMI calls from client applications.
 defaultpattern: "^.*[ .]%s[ (].*"
 effort: 10
 readiness: 4
+criticality: 50:50
 category: ejb
 tags:
   - value: ejb

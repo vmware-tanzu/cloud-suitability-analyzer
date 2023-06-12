@@ -5,6 +5,7 @@ type: regex
 defaultpattern: ^\s*@%s
 advice: Java EE security appears to be used
 effort: 5
+criticality: 50:50
 category: security
 tags:
   - value: security

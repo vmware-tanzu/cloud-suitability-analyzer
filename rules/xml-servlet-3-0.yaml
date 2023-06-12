@@ -8,6 +8,7 @@ category: servlet
 advice: Web Server coupling. Consider upgrading to modern framework.
 effort: 8
 readiness: 10
+criticality: 50:50
 tags:
 - value: servlet
 - value: web-container

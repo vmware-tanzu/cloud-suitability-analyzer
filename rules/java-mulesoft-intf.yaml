@@ -4,6 +4,7 @@ target: line
 type: regex
 effort: 10
 readiness: 10
+criticality: 50:50
 advice: Refer to platform documentation
 #--- Example for extends 'Interface'
 # public class FileToInputStream extends AbstractMessageTransformer {

@@ -5,6 +5,7 @@ type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
 effort: 100
 readiness: 6
+criticality: 50:50
 advice: Consider to externalize cache if not already
 category: cache
 tags:

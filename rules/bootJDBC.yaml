@@ -6,6 +6,7 @@ defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Consult 3rd party documentation
 effort: 0
 readiness: 5
+criticality: 50:50
 category: persistence
 tags:
 - value: spring-boot

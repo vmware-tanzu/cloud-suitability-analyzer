@@ -6,6 +6,7 @@ defaultpattern: (%s)\s*\(.*\)
 advice: Debug statements are always useful during development. But include them in production code - particularly in code that runs client-side - and you run the risk of inadvertently exposing sensitive information, slowing down the browser, or even erroring-out the site for some users.
 effort: 2
 readiness: 4
+criticality: 50:50
 category: design
 tags:
 - value: vulnerability

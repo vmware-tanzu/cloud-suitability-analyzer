@@ -7,6 +7,7 @@ category: Vulnerability
 advice:  enable_dl is on by default and allows open_basedir restrictions, which limit the files a script can access, to be ignored enable_dl should be explicitly turned off in php.ini
 effort: 5
 readiness: 1000
+criticality: 50:50
 tags:
   - value: vulnerability
 patterns:

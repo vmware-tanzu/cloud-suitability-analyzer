@@ -7,6 +7,7 @@ category: ejb
 advice: Application server coupling.  Consider rearchitecting to use cloud friendly communication protocol
 effort: 100
 readiness: 100
+criticality: 50:50
 tags:
 - value: remote-ejb
 - value: ejb

@@ -6,6 +6,7 @@ defaultpattern: (?i)(%s)\s*=+
 advice: never save passwords or login information in files
 effort: 0
 readiness: 9
+criticality: 50:50
 category: security
 tags:
 - value: security

@@ -5,6 +5,7 @@ type: regex
 defaultpattern: '^.*[ .]%s[ (].*'
 effort: 10
 readiness: 10
+criticality: 50:50
 category: jsf-flow
 advice: Review usage to determine how the customized state of JSF flow is being used and determined if it can be externalized.
 tags:

@@ -8,6 +8,7 @@ category: struts
 advice: Consider upgrading to modern cloud native UI framework
 effort: 7
 readiness: 7
+criticality: 50:50
 tags:
 - value: struts
 - value: ui

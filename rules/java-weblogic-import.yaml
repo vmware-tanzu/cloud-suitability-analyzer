@@ -4,6 +4,7 @@ target: line
 type: regex
 effort: 100
 readiness: 10
+criticality: 50:50
 category: oracle
 advice: Consider rearchitecting if decision is made to move off application server
 defaultpattern: '^import\s*%s.*'

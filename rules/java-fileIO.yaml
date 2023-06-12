@@ -8,6 +8,7 @@ defaultpattern: "^.*[ .]%s[ (].*"
 advice: Move to cloud friendly alternative storage service
 effort: 8
 readiness: 8
+criticality: 50:50
 category: io
 tags:
   - value: io

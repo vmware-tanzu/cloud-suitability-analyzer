@@ -4,6 +4,7 @@ target: file
 category: config
 effort: 50
 readiness: 1000
+criticality: 50:50
 type: simple-text
 advice: Consider rearchitecting if decision is made to move off application server
 tags:

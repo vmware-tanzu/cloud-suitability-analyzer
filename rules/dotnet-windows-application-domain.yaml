@@ -7,6 +7,7 @@ advice: Unsupported, For .NET Core, there is exactly one AppDomain. Isolation an
 patterns:
 - value: AppDomain.CreateDomain
 readiness: 9
+criticality: 50:50
 effort: 1000
 category: windows-domain
 tags:

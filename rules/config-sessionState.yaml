@@ -6,6 +6,7 @@ type: xpath
 advice: App should be executed as a stateless process
 readiness: 2
 effort: 200
+criticality: 50:50
 category: stateful
 tags:
   - value: stateful

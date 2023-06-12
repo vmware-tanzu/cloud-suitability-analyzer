@@ -8,6 +8,7 @@ advice:  file_uploads is an on-by-default PHP configuration that allows files to
 recipe:  This feature should be disabled unless it is absolutely necessary for your site in php.ini
 effort: 5
 readiness: 1000
+criticality: 50:50
 tags:
   - value: vulnerability
 patterns:

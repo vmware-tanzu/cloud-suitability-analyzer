@@ -8,6 +8,7 @@ patterns:
 - value: CodeAccessPermission
 readiness: 9
 effort: 10
+criticality: 10:90
 category: security
 tags:
 - value: security

@@ -8,6 +8,7 @@ category: windows-desktop
 advice: Only available on Windows Desktop
 effort: 500
 readiness: 1
+criticality: 50:50
 patterns:
 - value: <Page\sxmlns=".*xaml\/presentation"
 tags:

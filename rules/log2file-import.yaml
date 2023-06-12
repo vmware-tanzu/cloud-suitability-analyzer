@@ -6,6 +6,7 @@ defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Logging should be to console
 effort: 1
 readiness: 8
+criticality: 50:50
 category: log2file
 tags:
   - value: log2file

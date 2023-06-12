@@ -5,6 +5,7 @@ type: regex
 defaultpattern: "^.*[ .]%s[ (].*"
 effort: 10
 readiness: 70
+criticality: 50:50
 category: jca
 advice: Consider rearchitecting the application to use Cloud friendly remote communications - http or messaging
 tags:

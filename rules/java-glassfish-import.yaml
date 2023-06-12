@@ -4,6 +4,7 @@ target: line
 type: regex
 effort: 100
 readiness: 10
+criticality: 50:50
 category: oracle
 advice: Refer to Weblogic documentation
 defaultpattern: '^import\s*%s.*'

@@ -8,6 +8,7 @@ category: tomahawk
 advice: Consider upgrading to modern UI framework
 effort: 600
 readiness: 200
+criticality: 50:50
 tags:
 - value: jsf
 - value: web-profile

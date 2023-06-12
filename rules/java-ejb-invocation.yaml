@@ -7,6 +7,7 @@ category: ejb
 advice: Refer to platform documentation
 effort: 7
 readiness: 10
+criticality: 50:50
 tags:
 - value: annotations
 - value: mdb

@@ -5,6 +5,7 @@ type: regex
 defaultpattern: ^\s*@%s
 advice: Review if distributed transcations are used and consider rearchitecting using eventual consistency
 effort: 5
+criticality: 50:50
 category: transaction
 defaultpattern: ^\s*@%s
 tags:

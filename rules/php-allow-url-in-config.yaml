@@ -7,6 +7,7 @@ category: Vulnerability
 advice: allow_url_fopen and allow_url_include allow code to be read into a script from URL’s. The ability to suck in executable code from outside your site, coupled with imperfect input cleansing could lay your site bare to attackers explicitly disable allow_url_fopen and allow_url_include'
 effort: 5
 readiness:  1000
+criticality: 50:50
 tags:
   - value:  vulnerability
 patterns:

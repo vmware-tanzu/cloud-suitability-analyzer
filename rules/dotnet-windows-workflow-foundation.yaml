@@ -8,6 +8,7 @@ category: unsupported-netcore
 advice: Use alternatives, see CoreWF and CoreWCF, runs on windows only and would need to be ran by a console application
 effort: 0
 readiness: 1
+criticality: 50:50
 patterns:
 - value: WorkflowService
 tags:

@@ -8,6 +8,7 @@ category: cdi
 advice: Automatic remediation with Bootifier
 effort: 2
 readiness: 2
+criticality: 50:50
 tags:
   - value: cdi
   - value: migrate-off-legacy-server

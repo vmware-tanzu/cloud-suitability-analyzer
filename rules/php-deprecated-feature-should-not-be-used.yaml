@@ -8,6 +8,7 @@ advice: Deprecated language features are those that have been retained temporari
 recipe: All existing uses should be gradually removed or upgraded to new equivalent features.  
 effort: 7
 readiness: 1000
+criticality: 50:50
 tags:
   - value: deprecated
 patterns:

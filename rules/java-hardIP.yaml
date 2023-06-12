@@ -7,6 +7,7 @@ defaultpattern: "%s"
 advice: Hardcoded IP addresses are problematic in K8S
 effort: 1
 readiness: 8
+criticality: 50:50
 category: hard-ip
 tags:
   - value: hard-ip

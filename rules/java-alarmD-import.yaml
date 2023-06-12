@@ -5,6 +5,7 @@ type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Integrate with new alarmD service or migrate to Spring Boot scheduler
 category: ThirdParty
+criticality: 50:50
 tags:
   - value: alarm-d
   - value: scheduler

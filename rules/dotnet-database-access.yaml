@@ -6,6 +6,7 @@ type: xpath
 advice: Connection strings should be externally managed.
 readiness: 10
 effort: 100
+criticality: 50:50
 category: database
 tags:
 - value: database

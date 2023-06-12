@@ -8,6 +8,7 @@ advice:  The default configuration is to store session data in a temporary file 
 recipe: Store sessions in a centralized caching server or cluster. So stop putting everything into $_SESSION or $_COOKIE
 effort: 20
 readiness: 1000
+criticality: 50:50
 tags:
   - value: cache
   - value: session

@@ -9,6 +9,7 @@ patterns:
 - value: System.Transactions
 readiness: 9
 effort: 1000
+criticality: 50:50
 tags:
 - value: com+
 - value: api

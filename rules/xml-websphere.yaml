@@ -6,6 +6,7 @@ category: webSphere
 advice: Consider rearchitecting if decision is made to move off application server
 effort: 500
 readiness: 1000
+criticality: 50:50
 tags:
   - value: websphere
   - value: full-profile

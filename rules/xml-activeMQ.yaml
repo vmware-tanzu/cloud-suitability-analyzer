@@ -7,6 +7,7 @@ category: mq
 advice: Make sure that Active MQ broker is available on target platform
 effort: 5
 readiness: 10
+criticality: 50:50
 tags:
   - value: amqp
   - value: message-queue

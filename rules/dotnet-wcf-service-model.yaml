@@ -6,6 +6,7 @@ defaultpattern: .*%s.*
 advice: Refer to documentation when using WCF
 effort: 0
 readiness: 10
+criticality: 50:50
 category: WCF
 tags:
 - value: windows-wcf

@@ -10,6 +10,7 @@ patterns:
   advice: IBM.Data.DB2 can require a special procedure so that the driver's native components are deployed with the application. 
 readiness: 9
 effort: 10
+criticality: 50:50
 category: database
 tags:
 - value: database

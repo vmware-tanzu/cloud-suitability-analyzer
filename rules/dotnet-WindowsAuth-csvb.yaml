@@ -7,6 +7,7 @@ category: Unsupported modules
 advice: Ensure compatible configuation
 effort: 500
 readiness: 1
+criticality: 50:50
 patterns:
 - value: GetSection\(system.webServer/security/authentication/windowsAuthentication
 - value: GetSection\("system.webServer/security/authentication/windowsAuthentication

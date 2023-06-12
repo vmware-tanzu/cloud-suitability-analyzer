@@ -8,6 +8,7 @@ advice:  TLS1.1 is not secure
 recipe: Change to TLS1.2 and above
 effort: 5
 readiness: 1000
+criticality: 50:50
 tags:
   - value: vulnerability
 patterns:

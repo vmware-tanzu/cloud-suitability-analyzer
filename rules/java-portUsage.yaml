@@ -6,6 +6,7 @@ advice: Ensure port usage is cloud-friendly or use TKG
 defaultpattern: ^*.(%s?:.*):(\d*)\/?(.*)
 effort: 5
 readiness: 6
+criticality: 50:50
 category: port-usage
 tags:
   - value: port-usage

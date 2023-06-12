@@ -5,6 +5,7 @@ type: regex
 defaultpattern: (%s)
 effort: 3
 readiness: 5
+criticality: 50:50
 advice: Replace file appender with console appender
 category: logging
 tags:

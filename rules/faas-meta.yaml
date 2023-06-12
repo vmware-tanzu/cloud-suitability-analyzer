@@ -5,6 +5,7 @@ type: xpath
 advice: App should be started in the shortest time possible
 readiness: 2
 effort: 200
+criticality: 50:50
 category: boottime
 tags:
   - value: faas

@@ -5,6 +5,7 @@ type: regex
 defaultpattern: ^\s*@%s
 advice: Consider rearchitecting if decisions is made to not use application server
 effort: 5
+criticality: 50:50
 category: stateless
 tags:
   - value: stateless

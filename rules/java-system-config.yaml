@@ -6,6 +6,7 @@ defaultpattern: (System.)%s\(
 advice: Review usage of environment variables and system properties and externalize.
 effort: 3
 readiness: 10 
+criticality: 50:50
 category: config
 tags:
 - value: config

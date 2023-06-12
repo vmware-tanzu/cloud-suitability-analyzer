@@ -8,6 +8,7 @@ advice: Consider migrating to modern UI frameworks that have better support for 
 defaultpattern: "^.*[ .]%s[ (].*"
 effort: 2
 readiness: 5
+criticality: 50:50
 category: jsp
 tags:
   - value: ui

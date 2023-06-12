@@ -5,6 +5,7 @@ type: xpath
 advice: Refer to platform documentation
 effort: 100
 readiness: 1
+criticality: 50:50
 patterns:
 - value: /configuration/system.webServer/security/requestFiltering/requestLimits[1]
 category: unsupported-iis-module

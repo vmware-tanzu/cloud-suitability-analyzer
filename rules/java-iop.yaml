@@ -6,6 +6,7 @@ advice: Remote Method Invocations create coupling between componets. Move to clo
 defaultpattern: '^.*[ .]%s[ (.].*'
 effort: 3
 readiness: 6
+criticality: 50:50
 category: iop
 tags:
 - value: non-standard-protocol

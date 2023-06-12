@@ -6,6 +6,7 @@ defaultpattern: .*%s.*
 advice: Operations requiring a Windows domain are not supported.
 effort: 100
 readiness: 8
+criticality: 50:50
 category: Unsupported modules
 tags:
 - value: windows-principal

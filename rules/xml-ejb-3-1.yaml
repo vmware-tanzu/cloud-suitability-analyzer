@@ -8,6 +8,7 @@ category: ejb
 advice: Application server coupling
 effort: 7
 readiness: 7
+criticality: 50:50
 tags:
 - value: ejb-lite
 - value: javaee

@@ -6,6 +6,7 @@ defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Change to an implementation of SLF4J i.e. Logback
 effort: 3
 readiness: 5
+criticality: 50:50
 category: logging
 tags:
   - value: logging

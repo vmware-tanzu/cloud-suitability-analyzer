@@ -8,6 +8,7 @@ advice:  Most web guides will suggest using PHP’s iconv() function to remove d
 recipe: A better way is to use PHPs intl library
 effort: 5
 readiness: 1000
+criticality: 50:50
 tags:
   - value: code-smell
 patterns:

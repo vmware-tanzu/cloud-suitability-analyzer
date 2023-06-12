@@ -6,6 +6,7 @@ defaultpattern: (%s)\:{1}
 advice: MBean is application server specific, change to refactor using cloud friendly technology
 effort: 100
 readiness: 10
+criticality: 50:50
 category: websphere
 tags:
   - value: mdb

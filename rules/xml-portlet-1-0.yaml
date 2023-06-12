@@ -8,6 +8,7 @@ category: version-portlet
 advice: Consider upgrading to modern UI framework
 effort: 500
 readiness: 700
+criticality: 50:50
 tags:
 - value: portlet
 - value: web-container

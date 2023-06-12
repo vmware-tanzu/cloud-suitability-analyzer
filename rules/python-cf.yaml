@@ -7,6 +7,7 @@ advice: Check for cloud foundry support.
 # TODO
 effort: -10
 readiness: 10
+criticality: 50:50
 category: cloud-foundry
 tags:
 - value: cloud-ready
