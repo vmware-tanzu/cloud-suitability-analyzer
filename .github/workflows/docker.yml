@@ -34,7 +34,7 @@ jobs:
     - name: Login to DockerHub
       uses: docker/login-action@v1 
       with:
-        registry: projects.registry.vmware.com
+        registry: ${{ secrets.DOCKER_HUB_URL }}
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
@@ -46,5 +46,5 @@ jobs:
         file: ./Dockerfile
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: ${{ secrets.DOCKER_HUB_URL }}/csa:experimental
+        tags: ${{ secrets.DOCKER_HUB_URL }}/rpm/csa:experimental
 
