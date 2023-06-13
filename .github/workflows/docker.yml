@@ -11,6 +11,7 @@ on:
         description: 'Log level'
         required: true
         default: 'warning'
+  push:
 
 jobs:
 
@@ -45,4 +46,5 @@ jobs:
         file: ./Dockerfile
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/csa:experimental
+        tags: ${{ secrets.DOCKER_HUB_URL }}/csa:experimental
+
