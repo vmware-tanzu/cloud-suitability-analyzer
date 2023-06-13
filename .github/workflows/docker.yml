@@ -11,7 +11,7 @@ on:
         description: 'Log level'
         required: true
         default: 'warning'
-  pull_request:    
+  push:    
 
 jobs:
 
