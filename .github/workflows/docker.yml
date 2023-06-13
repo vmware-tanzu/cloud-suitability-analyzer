@@ -10,7 +10,8 @@ on:
       logLevel:
         description: 'Log level'
         required: true
-        default: 'warning'    
+        default: 'warning'
+  pull_request:    
 
 jobs:
 
