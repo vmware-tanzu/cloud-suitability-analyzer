@@ -31,6 +31,7 @@ type RunConfig struct {
 	IncludeFileRegex string               `json:"include-file-regex" yaml:"include-file-regex"`
 	ExcludeFileRegex string               `json:"exclude-file-regex" yaml:"exclude-file-regex"`
 	FileUtil         *util.FileUtil       `json:"-" yaml:"-"`
+	Profiles  string                      `json:"profiles" yaml:"profiles"`
 }
 
 func NewRunConfig(run *Run, fileUtil *util.FileUtil) *RunConfig {
@@ -45,6 +46,7 @@ func NewRunConfig(run *Run, fileUtil *util.FileUtil) *RunConfig {
 		*util.IncludedFilesRegEx,
 		*util.ExcludedFilesRegEx,
 		fileUtil,
+		*util.Profiles,
 	}
 }
 

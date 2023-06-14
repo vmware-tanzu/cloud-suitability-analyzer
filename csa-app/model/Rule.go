@@ -40,6 +40,7 @@ type Rule struct {
 	overrideApplies bool           `gorm:"-" json:"-" yaml:"-"`
 	Negative        bool           `gorm:"type:integer"`
 	sync.Mutex      `gorm:"-" json:"-" yaml:"-"`
+	Profiles        []Profile      `json:",omitempty" yaml:",omitempty"`
 }
 
 func (r *Rule) Applies(fileExt string, fileName string) bool {
@@ -154,6 +155,18 @@ func (r *Rule) HasTag(tag string) bool {
 	return false
 }
 
+func (r *Rule) HasProfile(tag string) bool {
+	if tag != "" && len(r.Profiles) > 0 {
+		for i := range r.Profiles {
+			//Case insensitive matching!
+			if strings.ToLower(tag) == strings.ToLower(r.Profiles[i].Value) {
+				return true
+			}
+		}
+	}
+	return false
+}
+
 func (r *Rule) CompilePatterns() {
 	r.Lock()
 	defer r.Unlock()
@@ -177,7 +190,7 @@ func (r *Rule) GetEscapedPattern() string {
 	return util.EscapeSpecials(r.DefaultPattern)
 }
 
-func (r *Rule) UpdateRule(newRule Rule) (deletedPatterns []Pattern, deletedRecipes []Recipe, deletedTags []Tag) {
+func (r *Rule) UpdateRule(newRule Rule) (deletedPatterns []Pattern, deletedRecipes []Recipe, deletedTags []Tag, deletedProfiles []Profile) {
 
 	if newRule.Advice != "" && newRule.Advice != r.Advice {
 		r.Advice = newRule.Advice
@@ -218,6 +231,7 @@ func (r *Rule) UpdateRule(newRule Rule) (deletedPatterns []Pattern, deletedRecip
 	deletedPatterns = r.updatePatterns(newRule)
 	deletedRecipes = r.updateRecipes(newRule)
 	deletedTags = r.updateTags(newRule)
+	deletedProfiles = r.updateProfiles(newRule)
 
 	return
 }
@@ -394,6 +408,56 @@ func (r *Rule) updateTags(newRule Rule) (deleted []Tag) {
 
 		if *util.Verbose {
 			fmt.Printf(" Tags[added:%d deleted:%d] ", newTags, len(deleted))
+		}
+	}
+
+	return deleted
+}
+
+func (r *Rule) updateProfiles(newRule Rule) (deleted []Profile) {
+
+	var newProfiles int
+
+	if len(newRule.Profiles) > 0 {
+
+		for _, profile := range newRule.Profiles {
+
+			var profileMatched = false
+
+			for i, _ := range r.Profiles {
+
+				if profile.Value == r.Profiles[i].Value {
+					profileMatched = true
+				}
+			}
+
+			if !profileMatched {
+				r.Profiles = append(r.Profiles, profile)
+				newProfiles++
+			}
+		}
+
+		for i := len(r.Profiles) - 1; i >= 0; i-- {
+
+			var found = false
+
+			profile := r.Profiles[i]
+
+			for _, matchedProfile := range newRule.Profiles {
+				if profile.Value == matchedProfile.Value {
+					found = true
+					break
+				}
+			}
+
+			if !found {
+				r.Profiles = append(r.Profiles[:i], r.Profiles[i+1:]...)
+				deleted = append(deleted, profile)
+			}
+		}
+
+		if *util.Verbose {
+			fmt.Printf(" Profiles[added:%d deleted:%d] ", newProfiles, len(deleted))
 		}
 	}
 

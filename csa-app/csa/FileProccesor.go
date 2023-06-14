@@ -424,13 +424,20 @@ func (csaService *CsaService) generateSloc(run *model.Run) {
 
 func (csaService *CsaService) getRules(run *model.Run, config *model.ApplicationConfig) (rules []model.Rule, err error) {
 	//Include overrules anything
-	if config.RuleIncludeTags != "" {
-		fmt.Printf("Using only rules with tags [%s]\n", config.RuleIncludeTags)
-		return csaService.ruleRepository.GetRulesForRunRestricted(run, strings.Split(config.RuleIncludeTags, ","), false)
-	} else if config.RuleExcludeTags != "" {
-		fmt.Printf("Using only rules without tags [%s]\n", config.RuleExcludeTags)
-		return csaService.ruleRepository.GetRulesForRunRestricted(run, strings.Split(config.RuleExcludeTags, ","), true)
+	//If Profiles for rules are selected, it takes precedence over Include and Exclude Tags
+	if config.Profiles != "" {
+		fmt.Printf("Using only rules with profiles [%s]\n", config.Profiles)
+		return csaService.ruleRepository.GetRulesForRunRestrictedByProfiles(run, strings.Split(config.Profiles, ","), false)
+	} else {
+		if config.RuleIncludeTags != "" {
+			fmt.Printf("Using only rules with tags [%s]\n", config.RuleIncludeTags)
+			return csaService.ruleRepository.GetRulesForRunRestricted(run, strings.Split(config.RuleIncludeTags, ","), false)
+		} else if config.RuleExcludeTags != "" {
+			fmt.Printf("Using only rules without tags [%s]\n", config.RuleExcludeTags)
+			return csaService.ruleRepository.GetRulesForRunRestricted(run, strings.Split(config.RuleExcludeTags, ","), true)
+		}
 	}
+	
 	return csaService.ruleRepository.GetRulesForRun(run)
 }
 

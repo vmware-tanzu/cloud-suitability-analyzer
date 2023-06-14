@@ -30,6 +30,7 @@ var (
 	DBDriverFlags     = App.Flag("db-driver-flags", "flags to configure the database driver (Default: sqlite: "+Sqlite_driverFlags+" postgres: "+Postgres_driverFlags).String()
 	ReportsFlag       = App.Flag("report", "comma delimited list of report(s) to run. (for example \"-r1,3,4\". 0=All)").Default("0").Short('r').String()
 	TmpDirPath        = App.Flag("temp-dir", "The root path where files created by csa will be placed. Defaults to OS specific temp path/run-id").Short('t').String()
+	
 
 	//Get Build Info
 	BuildInfoCmd = App.Command("info", "Get full build details of this csa executable")
@@ -75,7 +76,7 @@ var (
 	ScoringModel          = AnalyzeCmd.Flag(SCORING_MODEL_FLAG, "the name of the scoring model to use for scoring applications").Short('s').Default("default").String()
 	MaxProcs              = AnalyzeCmd.Flag("max-procs", "Set the max concurrency from a processor perspective. Defaults to system processor count.").Int()
 	MaxThreads            = AnalyzeCmd.Flag("max-threads", "Set the max OS threads that csa can utilize. Default is '20000'").Default(strconv.Itoa(20000)).Int()
-
+	Profiles              = AnalyzeCmd.Flag("profiles", "The list of rule profiles that will be selected for the scan. Multiple profiles can separated by commas.").String()
 	//Search Command
 	SearchCmd = App.Command("search", "search full text index for findings based on query")
 
@@ -188,6 +189,7 @@ const DEFAULT_MAX_POSTGRES_WORKERS = 10
 
 //CMDS
 const ANALYZE_CMD string = "analyze"
+const PROFILE_FLAG string = "profiles"
 const RULE_INCLUDE_FLAG string = "rule-include-tags"
 const RULE_EXCLUDE_FLAG string = "rule-exclude-tags"
 const EXCLUDED_DIRS_FLAG string = "excluded-dirs"

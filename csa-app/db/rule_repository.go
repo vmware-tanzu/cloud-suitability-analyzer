@@ -29,6 +29,7 @@ type RuleRepository interface {
 	GetRules() ([]model.Rule, error)
 	GetRulesForRun(run *model.Run) ([]model.Rule, error)
 	GetRulesForRunRestricted(run *model.Run, tags []string, excluded bool) ([]model.Rule, error)
+	GetRulesForRunRestrictedByProfiles(run *model.Run, tags []string, excluded bool) ([]model.Rule, error)
 	ExportRules()
 	ImportRules()
 	LoadRules()
@@ -54,7 +55,7 @@ func NewRuleRepositoryForRun(run *model.Run) RuleRepository {
 
 func (ruleRepository *OrmRepository) GetRules() ([]model.Rule, error) {
 	var rules []model.Rule
-	resp := ruleRepository.dbconn.Preload("Patterns").Preload("Recipes").Preload("Tags").Find(&rules)
+	resp := ruleRepository.dbconn.Preload("Patterns").Preload("Recipes").Preload("Tags").Preload("Profiles").Find(&rules)
 	return rules, resp.Error
 }
 
@@ -101,6 +102,51 @@ func (ruleRepository *OrmRepository) GetRulesForRun(run *model.Run) ([]model.Rul
 	}
 
 	return rules, nil
+}
+
+func (ruleRepository *OrmRepository) GetRulesForRunRestrictedByProfiles(run *model.Run, tags []string, excluded bool) ([]model.Rule, error) {
+	rules, err := ruleRepository.GetRules()
+	var restrictedRules []model.Rule
+	if err != nil {
+		return nil, err
+	}
+
+	if len(tags) > 0 {
+		if excluded {
+			for i := range rules {
+				shouldAdd := true
+				for _, tag := range tags {
+					//Have to check against every tag!
+					if rules[i].HasProfile(tag) {
+						shouldAdd = false
+					}
+				}
+				if shouldAdd {
+					restrictedRules = append(restrictedRules, rules[i])
+				}
+			}
+		} else {
+			for i := range rules {
+				for _, tag := range tags {
+					if rules[i].HasProfile(tag) {
+						restrictedRules = append(restrictedRules, rules[i])
+						//Only add rule for first rule once
+						break
+					}
+				}
+			}
+		}
+	} else {
+		restrictedRules = append(restrictedRules, rules...)
+	}
+
+	//Compile the remaining rules and add metrics!
+	for i := range restrictedRules {
+		restrictedRules[i].CompilePatterns()
+		restrictedRules[i].Metric = &model.RuleMetric{Rule: restrictedRules[i].Name, RunID: run.ID, RuleCriticality: restrictedRules[i].Criticality}
+	}
+
+	return restrictedRules, nil
 }
 
 func (ruleRepository *OrmRepository) GetRulesForRunRestricted(run *model.Run, tags []string, excluded bool) ([]model.Rule, error) {
@@ -365,10 +411,11 @@ func (ruleRepository *OrmRepository) unMarshalAndSaveRule(decoder util.FileDecod
 				if *util.Verbose {
 					fmt.Printf("Rule [%s] exists! Updating!", rule.Name)
 				}
-				deletedPatterns, deletedRecipes, deletedTags := existingRule.UpdateRule(rule)
+				deletedPatterns, deletedRecipes, deletedTags, deletedProfiles := existingRule.UpdateRule(rule)
 				DeletePatterns(deletedPatterns)
 				DeleteRecipes(deletedRecipes)
 				DeleteTags(deletedTags)
+				DeleteProfiles(deletedProfiles)
 				ruleRepository.SaveRule(existingRule)
 			} else {
 				if *util.Verbose {

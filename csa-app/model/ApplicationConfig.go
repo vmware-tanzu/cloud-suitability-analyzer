@@ -35,6 +35,7 @@ type ApplicationConfig struct {
 	Files            []*util.FileInfo `json:"-" yaml:"-"`
 	IgnoredFiles     []*util.FileInfo `json:"-" yaml:"-"`
 	FileUtil         *util.FileUtil   `json:"-" yaml:"-"`
+	Profiles  string                  `json:"profiles,omitempty" yaml:"profiles,omitempty"`
 }
 
 type configFileConfig struct {
@@ -49,6 +50,7 @@ type configFileConfig struct {
 	DirExcludeRegex  string  `json:"dir-exclude-regex" yaml:"dir-exclude-regex"`
 	IncludeFileRegex string  `json:"include-file-regex" yaml:"include-file-regex"`
 	ExcludeFileRegex string  `json:"exclude-file-regex" yaml:"exclude-file-regex"`
+	Profiles  string         `json:"profiles" yaml:"profiles"`
 }
 
 func NewApplicationConfig(runConfig *RunConfig) *ApplicationConfig {
@@ -141,6 +143,10 @@ func (c *ApplicationConfig) MergeRunConfig(runConfig *RunConfig) {
 			c.RuleIncludeTags = ac.RuleIncludeTags
 		}
 
+		if c.Profiles == "" {
+			c.Profiles = ac.Profiles
+		}
+
 		if c.RuleExcludeTags == "" {
 			c.RuleExcludeTags = ac.RuleExcludeTags
 		}
@@ -165,6 +171,10 @@ func (c *ApplicationConfig) MergeRunConfig(runConfig *RunConfig) {
 	//Check for any empty and override from base config
 	if c.RuleIncludeTags == "" {
 		c.RuleIncludeTags = runConfig.RuleIncludeTags
+	}
+
+	if c.Profiles == "" {
+		c.Profiles = runConfig.Profiles
 	}
 
 	if c.RuleExcludeTags == "" {
@@ -195,6 +205,10 @@ func (c *ApplicationConfig) Merge(mergeConfig *configFileConfig) {
 
 	if util.IsCmdFlagDefaulted(util.ANALYZE_CMD, util.RULE_INCLUDE_FLAG) && mergeConfig.RuleIncludeTags != "" {
 		c.RuleIncludeTags = mergeConfig.RuleIncludeTags
+	}
+
+	if util.IsCmdFlagDefaulted(util.ANALYZE_CMD, util.PROFILE_FLAG) && mergeConfig.Profiles != "" {
+		c.Profiles = mergeConfig.Profiles
 	}
 
 	if util.IsCmdFlagDefaulted(util.ANALYZE_CMD, util.RULE_EXCLUDE_FLAG) && mergeConfig.RuleExcludeTags != "" {
@@ -305,7 +319,7 @@ func (c *ApplicationConfig) CheckForLocalAppConfig() {
 			c.BusinessValue, c.ScoringModel,
 			c.RuleIncludeTags, c.RuleExcludeTags,
 			c.DirExcludeRegex, c.IncludeFileRegex,
-			c.ExcludeFileRegex}
+			c.ExcludeFileRegex, c.Profiles}
 
 		format := util.YAML
 		if *util.OutputFormatJson {
