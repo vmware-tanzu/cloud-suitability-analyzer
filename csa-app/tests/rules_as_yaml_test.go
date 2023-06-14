@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
-	"test/csa-app/csa"
-	"test/csa-app/model"
-	"test/csa-app/util"
-	"test/metadata"
+	"csa-app/tests/test"
+	"csa-app/model"
+	"csa-app/util"
+	"csa-app/tests/metadata"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -56,7 +56,7 @@ func TestRules(t *testing.T) {
 	}
 
 	sampleBaseDir = cwd + "/test-samples"
-	directoryPath := cwd + "/../../test-cases"
+	directoryPath := cwd + "/test-cases"
 
 	work_dir := os.Getenv("WORK_DIR")
 
@@ -96,11 +96,11 @@ func TestRules(t *testing.T) {
 			if work_dir != "" {
 				rulesDirectory = work_dir + "/" + category.RulesDirectory
 			}
-			var ruleSet = csa.Setup(rulesDirectory)
+			var ruleSet = test.Setup(rulesDirectory)
 			ruleCount += len(ruleSet)
 			ruleList = append(ruleList, ruleSet...)
 			for _, rule := range category.Tests {
-				testRuleByName(t, rule.Name, csa.RuleByName(t, ruleSet, rule.RuleName), rule.TestFileName, rule.Assert, rule.AssertCount, rule.AssertValue)
+				testRuleByName(t, rule.Name, test.RuleByName(t, ruleSet, rule.RuleName), rule.TestFileName, rule.Assert, rule.AssertCount, rule.AssertValue)
 			}
 		}
 	}
@@ -136,7 +136,7 @@ func testRuleByName(t *testing.T, testName string, rule model.Rule, targetFilePa
 	assert.Equal(t, applies, true, "\033[91mThe rule does not apply to this file type\033[0m")
 
 	//Is there a match
-	fileFindings, value := csa.AnalyzeFile(rule, f)
+	fileFindings, value := test.AnalyzeFile(rule, f)
 
 	assert.Equal(t, expectedMatch, (fileFindings > 0), "\033[91mThe match result was different than expected\033[0m")
 	assert.Equal(t, expectedMatchCount, fileFindings, "\033[91mThe number of matches was different than expected\033[0m")
@@ -145,3 +145,5 @@ func testRuleByName(t *testing.T, testName string, rule model.Rule, targetFilePa
 		assert.Equal(t, expectedValue, value, "\033[91mThe collected finding text did not match expectation\033[0m")
 	}
 }
+
+

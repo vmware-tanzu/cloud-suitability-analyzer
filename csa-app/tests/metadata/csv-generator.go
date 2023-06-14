@@ -4,7 +4,7 @@ import (
 	"encoding/csv"
 	"log"
 	"os"
-	"test/csa-app/model"
+	"csa-app/model"
 )
 
 var outputDir = "export_rule_list.csv"

@@ -40,6 +40,14 @@ type Rule struct {
 	overrideApplies bool           `gorm:"-" json:"-" yaml:"-"`
 	Negative        bool           `gorm:"type:integer"`
 	sync.Mutex      `gorm:"-" json:"-" yaml:"-"`
+	
+	//Extra Metadata for rule curation purposes
+	Metadata_sno         string `gorm:"type:text"`
+	Metadata_category    string `gorm:"type:text"`
+	Metadata_title       string `gorm:"type:text"`
+	Metadata_description string `gorm:"type:text"`
+	Metadata_group       string `gorm:"type:text"`
+	Metadata_criticality string `gorm:"type:text"`
 }
 
 func (r *Rule) Applies(fileExt string, fileName string) bool {

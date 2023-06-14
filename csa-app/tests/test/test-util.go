@@ -1,4 +1,4 @@
-package csa
+package test
 
 import (
 	"bufio"
@@ -9,15 +9,15 @@ import (
 	"path/filepath"
 	"regexp"
 	"strings"
-	"test/csa-app/model"
-	"test/csa-app/util"
+	"csa-app/model"
+	"csa-app/util"
 	"testing"
 	"gopkg.in/yaml.v3"
 	"github.com/antchfx/xmlquery"
 )
 
 //-----------------------------------------------------------------------
-//Setup functions below
+//Loads rules from files
 //-----------------------------------------------------------------------
 func Setup(ruleDir string) (rules []model.Rule) {
 	fileUtil := util.NewFileUtil()
@@ -46,6 +46,9 @@ func Setup(ruleDir string) (rules []model.Rule) {
 	return rules
 }
 
+//-----------------------------------------------------------------------
+//Extract Rules YAMLs
+//-----------------------------------------------------------------------
 func extractRule(decoder util.FileDecoder) (model.Rule, error) {
 	var rule model.Rule
 	err := decoder.Decode(&rule)
@@ -57,6 +60,9 @@ func extractRule(decoder util.FileDecoder) (model.Rule, error) {
 	return rule, err
 }
 
+//-----------------------------------------------------------------------
+//Get rule by name
+//-----------------------------------------------------------------------
 func RuleByName(t *testing.T, rules []model.Rule, ruleName string) (rule model.Rule) {
 	for _, r := range rules {
 		if ruleName == r.Name {
@@ -66,6 +72,9 @@ func RuleByName(t *testing.T, rules []model.Rule, ruleName string) (rule model.R
 	return rule
 }
 
+//-----------------------------------------------------------------------
+//Light weight version of AppAnalyzer.analyzeFile
+//-----------------------------------------------------------------------
 func AnalyzeFile(rule model.Rule, file util.FileInfo) (findingCnt int, value string) {
 
 	var rulesForFile []model.Rule
@@ -98,6 +107,9 @@ func AnalyzeFile(rule model.Rule, file util.FileInfo) (findingCnt int, value str
 	return fileFindings, value
 }
 
+//-----------------------------------------------------------------------
+//Light weight version of FileProcessor.processFile
+//-----------------------------------------------------------------------
 func processFile(file *util.FileInfo, rules []model.Rule, hasContentRules bool) (findingCnt int, value string) {
 	if len(rules) > 0 {
 
@@ -133,19 +145,6 @@ func processFile(file *util.FileInfo, rules []model.Rule, hasContentRules bool) 
 
 					if rules[i].Target == model.LINE_TARGET {
 						nbFindings := processPatterns(file, line, curLine, rules[i])
-						if nbFindings > 0 {
-							if rules[i].Excludepatterns != nil {
-
-								for j := range rules[i].Excludepatterns {
-									regex := regexp.MustCompile(rules[i].Excludepatterns[j].Value)
-									findingExclude := regex.MatchString(curLine)
-									if findingExclude == true {
-										fmt.Println("Exclude Patterns => " + curLine)
-										nbFindings = 0
-									}
-								}
-							}
-						}
 
 						if nbFindings > 0 {
 							value += curLine
@@ -172,6 +171,9 @@ func processFile(file *util.FileInfo, rules []model.Rule, hasContentRules bool) 
 	return findingCnt, value
 }
 
+//-----------------------------------------------------------------------
+//Light weight version of FileProcessor.processPatterns
+//-----------------------------------------------------------------------
 func processPatterns(file *util.FileInfo, line int, target string, rule model.Rule) int {
 
 	xmlDocs := make(map[string](*xmlquery.Node))

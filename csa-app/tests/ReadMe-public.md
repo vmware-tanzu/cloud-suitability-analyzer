@@ -19,20 +19,20 @@ It is also platform independant and can run on Linux, Mac, Windows.
 
 Made that way, it could easily be embedded into a CI pipeline for users who need to source controle and manage changes to their curated rule set.
 
-### Compile Unit Test Executable ###
-- cd csa-test/ 
-- sh build-unit-test-executable // It will generate the unit test executable for linux/mac/windows
-- Artifacts are created in /test-dist/
-
 ### Run Unit Test Executable ###
-cd csa-test/test-dist/
+- unzip rule-test.zip
+- cd rule-test
 - WORK_DIR=[base dir] ./unit-test -test.v
+
+Mac: ./unit-test
+Linux: ./unit-test-l
+Windows: ./unit-test-w
 
 ### Sample Test ###
 
 1. Choose the code sample to test against
-- Place the file with the right extension under "/test-dist/test-samples" directory
-2. Write a YAML test case for it in "/test-dist/test-cases"
+- Place the file with the right extension under "/rule-test/test-samples" directory
+2. Write a YAML test case for it in "/rule-test/test-cases"
 ```
   - name: "[Name of the Test]"
     rule-name: [unique-name-for-rule] //ex: plaintext-creds
