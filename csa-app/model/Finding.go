@@ -34,6 +34,8 @@ type Finding struct {
 	Readiness   int             `gorm:"type:bigint" json:"readiness" yaml:"readiness,omitempty"`
 	Category    string          `gorm:"index;not null" json:",omitempty" yaml:",omitempty"`
 	Criticality string          `gorm:"index;not null" json:",omitempty" yaml:",omitempty"`
+	CriticalityTF int           `gorm:"type:bigint" json:"criticality-tf" yaml:"criticality-tf"`
+	CriticalityK8S int           `gorm:"type:bigint" json:"criticality-k8s" yaml:"criticality-k8s"`
 	Application string          `gorm:"index;not null" json:",omitempty" yaml:",omitempty"`
 	Tags        []FindingTag    `gorm:"foreignkey:FindingID" json:",omitempty" yaml:",omitempty"`
 	Recipes     []FindingRecipe `gorm:"foreignkey:FindingID" json:",omitempty" yaml:",omitempty"`

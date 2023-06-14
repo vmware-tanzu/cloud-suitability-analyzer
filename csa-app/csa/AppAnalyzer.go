@@ -148,7 +148,7 @@ func (csaService *CsaService) analyzeFile(run *model.Run, app *model.Application
 			Pattern:     model.ANALYZED_FILE_PATTERN,
 			Effort:      0,
 			Readiness:   0,
-			Criticality: "none",
+			Criticality: "50:50",
 			Application: file.Dir}
 
 		fileFinding.SetValue(msg)

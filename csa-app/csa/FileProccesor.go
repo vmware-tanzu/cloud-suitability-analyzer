@@ -121,7 +121,7 @@ func (csaService *CsaService) processFile(run *model.Run, app *model.Application
 			Value:       fmt.Sprintf("%d", sloc),
 			Effort:      0,
 			Readiness:   0,
-			Criticality: "none",
+			Criticality: "50:50",
 			Application: file.Dir}
 
 		fileFinding.AddTag(model.INFO_FINDING)
@@ -134,6 +134,13 @@ func (csaService *CsaService) processFile(run *model.Run, app *model.Application
 	}
 
 	return findingCnt, nil
+}
+
+func parseCriticality(criticality string) (int, int) {
+	values := strings.Split(criticality, ":")
+	criticalityA, _ := strconv.Atoi(values[0])
+	criticalityB, _ := strconv.Atoi(values[1])
+	return criticalityA, criticalityB
 }
 
 func (csaService *CsaService) handleRuleMatched(run *model.Run, app *model.Application, file *util.FileInfo, line int, target string, rule model.Rule, pattern model.Pattern, output chan<- interface{}, result string, finding *model.Finding) {
@@ -164,9 +171,12 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run, app *model.Appli
 		readiness = pattern.Readiness
 	}
 
+	criticalityTF, criticalityK8S := 0, 0
+
 	criticality := rule.Criticality
 	if pattern.Criticality != "" {
 		criticality = pattern.Criticality
+		criticalityTF, criticalityK8S = parseCriticality(rule.Criticality)
 	}
 
 	category := rule.Category
@@ -195,6 +205,8 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run, app *model.Appli
 		Result:      result,
 		Readiness:   readiness,
 		Criticality: criticality,
+		CriticalityTF: criticalityTF,
+		CriticalityK8S: criticalityK8S,
 		Application: file.Dir}
 
 	if finding != nil {
