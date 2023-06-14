@@ -21,17 +21,17 @@ Made that way, it could easily be embedded into a CI pipeline for users who need
 
 ### Compile Unit Test Executable ###
 - cd csa-test/ 
-- sh build-unit-test-executable // It will generate the unit test executable for linux/mac/windows
+- sh build-RuleTest.sh // It will generate the unit test executable for linux/mac/windows
 - Artifacts are created in /test-dist/
 
 ### Run Unit Test Executable ###
 - unzip rule-test.zip
 - cd rule-test
-- WORK_DIR=[base dir] ./unit-test -test.v
+- WORK_DIR=[base dir] ./rule-test -test.v
 
-Mac: ./unit-test
-Linux: ./unit-test-l
-Windows: ./unit-test-w
+Mac: ./rule-test
+Linux: ./rule-test-l
+Windows: ./rule-test-w
 
 ### Sample Test ###
 

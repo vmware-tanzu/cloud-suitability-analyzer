@@ -19,14 +19,14 @@ It is also platform independant and can run on Linux, Mac, Windows.
 
 Made that way, it could easily be embedded into a CI pipeline for users who need to source controle and manage changes to their curated rule set.
 
-### Run Unit Test Executable ###
+### Run Rule Test Executable ###
 - unzip rule-test.zip
 - cd rule-test
-- WORK_DIR=[base dir] ./unit-test -test.v
+- WORK_DIR=[base dir] ./rule-test -test.v
 
-Mac: ./unit-test
-Linux: ./unit-test-l
-Windows: ./unit-test-w
+Mac: ./rule-test
+Linux: ./rule-test-l
+Windows: ./rule-test-w
 
 ### Sample Test ###
 
