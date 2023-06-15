@@ -104,7 +104,7 @@ func (csaService *CsaService) processFile(run *model.Run, app *model.Application
 				if rules[i].Target == model.CONTENTS_TARGET {
 					findingCnt += csaService.processPatterns(run, app, file, 0, contents, rules[i], output)
 					if *util.Verbose {
-						util.WriteLog("A11nalyzing", "### Rule: %s Hit: %d times on File: %s  ###\n", rules[i].Name, findingCnt, file.Name)
+						util.WriteLog("Analyzing", "### Rule: %s Hit: %d times on File: %s  ###\n", rules[i].Name, findingCnt, file.Name)
 					}
 				}
 			}
@@ -137,13 +137,27 @@ func (csaService *CsaService) processFile(run *model.Run, app *model.Application
 }
 
 func parseCriticality(criticality string) (int, int) {
+	if !strings.Contains(criticality, ":") {
+		return 50, 50
+	}
+	if len(criticality) < 3 {
+		return 50, 50
+	}
 	values := strings.Split(criticality, ":")
 	criticalityA, _ := strconv.Atoi(values[0])
 	criticalityB, _ := strconv.Atoi(values[1])
 	return criticalityA, criticalityB
 }
 
-func (csaService *CsaService) handleRuleMatched(run *model.Run, app *model.Application, file *util.FileInfo, line int, target string, rule model.Rule, pattern model.Pattern, output chan<- interface{}, result string, finding *model.Finding) {
+func (csaService *CsaService) handleRuleMatched(run *model.Run,
+	app *model.Application,
+	file *util.FileInfo,
+	line int, target string,
+	rule model.Rule,
+	pattern model.Pattern,
+	output chan<- interface{},
+	result string,
+	finding *model.Finding) {
 	matchHasImpact := true
 
 	//Track Rule matches for rules that have the associated impact type. Otherwise that is a waste of time!
@@ -161,22 +175,41 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run, app *model.Appli
 		matchHasImpact = !ruleHitBefore
 	}
 
-	effort := rule.Effort
-	if pattern.Effort != 0 {
-		effort = pattern.Effort
-	}
-
 	readiness := rule.Readiness
 	if pattern.Readiness > 0 {
 		readiness = pattern.Readiness
 	}
 
-	criticalityTF, criticalityK8S := 0, 0
+	criticalityTF, criticalityK8S := 1, 1
+	effortTF := 0
+	effortK8S := 0
+	//-- note
+	/*
+		rule is the actual rule materialized from the yaml file
+		pattern represents the actual pattern that resides in the rule. There can be multiple patterns in a rule
+	*/
 
+	//--- note
+	/*
+		I don't think the commented out
+	*/
 	criticality := rule.Criticality
-	if pattern.Criticality != "" {
-		criticality = pattern.Criticality
-		criticalityTF, criticalityK8S = parseCriticality(rule.Criticality)
+	//if pattern.Criticality != "" {
+	if criticality != "" {
+		//criticality = pattern.Criticality
+		//--- parse out the criticality values
+		fmt.Printf("Criticality: %s\n", criticality)
+		criticalityTF, criticalityK8S = parseCriticality(criticality)
+		effortTF = rule.Effort * criticalityTF / 50
+		effortK8S = rule.Effort * criticalityK8S / 50
+		fmt.Println("CriticalityTF: ", criticalityTF, "CriticalityK8S: ", criticalityK8S)
+		fmt.Printf("Effort: %d\n", rule.Effort)
+		fmt.Printf("EffortTF: %d EffortK8S: %d\n", effortTF, effortK8S)
+	}
+
+	effort := rule.Effort
+	if pattern.Effort != 0 {
+		effort = pattern.Effort
 	}
 
 	category := rule.Category
@@ -192,22 +225,22 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run, app *model.Appli
 	}
 
 	data := model.Finding{
-		RunID:       run.ID,
-		Filename:    file.Name,
-		Fqn:         file.FQN,
-		Ext:         file.Ext,
-		Line:        line,
-		Rule:        rule.Name,
-		Pattern:     pattern.Value,
-		Category:    category,
-		Effort:      effort,
-		Note:        note,
-		Result:      result,
-		Readiness:   readiness,
-		Criticality: criticality,
-		CriticalityTF: criticalityTF,
+		RunID:          run.ID,
+		Filename:       file.Name,
+		Fqn:            file.FQN,
+		Ext:            file.Ext,
+		Line:           line,
+		Rule:           rule.Name,
+		Pattern:        pattern.Value,
+		Category:       category,
+		Effort:         effort,
+		Note:           note,
+		Result:         result,
+		Readiness:      readiness,
+		Criticality:    criticality,
+		CriticalityTF:  criticalityTF,
 		CriticalityK8S: criticalityK8S,
-		Application: file.Dir}
+		Application:    file.Dir}
 
 	if finding != nil {
 		data.Filename = finding.Filename
@@ -424,10 +457,10 @@ func (csaService *CsaService) generateSloc(run *model.Run) {
 	for _, config := range run.Applications {
 		csaService.gatherSLOCForApp(run, config)
 	}
-	if (!*util.Xtract) {
+	if !*util.Xtract {
 		run.StopActivityLF("sloc", "SLOC Analysis...done!", false, true)
 	}
-	if (*util.Xtract) {
+	if *util.Xtract {
 		run.StopActivityLF("sloc", "", false, false)
 		//screen.Clear()
 	}
@@ -540,7 +573,7 @@ func (csaService *CsaService) genAppCSAResults(run *model.Run) {
 
 	//--- TODO: Move to function
 
-	if( util.CICDDir != nil ) {
+	if util.CICDDir != nil {
 		qryFindings := `
 			SELECT 
 			application,
@@ -552,7 +585,7 @@ func (csaService *CsaService) genAppCSAResults(run *model.Run) {
 			effort
    		FROM findings;
 		`
-	
+
 		var sqlDBFile = *util.DbDir + string(os.PathSeparator) + *util.DBName
 		var CICDFile = *util.CICDDir + string(os.PathSeparator) + *util.CICDFileName
 
@@ -562,16 +595,13 @@ func (csaService *CsaService) genAppCSAResults(run *model.Run) {
 		}
 
 		file, err := os.Create(CICDFile)
-     
+
 		if err != nil {
 			fmt.Printf("failed creating file: %s", err)
 		}
 		defer file.Close()
 
-
-
-
-		db, err := sql.Open("sqlite3", sqlDBFile )
+		db, err := sql.Open("sqlite3", sqlDBFile)
 		if err != nil {
 			fmt.Print(err)
 			os.Exit(1)
@@ -604,18 +634,14 @@ func (csaService *CsaService) genAppCSAResults(run *model.Run) {
 				fmt.Print(err)
 				os.Exit(1)
 			}
-			
+
 			line := fmt.Sprintf("\"%s\",\"%s\",\"%s\",%d,\"%s\",\"%s\",%d\n", application, filename, fqn, line, rule, advice, effort)
 			_, err2 := file.WriteString(line)
-
-
 
 			if err2 != nil {
 				fmt.Print(err2)
 				os.Exit(1)
 			}
-
-
 
 		}
 		fmt.Printf("\n\nWrote CICD file %s\n", CICDFile)
@@ -638,10 +664,8 @@ func (csaService *CsaService) genAppCSAResults(run *model.Run) {
 		fmt.Printf("\n\n--- END IGNORED FILES ---\n\n")
 	}
 
-
-	
 	csaService.reportService.DisplayReport(headers, data, "CSA Results", false)
-	
+
 }
 
 func (csaService *CsaService) gatherFiles(run *model.Run) {
@@ -657,11 +681,11 @@ func (csaService *CsaService) gatherFiles(run *model.Run) {
 		run.SetAlias(runConfig.Alias)
 		run.StartActivity("gathering")
 		runConfig.Populate()
-		if (!*util.Xtract) {
+		if !*util.Xtract {
 			fmt.Printf("Found [%d] Applications...\n", len(runConfig.Applications))
 		}
-	
-		if (!*util.Xtract) {
+
+		if !*util.Xtract {
 			run.StopActivityLF("gathering", "Gathering Files...done!\n", false, true)
 			fmt.Print("\nApp/File Details:\n\n")
 		} else {
@@ -705,7 +729,7 @@ func (csaService *CsaService) UpdateRunWithApplications(run *model.Run, rc *mode
 		run.AssociateApplication(newApp)
 		//Write app msg for cli
 		if err == nil {
-			if (!*util.Xtract) {
+			if !*util.Xtract {
 				fmt.Printf(stdOutFmt, newApp.Name, cnt)
 			}
 		} else {
@@ -714,7 +738,7 @@ func (csaService *CsaService) UpdateRunWithApplications(run *model.Run, rc *mode
 	}
 
 	run.Files = filesCnt
-	if (!*util.Xtract) {
+	if !*util.Xtract {
 		fmt.Printf("\n**** Found [%d] total Files to Analyze ****\n", filesCnt)
 	}
 }

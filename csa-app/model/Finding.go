@@ -31,6 +31,8 @@ type Finding struct {
 	Note        string          `gorm:"type:text;" json:",omitempty" yaml:",omitempty"`
 	Advice      string          `gorm:"type:text" json:",omitempty" yaml:",omitempty"`
 	Effort      int             `gorm:"type:bigint" json:"effort" yaml:"effort"`
+	EffortTF    int             `gorm:"type:bigint" json:"effort-tf" yaml:"effort-tf"`
+	EffortK8S   int             `gorm:"type:bigint" json:"effort-k8s" yaml:"effort-k8s"`	
 	Readiness   int             `gorm:"type:bigint" json:"readiness" yaml:"readiness,omitempty"`
 	Category    string          `gorm:"index;not null" json:",omitempty" yaml:",omitempty"`
 	Criticality string          `gorm:"index;not null" json:",omitempty" yaml:",omitempty"`
