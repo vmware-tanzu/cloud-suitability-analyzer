@@ -3,6 +3,7 @@ name: Docker Image CI
 # on:
 #   release:
 #     types: [created]
+
 on:
   workflow_dispatch:
     inputs:
@@ -18,9 +19,6 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write    
 
     steps:
     - uses: actions/checkout@v2
