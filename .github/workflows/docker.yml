@@ -47,4 +47,4 @@ jobs:
         file: ./Dockerfile
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: ${{ vars.DOCKER_HUB_URL }}/rpm/csa:experimental
+        tags: ${{ vars.DOCKER_HUB_URL }}/${{ secrets.DOCKER_HUB_USERNAME }}/csa:experimental
