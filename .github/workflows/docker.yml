@@ -36,7 +36,7 @@ jobs:
       uses: docker/login-action@v2 
       with:
         registry: ${{ vars.DOCKER_HUB_URL }}
-        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        username: ${{ github.repository_owner }}
         password: ${{ secrets.MY_GITHUB_TOKEN }}
 
     - name: Build and push to ghcr
@@ -47,4 +47,4 @@ jobs:
         file: ./Dockerfile
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: ${{ vars.DOCKER_HUB_URL }}/${{ secrets.DOCKER_HUB_USERNAME }}/csa:experimental
+        tags: ${{ vars.DOCKER_HUB_URL }}/${{ github.repository_owner }}/csa:experimental
