@@ -391,8 +391,10 @@ func (csaService *CsaService) shouldFindingBeExcluded(target string, rule model.
 			regex := regexp.MustCompile(rule.Excludepatterns[j].Value)
 			findingExclude := regex.MatchString(target)
 			if findingExclude == true {
-				fmt.Println("Finding by rule "+rule.Name+" excluded by ExcludePattern => " + target)
-				exclude = true
+				if *util.Verbose {
+					fmt.Println("Finding by rule "+rule.Name+" excluded by ExcludePattern => " + target)
+					exclude = true
+				}
 			}
 		}
 	}
