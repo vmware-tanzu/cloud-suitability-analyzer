@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-06-15 13:10:42.403469 -0500 CDT m=+0.206419936
+//Created @ 2023-06-16 09:29:57.30839 -0500 CDT m=+0.179250917
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -3134,7 +3134,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "org.slf4j", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-soap", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.* %s.*[(].*", Advice: "Consider upgrading to modern cloud native messaging", Effort: 4, Readiness: 3, Impact: "", Category: "soap", Criticality: "50:50",
+            { Name: "java-soap", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.* %s.*[(].*", Advice: "Consider upgrading to modern cloud native messaging", Effort: 4, Readiness: 3, Impact: "", Category: "soap", Criticality: "23:77",
             Tags:
             []Tag{  { Value: "web-service",}, { Value: "soap",}, },
             Recipes:

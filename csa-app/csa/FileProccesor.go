@@ -12,6 +12,7 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
+	"math"
 	"os"
 	"os/exec"
 	"regexp"
@@ -181,8 +182,8 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run,
 	}
 
 	criticalityTF, criticalityK8S := 1, 1
-	effortTF := 0
-	effortK8S := 0
+	var effortTF int
+	var effortK8S int
 	//-- note
 	/*
 		rule is the actual rule materialized from the yaml file
@@ -200,8 +201,12 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run,
 		//--- parse out the criticality values
 		fmt.Printf("Criticality: %s\n", criticality)
 		criticalityTF, criticalityK8S = parseCriticality(criticality)
-		effortTF = rule.Effort * criticalityTF / 50
-		effortK8S = rule.Effort * criticalityK8S / 50
+		//--- transform the effort based upon fractional criticality
+		TF_factor := float64(criticalityTF) / 50.0
+		K8S_factor := float64(criticalityK8S) / 50.0
+		effortTF = int(math.Round(float64(rule.Effort) * TF_factor))
+		effortK8S = int(math.Round(float64(rule.Effort) * K8S_factor))
+		fmt.Println("Rule: ", rule.Name)
 		fmt.Println("CriticalityTF: ", criticalityTF, "CriticalityK8S: ", criticalityK8S)
 		fmt.Printf("Effort: %d\n", rule.Effort)
 		fmt.Printf("EffortTF: %d EffortK8S: %d\n", effortTF, effortK8S)
@@ -234,6 +239,8 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run,
 		Pattern:        pattern.Value,
 		Category:       category,
 		Effort:         effort,
+		EffortTF:       effortTF,
+		EffortK8S:      effortK8S,
 		Note:           note,
 		Result:         result,
 		Readiness:      readiness,
