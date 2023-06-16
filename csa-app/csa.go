@@ -106,15 +106,15 @@ func main() {
 		}
 	}
 
-	//--- if Report directory exists, remove it
-	if *util.ReportDir != "" {
-		if _, err := os.Stat(*util.ReportDir); !os.IsNotExist(err) {
-			err := os.RemoveAll(*util.ReportDir)
+	//--- if Export directory exists, remove it
+	if *util.ExportDir != "" {
+		if _, err := os.Stat(*util.ExportDir); !os.IsNotExist(err) {
+			err := os.RemoveAll(*util.ExportDir)
 			if err != nil {
 				fmt.Println(err)
 				os.Exit(1)
 			}
-			fmt.Printf("Removing current ReportDir directory: %s\n", *util.ReportDir)
+			fmt.Printf("Removing current ExportDir directory: %s\n", *util.ExportDir)
 		}
 
 	}
