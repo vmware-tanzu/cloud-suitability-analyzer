@@ -7,6 +7,7 @@ It makes it easy to test a rule set and ensure that rules will fire when expecte
 Very often rules might never trigger or might trigger and pick up a false positive.
 
 Now rules can be tested against specific source code samples. The framework checks the following:
+
 - The rule syntax is correct and compiles
 - The rule fires against the right set of file extensions
 - The rule fires properly given a source code sample
