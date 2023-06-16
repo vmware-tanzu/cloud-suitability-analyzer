@@ -19,6 +19,9 @@ import (
 	"sort"
 	"strconv"
 	"strings"
+	"time"
+	"io/ioutil"
+	"html"
 )
 
 type ReportService struct {
@@ -208,6 +211,95 @@ func (reportService *ReportService) generateJavaApiDetailReport(runId uint, find
 	}
 	reportService.ExportReport(runId, model.API_DETAILED_REPORT_ID, "API-DETAIL", false, true)
 
+}
+
+ func removeBOM(content string) string{
+	 fileBytes := []byte(content)
+	 trimmedBytes := bytes.Trim(fileBytes, "\xef\xbb\xbf")
+	 return string(trimmedBytes)
+ }
+
+func (reportService *ReportService) GenerateCsvExport(findings []model.Finding, getLevelForScore func(int) string) {
+	var exportFile = *util.ExportDir + string(os.PathSeparator) + *util.ExportFileName + ".csv"
+
+	file, err := os.Create(exportFile)
+	if err != nil {
+		fmt.Printf("failed creating file: %s", err)
+	}
+	defer file.Close()
+	_, err1 := file.WriteString("application,filename,fqn,line,rule,advice,effort,category,criticality,ext,pattern,value,readiness,level\n")
+	if err1 != nil {
+		fmt.Printf("failed write to file file: %s", err1)
+	}
+	for _, finding := range findings {
+
+		finding.Value = strings.Replace(finding.Value, ",", "", -2)
+		finding.Value = strings.Replace(finding.Value, "\n", "", -2)
+		finding.Value = strings.Replace(finding.Value, "\r", "", -2)
+		finding.Value = strings.Replace(finding.Value, "\"", "'", -2)
+		finding.Value = removeBOM(finding.Value)
+		
+		finding.Pattern = strings.Replace(finding.Pattern, "\"", "'", -2)
+
+		line := fmt.Sprintf("\"%s\",\"%s\",\"%s\",%d,\"%s\",\"%s\",%d,\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%d\",\"%s\"\n", finding.Application, finding.Filename, finding.Fqn, finding.Line, finding.Rule, finding.Advice, finding.Effort, finding.Category, finding.Criticality, finding.Ext, finding.Pattern, finding.Value, finding.Readiness, getLevelForScore(finding.Effort))
+		_, err2 := file.WriteString(line)
+		if err2 != nil {
+			fmt.Printf("failed write to file file: %s", err2)
+		}
+	}
+
+	fmt.Printf("\n\nWrote Csv Export file %s\n", exportFile)
+}
+
+func (reportService *ReportService) GenerateHtmlExport(findings []model.Finding, run *model.Run, getLevelForScore func(int) string) {
+ 
+	var fileContent = reportService.GetTemplateByName("HtmlExportTemplate.html")
+	var exportFile = *util.ExportDir + string(os.PathSeparator) + *util.ExportFileName + ".html"
+
+	sort.Slice(findings[:], func(i, j int) bool {
+		return findings[i].Effort > findings[j].Effort
+	})
+
+	templateContentHtml := fileContent
+	file, err := os.Create(exportFile)
+	if err != nil {
+		fmt.Printf("failed creating file: %s", err)
+	}
+	defer file.Close()
+
+	metadataHtml := "<li>Target: " + run.Target + "</li>"
+	metadataHtml += "<li>Created Time: " + run.CreatedAt.Format(time.ANSIC) + "</li>"
+	metadataHtml += "<li>#Findings: " + strconv.Itoa(run.Findings) + "</li>"
+	var b bytes.Buffer
+	fmt.Printf("Findings [%d]", len(findings))
+	for _, finding := range findings {
+		b.WriteString("<tr>")
+		b.WriteString("<td class=\"small\">" + strconv.FormatUint(uint64(finding.RunID), 10) + "</td>")
+		b.WriteString("<td>" + finding.Application + "</td>")
+		b.WriteString("<td>" + finding.Category + "</td>")
+		b.WriteString("<td>" + finding.Rule + "</td>")
+		b.WriteString("<td>" + finding.Fqn + "</td>")
+		b.WriteString("<td class=\"small\">" + strconv.Itoa(finding.Line) + "</td>")
+
+		escapedValue := html.EscapeString(finding.Value)
+
+		b.WriteString("<td class=\"big\">" + escapedValue + "</td>")
+		b.WriteString("<td class=\"small\">" + getLevelForScore(finding.Effort) + "</td>")
+		b.WriteString("<td class=\"small\">" + strconv.Itoa(finding.Effort) + "</td>")
+		b.WriteString("<td>" + finding.Advice + "</td>")
+		b.WriteString("</tr>")
+	}
+
+	templateContentHtml = strings.Replace(templateContentHtml, "${metadata}", metadataHtml, -1)
+	templateContentHtml = strings.Replace(templateContentHtml, "${table}", b.String(), -1)
+
+	data := []byte(templateContentHtml)
+	err1 := ioutil.WriteFile(exportFile, data, 0)
+	if err1 != nil {
+		fmt.Printf("failed write to file file: %s", err1)
+	}
+
+	fmt.Printf("\n\nWrote Html Export file %s\n", exportFile)
 }
 
 func (reportService *ReportService) generateAnnotationReport(runId uint) {

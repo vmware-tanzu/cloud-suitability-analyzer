@@ -18,7 +18,6 @@
 	 "sort"
 	 "strconv"
 	 "strings"
-	 "html"
 	 //"github.com/inancgumus/screen"
 	 "csa-app/db"
 	 "csa-app/gocloc"
@@ -529,7 +528,7 @@
  
 	 //--- TODO: Move to function
  
-	 if util.ReportDir != nil {
+	 if util.ExportFormats != nil {
 		 qryFindings := `
 			 SELECT 
 				 run_id,
@@ -553,7 +552,7 @@
  
 		 fileFindings := []model.Finding{}
  
-		 if err := os.MkdirAll(*util.ReportDir, os.ModePerm); err != nil {
+		 if err := os.MkdirAll(*util.ExportDir, os.ModePerm); err != nil {
 			 fmt.Print(err)
 			 os.Exit(1)
 		 }
@@ -612,18 +611,19 @@
  
 			 fileFindings = append(fileFindings, fileFinding)
 		 }
-		 csvFileName := ""
-		 htmlFileName := ""
-		 csvFileName = *util.CsvReportFileName
-		 htmlFileName = *util.HtmlReportFileName
+
+		 exportFileName := ""
+		 exportFileName = *util.ExportFileName
+
+		 formats := strings.Split(*util.ExportFormats, ",")
  
-		 if csvFileName != "" {
-			 fmt.Println("CSV",csvFileName)
-			 csaService.generateCsvReport(fileFindings)
+		 if formatsContains(formats, "csv") {
+			 fmt.Println("Export as CSV requested...",exportFileName)
+			 csaService.reportService.GenerateCsvExport(fileFindings, GetLevelForScore)
 		 }
-		 if htmlFileName != "" {
-			 fmt.Println("HTML",htmlFileName)
-			 csaService.generateHtmlReport(fileFindings, run)
+		 if formatsContains(formats, "html") {
+			 fmt.Println("Export as HTML requested...",exportFileName)
+			 csaService.reportService.GenerateHtmlExport(fileFindings, run, GetLevelForScore)
 		 }
 	 }
  
@@ -647,96 +647,18 @@
 	 csaService.reportService.DisplayReport(headers, data, "CSA Results", false)
  
  }
- 
- func removeBOM(content string) string{
-	 fileBytes := []byte(content)
-	 trimmedBytes := bytes.Trim(fileBytes, "\xef\xbb\xbf")
-	 return string(trimmedBytes)
- }
- 
- func (csaService *CsaService) generateCsvReport(findings []model.Finding) {
-	 var reportFile = *util.ReportDir + string(os.PathSeparator) + *util.CsvReportFileName
- 
-	 file, err := os.Create(reportFile)
-	 if err != nil {
-		 fmt.Printf("failed creating file: %s", err)
-	 }
-	 defer file.Close()
-	 _, err1 := file.WriteString("application,filename,fqn,line,rule,advice,effort,category,criticality,ext,pattern,value,readiness,level\n")
-	 if err1 != nil {
-		 fmt.Printf("failed write to file file: %s", err1)
-	 }
-	 for _, finding := range findings {
- 
-		 finding.Value = strings.Replace(finding.Value, ",", "", -2)
-		 finding.Value = strings.Replace(finding.Value, "\n", "", -2)
-		 finding.Value = strings.Replace(finding.Value, "\r", "", -2)
-		 finding.Value = strings.Replace(finding.Value, "\"", "'", -2)
-		 finding.Value = removeBOM(finding.Value)
-		 
-		 finding.Pattern = strings.Replace(finding.Pattern, "\"", "'", -2)
- 
-		 line := fmt.Sprintf("\"%s\",\"%s\",\"%s\",%d,\"%s\",\"%s\",%d,\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%d\",\"%s\"\n", finding.Application, finding.Filename, finding.Fqn, finding.Line, finding.Rule, finding.Advice, finding.Effort, finding.Category, finding.Criticality, finding.Ext, finding.Pattern, finding.Value, finding.Readiness, GetLevelForScore(finding.Effort))
-		 _, err2 := file.WriteString(line)
-		 if err2 != nil {
-			 fmt.Printf("failed write to file file: %s", err2)
-		 }
-	 }
- 
-	 fmt.Printf("\n\nWrote Csv Report file %s\n", reportFile)
- }
- 
- func (csaService *CsaService) generateHtmlReport(findings []model.Finding, run *model.Run) {
- 
-	 var fileContent = csaService.reportService.GetTemplateByName("HtmlReportTemplate.html")
-	 var reportFile = *util.ReportDir + string(os.PathSeparator) + *util.HtmlReportFileName
- 
-	 sort.Slice(findings[:], func(i, j int) bool {
-		 return findings[i].Effort > findings[j].Effort
-	 })
- 
-	 templateContentHtml := fileContent
-	 file, err := os.Create(reportFile)
-	 if err != nil {
-		 fmt.Printf("failed creating file: %s", err)
-	 }
-	 defer file.Close()
- 
-	 metadataHtml := "<li>Target: " + run.Target + "</li>"
-	 metadataHtml += "<li>Created Time: " + run.CreatedAt.Format(time.ANSIC) + "</li>"
-	 metadataHtml += "<li>#Findings: " + strconv.Itoa(run.Findings) + "</li>"
-	 var b bytes.Buffer
-	 fmt.Printf("Findings [%d]", len(findings))
-	 for _, finding := range findings {
-		 b.WriteString("<tr>")
-		 b.WriteString("<td class=\"small\">" + strconv.FormatUint(uint64(finding.RunID), 10) + "</td>")
-		 b.WriteString("<td>" + finding.Application + "</td>")
-		 b.WriteString("<td>" + finding.Category + "</td>")
-		 b.WriteString("<td>" + finding.Rule + "</td>")
-		 b.WriteString("<td>" + finding.Fqn + "</td>")
-		 b.WriteString("<td class=\"small\">" + strconv.Itoa(finding.Line) + "</td>")
- 
-		 escapedValue := html.EscapeString(finding.Value)
- 
-		 b.WriteString("<td class=\"big\">" + escapedValue + "</td>")
-		 b.WriteString("<td class=\"small\">" + GetLevelForScore(finding.Effort) + "</td>")
-		 b.WriteString("<td class=\"small\">" + strconv.Itoa(finding.Effort) + "</td>")
-		 b.WriteString("<td>" + finding.Advice + "</td>")
-		 b.WriteString("</tr>")
-	 }
- 
-	 templateContentHtml = strings.Replace(templateContentHtml, "${metadata}", metadataHtml, -1)
-	 templateContentHtml = strings.Replace(templateContentHtml, "${table}", b.String(), -1)
- 
-	 data := []byte(templateContentHtml)
-	 err1 := ioutil.WriteFile(reportFile, data, 0)
-	 if err1 != nil {
-		 fmt.Printf("failed write to file file: %s", err1)
-	 }
- 
-	 fmt.Printf("\n\nWrote Html Report file %s\n", reportFile)
- }
- 
+
+  // function to check given format is in selected array of formats
+  func formatsContains(sl []string, format string) bool {
+	// iterate over the array and compare given format to each element ignoring the case
+	for _, value := range sl {
+		if strings.EqualFold(value, format) {
+			return true
+		}
+	}
+	return false
+}
+
  func (csaService *CsaService) gatherFiles(run *model.Run) {
  
 	 runConfig := model.NewRunConfig(run, csaService.fileUtil)
