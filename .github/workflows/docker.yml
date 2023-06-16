@@ -47,7 +47,7 @@ jobs:
       id: meta
       uses: docker/metadata-action@v4
       with:
-        images: ${{ vars.DOCKER_HUB_URL }}/csa:experimental  
+        images: ${{ vars.DOCKER_HUB_URL }}/csa 
 
     - name: Build and push to ghcr
       id: docker_build
