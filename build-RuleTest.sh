@@ -17,7 +17,7 @@ mv csa-app/tests/rule-test-w.exe csa-app/test-exe/rule-test-w.exe
 mv csa-app/tests/ReadMe-public.md csa-app/test-exe/ReadMe.md
 
 cd csa-app/test-exe/
-zip -r rule-test.zip *
+zip -r test.zip *
 cd ../../
 
 rm -r -f csa-app/test-exe/test-cases
