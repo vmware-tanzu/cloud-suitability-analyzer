@@ -10,11 +10,12 @@ import (
 	"os"
 	"sync"
 
-	"github.com/antchfx/xmlquery"
 	"csa-app/db"
 	"csa-app/model"
 	"csa-app/report"
 	"csa-app/util"
+
+	"github.com/antchfx/xmlquery"
 	"gopkg.in/yaml.v3"
 )
 
@@ -42,8 +43,8 @@ type CsaService struct {
 	xmlMux               sync.Mutex
 }
 
-func NewCsaSvc(mgr *db.Repositories) *CsaService {
-	return NewCsaService(mgr.Rules, mgr.Run, mgr.Findings, mgr.Reports, mgr.Sloc, mgr.Scoring, report.NewReportSvc(mgr))
+func NewCsaSvc(mgr *db.Repositories, reportService *report.ReportService) *CsaService {
+	return NewCsaService(mgr.Rules, mgr.Run, mgr.Findings, mgr.Reports, mgr.Sloc, mgr.Scoring, reportService)
 }
 
 func NewCsaService(ruleRepository db.RuleRepository,
@@ -135,11 +136,11 @@ func (csaService *CsaService) concurrentAnalysis(run *model.Run) {
 		msg = "errors!"
 	}
 
-	if (!*util.Xtract) {
+	if !*util.Xtract {
 		run.StopActivityLF("analysis", fmt.Sprintf("A8nalyzing...%s", msg), false, true)
 	} else {
-		run.StopActivityLF("analysis", "", false, false)		
-	} 
+		run.StopActivityLF("analysis", "", false, false)
+	}
 
 	csaService.analysisDone = true
 	close(csaService.saveChan)
@@ -164,7 +165,7 @@ func (csaService *CsaService) SerialAnalysis(run *model.Run) {
 	if util.ProcessHadErrors("Analysis") {
 		msg = "errors!"
 	}
-	if (!*util.Xtract) {
+	if !*util.Xtract {
 		run.StopActivityLF("analysis", fmt.Sprintf("A9nalyzing...%s", msg), false, true)
 	} else {
 		run.StopActivityLF("analysis", "", false, false)

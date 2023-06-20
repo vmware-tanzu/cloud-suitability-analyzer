@@ -24,8 +24,6 @@ import (
 	"runtime/debug"
 
 	//"runtime/pprof"
-	"github.com/pkg/profile"
-	"github.com/sirupsen/logrus"
 	"csa-app/backend/routes"
 	"csa-app/csa"
 	"csa-app/db"
@@ -34,10 +32,18 @@ import (
 	"csa-app/report"
 	"csa-app/search"
 	"csa-app/util"
+	"embed"
+
+	"github.com/pkg/profile"
+	"github.com/sirupsen/logrus"
 )
 
 //to generate the Bootstrap.go file
 //go:generate go run scripts/generate_bootstrap.go >&2
+var (
+	//go:embed resources/report-templates/*
+	reportTemplates embed.FS
+)
 
 var (
 	Version       string
@@ -49,7 +55,6 @@ var (
 )
 
 func main() {
-	
 
 	//--- trace code start
 	/*
@@ -78,8 +83,6 @@ func main() {
 		//--- profile code end
 	*/
 
-
-
 	adminMode := false
 
 	debug.SetMaxThreads(100000)
@@ -88,35 +91,34 @@ func main() {
 	util.App.Version(Version)
 	util.App.Author("Steve Woods (VMware)")
 
-
 	var run = model.NewRun()
 
 	procsAndThreads()
 	if *util.Zap {
 
-	   var dbFile = *util.DbDir + "/" + *util.DBName + ".db"
-	   
-	   fmt.Printf("Removing current DB: %s\n", dbFile)
-	   var err = os.Remove(dbFile)
-	   if err != nil {
-		 fmt.Println(err)
-		 os.Exit(1)
-	   }
-   	}
+		var dbFile = *util.DbDir + "/" + *util.DBName + ".db"
 
-	//--- if CICD directory exists, remove it
-	if (*util.CICDDir != "") {
-		if _, err := os.Stat(*util.CICDDir); !os.IsNotExist(err) {
-			err := os.RemoveAll(*util.CICDDir)
+		fmt.Printf("Removing current DB: %s\n", dbFile)
+		var err = os.Remove(dbFile)
+		if err != nil {
+			fmt.Println(err)
+			os.Exit(1)
+		}
+	}
+
+	//--- if Export directory exists, remove it
+	if *util.ExportDir != "" {
+		if _, err := os.Stat(*util.ExportDir); !os.IsNotExist(err) {
+			err := os.RemoveAll(*util.ExportDir)
 			if err != nil {
 				fmt.Println(err)
 				os.Exit(1)
 			}
-			fmt.Printf("Removing current CICD directory: %s\n", *util.CICDDir)
+			fmt.Printf("Removing current ExportDir directory: %s\n", *util.ExportDir)
 		}
 
 	}
-	
+
 	run.DB = db.OpenDB(run)
 	defer run.Cleanup()
 
@@ -128,7 +130,7 @@ func main() {
 	}
 
 	repoMgr := db.NewRepositoriesManagerForRun(run)
-	if (!*util.Xtract) {
+	if !*util.Xtract {
 		fmt.Printf("User: %s\nCommand: %s\nUser-Home: %s\nDB Path: %s\nRules-Dir: %s\nOutputPath: %s\nExe Path: %s\nTmp Path: %s\n\n",
 			run.User,
 			run.Command,
@@ -143,7 +145,7 @@ func main() {
 	switch run.Command {
 
 	case util.ShowReports.FullCommand():
-		reportService := report.NewReportSvc(repoMgr)
+		reportService := report.NewReportSvc(repoMgr, reportTemplates)
 		reportService.ListReports(util.ReportType)
 		os.Exit(0)
 	case util.ExportRulesCmd.FullCommand():
@@ -200,7 +202,8 @@ func main() {
 		run.SetPaths(*util.Path)
 		run.SetRequestedReports(util.ReportsFlag, "1,2,3,4,5")
 		run.ValidateRun()
-		csaService := csa.NewCsaSvc(repoMgr)
+		reportService := report.NewReportSvc(repoMgr, reportTemplates)
+		csaService := csa.NewCsaSvc(repoMgr, reportService)
 		csaService.PerformAnalysis(run)
 	case util.NatLangCmd.FullCommand():
 		run.SetPaths(*util.NatLangPath)
@@ -237,7 +240,6 @@ func main() {
 		run.CompletionMessage()
 	}
 }
-
 
 func procsAndThreads() {
 

@@ -34,6 +34,7 @@ type Rule struct {
 	Tags            []Tag          `json:",omitempty" yaml:",omitempty"`
 	Recipes         []Recipe       `gorm:"foreignkey:RuleID" json:",omitempty" yaml:",omitempty"`
 	Patterns        []Pattern      `gorm:"foreignkey:RuleID"`
+	Excludepatterns []ExcludePattern      `gorm:"foreignkey:RuleID" json:",omitempty" yaml:",omitempty"`
 	fileNameRegex   *regexp.Regexp `gorm:"-" json:"-" yaml:"-"`
 	regex           *regexp.Regexp `gorm:"-" json:"-" yaml:"-"`
 	Metric          *RuleMetric    `gorm:"-" json:"-" yaml:"-"`
@@ -41,6 +42,14 @@ type Rule struct {
 	Negative        bool           `gorm:"type:integer"`
 	sync.Mutex      `gorm:"-" json:"-" yaml:"-"`
 	Profiles        []Profile      `json:",omitempty" yaml:",omitempty"`
+	
+	//Extra Metadata for rule curation purposes
+	Metadata_sno         string `gorm:"type:text"`
+	Metadata_category    string `gorm:"type:text"`
+	Metadata_title       string `gorm:"type:text"`
+	Metadata_description string `gorm:"type:text"`
+	Metadata_group       string `gorm:"type:text"`
+	Metadata_criticality string `gorm:"type:text"`
 }
 
 func (r *Rule) Applies(fileExt string, fileName string) bool {
@@ -190,7 +199,7 @@ func (r *Rule) GetEscapedPattern() string {
 	return util.EscapeSpecials(r.DefaultPattern)
 }
 
-func (r *Rule) UpdateRule(newRule Rule) (deletedPatterns []Pattern, deletedRecipes []Recipe, deletedTags []Tag, deletedProfiles []Profile) {
+func (r *Rule) UpdateRule(newRule Rule) (deletedPatterns []Pattern, deletedRecipes []Recipe, deletedTags []Tag, deletedExcludePatterns []ExcludePattern, deletedProfiles []Profile) {
 
 	if newRule.Advice != "" && newRule.Advice != r.Advice {
 		r.Advice = newRule.Advice
@@ -232,6 +241,7 @@ func (r *Rule) UpdateRule(newRule Rule) (deletedPatterns []Pattern, deletedRecip
 	deletedRecipes = r.updateRecipes(newRule)
 	deletedTags = r.updateTags(newRule)
 	deletedProfiles = r.updateProfiles(newRule)
+	deletedExcludePatterns = r.updateExcludePatterns(newRule)
 
 	return
 }
@@ -358,6 +368,56 @@ func (r *Rule) updateRecipes(newRule Rule) (deleted []Recipe) {
 
 		if *util.Verbose {
 			fmt.Printf(" Recipes[added:%d deleted:%d] ", newRecipes, len(deleted))
+		}
+	}
+
+	return deleted
+}
+
+func (r *Rule) updateExcludePatterns(newRule Rule) (deleted []ExcludePattern) {
+
+	var newExcludePatterns int
+
+	if len(newRule.Excludepatterns) > 0 {
+
+		for _, excludePattern := range newRule.Excludepatterns {
+
+			var patternMatched = false
+
+			for i, _ := range r.Excludepatterns {
+
+				if excludePattern.Value == r.Excludepatterns[i].Value {
+					patternMatched = true
+				}
+			}
+
+			if !patternMatched {
+				r.Excludepatterns = append(r.Excludepatterns, excludePattern)
+				newExcludePatterns++
+			}
+		}
+
+		for i := len(r.Excludepatterns) - 1; i >= 0; i-- {
+
+			var found = false
+
+			excludePattern := r.Excludepatterns[i]
+
+			for _, matchedExcludePattern := range newRule.Excludepatterns {
+				if excludePattern.Value == matchedExcludePattern.Value {
+					found = true
+					break
+				}
+			}
+
+			if !found {
+				r.Excludepatterns = append(r.Excludepatterns[:i], r.Excludepatterns[i+1:]...)
+				deleted = append(deleted, excludePattern)
+			}
+		}
+
+		if *util.Verbose {
+			fmt.Printf(" Excludepatterns[added:%d deleted:%d] ", newExcludePatterns, len(deleted))
 		}
 	}
 
