@@ -170,7 +170,7 @@ func createSchema(database *gorm.DB) error {
 	db := database.AutoMigrate(model.Run{}, model.ReportRef{}, model.ReportHeader{}, model.ReportData{}, model.Rule{},
 		model.Recipe{}, &model.Pattern{}, model.Tag{}, model.Finding{}, model.FindingTag{}, model.FindingRecipe{},
 		model.RunSloc{}, model.RuleMetric{}, model.Application{}, model.ApplicationTag{}, model.Bin{}, model.BinTag{},
-		model.ScoringModel{},model.ExcludePattern{})
+		model.ScoringModel{},model.ExcludePattern{}, model.ScoringModel{},model.Profile{})
 
 	return db.Error
 }

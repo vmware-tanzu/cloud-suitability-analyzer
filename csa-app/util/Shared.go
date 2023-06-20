@@ -13,6 +13,7 @@ import (
 )
 
 var (
+
 	App                = kingpin.New(APP_NAME, "CSA is used to analyze & collect data related to the cloud readiness of an application based on it's source-code.")
 	Verbose            = App.Flag("verbose", "enable verbose mode.").Short('v').Bool()
 	Profile            = App.Flag("profile", "enables profiling (cpu|mem)").Enum("cpu", "mem")
@@ -79,7 +80,7 @@ var (
 	ScoringModel          = AnalyzeCmd.Flag(SCORING_MODEL_FLAG, "the name of the scoring model to use for scoring applications").Short('s').Default("default").String()
 	MaxProcs              = AnalyzeCmd.Flag("max-procs", "Set the max concurrency from a processor perspective. Defaults to system processor count.").Int()
 	MaxThreads            = AnalyzeCmd.Flag("max-threads", "Set the max OS threads that csa can utilize. Default is '20000'").Default(strconv.Itoa(20000)).Int()
-
+	Profiles              = AnalyzeCmd.Flag("profiles", "The list of rule profiles that will be selected for the scan. Multiple profiles can separated by commas.").String()
 	//Search Command
 	SearchCmd = App.Command("search", "search full text index for findings based on query")
 
@@ -193,6 +194,7 @@ const DEFAULT_MAX_POSTGRES_WORKERS = 10
 
 //CMDS
 const ANALYZE_CMD string = "analyze"
+const PROFILE_FLAG string = "profiles"
 const RULE_INCLUDE_FLAG string = "rule-include-tags"
 const RULE_EXCLUDE_FLAG string = "rule-exclude-tags"
 const EXCLUDED_DIRS_FLAG string = "excluded-dirs"

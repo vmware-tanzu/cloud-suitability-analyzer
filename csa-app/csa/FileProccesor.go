@@ -399,18 +399,6 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
  
  }
  
- func (csaService *CsaService) getRules(run *model.Run, config *model.ApplicationConfig) (rules []model.Rule, err error) {
-	 //Include overrules anything
-	 if config.RuleIncludeTags != "" {
-		 fmt.Printf("Using only rules with tags [%s]\n", config.RuleIncludeTags)
-		 return csaService.ruleRepository.GetRulesForRunRestricted(run, strings.Split(config.RuleIncludeTags, ","), false)
-	 } else if config.RuleExcludeTags != "" {
-		 fmt.Printf("Using only rules without tags [%s]\n", config.RuleExcludeTags)
-		 return csaService.ruleRepository.GetRulesForRunRestricted(run, strings.Split(config.RuleExcludeTags, ","), true)
-	 }
-	 return csaService.ruleRepository.GetRulesForRun(run)
- }
- 
  func (csaService *CsaService) gatherSLOCForApp(run *model.Run, app *model.Application) {
 	 util.WriteLogWithToken("SLOC Analysis", " ", "Running CLOC Embedded for Run [%d]", run.ID)
  
@@ -633,6 +621,25 @@ func (csaService *CsaService) scoreApps(run *model.Run) {
 	} else {
 		run.StopActivityLF("scoring", "Scoring...done!", false, true)
 	}
+}
+
+func (csaService *CsaService) getRules(run *model.Run, config *model.ApplicationConfig) (rules []model.Rule, err error) {
+	//Include overrules anything
+	//If Profiles for rules are selected, it takes precedence over Include and Exclude Tags
+	if config.Profiles != "" {
+		fmt.Printf("Using only rules with profiles [%s]\n", config.Profiles)
+		return csaService.ruleRepository.GetRulesForRunRestrictedByProfiles(run, strings.Split(config.Profiles, ","))
+	} else {
+		if config.RuleIncludeTags != "" {
+			fmt.Printf("Using only rules with tags [%s]\n", config.RuleIncludeTags)
+			return csaService.ruleRepository.GetRulesForRunRestricted(run, strings.Split(config.RuleIncludeTags, ","), false)
+		} else if config.RuleExcludeTags != "" {
+			fmt.Printf("Using only rules without tags [%s]\n", config.RuleExcludeTags)
+			return csaService.ruleRepository.GetRulesForRunRestricted(run, strings.Split(config.RuleExcludeTags, ","), true)
+		}
+	}
+	
+	return csaService.ruleRepository.GetRulesForRun(run)
 }
 
 func (csaService *CsaService) generateReports(run *model.Run) {

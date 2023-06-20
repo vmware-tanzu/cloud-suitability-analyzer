@@ -158,6 +158,16 @@ func DeleteTags(tags []model.Tag) {
 	}
 }
 
+func DeleteProfiles(profiles []model.Profile) {
+
+	for _, profile := range profiles {
+		CheckDBError(false,
+			"Import Rules",
+			fmt.Sprintf("Failed Deleting Profile [%s]", profile.Value),
+			database.Delete(&profile).Error)
+	}
+}
+
 func DeleteExcludePatterns(excludePatterns []model.ExcludePattern) {
 
 	for _, excludePattern := range excludePatterns {
