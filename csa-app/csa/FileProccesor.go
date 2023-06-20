@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: BSD-2
  ******************************************************************************/
 
-package csa
+ package csa
 
 import (
 	"bufio"
@@ -371,7 +371,7 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 				}
 
 			}
-
+ 
 		}
 
 		pcnt++
@@ -383,6 +383,206 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 
 	return findings
 }
+ 
+ func (csaService *CsaService) generateSloc(run *model.Run) {
+	 run.StartActivity("sloc")
+	 for _, config := range run.Applications {
+		 csaService.gatherSLOCForApp(run, config)
+	 }
+	 if !*util.Xtract {
+		 run.StopActivityLF("sloc", "SLOC Analysis...done!", false, true)
+	 }
+	 if *util.Xtract {
+		 run.StopActivityLF("sloc", "", false, false)
+		 //screen.Clear()
+	 }
+ 
+ }
+ 
+ func (csaService *CsaService) getRules(run *model.Run, config *model.ApplicationConfig) (rules []model.Rule, err error) {
+	 //Include overrules anything
+	 if config.RuleIncludeTags != "" {
+		 fmt.Printf("Using only rules with tags [%s]\n", config.RuleIncludeTags)
+		 return csaService.ruleRepository.GetRulesForRunRestricted(run, strings.Split(config.RuleIncludeTags, ","), false)
+	 } else if config.RuleExcludeTags != "" {
+		 fmt.Printf("Using only rules without tags [%s]\n", config.RuleExcludeTags)
+		 return csaService.ruleRepository.GetRulesForRunRestricted(run, strings.Split(config.RuleExcludeTags, ","), true)
+	 }
+	 return csaService.ruleRepository.GetRulesForRun(run)
+ }
+ 
+ func (csaService *CsaService) gatherSLOCForApp(run *model.Run, app *model.Application) {
+	 util.WriteLogWithToken("SLOC Analysis", " ", "Running CLOC Embedded for Run [%d]", run.ID)
+ 
+	 clocData := gocloc.ClocEmbeddedByApp(app)
+	 if len(clocData.UnknownExts) > 0 {
+		 run.UnknownExts = append(run.UnknownExts, clocData.UnknownExts...)
+	 }
+	 appTotal := make(map[string]*util.Language)
+	 if clocData.ErrorMsg == "" {
+		 //Write Results to DB!
+		 for _, domain := range clocData.Domains {
+			 for _, langTotal := range domain {
+				 if _, ok := appTotal[langTotal.Name]; !ok {
+					 appTotal[langTotal.Name] = langTotal
+				 } else {
+					 appTotal[langTotal.Name].Files = append(appTotal[langTotal.Name].Files, langTotal.Files...)
+					 appTotal[langTotal.Name].Blanks += langTotal.Blanks
+					 appTotal[langTotal.Name].Code += langTotal.Code
+					 appTotal[langTotal.Name].Comments += langTotal.Comments
+				 }
+			 }
+		 }
+ 
+		 for _, langTotal := range appTotal {
+			 _ = csaService.slocRepository.CreateSlocData(&model.RunSloc{RunID: run.ID, Application: app.Name, Lang: langTotal.Name,
+				 TotalFiles: len(langTotal.Files), BlankLines: int(langTotal.Blanks),
+				 CommentLines: int(langTotal.Comments), CodeLines: int(langTotal.Code)})
+		 }
+ 
+	 } else {
+		 fmt.Println(clocData.ErrorMsg)
+	 }
+ 
+ }
+ 
+ func (csaService *CsaService) genAppCSAResults(run *model.Run) {
+ 
+	 headers := []string{"name", "files analyzed", "files ignored", "sloc cnt", "# findings", "scoring-model", "score", "recommendation"}
+	 var data [][]string
+ 
+	 //--- TODO: Move to function
+ 
+	 if util.ExportFormats != nil {
+		 qryFindings := `
+			 SELECT 
+				 run_id,
+				 application,
+				 filename,
+				 fqn,
+				 line,
+				 rule,
+				 advice,
+				 effort,
+				 category,
+				 criticality,
+				 ext,
+				 pattern,
+				 value,
+				 readiness
+			 FROM findings where rule is not null and rule != ''
+		 `
+ 
+		 var sqlDBFile = *util.DbDir + string(os.PathSeparator) + *util.DBName
+ 
+		 fileFindings := []model.Finding{}
+ 
+		 if err := os.MkdirAll(*util.ExportDir, os.ModePerm); err != nil {
+			 fmt.Print(err)
+			 os.Exit(1)
+		 }
+ 
+		 db, err := sql.Open("sqlite3", sqlDBFile)
+		 if err != nil {
+			 fmt.Print(err)
+			 os.Exit(1)
+		 }
+		 defer db.Close()
+		 rows, err := db.Query(qryFindings)
+		 if err != nil {
+			 fmt.Print(err)
+			 os.Exit(1)
+		 }
+		 defer rows.Close()
+ 
+		 var application string
+		 var filename string
+		 var fqn string
+		 var line int
+		 var runId uint
+		 var rule string
+		 var advice string
+		 var effort int
+		 var category string
+		 var criticality string
+		 var ext string
+		 var pattern string
+		 var value string
+		 var readiness int
+ 
+		 for rows.Next() {
+			 err = rows.Scan(&runId, &application, &filename, &fqn, &line, &rule, &advice, &effort, &category, &criticality, &ext, &pattern, &value, &readiness)
+			 if err != nil {
+				 fmt.Print(err)
+				 os.Exit(1)
+			 }
+ 
+			 fileFinding := model.Finding{
+				 RunID:       runId,
+				 Filename:    filename,
+				 Fqn:         fqn,
+				 Ext:         ext,
+				 Category:    category,
+				 Pattern:     pattern,
+				 Value:       value,
+				 Effort:      effort,
+				 Rule:        rule,
+				 Advice:      advice,
+				 Readiness:   readiness,
+				 Criticality: criticality,
+				 Application: application,
+				 Line:        line,
+			 }
+ 
+			 fileFindings = append(fileFindings, fileFinding)
+		 }
+
+		 exportFileName := ""
+		 exportFileName = *util.ExportFileName
+
+		 formats := strings.Split(*util.ExportFormats, ",")
+ 
+		 if formatsContains(formats, "csv") {
+			 fmt.Println("Export as CSV requested...",exportFileName)
+			 csaService.reportService.GenerateCsvExport(fileFindings, GetLevelForScore)
+		 }
+		 if formatsContains(formats, "html") {
+			 fmt.Println("Export as HTML requested...",exportFileName)
+			 csaService.reportService.GenerateHtmlExport(fileFindings, run, GetLevelForScore)
+		 }
+	 }
+ 
+	 for _, app := range run.Applications {
+		 line := []string{app.Name, fmt.Sprint(len(app.Files)), fmt.Sprint(len(app.IgnoredFiles)),
+			 fmt.Sprint(app.SlocCnt), fmt.Sprint(app.CIFindings), app.ScoringModel, fmt.Sprintf("%2.2f", app.Score), app.Recommendation}
+		 data = append(data, line)
+ 
+		 if *util.DisplayIgnoredFiles {
+			 fmt.Printf("\n\n---- App [%s] Ignored Files ----\n", app.Name)
+			 for _, file := range app.IgnoredFiles {
+				 fmt.Printf("\t%s\t\t%s\n", file.Name, file.FQN)
+			 }
+		 }
+	 }
+ 
+	 if *util.DisplayIgnoredFiles {
+		 fmt.Printf("\n\n--- END IGNORED FILES ---\n\n")
+	 }
+ 
+	 csaService.reportService.DisplayReport(headers, data, "CSA Results", false)
+ 
+ }
+
+  // function to check given format is in selected array of formats
+  func formatsContains(sl []string, format string) bool {
+	// iterate over the array and compare given format to each element ignoring the case
+	for _, value := range sl {
+		if strings.EqualFold(value, format) {
+			return true
+		}
+	}
+	return false
+}
 
 func (csaService *CsaService) shouldFindingBeExcluded(target string, rule model.Rule) (exclude bool){
 	exclude = false
@@ -393,8 +593,8 @@ func (csaService *CsaService) shouldFindingBeExcluded(target string, rule model.
 			if findingExclude == true {
 				if *util.Verbose {
 					fmt.Println("Finding by rule "+rule.Name+" excluded by ExcludePattern => " + target)
-					exclude = true
 				}
+				exclude = true
 			}
 		}
 	}
@@ -433,68 +633,6 @@ func (csaService *CsaService) scoreApps(run *model.Run) {
 	} else {
 		run.StopActivityLF("scoring", "Scoring...done!", false, true)
 	}
-}
-
-func (csaService *CsaService) generateSloc(run *model.Run) {
-	run.StartActivity("sloc")
-	for _, config := range run.Applications {
-		csaService.gatherSLOCForApp(run, config)
-	}
-	if (!*util.Xtract) {
-		run.StopActivityLF("sloc", "SLOC Analysis...done!", false, true)
-	}
-	if (*util.Xtract) {
-		run.StopActivityLF("sloc", "", false, false)
-		//screen.Clear()
-	}
-
-}
-
-func (csaService *CsaService) getRules(run *model.Run, config *model.ApplicationConfig) (rules []model.Rule, err error) {
-	//Include overrules anything
-	if config.RuleIncludeTags != "" {
-		fmt.Printf("Using only rules with tags [%s]\n", config.RuleIncludeTags)
-		return csaService.ruleRepository.GetRulesForRunRestricted(run, strings.Split(config.RuleIncludeTags, ","), false)
-	} else if config.RuleExcludeTags != "" {
-		fmt.Printf("Using only rules without tags [%s]\n", config.RuleExcludeTags)
-		return csaService.ruleRepository.GetRulesForRunRestricted(run, strings.Split(config.RuleExcludeTags, ","), true)
-	}
-	return csaService.ruleRepository.GetRulesForRun(run)
-}
-
-func (csaService *CsaService) gatherSLOCForApp(run *model.Run, app *model.Application) {
-	util.WriteLogWithToken("SLOC Analysis", " ", "Running CLOC Embedded for Run [%d]", run.ID)
-
-	clocData := gocloc.ClocEmbeddedByApp(app)
-	if len(clocData.UnknownExts) > 0 {
-		run.UnknownExts = append(run.UnknownExts, clocData.UnknownExts...)
-	}
-	appTotal := make(map[string]*util.Language)
-	if clocData.ErrorMsg == "" {
-		//Write Results to DB!
-		for _, domain := range clocData.Domains {
-			for _, langTotal := range domain {
-				if _, ok := appTotal[langTotal.Name]; !ok {
-					appTotal[langTotal.Name] = langTotal
-				} else {
-					appTotal[langTotal.Name].Files = append(appTotal[langTotal.Name].Files, langTotal.Files...)
-					appTotal[langTotal.Name].Blanks += langTotal.Blanks
-					appTotal[langTotal.Name].Code += langTotal.Code
-					appTotal[langTotal.Name].Comments += langTotal.Comments
-				}
-			}
-		}
-
-		for _, langTotal := range appTotal {
-			_ = csaService.slocRepository.CreateSlocData(&model.RunSloc{RunID: run.ID, Application: app.Name, Lang: langTotal.Name,
-				TotalFiles: len(langTotal.Files), BlankLines: int(langTotal.Blanks),
-				CommentLines: int(langTotal.Comments), CodeLines: int(langTotal.Code)})
-		}
-
-	} else {
-		fmt.Println(clocData.ErrorMsg)
-	}
-
 }
 
 func (csaService *CsaService) generateReports(run *model.Run) {
@@ -549,117 +687,6 @@ func (csaService *CsaService) genRuleMetrics(run *model.Run) {
 	}
 }
 
-func (csaService *CsaService) genAppCSAResults(run *model.Run) {
-
-	headers := []string{"name", "files analyzed", "files ignored", "sloc cnt", "# findings", "scoring-model", "score", "recommendation"}
-	var data [][]string
-
-	//--- TODO: Move to function
-
-	if( util.CICDDir != nil ) {
-		qryFindings := `
-			SELECT 
-			application,
-			filename,
-			fqn,
-			line,
-			rule,
-			advice,
-			effort
-   		FROM findings;
-		`
-	
-		var sqlDBFile = *util.DbDir + string(os.PathSeparator) + *util.DBName
-		var CICDFile = *util.CICDDir + string(os.PathSeparator) + *util.CICDFileName
-
-		if err := os.MkdirAll(*util.CICDDir, os.ModePerm); err != nil {
-			fmt.Print(err)
-			os.Exit(1)
-		}
-
-		file, err := os.Create(CICDFile)
-     
-		if err != nil {
-			fmt.Printf("failed creating file: %s", err)
-		}
-		defer file.Close()
-
-
-
-
-		db, err := sql.Open("sqlite3", sqlDBFile )
-		if err != nil {
-			fmt.Print(err)
-			os.Exit(1)
-		}
-		defer db.Close()
-		rows, err := db.Query(qryFindings)
-		if err != nil {
-			fmt.Print(err)
-			os.Exit(1)
-		}
-		defer rows.Close()
-
-		var application string
-		var filename string
-		var fqn string
-		var line int
-		var rule string
-		var advice string
-		var effort int
-
-		_, err3 := file.WriteString("application,filename,fqn,line,rule,advice,effort\n")
-
-		if err3 != nil {
-			fmt.Print(err3)
-			os.Exit(1)
-		}
-		for rows.Next() {
-			err = rows.Scan(&application, &filename, &fqn, &line, &rule, &advice, &effort)
-			if err != nil {
-				fmt.Print(err)
-				os.Exit(1)
-			}
-			
-			line := fmt.Sprintf("\"%s\",\"%s\",\"%s\",%d,\"%s\",\"%s\",%d\n", application, filename, fqn, line, rule, advice, effort)
-			_, err2 := file.WriteString(line)
-
-
-
-			if err2 != nil {
-				fmt.Print(err2)
-				os.Exit(1)
-			}
-
-
-
-		}
-		fmt.Printf("\n\nWrote CICD file %s\n", CICDFile)
-	}
-
-	for _, app := range run.Applications {
-		line := []string{app.Name, fmt.Sprint(len(app.Files)), fmt.Sprint(len(app.IgnoredFiles)),
-			fmt.Sprint(app.SlocCnt), fmt.Sprint(app.CIFindings), app.ScoringModel, fmt.Sprintf("%2.2f", app.Score), app.Recommendation}
-		data = append(data, line)
-
-		if *util.DisplayIgnoredFiles {
-			fmt.Printf("\n\n---- App [%s] Ignored Files ----\n", app.Name)
-			for _, file := range app.IgnoredFiles {
-				fmt.Printf("\t%s\t\t%s\n", file.Name, file.FQN)
-			}
-		}
-	}
-
-	if *util.DisplayIgnoredFiles {
-		fmt.Printf("\n\n--- END IGNORED FILES ---\n\n")
-	}
-
-
-	
-	csaService.reportService.DisplayReport(headers, data, "CSA Results", false)
-	
-}
-
 func (csaService *CsaService) gatherFiles(run *model.Run) {
 
 	runConfig := model.NewRunConfig(run, csaService.fileUtil)
@@ -686,52 +713,6 @@ func (csaService *CsaService) gatherFiles(run *model.Run) {
 		}
 		csaService.UpdateRunWithApplications(run, runConfig)
 		fmt.Println("")
-	}
-}
-
-func (csaService *CsaService) UpdateRunWithApplications(run *model.Run, rc *model.RunConfig) {
-	var err error
-	var filesCnt = 0
-
-	longestName := 0
-	for _, app := range rc.Applications {
-		if len(app.Name) > longestName {
-			longestName = len(app.Name)
-		}
-	}
-
-	stdOutFmt := "\t%" + strconv.Itoa(longestName) + "s has [%d] files\n"
-	stdOutFmtWError := "\t%" + strconv.Itoa(longestName) + "s has [%d] files. Error => %s\n"
-
-	for i := range rc.Applications {
-		newApp := model.NewApplication(rc.Applications[i])
-		cnt := len(newApp.Files)
-		newApp.FilesCnt = cnt
-		filesCnt += cnt
-		newApp.Rules, err = csaService.getRules(run, rc.Applications[i])
-		if err != nil {
-			util.TrackError("gathering", fmt.Errorf("error getting rules for app [%s]. details: %s\n", newApp.Name, err.Error()))
-		} else {
-			newApp.Model, err = csaService.getScoringModel(newApp.ScoringModel)
-			if err != nil {
-				util.TrackError("gathering", fmt.Errorf("error getting getting scoring model for app [%s]. details: %s\n", newApp.Name, err.Error()))
-			}
-		}
-
-		run.AssociateApplication(newApp)
-		//Write app msg for cli
-		if err == nil {
-			if (!*util.Xtract) {
-				fmt.Printf(stdOutFmt, newApp.Name, cnt)
-			}
-		} else {
-			fmt.Printf(stdOutFmtWError, newApp.Name, cnt, err.Error())
-		}
-	}
-
-	run.Files = filesCnt
-	if (!*util.Xtract) {
-		fmt.Printf("\n**** Found [%d] total Files to Analyze ****\n", filesCnt)
 	}
 }
 
@@ -799,9 +780,56 @@ func (csaService *CsaService) getScoringModel(modelName string) (*model.ScoringM
 	return m, nil
 }
 
-func closeFile(file *os.File) {
-	err := file.Close()
-	if err != nil {
-		_, _ = fmt.Fprintf(os.Stderr, "failure closing file [%s] => %s", file.Name(), err.Error())
-	}
-}
+ func (csaService *CsaService) UpdateRunWithApplications(run *model.Run, rc *model.RunConfig) {
+	 var err error
+	 var filesCnt = 0
+ 
+	 longestName := 0
+	 for _, app := range rc.Applications {
+		 if len(app.Name) > longestName {
+			 longestName = len(app.Name)
+		 }
+	 }
+ 
+	 stdOutFmt := "\t%" + strconv.Itoa(longestName) + "s has [%d] files\n"
+	 stdOutFmtWError := "\t%" + strconv.Itoa(longestName) + "s has [%d] files. Error => %s\n"
+ 
+	 for i := range rc.Applications {
+		 newApp := model.NewApplication(rc.Applications[i])
+		 cnt := len(newApp.Files)
+		 newApp.FilesCnt = cnt
+		 filesCnt += cnt
+		 newApp.Rules, err = csaService.getRules(run, rc.Applications[i])
+		 if err != nil {
+			 util.TrackError("gathering", fmt.Errorf("error getting rules for app [%s]. details: %s\n", newApp.Name, err.Error()))
+		 } else {
+			 newApp.Model, err = csaService.getScoringModel(newApp.ScoringModel)
+			 if err != nil {
+				 util.TrackError("gathering", fmt.Errorf("error getting getting scoring model for app [%s]. details: %s\n", newApp.Name, err.Error()))
+			 }
+		 }
+ 
+		 run.AssociateApplication(newApp)
+		 //Write app msg for cli
+		 if err == nil {
+			 if !*util.Xtract {
+				 fmt.Printf(stdOutFmt, newApp.Name, cnt)
+			 }
+		 } else {
+			 fmt.Printf(stdOutFmtWError, newApp.Name, cnt, err.Error())
+		 }
+	 }
+ 
+	 run.Files = filesCnt
+	 if !*util.Xtract {
+		 fmt.Printf("\n**** Found [%d] total Files to Analyze ****\n", filesCnt)
+	 }
+ }
+ 
+ func closeFile(file *os.File) {
+	 err := file.Close()
+	 if err != nil {
+		 _, _ = fmt.Fprintf(os.Stderr, "failure closing file [%s] => %s", file.Name(), err.Error())
+	 }
+ }
+ 
