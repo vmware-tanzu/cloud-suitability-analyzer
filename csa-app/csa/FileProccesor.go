@@ -628,7 +628,7 @@ func (csaService *CsaService) getRules(run *model.Run, config *model.Application
 	//If Profiles for rules are selected, it takes precedence over Include and Exclude Tags
 	if config.Profiles != "" {
 		fmt.Printf("Using only rules with profiles [%s]\n", config.Profiles)
-		return csaService.ruleRepository.GetRulesForRunRestrictedByProfiles(run, strings.Split(config.Profiles, ","), false)
+		return csaService.ruleRepository.GetRulesForRunRestrictedByProfiles(run, strings.Split(config.Profiles, ","))
 	} else {
 		if config.RuleIncludeTags != "" {
 			fmt.Printf("Using only rules with tags [%s]\n", config.RuleIncludeTags)

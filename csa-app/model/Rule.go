@@ -164,11 +164,11 @@ func (r *Rule) HasTag(tag string) bool {
 	return false
 }
 
-func (r *Rule) HasProfile(tag string) bool {
-	if tag != "" && len(r.Profiles) > 0 {
+func (r *Rule) HasProfile(profile string) bool {
+	if profile != "" && len(r.Profiles) > 0 {
 		for i := range r.Profiles {
 			//Case insensitive matching!
-			if strings.ToLower(tag) == strings.ToLower(r.Profiles[i].Value) {
+			if strings.ToLower(profile) == strings.ToLower(r.Profiles[i].Value) {
 				return true
 			}
 		}
