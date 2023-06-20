@@ -13,23 +13,27 @@ import (
 )
 
 var (
-	App               = kingpin.New(APP_NAME, "CSA is used to analyze & collect data related to the cloud readiness of an application based on it's source-code.")
-	Verbose           = App.Flag("verbose", "enable verbose mode.").Short('v').Bool()
-	Profile           = App.Flag("profile", "enables profiling (cpu|mem)").Enum("cpu", "mem")
-	Xtract			  = App.Flag("xtract", "extract minimum output for pipeline usage.").Short('x').Bool()
-	Zap			      = App.Flag("zap", "zap (purge) the database before running").Short('z').Bool()
-	RulesDir          = App.Flag("rules-dir", "directory where csa rules are. Rules found in this directory will be automatically imported on tool startup. This will also be the default directory for `rules` import").Default(DEFAULT_RULES_DIR).String()
-	ModelsDir         = App.Flag("models-dir", "directory where csa scoring models are. Scoring Models found in this directory will be automatically imported on tool startup. This will also be the default directory for `scoring-models` import").Default(DEFAULT_MODELS_DIR).String()
-	OutputDir         = App.Flag("output-dir", "directory path where csa results will be output").Default(DEFAULT_OUTPUT_DIR).String()
-	CICDDir           = App.Flag("cicd-dir", "directory path where csa CICD outputs will be written").Default(DEFAULT_CICD_DIR).String()
-	CICDFileName      = App.Flag("cicd-file-name", "name of the CICD output file").Default(DEFAULT_CICD_FILENAME).String()
-	ExcludedDirsRegEx = App.Flag(EXCLUDED_DIRS_FLAG, "regex pattern of directories not to be included in analysis").Default("^([.].*|target|bin|test|node_modules|eclipse|out|vendors|obj)$").String()
-	DB                = App.Flag("db", "which database engine to use (sqlite|postgres)").Default(SQLITE).Enum(SQLITE, POSTGRES)
-	DBName            = App.Flag("db-name", "name of database").Default(DEFAULT_DB_NAME).String()
-	DbDir             = App.Flag("database-dir", "directory path where database can be found or created. (defaults to csa executable directory)").String()
-	DBDriverFlags     = App.Flag("db-driver-flags", "flags to configure the database driver (Default: sqlite: "+Sqlite_driverFlags+" postgres: "+Postgres_driverFlags).String()
-	ReportsFlag       = App.Flag("report", "comma delimited list of report(s) to run. (for example \"-r1,3,4\". 0=All)").Default("0").Short('r').String()
-	TmpDirPath        = App.Flag("temp-dir", "The root path where files created by csa will be placed. Defaults to OS specific temp path/run-id").Short('t').String()
+	App                = kingpin.New(APP_NAME, "CSA is used to analyze & collect data related to the cloud readiness of an application based on it's source-code.")
+	Verbose            = App.Flag("verbose", "enable verbose mode.").Short('v').Bool()
+	Profile            = App.Flag("profile", "enables profiling (cpu|mem)").Enum("cpu", "mem")
+	Xtract             = App.Flag("xtract", "extract minimum output for pipeline usage.").Short('x').Bool()
+	Zap                = App.Flag("zap", "zap (purge) the database before running").Short('z').Bool()
+	RulesDir           = App.Flag("rules-dir", "directory where csa rules are. Rules found in this directory will be automatically imported on tool startup. This will also be the default directory for `rules` import").Default(DEFAULT_RULES_DIR).String()
+	ModelsDir          = App.Flag("models-dir", "directory where csa scoring models are. Scoring Models found in this directory will be automatically imported on tool startup. This will also be the default directory for `scoring-models` import").Default(DEFAULT_MODELS_DIR).String()
+	OutputDir          = App.Flag("output-dir", "directory path where csa results will be output").Default(DEFAULT_OUTPUT_DIR).String()
+	
+	//Export Results Configurations
+	ExportFormats      = App.Flag("export", "list of expected formats divided by commas that will be used to export findings, ex: csv or csv,html").String()
+	ExportDir          = App.Flag("export-dir", "directory path where csa finding exports will be written").Default(DEFAULT_EXPORT_DIR).String()
+	ExportFileName     = App.Flag("export-file-name", "base name of the \"export\" file, ex: \"csa-export\". Proper extensions will be appended based on \"--export\" command formats requested.").Default(DEFAULT_EXPORT_FILE_NAME).String()
+
+	ExcludedDirsRegEx  = App.Flag(EXCLUDED_DIRS_FLAG, "regex pattern of directories not to be included in analysis").Default("^([.].*|target|bin|test|node_modules|eclipse|out|vendors|obj)$").String()
+	DB                 = App.Flag("db", "which database engine to use (sqlite|postgres)").Default(SQLITE).Enum(SQLITE, POSTGRES)
+	DBName             = App.Flag("db-name", "name of database").Default(DEFAULT_DB_NAME).String()
+	DbDir              = App.Flag("database-dir", "directory path where database can be found or created. (defaults to csa executable directory)").String()
+	DBDriverFlags      = App.Flag("db-driver-flags", "flags to configure the database driver (Default: sqlite: "+Sqlite_driverFlags+" postgres: "+Postgres_driverFlags).String()
+	ReportsFlag        = App.Flag("report", "comma delimited list of report(s) to run. (for example \"-r1,3,4\". 0=All)").Default("0").Short('r').String()
+	TmpDirPath         = App.Flag("temp-dir", "The root path where files created by csa will be placed. Defaults to OS specific temp path/run-id").Short('t').String()
 
 	//Get Build Info
 	BuildInfoCmd = App.Command("info", "Get full build details of this csa executable")
@@ -175,8 +179,9 @@ const SQLITE string = "sqlite"
 const POSTGRES string = "postgres"
 const DEFAULT_RULES_DIR = "./rules"
 const DEFAULT_OUTPUT_DIR = "csa-reports"
-const DEFAULT_CICD_DIR = "CICD-outputs"
-const DEFAULT_CICD_FILENAME = "findings.csv"
+const DEFAULT_REPORT_DIR = "Reports"
+const DEFAULT_EXPORT_DIR = "Exports"
+const DEFAULT_EXPORT_FILE_NAME = "export"
 const DEFAULT_MODELS_DIR = "./scoring-models"
 const RULE_BOOTSTRAP_TEMPLATE = "BootstrapRulesTemplate.txt"
 const BIN_BOOTSTRAP_TEMPLATE = "BootstrapBinsTemplate.txt"
