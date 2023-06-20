@@ -54,7 +54,7 @@ func NewRuleRepositoryForRun(run *model.Run) RuleRepository {
 
 func (ruleRepository *OrmRepository) GetRules() ([]model.Rule, error) {
 	var rules []model.Rule
-	resp := ruleRepository.dbconn.Preload("Patterns").Preload("Recipes").Preload("Tags").Find(&rules)
+	resp := ruleRepository.dbconn.Preload("Patterns").Preload("Recipes").Preload("Tags").Preload("Excludepatterns").Find(&rules)
 	return rules, resp.Error
 }
 
@@ -86,7 +86,7 @@ func (ruleRepository *OrmRepository) SaveRule(rule model.Rule) (model.Rule, erro
 
 func (ruleRepository *OrmRepository) GetRuleByName(name string) (model.Rule, error) {
 	var rule model.Rule
-	res := ruleRepository.dbconn.Where(&model.Rule{Name: name}).Preload("Patterns").Preload("Recipes").Preload("Tags").Find(&rule)
+	res := ruleRepository.dbconn.Where(&model.Rule{Name: name}).Preload("Patterns").Preload("Recipes").Preload("Tags").Preload("Excludepatterns").Find(&rule)
 	return rule, res.Error
 }
 
@@ -303,7 +303,7 @@ func (ruleRepository *OrmRepository) LoadRules() {
 		if len(rules) < 1 {
 			fmt.Printf("Loading rules from Bootstap...\n")
 			cnt := 0
-			for _, rule := range model.BootstrapRules() {
+			for _, rule := range model.BootstrapRules() {			
 				_, err := ruleRepository.SaveRule(rule)
 				if err != nil {
 					util.App.Fatalf("Error saving rule [%s]! Details: %s", rule.Name, err.Error())
@@ -365,10 +365,11 @@ func (ruleRepository *OrmRepository) unMarshalAndSaveRule(decoder util.FileDecod
 				if *util.Verbose {
 					fmt.Printf("Rule [%s] exists! Updating!", rule.Name)
 				}
-				deletedPatterns, deletedRecipes, deletedTags := existingRule.UpdateRule(rule)
+				deletedPatterns, deletedRecipes, deletedTags, deletedExcludePatterns := existingRule.UpdateRule(rule)
 				DeletePatterns(deletedPatterns)
 				DeleteRecipes(deletedRecipes)
 				DeleteTags(deletedTags)
+				DeleteExcludePatterns(deletedExcludePatterns)
 				ruleRepository.SaveRule(existingRule)
 			} else {
 				if *util.Verbose {
