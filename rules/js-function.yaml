@@ -13,3 +13,5 @@ patterns:
 - value: function
 
 #- function
+profiles:
+- value: cloud-suitability

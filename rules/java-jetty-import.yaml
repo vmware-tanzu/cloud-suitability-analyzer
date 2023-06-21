@@ -12,3 +12,5 @@ tags:
 - value: jetty
 patterns:
 - value: org.eclipse.jetty
+profiles:
+- value: cloud-suitability

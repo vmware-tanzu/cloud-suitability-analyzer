@@ -38,3 +38,5 @@ patterns:
 - value: FileSystemWatcher
 #- FileSystemWatcher(
   advice: Use of FileSystemWatcher - Relying on the local filesystem to store state is unreliable in a cloud platform.
+profiles:
+- value: cloud-suitability

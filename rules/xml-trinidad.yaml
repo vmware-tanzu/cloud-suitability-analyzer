@@ -15,3 +15,5 @@ tags:
 patterns:
 - value: myfaces.apache.org/trinidad/config
 ##myfaces.apache.org/trinidad/config
+profiles:
+- value: cloud-suitability

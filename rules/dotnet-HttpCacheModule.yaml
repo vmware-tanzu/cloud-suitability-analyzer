@@ -12,3 +12,5 @@ patterns:
 tags:
 - value: cache-control-mode
 #- <configuration><system.webServer><staticContent><clientCache cacheControlMode="DisableCache" />
+profiles:
+- value: cloud-suitability

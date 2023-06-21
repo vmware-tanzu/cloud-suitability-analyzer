@@ -14,3 +14,5 @@ patterns:
   - value: http
 ## http://ibm.com:443/path/
 ## https://ibm.com:443
+profiles:
+- value: cloud-suitability

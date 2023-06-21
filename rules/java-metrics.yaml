@@ -20,3 +20,5 @@ patterns:
     tag: netuitive
   - value: edu.iris.dmc
     tag: iris-dmc
+profiles:
+- value: cloud-suitability

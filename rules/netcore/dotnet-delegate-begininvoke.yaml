@@ -13,3 +13,5 @@ category: unsupported-netcore
 tags:
 - value: netcore
 - value: mvc
+profiles:
+- value: netcore

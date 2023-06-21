@@ -11,3 +11,5 @@ tags:
 - value: eventlog
 patterns:
 - value: /configuration/system.diagnostics/trace/listeners/add[@type="System.Diagnostics.EventLogTraceListener"]
+profiles:
+- value: cloud-suitability

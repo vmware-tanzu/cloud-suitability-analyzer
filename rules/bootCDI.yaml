@@ -24,3 +24,5 @@ patterns:
     tag: jboss-ejb-api_3.1_spec
   - value: jboss-ejb-api_3.2_spec
     tag: jboss-ejb-api_3.2_spec
+profiles:
+- value: cloud-suitability

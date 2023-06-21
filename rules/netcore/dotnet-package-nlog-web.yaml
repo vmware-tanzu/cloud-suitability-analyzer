@@ -11,3 +11,5 @@ patterns:
 - value: NLog.Web
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

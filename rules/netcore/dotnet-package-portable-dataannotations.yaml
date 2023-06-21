@@ -11,3 +11,5 @@ patterns:
 - value: Portable.DataAnnotations
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

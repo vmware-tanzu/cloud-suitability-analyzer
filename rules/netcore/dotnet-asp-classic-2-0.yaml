@@ -15,3 +15,5 @@ tags:
 - value: asp-classic
 - value: unsupported-netcore
 #- <a id="link1" runat="server">Visit W3Schools!</a>
+profiles:
+- value: netcore

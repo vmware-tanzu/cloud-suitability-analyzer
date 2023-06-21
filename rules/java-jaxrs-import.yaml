@@ -15,3 +15,5 @@ patterns:
     tag: jaxrs
   - value: com.sun.jersey
     tag: jersey
+profiles:
+- value: cloud-suitability

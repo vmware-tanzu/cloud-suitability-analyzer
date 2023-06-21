@@ -13,3 +13,5 @@ patterns:
 tags:
 - value: windows-auth
 #- GetSection(system.webServer/security/authentication/windowsAuthentication
+profiles:
+- value: cloud-suitability

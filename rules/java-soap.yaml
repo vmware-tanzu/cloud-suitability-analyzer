@@ -54,3 +54,5 @@ patterns:
 ##  SOAPFactory(
 ##  SOAPMessage(
 ##  SOAPPart(
+profiles:
+- value: cloud-suitability

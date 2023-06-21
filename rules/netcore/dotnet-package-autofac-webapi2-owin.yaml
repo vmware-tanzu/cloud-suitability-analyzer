@@ -11,3 +11,5 @@ patterns:
 - value: Autofac.WebApi2.Owin
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

@@ -14,3 +14,5 @@ tags:
 - value: unsupported-netcore
 patterns:
 - value: msxsl:script
+profiles:
+- value: netcore

@@ -14,3 +14,5 @@ tags:
 patterns:
 - value: 1.4/weblogic-web-app.xsd
 ##1.4/weblogic-web-app.xsd
+profiles:
+- value: cloud-suitability

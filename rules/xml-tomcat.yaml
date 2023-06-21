@@ -14,3 +14,5 @@ patterns:
   - value: server.xml
 ##F configure.xml
 ##F WEB-INF
+profiles:
+- value: cloud-suitability

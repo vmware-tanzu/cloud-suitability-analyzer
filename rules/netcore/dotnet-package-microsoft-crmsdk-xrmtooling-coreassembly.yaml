@@ -11,3 +11,5 @@ patterns:
 - value: Microsoft.CrmSdk.XrmTooling.CoreAssembly
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

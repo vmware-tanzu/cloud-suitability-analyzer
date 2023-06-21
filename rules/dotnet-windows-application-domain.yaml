@@ -14,3 +14,5 @@ tags:
 - value: security
 - value: unsupported-netcore
 #- AppDomain newDomain = AppDomain.CreateDomain("newDomain", evidence, setup);
+profiles:
+- value: cloud-suitability

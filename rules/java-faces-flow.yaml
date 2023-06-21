@@ -13,3 +13,5 @@ tags:
 patterns:
 - value: FlowCallNode
 - value: FlowHandlerFactoryWrapper
+profiles:
+- value: cloud-suitability

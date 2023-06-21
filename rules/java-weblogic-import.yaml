@@ -33,3 +33,5 @@ patterns:
 - value: weblogicx.
   tag: weblogic
 
+profiles:
+- value: cloud-suitability

@@ -15,3 +15,5 @@ tags:
 - value: iis-module
 - value: cache
 - value: token-cache-module
+profiles:
+- value: cloud-suitability

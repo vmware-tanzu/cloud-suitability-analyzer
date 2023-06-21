@@ -14,3 +14,5 @@ tags:
 - value: session
 - value: unsupported-netcore
 #- string GetCartId(HttpContextBase context)
+profiles:
+- value: netcore

@@ -47,3 +47,5 @@ patterns:
 ## corbaloc
 ## tcp:
 ## ssl:
+profiles:
+- value: cloud-suitability

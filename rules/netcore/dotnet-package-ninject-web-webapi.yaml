@@ -11,3 +11,5 @@ patterns:
 - value: Ninject.Web.WebApi
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

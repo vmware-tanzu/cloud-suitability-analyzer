@@ -14,3 +14,5 @@ patterns:
 - value: System.Security.Principal
   advice: Operations requiring a Windows domain are not supported
 #- using System.Security.Principal;
+profiles:
+- value: cloud-suitability

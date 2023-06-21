@@ -13,3 +13,5 @@ tags:
 patterns:
 - value: Stateful
 - value: StatefulTimeout
+profiles:
+- value: cloud-suitability

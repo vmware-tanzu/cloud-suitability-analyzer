@@ -20,3 +20,5 @@ patterns:
   tag: jboss-servlet-4.0
 - value: javax.enterprise.concurrent-api
   tag: javax-enterprise-concurrent
+profiles:
+- value: cloud-suitability

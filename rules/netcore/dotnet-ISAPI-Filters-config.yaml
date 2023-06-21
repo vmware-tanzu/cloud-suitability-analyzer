@@ -13,3 +13,5 @@ patterns:
 tags:
 - value: iis-module
 # Mostly a challenge if moving to .NetCore
+profiles:
+- value: netcore

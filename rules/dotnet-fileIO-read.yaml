@@ -15,3 +15,5 @@ patterns:
 ## File.Open
   advice: Calling File.Open
 #- File.Open("C:\\bin
+profiles:
+- value: cloud-suitability

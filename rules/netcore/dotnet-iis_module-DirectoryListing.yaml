@@ -12,3 +12,5 @@ tags:
 - value: iis-module
 #- <configuration><system.webServer><directoryBrowse
 # Mostly a challenge if moving to .NetCore
+profiles:
+- value: netcore

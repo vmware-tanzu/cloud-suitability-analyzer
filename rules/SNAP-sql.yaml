@@ -16,3 +16,5 @@ patterns:
   #--- SQL command
   - value: StoredProcedureQuery
   - value: CallableStatement
+profiles:
+- value: cloud-suitability

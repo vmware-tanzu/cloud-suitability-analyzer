@@ -15,3 +15,5 @@ patterns:
 - value: <auth-method>CLIENT-CERT
 
 ##<auth-method>CLIENT-CERT
+profiles:
+- value: cloud-suitability

@@ -11,3 +11,5 @@ tags:
 - value: redis
 patterns:
 - value: redis
+profiles:
+- value: cloud-suitability

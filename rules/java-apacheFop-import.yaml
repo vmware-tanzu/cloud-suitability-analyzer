@@ -24,3 +24,5 @@ patterns:
 ## setTargetResolution(
 ## setDocumentHandlerOverride(
 ## setFOEventHandlerOverride(
+profiles:
+- value: cloud-suitability

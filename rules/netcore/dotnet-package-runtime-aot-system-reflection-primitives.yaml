@@ -11,3 +11,5 @@ patterns:
 - value: runtime.aot.System.Reflection.Primitives
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

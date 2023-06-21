@@ -11,3 +11,5 @@ patterns:
 - value: ImageProcessor
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

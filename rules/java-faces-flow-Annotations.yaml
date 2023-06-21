@@ -12,3 +12,5 @@ tags:
 - value: jsf
 patterns:
 - value: FlowScoped
+profiles:
+- value: cloud-suitability

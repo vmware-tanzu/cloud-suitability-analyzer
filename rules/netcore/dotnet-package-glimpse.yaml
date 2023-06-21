@@ -11,3 +11,5 @@ patterns:
 - value: Glimpse
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

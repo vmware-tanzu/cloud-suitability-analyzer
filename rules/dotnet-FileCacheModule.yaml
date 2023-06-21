@@ -13,3 +13,5 @@ patterns:
 - value: /configuration/location/system.webServer/serverRuntime[@frequentHitThreshold or @frequentHitTimePeriod][1]
 #- <configuration><location><system.webServer><serverRuntime frequentHitThreshold="5"
 #- <configuration><location><system.webServer><serverRuntime frequentHitTimePeriod="00:00:20"
+profiles:
+- value: cloud-suitability

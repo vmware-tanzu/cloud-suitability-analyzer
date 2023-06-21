@@ -14,3 +14,5 @@ tags:
 patterns:
   - value: TransportGuarantee.CONFIDENTIAL
 ##TransportGuarantee.CONFIDENTIAL
+profiles:
+- value: cloud-suitability

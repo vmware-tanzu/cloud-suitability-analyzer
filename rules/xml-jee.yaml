@@ -25,3 +25,5 @@ patterns:
 ##F ejb-jar.xml
 ##F ra.xml
 ##F webservices.xml
+profiles:
+- value: cloud-suitability

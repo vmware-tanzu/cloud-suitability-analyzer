@@ -12,3 +12,5 @@ tags:
 patterns:
   - value: Stateless
     tag: ejb
+profiles:
+- value: cloud-suitability

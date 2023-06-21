@@ -14,3 +14,5 @@ tags:
 patterns:
 - value: struts-2.2.dtd
 ##struts-2.2.dtd
+profiles:
+- value: cloud-suitability

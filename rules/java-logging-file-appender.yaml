@@ -24,3 +24,5 @@ patterns:
     tag: log4j2
   - value: appender.file.type # properties 
     tag: log4j2
+profiles:
+- value: cloud-suitability

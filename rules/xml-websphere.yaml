@@ -58,3 +58,5 @@ patterns:
 ##F ibm-web-ext-pme.xmi
 ##F ibm-web-ext-pme.xml
 ##F j2c_plugin.xml
+profiles:
+- value: cloud-suitability

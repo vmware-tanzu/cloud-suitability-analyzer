@@ -15,3 +15,5 @@ patterns:
 
 #- import pika
 #- import aio_pika
+profiles:
+- value: cloud-suitability

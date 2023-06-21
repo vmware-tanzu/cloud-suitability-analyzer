@@ -11,3 +11,5 @@ patterns:
 - value: DotNetOpenAuth.Core
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

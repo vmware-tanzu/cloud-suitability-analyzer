@@ -13,3 +13,5 @@ tags:
 patterns:
   - value: amq:broker
 ## amq:broker
+profiles:
+- value: cloud-suitability

@@ -16,3 +16,5 @@ patterns:
   tag: javax-rmi
 - value: import org.omg.IOP
   tag: omg-IOP
+profiles:
+- value: cloud-suitability

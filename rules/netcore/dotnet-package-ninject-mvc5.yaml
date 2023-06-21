@@ -11,3 +11,5 @@ patterns:
 - value: Ninject.MVC5
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

@@ -16,3 +16,5 @@ tags:
 - value: iis-module
 - value: isapi-filter
 # Mostly a challenge if moving to .NetCore
+profiles:
+- value: netcore

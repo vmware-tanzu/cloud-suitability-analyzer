@@ -29,3 +29,5 @@ patterns:
     tag: shiftone-casche
   - value: com.ibm.websphere.objectgrid
     tag: websphere-objectgrid
+profiles:
+- value: cloud-suitability

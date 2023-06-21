@@ -12,3 +12,5 @@ category: security
 tags:
 - value: security
 #-  public class   NameIdPermission : CodeAccessPermission, IUnres
+profiles:
+- value: cloud-suitability

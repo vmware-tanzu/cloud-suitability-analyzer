@@ -23,3 +23,5 @@ patterns:
 
 
 #- stream_get_line
+profiles:
+- value: cloud-suitability

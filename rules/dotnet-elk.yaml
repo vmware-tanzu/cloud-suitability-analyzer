@@ -13,3 +13,5 @@ patterns:
 - value: using Serilog.Sinks.Elasticsearch
 - value: ElasticConfiguration
 #- using Serilog.Sinks.Elasticsearch;
+profiles:
+- value: cloud-suitability

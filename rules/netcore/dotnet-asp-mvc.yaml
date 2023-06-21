@@ -14,3 +14,5 @@ tags:
 - value: asp
 - value: unsupported-netcore
 #-public abstract class Controller : System.Web.Mvc.ControllerBase,
+profiles:
+- value: netcore

@@ -12,3 +12,5 @@ category: unsupported-netcore
 tags:
 - value: debt
 #teLine(Server.HtmlEncode(Request.UserHostAddress));
+profiles:
+- value: netcore

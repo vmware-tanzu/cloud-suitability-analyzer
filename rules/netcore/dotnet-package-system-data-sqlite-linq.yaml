@@ -11,3 +11,5 @@ patterns:
 - value: System.Data.SQLite.Linq
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

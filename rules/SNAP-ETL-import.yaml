@@ -29,3 +29,5 @@ patterns:
 ##import com.ibm.is
 ##import net.sf.jasper
 ##import org.pentaho
+profiles:
+- value: cloud-suitability

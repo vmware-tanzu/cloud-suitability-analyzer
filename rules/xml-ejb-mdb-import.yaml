@@ -16,3 +16,5 @@ tags:
 patterns:
 - value: MessageDriven
 ##MessageDriven
+profiles:
+- value: cloud-suitability

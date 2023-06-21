@@ -19,3 +19,5 @@ patterns:
     tag: websocket-client
   - value: javax.websocket-all
     tag: websocket-all
+profiles:
+- value: cloud-suitability

@@ -19,3 +19,5 @@ patterns:
 ##  NamedCache(
 ##  ReflectionExtractor(
 ##  ChainedExtractor(
+profiles:
+- value: cloud-suitability

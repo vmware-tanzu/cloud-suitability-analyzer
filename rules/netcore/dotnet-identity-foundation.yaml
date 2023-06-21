@@ -12,3 +12,5 @@ patterns:
 tags:
 - value: api
 - value: unsupported-netcore
+profiles:
+- value: netcore

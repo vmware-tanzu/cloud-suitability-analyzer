@@ -15,3 +15,5 @@ tags:
 patterns:
 - value: myfaces.apache.org/tomahawk
 ##myfaces.apache.org/tomahawk
+profiles:
+- value: cloud-suitability

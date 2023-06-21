@@ -14,3 +14,5 @@ tags:
 #- <configuration><system.webServer><tracing
 #- <configuration><system.webServer><httpTracing
 # Mostly a challenge if moving to .NetCore
+profiles:
+- value: netcore

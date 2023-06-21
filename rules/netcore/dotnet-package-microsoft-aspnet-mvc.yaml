@@ -11,3 +11,5 @@ patterns:
 - value: Microsoft.AspNet.Mvc
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

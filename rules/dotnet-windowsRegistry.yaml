@@ -21,3 +21,5 @@ patterns:
 #- RegistryKey
 #- Registry
 # - Registry.CurrentUser
+profiles:
+- value: cloud-suitability

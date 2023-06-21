@@ -86,3 +86,5 @@ patterns:
 ##  workStarted(
 ##  WorkContextErrorCodes(
 ##  getStartDuration(
+profiles:
+- value: cloud-suitability

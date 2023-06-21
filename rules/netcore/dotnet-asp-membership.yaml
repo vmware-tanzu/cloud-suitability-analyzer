@@ -13,3 +13,5 @@ tags:
 - value: asp
 - value: unsupported-netcore
 #- <configuration><system.web><membership
+profiles:
+- value: netcore

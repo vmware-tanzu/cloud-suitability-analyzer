@@ -23,3 +23,5 @@ patterns:
     tag: infinispan
   - value: net.spy.memcached #--- dist
     tag: net-spy-memcached
+profiles:
+- value: cloud-suitability

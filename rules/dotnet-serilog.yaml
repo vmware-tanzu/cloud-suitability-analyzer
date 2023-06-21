@@ -14,3 +14,5 @@ patterns:
   tag: serilog
 - value: .UseSerilog()
   tag: serilog
+profiles:
+- value: cloud-suitability

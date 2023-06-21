@@ -27,3 +27,5 @@ patterns:
 - value: os.unlink
 - value: chmod
 
+profiles:
+- value: cloud-suitability

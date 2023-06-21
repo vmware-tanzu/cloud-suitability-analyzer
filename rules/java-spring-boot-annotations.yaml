@@ -12,3 +12,5 @@ tags:
 - value: spring-boot
 patterns:
 - value: SpringBootApplication
+profiles:
+- value: cloud-suitability

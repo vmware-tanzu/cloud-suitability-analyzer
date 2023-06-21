@@ -12,3 +12,5 @@ patterns:
 tags:
 - value: serialization
 - value: unsupported-netcore
+profiles:
+- value: netcore

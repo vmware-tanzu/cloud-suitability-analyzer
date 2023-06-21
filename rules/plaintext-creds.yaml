@@ -22,3 +22,5 @@ patterns:
 - value: Loginname
 - value: password
 negative: false
+profiles:
+- value: cloud-suitability

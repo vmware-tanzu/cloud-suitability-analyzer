@@ -34,3 +34,5 @@ patterns:
 ## .revokeSSOCookies(
 ## .revokeSSOCookiesForPortlets(
 ## .getLTPACookieFromSSOToken(
+profiles:
+- value: cloud-suitability

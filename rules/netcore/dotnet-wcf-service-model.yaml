@@ -15,3 +15,5 @@ tags:
 patterns:
 - value: System.ServiceModel
 #- public class BasicHttpsBinding : System.ServiceModel.HttpBindingBase
+profiles:
+- value: netcore

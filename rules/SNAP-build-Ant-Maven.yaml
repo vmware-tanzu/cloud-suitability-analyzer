@@ -17,3 +17,5 @@ patterns:
   effort: 0
 
 ##F build.gradle
+profiles:
+- value: cloud-suitability

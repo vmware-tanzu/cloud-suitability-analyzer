@@ -11,3 +11,5 @@ patterns:
 - value: Microsoft.NETFramework.ReferenceAssemblies.net462
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

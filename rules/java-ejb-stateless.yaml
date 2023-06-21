@@ -151,3 +151,5 @@ patterns:
 ##  RMISocketFactory(
 ##  UID(
 ##  UnicastRemoteObject(
+profiles:
+- value: cloud-suitability

@@ -32,3 +32,5 @@ patterns:
 ##  MapKeyEnumerated(
 ##  EntityTransaction(
 ##  ElementCollection(
+profiles:
+- value: cloud-suitability

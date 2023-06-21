@@ -14,3 +14,5 @@ tags:
 - value: database
 patterns:
 - value: "ConnectionStrings"
+profiles:
+- value: cloud-suitability

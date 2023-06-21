@@ -11,3 +11,5 @@ patterns:
 - value: Microsoft.AspNet.FriendlyUrls.Core
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

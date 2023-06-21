@@ -17,3 +17,5 @@ tags:
 - value: messaging
 #- MessageQueue
 #- using System.Messaging
+profiles:
+- value: netcore

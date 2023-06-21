@@ -16,3 +16,5 @@ patterns:
 #- Process()
 #- Process ()
 #- Process.
+profiles:
+- value: cloud-suitability

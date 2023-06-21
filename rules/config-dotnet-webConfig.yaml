@@ -11,3 +11,5 @@ tags:
 patterns:
 - value: web.config
 - value: Web.config
+profiles:
+- value: cloud-suitability

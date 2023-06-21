@@ -35,3 +35,5 @@ patterns:
 ##  supportsExecuteWithInputAndOutputRecord(
 ##  supportsExecuteWithInputRecordOnly(
 ##  supportsLocalTransactionDemarcation(
+profiles:
+- value: cloud-suitability

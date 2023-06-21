@@ -20,3 +20,5 @@ patterns:
 #- ServiceBase
 #- ServiceController
 #- System.ServiceProcess
+profiles:
+- value: cloud-suitability

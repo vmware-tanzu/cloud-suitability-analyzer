@@ -13,3 +13,5 @@ tags:
 patterns:
   - value:  tls
   - value:  TLS
+profiles:
+- value: cloud-suitability

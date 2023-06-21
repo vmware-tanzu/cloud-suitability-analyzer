@@ -13,3 +13,5 @@ tags:
 patterns:
   - value: .*\.wsdl
 ## "*.wsdl"
+profiles:
+- value: cloud-suitability

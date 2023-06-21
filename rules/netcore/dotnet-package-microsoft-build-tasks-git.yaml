@@ -11,3 +11,5 @@ patterns:
 - value: Microsoft.Build.Tasks.Git
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

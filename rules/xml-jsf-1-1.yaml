@@ -14,3 +14,5 @@ tags:
 patterns:
 - value: web-facesconfig_1_1.dtd
 ##web-facesconfig_1_1.dtd
+profiles:
+- value: cloud-suitability

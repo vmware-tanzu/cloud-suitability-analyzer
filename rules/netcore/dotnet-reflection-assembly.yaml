@@ -12,3 +12,5 @@ tags:
 - value: unsupported-netcore
 patterns:
 - value: Assembly.Load\(
+profiles:
+- value: netcore

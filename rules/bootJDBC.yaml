@@ -13,3 +13,5 @@ tags:
 patterns:
 - value: org.springframework.jdbc
   tag: spring-jdbc 
+profiles:
+- value: cloud-suitability

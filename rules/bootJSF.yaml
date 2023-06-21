@@ -31,3 +31,5 @@ patterns:
     tag: jboss-jsf-2.1
   - value: jboss-jsf-api_2.0_spec
     tag: jboss-jsf-2.0
+profiles:
+- value: cloud-suitability

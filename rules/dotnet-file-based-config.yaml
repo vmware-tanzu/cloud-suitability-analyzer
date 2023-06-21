@@ -12,3 +12,5 @@ tags:
 patterns:
 - value: .AddJsonFile\("
 #- Configuration = new Configuration().AddJsonFile("config.json")
+profiles:
+- value: cloud-suitability

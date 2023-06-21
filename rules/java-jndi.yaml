@@ -68,3 +68,5 @@ patterns:
 ##  UnsolicitedNotificationEvent(
 ##  NamingEvent(
 ##  NamingExceptionEvent(
+profiles:
+- value: cloud-suitability

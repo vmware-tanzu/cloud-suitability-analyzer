@@ -23,3 +23,5 @@ patterns:
 #- spliti(
 #- set_socket_blocking
 #- session_register(
+profiles:
+- value: cloud-suitability

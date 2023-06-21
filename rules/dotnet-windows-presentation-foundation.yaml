@@ -14,3 +14,5 @@ tags:
 - value: windows-desktop
 - value: windows-wpf
 #- <Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"><Page.Resources><XmlDataProvider x:Key="xmlData" XPath="/people"></XmlDataProvider</Page.Resources></Page>
+profiles:
+- value: cloud-suitability

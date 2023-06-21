@@ -14,3 +14,5 @@ patterns:
   - value: load
 #- System.loadLibrary
 #- System.load
+profiles:
+- value: cloud-suitability

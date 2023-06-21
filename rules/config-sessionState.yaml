@@ -11,3 +11,5 @@ tags:
   - value: session
 patterns:
   - value: /configuration/system.web/sessionState[@mode="InProc" or @mode="StateServer"][1]
+profiles:
+- value: cloud-suitability

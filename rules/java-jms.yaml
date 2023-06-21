@@ -107,3 +107,5 @@ patterns:
 ##  XATopicConnection(
 ##  XATopicConnectionFactory(
 ##  XATopicSession(
+profiles:
+- value: cloud-suitability

@@ -22,7 +22,7 @@ Made that way, it could easily be embedded into a CI pipeline for users who need
 ### Run Unit Test Executable ###
 - unzip rule-test.zip
 - cd rule-test
-- WORK_DIR=$(pwd) ./rule-test -test.v
+- WORK_DIR=[base dir] ./rule-test -test.v
 
 Mac: ./rule-test
 Linux: ./rule-test-l

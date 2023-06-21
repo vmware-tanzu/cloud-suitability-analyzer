@@ -12,3 +12,5 @@ tags:
   - value: restlet
 patterns:
   - value: org.restlet
+profiles:
+- value: cloud-suitability

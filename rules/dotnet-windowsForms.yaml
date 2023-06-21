@@ -14,3 +14,5 @@ patterns:
 - value: System.Windows.Forms
   advice: Windows Forms module is not supported. Refactor to a web application.
 #- using System.Windows.Forms;
+profiles:
+- value: cloud-suitability

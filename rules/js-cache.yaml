@@ -18,3 +18,5 @@ patterns:
 
 #- $_SESSION["KEY"]
 #- $_COOKIE["KEY"]
+profiles:
+- value: cloud-suitability

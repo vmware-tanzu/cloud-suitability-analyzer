@@ -11,3 +11,5 @@ patterns:
 - value: SQLitePCLRaw.provider.e_sqlite3.net45
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

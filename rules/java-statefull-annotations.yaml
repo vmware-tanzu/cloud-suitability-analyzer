@@ -16,3 +16,5 @@ patterns:
 - value: PrePassivate
   tag: ejb
   tag: stateful
+profiles:
+- value: cloud-suitability

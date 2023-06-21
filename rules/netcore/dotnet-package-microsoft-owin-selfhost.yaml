@@ -11,3 +11,5 @@ patterns:
 - value: Microsoft.Owin.SelfHost
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

@@ -13,6 +13,8 @@ tags:
 - value: asp
 - value: mvc
 - value: unsupported-netcore
+profiles:
+- value: netcore
 
 #- [ChildActionOnly]
 #- public ActionResult Countries(List<String> countryData)

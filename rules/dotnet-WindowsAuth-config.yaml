@@ -19,3 +19,5 @@ patterns:
 #  effort: 100
 ## <windowsAuthentication
 #- <system.webServer><security><authentication><windowsAuthentication enabled="true" />
+profiles:
+- value: cloud-suitability

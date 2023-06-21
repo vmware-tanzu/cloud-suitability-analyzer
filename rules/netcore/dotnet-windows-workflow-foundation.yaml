@@ -15,3 +15,5 @@ tags:
 - value: windows-workflow-service
 - value: unsupported-netcore
 #-   WorkflowService service = new WorkflowService()
+profiles:
+- value: netcore

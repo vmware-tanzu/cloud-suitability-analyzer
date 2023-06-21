@@ -14,3 +14,5 @@ tags:
 - value: asp-classic
 - value: unsupported-netcore
 #- <configuration><system.web><machineKey validationKey="*
+profiles:
+- value: netcore

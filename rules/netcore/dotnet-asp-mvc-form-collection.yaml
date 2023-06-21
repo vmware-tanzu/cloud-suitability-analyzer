@@ -14,3 +14,5 @@ tags:
 - value: asp
 - value: unsupported-netcore
 #- ActionResult Create(FormCollection formCollection)  
+profiles:
+- value: netcore

@@ -11,3 +11,5 @@ patterns:
 - value: ImageResizer
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

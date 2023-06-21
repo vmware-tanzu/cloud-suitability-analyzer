@@ -12,3 +12,5 @@ tags:
   - value: etl
 patterns:
   - value: org.mule
+profiles:
+- value: cloud-suitability

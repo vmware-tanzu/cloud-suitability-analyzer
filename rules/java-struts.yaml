@@ -82,3 +82,5 @@ patterns:
 ##  TextField(
 ##  UIBean(
 ##  UpDownSelect(
+profiles:
+- value: cloud-suitability

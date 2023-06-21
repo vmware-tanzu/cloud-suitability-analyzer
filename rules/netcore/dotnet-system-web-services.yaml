@@ -14,3 +14,5 @@ tags:
 - value: unsupported-netcore
 patterns:
 - value: System.Web.Services
+profiles:
+- value: netcore

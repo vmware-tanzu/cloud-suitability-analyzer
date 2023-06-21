@@ -11,3 +11,5 @@ tags:
 patterns:
   - value: /libraries[@count>13]
 #review
+profiles:
+- value: cloud-suitability

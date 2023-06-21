@@ -15,3 +15,5 @@ patterns:
 - value: EventLog
 #- EventLogTraceListener
 #- EventLog
+profiles:
+- value: cloud-suitability

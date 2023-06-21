@@ -11,3 +11,5 @@ patterns:
 - value: Telerik.DataAccess.Core
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

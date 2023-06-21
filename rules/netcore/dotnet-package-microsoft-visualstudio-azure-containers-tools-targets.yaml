@@ -11,3 +11,5 @@ patterns:
 - value: Microsoft.VisualStudio.Azure.Containers.Tools.Targets
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

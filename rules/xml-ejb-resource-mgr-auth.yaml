@@ -14,3 +14,5 @@ tags:
 patterns:
 - value: <res-auth>Container</res-auth>
 ##<res-auth>Container</res-auth>
+profiles:
+- value: cloud-suitability

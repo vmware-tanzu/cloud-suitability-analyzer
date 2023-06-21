@@ -12,3 +12,5 @@ tags:
 - value: iis-module
 - value: request-filtering
 #- <configuration><system.webServer><security><requestFiltering><requestLimits
+profiles:
+- value: cloud-suitability

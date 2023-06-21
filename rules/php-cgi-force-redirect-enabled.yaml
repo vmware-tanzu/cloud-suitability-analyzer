@@ -14,3 +14,5 @@ patterns:
   - value: cgi.force_redirect
 
 #- cgi.force_redirect=0
+profiles:
+- value: cloud-suitability

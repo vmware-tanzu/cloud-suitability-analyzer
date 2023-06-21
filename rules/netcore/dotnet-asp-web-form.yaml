@@ -17,3 +17,5 @@ patterns:
 - value: (CodeBehind=.*.aspx)
 #- <%@  Page Language="C#" AutoEventWireup="true" CodeBehind="user-form.aspx.cs"  
 # aspx files are more likely webforms
+profiles:
+- value: netcore

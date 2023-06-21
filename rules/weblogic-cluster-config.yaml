@@ -12,3 +12,5 @@ tags:
 patterns:
   #--- cluster property
   - value: WebLogicCluster
+profiles:
+- value: cloud-suitability

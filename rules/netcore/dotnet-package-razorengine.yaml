@@ -11,3 +11,5 @@ patterns:
 - value: RazorEngine
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

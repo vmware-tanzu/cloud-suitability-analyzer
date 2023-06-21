@@ -12,3 +12,5 @@ tags:
 - value: session
 patterns:
 - value: scope="session"
+profiles:
+- value: cloud-suitability

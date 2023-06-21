@@ -12,3 +12,5 @@ patterns:
 tags:
 - value: asp-classic
 - value: unsupported-netcore
+profiles:
+- value: netcore

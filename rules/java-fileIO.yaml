@@ -49,3 +49,5 @@ patterns:
   - value: LineNumberInputStream
   - value: LineNumberReader
   - value: RandomAccessFile
+profiles:
+- value: cloud-suitability

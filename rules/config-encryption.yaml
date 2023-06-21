@@ -10,3 +10,5 @@ tags:
 - value: encryption
 patterns:
   - value: //*[@configProtectionProvider][1]
+profiles:
+- value: cloud-suitability

@@ -14,3 +14,5 @@ patterns:
 - value: X509Store
   tag: x509-store
 #- X509Store store = new X509Store(storeName, storeLocation);
+profiles:
+- value: cloud-suitability

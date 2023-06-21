@@ -16,4 +16,5 @@ patterns:
 
 #- appendFile
 #- writeFile
-
+profiles:
+- value: cloud-suitability

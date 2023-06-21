@@ -12,3 +12,5 @@ tags:
 - value: ehcache
 patterns:
 - value: net.sf.ehcache
+profiles:
+- value: cloud-suitability

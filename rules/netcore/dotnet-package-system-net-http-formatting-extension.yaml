@@ -11,3 +11,5 @@ patterns:
 - value: System.Net.Http.Formatting.Extension
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

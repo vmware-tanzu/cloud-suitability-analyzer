@@ -13,3 +13,5 @@ patterns:
 - value: \sFilePath.*=
 - value: System.FilePath.*
 #- System.FilePath.Windows 
+profiles:
+- value: cloud-suitability

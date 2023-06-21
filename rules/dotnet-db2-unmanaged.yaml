@@ -15,3 +15,5 @@ tags:
 - value: database
 #- Imports IBM.Data.DB2
 #- using IBM.Data.DB2
+profiles:
+- value: cloud-suitability

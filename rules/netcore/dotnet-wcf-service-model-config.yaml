@@ -13,3 +13,5 @@ tags:
 - value: communication
 - value: api
 - value: unsupported-netcore
+profiles:
+- value: netcore

@@ -30,3 +30,5 @@ patterns:
 ##F webservice-policy-ref.xml
 ##F weblogic-wsee-standaloneclient.xml
 ##F weblogic-application.xml
+profiles:
+- value: cloud-suitability

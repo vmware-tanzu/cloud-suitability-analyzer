@@ -13,3 +13,5 @@ patterns:
   - value: /configuration/system.webServer/globalModules/add[@name="UriCacheModule"][1]
 #- <configuration><system.webServer><globalModules><add name="UriCacheModule" image="%windir%\System32\inetsrv\cachtokn.dll" />
 ## UriCacheModule
+profiles:
+- value: netcore

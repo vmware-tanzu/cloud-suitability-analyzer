@@ -12,3 +12,5 @@ tags:
 patterns:
   #--- SQL command
   - value: property.filename
+profiles:
+- value: cloud-suitability

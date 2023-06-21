@@ -12,3 +12,5 @@ tags:
 patterns:
 - value: TransactionScope
 #-  using (TransactionScope scope = new TransactionScope())
+profiles:
+- value: cloud-suitability

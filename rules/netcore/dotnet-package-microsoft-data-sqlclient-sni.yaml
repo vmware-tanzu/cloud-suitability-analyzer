@@ -11,3 +11,5 @@ patterns:
 - value: Microsoft.Data.SqlClient.SNI
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore

@@ -11,3 +11,5 @@ patterns:
 - value: Unity.Mvc
 tags:
 - value: unsupported-netcore
+profiles:
+- value: netcore
