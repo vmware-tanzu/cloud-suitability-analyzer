@@ -199,17 +199,12 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run,
 	if criticality != "" {
 		//criticality = pattern.Criticality
 		//--- parse out the criticality values
-		fmt.Printf("Criticality: %s\n", criticality)
 		criticalityTF, criticalityK8S = parseCriticality(criticality)
 		//--- transform the effort based upon fractional criticality
 		TF_factor := float64(criticalityTF) / 50.0
 		K8S_factor := float64(criticalityK8S) / 50.0
 		effortTF = int(math.Round(float64(rule.Effort) * TF_factor))
 		effortK8S = int(math.Round(float64(rule.Effort) * K8S_factor))
-		fmt.Println("Rule: ", rule.Name)
-		fmt.Println("CriticalityTF: ", criticalityTF, "CriticalityK8S: ", criticalityK8S)
-		fmt.Printf("Effort: %d\n", rule.Effort)
-		fmt.Printf("EffortTF: %d EffortK8S: %d\n", effortTF, effortK8S)
 	}
 
 	effort := rule.Effort

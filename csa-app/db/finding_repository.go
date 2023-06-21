@@ -13,10 +13,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jinzhu/gorm"
-	log "github.com/sirupsen/logrus"
 	"csa-app/model"
 	"csa-app/util"
+	"github.com/jinzhu/gorm"
+	log "github.com/sirupsen/logrus"
 )
 
 type FindingRepository interface {
@@ -97,8 +97,8 @@ func (findingRepository *OrmRepository) GetFindingsDTOForRun(runid uint) (findin
 
 	rows, err := findingRepository.dbconn.Table("findings").
 		Select("findings.id, findings.run_id, findings.filename, findings.fqn, findings.ext, findings.line, findings.rule, "+
-			"findings.pattern, findings.value, findings.advice, findings.effort, findings.readiness, findings.category, "+
-			"findings.criticality, findings.application, finding_tags.value as tag, finding_recipes.uri as recipe_uri").
+			"findings.pattern, findings.value, findings.advice, findings.effort,findings.effort_tf, findings.effort_k8_s, findings.readiness, findings.category, "+
+			"findings.criticality, findings.criticality_tf, findings.criticality_k8_s, findings.application, finding_tags.value as tag, finding_recipes.uri as recipe_uri").
 		Joins("left join finding_tags on findings.id = finding_tags.finding_id left join finding_recipes on findings.id = finding_recipes.finding_id").
 		Where("run_id = ?", runid).Order("findings.id asc").Rows()
 
@@ -114,9 +114,9 @@ func (findingRepository *OrmRepository) GetFindingsDTOForRun(runid uint) (findin
 	for rows.Next() {
 		var id, run uint
 		var filename, fqn, ext, rule, pattern, value, advice, cat, crit, app, tag, recipe string
-		var line, effort, readiness int
+		var line, effort, effortTF, effortK8s, criticalityTF, criticalityK8S, readiness int
 		var tagExists, rcpExists bool
-		rows.Scan(&id, &run, &filename, &fqn, &ext, &line, &rule, &pattern, &value, &advice, &effort, &readiness, &cat, &crit, &app, &tag, &recipe)
+		rows.Scan(&id, &run, &filename, &fqn, &ext, &line, &rule, &pattern, &value, &advice, &effort, &effortTF, &effortK8s, &readiness, &cat, &crit, &criticalityTF, &criticalityK8S, &app, &tag, &recipe)
 
 		if lastFinding.ID == id {
 			if tag != "" {
@@ -151,7 +151,9 @@ func (findingRepository *OrmRepository) GetFindingsDTOForRun(runid uint) (findin
 			tagList = nil
 			rcpList = nil
 			//new finding
-			newFinding := &model.FindingDTO{ID: id, RunID: run, Filename: filename, Fqn: fqn, Ext: ext, Rule: rule, Pattern: pattern, Value: value, Line: line, Category: cat, Effort: effort, Readiness: readiness, Advice: advice, Application: app}
+			newFinding := &model.FindingDTO{ID: id, RunID: run, Filename: filename, Fqn: fqn, Ext: ext, Rule: rule,
+				Pattern: pattern, Value: value, Line: line, Category: cat, Effort: effort, EffortTF: effortTF, EffortK8s: effortK8s,
+				Readiness: readiness, Advice: advice, Application: app}
 			findings = append(findings, newFinding)
 			lastFinding = newFinding
 
@@ -202,7 +204,8 @@ func (findingRepository *OrmRepository) GetFindingsDTOForRunAppLevel(runId uint,
 			Select(
 				"findings.id, findings.run_id, findings.filename, findings.fqn, findings.ext, findings.line, "+
 					"findings.rule, findings.pattern, findings.value, findings.advice, "+levelCaseFragment()+
-					"findings.effort, findings.readiness, findings.note, findings.category, findings.criticality, findings.application, "+
+					"findings.effort, findings.effortTF, findings.effortK8s, findings.readiness, findings.note,"+
+					"findings.category, findings.criticality, findings.criticalityTF, finding.criticalityK8s, findings.application, "+
 					"finding_tags.value as tag, finding_recipes.uri as recipe_uri").
 			Joins("left join finding_tags on findings.id = finding_tags.finding_id "+
 				"left join finding_recipes on findings.id = finding_recipes.finding_id").
@@ -216,7 +219,8 @@ func (findingRepository *OrmRepository) GetFindingsDTOForRunAppLevel(runId uint,
 			Select(
 				"findings.id, findings.run_id, findings.filename, findings.fqn, findings.ext, findings.line, "+
 					"findings.rule, findings.pattern, findings.value, findings.advice, "+levelCaseFragment()+
-					"findings.effort, findings.readiness, findings.note, findings.category, findings.criticality, findings.application, "+
+					"findings.effort, findings.effortTF, findings.K8s, findings.readiness, findings.note, "+
+					"findings.category, findings.criticality, findings.criticalityTF, finding.criticalityK8s, findings.application, "+
 					"finding_tags.value as tag, finding_recipes.uri as recipe_uri").
 			Joins("left join finding_tags on findings.id = finding_tags.finding_id "+
 				"left join finding_recipes on findings.id = finding_recipes.finding_id").
@@ -238,10 +242,12 @@ func (findingRepository *OrmRepository) GetFindingsDTOForRunAppLevel(runId uint,
 
 		var id, run uint
 		var filename, fqn, ext, rule, pattern, value, advice, cat, crit, note, app, tag, recipe, level string
-		var line, effort, readiness int
+		var line, effort, effortTF, effortK8s, criticalityTF, criticalityK8s, readiness int
 		var tagExists, rcpExists bool
 
-		rows.Scan(&id, &run, &filename, &fqn, &ext, &line, &rule, &pattern, &value, &advice, &level, &effort, &readiness, &note, &cat, &crit, &app, &tag, &recipe)
+		rows.Scan(&id, &run, &filename, &fqn, &ext, &line, &rule, &pattern, &value, &advice, &level,
+			&effort, &effortTF, &effortK8s, &readiness, &note, &cat,
+			&crit, &criticalityTF, &criticalityK8s, &app, &tag, &recipe)
 
 		if lastFinding.ID == id {
 			if tag != "" {
@@ -280,7 +286,8 @@ func (findingRepository *OrmRepository) GetFindingsDTOForRunAppLevel(runId uint,
 			newFinding := &model.FindingDTO{
 				ID: id, RunID: run, Filename: filename, Fqn: fqn, Ext: ext, Rule: rule,
 				Pattern: pattern, Value: value, Line: line, Category: cat, Level: level,
-				Effort: effort, Readiness: readiness, Note: note, Advice: advice, Application: app,
+				Effort: effort, EffortTF: effortTF, EffortK8s: effortK8s,
+				Readiness: readiness, Note: note, Advice: advice, Application: app,
 			}
 
 			findings = append(findings, newFinding)
@@ -355,7 +362,7 @@ func (findingRepository *OrmRepository) GetApplicationDetailsForRun(runid uint, 
 
 	res := findingRepository.dbconn.Model(&model.Finding{}).
 		Where(&model.Finding{RunID: runid}).
-		Select("application, count(*) as findings, sum(effort) as raw_score").Group("application").
+		Select("application, count(*) as findings, sum(effort) as raw_score, sum(effort_tf) as raw_score_tf, sum(effort_k8_s) as raw_score_k8_s").Group("application").
 		Order("raw_score desc, application asc").
 		Scan(&applicationScores)
 
@@ -549,7 +556,7 @@ func (findingRepository *OrmRepository) GetScoreCardDetails(runId uint, app stri
 
 	whereClause := "run_id = ? and application =  ? and effort >= ? and effort <= ?"
 
-	selectClause := "application, category, pattern, effort, " + levelCaseFragment() +
+	selectClause := "application, category, pattern, effort, effort_tf, effort_k8_s " + levelCaseFragment() +
 		"count(*) as count, effort * count(*) as total"
 
 	res := findingRepository.dbconn.Model(&model.Finding{}).
@@ -611,7 +618,7 @@ func updateCritCount(scores []model.ApplicationDetails, app string, crits int) {
 	}
 }
 
-//TODO Pull this stuff up into the scoring service and orchestrate accross the repos!
+// TODO Pull this stuff up into the scoring service and orchestrate accross the repos!
 func addSlocCnt(findingRepository *OrmRepository, runId uint, scores []model.ApplicationDetails) {
 
 	var slocByApplication []model.SlocByApplication
@@ -635,7 +642,7 @@ func addSlocCnt(findingRepository *OrmRepository, runId uint, scores []model.App
 	}
 }
 
-//For now this is setup to update an existing set of scorecards with additional criticality details
+// For now this is setup to update an existing set of scorecards with additional criticality details
 func addFindingsByCriticality(findingRepository *OrmRepository, criticality string, runId uint, bottomScore int, topScore int, cards []model.AppScoreCard) error {
 
 	whereClause := "run_id = ? and effort >= ? and effort <= ?"
