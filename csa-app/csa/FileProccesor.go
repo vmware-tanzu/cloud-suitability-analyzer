@@ -184,7 +184,7 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run,
 	criticalityTF, criticalityK8S := 1, 1
 	var effortTF int
 	var effortK8S int
-	//-- note
+	//-- note: S. Woods
 	/*
 		rule is the actual rule materialized from the yaml file
 		pattern represents the actual pattern that resides in the rule. There can be multiple patterns in a rule
@@ -192,7 +192,7 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run,
 
 	//--- note
 	/*
-		I don't think the commented out
+		I don't think the commented out code ever ran before
 	*/
 	criticality := rule.Criticality
 	//if pattern.Criticality != "" {
