@@ -6,7 +6,7 @@ advice: Consider upgrading to modern cloud native messaging
 defaultpattern: ^.* %s.*[(].*
 effort: 4
 readiness: 3
-criticality: 23:77
+criticality: 50:50
 category: soap
 tags:
   - value: web-service
