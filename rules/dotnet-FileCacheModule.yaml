@@ -4,7 +4,7 @@ filetype: config$
 target: file
 type: xpath
 category: caching
-advice: Refer to platform documentation
+advice: Caching should be managed externally. Relying on IIS Modules won't work in Linux environment. Alternatives are distributed cache solutions like Redis, SQL Server distributed cache, NCache distributed cache.
 effort: 1000
 readiness: 5
 tags:

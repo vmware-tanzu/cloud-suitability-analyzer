@@ -1,0 +1,16 @@
+name: dotnet-asp-session-context
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Not supported, Replace with IHttpContextAccessor to manage session data
+readiness: 9
+effort: 10
+category: unsupported-netcore
+patterns:
+- value: HttpContextBase
+tags:
+- value: asp
+- value: session
+- value: unsupported-netcore
+#- string GetCartId(HttpContextBase context)

@@ -1,0 +1,16 @@
+
+name: dotnet-vb-razor-view-engine
+filetype: (vbhtml$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Not supported in .netCore https://aka.ms/vb-angular-and-web-api
+readiness: 9
+effort: 10
+category: unsupported-netcore. 
+tags:
+- value: asp
+- value: asp-web-form
+- value: unsupported-netcore
+patterns:
+- value: '@Code'

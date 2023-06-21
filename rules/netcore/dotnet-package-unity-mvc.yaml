@@ -1,0 +1,13 @@
+name: dotnet-package-unity-mvc
+filetype: (config$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Not Supported in .NetCore 
+effort: 10
+readiness: 10
+category: package
+patterns:
+- value: Unity.Mvc
+tags:
+- value: unsupported-netcore

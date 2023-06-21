@@ -20,6 +20,7 @@ import (
 )
 
 func BootStrapRules(rulesdir string, templatesDir string) (rules []model.Rule, err error) {
+	fmt.Print("BOOTSTRAP!!!!!")
 	rules, err = GetAllResourcesBasedRules(rulesdir)
 
 	if err != nil {

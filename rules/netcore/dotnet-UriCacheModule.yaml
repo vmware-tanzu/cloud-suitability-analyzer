@@ -1,0 +1,15 @@
+#qc1
+name: dotnet-iis_module-UriCacheModule
+filetype: config$
+target: file
+type: xpath
+category: Unsupported IIS modules
+advice: Windows and IIS server dependency. Not supported in .netCore targeting linux. Implements a generic cache for URL-specific server state; such as configuration. With this module; the server only reads configuration for the first request for a particular URL. And reuse it on subsequent requests until it changes.
+effort: 1000
+readiness: 5
+tags:
+- value: uri-cache
+patterns:
+  - value: /configuration/system.webServer/globalModules/add[@name="UriCacheModule"][1]
+#- <configuration><system.webServer><globalModules><add name="UriCacheModule" image="%windir%\System32\inetsrv\cachtokn.dll" />
+## UriCacheModule

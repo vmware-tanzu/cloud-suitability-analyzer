@@ -4,7 +4,7 @@ target: line
 defaultpattern: .*%s.*
 type: regex
 category: Unsupported modules
-advice: Ensure compatible configuation
+advice: Windows Integrated Authentication will be problematic in the cloud as containers won't be joining Windows Domains. Use another authentication mechanism more cloud friendly like SSO, LDAP Remote Calls, Local...
 effort: 500
 readiness: 1
 patterns:

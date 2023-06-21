@@ -1,0 +1,13 @@
+name: dotnet-package-unity-aspnet-webapi
+filetype: (config$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Not Supported in .NetCore 
+effort: 10
+readiness: 10
+category: package
+patterns:
+- value: Unity.AspNet.WebApi
+tags:
+- value: unsupported-netcore

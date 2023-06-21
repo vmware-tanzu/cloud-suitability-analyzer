@@ -1,0 +1,14 @@
+name: dotnet-wf-integration
+filetype: (cs$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Windows Workflow Foundation (WF) won't be ported to .NET Core. See https://aka.ms/unsupported-netfx-api.
+effort: 10
+readiness: 10
+category: WF
+patterns:
+- value: XamlIntegration
+tags:
+- value: api
+- value: unsupported-netcore

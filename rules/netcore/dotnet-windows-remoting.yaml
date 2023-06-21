@@ -1,0 +1,16 @@
+name: dotnet-windows-remoting
+filetype: config$
+target: file
+type: xpath
+advice: Unsupported, consider inter-process communication (IPC) System.IO.Pipes class
+  or the MemoryMappedFile class.Also StreamJsonRpc or ASP.NET Core (either using gRPC
+  or RESTful Web API services).
+effort: 500
+readiness: 5
+category: Unsupported
+tags:
+- value: remoting
+- value: unsupported-netcore
+patterns:
+- value: /configuration/system.runtime.remoting
+negative: false

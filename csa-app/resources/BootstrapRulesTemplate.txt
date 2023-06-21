@@ -16,7 +16,7 @@ func BootstrapRules() []Rule {
             Profiles:
             []Profile{ {{ range .Profiles }} { Value: "{{.Value}}",},{{end}} },
             Excludepatterns:
-            []ExcludePattern{ {{ range .Excludepatterns }} { Value: "{{.Value}}",},{{end}} },
+            []ExcludePattern{ {{ range .Excludepatterns }} { Value: "{{.GetEscapedPattern}}",},{{end}} },
             Recipes:
             []Recipe{ {{ range .Recipes }} { URI: "{{.URI}}", }, {{end}} },
             Patterns:

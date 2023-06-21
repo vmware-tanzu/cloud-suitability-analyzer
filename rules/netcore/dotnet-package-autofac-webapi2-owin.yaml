@@ -1,0 +1,13 @@
+name: dotnet-package-autofac-webapi2-owin
+filetype: (config$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Not Supported in .NetCore 
+effort: 10
+readiness: 10
+category: package
+patterns:
+- value: Autofac.WebApi2.Owin
+tags:
+- value: unsupported-netcore

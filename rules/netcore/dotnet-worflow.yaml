@@ -1,0 +1,14 @@
+name: dotnet-workflow
+filetype: (cs$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Windows Workflow Foundation (WF) won't be ported to .NET Core. See https://aka.ms/unsupported-netfx-api.
+effort: 10
+readiness: 10
+category: API
+patterns:
+- value: System.Workflow.
+tags:
+- value: api
+- value: unsupported-netcore

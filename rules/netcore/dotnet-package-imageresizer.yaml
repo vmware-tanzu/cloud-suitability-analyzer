@@ -1,0 +1,13 @@
+name: dotnet-package-imageresizer
+filetype: (config$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Not Supported in .NetCore 
+effort: 10
+readiness: 10
+category: package
+patterns:
+- value: ImageResizer
+tags:
+- value: unsupported-netcore

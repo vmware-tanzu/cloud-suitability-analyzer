@@ -1,0 +1,1 @@
+Configuration = new Configuration().AddJsonFile("config.json")

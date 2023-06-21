@@ -1,0 +1,13 @@
+name: dotnet-package-microsoft-owin-cors
+filetype: (config$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Not Supported in .NetCore 
+effort: 10
+readiness: 10
+category: package
+patterns:
+- value: Microsoft.Owin.Cors
+tags:
+- value: unsupported-netcore

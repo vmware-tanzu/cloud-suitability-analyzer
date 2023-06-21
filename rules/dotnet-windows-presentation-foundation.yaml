@@ -5,7 +5,7 @@ target: line
 type: regex
 defaultpattern: .*%s.*
 category: windows-desktop
-advice: Only available on Windows Desktop
+advice: Desktop technology only available on Windows platform
 effort: 500
 readiness: 1
 patterns:

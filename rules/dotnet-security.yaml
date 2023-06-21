@@ -3,7 +3,7 @@ filetype: (cs$|vb$)
 target: line
 type: regex
 defaultpattern: .*%s.*
-advice: Relying on Windows certificate stores is problematic in a cloud environment.
+advice: Relying on Windows certificate stores is problematic in a cloud environment. Certificate stores could be shared via shared volume mounts. Ideally you should decouple certificates and SSL from your application. SSL could also be handled at the load balancer level.
 readiness: 10
 effort: 3
 category: security

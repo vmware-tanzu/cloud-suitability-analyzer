@@ -1,0 +1,14 @@
+name: dotnet-iis_module-CertificateMappingAuthentication
+filetype: config$
+target: file
+type: xpath
+advice: Windows and IIS server dependency. Not supported in .netCore targeting linux.
+patterns:
+- value: /configuration/system.webServer/security/authentication/clientCertificateMappingAuthentication
+readiness: 9
+effort: 10
+category: unsupported-iis-module
+tags:
+- value: iis-module
+#- <configuration><system.webServer><security><authentication><clientCertificateMappingAuthentication
+# Mostly a challenge if moving to .NetCore

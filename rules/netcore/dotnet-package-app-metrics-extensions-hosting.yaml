@@ -1,0 +1,13 @@
+name: dotnet-package-app-metrics-extensions-hosting
+filetype: (config$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Not Supported in .NetCore 
+effort: 10
+readiness: 10
+category: package
+patterns:
+- value: App.Metrics.Extensions.Hosting
+tags:
+- value: unsupported-netcore
