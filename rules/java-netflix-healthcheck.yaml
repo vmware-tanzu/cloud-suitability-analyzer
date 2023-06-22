@@ -20,3 +20,5 @@ patterns:
     tag: netflix-health-check
   - value: com.netflix.runtime.health.api.IndicatorMatcher
     tag: netflix-health-check
+profiles:
+- value: cloud-suitability

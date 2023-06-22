@@ -30,3 +30,5 @@ patterns:
 ##F jboss-service.xml
 ##F jboss-web.xml
 ##F jboss-wsse-server.xml
+profiles:
+- value: cloud-suitability

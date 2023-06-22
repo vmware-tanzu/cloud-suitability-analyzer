@@ -145,6 +145,19 @@ func processFile(file *util.FileInfo, rules []model.Rule, hasContentRules bool) 
 
 					if rules[i].Target == model.LINE_TARGET {
 						nbFindings := processPatterns(file, line, curLine, rules[i])
+						if nbFindings > 0 {
+							if rules[i].Excludepatterns != nil {
+
+								for j := range rules[i].Excludepatterns {
+									regex := regexp.MustCompile(rules[i].Excludepatterns[j].Value)
+									findingExclude := regex.MatchString(curLine)
+									if findingExclude == true {
+										fmt.Println("Exclude Patterns => " + curLine)
+										nbFindings = 0
+									}
+								}
+							}
+						}
 
 						if nbFindings > 0 {
 							value += curLine

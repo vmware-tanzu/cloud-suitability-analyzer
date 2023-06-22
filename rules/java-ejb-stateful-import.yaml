@@ -13,3 +13,5 @@ tags:
 - value: stateful
 patterns:
 - value: javax.ejb.Stateful
+profiles:
+- value: cloud-suitability

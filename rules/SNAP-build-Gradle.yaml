@@ -13,3 +13,5 @@ patterns:
 - value: build.gradle
 
 ##F build.gradle
+profiles:
+- value: cloud-suitability

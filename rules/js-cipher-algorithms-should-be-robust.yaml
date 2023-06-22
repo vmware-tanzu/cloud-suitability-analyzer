@@ -15,3 +15,5 @@ patterns:
   - value: DES-EDE3
   - value: RC2
   - value: RC4
+profiles:
+- value: cloud-suitability

@@ -12,3 +12,5 @@ tags:
   - value: code-smell
 patterns:
   - value: iconv
+profiles:
+- value: cloud-suitability

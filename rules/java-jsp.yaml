@@ -42,3 +42,5 @@ patterns:
 ##  JspException(
 ##  JspTagException(
 ##  SkipPageException(
+profiles:
+- value: cloud-suitability

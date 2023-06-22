@@ -17,3 +17,5 @@ patterns:
 
 #- http://www.google.com
 #- https://www.google.com
+profiles:
+- value: cloud-suitability

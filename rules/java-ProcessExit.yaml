@@ -15,3 +15,5 @@ patterns:
 
 ## .exit(
 ## .halt(
+profiles:
+- value: cloud-suitability

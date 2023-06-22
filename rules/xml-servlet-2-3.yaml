@@ -14,3 +14,5 @@ tags:
 patterns:
 - value: web-app_2_3.dtd
 ##web-app_2_3.dtd
+profiles:
+- value: cloud-suitability

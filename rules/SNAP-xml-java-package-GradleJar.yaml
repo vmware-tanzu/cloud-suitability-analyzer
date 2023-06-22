@@ -15,3 +15,5 @@ patterns:
   #--- Gradle package
   - value: jar
 ##{ jar
+profiles:
+- value: cloud-suitability

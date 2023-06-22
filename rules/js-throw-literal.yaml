@@ -11,3 +11,5 @@ tags:
 - value: exception
 patterns:
 - value: throw
+profiles:
+- value: cloud-suitability

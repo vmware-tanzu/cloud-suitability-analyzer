@@ -15,3 +15,5 @@ patterns:
 - value: Oracle.DataAccess
   advice: Oracle unmanaged driver requires including binaries with app -- can use buildpack. 
 #- using Oracle.DataAccess.Client;
+profiles:
+- value: cloud-suitability

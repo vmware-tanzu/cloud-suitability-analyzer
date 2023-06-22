@@ -13,3 +13,5 @@ tags:
 patterns:
   - value: com.sun.jersey
 ##import com.sun.jersey
+profiles:
+- value: cloud-suitability

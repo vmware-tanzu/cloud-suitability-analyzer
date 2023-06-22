@@ -14,3 +14,5 @@ patterns:
 
 ##validationKey="AutoGenerate"
 ##decryptionKey="AutoGenerate"
+profiles:
+- value: cloud-suitability

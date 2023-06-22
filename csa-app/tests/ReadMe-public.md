@@ -7,7 +7,6 @@ It makes it easy to test a rule set and ensure that rules will fire when expecte
 Very often rules might never trigger or might trigger and pick up a false positive.
 
 Now rules can be tested against specific source code samples. The framework checks the following:
-
 - The rule syntax is correct and compiles
 - The rule fires against the right set of file extensions
 - The rule fires properly given a source code sample
@@ -20,7 +19,7 @@ It is also platform independant and can run on Linux, Mac, Windows.
 
 Made that way, it could easily be embedded into a CI pipeline for users who need to source controle and manage changes to their curated rule set.
 
-### Run Rule Test Executable ###
+### Run Unit Test Executable ###
 - unzip rule-test.zip
 - cd rule-test
 - WORK_DIR=[base dir] ./rule-test -test.v

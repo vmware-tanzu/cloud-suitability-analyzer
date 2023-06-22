@@ -12,3 +12,5 @@ tags:
   - value: term
 patterns:
   - value: Runtime.getRuntime().addShutdownHook
+profiles:
+- value: cloud-suitability

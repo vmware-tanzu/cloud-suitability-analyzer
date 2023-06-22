@@ -19,3 +19,5 @@ patterns:
 - value: tiles-config_3_0.dtd
 
 ##struts.apache.org/tags-tiles
+profiles:
+- value: cloud-suitability

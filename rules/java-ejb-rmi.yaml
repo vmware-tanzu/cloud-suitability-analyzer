@@ -80,3 +80,5 @@ patterns:
   - value: RMIClassLoaderSpi
   - value: RMISocketFactory
   - value: UnicastRemoteObject
+profiles:
+- value: cloud-suitability

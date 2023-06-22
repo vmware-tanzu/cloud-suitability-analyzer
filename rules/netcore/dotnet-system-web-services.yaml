@@ -1,0 +1,18 @@
+name: dotnet-system-web-services
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Upgrade to CoreWCF https://devblogs.microsoft.com/dotnet/upgrading-a-wcf-service-to-dotnet-6/ or more modern rest api
+effort: 10
+readiness: 10
+category: WCF
+tags:
+- value: windows-web-services
+- value: communication
+- value: api
+- value: unsupported-netcore
+patterns:
+- value: System.Web.Services
+profiles:
+- value: netcore

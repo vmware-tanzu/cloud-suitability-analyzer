@@ -12,3 +12,5 @@ tags:
 patterns:
   - value: java.util.logging.FileHandler
     tag: java.util.logging
+profiles:
+- value: cloud-suitability

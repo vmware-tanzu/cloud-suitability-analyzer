@@ -14,3 +14,5 @@ patterns:
 - value: getProperty
 - value: setProperty
 - value: setProperties
+profiles:
+- value: cloud-suitability

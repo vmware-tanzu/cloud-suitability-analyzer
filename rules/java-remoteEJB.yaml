@@ -22,3 +22,5 @@ patterns:
 ##@RemoteHome
 ##@EJBObject
 ##@EJBHome
+profiles:
+- value: cloud-suitability

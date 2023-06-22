@@ -30,3 +30,5 @@ patterns:
   tag: oracle-am-asdk
 - value: com.netegrity.sdk.dmsapi
   tag: netegrity
+profiles:
+- value: cloud-suitability

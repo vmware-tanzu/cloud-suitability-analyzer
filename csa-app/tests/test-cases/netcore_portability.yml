@@ -1,0 +1,730 @@
+---
+category:
+- rules-directory: "rules/netcore"
+  tests:
+  - name: "ISAPI Filters Config"
+    rule-name: dotnet-ISAPI-Filters-config
+    test-filename: dotnet-ISAPI-Filters-config.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "ISAPI Filters VBCS"
+    rule-name: dotnet-ISAPI-Filters-vbcs
+    test-filename: dotnet-ISAPI-Filters-vbcs.cs
+    assert:  true
+    assert-count:  2
+    assert-value: "null"
+  - name: "Anonymous Auth IIS Module"
+    rule-name: dotnet-iis_module-AnonymousAuthentication
+    test-filename: dotnet-iis_module-AnonymousAuthentication.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "Authentication IIS Module"
+    rule-name: dotnet-iis_module-Authentication
+    test-filename: dotnet-iis_module-Authentication.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  #- name: "Authentication IIS Module False Positive"
+  #  rule-name: dotnet-iis_module-Authentication
+  #  test-filename: dotnet-iis_module-Authentication_false_positive.config
+  #  assert:  true
+  #  assert-count:  0
+  #  assert-value: "null"
+  - name: "Authorization IIS Module"
+    rule-name: dotnet-iis_module-Authorization
+    test-filename: dotnet-iis_module-Authorization.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "Cert Mapping Auth IIS Module"
+    rule-name: dotnet-iis_module-CertificateMappingAuthentication
+    test-filename: dotnet-iis_module-CertificateMappingAuthentication.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "Document IIS Module"
+    rule-name: dotnet-iis_module-DefaultDocument
+    test-filename: dotnet-iis_module-DefaultDocument.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "Digest Authentication IIS Module"
+    rule-name: dotnet-iis_module-DigestAuthentication
+    test-filename: dotnet-iis_module-DigestAuthentication.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "Directory Listing IIS Module"
+    rule-name: dotnet-iis_module-DirectoryListing
+    test-filename: dotnet-iis_module-DirectoryListing.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "HTTP Errors IIS Module"
+    rule-name: dotnet-iis_module-HttpErrors
+    test-filename: dotnet-iis_module-HttpErrors.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "HTTP Logging IIS Module"
+    rule-name: dotnet-iis_module-HttpLogging
+    test-filename: dotnet-iis_module-HttpLogging.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "HTTP Redirection IIS Module"
+    rule-name: dotnet-iis_module-HttpRedirection
+    test-filename: dotnet-iis_module-HttpRedirection.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "Client Certificate Mapping IIS Module"
+    rule-name: dotnet-iis_module-IisClientCertificateMappingAuthentication
+    test-filename: dotnet-iis_module-IisClientCertificateMappingAuthentication.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "IP Security IIS Module"
+    rule-name: dotnet-iis_module-IpSecurity
+    test-filename: dotnet-iis_module-IpSecurity.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "ISAPI CGI Registration IIS Module"
+    rule-name: dotnet-iis_module-IsapiCgiRestriction
+    test-filename: dotnet-iis_module-IsapiCgiRestriction.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "Output Cache IIS Module"
+    rule-name: dotnet-iis_module-OutputCache
+    test-filename: dotnet-iis_module-OutputCache.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "Protocol Support IIS Module"
+    rule-name: dotnet-iis_module-ProtocolSupport
+    test-filename: dotnet-iis_module-ProtocolSupport.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "Server Side Include IIS Module"
+    rule-name: dotnet-iis_module-ServerSideInclude
+    test-filename: dotnet-iis_module-ServerSideInclude.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "Tracing IIS Module"
+    rule-name: dotnet-iis_module-Tracing
+    test-filename: dotnet-iis_module-Tracing.config
+    assert:  true
+    assert-count:  2
+    assert-value: "null"
+  - name: "Validation IIS Module"
+    rule-name: dotnet-iis_module-Validation
+    test-filename: dotnet-iis_module-Validation.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "URI Cache IIS Module"
+    rule-name: dotnet-iis_module-UriCacheModule
+    test-filename: dotnet-iis_module-UriCacheModule.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "Windows Workflow Foundation"
+    rule-name: dotnet-windows-workflow-foundation
+    test-filename: dotnet-windows-workflow-foundation.cs
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "Enterprise Services"
+    rule-name: dotnet-windows-enterprise-services
+    test-filename: dotnet-windows-enterprise-services.cs
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "Dotnet IP Address"
+    rule-name: dotnet-ip-address
+    test-filename: dotnet-ip-address.cs
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "ASP Child Action"
+    rule-name: dotnet-asp-child-action
+    test-filename: dotnet-asp-child-action.cs
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "ASP Classic 2.0"
+    rule-name: dotnet-asp-classic-2-0
+    test-filename: dotnet-asp-classic-2-0.asp
+    assert:  true
+    assert-count:  4
+    assert-value: "null"
+  - name: "ASP Machine Key"
+    rule-name: dotnet-asp-machine-key
+    test-filename: dotnet-asp-machin-key.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "ASP Membership"
+    rule-name: dotnet-asp-membership
+    test-filename: dotnet-asp-membership.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "ASP Form Collection"
+    rule-name: dotnet-asp-mvc-form-collection
+    test-filename: dotnet-asp-mvc-form-collection.cs
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "ASP Model Update"
+    rule-name: dotnet-asp-mvc-model-update
+    test-filename: dotnet-asp-mvc-model-update.cs
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "ASP MVC"
+    rule-name: dotnet-asp-mvc
+    test-filename: dotnet-asp-mvc.cs
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "ASP Session Context"
+    rule-name: dotnet-asp-session-context
+    test-filename: dotnet-asp-session-context.cs
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "ASP Web Form"
+    rule-name: dotnet-asp-web-form
+    test-filename: dotnet-asp-web-form.aspx
+    assert:  true
+    assert-count:  2
+    assert-value: "null"
+  - name: "Windows Remoting"
+    rule-name: dotnet-windows-remoting
+    test-filename: dotnet-windows-remoting.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "Windows Remoting Code"
+    rule-name: dotnet-windows-remoting-code
+    test-filename: dotnet-windows-remoting-code.cs
+    assert:  true
+    assert-count:  3
+    assert-value: "null"
+  - name: "Begin Invoke"
+    rule-name: dotnet-delegate-begininvoke
+    test-filename: dotnet-delegate-begininvoke.cs
+    assert:  true
+    assert-count:  2
+    assert-value: "null"
+  - name: "WCF Config"
+    rule-name: dotnet-wcf-service-model-config
+    test-filename: dotnet-wcf-service-model-config.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "WCF Service"
+    rule-name: dotnet-wcf-service-model
+    test-filename: dotnet-wcf-service-model.cs
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "VB Razor Web"
+    rule-name: dotnet-vb-razor-view-engine
+    test-filename: dotnet-vb-razor-view-engine.vbhtml
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "Script Blocks"
+    rule-name: dotnet-script-blocks
+    test-filename: dotnet-script-blocks.xsl
+    assert:  true
+    assert-count:  2
+    assert-value: "null"
+  - name: "Reflection Assembly Load"
+    rule-name: dotnet-reflection-assembly
+    test-filename: dotnet-reflection-assembly.cs
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "WF ActivityXaml Services"
+    rule-name: dotnet-wf-integration
+    test-filename: dotnet-wf-integration.cs
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "WF Core Presentation"
+    rule-name: dotnet-wf-presentation
+    test-filename: dotnet-wf-presentation.xaml
+    assert:  true
+    assert-count:  3
+    assert-value: "null"
+  - name: "WF Core Presentation"
+    rule-name: dotnet-wf-activity
+    test-filename: dotnet-wf-activity.cs
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "Managed Addin Framework"
+    rule-name: dotnet-managed-addin
+    test-filename: dotnet-managed-addin.cs
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "Windows Identity Foundation"
+    rule-name: dotnet-identity-foundation
+    test-filename: dotnet-identity-foundation.cs
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "System Speech"
+    rule-name: dotnet-system-speech
+    test-filename: dotnet-system-speech.cs
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "Classic ASP Net"
+    rule-name: dotnet-classic-asp-net
+    test-filename: dotnet-classic-asp-net.cs
+    assert:  true
+    assert-count:  5
+    assert-value: "null"
+  - name: "Worflow Foundation"
+    rule-name: dotnet-workflow
+    test-filename: dotnet-workflow.cs
+    assert:  true
+    assert-count:  7
+    assert-value: "null"
+  - name: "Javascript Serializer"
+    rule-name: dotnet-javascript-serializer
+    test-filename: dotnet-javascript-serializer.cs
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "Windows MSMQ"
+    rule-name: dotnet-MSMQ-vbcs
+    test-filename: windows_msmq.cs
+    assert:  true
+    assert-count:  15
+    assert-value: "null"
+  - name: "Serialization"
+    rule-name: dotnet-serialization
+    test-filename: dotnet-serialization.cs
+    assert:  true
+    assert-count:  2
+    assert-value: "null"
+  - name: "dotnet-package-app-metrics-extensions-hosting"
+    rule-name: dotnet-package-app-metrics-extensions-hosting
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-dotnetopenauth-core"
+    rule-name: dotnet-package-dotnetopenauth-core
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-diagnostics-tracing-eventsource-redist"
+    rule-name: dotnet-package-microsoft-diagnostics-tracing-eventsource-redist
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-miniprofiler"
+    rule-name: dotnet-package-miniprofiler
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-aspnet-mvc"
+    rule-name: dotnet-package-microsoft-aspnet-mvc
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-system-net-http-formatting-extension"
+    rule-name: dotnet-package-system-net-http-formatting-extension
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-build-tasks-git"
+    rule-name: dotnet-package-microsoft-build-tasks-git
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-crmsdk-coreassemblies"
+    rule-name: dotnet-package-microsoft-crmsdk-coreassemblies
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-visualstudio-slowcheetah"
+    rule-name: dotnet-package-microsoft-visualstudio-slowcheetah
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-aspnet-identity-entityframework"
+    rule-name: dotnet-package-microsoft-aspnet-identity-entityframework
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-autofac-mvc5"
+    rule-name: dotnet-package-autofac-mvc5
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-ninject-web-common-webhost"
+    rule-name: dotnet-package-ninject-web-common-webhost
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-visualstudio-azure-fabric-msbuild"
+    rule-name: dotnet-package-microsoft-visualstudio-azure-fabric-msbuild
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-netframework-referenceassemblies"
+    rule-name: dotnet-package-microsoft-netframework-referenceassemblies
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  6
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-build-locator"
+    rule-name: dotnet-package-microsoft-build-locator
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-autofac-webapi2"
+    rule-name: dotnet-package-autofac-webapi2
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  2
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-netframework-referenceassemblies-net461"
+    rule-name: dotnet-package-microsoft-netframework-referenceassemblies-net461
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-netframework-referenceassemblies-net472"
+    rule-name: dotnet-package-microsoft-netframework-referenceassemblies-net472
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-web-redissessionstateprovider"
+    rule-name: dotnet-package-microsoft-web-redissessionstateprovider
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-data-sqlclient-sni"
+    rule-name: dotnet-package-microsoft-data-sqlclient-sni
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-system-data-sqlite-linq"
+    rule-name: dotnet-package-system-data-sqlite-linq
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-razorengine"
+    rule-name: dotnet-package-razorengine
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-visualstudio-azure-containers-tools-targets"
+    rule-name: dotnet-package-microsoft-visualstudio-azure-containers-tools-targets
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-aspnet-signalr"
+    rule-name: dotnet-package-microsoft-aspnet-signalr
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-codeanalysis-workspaces-msbuild"
+    rule-name: dotnet-package-microsoft-codeanalysis-workspaces-msbuild
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-owin-security-oauth"
+    rule-name: dotnet-package-microsoft-owin-security-oauth
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-owin-cors"
+    rule-name: dotnet-package-microsoft-owin-cors
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-owin-security-openidconnect"
+    rule-name: dotnet-package-microsoft-owin-security-openidconnect
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-unity-aspnet-webapi"
+    rule-name: dotnet-package-unity-aspnet-webapi
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-fluentvalidation-mvc5"
+    rule-name: dotnet-package-fluentvalidation-mvc5
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-unity-mvc"
+    rule-name: dotnet-package-unity-mvc
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-azure-common-dependencies"
+    rule-name: dotnet-package-microsoft-azure-common-dependencies
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-autofac-webapi2-owin"
+    rule-name: dotnet-package-autofac-webapi2-owin
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-stub-system-data-sqlite-core-netframework"
+    rule-name: dotnet-package-stub-system-data-sqlite-core-netframework
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-imageprocessor-web"
+    rule-name: dotnet-package-imageprocessor-web
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-runtime-aot-system-reflection-primitives"
+    rule-name: dotnet-package-runtime-aot-system-reflection-primitives
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-imageprocessor"
+    rule-name: dotnet-package-imageprocessor
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  2
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-crmsdk-deployment"
+    rule-name: dotnet-package-microsoft-crmsdk-deployment
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-aspnet-friendlyurls-core"
+    rule-name: dotnet-package-microsoft-aspnet-friendlyurls-core
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-portable-dataannotations"
+    rule-name: dotnet-package-portable-dataannotations
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-netframework-referenceassemblies-net48"
+    rule-name: dotnet-package-microsoft-netframework-referenceassemblies-net48
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-netframework-referenceassemblies-net45"
+    rule-name: dotnet-package-microsoft-netframework-referenceassemblies-net45
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-owin-selfhost"
+    rule-name: dotnet-package-microsoft-owin-selfhost
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-owin-testing"
+    rule-name: dotnet-package-microsoft-owin-testing
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-crmsdk-xrmtooling-coreassembly"
+    rule-name: dotnet-package-microsoft-crmsdk-xrmtooling-coreassembly
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-nlog-extended"
+    rule-name: dotnet-package-nlog-extended
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-aspnet-webapi-versioning"
+    rule-name: dotnet-package-microsoft-aspnet-webapi-versioning
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-owin-security-wsfederation"
+    rule-name: dotnet-package-microsoft-owin-security-wsfederation
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-autofac-owin"
+    rule-name: dotnet-package-autofac-owin
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-netframework-referenceassemblies-net462"
+    rule-name: dotnet-package-microsoft-netframework-referenceassemblies-net462
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-crmsdk-workflow"
+    rule-name: dotnet-package-microsoft-crmsdk-workflow
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-sqlitepclraw-provider-e_sqlite3-net45"
+    rule-name: dotnet-package-sqlitepclraw-provider-e_sqlite3-net45
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-servicefabric-aspnetcore-abstractions"
+    rule-name: dotnet-package-microsoft-servicefabric-aspnetcore-abstractions
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-ninject-web-webapi"
+    rule-name: dotnet-package-ninject-web-webapi
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-imageresizer"
+    rule-name: dotnet-package-imageresizer
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-system-reactive-windows-threading"
+    rule-name: dotnet-package-system-reactive-windows-threading
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-owin-security-activedirectory"
+    rule-name: dotnet-package-microsoft-owin-security-activedirectory
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-servicefabric-aspnetcore-kestrel"
+    rule-name: dotnet-package-microsoft-servicefabric-aspnetcore-kestrel
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-owin-diagnostics"
+    rule-name: dotnet-package-microsoft-owin-diagnostics
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-glimpse"
+    rule-name: dotnet-package-glimpse
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-owin-staticfiles"
+    rule-name: dotnet-package-microsoft-owin-staticfiles
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-fluentvalidation-webapi"
+    rule-name: dotnet-package-fluentvalidation-webapi
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-nlog-web"
+    rule-name: dotnet-package-nlog-web
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-ninject-mvc5"
+    rule-name: dotnet-package-ninject-mvc5
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-owin-filesystems"
+    rule-name: dotnet-package-microsoft-owin-filesystems
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-microsoft-owin-filesystems"
+    rule-name: dotnet-package-microsoft-owin-filesystems
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-telerik-dataaccess-web"
+    rule-name: dotnet-package-telerik-dataaccess-web
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"
+  - name: "dotnet-package-telerik-dataaccess-core"
+    rule-name: dotnet-package-telerik-dataaccess-core
+    test-filename: dotnet-packages.config
+    assert:  true
+    assert-count:  1
+    assert-value: "null"

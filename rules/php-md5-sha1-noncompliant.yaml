@@ -26,3 +26,5 @@ patterns:
 #- md4("password"
 #- haval128("password"
 #- dsa("password"
+profiles:
+- value: cloud-suitability

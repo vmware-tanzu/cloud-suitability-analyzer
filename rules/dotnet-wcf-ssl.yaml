@@ -23,3 +23,5 @@ patterns:
 - value: mode="Transport"
 #- mode="Transport"
   advice: Transport security at the container is not supported.  Disable transport security on the service
+profiles:
+- value: cloud-suitability

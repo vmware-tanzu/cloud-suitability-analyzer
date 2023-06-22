@@ -92,3 +92,5 @@ patterns:
 ##  Selector(
 ##  ServerSocketChannel(
 ##  SocketChannel(
+profiles:
+- value: cloud-suitability

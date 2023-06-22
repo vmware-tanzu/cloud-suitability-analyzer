@@ -15,3 +15,5 @@ tags:
 patterns:
 - value: ejb-jar_2_1.xsd
 ##ejb-jar_2_1.xsd
+profiles:
+- value: cloud-suitability

@@ -15,3 +15,5 @@ tags:
 patterns:
 - value: jsf/facelets
 ##jsf/facelets
+profiles:
+- value: cloud-suitability

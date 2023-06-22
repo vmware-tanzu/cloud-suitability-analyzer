@@ -17,3 +17,5 @@ patterns:
 
 #- = false
 #- = true
+profiles:
+- value: cloud-suitability

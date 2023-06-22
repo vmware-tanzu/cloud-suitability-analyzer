@@ -16,3 +16,5 @@ patterns:
   - value: AbstractTransformer
 ## AbstractMessageTransformer{
 ## AbstractTransformer{
+profiles:
+- value: cloud-suitability

@@ -14,3 +14,5 @@ patterns:
   - value: file_uploads
 
 #- file_uploads=1
+profiles:
+- value: cloud-suitability

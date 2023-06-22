@@ -111,6 +111,25 @@ generateExecutables() {
   popd
 }
 
+generateRuleTestExecutables() {
+  echo "Build Rule Test executables under csa-app/test-exe"
+  sh build-RuleTest.sh
+}
+
+runRuleTests() {
+   CURRENT_DIR=${PWD}
+   cd ${PWD}/csa-app/tests
+   go test -v
+   if [ $? -eq 0 ]
+    then
+      echo "~~~> Rule test passed!"
+    else
+      echo "~~~> Rule test failed!" >&2
+      exit 1
+    fi
+   cd ${CURRENT_DIR}
+}
+
 helpText() {
   echo "./build.sh - Generate binaries"
   echo "  -h|--help       Help!!"
@@ -147,6 +166,9 @@ if [[ ! -z "$RELEASE" ]]; then
   stashFiles
 fi
 
+runRuleTests
+
 generateExecutables
+generateRuleTestExecutables
 
 echo "Build ended at $(date -u +%s)"

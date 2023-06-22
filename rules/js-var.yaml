@@ -11,3 +11,5 @@ tags:
 - value: read-only
 patterns:
 - value: var
+profiles:
+- value: cloud-suitability

@@ -24,3 +24,5 @@ patterns:
     tag: javax-xml-ws
   - value: org.apache.client.wink.client
     tag: wink
+profiles:
+- value: cloud-suitability

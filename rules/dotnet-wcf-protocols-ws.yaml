@@ -13,3 +13,5 @@ patterns:
 - value: <ws.+HttpBinding>
   advice: Many features of WS* protocols are problematic in the cloud like distributed transactions and reliable sessions
 #- <wsHttpBinding><binding allowCookies="Boolean"
+profiles:
+- value: cloud-suitability

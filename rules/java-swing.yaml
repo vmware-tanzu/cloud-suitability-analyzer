@@ -134,3 +134,5 @@ patterns:
 ##  JTree.EmptySelectionModel(
 ##  JViewport(
 ##  JWindow(
+profiles:
+- value: cloud-suitability

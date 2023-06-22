@@ -14,3 +14,5 @@ tags:
 patterns:
   - value: <session-type>Stateful</session-type>
 ##<session-type>Stateful</session-type>
+profiles:
+- value: cloud-suitability

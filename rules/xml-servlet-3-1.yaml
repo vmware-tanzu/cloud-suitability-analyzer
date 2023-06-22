@@ -14,3 +14,5 @@ tags:
 patterns:
 - value: web-app_3_1.xsd
 ##web-app_3_1.xsd
+profiles:
+- value: cloud-suitability

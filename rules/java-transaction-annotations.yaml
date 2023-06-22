@@ -15,3 +15,5 @@ patterns:
 - value: RemoteHome
 - value: TransactionManagement
 - value: TransactionAttribute
+profiles:
+- value: cloud-suitability

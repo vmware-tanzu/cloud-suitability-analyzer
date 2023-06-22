@@ -16,3 +16,5 @@ patterns:
   - value: AdministeredObjectDefinition
   - value: ConnectionFactoryDefinition
   - value: ConnectionFactoryDefinitions
+profiles:
+- value: cloud-suitability

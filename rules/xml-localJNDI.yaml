@@ -15,3 +15,5 @@ tags:
 patterns:
 - value: <local-jndi-name>
 ##<local-jndi-name>
+profiles:
+- value: cloud-suitability

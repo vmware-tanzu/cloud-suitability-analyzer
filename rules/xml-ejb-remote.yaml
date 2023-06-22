@@ -15,3 +15,5 @@ tags:
 patterns:
 - value: <remote>
 ##<remote>
+profiles:
+- value: cloud-suitability

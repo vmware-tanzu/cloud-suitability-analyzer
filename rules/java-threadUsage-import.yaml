@@ -13,3 +13,5 @@ recipes:
 patterns:
 - value: java.lang.Thread
 - value: java.lang.Runnable
+profiles:
+- value: cloud-suitability

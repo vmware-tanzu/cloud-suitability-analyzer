@@ -1,0 +1,16 @@
+name: dotnet-managed-addin
+filetype: (cs$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Managed Addin Framework (MAF) won't be ported to .NET Core. See https://aka.ms/unsupported-netfx-api.
+effort: 10
+readiness: 10
+category: API
+patterns:
+- value: System.AddIn
+tags:
+- value: api
+- value: unsupported-netcore
+profiles:
+- value: netcore

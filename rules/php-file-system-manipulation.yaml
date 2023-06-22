@@ -42,3 +42,5 @@ patterns:
 #- mkdir
 #- move_uploaded_file(
 #- touch(
+profiles:
+- value: cloud-suitability

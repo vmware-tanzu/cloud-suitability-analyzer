@@ -12,3 +12,5 @@ tags:
 - value: cloud-ready
 patterns:
 - value: load_from_vcap_services
+profiles:
+- value: cloud-suitability

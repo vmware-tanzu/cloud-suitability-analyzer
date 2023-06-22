@@ -57,3 +57,5 @@ patterns:
 ##  XAResource(
 ##  Xid(
 ##  XAException(
+profiles:
+- value: cloud-suitability

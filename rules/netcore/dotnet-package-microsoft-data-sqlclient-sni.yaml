@@ -1,0 +1,15 @@
+name: dotnet-package-microsoft-data-sqlclient-sni
+filetype: (config$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Not Supported in .NetCore 
+effort: 10
+readiness: 10
+category: package
+patterns:
+- value: Microsoft.Data.SqlClient.SNI
+tags:
+- value: unsupported-netcore
+profiles:
+- value: netcore

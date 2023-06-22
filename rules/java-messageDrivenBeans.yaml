@@ -15,3 +15,5 @@ patterns:
 - value: 'EJB\(lookup'
 
 ##@EJB(lookup=)
+profiles:
+- value: cloud-suitability

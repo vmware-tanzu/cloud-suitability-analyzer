@@ -1,0 +1,15 @@
+name: dotnet-package-autofac-owin
+filetype: (config$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Not Supported in .NetCore 
+effort: 10
+readiness: 10
+category: package
+patterns:
+- value: Autofac.Owin
+tags:
+- value: unsupported-netcore
+profiles:
+- value: netcore

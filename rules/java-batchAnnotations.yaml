@@ -12,3 +12,5 @@ tags:
 - value: batch
 patterns:
 - value: BatchProperty
+profiles:
+- value: cloud-suitability

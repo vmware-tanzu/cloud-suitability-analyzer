@@ -1,0 +1,17 @@
+name: dotnet-asp-membership
+filetype: config$
+target: file
+type: xpath
+advice: Not supported, replaced by ASP.NET Core Identity. Manage users in Database.
+patterns:
+- value: /configuration/system.web/membership
+readiness: 9
+effort: 10
+category: unsupported-netcore
+tags:
+- value: authentication
+- value: asp
+- value: unsupported-netcore
+#- <configuration><system.web><membership
+profiles:
+- value: netcore

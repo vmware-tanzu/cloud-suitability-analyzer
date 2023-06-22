@@ -12,3 +12,5 @@ tags:
 patterns:
   - value: weblogic.
 ## import weblogic.
+profiles:
+- value: cloud-suitability

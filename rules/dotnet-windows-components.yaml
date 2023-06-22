@@ -16,3 +16,5 @@ tags:
 - value: unsupported-netcore
 #- public TransactionScope (System.Transactions.Transaction transactionToUse, TimeSpan 
 #- Set ObjContext = GetObjectContext
+profiles:
+- value: cloud-suitability

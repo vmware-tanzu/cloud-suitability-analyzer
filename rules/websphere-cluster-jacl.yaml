@@ -11,3 +11,5 @@ tags:
   - value: ws-cluster
 patterns:
   - value: _CLUSTERS
+profiles:
+- value: cloud-suitability

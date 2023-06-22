@@ -12,3 +12,5 @@ tags:
 - value: io
 patterns:
 - value: javax.persistence
+profiles:
+- value: cloud-suitability

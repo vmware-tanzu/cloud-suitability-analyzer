@@ -13,3 +13,7 @@ patterns:
 - value: Symbol
 
 #- new Synbol
+profiles:
+- value: cloud-suitability
+profiles:
+- value: cloud-suitability

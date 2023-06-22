@@ -1,12 +1,14 @@
-#qc1
 name: config-encryption
 filetype: config$
 target: file
 type: xpath
-advice: Use of encrypted sections is problematic in cloud environments
+advice: Use of encrypted sections is problematic in cloud environments. Configurations should be externalized as environment variables instead of encrypting them in configuration file.
 effort: 300
 category: security
 tags:
-- value: protection-provider
+- value: security
+- value: encryption
 patterns:
   - value: //*[@configProtectionProvider][1]
+profiles:
+- value: cloud-suitability

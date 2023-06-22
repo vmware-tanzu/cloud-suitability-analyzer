@@ -15,3 +15,5 @@ patterns:
   - value: RUN groupadd
   - value: RUN useradd
   - value: USER
+profiles:
+- value: cloud-suitability

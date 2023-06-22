@@ -14,3 +14,5 @@ patterns:
   - value:  allow_url_include
 
   #- allow_url_fopen=1
+profiles:
+- value: cloud-suitability

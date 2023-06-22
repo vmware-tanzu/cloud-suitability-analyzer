@@ -18,3 +18,5 @@ patterns:
 - value: <webHttp.+Binding>
 #- <webHttpBinding><binding allowCookies="Boolean"
   advice: Refers to documentation when using WCF, some protocols might not be supported
+profiles:
+- value: cloud-suitability

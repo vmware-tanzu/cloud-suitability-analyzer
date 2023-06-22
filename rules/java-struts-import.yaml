@@ -18,3 +18,5 @@ patterns:
     tag: struts
   - value: com.opensymphony
     tag: opensymphony
+profiles:
+- value: cloud-suitability

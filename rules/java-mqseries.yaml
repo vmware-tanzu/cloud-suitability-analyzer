@@ -43,3 +43,5 @@ patterns:
   - value: MQSimpleConnectionManager
   - value: MQSubscription
   - value: MQTopic
+profiles:
+- value: cloud-suitability

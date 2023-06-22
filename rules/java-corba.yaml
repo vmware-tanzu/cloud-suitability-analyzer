@@ -114,3 +114,5 @@ patterns:
   - value: WStringSeqHelper
   - value: WStringSeqHolder
   - value: WStringValueHelper
+profiles:
+- value: cloud-suitability

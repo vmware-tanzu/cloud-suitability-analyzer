@@ -1,0 +1,16 @@
+name: dotnet-javascript-serializer
+filetype: (cs$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Use JSON.NET instead.
+effort: 10
+readiness: 10
+category: API
+patterns:
+- value: JavaScriptSerializer
+tags:
+- value: api
+- value: unsupported-netcore
+profiles:
+- value: netcore

@@ -13,3 +13,5 @@ patterns:
   - value: DenyAll
   - value: PermitAll
   - value: RolesAllowed
+profiles:
+- value: cloud-suitability

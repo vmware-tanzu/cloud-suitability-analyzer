@@ -20,3 +20,5 @@ patterns:
 - value: setMapEvictionPolicy
 - value: MapEvictionPolicy
 - value: newHazelcastInstance
+profiles:
+- value: cloud-suitability

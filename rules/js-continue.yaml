@@ -13,3 +13,5 @@ patterns:
 - value: continue
 
 #- continue
+profiles:
+- value: cloud-suitability

@@ -1,0 +1,18 @@
+name: dotnet-asp-machine-key
+filetype: config$
+target: file
+type: xpath
+advice: Not supported in .NetCore. Will have to be replaced https://learn.microsoft.com/en-us/aspnet/core/security/data-protection/compatibility/replacing-machinekey?view=aspnetcore-7.0
+patterns:
+- value: /configuration/system.web/machineKey
+readiness: 9
+effort: 10
+category: unsupported-netcore
+tags:
+- value: encryption
+- value: config
+- value: asp-classic
+- value: unsupported-netcore
+#- <configuration><system.web><machineKey validationKey="*
+profiles:
+- value: netcore

@@ -15,3 +15,5 @@ tags:
 patterns:
   - value: <xa-datasource
 ##<xa-datasource
+profiles:
+- value: cloud-suitability

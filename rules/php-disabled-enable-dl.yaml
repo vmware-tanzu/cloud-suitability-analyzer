@@ -13,3 +13,5 @@ patterns:
   - value: enable_dl
 
 #- enable_dl=1
+profiles:
+- value: cloud-suitability

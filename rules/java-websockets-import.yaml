@@ -18,3 +18,5 @@ patterns:
 - value: io.vertx.core.http.ServerWebSocket;
   tag: vertx
   effort: 100
+profiles:
+- value: cloud-suitability

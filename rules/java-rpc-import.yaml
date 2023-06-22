@@ -24,3 +24,5 @@ patterns:
     tag: javax.xml.rpc
   - value: javax.xml.rpc.ServiceException
     tag: javax.xml.rpc
+profiles:
+- value: cloud-suitability

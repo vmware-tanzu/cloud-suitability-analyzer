@@ -12,3 +12,5 @@ tags:
   - value: logging
 patterns:
   - value: org.slf4j
+profiles:
+- value: cloud-suitability

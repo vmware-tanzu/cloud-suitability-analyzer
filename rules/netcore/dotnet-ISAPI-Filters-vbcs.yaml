@@ -1,0 +1,20 @@
+name: dotnet-ISAPI-Filters-vbcs
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Windows and IIS server dependency. Not supported in .netCore targeting linux.
+category: unsupported-iis-module
+effort: 1000
+readiness: 0
+patterns:
+- value: GetSection\(system.webServer/isapiFilters\)
+- value: GetSection\("system.webServer/isapiFilters"\)
+#- GetSection(system.webServer/isapiFilters)
+#- ConfigurationSection isapiFiltersSection = config.GetSection("system.webServer/isapiFilters");
+tags:
+- value: iis-module
+- value: isapi-filter
+# Mostly a challenge if moving to .NetCore
+profiles:
+- value: netcore

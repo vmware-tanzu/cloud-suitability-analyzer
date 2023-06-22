@@ -14,3 +14,5 @@ tags:
 patterns:
 - value: javax.ejb.MessageDriven
 - value: javax.ejb.ActivationConfigProperty
+profiles:
+- value: cloud-suitability

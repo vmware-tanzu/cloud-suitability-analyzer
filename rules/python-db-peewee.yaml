@@ -11,3 +11,5 @@ tags:
 - value: peewee
 patterns:
 - value: peewee
+profiles:
+- value: cloud-suitability

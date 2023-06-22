@@ -1,0 +1,16 @@
+name: dotnet-wf-presentation
+filetype: (xaml$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+category: WF
+advice: Windows Workflow Foundation (WF) won't be ported to .NET Core. See https://aka.ms/unsupported-netfx-api.
+effort: 500
+readiness: 1
+patterns:
+- value: System.Activities.Core.Presentation
+tags:
+- value: windows-wf
+- value: unsupported-netcore
+profiles:
+- value: netcore

@@ -141,3 +141,5 @@ patterns:
 ##  UIViewParameter(
 ##  UIViewParameter.Reference(
 ##  UIViewRoot(
+profiles:
+- value: cloud-suitability

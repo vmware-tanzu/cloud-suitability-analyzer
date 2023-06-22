@@ -1,0 +1,15 @@
+name: dotnet-package-telerik-dataaccess-core
+filetype: (config$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Not Supported in .NetCore 
+effort: 10
+readiness: 10
+category: package
+patterns:
+- value: Telerik.DataAccess.Core
+tags:
+- value: unsupported-netcore
+profiles:
+- value: netcore

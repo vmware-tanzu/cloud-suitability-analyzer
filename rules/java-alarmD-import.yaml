@@ -10,3 +10,5 @@ tags:
   - value: scheduler
 patterns:
   - value: com.tfcci.ucs.manager
+profiles:
+- value: cloud-suitability

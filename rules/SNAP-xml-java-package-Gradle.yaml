@@ -17,3 +17,5 @@ patterns:
 
 ##apply plugin: 'ear'
 ##apply plugin: 'war'
+profiles:
+- value: cloud-suitability

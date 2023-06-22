@@ -1,0 +1,2 @@
+Serilog.Sinks
+.UseSerilog()

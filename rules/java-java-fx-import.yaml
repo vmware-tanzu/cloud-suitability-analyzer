@@ -12,3 +12,5 @@ tags:
 - value: java-fx
 patterns:
 - value: javafx
+profiles:
+- value: cloud-suitability

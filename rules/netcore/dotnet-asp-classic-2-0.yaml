@@ -1,0 +1,19 @@
+
+name: dotnet-asp-classic-2-0
+filetype: (asp$)
+target: line
+type: regex
+defaultpattern: \s%s.*
+advice: Not supported by many PAS. ASP .net pages will have to be replaced by ASP .NetCore
+patterns:
+- value: runat="server"
+- value: runat="Server"
+readiness: 9
+effort: 10
+category: Unsupported
+tags:
+- value: asp-classic
+- value: unsupported-netcore
+#- <a id="link1" runat="server">Visit W3Schools!</a>
+profiles:
+- value: netcore

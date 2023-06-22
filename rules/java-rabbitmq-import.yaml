@@ -12,3 +12,5 @@ tags:
   - value: rabbitmq
 patterns:
   - value: com.rabbitmq
+profiles:
+- value: cloud-suitability

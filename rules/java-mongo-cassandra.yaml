@@ -18,3 +18,5 @@ patterns:
     tag: cassandra
     effort: 0
 ## import org.springframework
+profiles:
+- value: cloud-suitability

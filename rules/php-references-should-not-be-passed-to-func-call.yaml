@@ -15,3 +15,5 @@ patterns:
 
 
 #- &variablename
+profiles:
+- value: cloud-suitability

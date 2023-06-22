@@ -11,3 +11,5 @@ tags:
   - value: code_smell
 patterns:
   - value: document.write
+profiles:
+- value: cloud-suitability

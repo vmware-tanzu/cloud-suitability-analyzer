@@ -1,0 +1,15 @@
+name: dotnet-package-microsoft-netframework-referenceassemblies-net461
+filetype: (config$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Not Supported in .NetCore 
+effort: 10
+readiness: 10
+category: package
+patterns:
+- value: Microsoft.NETFramework.ReferenceAssemblies.net461
+tags:
+- value: unsupported-netcore
+profiles:
+- value: netcore

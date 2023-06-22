@@ -694,3 +694,5 @@ patterns:
   tag: zaxxer
 - value: zwitserloot
   tag: zwitserloot
+profiles:
+- value: cloud-suitability

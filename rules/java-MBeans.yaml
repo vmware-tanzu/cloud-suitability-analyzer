@@ -16,3 +16,5 @@ patterns:
 ##WebSphere:name
 ##WebSphere:service
 ##WebSphere:type
+profiles:
+- value: cloud-suitability

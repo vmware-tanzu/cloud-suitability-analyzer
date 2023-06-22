@@ -13,3 +13,5 @@ patterns:
   - value: algorithm
 
 #- algorithms
+profiles:
+- value: cloud-suitability

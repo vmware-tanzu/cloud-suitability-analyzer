@@ -18,3 +18,5 @@ patterns:
 ##F persistence.xml
 ##F web.xml
 ##F applicationContext.xml
+profiles:
+- value: cloud-suitability

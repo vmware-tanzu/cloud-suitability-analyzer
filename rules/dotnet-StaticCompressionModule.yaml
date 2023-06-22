@@ -13,3 +13,5 @@ patterns:
 tags:
 - value: iis-module
 - value: static-compression
+profiles:
+- value: cloud-suitability

@@ -11,3 +11,5 @@ tags:
 - value: vulnerability
 patterns:
 - value: console.log
+profiles:
+- value: cloud-suitability

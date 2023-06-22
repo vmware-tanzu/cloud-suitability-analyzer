@@ -14,3 +14,5 @@ tags:
 patterns:
 - value: web-facesconfig_2_2.xsd
 ##web-facesconfig_2_2.xsd
+profiles:
+- value: cloud-suitability

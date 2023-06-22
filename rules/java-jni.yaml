@@ -30,3 +30,5 @@ patterns:
 ## public native
 ## private native
 ## static native
+profiles:
+- value: cloud-suitability

@@ -14,3 +14,5 @@ tags:
   - value: message-queue
 patterns:
   - value: createActiveMQConnection
+profiles:
+- value: cloud-suitability

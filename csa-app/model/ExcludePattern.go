@@ -6,6 +6,7 @@
 package model
 
 import "time"
+import "csa-app/util"
 
 type ExcludePattern struct {
 	ID        uint      `gorm:"primary_key" json:"-" yaml:"-"`
@@ -14,4 +15,8 @@ type ExcludePattern struct {
 	RuleID    uint      `sql:"type:bigint REFERENCES rules(id) ON DELETE CASCADE" json:"-"  yaml:"-"`
 	Rule      Rule      `gorm:"foreignkey:RuleID" json:"-"  yaml:"-"`
 	Value     string    `gorm:"type:text"`
+}
+
+func (e *ExcludePattern) GetEscapedPattern() string {
+	return util.EscapeSpecials(e.Value)
 }

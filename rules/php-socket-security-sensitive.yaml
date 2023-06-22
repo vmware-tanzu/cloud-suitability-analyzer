@@ -22,3 +22,5 @@ patterns:
 
 
 #- socket_create(
+profiles:
+- value: cloud-suitability
