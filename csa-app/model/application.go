@@ -37,11 +37,13 @@ type Application struct {
 	CIFindings     int               `json:"ciFindings"`
 	InfoFindings   int               `json:"infoFindings"`
 	RawScore       int               `json:"rawScore"`
+	RawScore_TF    int               `json:"rawScore_tf"`
+	RawScore_K8_S  int               `json:"rawScore_k8_s"`
 	NumCrits       int               `json:"numCrits"`
 	ScoringModel   string            `json:"model" yaml:"model"`
 	Score          float64           `json:"score"`
 	Score_TF       float64           `json:"score_tf"`
-	Score_K8S      float64           `json:"score_k8s"`
+	Score_K8_S     float64           `json:"score_k8_s"`
 	OriginalScore  float64           `gorm:"default:'-1.0'" json:"originalScore"`
 	ScoreModified  bool              `json:"scoreModified"`
 	Recommendation string            `json:"recommendation"`
@@ -122,6 +124,10 @@ func (app *Application) CalculateScore(scoreModel *ScoringModel) (err error) {
 			if app.RawScore <= 0 {
 				app.Score = scoreModel.MaxScore
 			} else {
+				fmt.Println("Calculating Score")
+				fmt.Println(outcome.Expression)
+				fmt.Println(scoreModel)
+
 				app.Score, err = app.calculate(outcome.Expression, scoreModel)
 			}
 		} else {
@@ -185,6 +191,9 @@ func (tag ByValue) Less(i, j int) bool {
 
 func (app *Application) calculate(target string, scoreModel *ScoringModel) (float64, error) {
 	parameters := make(map[string]interface{})
+	//note: This expressing needs to be kept in sync with the scoring model
+	// RAW_SCORE_SCORING_TOKEN needs to follow database field name
+	// app.RawScore needs to follow the database field value
 	parameters[RAW_SCORE_SCORING_TOKEN] = app.RawScore
 	parameters[FILES_SCORING_TOKEN] = app.FilesCnt
 	parameters[FINDINGS_SCORING_TOKEN] = app.Findings
@@ -194,6 +203,7 @@ func (app *Application) calculate(target string, scoreModel *ScoringModel) (floa
 	parameters[MIN_SCORE] = scoreModel.MinScore
 
 	expression := util.NewExpression(parameters)
+	fmt.Println("Expression: ", expression)
 
 	result, err := expression.Calculate(target)
 

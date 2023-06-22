@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapScoringModelsTemplate.txt found under go/resources folder
-//Created @ 2023-06-22 09:30:48.748026 -0500 CDT m=+0.384976029
+//Created @ 2023-06-22 15:33:24.606321 -0500 CDT m=+0.354198307
 
 func BootstrapModels() []ScoringModel {
     var BootstrapModels = []ScoringModel{
@@ -378,6 +378,312 @@ func BootstrapModels() []ScoringModel {
                                   { Type: "bv",
                                     Start: "8.01",
                                     End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_score)", }, 
+                                  }, 
+                               },
+                            },
+                        }, 
+                    }, 
+                },
+            }, 
+            { Name: "k8s-model",
+              MaxScore: 10,
+              MinScore: 0,
+                Ranges:
+                []*Bucket{ 
+                    //Bucket
+                    { Type: "sloc", Start: "0", End: "1000",
+                         Ranges:
+                        []*Bucket{ 
+                            { Type: "raw",
+                              Start: "int.min",
+                              End: "10", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Deploy to TAS", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                  }, 
+                               },
+                            },
+                            { Type: "raw",
+                              Start: "11",
+                              End: "100", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                  }, 
+                               },
+                            },
+                            { Type: "raw",
+                              Start: "101",
+                              End: "1000", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS (consider modernization)", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                  }, 
+                               },
+                            },
+                            { Type: "raw",
+                              Start: "1001",
+                              End: "int.max", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                  }, 
+                               },
+                            },
+                        }, 
+                    }, 
+                    //Bucket
+                    { Type: "sloc", Start: "1001", End: "2500",
+                         Ranges:
+                        []*Bucket{ 
+                            { Type: "raw",
+                              Start: "int.min",
+                              End: "10", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Deploy to TAS", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                  }, 
+                               },
+                            },
+                            { Type: "raw",
+                              Start: "11",
+                              End: "500", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                  }, 
+                               },
+                            },
+                            { Type: "raw",
+                              Start: "501",
+                              End: "1000", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS (consider modernization)", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                  }, 
+                               },
+                            },
+                            { Type: "raw",
+                              Start: "1001",
+                              End: "int.max", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                  }, 
+                               },
+                            },
+                        }, 
+                    }, 
+                    //Bucket
+                    { Type: "sloc", Start: "2501", End: "5000",
+                         Ranges:
+                        []*Bucket{ 
+                            { Type: "raw",
+                              Start: "int.min",
+                              End: "10", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Deploy to TAS", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                  }, 
+                               },
+                            },
+                            { Type: "raw",
+                              Start: "11",
+                              End: "1000", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                  }, 
+                               },
+                            },
+                            { Type: "raw",
+                              Start: "1001",
+                              End: "1500", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS (consider modernization)", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                  }, 
+                               },
+                            },
+                            { Type: "raw",
+                              Start: "1501",
+                              End: "int.max", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                  }, 
+                               },
+                            },
+                        }, 
+                    }, 
+                    //Bucket
+                    { Type: "sloc", Start: "5001", End: "10000",
+                         Ranges:
+                        []*Bucket{ 
+                            { Type: "raw",
+                              Start: "int.min",
+                              End: "10", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 10, Recommendation: "Deploy to TAS", Calculate: false, Expression: "", }, 
+                                  }, 
+                               },
+                            },
+                            { Type: "raw",
+                              Start: "11",
+                              End: "100", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 9.75, Recommendation: "Refactor to TAS", Calculate: false, Expression: "", }, 
+                                  }, 
+                               },
+                            },
+                            { Type: "raw",
+                              Start: "101",
+                              End: "500", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 9.5, Recommendation: "Refactor to TAS", Calculate: false, Expression: "", }, 
+                                  }, 
+                               },
+                            },
+                            { Type: "raw",
+                              Start: "501",
+                              End: "1000", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 9, Recommendation: "Refactor to TAS", Calculate: false, Expression: "", }, 
+                                  }, 
+                               },
+                            },
+                            { Type: "raw",
+                              Start: "1001",
+                              End: "int.max", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "2", Outcome: &Outcome{ Score: 0, Recommendation: "Rehost to TKG (consider modernization)", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                  }, 
+                                  { Type: "bv",
+                                    Start: "2.01",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS (consider modernization)", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                  }, 
+                               },
+                            },
+                        }, 
+                    }, 
+                    //Bucket
+                    { Type: "sloc", Start: "10001", End: "int.max",
+                         Ranges:
+                        []*Bucket{ 
+                            { Type: "raw",
+                              Start: "int.min",
+                              End: "10", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 10, Recommendation: "Refactor to TAS", Calculate: false, Expression: "", }, 
+                                  }, 
+                               },
+                            },
+                            { Type: "raw",
+                              Start: "11",
+                              End: "100", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 9.75, Recommendation: "Refactor to TAS", Calculate: false, Expression: "", }, 
+                                  }, 
+                               },
+                            },
+                            { Type: "raw",
+                              Start: "101",
+                              End: "500", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 9.5, Recommendation: "Refactor to TAS", Calculate: false, Expression: "", }, 
+                                  }, 
+                               },
+                            },
+                            { Type: "raw",
+                              Start: "501",
+                              End: "1000", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 9, Recommendation: "Refactor to TAS", Calculate: false, Expression: "", }, 
+                                  }, 
+                               },
+                            },
+                            { Type: "raw",
+                              Start: "1001",
+                              End: "10000", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "8.0", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS (consider modernization)", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                  }, 
+                                  { Type: "bv",
+                                    Start: "8.01",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                  }, 
+                               },
+                            },
+                            { Type: "raw",
+                              Start: "10001",
+                              End: "int.max", 
+                               Ranges:
+                               []*Bucket{ 
+                                  { Type: "bv",
+                                    Start: "flt.min",
+                                    End: "2.0", Outcome: &Outcome{ Score: 0, Recommendation: "Rehost to TKG (consider modernization)", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                  }, 
+                                  { Type: "bv",
+                                    Start: "2.01",
+                                    End: "8.0", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS (consider modernization)", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                  }, 
+                                  { Type: "bv",
+                                    Start: "8.01",
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
                                   }, 
                                },
                             },

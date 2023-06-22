@@ -434,7 +434,9 @@ func (csaService *CsaService) scoreApps(run *model.Run) {
 		for i := range run.Applications {
 			for _, details := range appDetails {
 				if run.Applications[i].Name == details.Application {
+					fmt.Println("Merging details for " + run.Applications[i].Name)
 					run.Applications[i].MergeDetails(details)
+					fmt.Println("Calculating score for " + run.Applications[i].Name)
 					err = run.Applications[i].CalculateScore(nil)
 					break
 				}

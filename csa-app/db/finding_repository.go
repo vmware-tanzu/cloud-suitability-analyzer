@@ -362,7 +362,7 @@ func (findingRepository *OrmRepository) GetApplicationDetailsForRun(runid uint, 
 
 	res := findingRepository.dbconn.Model(&model.Finding{}).
 		Where(&model.Finding{RunID: runid}).
-		Select("application, count(*) as findings, sum(effort) as raw_score, sum(effort_tf) as raw_score_tf, sum(effort_k8_s) as raw_score_k8_s").Group("application").
+		Select("application, count(*) as findings, sum(effort) as raw_score, sum(effort_tf) as rawscore_tf, sum(effort_k8_s) as rawscore_k8_s").Group("application").
 		Order("raw_score desc, application asc").
 		Scan(&applicationScores)
 
