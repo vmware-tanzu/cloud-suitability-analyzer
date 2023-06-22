@@ -584,7 +584,9 @@ func (csaService *CsaService) genAppCSAResults(run *model.Run) {
 			line,
 			rule,
 			advice,
-			effort
+			effort,
+			effort_tf,
+			effort_k8_s
    		FROM findings;
 		`
 
@@ -623,21 +625,23 @@ func (csaService *CsaService) genAppCSAResults(run *model.Run) {
 		var rule string
 		var advice string
 		var effort int
+		var effort_tf int
+		var effort_k8s int
 
-		_, err3 := file.WriteString("application,filename,fqn,line,rule,advice,effort\n")
+		_, err3 := file.WriteString("application,filename,fqn,line,rule,advice,effort,effort-tf,effort-k8s\n")
 
 		if err3 != nil {
 			fmt.Print(err3)
 			os.Exit(1)
 		}
 		for rows.Next() {
-			err = rows.Scan(&application, &filename, &fqn, &line, &rule, &advice, &effort)
+			err = rows.Scan(&application, &filename, &fqn, &line, &rule, &advice, &effort, &effort_tf, &effort_k8s)
 			if err != nil {
 				fmt.Print(err)
 				os.Exit(1)
 			}
 
-			line := fmt.Sprintf("\"%s\",\"%s\",\"%s\",%d,\"%s\",\"%s\",%d\n", application, filename, fqn, line, rule, advice, effort)
+			line := fmt.Sprintf("\"%s\",\"%s\",\"%s\",%d,\"%s\",\"%s\",%d,%d,%d\n", application, filename, fqn, line, rule, advice, effort, effort_tf, effort_k8s)
 			_, err2 := file.WriteString(line)
 
 			if err2 != nil {

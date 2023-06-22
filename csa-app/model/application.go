@@ -12,8 +12,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/sirupsen/logrus"
 	"csa-app/util"
+	"github.com/sirupsen/logrus"
 )
 
 const RAW_SCORE_SCORING_TOKEN = "raw_score"
@@ -40,6 +40,8 @@ type Application struct {
 	NumCrits       int               `json:"numCrits"`
 	ScoringModel   string            `json:"model" yaml:"model"`
 	Score          float64           `json:"score"`
+	Score_TF       float64           `json:"score_tf"`
+	Score_K8S      float64           `json:"score_k8s"`
 	OriginalScore  float64           `gorm:"default:'-1.0'" json:"originalScore"`
 	ScoreModified  bool              `json:"scoreModified"`
 	Recommendation string            `json:"recommendation"`
