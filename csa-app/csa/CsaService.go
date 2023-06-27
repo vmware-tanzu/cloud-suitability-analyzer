@@ -10,15 +10,15 @@ import (
 	"os"
 	"sync"
 
-	"github.com/antchfx/xmlquery"
 	"csa-app/db"
 	"csa-app/model"
 	"csa-app/report"
 	"csa-app/util"
+	"github.com/antchfx/xmlquery"
 	"gopkg.in/yaml.v3"
 )
 
-//The Engine that does file parsing and rule matching
+// The Engine that does file parsing and rule matching
 type CsaService struct {
 	ruleRepository       db.RuleRepository
 	runRepository        db.RunRepository
@@ -135,11 +135,11 @@ func (csaService *CsaService) concurrentAnalysis(run *model.Run) {
 		msg = "errors!"
 	}
 
-	if (!*util.Xtract) {
-		run.StopActivityLF("analysis", fmt.Sprintf("A8nalyzing...%s", msg), false, true)
+	if !*util.Xtract {
+		run.StopActivityLF("analysis", fmt.Sprintf("Analyzing...%s", msg), false, true)
 	} else {
-		run.StopActivityLF("analysis", "", false, false)		
-	} 
+		run.StopActivityLF("analysis", "", false, false)
+	}
 
 	csaService.analysisDone = true
 	close(csaService.saveChan)
@@ -164,7 +164,7 @@ func (csaService *CsaService) SerialAnalysis(run *model.Run) {
 	if util.ProcessHadErrors("Analysis") {
 		msg = "errors!"
 	}
-	if (!*util.Xtract) {
+	if !*util.Xtract {
 		run.StopActivityLF("analysis", fmt.Sprintf("A9nalyzing...%s", msg), false, true)
 	} else {
 		run.StopActivityLF("analysis", "", false, false)

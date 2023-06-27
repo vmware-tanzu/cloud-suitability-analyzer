@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapScoringModelsTemplate.txt found under go/resources folder
-//Created @ 2023-06-22 15:33:24.606321 -0500 CDT m=+0.354198307
+//Created @ 2023-06-27 16:31:02.972451 -0500 CDT m=+0.294318125
 
 func BootstrapModels() []ScoringModel {
     var BootstrapModels = []ScoringModel{
@@ -401,7 +401,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Deploy to TAS", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Deploy to TAS", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
                                   }, 
                                },
                             },
@@ -412,7 +412,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
                                   }, 
                                },
                             },
@@ -423,7 +423,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS (consider modernization)", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS (consider modernization)", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
                                   }, 
                                },
                             },
@@ -434,7 +434,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
                                   }, 
                                },
                             },
@@ -451,7 +451,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Deploy to TAS", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Deploy to TAS", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
                                   }, 
                                },
                             },
@@ -462,7 +462,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
                                   }, 
                                },
                             },
@@ -473,7 +473,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS (consider modernization)", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS (consider modernization)", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
                                   }, 
                                },
                             },
@@ -484,7 +484,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
                                   }, 
                                },
                             },
@@ -501,7 +501,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Deploy to TAS", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Deploy to TAS", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
                                   }, 
                                },
                             },
@@ -512,7 +512,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
                                   }, 
                                },
                             },
@@ -523,7 +523,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS (consider modernization)", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS (consider modernization)", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
                                   }, 
                                },
                             },
@@ -534,7 +534,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
                                   }, 
                                },
                             },
@@ -595,11 +595,11 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "2", Outcome: &Outcome{ Score: 0, Recommendation: "Rehost to TKG (consider modernization)", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                    End: "2", Outcome: &Outcome{ Score: 0, Recommendation: "Rehost to TKG (consider modernization)", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
                                   }, 
                                   { Type: "bv",
                                     Start: "2.01",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS (consider modernization)", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS (consider modernization)", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
                                   }, 
                                },
                             },
@@ -660,11 +660,11 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "8.0", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS (consider modernization)", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                    End: "8.0", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS (consider modernization)", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
                                   }, 
                                   { Type: "bv",
                                     Start: "8.01",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
                                   }, 
                                },
                             },
@@ -675,15 +675,15 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "2.0", Outcome: &Outcome{ Score: 0, Recommendation: "Rehost to TKG (consider modernization)", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                    End: "2.0", Outcome: &Outcome{ Score: 0, Recommendation: "Rehost to TKG (consider modernization)", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
                                   }, 
                                   { Type: "bv",
                                     Start: "2.01",
-                                    End: "8.0", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS (consider modernization)", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                    End: "8.0", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to TAS (consider modernization)", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
                                   }, 
                                   { Type: "bv",
                                     Start: "8.01",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,rawscore_k8_s)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
                                   }, 
                                },
                             },

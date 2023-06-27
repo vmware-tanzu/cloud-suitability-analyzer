@@ -106,7 +106,7 @@ func (csaService *CsaService) analyzeFile(run *model.Run, app *model.Application
 
 		} else {
 			if *util.Verbose {
-				util.WriteLog("A6nalyzing", "Rule [%s] does not apply to file [%s|%s|%s]\n", app.Rules[i].Name, file.Name, file.Ext, file.FQN)
+				util.WriteLog("Analyzing", "Rule [%s] does not apply to file [%s|%s|%s]\n", app.Rules[i].Name, file.Name, file.Ext, file.FQN)
 			}
 		}
 	}
@@ -162,7 +162,7 @@ func (csaService *CsaService) analyzeFile(run *model.Run, app *model.Application
 	}
 
 	if *util.Verbose {
-		util.WriteLog("A7nalyzing", "************ FILE [%s] FINDINGS [%d] ***************\n", file.Name, findings)
+		util.WriteLog("Analyzing", "************ FILE [%s] FINDINGS [%d] ***************\n", file.Name, findings)
 	}
 
 	return nil

@@ -17,31 +17,31 @@ const FILE_FINDING = "ff"
 const FINDING_VAL_LEN = 2000
 
 type Finding struct {
-	ID             uint      `gorm:"primary_key" json:"-" yaml:"-"`
-	CreatedAt      time.Time `json:"-" yaml:"-"`
-	UpdatedAt      time.Time `json:"-" yaml:"-"`
-	RunID          uint      `gorm:"index;not null"`
-	Filename       string    `gorm:"type:text;"`
-	Fqn            string    `gorm:"type:text;`
-	Ext            string    `gorm:"type:text;"`
-	Line           int
-	Rule           string          `gorm:"type:text;"`
-	Pattern        string          `gorm:"type:text;"`
-	Value          string          `gorm:"type:text;"`
-	Note           string          `gorm:"type:text;" json:",omitempty" yaml:",omitempty"`
-	Advice         string          `gorm:"type:text" json:",omitempty" yaml:",omitempty"`
-	Effort         int             `gorm:"type:bigint" json:"effort" yaml:"effort"`
-	EffortTF       int             `gorm:"type:bigint" json:"effort-tf" yaml:"effort-tf"`
-	EffortK8S      int             `gorm:"type:bigint" json:"effort-k8s" yaml:"effort-k8s"`
-	Readiness      int             `gorm:"type:bigint" json:"readiness" yaml:"readiness,omitempty"`
-	Category       string          `gorm:"index;not null" json:",omitempty" yaml:",omitempty"`
-	Criticality    string          `gorm:"index;not null" json:",omitempty" yaml:",omitempty"`
-	CriticalityTF  int             `gorm:"type:bigint" json:"criticality-tf" yaml:"criticality-tf"`
-	CriticalityK8S int             `gorm:"type:bigint" json:"criticality-k8s" yaml:"criticality-k8s"`
-	Application    string          `gorm:"index;not null" json:",omitempty" yaml:",omitempty"`
-	Tags           []FindingTag    `gorm:"foreignkey:FindingID" json:",omitempty" yaml:",omitempty"`
-	Recipes        []FindingRecipe `gorm:"foreignkey:FindingID" json:",omitempty" yaml:",omitempty"`
-	Result         string          `gorm:"type:text;"`
+	ID            uint      `gorm:"primary_key" json:"-" yaml:"-"`
+	CreatedAt     time.Time `json:"-" yaml:"-"`
+	UpdatedAt     time.Time `json:"-" yaml:"-"`
+	RunID         uint      `gorm:"index;not null"`
+	Filename      string    `gorm:"type:text;"`
+	Fqn           string    `gorm:"type:text;`
+	Ext           string    `gorm:"type:text;"`
+	Line          int
+	Rule          string          `gorm:"type:text;"`
+	Pattern       string          `gorm:"type:text;"`
+	Value         string          `gorm:"type:text;"`
+	Note          string          `gorm:"type:text;" json:",omitempty" yaml:",omitempty"`
+	Advice        string          `gorm:"type:text" json:",omitempty" yaml:",omitempty"`
+	Effort        int             `gorm:"type:bigint" json:"effort" yaml:"effort"`
+	EffortTF      int             `gorm:"type:bigint" json:"effort-tf" yaml:"effort-tf"`
+	EffortK       int             `gorm:"type:bigint" json:"effort-k" yaml:"effort-k"`
+	Readiness     int             `gorm:"type:bigint" json:"readiness" yaml:"readiness,omitempty"`
+	Category      string          `gorm:"index;not null" json:",omitempty" yaml:",omitempty"`
+	Criticality   string          `gorm:"index;not null" json:",omitempty" yaml:",omitempty"`
+	CriticalityTF int             `gorm:"type:bigint" json:"criticality-tf" yaml:"criticality-tf"`
+	CriticalityK  int             `gorm:"type:bigint" json:"criticality-k" yaml:"criticality-k"`
+	Application   string          `gorm:"index;not null" json:",omitempty" yaml:",omitempty"`
+	Tags          []FindingTag    `gorm:"foreignkey:FindingID" json:",omitempty" yaml:",omitempty"`
+	Recipes       []FindingRecipe `gorm:"foreignkey:FindingID" json:",omitempty" yaml:",omitempty"`
+	Result        string          `gorm:"type:text;"`
 }
 
 type FindingDTO struct {

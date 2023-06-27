@@ -97,8 +97,8 @@ func (findingRepository *OrmRepository) GetFindingsDTOForRun(runid uint) (findin
 
 	rows, err := findingRepository.dbconn.Table("findings").
 		Select("findings.id, findings.run_id, findings.filename, findings.fqn, findings.ext, findings.line, findings.rule, "+
-			"findings.pattern, findings.value, findings.advice, findings.effort,findings.effort_tf, findings.effort_k8_s, findings.readiness, findings.category, "+
-			"findings.criticality, findings.criticality_tf, findings.criticality_k8_s, findings.application, finding_tags.value as tag, finding_recipes.uri as recipe_uri").
+			"findings.pattern, findings.value, findings.advice, findings.effort,findings.effort_tf, findings.effort_k, findings.readiness, findings.category, "+
+			"findings.criticality, findings.criticality_tf, findings.criticality_k, findings.application, finding_tags.value as tag, finding_recipes.uri as recipe_uri").
 		Joins("left join finding_tags on findings.id = finding_tags.finding_id left join finding_recipes on findings.id = finding_recipes.finding_id").
 		Where("run_id = ?", runid).Order("findings.id asc").Rows()
 
@@ -362,7 +362,7 @@ func (findingRepository *OrmRepository) GetApplicationDetailsForRun(runid uint, 
 
 	res := findingRepository.dbconn.Model(&model.Finding{}).
 		Where(&model.Finding{RunID: runid}).
-		Select("application, count(*) as findings, sum(effort) as raw_score, sum(effort_tf) as rawscore_tf, sum(effort_k8_s) as rawscore_k8_s").Group("application").
+		Select("application, count(*) as findings, sum(effort) as raw_score, sum(effort_tf) as raw_score_tf, sum(effort_k) as raw_score_k").Group("application").
 		Order("raw_score desc, application asc").
 		Scan(&applicationScores)
 
@@ -556,7 +556,7 @@ func (findingRepository *OrmRepository) GetScoreCardDetails(runId uint, app stri
 
 	whereClause := "run_id = ? and application =  ? and effort >= ? and effort <= ?"
 
-	selectClause := "application, category, pattern, effort, effort_tf, effort_k8_s " + levelCaseFragment() +
+	selectClause := "application, category, pattern, effort, effort_tf, effort_k " + levelCaseFragment() +
 		"count(*) as count, effort * count(*) as total"
 
 	res := findingRepository.dbconn.Model(&model.Finding{}).
