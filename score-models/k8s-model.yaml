@@ -1,3 +1,10 @@
+# This model is based upon the value of criticality in the rules.
+# The value of critical is designed to represent the relative importance of the rule.
+# It is in the format 50:50, where the first value scales the effort for twelve-factor migration
+# The second value scales the effort for containerization. The values are in the range 0-100. 
+# The default value is 50:50 which will have not effect on the effort.
+# The value will be divided by 50 and multiplied by the effort to arrive at a final score.
+# Score = 10 - Log10(Sum(Effort * (Criticality / 50)), where Sum is the total of all adjusted efforts.
 name: k8s-model
 max-score: 10
 ranges:

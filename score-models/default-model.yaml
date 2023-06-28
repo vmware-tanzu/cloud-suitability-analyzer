@@ -1,3 +1,5 @@
+# This is the default model that is used if no other model is specified.
+# It is the model that is used if the user does not specify a model.
 name: Default
 max-score: 10
 ranges:

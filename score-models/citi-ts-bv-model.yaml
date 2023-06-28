@@ -1,3 +1,5 @@
+# This model was created for Citibank to help them determine the best path for their applications.
+# It was created several years ago and is not currently in use.
 name: citi-ts-bv-model
 max-score: 10
 ranges:
