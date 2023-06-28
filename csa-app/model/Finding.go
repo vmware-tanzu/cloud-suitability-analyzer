@@ -32,12 +32,12 @@ type Finding struct {
 	Advice        string          `gorm:"type:text" json:",omitempty" yaml:",omitempty"`
 	Effort        int             `gorm:"type:bigint" json:"effort" yaml:"effort"`
 	EffortTF      int             `gorm:"type:bigint" json:"effort-tf" yaml:"effort-tf"`
-	EffortK       int             `gorm:"type:bigint" json:"effort-k" yaml:"effort-k"`
+	EffortCN      int             `gorm:"type:bigint" json:"effort-cn" yaml:"effort-cn"`
 	Readiness     int             `gorm:"type:bigint" json:"readiness" yaml:"readiness,omitempty"`
 	Category      string          `gorm:"index;not null" json:",omitempty" yaml:",omitempty"`
 	Criticality   string          `gorm:"index;not null" json:",omitempty" yaml:",omitempty"`
 	CriticalityTF int             `gorm:"type:bigint" json:"criticality-tf" yaml:"criticality-tf"`
-	CriticalityK  int             `gorm:"type:bigint" json:"criticality-k" yaml:"criticality-k"`
+	CriticalityCN int             `gorm:"type:bigint" json:"criticality-cn" yaml:"criticality-cn"`
 	Application   string          `gorm:"index;not null" json:",omitempty" yaml:",omitempty"`
 	Tags          []FindingTag    `gorm:"foreignkey:FindingID" json:",omitempty" yaml:",omitempty"`
 	Recipes       []FindingRecipe `gorm:"foreignkey:FindingID" json:",omitempty" yaml:",omitempty"`
@@ -59,7 +59,7 @@ type FindingDTO struct {
 	Level          string   `json:"level" yaml:"level"`
 	Effort         int      `json:"effort" yaml:"effort"`
 	EffortTF       int      `json:"effort-tf" yaml:"effort-tf"`
-	EffortK8s      int      `json:"effort-k8s" yaml:"effort-k8s"`
+	EffortCN       int      `json:"effort-cn" yaml:"effort-cn"`
 	Readiness      int      `json:"readiness" yaml:"readiness,omitempty"`
 	Category       string   `json:"category" yaml:"category,omitempty"`
 	Criticality    string   `json:"criticality" yaml:"criticality,omitempty"`

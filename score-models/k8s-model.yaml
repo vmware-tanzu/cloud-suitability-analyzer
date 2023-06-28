@@ -14,8 +14,8 @@ ranges:
             end: flt.max
             outcome:
               calculate: true
-              expression: max_score - log(10,raw_score_tf)
-              recommendation: Deploy to TAS
+              expression: max_score - log(10,raw-score-cn)
+              recommendation: Refactor to Tanzu Application Service
       - type: raw
         start: "11"
         end: "100"
@@ -25,8 +25,8 @@ ranges:
             end: flt.max
             outcome:
               calculate: true
-              expression: max_score - log(10,raw_score_tf)
-              recommendation: Refactor to TAS
+              expression: max_score - log(10,raw-score-cn)
+              recommendation: Refactor to Tanzu Application Service
       - type: raw
         start: "101"
         end: "1000"
@@ -36,8 +36,8 @@ ranges:
             end: flt.max
             outcome:
               calculate: true
-              expression: max_score - log(10,raw_score_tf)
-              recommendation: Refactor to TAS (consider modernization)
+              expression: max_score - log(10,raw-score-cn)
+              recommendation: Refactor to Tanzu Application Service
       - type: raw
         start: "1001"
         end: int.max
@@ -47,7 +47,7 @@ ranges:
             end: flt.max
             outcome:
               calculate: true
-              expression: max_score - log(10,raw_score_tf)
+              expression: max_score - log(10,raw-score-cn)
               recommendation: Modernization
   - type: sloc
     start: "1001"
@@ -62,8 +62,8 @@ ranges:
             end: flt.max
             outcome:
               calculate: true
-              expression: max_score - log(10,raw_score_tf)
-              recommendation: Deploy to TAS
+              expression: max_score - log(10,raw-score-cn)
+              recommendation: Refactor to Tanzu Application Service
       - type: raw
         start: "11"
         end: "500"
@@ -73,8 +73,8 @@ ranges:
             end: flt.max
             outcome:
               calculate: true
-              expression: max_score - log(10,raw_score_tf)
-              recommendation: Refactor to TAS
+              expression: max_score - log(10,raw-score-cn)
+              recommendation: Refactor to Tanzu Application Service
       - type: raw
         start: "501"
         end: "1000"
@@ -84,8 +84,8 @@ ranges:
             end: flt.max
             outcome:
               calculate: true
-              expression: max_score - log(10,raw_score_tf)
-              recommendation: Refactor to TAS (consider modernization)
+              expression: max_score - log(10,raw-score-cn)
+              recommendation: Refactor to Tanzu Application Service
       - type: raw
         start: "1001"
         end: int.max
@@ -95,7 +95,7 @@ ranges:
             end: flt.max
             outcome:
               calculate: true
-              expression: max_score - log(10,raw_score_tf)
+              expression: max_score - log(10,raw-score-cn)
               recommendation: Modernization
   - type: sloc
     start: "2501"
@@ -110,8 +110,8 @@ ranges:
             end: flt.max
             outcome:
               calculate: true
-              expression: max_score - log(10,raw_score_tf)
-              recommendation: Deploy to TAS
+              expression: max_score - log(10,raw-score-cn)
+              recommendation: Refactor to Tanzu Application Service
       - type: raw
         start: "11"
         end: "1000"
@@ -121,8 +121,8 @@ ranges:
             end: flt.max
             outcome:
               calculate: true
-              expression: max_score - log(10,raw_score_tf)
-              recommendation: Refactor to TAS
+              expression: max_score - log(10,raw-score-cn)
+              recommendation: Refactor to Tanzu Application Service
       - type: raw
         start: "1001"
         end: "1500"
@@ -132,8 +132,8 @@ ranges:
             end: flt.max
             outcome:
               calculate: true
-              expression: max_score - log(10,raw_score_tf)
-              recommendation: Refactor to TAS (consider modernization)
+              expression: max_score - log(10,raw-score-cn)
+              recommendation: Refactor to Tanzu Application Service 
       - type: raw
         start: "1501"
         end: int.max
@@ -143,7 +143,7 @@ ranges:
             end: flt.max
             outcome:
               calculate: true
-              expression: max_score - log(10,raw_score_tf)
+              expression: max_score - log(10,raw-score-cn)
               recommendation: Modernization
   - type: sloc
     start: "5001"
@@ -158,7 +158,7 @@ ranges:
             end: flt.max
             outcome:
               score: 10
-              recommendation: Deploy to TAS
+              recommendation: Refactor to Tanzu Application Service
       - type: raw
         start: "11"
         end: "100"
@@ -168,7 +168,7 @@ ranges:
             end: flt.max
             outcome:
               score: 9.75
-              recommendation: Refactor to TAS
+              recommendation: Refactor to Tanzu Application Service
       - type: raw
         start: "101"
         end: "500"
@@ -178,7 +178,7 @@ ranges:
             end: flt.max
             outcome:
               score: 9.5
-              recommendation: Refactor to TAS
+              recommendation: Refactor to Tanzu Application Service
       - type: raw
         start: "501"
         end: "1000"
@@ -188,7 +188,7 @@ ranges:
             end: flt.max
             outcome:
               score: 9
-              recommendation: Refactor to TAS
+              recommendation: Refactor to Tanzu Application Service
       - type: raw
         start: "1001"
         end: int.max
@@ -198,15 +198,15 @@ ranges:
             end: 2
             outcome:
               calculate: true
-              expression: max_score - log(10,raw_score_tf)
-              recommendation: Rehost to TKG (consider modernization)
+              expression: max_score - log(10,raw-score-cn)
+              recommendation: Refactor to Tanzu Kubernetes Service
           - type: bv
             start: 2.01
             end: flt.max
             outcome:
               calculate: true
-              expression: max_score - log(10,raw_score_tf)
-              recommendation: Refactor to TAS (consider modernization)
+              expression: max_score - log(10,raw-score-cn)
+              recommendation: Refactor to Tanzu Application Service
   - type: sloc
     start: "10001"
     end: int.max
@@ -220,7 +220,7 @@ ranges:
             end: flt.max
             outcome:
               score: 10
-              recommendation: Refactor to TAS
+              recommendation: Refactor to Tanzu Application Service
       - type: raw
         start: "11"
         end: "100"
@@ -230,7 +230,7 @@ ranges:
             end: flt.max
             outcome:
               score: 9.75
-              recommendation: Refactor to TAS
+              recommendation: Refactor to Tanzu Application Service
       - type: raw
         start: "101"
         end: "500"
@@ -240,7 +240,7 @@ ranges:
             end: flt.max
             outcome:
               score: 9.5
-              recommendation: Refactor to TAS
+              recommendation: Refactor to Tanzu Application Service
       - type: raw
         start: "501"
         end: "1000"
@@ -250,7 +250,7 @@ ranges:
             end: flt.max
             outcome:
               score: 9
-              recommendation: Refactor to TAS
+              recommendation: Refactor to Tanzu Application Service
       - type: raw
         start: "1001"
         end: "10000"
@@ -260,14 +260,14 @@ ranges:
             end: 8.0
             outcome:
               calculate: true
-              expression: max_score - log(10,raw_score_tf)
-              recommendation: Refactor to TAS (consider modernization)
+              expression: max_score - log(10,raw-score-cn)
+              recommendation: Refactor to Tanzu Application Service
           - type: bv
             start: 8.01
             end: flt.max
             outcome:
               calculate: true
-              expression: max_score - log(10,raw_score_tf)
+              expression: max_score - log(10,raw-score-cn)
               recommendation: Modernization
       - type: raw
         start: "10001"
@@ -278,19 +278,19 @@ ranges:
             end: 2.0
             outcome:
               calculate: true
-              expression: max_score - log(10,raw_score_tf)
-              recommendation: Rehost to TKG (consider modernization)
+              expression: max_score - log(10,raw-score-cn)
+              recommendation: Refactor to Tanzu Kubernetes Service
           - type: bv
             start: 2.01
             end: 8.0
             outcome:
               calculate: true
-              expression: max_score - log(10,raw_score_tf)
-              recommendation: Refactor to TAS (consider modernization)
+              expression: max_score - log(10,raw-score-cn)
+              recommendation: Refactor to Tanzu Application Service
           - type: bv
             start: 8.01
             end: flt.max
             outcome:
               calculate: true
-              expression: max_score - log(10,raw_score_tf)
+              expression: max_score - log(10,raw-score-cn)
               recommendation: Modernization

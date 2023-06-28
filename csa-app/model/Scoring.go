@@ -24,7 +24,7 @@ type ApplicationDetails struct {
 	InfoFindings  int     `json:"infoFindings"`
 	RawScore      int     `json:"rawScore"`
 	RawScore_TF   int     `json:"rawScore_tf"`
-	RawScore_K    int     `json:"rawScore_k"`
+	RawScore_CN   int     `json:"rawScore_cn"`
 	NumCrits      int     `json:"numCrits"`
 	SlocCnt       int     `json:"slocCnt"`
 	FilesCnt      int     `json:"filesCnt"`

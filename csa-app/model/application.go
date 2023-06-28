@@ -40,12 +40,12 @@ type Application struct {
 	InfoFindings   int               `json:"infoFindings"`
 	RawScore       int               `json:"rawScore"`
 	RawScore_TF    int               `json:"rawScore_tf"`
-	RawScore_K     int               `json:"rawScore_k"`
+	RawScore_CN    int               `json:"rawScore_cn"`
 	NumCrits       int               `json:"numCrits"`
 	ScoringModel   string            `json:"model" yaml:"model"`
 	Score          float64           `json:"score"`
 	Score_TF       float64           `json:"score_tf"`
-	Score_K        float64           `json:"score_k"`
+	Score_CN       float64           `json:"score_cn"`
 	OriginalScore  float64           `gorm:"default:'-1.0'" json:"originalScore"`
 	ScoreModified  bool              `json:"scoreModified"`
 	Recommendation string            `json:"recommendation"`
@@ -92,7 +92,7 @@ func (app *Application) MergeDetails(details ApplicationDetails) {
 	app.NumCrits = details.NumCrits
 	app.RawScore = details.RawScore
 	app.RawScore_TF = details.RawScore_TF
-	app.RawScore_K = details.RawScore_K
+	app.RawScore_CN = details.RawScore_CN
 	app.SlocCnt = details.SlocCnt
 	app.InfoFindings = details.InfoFindings
 	app.FindingsRatio = details.FindingsRatio
@@ -199,7 +199,7 @@ func (app *Application) calculate(target string, scoreModel *ScoringModel) (floa
 	// app.RawScore needs to follow the database field value
 	parameters[RAW_SCORE_SCORING_TOKEN] = app.RawScore
 	parameters[TF_SCORE_SCORING_TOKEN] = app.RawScore_TF
-	parameters[K_SCORE_SCORING_TOKEN] = app.RawScore_K
+	parameters[K_SCORE_SCORING_TOKEN] = app.RawScore_CN
 	parameters[FILES_SCORING_TOKEN] = app.FilesCnt
 	parameters[FINDINGS_SCORING_TOKEN] = app.Findings
 	parameters[SLOC_CNT_SCORING_TOKEN] = app.SlocCnt

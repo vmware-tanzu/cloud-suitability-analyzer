@@ -181,9 +181,9 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run,
 		readiness = pattern.Readiness
 	}
 
-	criticalityTF, criticalityK := 1, 1
+	criticalityTF, criticalityCN := 1, 1
 	var effortTF int
-	var effortK int
+	var effortCN int
 	//-- note: S. Woods
 	/*
 		rule is the actual rule materialized from the yaml file
@@ -199,12 +199,12 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run,
 	if criticality != "" {
 		//criticality = pattern.Criticality
 		//--- parse out the criticality values
-		criticalityTF, criticalityK = parseCriticality(criticality)
+		criticalityTF, criticalityCN = parseCriticality(criticality)
 		//--- transform the effort based upon fractional criticality
 		TF_factor := float64(criticalityTF) / 50.0
-		K_factor := float64(criticalityK) / 50.0
+		CN_factor := float64(criticalityCN) / 50.0
 		effortTF = int(math.Round(float64(rule.Effort) * TF_factor))
-		effortK = int(math.Round(float64(rule.Effort) * K_factor))
+		effortCN = int(math.Round(float64(rule.Effort) * CN_factor))
 	}
 
 	effort := rule.Effort
@@ -235,13 +235,13 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run,
 		Category:      category,
 		Effort:        effort,
 		EffortTF:      effortTF,
-		EffortK:       effortK,
+		EffortCN:      effortCN,
 		Note:          note,
 		Result:        result,
 		Readiness:     readiness,
 		Criticality:   criticality,
 		CriticalityTF: criticalityTF,
-		CriticalityK:  criticalityK,
+		CriticalityCN: criticalityCN,
 		Application:   file.Dir}
 
 	if finding != nil {
@@ -630,7 +630,7 @@ func (csaService *CsaService) genAppCSAResults(run *model.Run) {
 		var effort_tf int
 		var effort_cn int
 
-		_, err3 := file.WriteString("application,filename,fqn,line,rule,advice,effort,effort-tf,effort-k\n")
+		_, err3 := file.WriteString("application,filename,fqn,line,rule,advice,effort,effort-tf,effort-cn\n")
 
 		if err3 != nil {
 			fmt.Print(err3)
