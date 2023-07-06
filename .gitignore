@@ -180,3 +180,5 @@ env/
 *.db
 .npmrc
 exe/
+test-exe/
+csa-app/tests/export_rule_list.csv

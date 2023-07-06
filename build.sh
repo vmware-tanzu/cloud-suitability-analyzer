@@ -95,6 +95,7 @@ runGoGenerate() {
   popd
 }
 
+# Create csa executables
 generateExecutables() {
   pushd ${PWD}/csa-app
     OS=$(uname)
@@ -111,11 +112,13 @@ generateExecutables() {
   popd
 }
 
+# Create csa test executables
 generateRuleTestExecutables() {
   echo "Build Rule Test executables under csa-app/test-exe"
-  sh build-RuleTest.sh
+  sh build-test-clis.sh
 }
 
+# Run tests to validate the correctness of the rules
 runRuleTests() {
    CURRENT_DIR=${PWD}
    cd ${PWD}/csa-app/tests
@@ -159,8 +162,6 @@ done
 cleanup
 compilePackageFrontEnd
 runGoGenerate
-
-
 
 if [[ ! -z "$RELEASE" ]]; then
   stashFiles
