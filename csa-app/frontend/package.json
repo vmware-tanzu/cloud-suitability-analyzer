@@ -105,7 +105,7 @@
       "yaml": "2.2.2"
     },
     "request": {
-      "tough-cookie": "4.1.2"
+      "tough-cookie": "4.1.3"
     }
   }
 }
