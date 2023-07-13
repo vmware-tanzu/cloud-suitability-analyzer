@@ -10,7 +10,7 @@ mkdir -p $OUTPUT_DIR
 
 cp -r $PWD/rules $OUTPUT_DIR/
 
-pushd csa-app/tests
+pushd $PWD/csa-app/tests
     cp -r $PWD/test-cases $OUTPUT_DIR/
     cp -r $PWD/test-samples $OUTPUT_DIR/
 

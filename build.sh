@@ -19,7 +19,7 @@ compilePackageFrontEnd() {
     echo "~~~> Running npm ci"
     export NODE_OPTIONS="--max_old_space_size=4096"
 
-    #npm ci -s --no-optional #> /dev/null 2>&1
+    npm update && npm fund
     npm ci -s --no-optional --force --legacy-peer-deps
 
     if [ $? -eq 0 ]
@@ -96,7 +96,7 @@ runGoGenerate() {
 }
 
 # Create csa executables
-generateExecutables() {
+generateCSAExecutables() {
   pushd ${PWD}/csa-app
     OS=$(uname)
     if [[ "$OS" == "Linux" ]]; then
@@ -169,7 +169,7 @@ fi
 
 runRuleTests
 
-generateExecutables
+generateCSAExecutables
 generateRuleTestExecutables
 
 echo "Build ended at $(date -u +%s)"
