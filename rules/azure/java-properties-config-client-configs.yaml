@@ -2,7 +2,7 @@ name: java-properties-config-client-configs
 filetype: properties$
 target: line
 type: regex
-criticality: Info
+criticality:
 advice: The application is using spring config server and setting the connection string
 category: config server
 effort: 0

@@ -5,7 +5,7 @@ type: regex
 defaultpattern: "[ .]%s[ .({]"
 effort: 5
 readiness: 10
-criticality: 50:50
+criticality:
 advice: Usage requires configuration remdiation
 category: thirdParty
 tags:

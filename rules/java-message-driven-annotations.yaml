@@ -5,7 +5,7 @@ type: regex
 defaultpattern: ^\s*@%s
 advice: To convert a message driven bean to spring cloud stream with rabbitmq
 effort: 10
-criticality: 50:50
+criticality:
 category: annotations
 tags:
 - value: annotations

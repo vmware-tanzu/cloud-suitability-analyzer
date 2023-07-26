@@ -6,7 +6,7 @@ type: regex
 defaultpattern: "^.*[ @.]%s[ (].*"
 effort: 2
 readiness: 6
-criticality: 50:50
+criticality:
 advice: JPA will work inside of Cloud Native applications, make sure to use best practices to externalize connection parameters. 
 category: jpa
 tags:

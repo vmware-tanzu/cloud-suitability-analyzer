@@ -7,7 +7,7 @@ category: code-smell
 advice:  This rule verifies that single-line comments are not located at the ends of lines of code to be really readable, trailing comments would have to be properly written and formatted (correct alignment, no interference with the visual structure of the code, not too long to be visible) 
 effort: 5
 readiness: 1000
-criticality: 50:50
+criticality:
 tags:
   - value: code-smell
 patterns:

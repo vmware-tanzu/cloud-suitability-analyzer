@@ -6,7 +6,7 @@ defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Cloud readiness issue as potential state information that is not persisted to a backing service
 effort: 50
 readiness: 10
-criticality: 50:50
+criticality:
 category: nondistcache
 tags:
   - value: cache

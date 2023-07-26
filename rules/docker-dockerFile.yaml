@@ -8,7 +8,7 @@ advice: Determine if TKG is more prescriptive and TBS or Choreographer can be us
 recipes:
 effort: 5
 readiness: 1000
-criticality: 50:50
+criticality:
 tags:
   - value: docker
   - value: tkg

@@ -7,7 +7,7 @@ defaultpattern: ^.*%s
 advice: For containerization, the TERM signal must be handled, this pattern is a positive finding.
 effort: 1
 readiness: 6
-criticality: 50:50
+criticality:
 category: term-signal
 tags:
   - value: term

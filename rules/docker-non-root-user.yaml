@@ -8,7 +8,9 @@ advice: Shows evidence of avoiding root privledges
 recipes:
 effort: -100
 readiness: 1000
-criticality: 50:50
+criticality: 
+  cloud_native_readiness: 50
+  container_readiness: 50
 tags:
   - value: non-root-user
   - value: docker

@@ -7,7 +7,7 @@ type: regex
 defaultpattern: "^.*[ .]%s[ (].*"
 effort: 250
 readiness: 7
-criticality: 50:50
+criticality:
 category: jndi
 advice: Refactor jndi calls
 tags:

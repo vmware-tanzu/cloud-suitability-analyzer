@@ -6,7 +6,7 @@ defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Consider rearchitecting if decision is made to move off application server
 effort: 50
 readiness: 10
-criticality: 50:50
+criticality:
 category: webLogic
 tags:
   - value: weblogic

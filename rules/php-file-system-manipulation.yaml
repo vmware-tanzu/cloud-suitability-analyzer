@@ -8,7 +8,7 @@ advice: Filesystem manipulation is not encouraged in cloud-native applications. 
 recipe: Add a persistence volume or avoid Filesystem manipulation 
 effort: 50
 readiness: 1000
-criticality: 50:50
+criticality:
 tags:
   - value: io
 patterns:

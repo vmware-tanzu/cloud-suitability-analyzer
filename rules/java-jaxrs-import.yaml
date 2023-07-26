@@ -6,7 +6,7 @@ defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Refer to platform documentation
 effort: 0
 readiness: 8
-criticality: 50:50
+criticality:
 category: jax-rs
 tags:
   - value: jax-rs

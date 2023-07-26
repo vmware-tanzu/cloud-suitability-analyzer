@@ -2,7 +2,7 @@ name: java-yaml-config-client-configs
 filetype: (yaml$|yml$)
 target: contents
 type: yamlpath
-criticality: Info
+criticality:
 advice: The application is using spring config server and setting the connection string
 category: config server
 effort: 0

@@ -3,7 +3,7 @@ filetype: wsdl$
 target: file
 effort: 4
 readiness: 3
-criticality: 50:50
+criticality:
 category: soap
 advice: Consider upgrading to cloud friendly communication protocol
 type: regex

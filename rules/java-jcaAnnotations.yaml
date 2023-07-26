@@ -9,7 +9,7 @@ advice: Convert to a cloud friendly backing service.
 category: jca
 effort: 100
 readiness: 7
-criticality: 50:50
+criticality:
 tags:
   - value: annotations
   - value: jca

@@ -7,7 +7,7 @@ defaultpattern: (import)\s+(%s)\.{1}
 advice: Convert to Spring based POJOs instead of using container specific functionality
 effort: 50
 readiness: 5
-criticality: 50:50
+criticality:
 category: jboss
 tags:
   - value: jboss

@@ -7,7 +7,7 @@ category: ejb
 advice: Consult MDB documentation
 effort: 7
 readiness: 7
-criticality: 50:50
+criticality:
 tags:
 - value: ejb
 - value: mdb

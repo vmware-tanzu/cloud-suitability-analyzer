@@ -6,7 +6,7 @@ advice: Refer EJB stateful/stateless documentation
 defaultpattern: ^.*@%s$
 effort: 100
 readiness: 100
-criticality: 50:50
+criticality:
 category: ejb
 tags:
 - value: stateful

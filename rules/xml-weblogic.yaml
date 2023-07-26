@@ -6,7 +6,7 @@ category: webLogic
 advice: Consider rearchitecting if decision is made to move off application server
 effort: 100
 readiness: 100
-criticality: 50:50
+criticality:
 tags:
   - value: weblogic
   - value: full-profile

@@ -6,7 +6,7 @@ defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Adapt cloud friendly protocol
 effort: 2
 readiness: 10
-criticality: 50:50
+criticality:
 category: web-service
 tags:
   - value: web-service

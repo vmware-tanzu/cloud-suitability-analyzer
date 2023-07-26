@@ -2,7 +2,7 @@ name: java-redis-connection-string-user-password-yaml
 filetype: yaml$|yml$
 target: contents
 type: yamlpath
-criticality: Info
+criticality:
 advice: Redis connection string, username and password are detected
 category: redis
 tags: 

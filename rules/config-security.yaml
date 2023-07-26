@@ -6,7 +6,7 @@ type: xpath
 advice: Use of generated machine keys is problematic
 effort: 100
 readiness: 100
-criticality: 50:50
+criticality:
 category: security
 tags:
 - value: auto-gen-key

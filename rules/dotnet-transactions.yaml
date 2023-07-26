@@ -6,7 +6,7 @@ defaultpattern: .*%s.*
 advice: Potential use of distributed transactions which are unsupported
 readiness: 10
 effort: 100
-criticality: 50:50
+criticality:
 category: transaction
 tags:
 - value: distributed-transaction

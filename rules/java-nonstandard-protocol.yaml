@@ -5,7 +5,7 @@ type: regex
 defaultpattern: (%s)
 effort: 50
 readiness: 10
-criticality: 50:50
+criticality:
 advice: Ensure cloud friendly communication protocols
 category: protocol
 tags:

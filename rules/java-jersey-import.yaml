@@ -4,7 +4,7 @@ target: line
 type: regex
 effort: 5
 readiness: 8
-criticality: 50:50
+criticality:
 category: jersey
 advice: Refer to 3rd party organization for cloud affinity of library
 defaultpattern: '^import\s*%s.*'

@@ -6,7 +6,7 @@ type: regex
 defaultpattern: '^.*[ .]%s[ ({.<].*'
 effort: 10
 readiness: 6
-criticality: 50:50
+criticality:
 advice: Convert to cloud friendly cache implementation
 category: cache
 tags:

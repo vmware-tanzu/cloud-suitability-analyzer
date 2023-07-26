@@ -15,6 +15,11 @@ import (
 	"csa-app/util"
 )
 
+type Criticality struct {
+	Cloud_Native_Readiness int `json:",omitempty" yaml:",omitempty"`
+	Container_Readiness    int `json:",omitempty" yaml:",omitempty"`
+}
+
 type Rule struct {
 	ID              uint           `gorm:"primary_key" json:"-" yaml:"-"`
 	CreatedAt       time.Time      `json:"-" yaml:"-"`
@@ -30,7 +35,7 @@ type Rule struct {
 	Impact          string         `gorm:"type:text" json:",omitempty" yaml:",omitempty"`
 	Readiness       int            `gorm:"type:bigint; column:readiness" json:",omitempty" yaml:",omitempty"`
 	Category        string         `json:",omitempty" yaml:",omitempty"`
-	Criticality     string         `json:",omitempty" yaml:",omitempty"`
+	Criticality     []Criticality  `json:",omitempty" yaml:",omitempty"`
 	Tags            []Tag          `json:",omitempty" yaml:",omitempty"`
 	Recipes         []Recipe       `gorm:"foreignkey:RuleID" json:",omitempty" yaml:",omitempty"`
 	Patterns        []Pattern      `gorm:"foreignkey:RuleID"`

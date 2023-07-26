@@ -31,13 +31,13 @@ type Finding struct {
 	Note          string          `gorm:"type:text;" json:",omitempty" yaml:",omitempty"`
 	Advice        string          `gorm:"type:text" json:",omitempty" yaml:",omitempty"`
 	Effort        int             `gorm:"type:bigint" json:"effort" yaml:"effort"`
-	EffortTF      int             `gorm:"type:bigint" json:"effort-tf" yaml:"effort-tf"`
-	EffortCN      int             `gorm:"type:bigint" json:"effort-cn" yaml:"effort-cn"`
+	EffortTF      int             `gorm:"type:bigint" json:"effort_tf" yaml:"effort_tf"`
+	EffortCN      int             `gorm:"type:bigint" json:"effort_cn" yaml:"effort_cn"`
 	Readiness     int             `gorm:"type:bigint" json:"readiness" yaml:"readiness,omitempty"`
 	Category      string          `gorm:"index;not null" json:",omitempty" yaml:",omitempty"`
 	Criticality   string          `gorm:"index;not null" json:",omitempty" yaml:",omitempty"`
-	CriticalityTF int             `gorm:"type:bigint" json:"criticality-tf" yaml:"criticality-tf"`
-	CriticalityCN int             `gorm:"type:bigint" json:"criticality-cn" yaml:"criticality-cn"`
+	CriticalityTF int             `gorm:"type:bigint" json:"criticality_tf" yaml:"criticality_tf"`
+	CriticalityCN int             `gorm:"type:bigint" json:"criticality_cn" yaml:"criticality_cn"`
 	Application   string          `gorm:"index;not null" json:",omitempty" yaml:",omitempty"`
 	Tags          []FindingTag    `gorm:"foreignkey:FindingID" json:",omitempty" yaml:",omitempty"`
 	Recipes       []FindingRecipe `gorm:"foreignkey:FindingID" json:",omitempty" yaml:",omitempty"`
@@ -45,29 +45,29 @@ type Finding struct {
 }
 
 type FindingDTO struct {
-	ID             uint     `json:"id" yaml:"id"`
-	RunID          uint     `json:"run" yaml:"run"`
-	Filename       string   `json:"filename" yaml:"filename"`
-	Fqn            string   `json:"fqn" yaml:"fqn"`
-	Ext            string   `json:"ext" yaml:"ext"`
-	Line           int      `json:"line" yaml:"line"`
-	Rule           string   `json:"rule" yaml:"rule"`
-	Pattern        string   `json:"pattern" yaml:"pattern"`
-	Value          string   `json:"value" yaml:"value"`
-	Advice         string   `json:"advice" yaml:"advice"`
-	Note           string   `json:"note,omitempty" yaml:"note,omitempty"`
-	Level          string   `json:"level" yaml:"level"`
-	Effort         int      `json:"effort" yaml:"effort"`
-	EffortTF       int      `json:"effort-tf" yaml:"effort-tf"`
-	EffortCN       int      `json:"effort-cn" yaml:"effort-cn"`
-	Readiness      int      `json:"readiness" yaml:"readiness,omitempty"`
-	Category       string   `json:"category" yaml:"category,omitempty"`
-	Criticality    string   `json:"criticality" yaml:"criticality,omitempty"`
-	CriticalityTf  int      `json:"criticality-tf" yaml:"criticality-tf,omitempty"`
-	CriticalityK8S int      `json:"criticality-k8s" yaml:"criticality-k8s,omitempty"`
-	Application    string   `json:"application" yaml:"domain,omitempty"`
-	Tags           []string `json:"tags" yaml:"tags,omitempty"`
-	Recipes        []string `json:"recipes" yaml:"recipes,omitempty"`
+	ID            uint     `json:"id" yaml:"id"`
+	RunID         uint     `json:"run" yaml:"run"`
+	Filename      string   `json:"filename" yaml:"filename"`
+	Fqn           string   `json:"fqn" yaml:"fqn"`
+	Ext           string   `json:"ext" yaml:"ext"`
+	Line          int      `json:"line" yaml:"line"`
+	Rule          string   `json:"rule" yaml:"rule"`
+	Pattern       string   `json:"pattern" yaml:"pattern"`
+	Value         string   `json:"value" yaml:"value"`
+	Advice        string   `json:"advice" yaml:"advice"`
+	Note          string   `json:"note,omitempty" yaml:"note,omitempty"`
+	Level         string   `json:"level" yaml:"level"`
+	Effort        int      `json:"effort" yaml:"effort"`
+	EffortTF      int      `json:"effort_tf" yaml:"effort_tf"`
+	EffortCN      int      `json:"effort_cn" yaml:"effort_cn"`
+	Readiness     int      `json:"readiness" yaml:"readiness,omitempty"`
+	Category      string   `json:"category" yaml:"category,omitempty"`
+	Criticality   string   `json:"criticality" yaml:"criticality,omitempty"`
+	CriticalityTF int      `json:"criticality_tf" yaml:"criticality_tf,omitempty"`
+	CriticalityCN int      `json:"criticality_cn" yaml:"criticality_cn,omitempty"`
+	Application   string   `json:"application" yaml:"domain,omitempty"`
+	Tags          []string `json:"tags" yaml:"tags,omitempty"`
+	Recipes       []string `json:"recipes" yaml:"recipes,omitempty"`
 }
 
 func (f *Finding) SetValue(value string) {

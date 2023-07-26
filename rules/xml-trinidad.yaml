@@ -8,7 +8,7 @@ category: trinidad
 advice: Consider upgrading to modern UI framework
 effort: 10
 readiness: 7
-criticality: 50:50
+criticality:
 tags:
 - value: jsf
 - value: web-profile

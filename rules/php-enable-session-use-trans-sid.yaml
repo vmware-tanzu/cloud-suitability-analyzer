@@ -8,7 +8,7 @@ advice:  PHP’s session.use_trans_sid automatically appends the user’s sessio
 recipe: session.use_trans_sid is off by default, this rule raises an issue when it is explicitly enabled.
 effort: 5
 readiness: 1000
-criticality: 50:50
+criticality:
 tags:
   - value: vulnerability
 patterns:

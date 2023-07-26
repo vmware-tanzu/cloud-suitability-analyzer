@@ -8,7 +8,7 @@ category: weblogic-webapp
 advice: Consider rearchitecting if decision is made to move off application server
 effort: 400
 readiness: 700
-criticality: 50:50
+criticality:
 tags:
 - value: web-app
 - value: weblogic

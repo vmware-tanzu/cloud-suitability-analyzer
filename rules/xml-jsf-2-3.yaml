@@ -8,7 +8,7 @@ category: jsf
 advice: Consider upgrading to modern UI framework
 effort: 700
 readiness: 700
-criticality: 50:50
+criticality:
 tags:
 - value: jsf
 - value: web-app

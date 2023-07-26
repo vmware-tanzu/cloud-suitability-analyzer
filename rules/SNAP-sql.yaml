@@ -8,7 +8,7 @@ category: jdbc
 advice: Database coupling detected consider using ORM framework
 effort: 10
 readiness: 0
-criticality: 50:50
+criticality:
 tags:
   - value: jdbc
   - value: sql

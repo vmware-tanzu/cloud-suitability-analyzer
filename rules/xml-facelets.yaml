@@ -8,7 +8,7 @@ category: Facelets
 advice: Consider upgrading to modern UI framework
 effort: 2
 readiness: 2
-criticality: 50:50
+criticality:
 tags:
 - value: facelets
 - value: jsf

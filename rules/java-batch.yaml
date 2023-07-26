@@ -8,7 +8,7 @@ type: regex
 defaultpattern: "^.*[ .]%s[ (].*"
 effort: 10
 readiness: 7
-criticality: 50:50
+criticality:
 category: jndi
 advice: Remove jndi provider or move to TKG
 tags:

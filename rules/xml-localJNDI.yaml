@@ -8,7 +8,7 @@ category: jndi
 advice: WebSphere does not allow local JNDI, refer to documentation
 effort: 10
 readiness: 10
-criticality: 50:50
+criticality:
 tags:
 - value: jndi
 - value: local

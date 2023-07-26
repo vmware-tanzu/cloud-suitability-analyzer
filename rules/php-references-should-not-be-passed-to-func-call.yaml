@@ -8,7 +8,7 @@ advice:  Passing a reference to a function parameter means that any modification
 recipe: Pass by value
 effort: 3
 readiness: 1000
-criticality: 50:50
+criticality:
 tags:
   - value: code_smell
 patterns:

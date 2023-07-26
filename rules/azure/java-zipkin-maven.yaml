@@ -2,7 +2,7 @@ name: java-zipkin-maven
 filetype: xml$
 target: contents
 type: xpath
-criticality: Warn
+criticality:
 advice: The application uses Zipkin. Update the application to use Application Insights(https://learn.microsoft.com/en-us/azure/spring-apps/how-to-application-insights) instead if migrating to Azure
 effort: 5
 category: zipkin

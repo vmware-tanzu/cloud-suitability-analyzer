@@ -6,7 +6,7 @@ defaultpattern: .*%s.*
 advice: Externalize configuration to environment or use ConfigMap as file-mount into a K8S pod
 effort: 10
 readiness: 3
-criticality: 50:50
+criticality:
 category: env-config
 tags:
 - value: env-config

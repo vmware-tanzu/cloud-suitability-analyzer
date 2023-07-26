@@ -2,7 +2,7 @@ name: java-properties-eureka-client-configs
 filetype: properties$
 target: line
 type: regex
-criticality: Info
+criticality:
 advice: The application is using eureka and setting the connection string
 category: eureka
 effort: 0

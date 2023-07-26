@@ -3,7 +3,7 @@ filetype: gradle$|kts$|xml$
 filenamepattern: (^build.gradle|^pom.xml$)
 target: contents
 type: regex
-criticality: Info
+criticality:
 advice: The application has spring boot/spring cloud starter dependencies
 effort: 0
 category: spring boot

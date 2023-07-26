@@ -9,7 +9,7 @@ defaultpattern: ^\s*%s\s*native\s*
 effort: 1000
 #TODO rule for System.loadlibrary
 readiness: 7
-criticality: 50:50
+criticality:
 category: jni
 tags:
   - value: native

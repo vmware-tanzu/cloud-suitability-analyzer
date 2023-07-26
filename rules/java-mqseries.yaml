@@ -5,7 +5,7 @@ type: regex
 defaultpattern: "^.*[ .]%s[ (].*"
 effort: 7
 readiness: 7
-criticality: 50:50
+criticality:
 advice: You need to make sure that you are using the dependencies that match the version of IBM MQ on the server 
 category: ibm-mq
 tags:

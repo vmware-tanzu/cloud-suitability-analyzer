@@ -8,7 +8,7 @@ category: WebServlet
 advice: Automatic remediation with Bootifier
 effort: 0
 readiness: 2
-criticality: 50:50
+criticality:
 tags:
   - value: web-socket
 patterns:

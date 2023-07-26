@@ -10,7 +10,7 @@ advice: Replace with cloud-friendly framework or move to TKG
 #--- 8/8/18 survey
 effort: 10
 readiness: 6
-criticality: 50:50
+criticality:
 category: corba
 tags:
   - value: rpc

@@ -8,7 +8,7 @@ advice: parse_str() without second argument is deprecated
 recipe: All existing uses should be gradually removed or upgraded to new equivalent features.  
 effort: 3
 readiness: 1000
-criticality: 50:50
+criticality:
 tags:
   - value: deprecated
 patterns:

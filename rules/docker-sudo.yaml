@@ -8,7 +8,7 @@ advice: Using root inside a container is a serious vulnerability.
 recipes:
 effort: 100
 readiness: 10
-criticality: 50:50
+criticality:
 tags:
   - value: docker
   - value: sudo

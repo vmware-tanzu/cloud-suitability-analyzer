@@ -8,7 +8,7 @@ patterns:
 advice: Not supported, Replace with IFormCollection
 readiness: 9
 effort: 0
-criticality: 50:50
+criticality:
 category: unsupported-netcore
 tags:
 - value: mvc

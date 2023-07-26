@@ -8,7 +8,7 @@ advice:  Reading Standard Input is security-sensitive. It has led in the past to
 recipe: Sanitize all data read from the standard input before using it. (https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
 effort: 50
 readiness: 1000
-criticality: 50:50
+criticality:
 tags:
   - value: security
   - value:  filesystem

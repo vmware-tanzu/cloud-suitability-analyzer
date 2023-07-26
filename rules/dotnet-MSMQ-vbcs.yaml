@@ -8,7 +8,7 @@ category: unsupported-module
 advice: Refer to platform documentation
 effort: 10
 readiness: 1
-criticality: 50:50
+criticality:
 patterns:
 - value: MessageQueue
 - value: using System.Messaging

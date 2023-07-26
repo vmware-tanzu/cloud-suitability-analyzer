@@ -8,7 +8,7 @@ advice:  Using sockets is security-sensitive. It has led in the past to the foll
 recipe: In many cases there is no need to open a socket yourself. Use instead libraries and existing protocols.
 effort: 50
 readiness: 1000
-criticality: 50:50
+criticality:
 tags:
   - value: anti-pattern
 patterns:

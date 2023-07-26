@@ -6,7 +6,7 @@ defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Consult 3rd party documentation
 effort: 7
 readiness: 10
-criticality: 50:50
+criticality:
 category: security
 tags:
 - value: security

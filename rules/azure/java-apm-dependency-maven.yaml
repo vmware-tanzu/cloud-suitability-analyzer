@@ -3,7 +3,7 @@ filetype: xml$
 filenamepattern: ^pom.xml$
 target: file
 type: xpath
-criticality: Info
+criticality:
 advice: The application has integrated an Application Performance Management (APM) tool as a dependency
 category: apm
 tags: 

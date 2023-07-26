@@ -6,7 +6,7 @@ defaultpattern: ^.*import(\s*|=")%s.*$
 advice: There are several changes required to move a Mule Project to PCF
 effort: 100
 readiness: 10
-criticality: 50:50
+criticality:
 category: etl
 tags:
   - value: mulesoft

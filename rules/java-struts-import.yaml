@@ -6,7 +6,7 @@ defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Consider upgrading to modern cloud native UI framework
 effort: 6
 readiness: 7
-criticality: 50:50
+criticality:
 category: struts
 tags:
   - value: struts

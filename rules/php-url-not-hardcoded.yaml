@@ -8,7 +8,7 @@ advice:  Url Hardcoding in code is anti-pattern
 recipe: use variables tired in configuration files instead
 effort: 2
 readiness: 1000
-criticality: 50:50
+criticality:
 tags:
   - value: code_smell
 patterns:

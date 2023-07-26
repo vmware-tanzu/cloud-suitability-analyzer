@@ -6,7 +6,7 @@ type: regex
 defaultpattern: "^.*[ .]%s[ (].*$"
 effort: 5
 readiness: 4
-criticality: 50:50
+criticality:
 category: jsf
 tags:
   - value: jsf

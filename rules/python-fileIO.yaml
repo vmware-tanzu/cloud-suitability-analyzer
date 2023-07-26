@@ -6,7 +6,7 @@ defaultpattern: ^.*[ .]%s[ (].*
 advice: Relying on the local filesystem to store state is unreliable in a cloud platform. Since containers are immutable, restarts will lose any written changes. Refactor this logic to use an external service to store state.
 effort: 8
 readiness: 8
-criticality: 50:50
+criticality:
 category: io
 tags:
 - value: io

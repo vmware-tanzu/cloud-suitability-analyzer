@@ -6,7 +6,7 @@ defaultpattern: .*%s.*
 advice: When using HTTPS, terminate SSL at load balancer
 effort: 1
 readiness: 10
-criticality: 50:50
+criticality:
 category: wcf
 tags:
 - value: windows-wcf

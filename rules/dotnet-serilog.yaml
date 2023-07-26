@@ -6,7 +6,7 @@ defaultpattern: (%s)
 advice: Logging with Serilog. Make sure not to log to file. Remote logging sinks need to be reachable on network.
 effort: 3
 readiness: 8
-criticality: 50:50
+criticality:
 category: logging
 tags:
 - value: logging

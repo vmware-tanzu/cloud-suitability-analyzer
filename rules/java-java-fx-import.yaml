@@ -4,7 +4,7 @@ target: line
 type: regex
 effort: 1000
 readiness: 100
-criticality: 50:50
+criticality:
 category: java-fx
 advice: Java-fx is not cloud compatible and requires the JRE on the remote device.
 recipes:

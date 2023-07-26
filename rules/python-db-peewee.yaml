@@ -6,7 +6,7 @@ defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Check target platform has support for this library
 effort: 0
 readiness: 10
-criticality: 50:50
+criticality:
 category: database
 tags:
 - value: peewee

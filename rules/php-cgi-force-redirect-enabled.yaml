@@ -8,7 +8,7 @@ advice:  The cgi.force_redirect php.ini configuration is on by default, and it p
 recipe: Unfortunately, it must be disabled on IIS, OmniHTTPD and Xitami, but in all other cases it should be on.
 effort: 5
 readiness: 1000
-criticality: 50:50
+criticality:
 tags:
   - value: vulnerability
 patterns:

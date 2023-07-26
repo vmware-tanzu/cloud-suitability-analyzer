@@ -2,7 +2,7 @@ name: java-spring-cloud-support-version-gradle
 filetype: gradle$|kts$
 target: line
 type: regex
-criticality: Warn
+criticality:
 advice: Spring cloud version is out of any support. Please update to newer version
 effort: 6
 category: version

@@ -6,7 +6,7 @@ type: regex
 defaultpattern: (%s)\:{1}\/{2}
 effort: 100
 readiness: 10
-criticality: 50:50
+criticality:
 category: io
 tags:
   - value: io

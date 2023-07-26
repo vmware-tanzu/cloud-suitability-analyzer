@@ -8,7 +8,7 @@ advice:  However, the default configuration is to store session data in a tempor
 recipe: Store sessions in a centralized caching server or cluster. So stop putting everything into $_SESSION or $_COOKIE
 effort: 20
 readiness: 1000
-criticality: 50:50
+criticality:
 tags:
   - value: cache
 patterns:

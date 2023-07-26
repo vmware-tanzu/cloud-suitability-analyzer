@@ -7,7 +7,7 @@ category: vulnerability
 advice:  Weak cipher algorithms are used. A general recommendation is to only use cipher algorithms intensively tested and promoted by the cryptographic community.
 effort: 10
 readiness: 1000
-criticality: 50:50
+criticality:
 tags:
   - value: vulnerability
 patterns:

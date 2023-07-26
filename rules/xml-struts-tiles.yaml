@@ -8,7 +8,7 @@ category: tiles
 advice: Consider upgrading to modern cloud native UI framework
 effort: 5
 readiness: 2
-criticality: 50:50  
+criticality:  
 tags:
 - value: struts
 - value: ui

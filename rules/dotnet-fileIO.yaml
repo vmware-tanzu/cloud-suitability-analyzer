@@ -7,7 +7,7 @@ defaultpattern: .*%s.*\(.*
 advice: Relying on the local filesystem to store state is unreliable in a cloud platform.  
 effort: 100
 readiness: 8
-criticality: 50:50
+criticality:
 category: io
 tags:
 - value: io
