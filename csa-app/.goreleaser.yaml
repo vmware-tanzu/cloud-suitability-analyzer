@@ -22,7 +22,7 @@ builds:
       - sqlite_omit_load_extension
 
     ldflags:
-      - -s -w -X main.build={{.Version}}
+      - -s -w -X main.Version={{.Version}} -X main.CommitSha={{.Commit}} -X main.BuildDate={{.Date}}
       - -extldflags=-static
 
     goos:
@@ -41,7 +41,7 @@ builds:
       - sqlite_omit_load_extension
 
     ldflags:
-      - -s -w -X main.Version={{.Version}}
+      - -s -w -X main.Version={{.Version}} -X main.CommitSha={{.Commit}} -X main.BuildDate={{.Date}}
 
     goos:
       - darwin
@@ -62,7 +62,7 @@ builds:
     - sqlite_omit_load_extension
 
     ldflags:
-      - -s -w -X main.Version={{.Version}}
+      - -s -w -X main.Version={{.Version}} -X main.CommitSha={{.Commit}} -X main.BuildDate={{.Date}}
       - -extldflags=-static
 
     goos:

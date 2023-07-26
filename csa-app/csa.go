@@ -38,7 +38,8 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-//to generate the Bootstrap.go file
+// to generate the Bootstrap.go file
+//
 //go:generate go run scripts/generate_bootstrap.go >&2
 var (
 	//go:embed resources/report-templates/*
@@ -46,12 +47,9 @@ var (
 )
 
 var (
-	Version       string
-	BuildDate     string
-	Committer     string
-	CommitSha     string
-	CommitShaFull string
-	CommitMsg     string
+	Version   string
+	BuildDate string
+	CommitSha string
 )
 
 func main() {
@@ -226,10 +224,7 @@ func main() {
 		fmt.Println("****************************************************************************************")
 		fmt.Printf("\nVERSION:\t%s\n", Version)
 		fmt.Printf("BUILD DATE:\t%s\n", BuildDate)
-		fmt.Printf("COMMITTER:\t%s\n", Committer)
 		fmt.Printf("COMMIT REF:\t%s\n", CommitSha)
-		fmt.Printf("COMMIT SHA:\t%s\n", CommitShaFull)
-		fmt.Printf("COMMT MSG:\t%s\n\n", util.LineWrap(CommitMsg, 60))
 		adminMode = true
 	default:
 		err := fmt.Errorf("[%s] is an unknown Cmd!\n", run.Command)
