@@ -3,6 +3,7 @@
 
 | Date         | Action                       | Author   |
 | ------------ | ---------------------------- | -------- |
+| Jul 26, 2023 | Update with new features released in 4.0    | S. Carbonell
 | Feb 10, 2021 | Add call graphs to user manual with package descriptions| S. Woods
 | Jul 30, 2020 | Amended rule import instructions | S. Woods |
 | Jul 30, 2020 | Prep for open source release | S. Woods |
@@ -165,6 +166,22 @@ Set ulimit to 20000
 If you want help on any of these commands simple type CSA help and the command name, such as:
 
 `csa help rules`
+
+### Generate HTML and CSV reports
+
+`csa` can generate finding reports from command line after each scan as HTML or CSV files (Version 4.0 and higher).
+
+| Command    | Description                                                              |
+| ---------- | ------------------------------------------------------------------------ |
+| export     | List of expected formats divided by commas that will be used to export findings, ex: csv or csv,html |
+| export-dir      | Directory path where csa finding exports will be written |
+| export-file-name      | Base name of the "export" file, ex: "csa-export". Proper extensions will be appended based on "--export" command formats requested. |
+
+```
+ ./csa --export=csv --export-file-name=finding-report --export-dir=[Some Folder Path]
+```
+
+This will produce a file "finding-report.csv"
 
 ### Cloning portfolios
 
@@ -437,6 +454,8 @@ What is a Rule? A rule is in simplest terms a description of something that you 
 | Tags           | array of Tag objects     | Tags is a collection (0-n) of string values that can be used for grouping/slicing/ect... during analysis in csa                                                                                             | N              |                                                       | Y                 |
 | Recipes        | array of Recipe objects  | Recipes is a collection (0-n) of URI values pointing at applicable recipes to aid in remediation of the finding                                                                                                | N              |                                                       | N                 |
 | Patterns       | array of Pattern objects | Patterns contains the patterns (1-n) that will be used to match against filenames/line data and result in findings                                                                                             | Y (at least 1) |                                                       | N                 |
+| ExcludePatterns       | array of Pattern objects | Excludepatterns contains patterns that will be used to exclude false positives from findings. They will be applied to each findings and exclude the ones with positive match (Version 4.0 and higher)                                                                                            | N |                                                       | N                 |
+| Profiles       | array of Tag objects | Profiles contains tags that will be used to filter rules that can be used during the scan. Rules can have multiple profile tags and profiles can be sepcified when running CSA ex: --profiles netcore,cloud-suitability (Version 4.0 and higher)    | N |                                                       | N                 |
 
 #### Pattern model
 
@@ -610,6 +629,68 @@ All Rules Successfully Deleted!
 ```
 
 > **Note**: Rule 'filenames' are unimportant and have no bearing on rule behavior and are only important to the OS to disambiguate one file from another. Rule 'names' are only important from the perspective of they must be unique.
+
+## Rule Testing Framework
+
+Creating or updating rules can be tedious. Working with regexes is always a challenge! How can you ensure that a rule will work as expected at runtime?
+Since CSA 4.0 a Rule testing framework has been added to help with adding tests along side any rule changes.
+
+Test cases are written in YAML (No Go code required!) and can be managed independently of CSA. A new executable can be downloaded and used to test a set of rules locally.
+This is a great way for any organization using CSA and developing their own set of rules to ensure that rules are robust when used in production.
+
+A new artifact is now available: rule-test.zip
+
+It contains three main folders:
+
+| Attribute | Description |
+| --------- | ------ | 
+| rules     | Where rule YAML files should be stored | 
+| test-cases     | Test cases written as YAML documents | 
+| test-samples     | Sample of files that are leveraged by test cases | 
+| unit-test-l / unit-test-w / unit-test     | Executable that contains all dependencies to run the unit tests | 
+
+### Create a Test Case ##
+ 
+1. Find a sample of code to test the rule against
+ 
+- Find one or multiple sample of code that the rule should be tested against
+- Make sure to save the file under the right extension that matches the rule definition
+- Place the file under /test-samples
+ 
+2. Create the test case
+ 
+- Add the test case to the proper test suite ex: cloud_blockers.yml for cloud blockers.
+```
+- Test Case Sample<br>
+  tests:<br>
+  - name: "Name of the test case"
+    rule-name: rule-unique-name
+    test-filename: test-sample-file-name.cs
+    assert:  true or false (Is a match expected?)
+    assert-count:  1 (How many matches expected?)
+    assert-value: "null" or "Some code expected to be returned by the regex expression"
+```
+ 
+### Run the Unit Test Suites ##
+ 
+1. Navigate to the test directory
+ 
+``` cd /test-rules ```
+ 
+2. Run test command 
+ 
+On Linux:
+
+```  WORK_DIR=$(pwd) ./unit-test-l -test.v ``` 
+
+On MacOs:
+
+```  WORK_DIR=$(pwd) ./unit-test -test.v ``` 
+
+ 
+### Publish Rule Updates ###
+ 
+- Assuming the tests are passing (All the tests! To avoid regression), the changes can be pushed to the main repo referencing the related JIRA story
 
 ## Application Archetypes
 
