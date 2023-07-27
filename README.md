@@ -2,8 +2,12 @@
 
 # Latest Additions
 
-We have recently added call graph documentation for all `Go`
-code. See `Appendix A` in the [user manual](doc/CSA-UserManual.md). Also, you will find a table of package names and their descriptions. Call graphs were created by [go-calvis](https://github.com/ofabry/go-callvis). Instructions for using `go-callvis` are [here](https://github.com/ofabry/go-callvis). This is an excellent way to become more familiar with the code. From the `./csa-app` directory simply enter `go-callvis csa.go` . This will bring up an interactive code exploration tool.
+<b>New Features:</b>
+
+- [Exclude Patterns](https://github.com/vmware-tanzu/cloud-suitability-analyzer/blob/master/doc/CSA-UserManual.md#rules) - To help with fighting false positives
+- [Profiles](https://github.com/vmware-tanzu/cloud-suitability-analyzer/blob/master/doc/CSA-UserManual.md#rules) - To help select what type of rules to be used during scanning
+- [Rule Testing Framework](https://github.com/vmware-tanzu/cloud-suitability-analyzer/blob/master/doc/CSA-UserManual.md#rule-testing-framework) - To help with testing CSA rules against real code samples
+- [Generate HTML and CSV Finding Reports](https://github.com/vmware-tanzu/cloud-suitability-analyzer/blob/master/doc/CSA-UserManual.md#generate-html-and-csv-reports) - Generate HTML and CSV Reports that can be leveraged into a CI pipeline
 
 # Backlog/Feature requests
 
@@ -137,7 +141,7 @@ To create the release build do the following:
 * Execute 
   
   ```
-  ./buils.sh -r
+  ./build.sh -r
   ```
 
 * Push the tag out
