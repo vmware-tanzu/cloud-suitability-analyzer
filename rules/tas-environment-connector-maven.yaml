@@ -1,4 +1,4 @@
-name: tas-environment-cfenv-maven
+name: tas-environment-connector-maven
 filetype: xml$
 target: line
 type: regex
@@ -12,3 +12,5 @@ tags:
   - value: env-config
 patterns:
   - value: spring-cloud-cloudfoundry-connector
+profiles:
+- value: tas

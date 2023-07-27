@@ -12,3 +12,5 @@ tags:
   - value: env-config
 patterns:
   - value: CloudFoundryClient
+profiles:
+- value: tas

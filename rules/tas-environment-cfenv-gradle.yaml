@@ -12,3 +12,5 @@ tags:
 - value: env-config
 patterns:
 - value: spring-cloud-cloudfoundry-connector
+profiles:
+- value: tas

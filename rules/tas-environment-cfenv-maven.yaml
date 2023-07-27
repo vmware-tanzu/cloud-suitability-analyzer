@@ -12,3 +12,5 @@ tags:
   - value: env-config
 patterns:
   - value: java-cfenv-boot
+profiles:
+- value: tas
