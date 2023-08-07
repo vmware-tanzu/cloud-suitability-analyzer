@@ -1,0 +1,20 @@
+name: dotnet-wcf-service-model-config
+filetype: config$
+target: file
+type: xpath
+advice: Upgrade to CoreWCF https://devblogs.microsoft.com/dotnet/upgrading-a-wcf-service-to-dotnet-6/
+patterns:
+- value: /configuration/system.serviceModel
+readiness: 9
+effort: 10
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
+category: unsupported-iis-module
+tags:
+- value: windows-wcf
+- value: communication
+- value: api
+- value: unsupported-netcore
+profiles:
+- value: netcore

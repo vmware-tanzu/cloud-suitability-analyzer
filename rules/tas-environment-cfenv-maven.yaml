@@ -1,0 +1,19 @@
+name: tas-environment-cfenv-maven
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (>.*%s<)
+advice: Application appears to be using cf env library to inject environment variables provided by TAS.
+effort: 1
+readiness: 7
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
+category: tas
+tags:
+  - value: tas
+  - value: env-config
+patterns:
+  - value: java-cfenv-boot
+profiles:
+- value: tas

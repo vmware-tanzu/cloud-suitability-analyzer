@@ -1,11 +1,14 @@
 name: java-properties-logging-console-appender
-criticality:
+#criticality: Warn
 filetype: xml$
 filenamepattern: ^log4j2?(-\w+)?\.properties$
 target: contents
 type: regex
 negative: true
 effort: 5
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50#
 advice: Please enable logging to console
 category: logging
 tags:

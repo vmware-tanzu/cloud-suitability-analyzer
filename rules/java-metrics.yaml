@@ -7,6 +7,8 @@ advice: Indicates use of a metrics collection library, which supports containeri
 effort: -1
 readiness: 7
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: metrics
 tags:
   - value: metrics
@@ -21,3 +23,5 @@ patterns:
     tag: netuitive
   - value: edu.iris.dmc
     tag: iris-dmc
+profiles:
+- value: cloud-suitability

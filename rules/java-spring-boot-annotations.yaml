@@ -7,9 +7,13 @@ advice: Spring Boot is a positive score
 effort: -100
 readiness: 0
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 defaultpattern: ^\s*@%s
 category: spring-boot
 tags:
 - value: spring-boot
 patterns:
 - value: SpringBootApplication
+profiles:
+- value: cloud-suitability

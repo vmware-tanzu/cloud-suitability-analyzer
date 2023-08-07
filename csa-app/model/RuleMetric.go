@@ -16,7 +16,7 @@ type RuleMetric struct {
 	CreatedAt       time.Time     `json:"-" yaml:"-"`
 	UpdatedAt       time.Time     `json:"-" yaml:"-"`
 	Rule            string        `gorm:"type:text;index;not null" json:"rule" yaml:"rule"`
-	RuleCriticality string        `gorm:"type:text;index;not null" json:"-" yaml:"-"`
+	RuleCriticality Criticality   `gorm:"type:text;index;not null" json:"-" yaml:"-"`
 	RunID           uint          `gorm:"index;not null"`
 	Checks          int64         `json:"checks" yaml:"checks"`
 	PatternChecks   int64         `json:"patternChecks" yaml:"patternChecks"`
@@ -106,7 +106,9 @@ func (r *RuleMetric) CriticalityFactor() int {
 		}
 	}
 
-	switch strings.ToLower(r.RuleCriticality) {
+	//switch strings.ToLower(r.RuleCriticality) {
+	// Steve Woods removed since it is based on a no longer used criticality feature
+	switch strings.ToLower("") {
 
 	case "high":
 		return factor + 2

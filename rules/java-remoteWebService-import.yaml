@@ -7,6 +7,8 @@ advice: Consider rearchitecting the application to use Cloud friendly remote com
 effort: 10
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: web-service
 tags:
   - value: web-service
@@ -25,3 +27,5 @@ patterns:
     tag: javax-xml-ws
   - value: org.apache.client.wink.client
     tag: wink
+profiles:
+- value: cloud-suitability

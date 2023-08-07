@@ -9,7 +9,11 @@ category: batch
 effort: 10
 readiness: 7
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: batch
 patterns:
 - value: BatchProperty
+profiles:
+- value: cloud-suitability

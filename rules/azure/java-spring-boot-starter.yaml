@@ -3,9 +3,12 @@ filetype: gradle$|kts$|xml$
 filenamepattern: (^build.gradle|^pom.xml$)
 target: contents
 type: regex
-criticality:
+#criticality: Info
 advice: The application has spring boot/spring cloud starter dependencies
 effort: 0
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: spring boot
 tags:
   - value: spring boot

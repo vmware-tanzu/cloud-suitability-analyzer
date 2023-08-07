@@ -9,6 +9,8 @@ recipe: All existing uses should be gradually removed or upgraded to new equival
 effort: 7
 readiness: 1000
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: deprecated
 patterns:
@@ -44,3 +46,5 @@ patterns:
 #- spliti(
 #- set_socket_blocking
 #- session_register(
+profiles:
+- value: cloud-suitability

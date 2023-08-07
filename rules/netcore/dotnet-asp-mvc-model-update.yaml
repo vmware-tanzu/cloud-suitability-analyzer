@@ -1,0 +1,21 @@
+name: dotnet-asp-mvc-model-update
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*\s%s<.*
+advice: Not supported in .NetCore, Replace with TryUpdateModelAsync
+readiness: 9
+effort: 10
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
+patterns:
+- value: TryUpdateModel
+category: unsupported-netcore
+tags:
+- value: mvc
+- value: asp
+- value: unsupported-netcore
+#- protected internal bool TryUpdateModel<TModel>
+profiles:
+- value: netcore

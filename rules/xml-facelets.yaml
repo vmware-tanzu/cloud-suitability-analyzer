@@ -9,6 +9,8 @@ advice: Consider upgrading to modern UI framework
 effort: 2
 readiness: 2
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: facelets
 - value: jsf
@@ -16,3 +18,5 @@ tags:
 patterns:
 - value: jsf/facelets
 ##jsf/facelets
+profiles:
+- value: cloud-suitability

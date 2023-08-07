@@ -6,6 +6,8 @@ defaultpattern: ^\s*@%s
 advice: To convert a message driven bean to spring cloud stream with rabbitmq
 effort: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: annotations
 tags:
 - value: annotations
@@ -15,3 +17,5 @@ patterns:
   tag: message-driven
 - value: ActivationConfigProperty
   tag: message-driven
+profiles:
+- value: cloud-suitability

@@ -9,9 +9,13 @@ advice: Application Server coupling
 effort: 2
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: security
 - value: web-app
 patterns:
 - value: <transport-guarantee>CONFIDENTIAL
 ##<transport-guarantee>CONFIDENTIAL
+profiles:
+- value: cloud-suitability

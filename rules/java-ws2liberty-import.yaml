@@ -7,6 +7,8 @@ advice: Vendor proprietary implementation.  Consider rearchitecting if decision 
 effort: 10
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: webSphere
 tags:
 - value: websphere
@@ -54,3 +56,5 @@ patterns:
   tag: ibm-wsif
 - value: org.xmlsoap.schemas.wsdl.wsadie.messages
   tag: soap-wsdl
+profiles:
+- value: cloud-suitability

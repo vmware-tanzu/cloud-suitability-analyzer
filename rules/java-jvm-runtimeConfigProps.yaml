@@ -8,6 +8,8 @@ recipes:
 effort: 50
 readiness: 0
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: config
 tags:
 - value: config
@@ -29,3 +31,5 @@ patterns:
 #- import javax.xml.soap.SOAPFactory
 #- import javax.xml.parsers.DocumentBuilderFactory
 #- import javax.xml.parsers.SAXParserFactory
+profiles:
+- value: cloud-suitability

@@ -6,6 +6,8 @@ defaultpattern: ^\s*@%s
 advice: Java EE security appears to be used
 effort: 5
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: security
 tags:
   - value: security
@@ -14,3 +16,5 @@ patterns:
   - value: DenyAll
   - value: PermitAll
   - value: RolesAllowed
+profiles:
+- value: cloud-suitability

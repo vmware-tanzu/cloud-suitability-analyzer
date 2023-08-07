@@ -7,6 +7,8 @@ defaultpattern: ^.*@%s$
 effort: 100
 readiness: 100
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: ejb
 tags:
 - value: stateful
@@ -14,3 +16,5 @@ tags:
 patterns:
 - value: Stateful
 - value: StatefulTimeout
+profiles:
+- value: cloud-suitability

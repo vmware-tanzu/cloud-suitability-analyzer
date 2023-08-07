@@ -4,8 +4,10 @@ target: line
 type: regex
 effort: 5
 readiness: 8
-criticality:
 category: jersey
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 advice: Refer to 3rd party organization for cloud affinity of library
 defaultpattern: '^import\s*%s.*'
 tags:
@@ -14,3 +16,5 @@ tags:
 patterns:
   - value: com.sun.jersey
 ##import com.sun.jersey
+profiles:
+- value: cloud-suitability

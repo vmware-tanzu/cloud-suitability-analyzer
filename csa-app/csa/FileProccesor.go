@@ -122,7 +122,7 @@ func (csaService *CsaService) processFile(run *model.Run, app *model.Application
 			Value:       fmt.Sprintf("%d", sloc),
 			Effort:      0,
 			Readiness:   0,
-			Criticality: "50:50",
+			Criticality: model.Criticality{Cloud_Native_Readiness: 0, Container_Readiness: 0},
 			Application: file.Dir}
 
 		fileFinding.AddTag(model.INFO_FINDING)
@@ -181,7 +181,6 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run,
 		readiness = pattern.Readiness
 	}
 
-	criticalityTF, criticalityCN := 1, 1
 	var effortTF int
 	var effortCN int
 	//-- note: S. Woods
@@ -196,13 +195,12 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run,
 	*/
 	criticality := rule.Criticality
 	//if pattern.Criticality != "" {
-	if criticality != "" {
+	if criticality.Cloud_Native_Readiness != 0 && criticality.Container_Readiness != 0 {
 		//criticality = pattern.Criticality
 		//--- parse out the criticality values
-		criticalityTF, criticalityCN = parseCriticality(criticality)
 		//--- transform the effort based upon fractional criticality
-		TF_factor := float64(criticalityTF) / 50.0
-		CN_factor := float64(criticalityCN) / 50.0
+		TF_factor := float64(criticality.Cloud_Native_Readiness) / 50.0
+		CN_factor := float64(criticality.Container_Readiness) / 50.0
 		effortTF = int(math.Round(float64(rule.Effort) * TF_factor))
 		effortCN = int(math.Round(float64(rule.Effort) * CN_factor))
 	}
@@ -225,24 +223,22 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run,
 	}
 
 	data := model.Finding{
-		RunID:         run.ID,
-		Filename:      file.Name,
-		Fqn:           file.FQN,
-		Ext:           file.Ext,
-		Line:          line,
-		Rule:          rule.Name,
-		Pattern:       pattern.Value,
-		Category:      category,
-		Effort:        effort,
-		EffortTF:      effortTF,
-		EffortCN:      effortCN,
-		Note:          note,
-		Result:        result,
-		Readiness:     readiness,
-		Criticality:   criticality,
-		CriticalityTF: criticalityTF,
-		CriticalityCN: criticalityCN,
-		Application:   file.Dir}
+		RunID:       run.ID,
+		Filename:    file.Name,
+		Fqn:         file.FQN,
+		Ext:         file.Ext,
+		Line:        line,
+		Rule:        rule.Name,
+		Pattern:     pattern.Value,
+		Category:    category,
+		Effort:      effort,
+		EffortTF:    effortTF,
+		EffortCN:    effortCN,
+		Note:        note,
+		Result:      result,
+		Readiness:   readiness,
+		Criticality: criticality,
+		Application: file.Dir}
 
 	if finding != nil {
 		data.Filename = finding.Filename

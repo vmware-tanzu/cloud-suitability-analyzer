@@ -1,3 +1,4 @@
+#review effort
 name: python-db-peewee
 filetype: py$
 target: line
@@ -7,8 +8,12 @@ advice: Check target platform has support for this library
 effort: 0
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: database
 tags:
 - value: peewee
 patterns:
 - value: peewee
+profiles:
+- value: cloud-suitability

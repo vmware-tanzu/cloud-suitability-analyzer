@@ -6,6 +6,8 @@ defaultpattern: '^.*[ .]%s[ (].*'
 effort: 500
 readiness: 100
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 advice: Consider upgrading to modern cloud native UI framework
 category: Swing
 tags:
@@ -135,3 +137,5 @@ patterns:
 ##  JTree.EmptySelectionModel(
 ##  JViewport(
 ##  JWindow(
+profiles:
+- value: cloud-suitability

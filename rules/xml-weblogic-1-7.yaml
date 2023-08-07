@@ -9,9 +9,13 @@ advice: Consider rearchitecting if decision is made to move off application serv
 effort: 600
 readiness: 700
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: web-app
 - value: weblogic
 patterns:
 - value: 1.7/weblogic-web-app.xsd
 ##1.7/weblogic-web-app.xsd
+profiles:
+- value: cloud-suitability

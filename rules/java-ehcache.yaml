@@ -6,6 +6,8 @@ defaultpattern: ^.*import(\s*|=")%s.*$
 effort: 100
 readiness: 6
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 advice: Consider to externalize cache if not already
 category: cache
 tags:
@@ -13,3 +15,5 @@ tags:
 - value: ehcache
 patterns:
 - value: net.sf.ehcache
+profiles:
+- value: cloud-suitability

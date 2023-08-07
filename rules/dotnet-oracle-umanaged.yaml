@@ -8,6 +8,8 @@ advice: Oracle unmanaged driver requires including binaries with app
 readiness: 8
 effort: 3
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: database
 tags:
 - value: database
@@ -16,3 +18,5 @@ patterns:
 - value: Oracle.DataAccess
   advice: Oracle unmanaged driver requires including binaries with app -- can use buildpack. 
 #- using Oracle.DataAccess.Client;
+profiles:
+- value: cloud-suitability

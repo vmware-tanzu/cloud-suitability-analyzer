@@ -5,6 +5,8 @@ type: regex
 effort: 100
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: oracle
 advice: Consider rearchitecting if decision is made to move off application server
 defaultpattern: '^import\s*%s.*'
@@ -34,3 +36,5 @@ patterns:
 - value: weblogicx.
   tag: weblogic
 
+profiles:
+- value: cloud-suitability

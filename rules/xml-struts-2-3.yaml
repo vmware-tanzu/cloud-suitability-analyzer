@@ -9,9 +9,13 @@ advice: Consider upgrading to modern cloud native UI framework
 effort: 7
 readiness: 7
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: struts 
 - value: ui
 patterns:
 - value: struts-2.3.dtd
 ##struts-2.3.dtd
+profiles:
+- value: cloud-suitability

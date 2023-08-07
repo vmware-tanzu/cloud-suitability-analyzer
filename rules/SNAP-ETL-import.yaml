@@ -5,6 +5,8 @@ type: regex
 effort: 100
 readiness: 0
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 advice: Vendor specific integration implementation
 defaultpattern: ^import\s*.*%s.*$
 category: etl
@@ -30,3 +32,5 @@ patterns:
 ##import com.ibm.is
 ##import net.sf.jasper
 ##import org.pentaho
+profiles:
+- value: cloud-suitability

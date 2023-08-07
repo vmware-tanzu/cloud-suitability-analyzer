@@ -4,8 +4,11 @@ target: contents
 type: regex
 negative: true
 filenamepattern: ^(log4j2?(-\w+)?\.xml$|logback(-\w+)?\.xml$)
-criticality:
+#criticality: Warn
 effort: 5
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 advice: Please enable logging to console
 category: logging
 tags:

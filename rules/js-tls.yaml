@@ -9,8 +9,12 @@ recipe: Change to TLS1.2 and above
 effort: 5
 readiness: 1000
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: vulnerability
 patterns:
   - value:  tls
   - value:  TLS
+profiles:
+- value: cloud-suitability

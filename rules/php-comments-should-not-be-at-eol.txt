@@ -8,6 +8,8 @@ advice:  This rule verifies that single-line comments are not located at the end
 effort: 5
 readiness: 1000
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: code-smell
 patterns:

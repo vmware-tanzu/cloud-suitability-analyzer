@@ -5,6 +5,8 @@ type: regex
 effort: 100
 readiness: 100
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: websockets
 advice: Make sure that target platform supports websocket api
 recipes:
@@ -19,3 +21,5 @@ patterns:
 - value: io.vertx.core.http.ServerWebSocket;
   tag: vertx
   effort: 100
+profiles:
+- value: cloud-suitability

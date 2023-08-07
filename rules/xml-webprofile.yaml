@@ -5,6 +5,8 @@ category: config
 effort: 50
 readiness: 1000
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 type: simple-text
 advice: Consider rearchitecting if decision is made to move off application server
 tags:
@@ -19,3 +21,5 @@ patterns:
 ##F persistence.xml
 ##F web.xml
 ##F applicationContext.xml
+profiles:
+- value: cloud-suitability

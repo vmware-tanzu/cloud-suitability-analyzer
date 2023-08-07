@@ -6,6 +6,8 @@ defaultpattern: (import)\s+(%s)
 effort: 10
 readiness: 0
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 advice: HTTP Session Java API Import. Make sure that externalized data store is used for session
 category: servlet
 tags:
@@ -15,3 +17,5 @@ tags:
 patterns:
 - value: javax.servlet.http.HttpSession
 ##import javax.servlet.
+profiles:
+- value: cloud-suitability

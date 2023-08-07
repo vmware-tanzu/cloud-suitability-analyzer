@@ -8,6 +8,8 @@ advice: Consult MDB documentation
 effort: 7
 readiness: 7
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: ejb
 - value: mdb
@@ -15,3 +17,5 @@ tags:
 patterns:
 - value: javax.ejb.MessageDriven
 - value: javax.ejb.ActivationConfigProperty
+profiles:
+- value: cloud-suitability

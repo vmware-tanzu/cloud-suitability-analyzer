@@ -35,7 +35,7 @@ type Rule struct {
 	Impact          string         `gorm:"type:text" json:",omitempty" yaml:",omitempty"`
 	Readiness       int            `gorm:"type:bigint; column:readiness" json:",omitempty" yaml:",omitempty"`
 	Category        string         `json:",omitempty" yaml:",omitempty"`
-	Criticality     []Criticality  `json:",omitempty" yaml:",omitempty"`
+	Criticality     Criticality    `json:",omitempty" yaml:",omitempty"`
 	Tags            []Tag          `json:",omitempty" yaml:",omitempty"`
 	Recipes         []Recipe       `gorm:"foreignkey:RuleID" json:",omitempty" yaml:",omitempty"`
 	Patterns        []Pattern      `gorm:"foreignkey:RuleID"`
@@ -216,7 +216,7 @@ func (r *Rule) UpdateRule(newRule Rule) (deletedPatterns []Pattern, deletedRecip
 		r.DefaultPattern = newRule.DefaultPattern
 	}
 
-	if newRule.Criticality != "" && newRule.Criticality != r.Criticality {
+	if newRule.Criticality.Cloud_Native_Readiness != 0 && newRule.Criticality.Container_Readiness != 0 {
 		r.Criticality = newRule.Criticality
 	}
 

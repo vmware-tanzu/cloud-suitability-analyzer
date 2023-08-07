@@ -6,6 +6,8 @@ defaultpattern: "^.*[ .]%s[ (].*"
 effort: 7
 readiness: 7
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 advice: You need to make sure that you are using the dependencies that match the version of IBM MQ on the server 
 category: ibm-mq
 tags:
@@ -44,3 +46,5 @@ patterns:
   - value: MQSimpleConnectionManager
   - value: MQSubscription
   - value: MQTopic
+profiles:
+- value: cloud-suitability

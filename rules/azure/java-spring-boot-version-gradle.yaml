@@ -2,9 +2,12 @@ name: java-spring-boot-version-gradle
 filetype: gradle$|kts$
 target: line
 type: regex
-criticality: Critical
+#criticality: Critical
 advice: Spring boot version is too low
 effort: 50
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50#
 category: version
 tags:
   - value: spring boot

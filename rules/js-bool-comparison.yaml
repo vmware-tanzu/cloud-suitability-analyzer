@@ -7,6 +7,8 @@ advice: Boolean literals should be avoided in comparison expressions == and != t
 effort: 1
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: design
 tags:
 - value: bool-compare
@@ -18,3 +20,5 @@ patterns:
 
 #- = false
 #- = true
+profiles:
+- value: cloud-suitability

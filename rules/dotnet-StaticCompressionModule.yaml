@@ -8,9 +8,13 @@ advice: Ensure compatible configuration
 effort: 100
 readiness: 5
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 patterns:
 - value: /configuration/system.webServer/httpCompression[1]
 #- <configuration><system.webServer><httpCompression
 tags:
 - value: iis-module
 - value: static-compression
+profiles:
+- value: cloud-suitability

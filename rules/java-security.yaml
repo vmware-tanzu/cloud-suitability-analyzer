@@ -8,6 +8,8 @@ recipes:
 effort: 10
 readiness: 0
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: security
 tags: 
 - value: security
@@ -34,3 +36,5 @@ patterns:
 #- import javax.net.ssl.trustStoreType
 #- import javax.net.ssl.trustStorePassword
 #- import java.security
+profiles:
+- value: cloud-suitability

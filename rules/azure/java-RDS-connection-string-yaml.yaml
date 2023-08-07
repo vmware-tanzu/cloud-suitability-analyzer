@@ -2,12 +2,15 @@ name: java-RDS-connection-string-user-password-yaml
 filetype: (yaml$|yml$|json$|jsn$)
 target: contents
 type: yamlpath
-criticality:
+#criticality: Info
 advice: relational database service connection string, username or password are detected
 category: relational database service
 tags: 
  - value: relational database service
 effort: 0
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 patterns:
  - value: $..datasource.url
  - value: $..datasource.username

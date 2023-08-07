@@ -9,9 +9,13 @@ recipe: session.use_trans_sid is off by default, this rule raises an issue when 
 effort: 5
 readiness: 1000
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: vulnerability
 patterns:
   - value: session.use_trans_sid
 
 #- session.use_trans_sid=1
+profiles:
+- value: cloud-suitability

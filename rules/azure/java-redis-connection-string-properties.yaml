@@ -2,12 +2,15 @@ name: java-redis-connection-string-user-password-properties
 filetype: properties$
 target: line
 type: regex
-criticality:
+#criticality: Info
 advice: Redis connection string, username and password are detected
 category: redis
 tags: 
  - value: redis
 effort: 0
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 patterns:
  - value: (^|\.|\s)redis\.(.*\.)?(url|host|nodes)
  - value: (^|\.|\s)redis\.(.*\.)?(username|password)

@@ -9,6 +9,8 @@ recipe: use variables tired in configuration files instead
 effort: 2
 readiness: 1000
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: code_smell
 patterns:
@@ -18,3 +20,5 @@ patterns:
 
 #- http://www.google.com
 #- https://www.google.com
+profiles:
+- value: cloud-suitability

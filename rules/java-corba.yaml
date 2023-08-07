@@ -11,6 +11,8 @@ advice: Replace with cloud-friendly framework or move to TKG
 effort: 10
 readiness: 6
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: corba
 tags:
   - value: rpc
@@ -115,3 +117,5 @@ patterns:
   - value: WStringSeqHelper
   - value: WStringSeqHolder
   - value: WStringValueHelper
+profiles:
+- value: cloud-suitability

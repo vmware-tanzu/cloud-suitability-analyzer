@@ -9,6 +9,8 @@ advice: Legacy Java detected.  Consider upgrading.
 effort: 100
 readiness: 0
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: java-version
 - value: snap
@@ -51,3 +53,5 @@ patterns:
 #- '<javac target="1.12"'
 #- '<javac target="1.13"'
 #- '<javac target="1.14"'
+profiles:
+- value: cloud-suitability

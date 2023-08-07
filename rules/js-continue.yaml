@@ -7,6 +7,8 @@ advice: continue is an unstructured control flow statement. It makes code less t
 effort: 1
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: design
 tags:
 - value: testability
@@ -14,3 +16,5 @@ patterns:
 - value: continue
 
 #- continue
+profiles:
+- value: cloud-suitability

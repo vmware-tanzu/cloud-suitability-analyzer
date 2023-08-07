@@ -2,9 +2,12 @@ name: windows-file-path
 filetype: java$|properties$|xml$|yaml$|yml$|json$|jsn$
 target: line
 type: regex
-criticality:
+#criticality: Critical
 advice: This file system path is Microsoft Windows platform dependent. It needs to be replaced with a Linux-style path
 effort: 4
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: os
 tags:
   - value: os

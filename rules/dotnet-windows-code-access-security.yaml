@@ -8,8 +8,12 @@ patterns:
 - value: CodeAccessPermission
 readiness: 9
 effort: 10
-criticality: 10:90
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: security
 tags:
 - value: security
 #-  public class   NameIdPermission : CodeAccessPermission, IUnres
+profiles:
+- value: cloud-suitability

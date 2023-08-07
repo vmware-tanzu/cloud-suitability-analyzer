@@ -8,6 +8,8 @@ advice: Ensure compatible configuation
 effort: 400
 readiness: 5
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 patterns:
 - value: /configuration/system.webServer/handlers/add[contains(@modules, "StaticFileModule")][1]
 - value: /configuration/system.webServer/handlers/add[@name="StaticFileModule"][1]
@@ -17,3 +19,5 @@ tags:
 - value: iis-module
 - value: static-file-module
 - value: web-server
+profiles:
+- value: cloud-suitability

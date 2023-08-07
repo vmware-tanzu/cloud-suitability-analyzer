@@ -9,6 +9,8 @@ advice: Application server coupling
 effort: 7
 readiness: 7
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: mdb
 - value: ejb
@@ -17,3 +19,5 @@ tags:
 patterns:
 - value: MessageDriven
 ##MessageDriven
+profiles:
+- value: cloud-suitability

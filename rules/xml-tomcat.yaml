@@ -1,12 +1,15 @@
+#review effort
 name: xml-tomcat
 filetype: xml$
 target: file
 effort: 100
 readiness: 0
-criticality:
 category: Tomcat
 advice: Web Server coupling
 type: simple-text
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: tomcat
 patterns:
@@ -15,3 +18,5 @@ patterns:
   - value: server.xml
 ##F configure.xml
 ##F WEB-INF
+profiles:
+- value: cloud-suitability

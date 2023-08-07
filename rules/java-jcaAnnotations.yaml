@@ -10,6 +10,8 @@ category: jca
 effort: 100
 readiness: 7
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: annotations
   - value: jca
@@ -17,3 +19,5 @@ patterns:
   - value: AdministeredObjectDefinition
   - value: ConnectionFactoryDefinition
   - value: ConnectionFactoryDefinitions
+profiles:
+- value: cloud-suitability

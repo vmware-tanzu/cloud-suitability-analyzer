@@ -1,3 +1,4 @@
+#review effort
 name: java-rabbitmq-import
 filetype: (jsp$|java$)
 target: line
@@ -7,9 +8,13 @@ advice: Make sure that configuration is Cloud friendly
 effort: 0
 readiness: 5
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: mq
 tags:
   - value: message-queue
   - value: rabbitmq
 patterns:
   - value: com.rabbitmq
+profiles:
+- value: cloud-suitability

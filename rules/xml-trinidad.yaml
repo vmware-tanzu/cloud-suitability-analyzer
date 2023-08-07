@@ -9,6 +9,8 @@ advice: Consider upgrading to modern UI framework
 effort: 10
 readiness: 7
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: jsf
 - value: web-profile
@@ -16,3 +18,5 @@ tags:
 patterns:
 - value: myfaces.apache.org/trinidad/config
 ##myfaces.apache.org/trinidad/config
+profiles:
+- value: cloud-suitability

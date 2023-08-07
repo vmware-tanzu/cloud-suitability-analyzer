@@ -1,3 +1,4 @@
+#review effort
 name: java-slf4j-import
 filetype: (jsp$|java$)
 target: line
@@ -7,9 +8,13 @@ advice: Review logging configuration and remove file appenders.
 effort: 0
 readiness: 0
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: slf4j
 tags:
   - value: slf4j
   - value: logging
 patterns:
   - value: org.slf4j
+profiles:
+- value: cloud-suitability

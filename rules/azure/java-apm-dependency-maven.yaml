@@ -3,7 +3,10 @@ filetype: xml$
 filenamepattern: ^pom.xml$
 target: file
 type: xpath
+#criticality: Info
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 advice: The application has integrated an Application Performance Management (APM) tool as a dependency
 category: apm
 tags: 

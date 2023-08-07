@@ -4,6 +4,8 @@ target: file
 effort: 4
 readiness: 3
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: soap
 advice: Consider upgrading to cloud friendly communication protocol
 type: regex
@@ -14,3 +16,5 @@ tags:
 patterns:
   - value: .*\.wsdl
 ## "*.wsdl"
+profiles:
+- value: cloud-suitability

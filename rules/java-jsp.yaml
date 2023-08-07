@@ -7,8 +7,10 @@ type: regex
 advice: Consider migrating to modern UI frameworks that have better support for the cloud.
 defaultpattern: "^.*[ .]%s[ (].*"
 effort: 2
-readiness: 5
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
+readiness: 5
 category: jsp
 tags:
   - value: ui
@@ -43,3 +45,5 @@ patterns:
 ##  JspException(
 ##  JspTagException(
 ##  SkipPageException(
+profiles:
+- value: cloud-suitability

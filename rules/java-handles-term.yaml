@@ -8,8 +8,12 @@ advice: For containerization, the TERM signal must be handled, this pattern is a
 effort: 1
 readiness: 6
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: term-signal
 tags:
   - value: term
 patterns:
   - value: Runtime.getRuntime().addShutdownHook
+profiles:
+- value: cloud-suitability

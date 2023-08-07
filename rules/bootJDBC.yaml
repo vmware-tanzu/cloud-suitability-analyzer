@@ -7,6 +7,8 @@ advice: Consult 3rd party documentation
 effort: 0
 readiness: 5
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: persistence
 tags:
 - value: spring-boot
@@ -14,3 +16,5 @@ tags:
 patterns:
 - value: org.springframework.jdbc
   tag: spring-jdbc 
+profiles:
+- value: cloud-suitability

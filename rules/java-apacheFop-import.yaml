@@ -6,6 +6,8 @@ defaultpattern: "[ .]%s[ .({]"
 effort: 5
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 advice: Usage requires configuration remdiation
 category: thirdParty
 tags:
@@ -25,3 +27,5 @@ patterns:
 ## setTargetResolution(
 ## setDocumentHandlerOverride(
 ## setFOEventHandlerOverride(
+profiles:
+- value: cloud-suitability

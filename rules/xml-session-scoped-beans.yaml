@@ -8,8 +8,12 @@ advice: Relies on application server for shared state and will require a rewrite
 effort: 100
 readiness: 100
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: stateful
 - value: session
 patterns:
 - value: scope="session"
+profiles:
+- value: cloud-suitability

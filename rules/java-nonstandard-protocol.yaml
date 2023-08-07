@@ -6,6 +6,8 @@ defaultpattern: (%s)
 effort: 50
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 advice: Ensure cloud friendly communication protocols
 category: protocol
 tags:
@@ -48,3 +50,5 @@ patterns:
 ## corbaloc
 ## tcp:
 ## ssl:
+profiles:
+- value: cloud-suitability

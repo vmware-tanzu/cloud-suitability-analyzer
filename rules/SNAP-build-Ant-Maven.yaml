@@ -1,3 +1,4 @@
+#review effort
 name: SNAP-build-Ant-Maven
 filetype: xml$
 target: file
@@ -7,6 +8,8 @@ advice: Align with standard build system
 effort: 0
 readiness: 0
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: build-system
 patterns:
@@ -18,3 +21,5 @@ patterns:
   effort: 0
 
 ##F build.gradle
+profiles:
+- value: cloud-suitability

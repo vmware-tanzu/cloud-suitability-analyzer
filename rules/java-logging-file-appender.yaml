@@ -6,6 +6,8 @@ defaultpattern: (%s)
 effort: 3
 readiness: 5
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 advice: Replace file appender with console appender
 category: logging
 tags:
@@ -25,3 +27,5 @@ patterns:
     tag: log4j2
   - value: appender.file.type # properties 
     tag: log4j2
+profiles:
+- value: cloud-suitability

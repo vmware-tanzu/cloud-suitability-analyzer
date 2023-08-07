@@ -7,6 +7,8 @@ advice: Consider rearchitecting if decision is made to move off application serv
 effort: 100
 readiness: 100
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: weblogic
   - value: full-profile
@@ -31,3 +33,5 @@ patterns:
 ##F webservice-policy-ref.xml
 ##F weblogic-wsee-standaloneclient.xml
 ##F weblogic-application.xml
+profiles:
+- value: cloud-suitability

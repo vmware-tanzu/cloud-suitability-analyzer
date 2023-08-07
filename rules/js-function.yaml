@@ -7,6 +7,8 @@ advice: Shared naming conventions allow teams to collaborate efficiently. This r
 effort: 1
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: design
 tags:
 - value: function
@@ -14,3 +16,5 @@ patterns:
 - value: function
 
 #- function
+profiles:
+- value: cloud-suitability

@@ -7,8 +7,12 @@ advice: It is a bad practice to throw something that's not derived at some level
 effort: 1
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: design
 tags:
 - value: exception
 patterns:
 - value: throw
+profiles:
+- value: cloud-suitability

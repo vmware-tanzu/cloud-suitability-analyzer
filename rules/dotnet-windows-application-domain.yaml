@@ -7,11 +7,15 @@ advice: Unsupported, For .NET Core, there is exactly one AppDomain. Isolation an
 patterns:
 - value: AppDomain.CreateDomain
 readiness: 9
-criticality:
 effort: 1000
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: windows-domain
 tags:
 - value: app-domain
 - value: security
 - value: unsupported-netcore
 #- AppDomain newDomain = AppDomain.CreateDomain("newDomain", evidence, setup);
+profiles:
+- value: cloud-suitability

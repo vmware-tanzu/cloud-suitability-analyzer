@@ -2,9 +2,12 @@ name: windows-dynamic-link-library
 filetype: dll$
 target: file
 type: regex
-criticality:
+#criticality: Critical
 advice: This Dynamic-Link Library is Microsoft Windows platform dependent. It needs to be replaced with a Linux-style shared library
 effort: 10
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: os
 tags:
   - value: os

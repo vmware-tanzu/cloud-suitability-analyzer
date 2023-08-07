@@ -8,9 +8,13 @@ advice:  enable_dl is on by default and allows open_basedir restrictions, which 
 effort: 5
 readiness: 1000
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: vulnerability
 patterns:
   - value: enable_dl
 
 #- enable_dl=1
+profiles:
+- value: cloud-suitability

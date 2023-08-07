@@ -8,7 +8,9 @@ category: tiles
 advice: Consider upgrading to modern cloud native UI framework
 effort: 5
 readiness: 2
-criticality:  
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: struts
 - value: ui
@@ -20,3 +22,5 @@ patterns:
 - value: tiles-config_3_0.dtd
 
 ##struts.apache.org/tags-tiles
+profiles:
+- value: cloud-suitability

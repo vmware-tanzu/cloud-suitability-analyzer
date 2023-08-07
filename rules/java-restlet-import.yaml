@@ -7,9 +7,13 @@ advice: The Restlet library appears to be dead at this point in time. Consider u
 effort: 10
 readiness: 7
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: restlet
 tags:
   - value: rest
   - value: restlet
 patterns:
   - value: org.restlet
+profiles:
+- value: cloud-suitability

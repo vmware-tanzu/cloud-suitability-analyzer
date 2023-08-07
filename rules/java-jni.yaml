@@ -10,6 +10,8 @@ effort: 1000
 #TODO rule for System.loadlibrary
 readiness: 7
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: jni
 tags:
   - value: native
@@ -31,3 +33,5 @@ patterns:
 ## public native
 ## private native
 ## static native
+profiles:
+- value: cloud-suitability

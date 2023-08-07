@@ -9,9 +9,13 @@ advice: Remediate any persistence issues
 effort: 7
 readiness: 7
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: activemq
 tags:
   - value: activemq
   - value: message-queue
 patterns:
   - value: createActiveMQConnection
+profiles:
+- value: cloud-suitability

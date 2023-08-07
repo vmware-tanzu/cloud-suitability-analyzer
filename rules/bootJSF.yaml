@@ -10,6 +10,8 @@ advice: Automatic remediation with Bootifier
 effort: 2
 readiness: 2
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: jsf
   - value: migrate-off-legacy-server    
@@ -32,3 +34,5 @@ patterns:
     tag: jboss-jsf-2.1
   - value: jboss-jsf-api_2.0_spec
     tag: jboss-jsf-2.0
+profiles:
+- value: cloud-suitability

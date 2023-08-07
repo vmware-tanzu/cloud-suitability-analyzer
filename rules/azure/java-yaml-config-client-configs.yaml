@@ -2,10 +2,13 @@ name: java-yaml-config-client-configs
 filetype: (yaml$|yml$)
 target: contents
 type: yamlpath
-criticality:
+#criticality: Info
 advice: The application is using spring config server and setting the connection string
 category: config server
 effort: 0
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: config server
 patterns:

@@ -1,0 +1,19 @@
+name: dotnet-classic-asp-net
+filetype: (cs$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Unsupported-netcore. Not supported by many PAS. ASP .net pages will have to be replaced by ASP .NetCore. See https://learn.microsoft.com/en-us/dotnet/architecture/porting-existing-aspnet-apps/migrate-web-forms
+effort: 10
+readiness: 10
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
+category: API
+patterns:
+- value: System.Web.
+tags:
+- value: asp-classic
+- value: unsupported-netcore
+profiles:
+- value: netcore

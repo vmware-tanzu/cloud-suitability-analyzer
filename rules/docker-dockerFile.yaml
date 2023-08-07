@@ -7,11 +7,15 @@ category: docker
 advice: Determine if TKG is more prescriptive and TBS or Choreographer can be used to containerize
 recipes:
 effort: 5
-readiness: 1000
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
+readiness: 1000
 tags:
   - value: docker
   - value: tkg
 patterns:
   - value: Dockerfile
 ##F Dockerfile
+profiles:
+- value: cloud-suitability

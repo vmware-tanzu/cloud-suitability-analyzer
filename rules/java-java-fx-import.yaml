@@ -5,6 +5,8 @@ type: regex
 effort: 1000
 readiness: 100
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: java-fx
 advice: Java-fx is not cloud compatible and requires the JRE on the remote device.
 recipes:
@@ -13,3 +15,5 @@ tags:
 - value: java-fx
 patterns:
 - value: javafx
+profiles:
+- value: cloud-suitability

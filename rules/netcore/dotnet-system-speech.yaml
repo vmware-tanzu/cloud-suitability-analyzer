@@ -1,0 +1,19 @@
+name: dotnet-system-speech
+filetype: (cs$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: System.Speech won't be ported to .NET Core. See https://aka.ms/unsupported-netfx-api.
+effort: 10
+readiness: 10
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
+category: API
+patterns:
+- value: System.Speech.Recognition
+tags:
+- value: api
+- value: unsupported-netcore
+profiles:
+- value: netcore

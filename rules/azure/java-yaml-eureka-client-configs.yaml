@@ -2,10 +2,13 @@ name: java-yaml-eureka-client-configs
 filetype: (yaml$|yml$)
 target: contents
 type: yamlpath
-criticality:
+#criticality: Info
 advice: The application is using eureka and setting the connection string
 category: eureka
 effort: 0
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: eureka
 patterns:

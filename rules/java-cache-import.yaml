@@ -7,6 +7,8 @@ advice: Cloud readiness issue as potential state information that is not persist
 effort: 50
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: nondistcache
 tags:
   - value: cache
@@ -30,3 +32,5 @@ patterns:
     tag: shiftone-casche
   - value: com.ibm.websphere.objectgrid
     tag: websphere-objectgrid
+profiles:
+- value: cloud-suitability

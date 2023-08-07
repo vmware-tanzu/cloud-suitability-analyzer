@@ -2,7 +2,10 @@ name: java-mq-connection-string-user-password-yaml
 filetype: (yaml$|yml$|json$|jsn$)
 target: contents
 type: yamlpath
+#criticality: Info
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 advice: Message queue connection string, username or password are detected
 category: message queue
 tags: 

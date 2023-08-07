@@ -9,6 +9,8 @@ advice: Application server coupling
 effort: 10
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: ejb
 - value: javaee
@@ -16,3 +18,5 @@ tags:
 patterns:
 - value: ejb-jar_2_1.xsd
 ##ejb-jar_2_1.xsd
+profiles:
+- value: cloud-suitability

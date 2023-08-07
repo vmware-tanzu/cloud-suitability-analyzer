@@ -7,6 +7,8 @@ advice: SharePoint is not supported on CloudFoundry.
 effort: 100
 readiness: 0
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: unsupported-module
 tags:
 - value: sharepoint
@@ -15,3 +17,5 @@ patterns:
   advice: SharePoint is not supported on CloudFoundry.
   #- Microsoft.SharePoint
   #- using Microsoft.SharePoint.Client;
+profiles:
+- value: cloud-suitability

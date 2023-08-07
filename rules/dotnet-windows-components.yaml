@@ -10,6 +10,8 @@ patterns:
 readiness: 9
 effort: 1000
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: com+
 - value: api
@@ -17,3 +19,5 @@ tags:
 - value: unsupported-netcore
 #- public TransactionScope (System.Transactions.Transaction transactionToUse, TimeSpan 
 #- Set ObjContext = GetObjectContext
+profiles:
+- value: cloud-suitability

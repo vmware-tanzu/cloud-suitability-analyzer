@@ -1,14 +1,21 @@
 name: dotnet-connectionstrings
-filetype: (yaml|yaml|json|property|config)
+title: Usage of hardcoded connection string
+description: Helps with detecting if hard coded connection strings
+filetype: (json|property)
 target: line
 type: regex
-defaultpattern: (%s)
-advice: Remove connection strings from files, use environment variables (or mount configmap into pod)
+defaultpattern: .*(%s)
+advice: Remove connection strings from files, use environment variables (or mount configmap into pod in a docker like environment)
 effort: 10
 readiness: 5
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: connection-string
 tags:
-- value: sonnection-string
+- value: connection-string
+- value: database
 patterns:
-- value: ConnectionString
+- value: "ConnectionStrings"
+profiles:
+- value: cloud-suitability

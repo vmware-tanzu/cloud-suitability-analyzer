@@ -5,6 +5,8 @@ type: regex
 effort: 10
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 advice: Vendor proprietary implementation.  Consider rearchitecting if decision is made to move off application server
 defaultpattern: '^.*[ .]%s[ (].*'
 category: webSphere
@@ -35,3 +37,5 @@ patterns:
 ## .revokeSSOCookies(
 ## .revokeSSOCookiesForPortlets(
 ## .getLTPACookieFromSSOToken(
+profiles:
+- value: cloud-suitability

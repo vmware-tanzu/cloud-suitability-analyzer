@@ -9,6 +9,8 @@ recipe: In many cases there is no need to open a socket yourself. Use instead li
 effort: 50
 readiness: 1000
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: anti-pattern
 patterns:
@@ -23,3 +25,5 @@ patterns:
 
 
 #- socket_create(
+profiles:
+- value: cloud-suitability

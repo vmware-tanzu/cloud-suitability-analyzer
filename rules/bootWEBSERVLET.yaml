@@ -9,6 +9,8 @@ advice: Automatic remediation with Bootifier
 effort: 0
 readiness: 2
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: web-socket
 patterns:
@@ -20,3 +22,5 @@ patterns:
     tag: websocket-client
   - value: javax.websocket-all
     tag: websocket-all
+profiles:
+- value: cloud-suitability

@@ -1,3 +1,4 @@
+#review effort
 name: java-mongo-cassandra
 filetype: java$
 target: line
@@ -7,6 +8,8 @@ advice: Application is using a non relational database
 effort: 0
 readiness: 0
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: springFramework
 tags:
   - value: spring
@@ -19,3 +22,5 @@ patterns:
     tag: cassandra
     effort: 0
 ## import org.springframework
+profiles:
+- value: cloud-suitability

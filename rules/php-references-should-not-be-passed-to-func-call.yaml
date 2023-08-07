@@ -9,6 +9,8 @@ recipe: Pass by value
 effort: 3
 readiness: 1000
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: code_smell
 patterns:
@@ -16,3 +18,5 @@ patterns:
 
 
 #- &variablename
+profiles:
+- value: cloud-suitability

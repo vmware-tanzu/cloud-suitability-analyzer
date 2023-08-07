@@ -7,6 +7,8 @@ defaultpattern: ^*.(%s?:.*):(\d*)\/?(.*)
 effort: 5
 readiness: 6
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: port-usage
 tags:
   - value: port-usage
@@ -15,3 +17,5 @@ patterns:
   - value: http
 ## http://ibm.com:443/path/
 ## https://ibm.com:443
+profiles:
+- value: cloud-suitability

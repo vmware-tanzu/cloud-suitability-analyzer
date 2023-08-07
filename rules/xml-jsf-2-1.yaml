@@ -9,9 +9,13 @@ advice: Consider upgrading to modern UI framework
 effort: 700
 readiness: 700
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: jsf
 - value: web-app
 patterns:
 - value: web-facesconfig_2_1.xsd
 ##web-facesconfig_2_1.xsd
+profiles:
+- value: cloud-suitability

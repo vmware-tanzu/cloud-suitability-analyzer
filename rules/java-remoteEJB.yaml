@@ -8,6 +8,8 @@ advice: Consider rearchitecting the application to use Cloud friendly remote com
 effort: 10
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 defaultpattern: ^\s*@%s
 category: ejb
 tags:
@@ -23,3 +25,5 @@ patterns:
 ##@RemoteHome
 ##@EJBObject
 ##@EJBHome
+profiles:
+- value: cloud-suitability

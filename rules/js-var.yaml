@@ -7,8 +7,12 @@ advice: ECMAScript 2015 introduced the let and const keywords for block-scope va
 effort: 1
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: design
 tags:
 - value: read-only
 patterns:
 - value: var
+profiles:
+- value: cloud-suitability

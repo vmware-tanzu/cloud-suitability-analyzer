@@ -9,9 +9,13 @@ advice: Web Server coupling. Consider upgrading to modern framework.
 effort: 700
 readiness: 700
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: servlet
 - value: web-container
 patterns:
 - value: web-app_2_4.xsd
 ##web-app_2_4.xsd
+profiles:
+- value: cloud-suitability

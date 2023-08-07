@@ -1,0 +1,19 @@
+name: dotnet-ip-address
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+patterns:
+- value: Request.UserHostAddress
+advice: Not supported in .netCore, Use IHttpContextAccessor instead
+readiness: 9
+effort: 10
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
+category: unsupported-netcore
+tags:
+- value: debt
+#teLine(Server.HtmlEncode(Request.UserHostAddress));
+profiles:
+- value: netcore

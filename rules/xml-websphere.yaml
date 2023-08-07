@@ -7,6 +7,8 @@ advice: Consider rearchitecting if decision is made to move off application serv
 effort: 500
 readiness: 1000
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: websphere
   - value: full-profile
@@ -59,3 +61,5 @@ patterns:
 ##F ibm-web-ext-pme.xmi
 ##F ibm-web-ext-pme.xml
 ##F j2c_plugin.xml
+profiles:
+- value: cloud-suitability

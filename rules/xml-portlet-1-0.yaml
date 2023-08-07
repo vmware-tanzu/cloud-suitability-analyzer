@@ -9,9 +9,13 @@ advice: Consider upgrading to modern UI framework
 effort: 500
 readiness: 700
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: portlet
 - value: web-container
 patterns:
 - value: portlet-app_1_0.xsd
 ##portlet-app_1_0.xsd
+profiles:
+- value: cloud-suitability

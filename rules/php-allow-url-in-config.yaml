@@ -8,6 +8,8 @@ advice: allow_url_fopen and allow_url_include allow code to be read into a scrip
 effort: 5
 readiness:  1000
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value:  vulnerability
 patterns:
@@ -15,3 +17,5 @@ patterns:
   - value:  allow_url_include
 
   #- allow_url_fopen=1
+profiles:
+- value: cloud-suitability

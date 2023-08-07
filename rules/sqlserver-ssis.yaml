@@ -7,6 +7,8 @@ advice: SSIS is not supported on CloudFoundry.
 effort: 100
 readiness: 0
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: Unsupported modules
 tags:
 - value: ssis
@@ -15,3 +17,5 @@ tags:
 patterns:
 - value: DTS
   advice: SSIS is not supported on CloudFoundry. Consider leaving the packages in an external SQL Server deployment or rewrite them in a cloud native ETL Framework like Spring Cloud Data Flow.
+profiles:
+- value: cloud-suitability

@@ -5,6 +5,8 @@ type: regex
 effort: 100
 readiness: 100
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: jsf-flow
 advice: Review usage to determine how the customized state of JSF flow is being used and determined if it can be externalized.
 recipes:
@@ -14,3 +16,5 @@ tags:
 - value: jsf
 patterns:
 - value: javax.faces.flow
+profiles:
+- value: cloud-suitability

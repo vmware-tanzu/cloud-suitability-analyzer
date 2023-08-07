@@ -9,6 +9,8 @@ advice: Application Server coupling detected
 effort: 100
 readiness: 0
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: maven
   - value: snap
@@ -25,3 +27,5 @@ patterns:
 #- '<target name="war"'
 #- '<target name="jar"'
 #- '<target name="ear"'
+profiles:
+- value: cloud-suitability

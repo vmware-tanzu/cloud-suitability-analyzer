@@ -9,6 +9,8 @@ recipe: Store sessions in a centralized caching server or cluster. So stop putti
 effort: 20
 readiness: 1000
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: cache
 patterns:
@@ -18,3 +20,5 @@ patterns:
 
 #- $_SESSION["KEY"]
 #- $_COOKIE["KEY"]
+profiles:
+- value: cloud-suitability

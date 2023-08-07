@@ -9,9 +9,13 @@ recipe:  This feature should be disabled unless it is absolutely necessary for y
 effort: 5
 readiness: 1000
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: vulnerability
 patterns:
   - value: file_uploads
 
 #- file_uploads=1
+profiles:
+- value: cloud-suitability

@@ -5,6 +5,8 @@ type: regex
 effort: 10
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 advice: Refer to platform documentation
 #--- Example for extends 'Interface'
 # public class FileToInputStream extends AbstractMessageTransformer {
@@ -17,3 +19,5 @@ patterns:
   - value: AbstractTransformer
 ## AbstractMessageTransformer{
 ## AbstractTransformer{
+profiles:
+- value: cloud-suitability

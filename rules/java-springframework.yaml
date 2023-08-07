@@ -6,6 +6,8 @@ advice: Presence of spring framework may indicate the app should target TAS
 effort: 0
 readiness: 0
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: springFramework
 tags:
   - value: spring
@@ -18,3 +20,5 @@ patterns:
     tag: cassandra
     effort: 100
 ## import org.springframework
+profiles:
+- value: cloud-suitability

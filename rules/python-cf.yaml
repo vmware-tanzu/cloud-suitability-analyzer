@@ -8,8 +8,12 @@ advice: Check for cloud foundry support.
 effort: -10
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: cloud-foundry
 tags:
 - value: cloud-ready
 patterns:
 - value: load_from_vcap_services
+profiles:
+- value: cloud-suitability

@@ -7,6 +7,8 @@ advice: Use of generated machine keys is problematic
 effort: 100
 readiness: 100
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: security
 tags:
 - value: auto-gen-key
@@ -15,3 +17,5 @@ patterns:
 
 ##validationKey="AutoGenerate"
 ##decryptionKey="AutoGenerate"
+profiles:
+- value: cloud-suitability

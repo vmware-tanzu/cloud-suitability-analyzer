@@ -9,8 +9,12 @@ advice: Refer to platform documentation
 effort: 7
 readiness: 7
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: ejb
 - value: stateful
 patterns:
 - value: javax.ejb.Stateful
+profiles:
+- value: cloud-suitability

@@ -7,6 +7,8 @@ defaultpattern: "^.*[ .]%s[ (].*"
 effort: 10
 readiness: 4
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: ejb
 tags:
   - value: ejb
@@ -152,3 +154,5 @@ patterns:
 ##  RMISocketFactory(
 ##  UID(
 ##  UnicastRemoteObject(
+profiles:
+- value: cloud-suitability

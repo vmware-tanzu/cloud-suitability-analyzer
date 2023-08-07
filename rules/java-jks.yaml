@@ -4,6 +4,8 @@ target: file
 effort: 7
 readiness: 7
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: security
 advice: Make sure to externalize jks store
 recipes:
@@ -14,3 +16,5 @@ tags:
 - value: mutual-auth
 patterns:
 - value: .*\.jks
+profiles:
+- value: cloud-suitability

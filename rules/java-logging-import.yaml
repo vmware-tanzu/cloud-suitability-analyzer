@@ -7,6 +7,8 @@ advice: Change to an implementation of SLF4J i.e. Logback
 effort: 3
 readiness: 5
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: logging
 tags:
   - value: logging
@@ -23,3 +25,5 @@ patterns:
     tag: org-osgi
   - value: org\.jboss\.logging\.Logger
     tag: jboss-logging
+profiles:
+- value: cloud-suitability

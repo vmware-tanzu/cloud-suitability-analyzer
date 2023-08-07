@@ -1,0 +1,19 @@
+name: dotnet-reflection-assembly
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Use AssemblyLoadContext. Evidence is not supported in .NET Core.
+effort: 10
+readiness: 10
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
+category: API
+tags:
+- value: api
+- value: unsupported-netcore
+patterns:
+- value: Assembly.Load\(
+profiles:
+- value: netcore

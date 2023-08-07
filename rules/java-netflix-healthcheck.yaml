@@ -7,6 +7,8 @@ advice: Indicates existance of healthcheck endpoint, which is positive finding
 effort: -100
 readiness: 7
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: health-check
 tags:
   - value: health-check
@@ -21,3 +23,5 @@ patterns:
     tag: netflix-health-check
   - value: com.netflix.runtime.health.api.IndicatorMatcher
     tag: netflix-health-check
+profiles:
+- value: cloud-suitability

@@ -3,12 +3,16 @@ name: dotnet-database-access
 filetype: config$
 target: file
 type: xpath
-advice: Connection strings should be externally managed.
+advice: Remove connection strings from files, use environment variables (or mount configmap into pod in a docker like environment)
 readiness: 10
 effort: 100
-criticality:
 category: database
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: database
 patterns:
 - value: /configuration/connectionStrings[1]
+profiles:
+- value: cloud-suitability

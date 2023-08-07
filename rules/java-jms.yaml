@@ -7,6 +7,8 @@ defaultpattern: "^.*[ .]%s[ ({.].*"
 effort: 10
 readiness: 6
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 advice: Run embedded service broker as a JMS Provider.
 category: jms
 tags:
@@ -108,3 +110,5 @@ patterns:
 ##  XATopicConnection(
 ##  XATopicConnectionFactory(
 ##  XATopicSession(
+profiles:
+- value: cloud-suitability

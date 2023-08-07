@@ -6,6 +6,8 @@ defaultpattern: '^.*[ .]%s[ (].*'
 effort: 10
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: jsf-flow
 advice: Review usage to determine how the customized state of JSF flow is being used and determined if it can be externalized.
 tags:
@@ -14,3 +16,5 @@ tags:
 patterns:
 - value: FlowCallNode
 - value: FlowHandlerFactoryWrapper
+profiles:
+- value: cloud-suitability

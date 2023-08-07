@@ -11,6 +11,8 @@ advice: Automatic remediation with Bootifier
 effort: 2
 readiness: 2
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: jax-ws
 - value: migrate-off-legacy-server
@@ -21,3 +23,5 @@ patterns:
   tag: jboss-servlet-4.0
 - value: javax.enterprise.concurrent-api
   tag: javax-enterprise-concurrent
+profiles:
+- value: cloud-suitability

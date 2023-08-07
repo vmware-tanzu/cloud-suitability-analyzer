@@ -3,10 +3,12 @@ filetype: (cs$|vb$)
 target: line
 type: regex
 defaultpattern: .*%s.*
-advice: Logging to the Event Log is not recommended for cloud native apps.
+advice: Logging to the Event Log is not recommended for cloud native apps. Write to or manage logfiles. Instead, each running process should write its event stream, unbuffered, to stdout. https://docs.lacunasoftware.com/en-us/articles/amplia/on-premises/windows/enable-stdout-log.html
 readiness: 3
 effort: 100
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: logging
 tags:
 - value: logging
@@ -16,3 +18,5 @@ patterns:
 - value: EventLog
 #- EventLogTraceListener
 #- EventLog
+profiles:
+- value: cloud-suitability

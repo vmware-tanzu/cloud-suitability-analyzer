@@ -1,0 +1,18 @@
+name: dotnet-package-microsoft-netframework-referenceassemblies-net48
+filetype: (config$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Not Supported in .NetCore 
+effort: 10
+readiness: 10
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
+category: package
+patterns:
+- value: Microsoft.NETFramework.ReferenceAssemblies.net48
+tags:
+- value: unsupported-netcore
+profiles:
+- value: netcore

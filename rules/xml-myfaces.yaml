@@ -9,8 +9,12 @@ advice: Consider upgrading to modern UI framework
 effort: 5
 readiness: 2
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: jsf
 patterns:
 - value: org.apache.myfaces
 #org.apache.myfaces
+profiles:
+- value: cloud-suitability

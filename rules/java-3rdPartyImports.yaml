@@ -5,6 +5,7 @@ type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Consult 3rd party documentation
 category: third-party
+effort: 1
 tags:
 - value: third-party
 patterns:
@@ -694,3 +695,5 @@ patterns:
   tag: zaxxer
 - value: zwitserloot
   tag: zwitserloot
+profiles:
+- value: cloud-suitability

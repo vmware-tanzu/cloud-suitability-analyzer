@@ -9,6 +9,8 @@ defaultpattern: "^.*[ .]%s[ (].*"
 effort: 10
 readiness: 7
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: jndi
 advice: Remove jndi provider or move to TKG
 tags:
@@ -43,3 +45,5 @@ patterns:
   - value: UnsolicitedNotificationEvent
   - value: NamingEvent
   - value: NamingExceptionEvent
+profiles:
+- value: cloud-suitability

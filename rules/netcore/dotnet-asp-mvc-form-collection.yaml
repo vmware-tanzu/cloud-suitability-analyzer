@@ -1,0 +1,21 @@
+name: dotnet-asp-mvc-form-collection
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: '%s'
+patterns:
+- value: .*Create.*\(FormCollection.*
+advice: Not supported, Replace with IFormCollection
+readiness: 9
+effort: 10
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
+category: unsupported-netcore
+tags:
+- value: mvc
+- value: asp
+- value: unsupported-netcore
+#- ActionResult Create(FormCollection formCollection)  
+profiles:
+- value: netcore

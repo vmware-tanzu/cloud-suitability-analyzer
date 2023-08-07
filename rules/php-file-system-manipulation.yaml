@@ -9,6 +9,8 @@ recipe: Add a persistence volume or avoid Filesystem manipulation
 effort: 50
 readiness: 1000
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: io
 patterns:
@@ -43,3 +45,5 @@ patterns:
 #- mkdir
 #- move_uploaded_file(
 #- touch(
+profiles:
+- value: cloud-suitability

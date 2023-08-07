@@ -1,0 +1,19 @@
+name: dotnet-windows-remoting-code
+filetype: (cs$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Unsupported, consider inter-process communication (IPC) System.IO.Pipes class or the MemoryMappedFile class.Also StreamJsonRpc or ASP.NET Core (either using gRPC or RESTful Web API services).
+effort: 10
+readiness: 10
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
+category: API
+patterns:
+- value: System.Runtime.Remoting.
+tags:
+- value: remoting
+- value: unsupported-netcore
+profiles:
+- value: netcore

@@ -9,6 +9,8 @@ advice: Refer to platform documentation
 effort: 7
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: annotations
 - value: mdb
@@ -16,3 +18,5 @@ patterns:
 - value: 'EJB\(lookup'
 
 ##@EJB(lookup=)
+profiles:
+- value: cloud-suitability

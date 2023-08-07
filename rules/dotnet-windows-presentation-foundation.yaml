@@ -5,13 +5,17 @@ target: line
 type: regex
 defaultpattern: .*%s.*
 category: windows-desktop
-advice: Only available on Windows Desktop
+advice: Desktop technology only available on Windows platform
 effort: 500
 readiness: 1
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 patterns:
 - value: <Page\sxmlns=".*xaml\/presentation"
 tags:
 - value: windows-desktop
 - value: windows-wpf
 #- <Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"><Page.Resources><XmlDataProvider x:Key="xmlData" XPath="/people"></XmlDataProvider</Page.Resources></Page>
+profiles:
+- value: cloud-suitability

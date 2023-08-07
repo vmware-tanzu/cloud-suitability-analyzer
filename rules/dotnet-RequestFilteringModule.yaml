@@ -6,6 +6,8 @@ advice: Refer to platform documentation
 effort: 100
 readiness: 1
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 patterns:
 - value: /configuration/system.webServer/security/requestFiltering/requestLimits[1]
 category: unsupported-iis-module
@@ -13,3 +15,5 @@ tags:
 - value: iis-module
 - value: request-filtering
 #- <configuration><system.webServer><security><requestFiltering><requestLimits
+profiles:
+- value: cloud-suitability

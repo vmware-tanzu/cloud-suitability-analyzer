@@ -6,6 +6,8 @@ defaultpattern: ^\s*@%s
 advice: Consider rearchitecting if decisions is made to not use application server
 effort: 5
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: stateless
 tags:
   - value: stateless
@@ -13,3 +15,5 @@ tags:
 patterns:
   - value: Stateless
     tag: ejb
+profiles:
+- value: cloud-suitability

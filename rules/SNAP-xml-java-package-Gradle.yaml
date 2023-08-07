@@ -9,6 +9,8 @@ advice: Application Server coupling detected.  Consider repackaging artifact as 
 effort: 100
 readiness: 0
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: gradle
   - value: snap
@@ -18,3 +20,5 @@ patterns:
 
 ##apply plugin: 'ear'
 ##apply plugin: 'war'
+profiles:
+- value: cloud-suitability

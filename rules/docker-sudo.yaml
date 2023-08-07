@@ -9,9 +9,13 @@ recipes:
 effort: 100
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: docker
   - value: sudo
 patterns:
   - value: RUN install -y sudo
   - value: RUN su root
+profiles:
+- value: cloud-suitability

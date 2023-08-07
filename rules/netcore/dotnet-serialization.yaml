@@ -1,0 +1,19 @@
+name: dotnet-serialization
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+category: unsupported-module
+advice: Not supported in .netCore
+effort: 10
+readiness: 1
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
+patterns:
+- value: System.Runtime.Serialization
+tags:
+- value: serialization
+- value: unsupported-netcore
+profiles:
+- value: netcore

@@ -7,8 +7,12 @@ defaultpattern: (%s)\:{1}\/{2}
 effort: 100
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: io
 tags:
   - value: io
 patterns:
   - value: "file"
+profiles:
+- value: cloud-suitability

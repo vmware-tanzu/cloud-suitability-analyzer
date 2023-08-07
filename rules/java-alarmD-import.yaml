@@ -1,3 +1,4 @@
+#review effort
 name: java-alarmD-import
 filetype: (jsp$|java$)
 target: line
@@ -5,9 +6,14 @@ type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Integrate with new alarmD service or migrate to Spring Boot scheduler
 category: ThirdParty
+effort: 0
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: alarm-d
   - value: scheduler
 patterns:
   - value: com.tfcci.ucs.manager
+profiles:
+- value: cloud-suitability

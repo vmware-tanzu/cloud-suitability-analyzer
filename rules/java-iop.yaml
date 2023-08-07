@@ -7,6 +7,8 @@ defaultpattern: '^.*[ .]%s[ (.].*'
 effort: 3
 readiness: 6
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: iop
 tags:
 - value: non-standard-protocol
@@ -17,3 +19,5 @@ patterns:
   tag: javax-rmi
 - value: import org.omg.IOP
   tag: omg-IOP
+profiles:
+- value: cloud-suitability

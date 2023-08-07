@@ -2,9 +2,12 @@ name: java-version-maven
 filetype: xml$
 target: contents
 type: xpath
-criticality: Critical
+#criticality: Critical
 advice: JDK version is found to be lower than JAVA_8
 effort: 50
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: java
 defaultpattern: //*[starts-with(java.version,"%s")]/java.version
 tags:

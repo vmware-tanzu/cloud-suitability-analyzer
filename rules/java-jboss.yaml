@@ -8,6 +8,8 @@ advice: Convert to Spring based POJOs instead of using container specific functi
 effort: 50
 readiness: 5
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: jboss
 tags:
   - value: jboss
@@ -15,3 +17,5 @@ tags:
 patterns:
   - value: org.jboss
 
+profiles:
+- value: cloud-suitability

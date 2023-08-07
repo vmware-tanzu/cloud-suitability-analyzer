@@ -3,15 +3,26 @@ filetype: (cs$|vb$)
 target: line
 type: regex
 defaultpattern: '^.*%s.*'
-advice: External configurations should be made available by environment variables or some other external service. 
+advice: External configurations should be made available by environment variables or some another external service (Property Management Service). 
 effort: 100
 readiness: 2
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: windows-registry
 tags:
 - value: windows-registry
 patterns:
 - value: RegistryKey
-- value: Registry
+- value: Registry.CurrentUser
+- value: Registry.CurrentConfig
+- value: Registry.CurrentLocalMachine
+- value: Registry.Users
+- value: Registry.GetValue
+- value: Registry.SetValue
+
 #- RegistryKey
 #- Registry
+# - Registry.CurrentUser
+profiles:
+- value: cloud-suitability

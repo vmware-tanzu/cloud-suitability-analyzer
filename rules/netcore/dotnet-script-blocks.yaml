@@ -1,0 +1,21 @@
+name: dotnet-script-blocks
+filetype: (xsl)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Script blocks are supported only in .NET Framework. They are not supported on .NET Core or .NET 5 or later.
+effort: 10
+readiness: 10
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
+category: WCF
+tags:
+- value: windows-wcf
+- value: communication
+- value: api
+- value: unsupported-netcore
+patterns:
+- value: msxsl:script
+profiles:
+- value: netcore

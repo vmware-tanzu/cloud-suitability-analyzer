@@ -6,6 +6,8 @@ defaultpattern: "^.*[ .]%s[ (].*"
 effort: 10
 readiness: 70
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: jca
 advice: Consider rearchitecting the application to use Cloud friendly remote communications - http or messaging
 tags:
@@ -87,3 +89,5 @@ patterns:
 ##  workStarted(
 ##  WorkContextErrorCodes(
 ##  getStartDuration(
+profiles:
+- value: cloud-suitability

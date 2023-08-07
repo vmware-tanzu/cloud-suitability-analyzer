@@ -2,9 +2,12 @@ name: java-spring-boot-oss-support-version-maven
 filetype: xml$
 target: contents
 type: xpath
-criticality:
+#criticality: Warn
 advice: Spring boot version is out of spring boot open source support support(https://spring.io/projects/spring-boot#support). If you don't have commercial support, please update to newer version
 effort: 4
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: version
 defaultpattern: //*[groupId="org.springframework.boot" and starts-with(version,"%s")]/version
 tags:

@@ -6,6 +6,8 @@ defaultpattern: "^.*[ .]%s[ ({.<].*"
 effort: 50
 readiness: 6
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 advice: Make sure its externalized and using Cloud Friendly cache implementation.
 category: cache
 tags:
@@ -20,3 +22,5 @@ patterns:
 ##  NamedCache(
 ##  ReflectionExtractor(
 ##  ChainedExtractor(
+profiles:
+- value: cloud-suitability

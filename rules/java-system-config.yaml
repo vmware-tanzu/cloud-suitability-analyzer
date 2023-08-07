@@ -7,6 +7,8 @@ advice: Review usage of environment variables and system properties and external
 effort: 3
 readiness: 10 
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: config
 tags:
 - value: config
@@ -15,3 +17,5 @@ patterns:
 - value: getProperty
 - value: setProperty
 - value: setProperties
+profiles:
+- value: cloud-suitability

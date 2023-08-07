@@ -1,0 +1,24 @@
+name: dotnet-MSMQ-vbcs
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+category: unsupported-module
+advice: MSMQ is a proprietary Windows server-based messaging solution that is not supported by Linux based containers. Leverage bridging solutions like https://kubemq.io/helping-net-msmq-based-services-to-migrate-to-kubernetes/ on kubernetes
+effort: 10
+readiness: 1
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
+patterns:
+- value: MessageQueue
+- value: System.Messaging
+- value: ServiceHost
+- value: NetMsmqBinding
+tags:
+- value: msmq
+- value: messaging
+#- MessageQueue
+#- using System.Messaging
+profiles:
+- value: netcore

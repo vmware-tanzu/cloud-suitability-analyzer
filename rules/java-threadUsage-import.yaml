@@ -7,6 +7,8 @@ advice: Use Managed Executor
 effort: 100
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: threading
 tags:
 - value: threading
@@ -14,3 +16,5 @@ recipes:
 patterns:
 - value: java.lang.Thread
 - value: java.lang.Runnable
+profiles:
+- value: cloud-suitability

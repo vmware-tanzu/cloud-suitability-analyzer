@@ -5,6 +5,8 @@ type: regex
 advice: Unsupported protocols
 effort: 500
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: wcf
 tags:
 - value: windows-wcf
@@ -27,5 +29,5 @@ patterns:
 #- <netTcpContextBinding><binding closeTimeout="TimeSpan"
 #- <netTcpBinding><binding closeTimeout="TimeSpan"
   advice: Non HTTP based protocols are either unsupported or require extensive refactoring when on PCF. TCP binding would require TCP Router to be configured and app to be self hosted (TCP-IIS activation not supported)
-  
-
+profiles:
+- value: cloud-suitability

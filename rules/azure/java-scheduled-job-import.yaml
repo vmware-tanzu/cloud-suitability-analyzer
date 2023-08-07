@@ -2,12 +2,15 @@ name: java-scheduled-job-import
 filetype: java$
 target: line
 type: regex
-criticality:
+#criticality: Warn
 defaultpattern: ^.*import\s*%s.*
 advice: The application has scheduled jobs such as Quartz Scheduler tasks or cron jobs. 
         Please be aware that after migrating to the cloud and scaling out,
         scheduled jobs in applications may run more than once per scheduled period and lead to unintended consequences.
 effort: 6
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: scheduled job
 tags:
   - value: scheduled job

@@ -9,6 +9,8 @@ advice: Database coupling detected consider using ORM framework
 effort: 10
 readiness: 0
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: jdbc
   - value: sql
@@ -17,3 +19,5 @@ patterns:
   #--- SQL command
   - value: StoredProcedureQuery
   - value: CallableStatement
+profiles:
+- value: cloud-suitability

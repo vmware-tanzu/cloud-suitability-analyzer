@@ -8,6 +8,8 @@ defaultpattern: "^.*[ .]%s[ (.{].*"
 effort: 500
 readiness: 6
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: jta
 advice: Distributed transactions are problematic and should be remediated.  Consider Eventual Consistency pattern.
 recipes:
@@ -58,3 +60,5 @@ patterns:
 ##  XAResource(
 ##  Xid(
 ##  XAException(
+profiles:
+- value: cloud-suitability

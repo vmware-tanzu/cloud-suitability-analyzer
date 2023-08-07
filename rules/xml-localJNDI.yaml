@@ -9,6 +9,8 @@ advice: WebSphere does not allow local JNDI, refer to documentation
 effort: 10
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: jndi
 - value: local
@@ -16,3 +18,5 @@ tags:
 patterns:
 - value: <local-jndi-name>
 ##<local-jndi-name>
+profiles:
+- value: cloud-suitability

@@ -7,6 +7,8 @@ advice: When using HTTPS, terminate SSL at load balancer
 effort: 1
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: wcf
 tags:
 - value: windows-wcf
@@ -24,3 +26,5 @@ patterns:
 - value: mode="Transport"
 #- mode="Transport"
   advice: Transport security at the container is not supported.  Disable transport security on the service
+profiles:
+- value: cloud-suitability

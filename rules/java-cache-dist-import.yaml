@@ -7,6 +7,9 @@ defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Distributed caches must be remediated to function in K8S
 effort: 50
 readiness: 10
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: distcache
 tags:
   - value: stateful
@@ -23,3 +26,5 @@ patterns:
     tag: infinispan
   - value: net.spy.memcached #--- dist
     tag: net-spy-memcached
+profiles:
+- value: cloud-suitability

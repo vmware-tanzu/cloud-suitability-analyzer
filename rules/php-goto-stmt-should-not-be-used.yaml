@@ -8,6 +8,8 @@ advice:  goto is an unstructured control flow statement. It makes code less read
 effort: 3
 readiness: 1000
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: unstructured
 patterns:
@@ -15,3 +17,5 @@ patterns:
 
 
   #- goto 30
+profiles:
+- value: cloud-suitability

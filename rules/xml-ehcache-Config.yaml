@@ -8,9 +8,13 @@ advice: Consider external cache provider
 effort: 50
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: cache
 - value: ehcache
 patterns:
 - value: ehcache
 ## amq:broker
+profiles:
+- value: cloud-suitability

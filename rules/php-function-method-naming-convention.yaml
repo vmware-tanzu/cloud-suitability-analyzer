@@ -8,6 +8,8 @@ advice:  Shared naming conventions allow teams to collaborate efficiently. All f
 effort: 2
 readiness: 1000
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: code-smell
 patterns:
@@ -15,3 +17,5 @@ patterns:
 
 
 #- function(
+profiles:
+- value: cloud-suitability

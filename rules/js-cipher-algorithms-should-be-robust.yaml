@@ -8,6 +8,8 @@ advice:  Weak cipher algorithms are used. A general recommendation is to only us
 effort: 10
 readiness: 1000
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
   - value: vulnerability
 patterns:
@@ -16,3 +18,5 @@ patterns:
   - value: DES-EDE3
   - value: RC2
   - value: RC4
+profiles:
+- value: cloud-suitability

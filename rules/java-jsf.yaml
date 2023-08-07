@@ -7,6 +7,8 @@ defaultpattern: "^.*[ .]%s[ (].*$"
 effort: 5
 readiness: 4
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: jsf
 tags:
   - value: jsf
@@ -142,3 +144,5 @@ patterns:
 ##  UIViewParameter(
 ##  UIViewParameter.Reference(
 ##  UIViewRoot(
+profiles:
+- value: cloud-suitability

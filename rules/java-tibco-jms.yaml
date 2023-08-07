@@ -8,9 +8,13 @@ defaultpattern: "^.*[ .]%s[ (].*"
 effort: 7
 readiness: 6
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: tibco
 tags:
   - value: tibco
 patterns:
   - value: TibjmsConnectionFactory
 ## TibjmsConnectionFactory(
+profiles:
+- value: cloud-suitability

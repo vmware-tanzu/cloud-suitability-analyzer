@@ -7,6 +7,8 @@ advice: Adapt cloud friendly protocol
 effort: 2
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: web-service
 tags:
   - value: web-service
@@ -25,3 +27,5 @@ patterns:
     tag: javax.xml.rpc
   - value: javax.xml.rpc.ServiceException
     tag: javax.xml.rpc
+profiles:
+- value: cloud-suitability

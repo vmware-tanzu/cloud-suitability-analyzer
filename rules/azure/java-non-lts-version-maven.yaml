@@ -2,9 +2,12 @@ name: java-non-lts-version-maven
 filetype: xml$
 target: contents
 type: xpath
-criticality:
+#criticality: Warn
 advice: The application is using non-LTS version Java. JDK on LTS version is recommended, i.e., JAVA_8, JAVA_11 or JAVA_17.
 effort: 6
+criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: java
 defaultpattern: //*[starts-with(java.version,"%s")]/java.version
 tags:

@@ -1,3 +1,4 @@
+#review effort
 name: python-rabbitmq
 filetype: py$
 target: line
@@ -7,6 +8,8 @@ advice: RabbitMq messaging is used
 effort: 0
 readiness: 10
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 category: services
 tags:
 - value: rabbitmq
@@ -16,3 +19,5 @@ patterns:
 
 #- import pika
 #- import aio_pika
+profiles:
+- value: cloud-suitability

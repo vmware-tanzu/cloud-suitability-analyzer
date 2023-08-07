@@ -1,3 +1,4 @@
+#review effort
 name: SNAP-build-Gradle
 filetype: gradle$
 target: file
@@ -7,6 +8,8 @@ advice: Gradle is being used
 effort: 0
 readiness: 0
 criticality:
+  cloud_native_readiness : 50
+  container_readiness: 50
 tags:
 - value: gradle
 - value: snap
@@ -14,3 +17,5 @@ patterns:
 - value: build.gradle
 
 ##F build.gradle
+profiles:
+- value: cloud-suitability
