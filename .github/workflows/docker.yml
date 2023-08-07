@@ -1,18 +1,18 @@
 name: Docker Image CI
 
-on:
-  release:
-    types: [created]
-
 # on:
-#   workflow_dispatch:
-#     inputs:
-#       logLevel:
-#         description: 'Log level'
-#         required: true
-#         default: 'warning'
-#   push:
-#     branches: ['add_docker_build_action']
+#   release:
+#     types: [created]
+
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+  # push:
+  #   branches: ['add_docker_build_action']
 
 jobs:
 
