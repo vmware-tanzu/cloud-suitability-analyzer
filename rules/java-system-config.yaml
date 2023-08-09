@@ -1,4 +1,5 @@
 name: java-system-config
+ruletype: standard
 filetype: $
 target: line
 type: regex

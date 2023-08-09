@@ -1,4 +1,5 @@
 name: dotnet-iis_module-CertificateMappingAuthentication
+ruletype: standard
 filetype: config$
 target: file
 type: xpath

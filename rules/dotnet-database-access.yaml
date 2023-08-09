@@ -1,5 +1,6 @@
 #qc1
 name: dotnet-database-access
+ruletype: standard
 filetype: config$
 target: file
 type: xpath

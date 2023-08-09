@@ -1,4 +1,5 @@
 name: php-enable-session-use-trans-sid
+ruletype: standard
 filetype: ini$
 target: line
 type: regex

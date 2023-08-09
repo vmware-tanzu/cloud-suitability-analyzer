@@ -1,5 +1,6 @@
 ---
 name: java-jta
+ruletype: standard
 filetype: java$
 target: line
 type: regex

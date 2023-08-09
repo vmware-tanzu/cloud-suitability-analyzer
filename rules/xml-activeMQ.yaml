@@ -1,4 +1,5 @@
 name: xml-activeMQ
+ruletype: standard
 filetype: xml$
 target: line
 type: regex

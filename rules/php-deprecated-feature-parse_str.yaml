@@ -1,4 +1,5 @@
 name: php-deprecated-feature-parse_str
+ruletype: standard
 filetype: php$
 target: line
 type: regex

@@ -1,4 +1,5 @@
 name: java-servlet-session
+ruletype: standard
 filetype: java$
 target: line
 type: regex

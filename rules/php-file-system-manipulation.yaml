@@ -1,4 +1,5 @@
 name: php-file-system-manipulation
+ruletype: standard
 filetype: php$
 target: line
 type: regex

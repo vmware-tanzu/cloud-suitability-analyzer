@@ -2,6 +2,7 @@
 # todo consider looking for rmi/corba java package imports instead of classes
 #--- updated from 8/8/18 Survey
 name: java-corba
+ruletype: standard
 filetype: java$
 target: line
 type: regex

@@ -1,5 +1,6 @@
 ---
 name: java-jms
+ruletype: standard
 filetype: java$
 target: line
 type: regex

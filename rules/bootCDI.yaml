@@ -1,5 +1,6 @@
 #SW
 name: bootCDI
+ruletype: standard
 filetype: xml$
 target: line
 type: regex

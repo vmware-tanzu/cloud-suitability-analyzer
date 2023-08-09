@@ -1,5 +1,6 @@
 #SW
 name: xml-servlet-3-0
+ruletype: standard
 filetype: xml$
 target: line
 type: regex

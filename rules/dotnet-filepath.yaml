@@ -1,4 +1,5 @@
 name: dotnet-filepath
+ruletype: standard
 filetype: (cs|yaml|yml|json)
 target: line
 type: regex

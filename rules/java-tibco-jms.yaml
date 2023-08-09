@@ -1,4 +1,5 @@
 name: java-tibco-jms
+ruletype: standard
 filetype: java$
 advice: Integrating with TIBCO BusinessWorks JMS queues from a Spring application requires vendor-specific implementation
 target: line

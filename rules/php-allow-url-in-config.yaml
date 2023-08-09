@@ -1,4 +1,5 @@
 name: php-allow-url-in-config
+ruletype: standard
 filetype: ini$
 target: line
 type: regex

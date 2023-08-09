@@ -1,4 +1,5 @@
 name: docker-sudo
+ruletype: standard
 filetype: $
 target: line
 type: regex

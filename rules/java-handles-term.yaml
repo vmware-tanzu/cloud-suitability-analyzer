@@ -1,5 +1,6 @@
 ---
 name: java-handles-term
+ruletype: standard
 filetype: java$
 target: line
 type: regex

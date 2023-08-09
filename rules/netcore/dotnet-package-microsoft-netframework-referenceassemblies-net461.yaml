@@ -1,4 +1,5 @@
 name: dotnet-package-microsoft-netframework-referenceassemblies-net461
+ruletype: standard
 filetype: (config$)
 target: line
 type: regex

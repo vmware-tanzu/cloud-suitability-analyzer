@@ -1,4 +1,5 @@
 name: java-apm-dependency-maven
+ruletype: standard
 filetype: xml$
 filenamepattern: ^pom.xml$
 target: file

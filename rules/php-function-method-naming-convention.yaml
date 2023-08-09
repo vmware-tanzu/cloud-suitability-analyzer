@@ -1,4 +1,5 @@
 name: php-function-method-naming-convention
+ruletype: standard
 filetype: php$
 target: line
 type: regex

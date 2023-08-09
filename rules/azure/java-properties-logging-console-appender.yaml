@@ -1,4 +1,5 @@
 name: java-properties-logging-console-appender
+ruletype: standard
 criticality: Warn
 filetype: xml$
 filenamepattern: ^log4j2?(-\w+)?\.properties$

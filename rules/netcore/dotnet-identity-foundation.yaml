@@ -1,4 +1,5 @@
 name: dotnet-identity-foundation
+ruletype: standard
 filetype: (cs$)
 target: line
 type: regex

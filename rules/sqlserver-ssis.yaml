@@ -1,4 +1,5 @@
 name: sqlserver-ssis
+ruletype: standard
 filetype: (dtsx$)
 target: line
 type: regex

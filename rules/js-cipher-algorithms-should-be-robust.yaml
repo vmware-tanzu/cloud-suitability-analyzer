@@ -1,4 +1,5 @@
 name: js-cipher-algorithms-should-be-robust
+ruletype: standard
 filetype: js$
 target: line
 type: regex

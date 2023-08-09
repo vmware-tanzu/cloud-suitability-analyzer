@@ -1,4 +1,5 @@
 name: python-fileIO
+ruletype: standard
 filetype: py$
 target: line
 type: regex

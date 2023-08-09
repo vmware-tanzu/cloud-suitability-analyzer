@@ -1,4 +1,5 @@
 name: java-non-lts-version-maven
+ruletype: standard
 filetype: xml$
 target: contents
 type: xpath

@@ -1,4 +1,5 @@
 name: js-continue
+ruletype: standard
 filetype: js$
 target: line
 type: regex

@@ -1,4 +1,5 @@
 name: js-cache
+ruletype: standard
 filetype: js$
 target: line
 type: regex

@@ -1,4 +1,5 @@
 name: php-reading-std-Input-security-sensitive
+ruletype: standard
 filetype: php$
 target: line
 type: regex

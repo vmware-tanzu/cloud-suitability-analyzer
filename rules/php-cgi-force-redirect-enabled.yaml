@@ -1,4 +1,5 @@
 name: php-cgi-force-redirect-enabled
+ruletype: standard
 filetype: ini$
 target: line
 type: regex

@@ -1,4 +1,5 @@
 name: java-struts-import
+ruletype: standard
 filetype: (jsp$|java$)
 target: line
 type: regex

@@ -1,4 +1,5 @@
 name: tas-environment-cfenv-gradle
+ruletype: standard
 filetype: gradle$
 target: line
 type: regex

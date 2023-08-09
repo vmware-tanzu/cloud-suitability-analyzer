@@ -1,4 +1,5 @@
 name: dotnet-reflection-assembly
+ruletype: standard
 filetype: (cs$|vb$)
 target: line
 type: regex

@@ -1,5 +1,6 @@
 #SW - this is where we need xpath
 name: SNAP-SQL-properties
+ruletype: standard
 filetype: properties$
 target: line
 type: regex

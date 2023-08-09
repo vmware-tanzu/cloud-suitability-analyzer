@@ -1,4 +1,5 @@
 name: java-properties-config-client-configs
+ruletype: standard
 filetype: properties$
 target: line
 type: regex

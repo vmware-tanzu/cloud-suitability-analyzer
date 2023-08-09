@@ -1,4 +1,5 @@
 name: hardcode-uri
+ruletype: standard
 filetype: (java$|^vb$|py$|go$|aspx$|^c$|h$|cs$|csx$|cpp$|cob$|cfm$|cfml$|dockerfile$|jsp$|php$|^r$|^ts$|yaml$|yml$|json$)
 #filetype: (cs$|js$)
 target: line

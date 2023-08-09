@@ -1,5 +1,6 @@
 #--- TODO need to separate and survey to score
 name: java-springboot-annotations
+ruletype: standard
 filetype: java$
 target: line
 type: regex

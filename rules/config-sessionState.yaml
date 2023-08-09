@@ -1,4 +1,5 @@
 name: config-sessionState
+ruletype: standard
 filetype: config$
 target: file
 type: xpath

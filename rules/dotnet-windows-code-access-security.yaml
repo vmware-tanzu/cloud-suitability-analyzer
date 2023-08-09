@@ -1,4 +1,5 @@
 name: dotnet-windows-code-access-security
+ruletype: standard
 filetype: (cs$|vb$)
 target: line
 type: regex

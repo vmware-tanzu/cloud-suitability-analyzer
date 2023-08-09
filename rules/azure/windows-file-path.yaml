@@ -1,4 +1,5 @@
 name: windows-file-path
+ruletype: standard
 filetype: java$|properties$|xml$|yaml$|yml$|json$|jsn$
 target: line
 type: regex

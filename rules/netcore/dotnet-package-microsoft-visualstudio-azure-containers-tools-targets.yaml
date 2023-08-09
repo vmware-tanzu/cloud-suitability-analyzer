@@ -1,4 +1,5 @@
 name: dotnet-package-microsoft-visualstudio-azure-containers-tools-targets
+ruletype: standard
 filetype: (config$)
 target: line
 type: regex

@@ -1,5 +1,6 @@
 #SW
 name: xml-ejb-mdb-import
+ruletype: standard
 filetype: xml$
 target: line
 type: regex

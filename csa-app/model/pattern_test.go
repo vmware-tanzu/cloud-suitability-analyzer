@@ -37,6 +37,7 @@ func getValidRulePatternNoValue() model.Rule {
 	r := model.Rule{}
 	r.Name = "Test Rule"
 	r.FileType = "*"
+	r.RuleType = "standard"
 	r.Target = model.FILE_TARGET
 	r.Type = model.REGEX_MATCH_TYPE
 	r.DefaultPattern = "Bubba G[ui]mp %s"

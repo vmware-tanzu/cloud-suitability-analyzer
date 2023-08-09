@@ -1,4 +1,5 @@
 name: java-mq-connection-string-user-password-yaml
+ruletype: standard
 filetype: (yaml$|yml$|json$|jsn$)
 target: contents
 type: yamlpath

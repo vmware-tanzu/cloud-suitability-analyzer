@@ -1,4 +1,5 @@
 name: js-fileIO
+ruletype: standard
 filetype: js$
 target: line
 type: regex

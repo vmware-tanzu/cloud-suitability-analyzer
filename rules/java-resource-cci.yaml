@@ -1,4 +1,5 @@
 name: java-resource-cci
+ruletype: standard
 filetype: java$
 target: line
 type: regex

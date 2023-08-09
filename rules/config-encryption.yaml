@@ -1,4 +1,5 @@
 name: config-encryption
+ruletype: standard
 filetype: config$
 target: file
 type: xpath

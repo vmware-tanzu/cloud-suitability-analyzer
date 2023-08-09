@@ -1,4 +1,5 @@
 name: js-jwt-signed-verify-with-strong-cipher-algorithms
+ruletype: standard
 filetype: js$
 target: line
 type: regex

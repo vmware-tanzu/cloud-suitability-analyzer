@@ -1,4 +1,5 @@
 name: java-3rdPartyImports
+ruletype: standard
 filetype: (jsp$|java$)
 target: line
 type: regex

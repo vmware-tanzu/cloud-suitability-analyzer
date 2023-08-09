@@ -1,4 +1,5 @@
 name: java-message-driven-annotations
+ruletype: standard
 filetype: (jsp$|java$)
 target: line
 type: regex

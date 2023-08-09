@@ -1,5 +1,6 @@
 #SW
 name: xml-statefulEJB
+ruletype: standard
 filetype: xml$
 target: line
 type: regex

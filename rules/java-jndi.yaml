@@ -1,6 +1,7 @@
 ---
 #--- updated from 8/8/18 Survey
 name: java-jndi
+ruletype: standard
 filetype: java$
 target: line
 type: regex

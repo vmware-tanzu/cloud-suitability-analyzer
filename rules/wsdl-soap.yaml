@@ -1,4 +1,5 @@
 name: wsdl-soap
+ruletype: standard
 filetype: wsdl$
 target: file
 effort: 4

@@ -1,5 +1,6 @@
 #SW
 name: java-ejb-stateful-import
+ruletype: standard
 filetype: java$
 target: line
 type: regex

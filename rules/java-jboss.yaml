@@ -1,5 +1,6 @@
 ---
 name: java-jboss
+ruletype: standard
 filetype: java$
 target: line
 type: regex

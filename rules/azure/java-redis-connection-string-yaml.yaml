@@ -1,4 +1,5 @@
 name: java-redis-connection-string-user-password-yaml
+ruletype: standard
 filetype: yaml$|yml$
 target: contents
 type: yamlpath

@@ -1,4 +1,5 @@
 name: dotnet-windows-remoting-code
+ruletype: standard
 filetype: (cs$)
 target: line
 type: regex

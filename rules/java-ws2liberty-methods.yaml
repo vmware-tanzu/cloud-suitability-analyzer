@@ -1,4 +1,5 @@
 name: java-ws2liberty-methods
+ruletype: standard
 filetype: java$
 target: line
 type: regex

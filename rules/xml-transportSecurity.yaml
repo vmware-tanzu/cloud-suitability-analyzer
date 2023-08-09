@@ -1,5 +1,6 @@
 #SW
 name: xml-transportSecurity
+ruletype: standard
 filetype: xml$
 target: line
 type: regex

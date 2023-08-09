@@ -1,4 +1,5 @@
 name: js-bool-comparison
+ruletype: standard
 filetype: js$
 target: line
 type: regex

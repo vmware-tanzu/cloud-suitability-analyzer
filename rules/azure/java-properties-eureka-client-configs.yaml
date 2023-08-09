@@ -1,4 +1,5 @@
 name: java-properties-eureka-client-configs
+ruletype: standard
 filetype: properties$
 target: line
 type: regex

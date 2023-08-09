@@ -1,4 +1,5 @@
 name: java-version-gradle
+ruletype: standard
 filetype: gradle$|kts$
 target: line
 type: regex

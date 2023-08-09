@@ -1,4 +1,5 @@
 name: dotnet-script-blocks
+ruletype: standard
 filetype: (xsl)
 target: line
 type: regex

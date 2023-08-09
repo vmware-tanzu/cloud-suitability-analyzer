@@ -1,4 +1,5 @@
 name: java-spring-boot-oss-support-version-gradle
+ruletype: standard
 filetype: gradle$|kts$
 target: line
 type: regex

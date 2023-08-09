@@ -1,4 +1,5 @@
 name: js-var
+ruletype: standard
 filetype: js$
 target: line
 type: regex

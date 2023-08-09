@@ -1,4 +1,5 @@
 name: windows-dynamic-link-library
+ruletype: standard
 filetype: dll$
 target: file
 type: regex

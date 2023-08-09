@@ -1,4 +1,5 @@
 name: dotnet-windows-remoting
+ruletype: standard
 filetype: config$
 target: file
 type: xpath

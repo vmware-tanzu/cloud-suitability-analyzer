@@ -1,4 +1,5 @@
 name: java-spring-boot-starter
+ruletype: standard
 filetype: gradle$|kts$|xml$
 filenamepattern: (^build.gradle|^pom.xml$)
 target: contents

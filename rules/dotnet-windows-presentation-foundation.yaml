@@ -1,4 +1,5 @@
 name: dotnet-windows-presentation-foundation
+ruletype: standard
 # ignore development config files
 filetype: xaml
 target: line

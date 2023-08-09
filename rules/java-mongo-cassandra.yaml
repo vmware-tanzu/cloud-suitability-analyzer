@@ -1,4 +1,5 @@
 name: java-mongo-cassandra
+ruletype: standard
 filetype: java$
 target: line
 type: regex

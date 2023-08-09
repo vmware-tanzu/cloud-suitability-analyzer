@@ -1,4 +1,5 @@
 name: java-jks
+ruletype: standard
 filetype: jks$
 target: file
 effort: 7

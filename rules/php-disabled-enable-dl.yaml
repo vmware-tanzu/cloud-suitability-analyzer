@@ -1,4 +1,5 @@
 name: php-disabled-enable-dl
+ruletype: standard
 filetype: ini$
 target: line
 type: regex

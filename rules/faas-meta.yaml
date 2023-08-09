@@ -1,4 +1,5 @@
 name: faas-meta
+ruletype: standard
 filetype: meta$
 target: file
 type: xpath

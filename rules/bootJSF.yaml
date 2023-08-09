@@ -1,6 +1,7 @@
 #SW
 #todo to remove
 name: bootJSF
+ruletype: standard
 filetype: xml$
 target: line
 type: regex

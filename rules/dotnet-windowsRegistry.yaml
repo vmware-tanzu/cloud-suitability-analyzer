@@ -1,4 +1,5 @@
 name: dotnet-windowsRegistry
+ruletype: standard
 filetype: (cs$|vb$)
 target: line
 type: regex

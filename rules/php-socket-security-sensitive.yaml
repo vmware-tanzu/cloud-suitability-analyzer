@@ -1,4 +1,5 @@
 name: php-socket-security-sensitive
+ruletype: standard
 filetype: php$
 target: line
 type: regex

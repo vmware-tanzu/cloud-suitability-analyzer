@@ -1,4 +1,5 @@
 name: php-global-variable
+ruletype: standard
 filetype: php$
 target: line
 type: regex

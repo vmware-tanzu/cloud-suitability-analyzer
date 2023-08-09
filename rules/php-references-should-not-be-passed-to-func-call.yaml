@@ -1,4 +1,5 @@
 name: php-references-should-not-be-passed-to-func-call
+ruletype: standard
 filetype: php$
 target: line
 type: regex

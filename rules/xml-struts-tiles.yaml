@@ -1,5 +1,6 @@
 #SW
 name: xml-struts-tiles
+ruletype: standard
 filetype: xml$
 target: line
 type: regex

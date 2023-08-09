@@ -1,4 +1,5 @@
 name: java-scheduled-job-import
+ruletype: standard
 filetype: java$
 target: line
 type: regex

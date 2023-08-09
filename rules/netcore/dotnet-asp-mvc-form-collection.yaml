@@ -1,4 +1,5 @@
 name: dotnet-asp-mvc-form-collection
+ruletype: standard
 filetype: (cs$|vb$)
 target: line
 type: regex

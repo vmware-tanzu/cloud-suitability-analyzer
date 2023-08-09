@@ -1,4 +1,5 @@
 name: java-spring-cloud-version-maven
+ruletype: standard
 filetype: xml$
 target: contents
 type: xpath

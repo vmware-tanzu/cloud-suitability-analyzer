@@ -1,5 +1,6 @@
 #qc1
 name: dotnet-fileIO
+ruletype: standard
 filetype: (cs$|vb$)
 target: line
 type: regex

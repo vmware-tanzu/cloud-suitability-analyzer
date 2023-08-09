@@ -1,4 +1,5 @@
 name: tas-environment-connector-python
+ruletype: standard
 filetype: py$
 target: line
 type: regex

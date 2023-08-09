@@ -1,4 +1,5 @@
 name: php-goto-stmt-should-not-be-used
+ruletype: standard
 filetype: ini$
 target: line
 type: regex

@@ -1,4 +1,5 @@
 name: java-file-system
+ruletype: standard
 filetype: java$
 advice: Use backing storage service
 target: line

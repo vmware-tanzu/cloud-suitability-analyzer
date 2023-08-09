@@ -1,4 +1,5 @@
 name: java-ejb-stateful
+ruletype: standard
 filetype: java$
 target: line
 type: regex

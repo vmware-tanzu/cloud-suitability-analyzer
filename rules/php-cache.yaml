@@ -1,4 +1,5 @@
 name: php-cache
+ruletype: standard
 filetype: php$
 target: line
 type: regex

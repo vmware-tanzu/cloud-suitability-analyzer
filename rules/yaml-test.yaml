@@ -1,4 +1,5 @@
 name: yaml-test
+ruletype: standard
 filetype: (yaml|yml)$
 target: file
 type: yamlpath

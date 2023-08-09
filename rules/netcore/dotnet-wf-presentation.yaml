@@ -1,4 +1,5 @@
 name: dotnet-wf-presentation
+ruletype: standard
 filetype: (xaml$)
 target: line
 type: regex

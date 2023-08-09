@@ -1,4 +1,5 @@
 name: plaintext-creds
+ruletype: standard
 target: line
 type: regex
 defaultpattern: (%s)\s*=+\s*["'][^${[(\s][^"${[(\s].*

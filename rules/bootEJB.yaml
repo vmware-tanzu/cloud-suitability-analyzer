@@ -1,5 +1,6 @@
 #SW
 name: bootEJB
+ruletype: standard
 filetype: xml$
 target: line
 type: regex

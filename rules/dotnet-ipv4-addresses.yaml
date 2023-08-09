@@ -1,4 +1,5 @@
 name: dotnet-ipv4-addresses
+ruletype: standard
 filetype: (yaml|yml|cs$|json)
 target: line
 type: regex

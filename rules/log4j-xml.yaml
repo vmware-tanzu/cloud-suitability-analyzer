@@ -1,4 +1,5 @@
 name: log4j-xml
+ruletype: standard
 filetype: log4j2.xml$
 target: line
 type: regex

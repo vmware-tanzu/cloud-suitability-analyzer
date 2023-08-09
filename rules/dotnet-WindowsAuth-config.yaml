@@ -1,5 +1,6 @@
 #qc1
 name: dotnet-WindowsAuth-config
+ruletype: standard
 # ignore development config files
 filetype: config$
 target: file

@@ -1,5 +1,6 @@
 #qc1
 name: docker-dockerFile
+ruletype: standard
 filetype: $
 target: file
 type: simple-text

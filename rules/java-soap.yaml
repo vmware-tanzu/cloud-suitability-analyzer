@@ -1,4 +1,5 @@
 name: java-soap
+ruletype: standard
 filetype: java$
 target: line
 type: regex

@@ -1,4 +1,5 @@
 name: yaml-nonstandard-port
+ruletype: standard
 filetype: (yaml$|yml$)
 target: contents
 type: yamlpath

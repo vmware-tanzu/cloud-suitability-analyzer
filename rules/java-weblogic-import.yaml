@@ -1,4 +1,5 @@
 name: java-weblogic-import
+ruletype: standard
 filetype: java$
 target: line
 type: regex

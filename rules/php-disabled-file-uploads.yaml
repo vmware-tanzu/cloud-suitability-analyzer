@@ -1,4 +1,5 @@
 name: php-disabled-file-uploads
+ruletype: standard
 filetype: ini$
 target: line
 type: regex

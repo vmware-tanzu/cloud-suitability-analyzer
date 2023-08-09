@@ -1,4 +1,5 @@
 name: java-zipkin-maven
+ruletype: standard
 filetype: xml$
 target: contents
 type: xpath

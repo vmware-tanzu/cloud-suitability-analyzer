@@ -1,4 +1,5 @@
 name: config-dotnet-webConfig
+ruletype: standard
 filetype: config$
 target: file
 category: Config

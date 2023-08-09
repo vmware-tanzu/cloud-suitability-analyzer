@@ -1,4 +1,5 @@
 name: js-document-write.yaml
+ruletype: standard
 filetype: js$
 target: line
 type: regex

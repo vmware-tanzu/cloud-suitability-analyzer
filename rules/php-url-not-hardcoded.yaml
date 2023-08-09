@@ -1,4 +1,5 @@
 name: php-php-url-not-hardcoded
+ruletype: standard
 filetype: php$
 target: line
 type: regex

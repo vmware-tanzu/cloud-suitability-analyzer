@@ -1,4 +1,5 @@
 name: dotnet-iis_module-IsapiCgiRestriction
+ruletype: standard
 filetype: config$
 target: file
 type: xpath

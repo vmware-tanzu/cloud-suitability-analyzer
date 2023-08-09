@@ -1,5 +1,6 @@
 #SW
 name: xml-jsf-2-1
+ruletype: standard
 filetype: xml$
 target: line
 type: regex

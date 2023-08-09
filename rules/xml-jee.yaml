@@ -1,4 +1,5 @@
 name: xml-jee
+ruletype: standard
 filetype: xml$
 target: file
 type: simple-text

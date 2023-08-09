@@ -1,4 +1,5 @@
 name: dotnet-connectionstrings
+ruletype: standard
 title: Usage of hardcoded connection string
 description: Helps with detecting if hard coded connection strings
 filetype: (json|property)

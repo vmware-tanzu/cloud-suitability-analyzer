@@ -1,4 +1,5 @@
 name: java-yaml-config-client-configs
+ruletype: standard
 filetype: (yaml$|yml$)
 target: contents
 type: yamlpath

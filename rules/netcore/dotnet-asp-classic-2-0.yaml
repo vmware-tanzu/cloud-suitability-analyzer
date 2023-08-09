@@ -1,5 +1,6 @@
 
 name: dotnet-asp-classic-2-0
+ruletype: standard
 filetype: (asp$)
 target: line
 type: regex

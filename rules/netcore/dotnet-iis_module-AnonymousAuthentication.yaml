@@ -1,4 +1,5 @@
 name: dotnet-iis_module-AnonymousAuthentication
+ruletype: standard
 filetype: config$
 target: file
 type: xpath
