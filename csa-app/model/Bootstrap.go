@@ -5,12 +5,12 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-08-09 12:48:57.216975 -0500 CDT m=+0.257650336
+//Created @ 2023-08-14 16:11:39.346519 -0500 CDT m=+0.164168411
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
         
-            { Name: "SNAP-ETL-import", RuleType: "standard", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^import\\s*.*%s.*$", Advice: "Vendor specific integration implementation", Effort: 100, Readiness: 0, Impact: "", Category: "etl", Criticality: "",
+            { Name: "SNAP-ETL-import", RuleType: "fire-once", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^import\\s*.*%s.*$", Advice: "Vendor specific integration implementation", Effort: 100, Readiness: 0, Impact: "", Category: "etl", Criticality: "",
             Tags:
             []Tag{  { Value: "etl",}, { Value: "snap",}, },
             Profiles:
@@ -122,7 +122,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "<target name=\"ear\"", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "SNAP-java-ver-Maven-Ant", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Legacy Java detected.  Consider upgrading.", Effort: 100, Readiness: 0, Impact: "", Category: "java-ver", Criticality: "",
+            { Name: "SNAP-java-ver-Maven-Ant", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Legacy Java detected.  Consider upgrading.", Effort: 100, Readiness: 0, Impact: "", Category: "java-ver", Criticality: "",
             Tags:
             []Tag{  { Value: "java-version",}, { Value: "snap",}, },
             Profiles:
@@ -923,7 +923,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "Web.config", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "config-encryption", RuleType: "standard", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Use of encrypted sections is problematic in cloud environments. Configurations should be externalized as environment variables instead of encrypting them in configuration file.", Effort: 300, Readiness: 0, Impact: "", Category: "security", Criticality: "",
+            { Name: "config-encryption", RuleType: "fire-once", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Use of encrypted sections is problematic in cloud environments. Configurations should be externalized as environment variables instead of encrypting them in configuration file.", Effort: 300, Readiness: 0, Impact: "", Category: "security", Criticality: "",
             Tags:
             []Tag{  { Value: "security",}, { Value: "encryption",}, },
             Profiles:
@@ -936,7 +936,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "//*[@configProtectionProvider][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "config-security", RuleType: "standard", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Use of generated machine keys is problematic", Effort: 100, Readiness: 100, Impact: "", Category: "security", Criticality: "",
+            { Name: "config-security", RuleType: "fire-once", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Use of generated machine keys is problematic", Effort: 100, Readiness: 100, Impact: "", Category: "security", Criticality: "",
             Tags:
             []Tag{  { Value: "auto-gen-key",}, },
             Profiles:
@@ -949,7 +949,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "/configuration/system.web/machineKey[contains(@validationKey, \"AutoGenerate\") or contains(@decryptionKey, \"AutoGenerate\")]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "config-sessionState", RuleType: "standard", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "App should be executed as a stateless process. User session information could be store in the database (Ex https://www.c-sharpcorner.com/article/configure-sql-server-session-state-in-asp-net-core/). A better approach is to use a Redis or SQL Server distributed cache, which doesn't require sticky sessions. For more information, see Distributed caching in ASP.NET Core (https://learn.microsoft.com/en-us/aspnet/core/performance/caching/distributed?view=aspnetcore-7.0).", Effort: 200, Readiness: 2, Impact: "", Category: "stateful", Criticality: "",
+            { Name: "config-sessionState", RuleType: "fire-once", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "App should be executed as a stateless process. User session information could be store in the database (Ex https://www.c-sharpcorner.com/article/configure-sql-server-session-state-in-asp-net-core/). A better approach is to use a Redis or SQL Server distributed cache, which doesn't require sticky sessions. For more information, see Distributed caching in ASP.NET Core (https://learn.microsoft.com/en-us/aspnet/core/performance/caching/distributed?view=aspnetcore-7.0).", Effort: 200, Readiness: 2, Impact: "", Category: "stateful", Criticality: "",
             Tags:
             []Tag{  { Value: "stateful",}, { Value: "session",}, },
             Profiles:
@@ -1004,7 +1004,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "RUN su root", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-FileCacheModule", RuleType: "standard", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Caching should be managed externally. Relying on IIS Modules won't work in Linux environment. Alternatives are distributed cache solutions like Redis, SQL Server distributed cache, NCache distributed cache.", Effort: 1000, Readiness: 5, Impact: "", Category: "caching", Criticality: "",
+            { Name: "dotnet-FileCacheModule", RuleType: "fire-once", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Caching should be managed externally. Relying on IIS Modules won't work in Linux environment. Alternatives are distributed cache solutions like Redis, SQL Server distributed cache, NCache distributed cache.", Effort: 1000, Readiness: 5, Impact: "", Category: "caching", Criticality: "",
             Tags:
             []Tag{  { Value: "cache",}, },
             Profiles:
@@ -1017,7 +1017,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "/configuration/location/system.webServer/serverRuntime[@frequentHitThreshold or @frequentHitTimePeriod][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-HttpCacheModule", RuleType: "standard", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Output cache profiles etc. via configuration.", Effort: 1000, Readiness: 5, Impact: "", Category: "caching", Criticality: "",
+            { Name: "dotnet-HttpCacheModule", RuleType: "fire-once", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Output cache profiles etc. via configuration.", Effort: 1000, Readiness: 5, Impact: "", Category: "caching", Criticality: "",
             Tags:
             []Tag{  { Value: "cache-control-mode",}, },
             Profiles:
@@ -1043,7 +1043,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "/configuration/system.webServer/security/requestFiltering/requestLimits[1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-StaticCompressionModule", RuleType: "standard", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Ensure compatible configuration", Effort: 100, Readiness: 5, Impact: "", Category: "unsupported-iis-module", Criticality: "",
+            { Name: "dotnet-StaticCompressionModule", RuleType: "fire-once", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Ensure compatible configuration", Effort: 100, Readiness: 5, Impact: "", Category: "unsupported-iis-module", Criticality: "",
             Tags:
             []Tag{  { Value: "iis-module",}, { Value: "static-compression",}, },
             Profiles:
@@ -1056,7 +1056,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "/configuration/system.webServer/httpCompression[1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-StaticFileModule", RuleType: "standard", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Ensure compatible configuation", Effort: 400, Readiness: 5, Impact: "", Category: "Unsupported modules", Criticality: "",
+            { Name: "dotnet-StaticFileModule", RuleType: "fire-once", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Ensure compatible configuation", Effort: 400, Readiness: 5, Impact: "", Category: "Unsupported modules", Criticality: "",
             Tags:
             []Tag{  { Value: "iis-module",}, { Value: "static-file-module",}, { Value: "web-server",}, },
             Profiles:
@@ -1070,7 +1070,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "/configuration/system.webServer/handlers/add[@name=\"StaticFileModule\"][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-iis_module-TokenCacheModule", RuleType: "standard", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Caches windows security tokens for password based authentication schemes (anonymous authentication; basic authentication; IIS client certificate authentication). Ensure compabible configuration.", Effort: 1000, Readiness: 5, Impact: "", Category: "unsupported-iis-module", Criticality: "",
+            { Name: "dotnet-iis_module-TokenCacheModule", RuleType: "fire-once", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Caches windows security tokens for password based authentication schemes (anonymous authentication; basic authentication; IIS client certificate authentication). Ensure compabible configuration.", Effort: 1000, Readiness: 5, Impact: "", Category: "unsupported-iis-module", Criticality: "",
             Tags:
             []Tag{  { Value: "iis-module",}, { Value: "cache",}, { Value: "token-cache-module",}, },
             Profiles:
@@ -1083,7 +1083,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "/configuration/system.webServer/globalModules/add[@name=\"TokenCacheModule\"][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-WindowsAuth-config", RuleType: "standard", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Windows Integrated Authentication will be problematic in the cloud as containers won't be joining Windows Domains. Use another authentication mechanism more cloud friendly like SSO, LDAP Remote Calls, Local...", Effort: 500, Readiness: 1, Impact: "", Category: "Unsupported modules", Criticality: "",
+            { Name: "dotnet-WindowsAuth-config", RuleType: "fire-once", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Windows Integrated Authentication will be problematic in the cloud as containers won't be joining Windows Domains. Use another authentication mechanism more cloud friendly like SSO, LDAP Remote Calls, Local...", Effort: 500, Readiness: 1, Impact: "", Category: "Unsupported modules", Criticality: "",
             Tags:
             []Tag{  { Value: "windows-auth",}, },
             Profiles:
@@ -1099,7 +1099,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "/configuration/connectionStrings/add[contains(translate(translate(@connectionString, \" \", \"\"), \"abcdefghijklmnopqrstuvwxyz\", \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\"), \"INTEGRATEDSECURITY=TRUE\")]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-WindowsAuth-csvb", RuleType: "standard", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Windows Integrated Authentication will be problematic in the cloud as containers won't be joining Windows Domains. Use another authentication mechanism more cloud friendly like SSO, LDAP Remote Calls, Local...", Effort: 500, Readiness: 1, Impact: "", Category: "Unsupported modules", Criticality: "",
+            { Name: "dotnet-WindowsAuth-csvb", RuleType: "fire-once", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Windows Integrated Authentication will be problematic in the cloud as containers won't be joining Windows Domains. Use another authentication mechanism more cloud friendly like SSO, LDAP Remote Calls, Local...", Effort: 500, Readiness: 1, Impact: "", Category: "Unsupported modules", Criticality: "",
             Tags:
             []Tag{  { Value: "windows-auth",}, },
             Profiles:
@@ -1335,7 +1335,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "Microsoft.SharePoint", Advice: "SharePoint is not supported on CloudFoundry.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-transactions", RuleType: "standard", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Potential use of distributed transactions which are unsupported", Effort: 100, Readiness: 10, Impact: "", Category: "transaction", Criticality: "",
+            { Name: "dotnet-transactions", RuleType: "fire-once", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Potential use of distributed transactions which are unsupported", Effort: 100, Readiness: 10, Impact: "", Category: "transaction", Criticality: "",
             Tags:
             []Tag{  { Value: "distributed-transaction",}, },
             Profiles:
@@ -1363,7 +1363,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "<webHttp.+Binding>", Advice: "Refers to documentation when using WCF, some protocols might not be supported", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-wcf-protocols-ws", RuleType: "standard", FileType: "config$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "Unsupported protocols", Effort: 1000, Readiness: 0, Impact: "", Category: "wcf", Criticality: "",
+            { Name: "dotnet-wcf-protocols-ws", RuleType: "fire-once", FileType: "config$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "Unsupported protocols", Effort: 1000, Readiness: 0, Impact: "", Category: "wcf", Criticality: "",
             Tags:
             []Tag{  { Value: "windows-wcf",}, { Value: "communication",}, { Value: "api",}, },
             Profiles:
@@ -1376,7 +1376,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "<ws.+HttpBinding>", Advice: "Many features of WS* protocols are problematic in the cloud like distributed transactions and reliable sessions", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-wcf-protocols", RuleType: "standard", FileType: "config$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "Unsupported protocols", Effort: 500, Readiness: 0, Impact: "", Category: "wcf", Criticality: "",
+            { Name: "dotnet-wcf-protocols", RuleType: "fire-once", FileType: "config$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "Unsupported protocols", Effort: 500, Readiness: 0, Impact: "", Category: "wcf", Criticality: "",
             Tags:
             []Tag{  { Value: "windows-wcf",}, { Value: "communication",}, { Value: "api",}, },
             Profiles:
@@ -1407,7 +1407,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "mode=\"Transport\"", Advice: "Transport security at the container is not supported.  Disable transport security on the service", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-windows-application-domain", RuleType: "standard", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Unsupported, For .NET Core, there is exactly one AppDomain. Isolation and unloading are provided through AssemblyLoadContext. Security boundaries should be provided by process boundaries and appropriate remoting techniques", Effort: 1000, Readiness: 9, Impact: "", Category: "windows-domain", Criticality: "",
+            { Name: "dotnet-windows-application-domain", RuleType: "fire-once", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Unsupported, For .NET Core, there is exactly one AppDomain. Isolation and unloading are provided through AssemblyLoadContext. Security boundaries should be provided by process boundaries and appropriate remoting techniques", Effort: 1000, Readiness: 9, Impact: "", Category: "windows-domain", Criticality: "",
             Tags:
             []Tag{  { Value: "app-domain",}, { Value: "security",}, { Value: "unsupported-netcore",}, },
             Profiles:
@@ -1433,7 +1433,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "CodeAccessPermission", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-windows-components", RuleType: "standard", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Unsupported on TAS", Effort: 1000, Readiness: 9, Impact: "", Category: "", Criticality: "",
+            { Name: "dotnet-windows-components", RuleType: "fire-once", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Unsupported on TAS", Effort: 1000, Readiness: 9, Impact: "", Category: "", Criticality: "",
             Tags:
             []Tag{  { Value: "com+",}, { Value: "api",}, { Value: "distributed-transaction",}, { Value: "unsupported-netcore",}, },
             Profiles:
@@ -1447,7 +1447,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "System.Transactions", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-windows-presentation-foundation", RuleType: "standard", FileType: "xaml", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Desktop technology only available on Windows platform", Effort: 500, Readiness: 1, Impact: "", Category: "windows-desktop", Criticality: "",
+            { Name: "dotnet-windows-presentation-foundation", RuleType: "fire-once", FileType: "xaml", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Desktop technology only available on Windows platform", Effort: 500, Readiness: 1, Impact: "", Category: "windows-desktop", Criticality: "",
             Tags:
             []Tag{  { Value: "windows-desktop",}, { Value: "windows-wpf",}, },
             Profiles:
@@ -1460,7 +1460,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "<Page\\sxmlns=\".*xaml\\/presentation\"", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-windowsForms", RuleType: "standard", FileType: "(cs$|vb$|csproj$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Windows Forms module is not supported in the cloud. Refactor to a web application.", Effort: 1000, Readiness: 5, Impact: "", Category: "Unsupported modules", Criticality: "",
+            { Name: "dotnet-windowsForms", RuleType: "fire-once", FileType: "(cs$|vb$|csproj$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Windows Forms module is not supported in the cloud. Refactor to a web application.", Effort: 1000, Readiness: 5, Impact: "", Category: "Unsupported modules", Criticality: "",
             Tags:
             []Tag{  { Value: "windows-forms",}, { Value: "windows-desktop",}, },
             Profiles:
@@ -1522,7 +1522,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: ".*[.]ConfigureServices", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "faas-meta", RuleType: "standard", FileType: "meta$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "App should be started in the shortest time possible", Effort: 200, Readiness: 2, Impact: "", Category: "boottime", Criticality: "",
+            { Name: "faas-meta", RuleType: "fire-once", FileType: "meta$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "App should be started in the shortest time possible", Effort: 200, Readiness: 2, Impact: "", Category: "boottime", Criticality: "",
             Tags:
             []Tag{  { Value: "faas",}, },
             Profiles:
@@ -1969,7 +1969,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "createActiveMQConnection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-alarmD-import", RuleType: "standard", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "ThirdParty", Criticality: "",
+            { Name: "java-alarmD-import", RuleType: "standard", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 5, Readiness: 0, Impact: "", Category: "ThirdParty", Criticality: "",
             Tags:
             []Tag{  { Value: "alarm-d",}, { Value: "scheduler",}, },
             Profiles:
@@ -2613,7 +2613,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "javafx", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-jaxrs-import", RuleType: "standard", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Refer to platform documentation", Effort: 0, Readiness: 8, Impact: "", Category: "jax-rs", Criticality: "",
+            { Name: "java-jaxrs-import", RuleType: "standard", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Refer to platform documentation", Effort: 1, Readiness: 8, Impact: "", Category: "jax-rs", Criticality: "",
             Tags:
             []Tag{  { Value: "jax-rs",}, { Value: "rest",}, },
             Profiles:
@@ -2684,7 +2684,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "com.sun.jersey", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-jetty-import", RuleType: "standard", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Use Managed Executor", Effort: 0, Readiness: 10, Impact: "", Category: "threading", Criticality: "",
+            { Name: "java-jetty-import", RuleType: "standard", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Use Managed Executor", Effort: 1, Readiness: 10, Impact: "", Category: "threading", Criticality: "",
             Tags:
             []Tag{  { Value: "threading",}, { Value: "jetty",}, },
             Profiles:
@@ -3056,7 +3056,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "EJB\\(lookup", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-metrics", RuleType: "standard", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Indicates use of a metrics collection library, which supports containerization", Effort: -1, Readiness: 7, Impact: "", Category: "metrics", Criticality: "",
+            { Name: "java-metrics", RuleType: "standard", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Indicates use of a metrics collection library, which supports containerization", Effort: -10, Readiness: 7, Impact: "", Category: "metrics", Criticality: "",
             Tags:
             []Tag{  { Value: "metrics",}, },
             Profiles:
@@ -3284,7 +3284,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "http", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-rabbitmq-import", RuleType: "standard", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Make sure that configuration is Cloud friendly", Effort: 0, Readiness: 5, Impact: "", Category: "mq", Criticality: "",
+            { Name: "java-rabbitmq-import", RuleType: "standard", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Make sure that configuration is Cloud friendly", Effort: 1, Readiness: 5, Impact: "", Category: "mq", Criticality: "",
             Tags:
             []Tag{  { Value: "message-queue",}, { Value: "rabbitmq",}, },
             Profiles:
@@ -3469,7 +3469,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "java.security", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "x509", Recipe: "", },
              }, },
         
-            { Name: "java-servlet-session", RuleType: "standard", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(import)\\s+(%s)", Advice: "HTTP Session Java API Import. Make sure that externalized data store is used for session", Effort: 10, Readiness: 0, Impact: "", Category: "servlet", Criticality: "",
+            { Name: "java-servlet-session", RuleType: "standard", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "HTTP Session Java API Import. Make sure that externalized data store is used for session", Effort: 10, Readiness: 0, Impact: "", Category: "servlet", Criticality: "",
             Tags:
             []Tag{  { Value: "servlet",}, { Value: "session",}, { Value: "web-container",}, },
             Profiles:
@@ -3482,7 +3482,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "javax.servlet.http.HttpSession", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-servlet", RuleType: "standard", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Servlet Java API Import", Effort: 0, Readiness: 0, Impact: "", Category: "servlet", Criticality: "",
+            { Name: "java-servlet", RuleType: "standard", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Servlet Java API Import", Effort: 1, Readiness: 0, Impact: "", Category: "servlet", Criticality: "",
             Tags:
             []Tag{  { Value: "servlet",}, { Value: "web-container",}, },
             Profiles:
@@ -3495,7 +3495,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "javax.servlet.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-slf4j-import", RuleType: "standard", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Review logging configuration and remove file appenders.", Effort: 0, Readiness: 0, Impact: "", Category: "slf4j", Criticality: "",
+            { Name: "java-slf4j-import", RuleType: "standard", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Review logging configuration and remove file appenders.", Effort: 1, Readiness: 0, Impact: "", Category: "slf4j", Criticality: "",
             Tags:
             []Tag{  { Value: "slf4j",}, { Value: "logging",}, },
             Profiles:
@@ -3555,7 +3555,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "SpringBootApplication", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-springframework", RuleType: "standard", FileType: "java$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Presence of spring framework may indicate the app should target TAS", Effort: 0, Readiness: 0, Impact: "", Category: "springFramework", Criticality: "",
+            { Name: "java-springframework", RuleType: "standard", FileType: "java$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Presence of spring framework may indicate the app should target TAS", Effort: -100, Readiness: 0, Impact: "", Category: "springFramework", Criticality: "",
             Tags:
             []Tag{  { Value: "spring",}, },
             Profiles:
@@ -6046,7 +6046,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "load_from_vcap_services", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "python-db-peewee", RuleType: "standard", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Check target platform has support for this library", Effort: 0, Readiness: 10, Impact: "", Category: "database", Criticality: "",
+            { Name: "python-db-peewee", RuleType: "standard", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Check target platform has support for this library", Effort: 1, Readiness: 10, Impact: "", Category: "database", Criticality: "",
             Tags:
             []Tag{  { Value: "peewee",}, },
             Profiles:
@@ -6059,7 +6059,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "peewee", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "python-db-redis", RuleType: "standard", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Redis is being used", Effort: 0, Readiness: 10, Impact: "", Category: "database", Criticality: "",
+            { Name: "python-db-redis", RuleType: "standard", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Redis is being used", Effort: 1, Readiness: 10, Impact: "", Category: "database", Criticality: "",
             Tags:
             []Tag{  { Value: "redis",}, },
             Profiles:
@@ -6100,7 +6100,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "chmod", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "python-rabbitmq", RuleType: "standard", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "RabbitMq messaging is used", Effort: 0, Readiness: 10, Impact: "", Category: "services", Criticality: "",
+            { Name: "python-rabbitmq", RuleType: "standard", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "RabbitMq messaging is used", Effort: 1, Readiness: 10, Impact: "", Category: "services", Criticality: "",
             Tags:
             []Tag{  { Value: "rabbitmq",}, },
             Profiles:
@@ -6114,7 +6114,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "aio_pika", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "python-redis", RuleType: "standard", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "(import)\\s+(%s)", Advice: "Redis is being used", Effort: 0, Readiness: 10, Impact: "", Category: "services", Criticality: "",
+            { Name: "python-redis", RuleType: "standard", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "(import)\\s+(%s)", Advice: "Redis is being used", Effort: 1, Readiness: 10, Impact: "", Category: "services", Criticality: "",
             Tags:
             []Tag{  { Value: "redis",}, },
             Profiles:
@@ -6142,7 +6142,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "SqliteDatabase", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "sqlserver-ssis", RuleType: "standard", FileType: "(dtsx$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "SSIS is not supported on CloudFoundry.", Effort: 100, Readiness: 0, Impact: "", Category: "Unsupported modules", Criticality: "",
+            { Name: "sqlserver-ssis", RuleType: "fire-once", FileType: "(dtsx$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "SSIS is not supported on CloudFoundry.", Effort: 100, Readiness: 0, Impact: "", Category: "Unsupported modules", Criticality: "",
             Tags:
             []Tag{  { Value: "ssis",}, { Value: "etl",}, { Value: "sql",}, },
             Profiles:
@@ -6220,7 +6220,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "CloudFoundryClient", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "weblogic-cluster-config", RuleType: "standard", FileType: "conf$", Target: "line", Type: "regex", DefaultPattern: "^%s.*", Advice: "Weblogic clusters cannot run in K8S", Effort: 1, Readiness: 0, Impact: "", Category: "wlcluster", Criticality: "",
+            { Name: "weblogic-cluster-config", RuleType: "fire-once", FileType: "conf$", Target: "line", Type: "regex", DefaultPattern: "^%s.*", Advice: "Weblogic clusters cannot run in K8S", Effort: 1, Readiness: 0, Impact: "", Category: "wlcluster", Criticality: "",
             Tags:
             []Tag{  { Value: "wl-cluster",}, },
             Profiles:
@@ -6376,7 +6376,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "MessageDriven", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-ejb-remote", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Application server coupling.  Consider rearchitecting to use cloud friendly communication protocol", Effort: 100, Readiness: 100, Impact: "", Category: "ejb", Criticality: "",
+            { Name: "xml-ejb-remote", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Application server coupling.  Consider rearchitecting to use cloud friendly communication protocol", Effort: 100, Readiness: 100, Impact: "", Category: "ejb", Criticality: "",
             Tags:
             []Tag{  { Value: "remote-ejb",}, { Value: "ejb",}, { Value: "javaee",}, { Value: "full-profile",}, },
             Profiles:
@@ -6450,7 +6450,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "webservices.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "web-service", Recipe: "", },
              }, },
         
-            { Name: "xml-jsf-1-0", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider upgrading to modern UI framework", Effort: 1000, Readiness: 0, Impact: "", Category: "jsf", Criticality: "",
+            { Name: "xml-jsf-1-0", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider upgrading to modern UI framework", Effort: 1000, Readiness: 0, Impact: "", Category: "jsf", Criticality: "",
             Tags:
             []Tag{  { Value: "jsf",}, { Value: "web-app",}, },
             Profiles:
@@ -6463,7 +6463,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "web-facesconfig_1_0.dtd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-jsf-1-1", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider upgrading to modern UI framework", Effort: 1000, Readiness: 0, Impact: "", Category: "jsf", Criticality: "",
+            { Name: "xml-jsf-1-1", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider upgrading to modern UI framework", Effort: 1000, Readiness: 0, Impact: "", Category: "jsf", Criticality: "",
             Tags:
             []Tag{  { Value: "jsf",}, { Value: "web-app",}, },
             Profiles:
@@ -6476,7 +6476,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "web-facesconfig_1_1.dtd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-jsf-1-2", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider upgrading to modern UI framework", Effort: 1000, Readiness: 0, Impact: "", Category: "jsf", Criticality: "",
+            { Name: "xml-jsf-1-2", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider upgrading to modern UI framework", Effort: 1000, Readiness: 0, Impact: "", Category: "jsf", Criticality: "",
             Tags:
             []Tag{  { Value: "jsf",}, { Value: "web-app",}, },
             Profiles:
@@ -6489,7 +6489,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "web-facesconfig_1_2.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-jsf-2-0", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider upgrading to modern UI framework", Effort: 700, Readiness: 700, Impact: "", Category: "jsf", Criticality: "",
+            { Name: "xml-jsf-2-0", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider upgrading to modern UI framework", Effort: 700, Readiness: 700, Impact: "", Category: "jsf", Criticality: "",
             Tags:
             []Tag{  { Value: "jsf",}, { Value: "web-app",}, },
             Profiles:
@@ -6502,7 +6502,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "web-facesconfig_2_0.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-jsf-2-1", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider upgrading to modern UI framework", Effort: 700, Readiness: 700, Impact: "", Category: "jsf", Criticality: "",
+            { Name: "xml-jsf-2-1", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider upgrading to modern UI framework", Effort: 700, Readiness: 700, Impact: "", Category: "jsf", Criticality: "",
             Tags:
             []Tag{  { Value: "jsf",}, { Value: "web-app",}, },
             Profiles:
@@ -6515,7 +6515,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "web-facesconfig_2_1.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-jsf-2-2", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider upgrading to modern UI framework", Effort: 700, Readiness: 700, Impact: "", Category: "jsf", Criticality: "",
+            { Name: "xml-jsf-2-2", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider upgrading to modern UI framework", Effort: 700, Readiness: 700, Impact: "", Category: "jsf", Criticality: "",
             Tags:
             []Tag{  { Value: "jsf",}, { Value: "web-app",}, },
             Profiles:
@@ -6528,7 +6528,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "web-facesconfig_2_2.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-jsf-2-3", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider upgrading to modern UI framework", Effort: 700, Readiness: 700, Impact: "", Category: "jsf", Criticality: "",
+            { Name: "xml-jsf-2-3", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider upgrading to modern UI framework", Effort: 700, Readiness: 700, Impact: "", Category: "jsf", Criticality: "",
             Tags:
             []Tag{  { Value: "jsf",}, { Value: "web-app",}, },
             Profiles:
@@ -6580,7 +6580,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "org.apache.myfaces", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-portlet-1-0", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider upgrading to modern UI framework", Effort: 500, Readiness: 700, Impact: "", Category: "version-portlet", Criticality: "",
+            { Name: "xml-portlet-1-0", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider upgrading to modern UI framework", Effort: 500, Readiness: 700, Impact: "", Category: "version-portlet", Criticality: "",
             Tags:
             []Tag{  { Value: "portlet",}, { Value: "web-container",}, },
             Profiles:
@@ -6593,7 +6593,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "portlet-app_1_0.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-servlet-2-3", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Web Server coupling. Consider upgrading to modern framework.", Effort: 700, Readiness: 700, Impact: "", Category: "servlet", Criticality: "",
+            { Name: "xml-servlet-2-3", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Web Server coupling. Consider upgrading to modern framework.", Effort: 700, Readiness: 700, Impact: "", Category: "servlet", Criticality: "",
             Tags:
             []Tag{  { Value: "servlet",}, { Value: "web-container",}, },
             Profiles:
@@ -6606,7 +6606,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "web-app_2_3.dtd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-servlet-2-4", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Web Server coupling. Consider upgrading to modern framework.", Effort: 700, Readiness: 700, Impact: "", Category: "servlet", Criticality: "",
+            { Name: "xml-servlet-2-4", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Web Server coupling. Consider upgrading to modern framework.", Effort: 700, Readiness: 700, Impact: "", Category: "servlet", Criticality: "",
             Tags:
             []Tag{  { Value: "servlet",}, { Value: "web-container",}, },
             Profiles:
@@ -6619,7 +6619,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "web-app_2_4.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-servlet-2-5", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Web Server coupling. Consider upgrading to modern framework.", Effort: 400, Readiness: 500, Impact: "", Category: "servlet", Criticality: "",
+            { Name: "xml-servlet-2-5", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Web Server coupling. Consider upgrading to modern framework.", Effort: 400, Readiness: 500, Impact: "", Category: "servlet", Criticality: "",
             Tags:
             []Tag{  { Value: "servlet",}, { Value: "web-container",}, },
             Profiles:
@@ -6671,7 +6671,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "scope=\"session\"", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-statefulEJB", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Relies on application server for shared state and will require a rewrite to Stateless or externalize state storage", Effort: 1000, Readiness: 1000, Impact: "", Category: "ejb", Criticality: "",
+            { Name: "xml-statefulEJB", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Relies on application server for shared state and will require a rewrite to Stateless or externalize state storage", Effort: 1000, Readiness: 1000, Impact: "", Category: "ejb", Criticality: "",
             Tags:
             []Tag{  { Value: "ejb",}, { Value: "stateful",}, },
             Profiles:
@@ -6765,7 +6765,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "tiles-config_3_0.dtd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-tomahawk", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider upgrading to modern UI framework", Effort: 600, Readiness: 200, Impact: "", Category: "tomahawk", Criticality: "",
+            { Name: "xml-tomahawk", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider upgrading to modern UI framework", Effort: 600, Readiness: 200, Impact: "", Category: "tomahawk", Criticality: "",
             Tags:
             []Tag{  { Value: "jsf",}, { Value: "web-profile",}, { Value: "tomahawk",}, },
             Profiles:
@@ -6778,7 +6778,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "myfaces.apache.org/tomahawk", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-tomcat", RuleType: "standard", FileType: "xml$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Web Server coupling", Effort: 100, Readiness: 0, Impact: "", Category: "Tomcat", Criticality: "",
+            { Name: "xml-tomcat", RuleType: "fire-once", FileType: "xml$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Web Server coupling", Effort: 100, Readiness: 0, Impact: "", Category: "Tomcat", Criticality: "",
             Tags:
             []Tag{  { Value: "tomcat",}, },
             Profiles:
@@ -6819,7 +6819,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "myfaces.apache.org/trinidad/config", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-webLogic-1-2", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 700, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
+            { Name: "xml-webLogic-1-2", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 700, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
             Tags:
             []Tag{  { Value: "web-app",}, { Value: "weblogic",}, },
             Profiles:
@@ -6832,7 +6832,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "1.2/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-webLogic-1-3", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 700, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
+            { Name: "xml-webLogic-1-3", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 700, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
             Tags:
             []Tag{  { Value: "web-app",}, { Value: "weblogic",}, },
             Profiles:
@@ -6845,7 +6845,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "1.3/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-webLogic-1-4", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 700, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
+            { Name: "xml-webLogic-1-4", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 700, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
             Tags:
             []Tag{  { Value: "web-app",}, { Value: "weblogic",}, },
             Profiles:
@@ -6858,7 +6858,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "1.4/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-webLogic-1-5", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 700, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
+            { Name: "xml-webLogic-1-5", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 700, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
             Tags:
             []Tag{  { Value: "web-app",}, { Value: "weblogic",}, },
             Profiles:
@@ -6871,7 +6871,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "1.5/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-weblogic-1-6", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 600, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
+            { Name: "xml-weblogic-1-6", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 600, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
             Tags:
             []Tag{  { Value: "web-app",}, { Value: "weblogic",}, },
             Profiles:
@@ -6884,7 +6884,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "1.6/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-webLogic-1-7", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 600, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
+            { Name: "xml-webLogic-1-7", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 600, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
             Tags:
             []Tag{  { Value: "web-app",}, { Value: "weblogic",}, },
             Profiles:
@@ -6897,7 +6897,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "1.7/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-webLogic-1-8", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 400, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
+            { Name: "xml-webLogic-1-8", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 400, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
             Tags:
             []Tag{  { Value: "web-app",}, { Value: "weblogic",}, },
             Profiles:
@@ -6910,7 +6910,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "1.8/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-webLogic-1-9", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 400, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
+            { Name: "xml-webLogic-1-9", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 400, Readiness: 700, Impact: "", Category: "weblogic-webapp", Criticality: "",
             Tags:
             []Tag{  { Value: "web-app",}, { Value: "weblogic",}, },
             Profiles:
@@ -6960,7 +6960,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "applicationContext.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "file-system-xml-application-context", Recipe: "", },
              }, },
         
-            { Name: "xml-websphere", RuleType: "standard", FileType: "xm[li]$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 500, Readiness: 1000, Impact: "", Category: "webSphere", Criticality: "",
+            { Name: "xml-websphere", RuleType: "fire-once", FileType: "xm[li]$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 500, Readiness: 1000, Impact: "", Category: "webSphere", Criticality: "",
             Tags:
             []Tag{  { Value: "websphere",}, { Value: "full-profile",}, },
             Profiles:
@@ -6997,7 +6997,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "j2c_plugin.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-xa-dataSource", RuleType: "standard", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 1000, Readiness: 10, Impact: "", Category: "datasource", Criticality: "",
+            { Name: "xml-xa-dataSource", RuleType: "fire-once", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 1000, Readiness: 10, Impact: "", Category: "datasource", Criticality: "",
             Tags:
             []Tag{  { Value: "transaction",}, { Value: "jta",}, { Value: "web-profile",}, },
             Profiles:

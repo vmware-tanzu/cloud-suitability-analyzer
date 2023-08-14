@@ -4,7 +4,7 @@ filetype: java$
 target: line
 type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
-effort: 0
+effort: 1
 readiness: 0
 advice: Servlet Java API Import
 category: servlet

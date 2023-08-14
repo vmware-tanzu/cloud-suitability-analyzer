@@ -1,6 +1,6 @@
 #SW
 name: xml-xa-dataSource
-ruletype: standard
+ruletype: fire-once
 filetype: xml$
 target: line
 type: regex

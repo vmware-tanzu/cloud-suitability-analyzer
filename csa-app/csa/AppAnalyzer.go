@@ -37,14 +37,14 @@ func (csaService *CsaService) analyzeApp(run *model.Run, app *model.Application,
 		go func(idx int) {
 			defer waitGroup.Done()
 			if *util.Verbose {
-				util.WriteLog(fmt.Sprintf("Analyzing - %s", app.Name), "Scanning Files...   Filename: %s\n", app.Files[idx].FQN)
+				util.WriteLog(fmt.Sprintf("A1nalyzing - %s", app.Name), "Scanning Files...   Filename: %s\n", app.Files[idx].FQN)
 			}
 
 			err := csaService.analyzeFile(run, app, app.Files[idx], csaService.saveChan)
 
 			if err != nil {
 				if *util.FailFast {
-					util.WriteLog("Analyzing...error!", "Error occurred during analysis! Details: %s", err.Error())
+					util.WriteLog("A2nalyzing...error!", "Error occurred during analysis! Details: %s", err.Error())
 					csaService.stopRun(run)
 					os.Exit(2)
 				} else {
@@ -100,20 +100,18 @@ func (csaService *CsaService) analyzeFile(run *model.Run, app *model.Application
 				wasAnalyzed = true
 			} else {
 				//Check for name hit!
-				returnFindings := 0
-				returnFindings, app.Rules[i] = csaService.processPatterns(run, app, file, 0, filepath.Base(file.Name), app.Rules[i], output)
-				findings += returnFindings
+				findings += csaService.processPatterns(run, app, file, 0, filepath.Base(file.Name), app.Rules[i], output)
 				fileNameAnalyzed = true
 			}
 
 		} else {
 			if *util.Verbose {
-				util.WriteLog("Analyzing", "Rule [%s] does not apply to file [%s|%s|%s]\n", app.Rules[i].Name, file.Name, file.Ext, file.FQN)
+				util.WriteLog("A6nalyzing", "Rule [%s] does not apply to file [%s|%s|%s]\n", app.Rules[i].Name, file.Name, file.Ext, file.FQN)
 			}
 		}
 	}
 
-	rulesForFile, fileFindings, err := csaService.processFile(run, app, file, rulesForFile, hasContentRules, output)
+	_, fileFindings, err := csaService.processFile(run, app, file, rulesForFile, hasContentRules, output)
 
 	if err != nil {
 		return err
@@ -164,7 +162,7 @@ func (csaService *CsaService) analyzeFile(run *model.Run, app *model.Application
 	}
 
 	if *util.Verbose {
-		util.WriteLog("Analyzing", "************ FILE [%s] FINDINGS [%d] ***************\n", file.Name, findings)
+		util.WriteLog("A7nalyzing", "************ FILE [%s] FINDINGS [%d] ***************\n", file.Name, findings)
 	}
 
 	return nil

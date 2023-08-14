@@ -5,7 +5,7 @@ target: line
 type: regex
 defaultpattern: (import)\s+(%s)
 advice: Redis is being used
-effort: 0
+effort: 1
 readiness: 10
 category: services
 tags:

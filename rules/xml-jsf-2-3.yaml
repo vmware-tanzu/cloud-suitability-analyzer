@@ -1,6 +1,6 @@
 #SW
 name: xml-jsf-2-3
-ruletype: standard
+ruletype: fire-once
 filetype: xml$
 target: line
 type: regex

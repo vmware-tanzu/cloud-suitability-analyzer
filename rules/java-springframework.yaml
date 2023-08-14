@@ -4,7 +4,7 @@ filetype: java$
 target: line
 type: contains
 advice: Presence of spring framework may indicate the app should target TAS
-effort: 0
+effort: -100
 readiness: 0
 category: springFramework
 tags:

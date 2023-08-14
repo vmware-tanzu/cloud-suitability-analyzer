@@ -2,6 +2,7 @@ name: java-alarmD-import
 ruletype: standard
 filetype: (jsp$|java$)
 target: line
+effort: 5
 type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Integrate with new alarmD service or migrate to Spring Boot scheduler

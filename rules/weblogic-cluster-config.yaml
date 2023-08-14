@@ -1,5 +1,5 @@
 name: weblogic-cluster-config
-ruletype: standard
+ruletype: fire-once
 filetype: conf$
 target: line
 type: regex

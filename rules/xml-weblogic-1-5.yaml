@@ -1,6 +1,6 @@
 #SW
 name: xml-webLogic-1-5
-ruletype: standard
+ruletype: fire-once
 filetype: xml$
 target: line
 type: regex

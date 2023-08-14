@@ -1,5 +1,5 @@
 name: config-encryption
-ruletype: standard
+ruletype: fire-once
 filetype: config$
 target: file
 type: xpath

@@ -1,6 +1,6 @@
 #qc
 name: dotnet-HttpCacheModule
-ruletype: standard
+ruletype: fire-once
 filetype: config$
 target: file
 type: xpath

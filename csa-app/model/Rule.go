@@ -20,8 +20,8 @@ type Rule struct {
 	CreatedAt       time.Time        `json:"-" yaml:"-"`
 	UpdatedAt       time.Time        `json:"-" yaml:"-"`
 	Name            string           `gorm:"type:text;unique_index;not null"`
+	RuleType        string           `gorm:"type:text" json:",omitempty" yaml:",omitempty"` //Extension if empty or * then rule applies to all files. Else, rule only applies to files with this extension (sans '.')
 	FileType        string           `gorm:"type:text" json:",omitempty" yaml:",omitempty"` //Extension if empty or * then rule applies to all files. Else, rule only applies to files with this extension (sans '.')
-	RuleType        string           `gorm:"type:text" json:",omitempty" yaml:",omitempty"`
 	HasFired        bool             `gorm:"type:integer" json:",omitempty" yaml:",omitempty"`
 	FileNamePattern string           `gorm:"type:text" json:",omitempty" yaml:",omitempty"`
 	Target          string           `gorm:"type:text"`                                     //File, Line

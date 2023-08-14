@@ -8,6 +8,7 @@ package csa
 import (
 	"fmt"
 	"os"
+	"strings"
 	"sync"
 
 	"csa-app/db"
@@ -19,7 +20,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-//The Engine that does file parsing and rule matching
+// The Engine that does file parsing and rule matching
 type CsaService struct {
 	ruleRepository       db.RuleRepository
 	runRepository        db.RunRepository
@@ -94,6 +95,37 @@ func (csaService *CsaService) PerformAnalysis(run *model.Run) {
 				csaService.waitForSavingAndIndexingToComplete(run, saveWorkerCnt, indexWorkerCnt)
 				csaService.generateSloc(run)
 				csaService.scoreApps(run)
+
+				//---- Add language specific metrics here ----
+
+				for i := 0; i < len(run.Applications); i++ {
+					languageCounts := make(map[string]int)
+					languages := []string{"java", "php", "python", "dotnet"}
+					for j := 0; j < len(run.Applications[i].Rules); j++ {
+						for _, lang := range languages {
+							if strings.Contains(run.Applications[i].Rules[j].Name, lang) {
+								languageCounts[lang]++
+							}
+						}
+						maxCount := 0
+						maxLanguage := ""
+						for lang, count := range languageCounts {
+							if count > maxCount {
+								maxCount = count
+								maxLanguage = lang
+							}
+						}
+						run.Applications[i].PrimaryLangCount = maxCount
+						run.Applications[i].PrimaryLanguage = maxLanguage
+
+						if run.Applications[i].PrimaryLangCount <= 5 && run.Applications[i].Score >= 9 {
+							run.Applications[i].Score = -1
+						}
+					}
+				}
+
+				//---- End language specific metrics ----
+
 				csaService.generateReports(run)
 			}
 		}

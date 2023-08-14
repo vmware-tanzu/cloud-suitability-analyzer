@@ -3,7 +3,7 @@ ruletype: standard
 filetype: java$
 target: line
 type: regex
-defaultpattern: (import)\s+(%s)
+defaultpattern: ^.*import(\s*|=")%s.*$
 effort: 10
 readiness: 0
 advice: HTTP Session Java API Import. Make sure that externalized data store is used for session

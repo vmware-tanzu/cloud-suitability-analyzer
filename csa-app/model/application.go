@@ -12,8 +12,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/sirupsen/logrus"
 	"csa-app/util"
+	"github.com/sirupsen/logrus"
 )
 
 const RAW_SCORE_SCORING_TOKEN = "raw_score"
@@ -23,38 +23,40 @@ const SLOC_CNT_SCORING_TOKEN = "sloc_cnt"
 const BUSINESS_VALUE_SCORING_TOKEN = "bv"
 
 type Application struct {
-	ID             uint              `gorm:"primary_key" json:"appId" yaml:"appId"`
-	CreatedAt      time.Time         `json:"-" yaml:"-"`
-	UpdatedAt      time.Time         `json:"-" yaml:"-"`
-	RunID          uint              `gorm:"index;not null" sql:"type:bigint REFERENCES runs(id) ON DELETE CASCADE" json:"runId"  yaml:"runId"`
-	Name           string            `gorm:"type:text;" json:"name" yaml:"name"`
-	Path           string            `gorm:"type:text;" json:"path" yaml:"path"`
-	Category       string            `gorm:"index;not null" json:"category,omitempty" yaml:"category,omitempty"`
-	Criticality    string            `gorm:"index;not null" json:"criticality,omitempty" yaml:"criticality,omitempty"`
-	BusinessDomain string            `gorm:"type:text;" json:"businessdomain" yaml:"businessdomain"`
-	BusinessValue  float64           `gorm:"default:'-1'" json:"businessvalue" yaml:"businessvalue"`
-	Findings       int               `json:"findings"`
-	CIFindings     int               `json:"ciFindings"`
-	InfoFindings   int               `json:"infoFindings"`
-	RawScore       int               `json:"rawScore"`
-	NumCrits       int               `json:"numCrits"`
-	ScoringModel   string            `json:"model" yaml:"model"`
-	Score          float64           `json:"score"`
-	OriginalScore  float64           `gorm:"default:'-1.0'" json:"originalScore"`
-	ScoreModified  bool              `json:"scoreModified"`
-	Recommendation string            `json:"recommendation"`
-	SlocCnt        int               `json:"slocCnt"`
-	FilesCnt       int               `json:"filesCnt"`
-	FindingsRatio  float64           `json:"findingsRatio"`
-	Tags           []*ApplicationTag `gorm:"foreignkey:ApplicationID" json:"tags" yaml:"tags"`
-	Files          []*util.FileInfo  `gorm:"-" json:"-" yaml:"-"`
-	IgnoredFiles   []*util.FileInfo  `gorm:"-" json:"-" yaml:"-"`
-	FileUtil       *util.FileUtil    `gorm:"-" json:"-" yaml:"-"`
-	Rules          []Rule            `gorm:"-" json:"-" yaml:"-"`
-	MatchedRules   map[string]int    `gorm:"-" json:"-" yaml:"-"`
-	Bins           []Bin             `gorm:"-" json:"bins" yaml:"bins"`
-	Model          *ScoringModel     `gorm:"-" json:"-" yaml:"-"`
-	sync.Mutex     `gorm:"-" json:"-" yaml:"-"`
+	ID               uint              `gorm:"primary_key" json:"appId" yaml:"appId"`
+	CreatedAt        time.Time         `json:"-" yaml:"-"`
+	UpdatedAt        time.Time         `json:"-" yaml:"-"`
+	RunID            uint              `gorm:"index;not null" sql:"type:bigint REFERENCES runs(id) ON DELETE CASCADE" json:"runId"  yaml:"runId"`
+	Name             string            `gorm:"type:text;" json:"name" yaml:"name"`
+	Path             string            `gorm:"type:text;" json:"path" yaml:"path"`
+	Category         string            `gorm:"index;not null" json:"category,omitempty" yaml:"category,omitempty"`
+	Criticality      string            `gorm:"index;not null" json:"criticality,omitempty" yaml:"criticality,omitempty"`
+	BusinessDomain   string            `gorm:"type:text;" json:"businessdomain" yaml:"businessdomain"`
+	BusinessValue    float64           `gorm:"default:'-1'" json:"businessvalue" yaml:"businessvalue"`
+	Findings         int               `json:"findings"`
+	CIFindings       int               `json:"ciFindings"`
+	PrimaryLanguage  string            `gorm:"-" json:"-" yaml:"-"`
+	PrimaryLangCount int               `gorm:"-" json:"-" yaml:"-"`
+	InfoFindings     int               `json:"infoFindings"`
+	RawScore         int               `json:"rawScore"`
+	NumCrits         int               `json:"numCrits"`
+	ScoringModel     string            `json:"model" yaml:"model"`
+	Score            float64           `json:"score"`
+	OriginalScore    float64           `gorm:"default:'-1.0'" json:"originalScore"`
+	ScoreModified    bool              `json:"scoreModified"`
+	Recommendation   string            `json:"recommendation"`
+	SlocCnt          int               `json:"slocCnt"`
+	FilesCnt         int               `json:"filesCnt"`
+	FindingsRatio    float64           `json:"findingsRatio"`
+	Tags             []*ApplicationTag `gorm:"foreignkey:ApplicationID" json:"tags" yaml:"tags"`
+	Files            []*util.FileInfo  `gorm:"-" json:"-" yaml:"-"`
+	IgnoredFiles     []*util.FileInfo  `gorm:"-" json:"-" yaml:"-"`
+	FileUtil         *util.FileUtil    `gorm:"-" json:"-" yaml:"-"`
+	Rules            []Rule            `gorm:"-" json:"-" yaml:"-"`
+	MatchedRules     map[string]int    `gorm:"-" json:"-" yaml:"-"`
+	Bins             []Bin             `gorm:"-" json:"bins" yaml:"bins"`
+	Model            *ScoringModel     `gorm:"-" json:"-" yaml:"-"`
+	sync.Mutex       `gorm:"-" json:"-" yaml:"-"`
 }
 
 type ApplicationTag struct {

@@ -1,6 +1,6 @@
 #qc1
 name: config-security
-ruletype: standard
+ruletype: fire-once
 filetype: config$
 target: file
 type: xpath

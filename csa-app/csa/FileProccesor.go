@@ -35,9 +35,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-func (csaService *CsaService) processFile(run *model.Run, app *model.Application,
-	file *util.FileInfo, rules []model.Rule,
-	hasContentRules bool, output chan<- interface{}) (rulesReturn []model.Rule, findingCnt int, err error) {
+func (csaService *CsaService) processFile(run *model.Run, app *model.Application, file *util.FileInfo, rules []model.Rule, hasContentRules bool, output chan<- interface{}) (r []model.Rule, findingCnt int, err error) {
 
 	if len(rules) > 0 {
 
@@ -58,7 +56,7 @@ func (csaService *CsaService) processFile(run *model.Run, app *model.Application
 				_, _ = fmt.Fprintf(os.Stderr, "Failed opening file [%s]. Details: %s\n", file.FQN, err.Error())
 				fmt.Printf("************** WARNING - INCONSISTENT RESULTS CAN OCCUR BECAUSE OF THIS ERROR **************\n")
 			}
-			return rules, findingCnt, err
+			return r, findingCnt, err
 		}
 
 		defer closeFile(inFile)
@@ -91,11 +89,8 @@ func (csaService *CsaService) processFile(run *model.Run, app *model.Application
 			if process && len(strings.TrimSpace(curLine)) > 0 {
 				sloc++
 				for i := range rules {
-					var ruleResult = 0
 					if rules[i].Target == model.LINE_TARGET {
-						ruleResult, rules[i] = csaService.processPatterns(run, app, file, line, curLine, rules[i], output)
-						findingCnt += ruleResult
-
+						findingCnt += csaService.processPatterns(run, app, file, line, curLine, rules[i], output)
 						if *util.Verbose {
 							util.WriteLog("A10nalyzing", "### Rule: %s Hit: %d times on File: %s Line: %d ###\n", rules[i].Name, findingCnt, file.Name, line)
 						}
@@ -107,10 +102,8 @@ func (csaService *CsaService) processFile(run *model.Run, app *model.Application
 		//Only reprocess if necessary
 		if hasContentRules {
 			for i := range rules {
-				var ruleResult = 0
 				if rules[i].Target == model.CONTENTS_TARGET {
-					ruleResult, rules[i] = csaService.processPatterns(run, app, file, 0, contents, rules[i], output)
-					findingCnt += ruleResult
+					findingCnt += csaService.processPatterns(run, app, file, 0, contents, rules[i], output)
 					if *util.Verbose {
 						util.WriteLog("A11nalyzing", "### Rule: %s Hit: %d times on File: %s  ###\n", rules[i].Name, findingCnt, file.Name)
 					}
@@ -289,7 +282,7 @@ func (csaService *CsaService) RunPlugin(run *model.Run, app *model.Application, 
 	}
 }
 
-func (csaService *CsaService) processPatterns(run *model.Run, app *model.Application, file *util.FileInfo, line int, target string, rule model.Rule, output chan<- interface{}) (int, model.Rule) {
+func (csaService *CsaService) processPatterns(run *model.Run, app *model.Application, file *util.FileInfo, line int, target string, rule model.Rule, output chan<- interface{}) int {
 	if *util.Verbose {
 		fmt.Printf("Rule [%s|%s] checking against Value [%s]\n", rule.Name, rule.FileType, target)
 	}
@@ -355,10 +348,8 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 			// if value, ok := path.String(root); ok
 			ok, result := matchFunc()
 			// --- Added logic to fire some rules only once per application
-			if rule.RuleType == "fire-once" && rule.HasFired {
-				fmt.Printf("Rule [%s|%s] has already fired for this application. Skipping.\n", rule.Name, rule.FileType)
-			}
 			if ok && !rule.Negative && !(rule.RuleType == "fire-once" && rule.HasFired) {
+
 				if len(result) > 0 {
 					target = regexp.MustCompile(`\r?\n`).ReplaceAllString(result, " ")
 				}
@@ -391,7 +382,7 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 	run.AddFindings(findings)
 	rule.Metric.Accumulate(pcnt, cnt, time.Since(start))
 
-	return findings, rule
+	return findings
 }
 
 func (csaService *CsaService) generateSloc(run *model.Run) {

@@ -5,7 +5,7 @@ target: line
 type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Check target platform has support for this library
-effort: 0
+effort: 1
 readiness: 10
 category: database
 tags:

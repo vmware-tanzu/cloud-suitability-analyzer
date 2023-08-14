@@ -1,6 +1,6 @@
 #SW
 name: xml-portlet-1-0
-ruletype: standard
+ruletype: fire-once
 filetype: xml$
 target: line
 type: regex

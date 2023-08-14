@@ -5,7 +5,7 @@ target: line
 type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Make sure that configuration is Cloud friendly
-effort: 0
+effort: 1
 readiness: 5
 category: mq
 tags:

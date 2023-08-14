@@ -1,6 +1,6 @@
 #SW
 name: xml-servlet-2-4
-ruletype: standard
+ruletype: fire-once
 filetype: xml$
 target: line
 type: regex

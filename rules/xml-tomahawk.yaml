@@ -1,6 +1,6 @@
 #SW
 name: xml-tomahawk
-ruletype: standard
+ruletype: fire-once
 filetype: xml$
 target: line
 type: regex

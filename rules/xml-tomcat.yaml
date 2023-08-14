@@ -1,5 +1,5 @@
 name: xml-tomcat
-ruletype: standard
+ruletype: fire-once
 filetype: xml$
 target: file
 effort: 100

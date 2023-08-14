@@ -1,5 +1,5 @@
 name: dotnet-WindowsAuth-csvb
-ruletype: standard
+ruletype: fire-once
 filetype: (cs$|vb$)
 target: line
 defaultpattern: .*%s.*

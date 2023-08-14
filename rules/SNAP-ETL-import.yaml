@@ -1,5 +1,5 @@
 name: SNAP-ETL-import
-ruletype: standard
+ruletype: fire-once
 filetype: java$
 target: line
 type: regex
