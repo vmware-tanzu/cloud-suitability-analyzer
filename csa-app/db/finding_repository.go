@@ -539,6 +539,7 @@ func (findingRepository *OrmRepository) GetFindingsByScoreRange(runid uint, bott
 	findings := []model.Finding{}
 	whereClause := "run_id = ? and effort >= ? and effort <= ?"
 	findingRepository.dbconn.Where(whereClause, runid, bottom, top).Find(&findings)
+
 	return findings, findingRepository.dbconn.Error
 }
 
@@ -640,6 +641,7 @@ func addSlocCnt(findingRepository *OrmRepository, runId uint, scores []model.App
 func addFindingsByCriticality(findingRepository *OrmRepository, criticality string, runId uint, bottomScore int, topScore int, cards []model.AppScoreCard) error {
 
 	whereClause := "run_id = ? and effort >= ? and effort <= ?"
+
 	rows, err := findingRepository.dbconn.Model(&model.Finding{}).
 		Select("application, count(*) cnt").Where(whereClause, runId, bottomScore, topScore).Group("application").Rows()
 
