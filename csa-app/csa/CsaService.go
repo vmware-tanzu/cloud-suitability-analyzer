@@ -118,8 +118,12 @@ func (csaService *CsaService) PerformAnalysis(run *model.Run) {
 						run.Applications[i].PrimaryLangCount = maxCount
 						run.Applications[i].PrimaryLanguage = maxLanguage
 
+						// --- flag applications with 5 or fewer primary language findings and a score of 9 or higher
 						if run.Applications[i].PrimaryLangCount <= 5 && run.Applications[i].Score >= 9 {
-							run.Applications[i].Score = -1
+							// --- the scoring model is reapplied in the UI, so we need this raw score to yield a zero
+							//     in the formula: 10 - log10(rawScore)
+							run.Applications[i].Score = 0
+							run.Applications[i].RawScore = 10000000000
 						}
 					}
 				}
