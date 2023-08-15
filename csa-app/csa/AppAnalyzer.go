@@ -100,13 +100,15 @@ func (csaService *CsaService) analyzeFile(run *model.Run, app *model.Application
 				wasAnalyzed = true
 			} else {
 				//Check for name hit!
-				findings += csaService.processPatterns(run, app, file, 0, filepath.Base(file.Name), app.Rules[i], output)
+				findingCnt := 0
+				findingCnt, app.Rules[i] = csaService.processPatterns(run, app, file, 0, filepath.Base(file.Name), app.Rules[i], output)
+				findings += findingCnt
 				fileNameAnalyzed = true
 			}
 
 		} else {
 			if *util.Verbose {
-				util.WriteLog("A6nalyzing", "Rule [%s] does not apply to file [%s|%s|%s]\n", app.Rules[i].Name, file.Name, file.Ext, file.FQN)
+				util.WriteLog("Analyzing", "Rule [%s] does not apply to file [%s|%s|%s]\n", app.Rules[i].Name, file.Name, file.Ext, file.FQN)
 			}
 		}
 	}

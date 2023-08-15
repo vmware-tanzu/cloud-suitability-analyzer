@@ -90,7 +90,9 @@ func (csaService *CsaService) processFile(run *model.Run, app *model.Application
 				sloc++
 				for i := range rules {
 					if rules[i].Target == model.LINE_TARGET {
-						findingCnt += csaService.processPatterns(run, app, file, line, curLine, rules[i], output)
+						findings := 0
+						findings, rules[i] = csaService.processPatterns(run, app, file, line, curLine, rules[i], output)
+						findingCnt += findings
 						if *util.Verbose {
 							util.WriteLog("A10nalyzing", "### Rule: %s Hit: %d times on File: %s Line: %d ###\n", rules[i].Name, findingCnt, file.Name, line)
 						}
@@ -103,7 +105,9 @@ func (csaService *CsaService) processFile(run *model.Run, app *model.Application
 		if hasContentRules {
 			for i := range rules {
 				if rules[i].Target == model.CONTENTS_TARGET {
-					findingCnt += csaService.processPatterns(run, app, file, 0, contents, rules[i], output)
+					findings := 0
+					findings, rules[i] = csaService.processPatterns(run, app, file, 0, contents, rules[i], output)
+					findingCnt += findings
 					if *util.Verbose {
 						util.WriteLog("A11nalyzing", "### Rule: %s Hit: %d times on File: %s  ###\n", rules[i].Name, findingCnt, file.Name)
 					}
@@ -282,7 +286,7 @@ func (csaService *CsaService) RunPlugin(run *model.Run, app *model.Application, 
 	}
 }
 
-func (csaService *CsaService) processPatterns(run *model.Run, app *model.Application, file *util.FileInfo, line int, target string, rule model.Rule, output chan<- interface{}) int {
+func (csaService *CsaService) processPatterns(run *model.Run, app *model.Application, file *util.FileInfo, line int, target string, rule model.Rule, output chan<- interface{}) (int int, ruleReturn model.Rule) {
 	if *util.Verbose {
 		fmt.Printf("Rule [%s|%s] checking against Value [%s]\n", rule.Name, rule.FileType, target)
 	}
@@ -382,7 +386,7 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 	run.AddFindings(findings)
 	rule.Metric.Accumulate(pcnt, cnt, time.Since(start))
 
-	return findings
+	return findings, rule
 }
 
 func (csaService *CsaService) generateSloc(run *model.Run) {
