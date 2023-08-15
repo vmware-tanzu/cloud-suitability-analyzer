@@ -13,10 +13,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jinzhu/gorm"
-	log "github.com/sirupsen/logrus"
 	"csa-app/model"
 	"csa-app/util"
+	"github.com/jinzhu/gorm"
+	log "github.com/sirupsen/logrus"
 )
 
 type FindingRepository interface {
@@ -507,7 +507,8 @@ func (findingRepository *OrmRepository) GetScoreCard(runid uint, app string, tag
 
 			//scorecard.Total++
 
-			if finding.Effort <= model.Info_criticality_high_score {
+			if finding.Effort == model.Info_criticality_high_score {
+				//if finding.Effort <= model.Info_criticality_high_score {
 				scorecard.Info++
 				continue
 			}
@@ -611,7 +612,7 @@ func updateCritCount(scores []model.ApplicationDetails, app string, crits int) {
 	}
 }
 
-//TODO Pull this stuff up into the scoring service and orchestrate accross the repos!
+// TODO Pull this stuff up into the scoring service and orchestrate accross the repos!
 func addSlocCnt(findingRepository *OrmRepository, runId uint, scores []model.ApplicationDetails) {
 
 	var slocByApplication []model.SlocByApplication
@@ -635,7 +636,7 @@ func addSlocCnt(findingRepository *OrmRepository, runId uint, scores []model.App
 	}
 }
 
-//For now this is setup to update an existing set of scorecards with additional criticality details
+// For now this is setup to update an existing set of scorecards with additional criticality details
 func addFindingsByCriticality(findingRepository *OrmRepository, criticality string, runId uint, bottomScore int, topScore int, cards []model.AppScoreCard) error {
 
 	whereClause := "run_id = ? and effort >= ? and effort <= ?"
