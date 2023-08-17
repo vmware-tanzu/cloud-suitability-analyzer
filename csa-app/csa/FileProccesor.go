@@ -12,6 +12,7 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
+	"math"
 	"os"
 	"os/exec"
 	"regexp"
@@ -117,17 +118,19 @@ func (csaService *CsaService) processFile(run *model.Run, app *model.Application
 
 		//Create an info finding for each file with SLOC info!
 		fileFinding := model.Finding{
-			RunID:       run.ID,
-			Filename:    file.Name,
-			Fqn:         file.FQN,
-			Ext:         file.Ext,
-			Category:    model.SLOC_CATEGORY,
-			Pattern:     model.FILE_SLOC_PATTERN,
-			Value:       fmt.Sprintf("%d", sloc),
-			Effort:      0,
-			Readiness:   0,
-			Criticality: "none",
-			Application: file.Dir}
+			RunID:             run.ID,
+			Filename:          file.Name,
+			Fqn:               file.FQN,
+			Ext:               file.Ext,
+			Category:          model.SLOC_CATEGORY,
+			Pattern:           model.FILE_SLOC_PATTERN,
+			Value:             fmt.Sprintf("%d", sloc),
+			Effort:            0,
+			Readiness:         0,
+			Criticality:       "none",
+			CloudNativeEffort: 0,
+			ContainerEffort:   0,
+			Application:       file.Dir}
 
 		fileFinding.AddTag(model.INFO_FINDING)
 		fileFinding.AddTag(model.SLOC_CATEGORY)
@@ -169,6 +172,27 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run, app *model.Appli
 		readiness = pattern.Readiness
 	}
 
+	//-- note: S. Woods
+	/*
+		rule is the actual rule materialized from the yaml file
+		pattern represents the actual pattern that resides in the rule. There can be multiple patterns in a rule
+	*/
+
+	//--- note
+	/*
+		I don't think the commented out code ever ran before
+	*/
+	cloud_native_effort := 0
+	container_effort := 0
+	//if pattern.Criticality != "" {
+	if rule.CloudNativeReadiness != 0 && rule.ContainerReadiness != 0 {
+		//--- transform the effort based upon fractional criticality
+		native_factor := float64(rule.CloudNativeReadiness) / 50.0
+		container_factor := float64(rule.ContainerReadiness) / 50.0
+		cloud_native_effort = int(math.Round(float64(rule.Effort) * native_factor))
+		container_effort = int(math.Round(float64(rule.Effort) * container_factor))
+	}
+
 	criticality := rule.Criticality
 	if pattern.Criticality != "" {
 		criticality = pattern.Criticality
@@ -187,20 +211,22 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run, app *model.Appli
 	}
 
 	data := model.Finding{
-		RunID:       run.ID,
-		Filename:    file.Name,
-		Fqn:         file.FQN,
-		Ext:         file.Ext,
-		Line:        line,
-		Rule:        rule.Name,
-		Pattern:     pattern.Value,
-		Category:    category,
-		Effort:      effort,
-		Note:        note,
-		Result:      result,
-		Readiness:   readiness,
-		Criticality: criticality,
-		Application: file.Dir}
+		RunID:             run.ID,
+		Filename:          file.Name,
+		Fqn:               file.FQN,
+		Ext:               file.Ext,
+		Line:              line,
+		Rule:              rule.Name,
+		Pattern:           pattern.Value,
+		Category:          category,
+		Effort:            effort,
+		Note:              note,
+		Result:            result,
+		Readiness:         readiness,
+		Criticality:       criticality,
+		CloudNativeEffort: cloud_native_effort,
+		ContainerEffort:   container_effort,
+		Application:       file.Dir}
 
 	if finding != nil {
 		data.Filename = finding.Filename
