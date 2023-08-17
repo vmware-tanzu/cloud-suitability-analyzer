@@ -37,7 +37,6 @@
     "normalize.css": "^8.0.1",
     "rxjs": "~7.8.1",
     "tslib": "^2.6.1",
-    "webdriver-manager": "^12.1.9",
     "xlsx": "https://cdn.sheetjs.com/xlsx-0.19.3/xlsx-0.19.3.tgz",
     "zone.js": "~0.13.1"
   },
@@ -64,6 +63,7 @@
     "ts-node": "~10.9.1",
     "tslint": "~6.1.0",
     "typescript": "~5.1.6",
+    "webdriver-manager": "^12.1.9",
     "webpack": "5.88"
   },
   "overrides": {

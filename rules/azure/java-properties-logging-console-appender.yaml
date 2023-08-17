@@ -8,7 +8,7 @@ negative: true
 effort: 5
 criticality:
   cloud_native_readiness : 50
-  container_readiness: 50#
+  container_readiness: 50
 advice: Please enable logging to console
 category: logging
 tags:

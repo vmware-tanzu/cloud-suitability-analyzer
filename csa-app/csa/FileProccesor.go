@@ -122,7 +122,8 @@ func (csaService *CsaService) processFile(run *model.Run, app *model.Application
 			Value:       fmt.Sprintf("%d", sloc),
 			Effort:      0,
 			Readiness:   0,
-			Criticality: model.Criticality{Cloud_Native_Readiness: 0, Container_Readiness: 0},
+			Criticality_TF: 0,
+			Criticality_CN: 0,
 			Application: file.Dir}
 
 		fileFinding.AddTag(model.INFO_FINDING)
@@ -237,7 +238,8 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run,
 		Note:        note,
 		Result:      result,
 		Readiness:   readiness,
-		Criticality: criticality,
+		Criticality_TF: criticality.Cloud_Native_Readiness,
+		Criticality_CN: criticality.Container_Readiness,
 		Application: file.Dir}
 
 	if finding != nil {
@@ -553,7 +555,7 @@ func (csaService *CsaService) genRuleMetrics(run *model.Run) {
 
 		db.SaveMetric(metric)
 
-		line := []string{metric.Value.Rule, metric.Value.RuleCriticality, fmt.Sprint(metric.Value.Checks), fmt.Sprint(metric.Value.PatternChecks),
+		line := []string{metric.Value.Rule, "metric.Value.RuleCriticality", fmt.Sprint(metric.Value.Checks), fmt.Sprint(metric.Value.PatternChecks),
 			fmt.Sprint(metric.Value.Hits), metric.Value.TotalTime.String(), metric.Value.Longest.String(),
 			metric.Value.Shortest.String(), metric.Value.AvgRule.String(), metric.Value.AvgPat.String(),
 			metric.Value.AvgHit.String()}

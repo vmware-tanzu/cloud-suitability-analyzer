@@ -113,10 +113,10 @@ func (findingRepository *OrmRepository) GetFindingsDTOForRun(runid uint) (findin
 
 	for rows.Next() {
 		var id, run uint
-		var filename, fqn, ext, rule, pattern, value, advice, cat, crit, app, tag, recipe string
+		var filename, fqn, ext, rule, pattern, value, advice, cat, app, tag, recipe string
 		var line, effort, effort_tf, effort_cn, criticality_tf, criticality_cn, readiness int
 		var tagExists, rcpExists bool
-		rows.Scan(&id, &run, &filename, &fqn, &ext, &line, &rule, &pattern, &value, &advice, &effort, &effort_tf, &effort_cn, &readiness, &cat, &crit, &criticality_tf, &criticality_cn, &app, &tag, &recipe)
+		rows.Scan(&id, &run, &filename, &fqn, &ext, &line, &rule, &pattern, &value, &advice, &effort, &effort_tf, &effort_cn, &readiness, &cat, &criticality_tf, &criticality_cn, &app, &tag, &recipe)
 
 		if lastFinding.ID == id {
 			if tag != "" {
@@ -286,9 +286,9 @@ func (findingRepository *OrmRepository) GetFindingsDTOForRunAppLevel(runId uint,
 			newFinding := &model.FindingDTO{
 				ID: id, RunID: run, Filename: filename, Fqn: fqn, Ext: ext, Rule: rule,
 				Pattern: pattern, Value: value, Line: line, Category: cat, Level: level,
-				Effort: effort, EffortTF: effort_tf, EffortCN: effort_cn, CriticalityTF: criticality_tf,
-				CriticalityCN: criticality_cn,
-				Readiness:     readiness, Note: note, Advice: advice, Application: app,
+				Effort: effort, EffortTF: effort_tf, EffortCN: effort_cn, Criticality_TF: criticality_tf,
+				Criticality_CN: criticality_cn,
+				Readiness:      readiness, Note: note, Advice: advice, Application: app,
 			}
 
 			findings = append(findings, newFinding)

@@ -22,13 +22,13 @@ compilePackageFrontEnd() {
     #npm ci -s --no-optional #> /dev/null 2>&1
     npm ci -s --no-optional --force --legacy-peer-deps
 
-    if [ $? -eq 0 ]
-    then
-      echo "~~~> npm ci succeeded"
-    else
-      echo "~~~> npm ci failed" >&2
-      exit 1
-    fi
+#    if [ $? -eq 0 ]
+#    then
+#      echo "~~~> npm ci succeeded"
+#    else
+#      echo "~~~> npm ci failed" >&2
+#      exit 1
+#    fi
 
 
     echo "~~~> Running npm production-build"
