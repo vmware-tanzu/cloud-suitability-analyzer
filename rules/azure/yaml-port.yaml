@@ -1,5 +1,7 @@
 name: yaml-nonstandard-port
 ruletype: standard
+cloud: 50
+container: 50
 filetype: (yaml$|yml$)
 target: contents
 type: yamlpath

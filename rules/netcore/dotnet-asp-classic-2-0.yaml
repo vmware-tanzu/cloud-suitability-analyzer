@@ -1,6 +1,8 @@
 
 name: dotnet-asp-classic-2-0
 ruletype: standard
+cloud: 50
+container: 50
 filetype: (asp$)
 target: line
 type: regex

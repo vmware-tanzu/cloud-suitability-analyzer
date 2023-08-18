@@ -1,5 +1,7 @@
 name: java-file-system
 ruletype: standard
+cloud: 50
+container: 50
 filetype: java$
 advice: Use backing storage service
 target: line

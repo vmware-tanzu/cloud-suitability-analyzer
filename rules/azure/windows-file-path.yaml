@@ -1,5 +1,7 @@
 name: windows-file-path
 ruletype: standard
+cloud: 50
+container: 50
 filetype: java$|properties$|xml$|yaml$|yml$|json$|jsn$
 target: line
 type: regex

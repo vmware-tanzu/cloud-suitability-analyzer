@@ -1,5 +1,7 @@
 name: java-yamljson-logging-console-appender
 ruletype: standard
+cloud: 50
+container: 50
 filetype: yaml$|yml$|json$|jsn$
 filenamepattern: ^(log4j2?(-\w+)?\.yaml$|log4j2?(-\w+)?\.yml$|log4j2?(-\w+)?\.json$|log4j2?(-\w+)?\.jsn$)
 target: file

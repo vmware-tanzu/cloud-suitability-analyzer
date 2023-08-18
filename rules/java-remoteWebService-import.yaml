@@ -1,5 +1,7 @@
 name: java-remoteWebService-import
 ruletype: standard
+cloud: 50
+container: 50
 filetype: (jsp$|java$)
 target: line
 type: regex

@@ -1,5 +1,7 @@
 name: properties-port
 ruletype: standard
+cloud: 50
+container: 50
 filetype: properties$
 target: line
 type: regex

@@ -1,6 +1,8 @@
 #qc1
 name: dotnet-iis_module-UriCacheModule
 ruletype: standard
+cloud: 50
+container: 50
 filetype: config$
 target: file
 type: xpath

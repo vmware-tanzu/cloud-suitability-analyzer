@@ -1,5 +1,7 @@
 name: java-redis-connection-string-user-password-properties
 ruletype: standard
+cloud: 50
+container: 50
 filetype: properties$
 target: line
 type: regex

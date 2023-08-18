@@ -1,5 +1,7 @@
 name: wsdl-soap
 ruletype: standard
+cloud: 50
+container: 50
 filetype: wsdl$
 target: file
 effort: 4

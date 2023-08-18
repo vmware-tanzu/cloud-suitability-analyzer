@@ -1,5 +1,7 @@
 name: dotnet-wf-presentation
 ruletype: standard
+cloud: 50
+container: 50
 filetype: (xaml$)
 target: line
 type: regex

@@ -1,5 +1,7 @@
 name: php-cgi-force-redirect-enabled
 ruletype: standard
+cloud: 50
+container: 50
 filetype: ini$
 target: line
 type: regex

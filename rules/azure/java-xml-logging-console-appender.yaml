@@ -1,5 +1,7 @@
 name: java-xml-logging-console-appender
 ruletype: standard
+cloud: 50
+container: 50
 filetype: xml$
 target: contents
 type: regex

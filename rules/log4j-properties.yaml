@@ -1,5 +1,7 @@
 name: log4j-properties
 ruletype: standard
+cloud: 50
+container: 50
 filetype: log4j2.properties$
 target: line
 type: regex

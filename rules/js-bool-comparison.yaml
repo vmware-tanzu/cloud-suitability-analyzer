@@ -1,5 +1,7 @@
 name: js-bool-comparison
 ruletype: standard
+cloud: 50
+container: 50
 filetype: js$
 target: line
 type: regex

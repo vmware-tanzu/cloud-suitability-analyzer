@@ -1,5 +1,7 @@
 name: java-apm-dependency-maven
 ruletype: standard
+cloud: 50
+container: 50
 filetype: xml$
 filenamepattern: ^pom.xml$
 target: file

@@ -1,5 +1,7 @@
 name: java-tibco-jms
 ruletype: standard
+cloud: 50
+container: 50
 filetype: java$
 advice: Integrating with TIBCO BusinessWorks JMS queues from a Spring application requires vendor-specific implementation
 target: line

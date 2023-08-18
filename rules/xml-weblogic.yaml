@@ -1,5 +1,7 @@
 name: xml-weblogic
 ruletype: standard
+cloud: 50
+container: 50
 filetype: xml$
 target: file
 type: simple-text

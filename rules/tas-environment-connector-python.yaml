@@ -1,5 +1,7 @@
 name: tas-environment-connector-python
 ruletype: standard
+cloud: 50
+container: 50
 filetype: py$
 target: line
 type: regex

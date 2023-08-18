@@ -95,7 +95,7 @@ func (csaService *CsaService) processFile(run *model.Run, app *model.Application
 						findings, rules[i] = csaService.processPatterns(run, app, file, line, curLine, rules[i], output)
 						findingCnt += findings
 						if *util.Verbose {
-							util.WriteLog("A10nalyzing", "### Rule: %s Hit: %d times on File: %s Line: %d ###\n", rules[i].Name, findingCnt, file.Name, line)
+							util.WriteLog("Analyzing", "### Rule: %s Hit: %d times on File: %s Line: %d ###\n", rules[i].Name, findingCnt, file.Name, line)
 						}
 					}
 				}
@@ -110,7 +110,7 @@ func (csaService *CsaService) processFile(run *model.Run, app *model.Application
 					findings, rules[i] = csaService.processPatterns(run, app, file, 0, contents, rules[i], output)
 					findingCnt += findings
 					if *util.Verbose {
-						util.WriteLog("A11nalyzing", "### Rule: %s Hit: %d times on File: %s  ###\n", rules[i].Name, findingCnt, file.Name)
+						util.WriteLog("Analyzing", "### Rule: %s Hit: %d times on File: %s  ###\n", rules[i].Name, findingCnt, file.Name)
 					}
 				}
 			}
@@ -172,28 +172,21 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run, app *model.Appli
 		readiness = pattern.Readiness
 	}
 
-	//-- note: S. Woods
-	/*
-		rule is the actual rule materialized from the yaml file
-		pattern represents the actual pattern that resides in the rule. There can be multiple patterns in a rule
-	*/
-
-	//--- note
-	/*
-		I don't think the commented out code ever ran before
-	*/
 	cloud_native_effort := 0
 	container_effort := 0
+
 	//if pattern.Criticality != "" {
-	if rule.CloudNativeReadiness != 0 && rule.ContainerReadiness != 0 {
+	if rule.Cloud != 0 && rule.Container != 0 {
+		fmt.Printf("Adjusting fired")
 		//--- transform the effort based upon fractional criticality
-		native_factor := float64(rule.CloudNativeReadiness) / 50.0
-		container_factor := float64(rule.ContainerReadiness) / 50.0
+		native_factor := float64(rule.Cloud) / 50.0
+		container_factor := float64(rule.Container) / 50.0
 		cloud_native_effort = int(math.Round(float64(rule.Effort) * native_factor))
 		container_effort = int(math.Round(float64(rule.Effort) * container_factor))
 	}
 
 	criticality := rule.Criticality
+
 	if pattern.Criticality != "" {
 		criticality = pattern.Criticality
 	}

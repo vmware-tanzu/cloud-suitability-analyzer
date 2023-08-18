@@ -1,5 +1,7 @@
 name: php-socket-security-sensitive
 ruletype: standard
+cloud: 50
+container: 50
 filetype: php$
 target: line
 type: regex

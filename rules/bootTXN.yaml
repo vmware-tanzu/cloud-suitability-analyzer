@@ -1,6 +1,8 @@
 #SW
 name: bootTXN
 ruletype: standard
+cloud: 50
+container: 50
 filetype: xml$
 target: line
 type: regex

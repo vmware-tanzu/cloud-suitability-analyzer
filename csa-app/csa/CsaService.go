@@ -96,7 +96,7 @@ func (csaService *CsaService) PerformAnalysis(run *model.Run) {
 				csaService.generateSloc(run)
 				csaService.scoreApps(run)
 
-				//---- Add language specific metrics here ----
+				//---- Detect no rules applied ----
 
 				for i := 0; i < len(run.Applications); i++ {
 					languageCounts := make(map[string]int)
@@ -173,7 +173,7 @@ func (csaService *CsaService) concurrentAnalysis(run *model.Run) {
 	}
 
 	if !*util.Xtract {
-		run.StopActivityLF("analysis", fmt.Sprintf("A8nalyzing...%s", msg), false, true)
+		run.StopActivityLF("analysis", fmt.Sprintf("Analyzing...%s", msg), false, true)
 	} else {
 		run.StopActivityLF("analysis", "", false, false)
 	}

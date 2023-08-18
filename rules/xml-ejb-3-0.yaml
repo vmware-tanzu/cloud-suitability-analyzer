@@ -1,6 +1,8 @@
 #SW
 name: xml-ejb-3-0
 ruletype: standard
+cloud: 50
+container: 50
 filetype: xml$
 target: line
 type: regex

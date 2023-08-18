@@ -1,5 +1,7 @@
 name: java-properties-config-client-configs
 ruletype: standard
+cloud: 50
+container: 50
 filetype: properties$
 target: line
 type: regex

@@ -1,5 +1,7 @@
 name: python-db-peewee
 ruletype: standard
+cloud: 50
+container: 50
 filetype: py$
 target: line
 type: regex

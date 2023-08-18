@@ -1,5 +1,7 @@
 name: config-dotnet-webConfig
 ruletype: standard
+cloud: 50
+container: 50
 filetype: config$
 target: file
 category: Config

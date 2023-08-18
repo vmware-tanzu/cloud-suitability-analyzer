@@ -1,6 +1,8 @@
 ---
 name: java-jms
 ruletype: standard
+cloud: 50
+container: 50
 filetype: java$
 target: line
 type: regex

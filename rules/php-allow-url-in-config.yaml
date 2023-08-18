@@ -1,5 +1,7 @@
 name: php-allow-url-in-config
 ruletype: standard
+cloud: 50
+container: 50
 filetype: ini$
 target: line
 type: regex

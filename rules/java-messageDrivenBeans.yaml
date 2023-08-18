@@ -1,6 +1,8 @@
 #--- updated from 8/8/18 Survey
 name: java-messageDrivenBeans
 ruletype: standard
+cloud: 50
+container: 50
 filetype: java$
 target: line
 type: regex

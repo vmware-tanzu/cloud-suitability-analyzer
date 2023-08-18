@@ -1,5 +1,7 @@
 name: dotnet-windowsPrincipal
 ruletype: standard
+cloud: 50
+container: 50
 filetype: (cs$|vb$|csproj$)
 target: line
 type: regex

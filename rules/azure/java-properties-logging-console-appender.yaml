@@ -1,5 +1,7 @@
 name: java-properties-logging-console-appender
 ruletype: standard
+cloud: 50
+container: 50
 criticality: Warn
 filetype: xml$
 filenamepattern: ^log4j2?(-\w+)?\.properties$

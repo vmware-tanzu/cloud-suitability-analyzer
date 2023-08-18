@@ -1,5 +1,7 @@
 name: php-php-url-not-hardcoded
 ruletype: standard
+cloud: 50
+container: 50
 filetype: php$
 target: line
 type: regex

@@ -1,5 +1,7 @@
 name: dotnet-filepath
 ruletype: standard
+cloud: 50
+container: 50
 filetype: (cs|yaml|yml|json)
 target: line
 type: regex

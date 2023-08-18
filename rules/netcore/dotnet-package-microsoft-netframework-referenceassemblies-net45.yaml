@@ -1,5 +1,7 @@
 name: dotnet-package-microsoft-netframework-referenceassemblies-net45
 ruletype: standard
+cloud: 50
+container: 50
 filetype: (config$)
 target: line
 type: regex

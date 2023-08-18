@@ -1,5 +1,7 @@
 name: java-spring-boot-oss-support-version-maven
 ruletype: standard
+cloud: 50
+container: 50
 filetype: xml$
 target: contents
 type: xpath

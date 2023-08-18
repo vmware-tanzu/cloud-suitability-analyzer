@@ -1,5 +1,7 @@
 name: dotnet-iis_module-Validation
 ruletype: standard
+cloud: 50
+container: 50
 filetype: config$
 target: file
 type: xpath

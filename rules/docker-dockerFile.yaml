@@ -1,6 +1,8 @@
 #qc1
 name: docker-dockerFile
 ruletype: standard
+cloud: 50
+container: 50
 filetype: $
 target: file
 type: simple-text

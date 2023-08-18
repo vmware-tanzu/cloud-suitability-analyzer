@@ -18,15 +18,17 @@ type PortfolioScore struct {
 }
 
 type ApplicationDetails struct {
-	Application   string  `json:"application"`
-	Findings      int     `json:"findings"`
-	CIFindings    int     `json:"ciFindings"`
-	InfoFindings  int     `json:"infoFindings"`
-	RawScore      int     `json:"rawScore"`
-	NumCrits      int     `json:"numCrits"`
-	SlocCnt       int     `json:"slocCnt"`
-	FilesCnt      int     `json:"filesCnt"`
-	FindingsRatio float64 `json:"findingsRatio"`
+	Application       string  `json:"application"`
+	Findings          int     `json:"findings"`
+	CIFindings        int     `json:"ciFindings"`
+	InfoFindings      int     `json:"infoFindings"`
+	RawScore          int     `json:"rawScore"`
+	RawCloudScore     int     `json:"rawCloudScore"`
+	RawContainerScore int     `json:"rawContainerScore"`
+	NumCrits          int     `json:"numCrits"`
+	SlocCnt           int     `json:"slocCnt"`
+	FilesCnt          int     `json:"filesCnt"`
+	FindingsRatio     float64 `json:"findingsRatio"`
 }
 
 type ApplicationsForRun struct {

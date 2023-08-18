@@ -1,5 +1,7 @@
 name: php-enable-session-use-trans-sid
 ruletype: standard
+cloud: 50
+container: 50
 filetype: ini$
 target: line
 type: regex
