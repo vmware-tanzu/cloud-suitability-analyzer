@@ -192,7 +192,7 @@ func (findingRepository *OrmRepository) GetFindingsDTOForRunAppLevel(runId uint,
 		}
 	}
 
-	whereClause := "findings.run_id = ? and findings.application = ? and effort >= ? and effort <= ?"
+	whereClause := "findings.run_id = ? and findings.category != 'File Finding' and findings.category != 'SLOC' and findings.application = ?" // and effort >= ? and effort <= ?"
 
 	if !includeFF {
 		whereClause += " and findings.category !='" + model.FILE_ANALYZED_CATEGORY + "'"
@@ -365,7 +365,7 @@ func (findingRepository *OrmRepository) GetApplicationDetailsForRun(runid uint, 
 
 	res := findingRepository.dbconn.Model(&model.Finding{}).
 		Where(&model.Finding{RunID: runid}).
-		Select("application, count(*) as findings, sum(effort) as raw_score").Group("application").
+		Select("application, count(*) as findings, sum(effort) as raw_score, sum(cloud_native_effort) as raw_cloud_score, sum(container_effort) as raw_container_score").Group("application").
 		//Select("application, count(*) as findings, sum(effort) as raw_score, sum(cloud_native_effort) as raw_cloud_native_score, sum(container_effort) as raw_cloud_effort)").Group("application").
 		Order("raw_score desc, application asc").
 		Scan(&applicationScores)
