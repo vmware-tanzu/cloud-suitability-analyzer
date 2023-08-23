@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapScoringModelsTemplate.txt found under go/resources folder
-//Created @ 2023-08-18 16:00:31.764358 -0500 CDT m=+0.353959356
+//Created @ 2023-08-23 11:59:39.307461 -0500 CDT m=+0.354839577
 
 func BootstrapModels() []ScoringModel {
     var BootstrapModels = []ScoringModel{
@@ -95,7 +95,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_cn)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_container_score)", }, 
                                   }, 
                                },
                             },
@@ -106,7 +106,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_cn)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_container_score)", }, 
                                   }, 
                                },
                             },
@@ -117,7 +117,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_cn)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_container_score)", }, 
                                   }, 
                                },
                             },
@@ -128,7 +128,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_score_cn)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_container_score)", }, 
                                   }, 
                                },
                             },
@@ -145,7 +145,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_cn)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_container_score)", }, 
                                   }, 
                                },
                             },
@@ -156,7 +156,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_cn)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_container_score)", }, 
                                   }, 
                                },
                             },
@@ -167,7 +167,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_cn)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_container_score)", }, 
                                   }, 
                                },
                             },
@@ -178,7 +178,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_score_cn)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_container_score)", }, 
                                   }, 
                                },
                             },
@@ -195,7 +195,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_cn)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_container_score)", }, 
                                   }, 
                                },
                             },
@@ -206,7 +206,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_cn)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_container_score)", }, 
                                   }, 
                                },
                             },
@@ -217,7 +217,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_cn)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_container_score)", }, 
                                   }, 
                                },
                             },
@@ -228,7 +228,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_score_cn)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_container_score)", }, 
                                   }, 
                                },
                             },
@@ -289,11 +289,11 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "2", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Kubernetes Service", Calculate: true, Expression: "max_score - log(10,raw_score_cn)", }, 
+                                    End: "2", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Kubernetes Service", Calculate: true, Expression: "max_score - log(10,raw_container_score)", }, 
                                   }, 
                                   { Type: "bv",
                                     Start: "2.01",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_cn)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_container_score)", }, 
                                   }, 
                                },
                             },
@@ -354,11 +354,11 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "8.0", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_cn)", }, 
+                                    End: "8.0", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_container_score)", }, 
                                   }, 
                                   { Type: "bv",
                                     Start: "8.01",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_score_cn)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_container_score)", }, 
                                   }, 
                                },
                             },
@@ -369,15 +369,15 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "2.0", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Kubernetes Service", Calculate: true, Expression: "max_score - log(10,raw_score_cn)", }, 
+                                    End: "2.0", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Kubernetes Service", Calculate: true, Expression: "max_score - log(10,raw_container_score)", }, 
                                   }, 
                                   { Type: "bv",
                                     Start: "2.01",
-                                    End: "8.0", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_cn)", }, 
+                                    End: "8.0", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_container_score)", }, 
                                   }, 
                                   { Type: "bv",
                                     Start: "8.01",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_score_cn)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_container_score)", }, 
                                   }, 
                                },
                             },
@@ -707,7 +707,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_cloud_score)", }, 
                                   }, 
                                },
                             },
@@ -718,7 +718,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_cloud_score)", }, 
                                   }, 
                                },
                             },
@@ -729,7 +729,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_cloud_score)", }, 
                                   }, 
                                },
                             },
@@ -740,7 +740,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_cloud_score)", }, 
                                   }, 
                                },
                             },
@@ -757,7 +757,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_cloud_score)", }, 
                                   }, 
                                },
                             },
@@ -768,7 +768,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_cloud_score)", }, 
                                   }, 
                                },
                             },
@@ -779,7 +779,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_cloud_score)", }, 
                                   }, 
                                },
                             },
@@ -790,7 +790,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_cloud_score)", }, 
                                   }, 
                                },
                             },
@@ -807,7 +807,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_cloud_score)", }, 
                                   }, 
                                },
                             },
@@ -818,7 +818,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_cloud_score)", }, 
                                   }, 
                                },
                             },
@@ -829,7 +829,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_cloud_score)", }, 
                                   }, 
                                },
                             },
@@ -840,7 +840,7 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_cloud_score)", }, 
                                   }, 
                                },
                             },
@@ -901,11 +901,11 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "2", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Kubernetes Service", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
+                                    End: "2", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Kubernetes Service", Calculate: true, Expression: "max_score - log(10,raw_cloud_score)", }, 
                                   }, 
                                   { Type: "bv",
                                     Start: "2.01",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_cloud_score)", }, 
                                   }, 
                                },
                             },
@@ -966,11 +966,11 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "8.0", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
+                                    End: "8.0", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_cloud_score)", }, 
                                   }, 
                                   { Type: "bv",
                                     Start: "8.01",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_cloud_score)", }, 
                                   }, 
                                },
                             },
@@ -981,15 +981,15 @@ func BootstrapModels() []ScoringModel {
                                []*Bucket{ 
                                   { Type: "bv",
                                     Start: "flt.min",
-                                    End: "2.0", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Kubernetes Service", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
+                                    End: "2.0", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Kubernetes Service", Calculate: true, Expression: "max_score - log(10,raw_cloud_score)", }, 
                                   }, 
                                   { Type: "bv",
                                     Start: "2.01",
-                                    End: "8.0", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
+                                    End: "8.0", Outcome: &Outcome{ Score: 0, Recommendation: "Refactor to Tanzu Application Service", Calculate: true, Expression: "max_score - log(10,raw_cloud_score)", }, 
                                   }, 
                                   { Type: "bv",
                                     Start: "8.01",
-                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_score_tf)", }, 
+                                    End: "flt.max", Outcome: &Outcome{ Score: 0, Recommendation: "Modernization", Calculate: true, Expression: "max_score - log(10,raw_cloud_score)", }, 
                                   }, 
                                },
                             },

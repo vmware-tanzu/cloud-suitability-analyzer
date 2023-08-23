@@ -1,5 +1,6 @@
 name: plaintext-creds
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 target: line

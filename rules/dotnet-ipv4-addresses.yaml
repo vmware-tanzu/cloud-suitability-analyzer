@@ -1,5 +1,6 @@
 name: dotnet-ipv4-addresses
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: (yaml|yml|cs$|json)

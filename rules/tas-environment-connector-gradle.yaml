@@ -1,5 +1,6 @@
 name: tas-environment-connector-gradle
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: gradle$

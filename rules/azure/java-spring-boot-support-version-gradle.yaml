@@ -1,11 +1,12 @@
 name: java-spring-boot-support-version-gradle
 ruletype: standard
+criticality: medium
+level: Warn
 cloud: 50
 container: 50
 filetype: gradle$|kts$
 target: line
 type: regex
-criticality: Warn
 advice: Spring boot version is out of any spring boot support(https://spring.io/projects/spring-boot#support). Please update to newer version
 effort: 6
 category: version

@@ -1,5 +1,6 @@
 name: dotnet-package-microsoft-netframework-referenceassemblies-net462
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: (config$)

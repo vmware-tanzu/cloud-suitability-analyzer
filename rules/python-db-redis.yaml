@@ -1,5 +1,6 @@
 name: python-db-redis
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: py$

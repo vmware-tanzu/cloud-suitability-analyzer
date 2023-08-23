@@ -1,5 +1,6 @@
 name: dotnet-windows-workflow-foundation
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 # ignore development config files

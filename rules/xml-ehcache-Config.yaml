@@ -1,5 +1,6 @@
 name: xml-ehcache-Config
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: xml$

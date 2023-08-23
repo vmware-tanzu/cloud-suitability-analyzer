@@ -1,5 +1,6 @@
 name: php-function-method-naming-convention
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: php$

@@ -1,5 +1,6 @@
 name: java-xml-logging-console-appender
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: xml$
@@ -7,7 +8,7 @@ target: contents
 type: regex
 negative: true
 filenamepattern: ^(log4j2?(-\w+)?\.xml$|logback(-\w+)?\.xml$)
-criticality: Warn
+level: Warn
 effort: 5
 advice: Please enable logging to console
 category: logging

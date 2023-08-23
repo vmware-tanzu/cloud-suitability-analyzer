@@ -1,5 +1,6 @@
 name: dotnet-package-microsoft-azure-common-dependencies
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: (config$)

@@ -1,6 +1,7 @@
 #SW
 name: xml-servlet-3-0
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: xml$

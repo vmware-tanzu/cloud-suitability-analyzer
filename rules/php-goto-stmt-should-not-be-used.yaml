@@ -1,5 +1,6 @@
 name: php-goto-stmt-should-not-be-used
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: ini$

@@ -113,12 +113,14 @@ func (findingRepository *OrmRepository) GetFindingsDTOForRun(runid uint) (findin
 
 	for rows.Next() {
 		var id, run uint
-		var filename, fqn, ext, rule, pattern, value, advice, cat, app, tag, recipe string
-		var line, effort, cloud, container, readiness int
+		var filename, fqn, ext, rule, pattern, value, advice, cat, crit, app, tag, recipe string
+		var line, effort, readiness int
 		var tagExists, rcpExists bool
 		var cloud_native_effort int
 		var container_effort int
-		rows.Scan(&id, &run, &filename, &fqn, &ext, &line, &rule, &pattern, &value, &advice, &effort, &container_effort, &cloud_native_effort, &readiness, &cat, &cloud, &container, &app, &tag, &recipe)
+		rows.Scan(&id, &run, &filename, &fqn, &ext, &line, &rule,
+			&pattern, &value, &advice, &effort, &container_effort, &cloud_native_effort,
+			&readiness, &cat, &crit, &app, &tag, &recipe)
 
 		if lastFinding.ID == id {
 			if tag != "" {
@@ -153,8 +155,10 @@ func (findingRepository *OrmRepository) GetFindingsDTOForRun(runid uint) (findin
 			tagList = nil
 			rcpList = nil
 			//new finding
-			newFinding := &model.FindingDTO{ID: id, RunID: run, Filename: filename, Fqn: fqn, Ext: ext, Rule: rule,
-				Pattern: pattern, Value: value, Line: line, Category: cat, Effort: effort, CloudNativeEffort: cloud_native_effort, ContainerEffort: container_effort,
+			newFinding := &model.FindingDTO{ID: id, RunID: run, Filename: filename,
+				Fqn: fqn, Ext: ext, Rule: rule,
+				Pattern: pattern, Value: value, Line: line, Category: cat,
+				Effort: effort, CloudNativeEffort: cloud_native_effort, ContainerEffort: container_effort,
 				Readiness: readiness, Advice: advice, Application: app}
 			findings = append(findings, newFinding)
 			lastFinding = newFinding
@@ -196,8 +200,6 @@ func (findingRepository *OrmRepository) GetFindingsDTOForRunAppLevel(runId uint,
 
 	if !includeFF {
 		whereClause += " and findings.category !='" + model.FILE_ANALYZED_CATEGORY + "'"
-		//whereClause += " and pattern != 'Lines of Code' and pattern != 'Analyzed File'and findings.category !='" + model.FILE_ANALYZED_CATEGORY + "'"
-
 	}
 
 	var rows *sql.Rows
@@ -250,7 +252,10 @@ func (findingRepository *OrmRepository) GetFindingsDTOForRunAppLevel(runId uint,
 		var tagExists, rcpExists bool
 		var cloud_native_effort, container_effort int
 
-		rows.Scan(&id, &run, &filename, &fqn, &ext, &line, &rule, &pattern, &value, &advice, &level, &effort, &cloud_native_effort, &container_effort, &readiness, &note, &cat, &crit, &app, &tag, &recipe)
+		rows.Scan(&id, &run, &filename, &fqn, &ext, &line,
+			&rule, &pattern, &value, &advice, &level,
+			&effort, &cloud_native_effort, &container_effort, &readiness, &note,
+			&cat, &crit, &app, &tag, &recipe)
 
 		if lastFinding.ID == id {
 			if tag != "" {
@@ -289,7 +294,7 @@ func (findingRepository *OrmRepository) GetFindingsDTOForRunAppLevel(runId uint,
 			newFinding := &model.FindingDTO{
 				ID: id, RunID: run, Filename: filename, Fqn: fqn, Ext: ext, Rule: rule,
 				Pattern: pattern, Value: value, Line: line, Category: cat, Level: level,
-				Criticality: crit, CloudNativeEffort: cloud_native_effort, ContainerEffort: container_effort,
+				CloudNativeEffort: cloud_native_effort, ContainerEffort: container_effort,
 				Effort: effort, Readiness: readiness, Note: note, Advice: advice, Application: app,
 			}
 
@@ -366,7 +371,6 @@ func (findingRepository *OrmRepository) GetApplicationDetailsForRun(runid uint, 
 	res := findingRepository.dbconn.Model(&model.Finding{}).
 		Where(&model.Finding{RunID: runid}).
 		Select("application, count(*) as findings, sum(effort) as raw_score, sum(cloud_native_effort) as raw_cloud_score, sum(container_effort) as raw_container_score").Group("application").
-		//Select("application, count(*) as findings, sum(effort) as raw_score, sum(cloud_native_effort) as raw_cloud_native_score, sum(container_effort) as raw_cloud_effort)").Group("application").
 		Order("raw_score desc, application asc").
 		Scan(&applicationScores)
 
@@ -519,7 +523,6 @@ func (findingRepository *OrmRepository) GetScoreCard(runid uint, app string, tag
 			//scorecard.Total++
 
 			if finding.Effort == model.Info_criticality_high_score {
-				//if finding.Effort <= model.Info_criticality_high_score {
 				scorecard.Info++
 				continue
 			}
@@ -550,7 +553,6 @@ func (findingRepository *OrmRepository) GetFindingsByScoreRange(runid uint, bott
 	findings := []model.Finding{}
 	whereClause := "run_id = ? and effort >= ? and effort <= ?"
 	findingRepository.dbconn.Where(whereClause, runid, bottom, top).Find(&findings)
-
 	return findings, findingRepository.dbconn.Error
 }
 
@@ -652,7 +654,6 @@ func addSlocCnt(findingRepository *OrmRepository, runId uint, scores []model.App
 func addFindingsByCriticality(findingRepository *OrmRepository, criticality string, runId uint, bottomScore int, topScore int, cards []model.AppScoreCard) error {
 
 	whereClause := "run_id = ? and effort >= ? and effort <= ?"
-
 	rows, err := findingRepository.dbconn.Model(&model.Finding{}).
 		Select("application, count(*) cnt").Where(whereClause, runId, bottomScore, topScore).Group("application").Rows()
 

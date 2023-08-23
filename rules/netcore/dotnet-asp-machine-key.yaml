@@ -1,5 +1,6 @@
 name: dotnet-asp-machine-key
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: config$

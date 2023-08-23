@@ -1,5 +1,6 @@
 name: dotnet-package-sqlitepclraw-provider-e_sqlite3-net45
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: (config$)

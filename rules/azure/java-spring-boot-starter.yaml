@@ -1,12 +1,13 @@
 name: java-spring-boot-starter
 ruletype: standard
+criticality: medium
+level: Info
 cloud: 50
 container: 50
 filetype: gradle$|kts$|xml$
 filenamepattern: (^build.gradle|^pom.xml$)
 target: contents
 type: regex
-criticality: Info
 advice: The application has spring boot/spring cloud starter dependencies
 effort: 0
 category: spring boot

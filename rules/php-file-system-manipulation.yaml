@@ -1,5 +1,6 @@
 name: php-file-system-manipulation
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: php$

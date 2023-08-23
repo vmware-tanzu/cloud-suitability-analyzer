@@ -1,5 +1,6 @@
 name: js-md5-sha1-noncompliant
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: js$

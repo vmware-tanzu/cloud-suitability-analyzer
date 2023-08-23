@@ -1,6 +1,7 @@
 
 name: dotnet-asp-web-form
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: (aspx$)

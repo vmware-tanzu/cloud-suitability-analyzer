@@ -1,11 +1,12 @@
 name: java-spring-cloud-oss-support-version-gradle
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: gradle$|kts$
 target: line
 type: regex
-criticality: Warn
+level: Warn
 advice: Spring cloud version is out of open source support support. If you don't have commercial support, please update to newer version
 effort: 4
 category: version

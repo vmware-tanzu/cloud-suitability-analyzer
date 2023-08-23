@@ -1,5 +1,6 @@
 name: php-enable-session-use-trans-sid
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: ini$

@@ -1,5 +1,6 @@
 name: dotnet-package-microsoft-crmsdk-coreassemblies
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: (config$)

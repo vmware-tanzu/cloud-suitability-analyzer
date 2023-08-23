@@ -1,5 +1,6 @@
 name: log4j-properties
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: log4j2.properties$

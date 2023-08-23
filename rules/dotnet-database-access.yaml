@@ -1,6 +1,7 @@
 #qc1
 name: dotnet-database-access
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: config$

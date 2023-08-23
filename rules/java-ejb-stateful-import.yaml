@@ -1,6 +1,7 @@
 #SW
 name: java-ejb-stateful-import
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: java$

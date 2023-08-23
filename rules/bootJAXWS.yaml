@@ -3,6 +3,7 @@
 #todo change the contains to regex
 name: bootJAXWS
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: xml$

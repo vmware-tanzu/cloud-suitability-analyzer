@@ -1,6 +1,7 @@
 #--- updated from 8/8/18 Survey
 name: java-tangosol
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: java$

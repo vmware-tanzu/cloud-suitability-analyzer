@@ -1,5 +1,6 @@
 name: php-reading-std-Input-security-sensitive
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: php$

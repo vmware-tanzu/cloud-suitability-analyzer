@@ -1,5 +1,6 @@
 name: dotnet-package-ninject-web-common-webhost
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: (config$)

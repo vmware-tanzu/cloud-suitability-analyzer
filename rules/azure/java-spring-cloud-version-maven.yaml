@@ -1,11 +1,12 @@
 name: java-spring-cloud-version-maven
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: xml$
 target: contents
 type: xpath
-criticality: Critical
+level: Critical
 advice: Spring cloud version is too low
 effort: 50
 category: version

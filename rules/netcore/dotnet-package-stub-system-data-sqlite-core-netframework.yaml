@@ -1,5 +1,6 @@
 name: dotnet-package-stub-system-data-sqlite-core-netframework
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: (config$)

@@ -1,5 +1,6 @@
 name: dotnet-package-runtime-aot-system-reflection-primitives
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: (config$)

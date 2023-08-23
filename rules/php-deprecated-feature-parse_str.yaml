@@ -1,5 +1,6 @@
 name: php-deprecated-feature-parse_str
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: php$

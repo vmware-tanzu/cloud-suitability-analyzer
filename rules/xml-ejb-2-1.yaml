@@ -1,6 +1,7 @@
 #-- SW
 name: xml-ejb-2-1
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: xml$

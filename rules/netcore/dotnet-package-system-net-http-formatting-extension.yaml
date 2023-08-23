@@ -1,5 +1,6 @@
 name: dotnet-package-system-net-http-formatting-extension
 ruletype: standard
+criticality: medium
 cloud: 50
 container: 50
 filetype: (config$)

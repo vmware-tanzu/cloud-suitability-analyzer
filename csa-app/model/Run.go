@@ -104,7 +104,7 @@ func (r *Run) Cleanup() {
 
 func (r Run) CompletionMessage() {
 	if r.Files == 0 {
-		if !*util.Xtract {
+		if (!*util.Xtract) {
 			fmt.Printf("\n******** All done! Report Run [%d] Completed in %s ****************\n", r.ID, r.Runtime)
 		}
 	} else {
@@ -113,7 +113,7 @@ func (r Run) CompletionMessage() {
 		if util.HasErrors() {
 			completed = "Completed w/Errors"
 		}
-		if !*util.Xtract {
+		if (!*util.Xtract) {
 			fmt.Printf("\n******** All done! [%d] Findings in [%d] Files. Report Run [%d-%s] %s in %s ****************\n", r.Findings, r.Files, r.ID, r.GetAlias(), completed, r.Runtime)
 			fmt.Printf("\n\nRun: %d\nAlias: %s\nUser: %s\nCommand: %s\nTarget: %s\nFiles: %d\nFindings: %d\nRuntime: %s\nDB Path: %s\nRules-Dir: %s\nOutputPath: %s\nExe Path: %s\nTmp Path: %s\n\n",
 				r.ID,
@@ -159,7 +159,7 @@ func (r *Run) StopActivityLF(name, msg string, prelinefeed bool, printMsg bool) 
 	activity.Stop()
 
 	if printMsg {
-		if !*util.Xtract {
+		if (!*util.Xtract){
 			if prelinefeed {
 				fmt.Printf("\n%s (%s)\n", msg, fmt.Sprintf("%v", activity.GetElapsed()))
 			} else {
