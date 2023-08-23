@@ -172,7 +172,6 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run, app *model.Appli
 		readiness = pattern.Readiness
 	}
 
-
 	cloud_native_effort := 0
 	container_effort := 0
 
@@ -182,9 +181,9 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run, app *model.Appli
 		container_factor := float64(rule.Container) / 50.0
 		cloud_native_effort = int(math.Round(float64(rule.Effort) * native_factor))
 		container_effort = int(math.Round(float64(rule.Effort) * container_factor))
-		if app.Model.Name == "cloud" {
+		if app.Model.Name == "native-model" {
 			effort = cloud_native_effort
-		} else if app.Model.Name == "container" {
+		} else if app.Model.Name == "con-model" {
 			effort = container_effort
 		} else {
 			effort = rule.Effort
