@@ -1,8 +1,8 @@
 name: php-references-should-not-be-passed-to-func-call
 ruletype: standard
 criticality: medium
-cloud: 50
-container: 50
+cloud: 100
+container: 100
 filetype: php$
 target: line
 type: regex

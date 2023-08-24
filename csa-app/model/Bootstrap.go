@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-08-23 15:13:59.37343 -0500 CDT m=+0.157455595
+//Created @ 2023-08-24 11:10:22.639274 -0500 CDT m=+0.167964596
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -2518,7 +2518,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "com.sun.jersey", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jersey", Recipe: "", },
              }, },
         
-            { Name: "java-jboss", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(import)\\s+(%s)\\.{1}", Advice: "Convert to Spring based POJOs instead of using container specific functionality", Effort: 50, Readiness: 5, Impact: "", Category: "jboss", Criticality: "medium",Container: 10, Cloud: 50,
+            { Name: "java-jboss", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(import)\\s+(%s)\\.{1}", Advice: "Convert to Spring based POJOs instead of using container specific functionality", Effort: 50, Readiness: 5, Impact: "", Category: "jboss", Criticality: "medium",Container: 50, Cloud: 50,
             Tags:
             []Tag{  { Value: "jboss",}, { Value: "migrate-off-legacy-server",}, },
             Profiles:

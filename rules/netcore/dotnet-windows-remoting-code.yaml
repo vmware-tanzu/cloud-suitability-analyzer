@@ -1,8 +1,8 @@
 name: dotnet-windows-remoting-code
 ruletype: standard
 criticality: medium
-cloud: 50
-container: 50
+cloud: 100
+container: 100
 filetype: (cs$)
 target: line
 type: regex

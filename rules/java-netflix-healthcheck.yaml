@@ -1,8 +1,8 @@
 name: java-netflix-healthcheck
 ruletype: standard
 criticality: medium
-cloud: 50
-container: 50
+cloud: 100
+container: 100
 filetype: (jsp$|java$)
 target: line
 type: regex

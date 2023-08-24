@@ -177,8 +177,9 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run, app *model.Appli
 
 	if rule.Cloud != 0 && rule.Container != 0 {
 		//--- transform the effort based upon fractional weight of cloud and container
-		native_factor := float64(rule.Cloud) / 50.0
-		container_factor := float64(rule.Container) / 50.0
+
+		native_factor := float64(rule.Cloud) / 100.0
+		container_factor := float64(rule.Container) / 100.0
 		cloud_native_effort = int(math.Round(float64(rule.Effort) * native_factor))
 		container_effort = int(math.Round(float64(rule.Effort) * container_factor))
 		if app.Model.Name == "native-model" {

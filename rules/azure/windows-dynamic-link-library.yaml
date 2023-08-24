@@ -1,8 +1,8 @@
 name: windows-dynamic-link-library
 ruletype: standard
 criticality: medium
-cloud: 50
-container: 50
+cloud: 100
+container: 100
 filetype: dll$
 target: file
 type: regex

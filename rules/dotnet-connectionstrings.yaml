@@ -1,8 +1,8 @@
 name: dotnet-connectionstrings
 ruletype: standard
 criticality: medium
-cloud: 50
-container: 50
+cloud: 100
+container: 100
 title: Usage of hardcoded connection string
 description: Helps with detecting if hard coded connection strings
 filetype: (json|property)

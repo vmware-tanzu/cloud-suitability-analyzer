@@ -1,8 +1,8 @@
 name: log4j-xml
 ruletype: standard
 criticality: medium
-cloud: 50
-container: 50
+cloud: 100
+container: 100
 filetype: log4j2.xml$
 target: line
 type: regex

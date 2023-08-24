@@ -1,8 +1,8 @@
 name: dotnet-ipv4-addresses
 ruletype: standard
 criticality: medium
-cloud: 50
-container: 50
+cloud: 100
+container: 100
 filetype: (yaml|yml|cs$|json)
 target: line
 type: regex
