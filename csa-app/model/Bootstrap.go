@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-07-26 11:34:37.6482 -0500 CDT m=+0.135719748
+//Created @ 2023-09-01 11:53:53.147468 -0500 CDT m=+0.179578292
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -6153,6 +6153,71 @@ func BootstrapRules() []Rule {
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "DTS", Advice: "SSIS is not supported on CloudFoundry. Consider leaving the packages in an external SQL Server deployment or rewrite them in a cloud native ETL Framework like Spring Cloud Data Flow.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "tas-environment-cfenv-gradle", FileType: "gradle$", Target: "line", Type: "regex", DefaultPattern: "^.*%s", Advice: "Application appears to be using cf env library to inject environment variables provided by TAS.", Effort: 1, Readiness: 7, Impact: "", Category: "tas", Criticality: "",
+            Tags:
+            []Tag{  { Value: "tas",}, { Value: "env-config",}, },
+            Profiles:
+            []Profile{  { Value: "tas",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "spring-cloud-cloudfoundry-connector", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "tas-environment-cfenv-maven", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(>.*%s<)", Advice: "Application appears to be using cf env library to inject environment variables provided by TAS.", Effort: 1, Readiness: 7, Impact: "", Category: "tas", Criticality: "",
+            Tags:
+            []Tag{  { Value: "tas",}, { Value: "env-config",}, },
+            Profiles:
+            []Profile{  { Value: "tas",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "java-cfenv-boot", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "tas-environment-connector-gradle", FileType: "gradle$", Target: "line", Type: "regex", DefaultPattern: "^.*%s", Advice: "Application appears to be using cloud connectors library to inject environment variables provided by TAS.", Effort: 1, Readiness: 7, Impact: "", Category: "tas", Criticality: "",
+            Tags:
+            []Tag{  { Value: "tas",}, { Value: "env-config",}, },
+            Profiles:
+            []Profile{  { Value: "tas",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "spring-cloud-cloudfoundry-connector", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "tas-environment-connector-maven", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(>.*%s<)", Advice: "Application appears to be using cloud connectors library to inject environment variables provided by TAS.", Effort: 1, Readiness: 7, Impact: "", Category: "tas", Criticality: "",
+            Tags:
+            []Tag{  { Value: "tas",}, { Value: "env-config",}, },
+            Profiles:
+            []Profile{  { Value: "tas",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "spring-cloud-cloudfoundry-connector", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "tas-environment-connector-python", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*%s", Advice: "Application appears to be using Cloudfoundry python client to inject environment variables provided by TAS.", Effort: 1, Readiness: 7, Impact: "", Category: "tas", Criticality: "",
+            Tags:
+            []Tag{  { Value: "tas",}, { Value: "env-config",}, },
+            Profiles:
+            []Profile{  { Value: "tas",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "CloudFoundryClient", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "weblogic-cluster-config", FileType: "conf$", Target: "line", Type: "regex", DefaultPattern: "^%s.*", Advice: "Weblogic clusters cannot run in K8S", Effort: 1, Readiness: 0, Impact: "", Category: "wlcluster", Criticality: "",
