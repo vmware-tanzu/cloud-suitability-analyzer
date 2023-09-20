@@ -1,0 +1,48 @@
+name: ruby-requires
+filetype: rb$
+target: line
+type: regex
+defaultpattern: \brequire\s+['"]%s['"].*$
+advice: Consult 3rd party documentation
+effort: 300
+readiness: 10
+category: third-party
+tags:
+- value: third-party
+patterns:
+- value: activerecord
+  tag: ORM
+  advice: "While ActiveRecord is a powerful ORM, its tight coupling to SQL databases and reliance on a centralized connection pool can make it difficult to horizontally scale in cloud environments."
+- value: rmagick
+  tag: image-processing
+  advice: "While RMagick is a powerful image processing library, its dependence on ImageMagick can make it difficult to install and configure in certain cloud environments."
+- value: nokogiri
+  tag: xml-parsing
+  advice: "While Nokogiri is a popular XML parsing library, its reliance on libxml2 can make it difficult to install and configure in certain cloud environments."
+- value: unicorn
+  tag: web-server
+  advice: "While Unicorn is a popular web server, its master-worker architecture can make it difficult to horizontally scale in cloud environments."
+- value: puma
+  tag: web-server
+  advice: "While Puma is another popular web server, its multi-process architecture can make it difficult to vertically scale in cloud environments."
+- value: resque
+  tag: job-processor
+  advice: "While Resque is a popular background job processor, its reliance on Redis can make it difficult to horizontally scale in cloud environments."
+- value: sidekiq
+  tag: job-processor
+  advice: "While Sidekiq is another popular background job processor, its reliance on Redis can make it difficult to horizontally scale in cloud environments."
+- value: delayedjob
+  tag: job-processor
+  advice: "While DelayedJob is a popular background job processor, its reliance on a centralized queue can make it difficult to horizontally scale in cloud environments."
+- value: activestorage 
+  tag: rails
+  advice: "While ActiveStorage is a convenient feature for handling files in Rails applications, its reliance on a centralized storage solution can make it difficult to horizontally scale in cloud environments."
+
+profiles:
+- value: cloud-suitability
+
+
+
+
+
+

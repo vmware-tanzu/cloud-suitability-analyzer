@@ -1,5 +1,5 @@
 name: hardcode-uri
-filetype: (java$|^vb$|py$|go$|aspx$|^c$|h$|cs$|csx$|cpp$|cob$|cfm$|cfml$|dockerfile$|jsp$|php$|^r$|^ts$|yaml$|yml$|json$)
+filetype: (java$|^vb$|py$|go$|aspx$|^c$|h$|cs$|csx$|cpp$|cob$|cfm$|cfml$|dockerfile$|jsp$|php$|^r$|^rb$|^ts$|yaml$|yml$|json$)
 #filetype: (cs$|js$)
 target: line
 type: regex
