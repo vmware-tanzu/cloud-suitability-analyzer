@@ -10,8 +10,8 @@ category: third-party
 tags:
 - value: third-party
 patterns:
-- value: sockets
-  tag: sockets
+- value: socket
+  tag: socket
   advice: Socket traffic may pose a problem in some containership/cloud settings
 - value: gtk3
   tag: desktop-app

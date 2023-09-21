@@ -1,0 +1,15 @@
+name: ruby-log2file
+filetype: rb$
+target: line
+type: regex
+defaultpattern: ^.*%s.*$
+effort: 0
+readiness: 0
+advice: Servlet Java API Import
+category: servlet
+tags:
+- value: log2file
+patterns:
+- value: Logger.new
+profiles:
+- value: cloud-suitability

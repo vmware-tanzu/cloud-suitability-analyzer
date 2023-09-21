@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-09-01 11:53:53.147468 -0500 CDT m=+0.179578292
+//Created @ 2023-09-21 15:20:22.342453 -0500 CDT m=+0.208435601
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -1535,7 +1535,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "/libraries[@count>13]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "hardcode-uri", FileType: "(java$|^vb$|py$|go$|aspx$|^c$|h$|cs$|csx$|cpp$|cob$|cfm$|cfml$|dockerfile$|jsp$|php$|^r$|^ts$|yaml$|yml$|json$)", Target: "line", Type: "regex", DefaultPattern: "(?:(?:^|[^\"])|(?:^|[^ =])\"|(?:^|[^:]) \"|(?:^|[^s])=\"|(?:^|[^\"]): \"|(?:^|[^n])s=\"|(?:^|[^d])\": \"|(?:^|[^l])ns=\"|(?:^|[^e])d\": \"|(?:^|[^m])lns=\"|(?:^|[^v])ed\": \"|(?:^|[^x])mlns=\"|(?:^|[^l])ved\": \"|(?:^|[^o])lved\": \"|(?:^|[^s])olved\": \"|(?:^|[^e])solved\": \"|(?:^|[^r])esolved\": \")(%s)\\:{1}\\/{2}[a-zA-Z0-9]", Advice: "Found hard-coded URI. Make configurable, put into environment or config map", Effort: 3, Readiness: 8, Impact: "", Category: "env-config", Criticality: "",
+            { Name: "hardcode-uri", FileType: "(java$|^vb$|py$|go$|aspx$|^c$|h$|cs$|csx$|cpp$|cob$|cfm$|cfml$|dockerfile$|jsp$|php$|^r$|^rb$|^ts$|yaml$|yml$|json$)", Target: "line", Type: "regex", DefaultPattern: "(?:(?:^|[^\"])|(?:^|[^ =])\"|(?:^|[^:]) \"|(?:^|[^s])=\"|(?:^|[^\"]): \"|(?:^|[^n])s=\"|(?:^|[^d])\": \"|(?:^|[^l])ns=\"|(?:^|[^e])d\": \"|(?:^|[^m])lns=\"|(?:^|[^v])ed\": \"|(?:^|[^x])mlns=\"|(?:^|[^l])ved\": \"|(?:^|[^o])lved\": \"|(?:^|[^s])olved\": \"|(?:^|[^e])solved\": \"|(?:^|[^r])esolved\": \")(%s)\\:{1}\\/{2}[a-zA-Z0-9]", Advice: "Found hard-coded URI. Make configurable, put into environment or config map", Effort: 3, Readiness: 8, Impact: "", Category: "env-config", Criticality: "",
             Tags:
             []Tag{  { Value: "hardcoded-uri",}, },
             Profiles:
@@ -6140,6 +6140,42 @@ func BootstrapRules() []Rule {
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "sqlite", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "SqliteDatabase", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "ruby-hardIP", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "%s", Advice: "Hardcoded IP addresses are problematic in K8S", Effort: 1, Readiness: 8, Impact: "", Category: "hard-ip", Criticality: "",
+            Tags:
+            []Tag{  { Value: "hard-ip",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "ruby-requires", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\brequire\\s+[''\"]%s[''\"].*$", Advice: "Consult 3rd party documentation", Effort: 300, Readiness: 10, Impact: "", Category: "third-party", Criticality: "",
+            Tags:
+            []Tag{  { Value: "third-party",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "sockets", Advice: "Socket traffic may pose a problem in some containership/cloud settings", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "sockets", Recipe: "", },
+             { Type: "", Pattern: "", Value: "gtk3", Advice: "Desktop applications cannot run in containers/clouds", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "desktop-app", Recipe: "", },
+             { Type: "", Pattern: "", Value: "activerecord", Advice: "While ActiveRecord is a powerful ORM, its tight coupling to SQL databases and reliance on a centralized connection pool can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ORM", Recipe: "", },
+             { Type: "", Pattern: "", Value: "rmagick", Advice: "While RMagick is a powerful image processing library, its dependence on ImageMagick can make it difficult to install and configure in certain cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "image-processing", Recipe: "", },
+             { Type: "", Pattern: "", Value: "nokogiri", Advice: "While Nokogiri is a popular XML parsing library, its reliance on libxml2 can make it difficult to install and configure in certain cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "xml-parsing", Recipe: "", },
+             { Type: "", Pattern: "", Value: "unicorn", Advice: "While Unicorn is a popular web server, its master-worker architecture can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "web-server", Recipe: "", },
+             { Type: "", Pattern: "", Value: "puma", Advice: "While Puma is another popular web server, its multi-process architecture can make it difficult to vertically scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "web-server", Recipe: "", },
+             { Type: "", Pattern: "", Value: "resque", Advice: "While Resque is a popular background job processor, its reliance on Redis can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "job-processor", Recipe: "", },
+             { Type: "", Pattern: "", Value: "sidekiq", Advice: "While Sidekiq is another popular background job processor, its reliance on Redis can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "job-processor", Recipe: "", },
+             { Type: "", Pattern: "", Value: "delayedjob", Advice: "While DelayedJob is a popular background job processor, its reliance on a centralized queue can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "job-processor", Recipe: "", },
+             { Type: "", Pattern: "", Value: "activestorage", Advice: "While ActiveStorage is a convenient feature for handling files in Rails applications, its reliance on a centralized storage solution can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "rails", Recipe: "", },
              }, },
         
             { Name: "sqlserver-ssis", FileType: "(dtsx$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "SSIS is not supported on CloudFoundry.", Effort: 100, Readiness: 0, Impact: "", Category: "Unsupported modules", Criticality: "",
