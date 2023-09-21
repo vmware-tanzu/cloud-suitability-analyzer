@@ -10,6 +10,12 @@ category: third-party
 tags:
 - value: third-party
 patterns:
+- value: sockets
+  tag: sockets
+  advice: Socket traffic may pose a problem in some containership/cloud settings
+- value: gtk3
+  tag: desktop-app
+  advice: Desktop applications cannot run in containers/clouds  
 - value: activerecord
   tag: ORM
   advice: "While ActiveRecord is a powerful ORM, its tight coupling to SQL databases and reliance on a centralized connection pool can make it difficult to horizontally scale in cloud environments."
