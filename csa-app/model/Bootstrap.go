@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-09-21 15:20:22.342453 -0500 CDT m=+0.208435601
+//Created @ 2023-09-21 17:28:57.54221 -0500 CDT m=+0.138622780
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -6142,7 +6142,20 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "SqliteDatabase", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "ruby-hardIP", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "%s", Advice: "Hardcoded IP addresses are problematic in K8S", Effort: 1, Readiness: 8, Impact: "", Category: "hard-ip", Criticality: "",
+            { Name: "ruby-file-io", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "File i/o in environments that are emphemeral is a bad practice", Effort: 2, Readiness: 0, Impact: "", Category: "file-io", Criticality: "",
+            Tags:
+            []Tag{  { Value: "file-io",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "IO", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "ruby-hardIP", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "%s", Advice: "Hardcoded IP addresses are problematic in cloud/container env", Effort: 1, Readiness: 8, Impact: "", Category: "hard-ip", Criticality: "",
             Tags:
             []Tag{  { Value: "hard-ip",}, },
             Profiles:
@@ -6155,6 +6168,32 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
+            { Name: "ruby-ldap", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Use of ldap in a cloud/container env is not a best practice", Effort: 2, Readiness: 0, Impact: "", Category: "windows-reg", Criticality: "",
+            Tags:
+            []Tag{  { Value: "windows-reg",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "LDAP", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "ruby-log2file", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Servlet Java API Import", Effort: 2, Readiness: 0, Impact: "", Category: "servlet", Criticality: "",
+            Tags:
+            []Tag{  { Value: "log2file",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "Logger.new\\(''", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
             { Name: "ruby-requires", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\brequire\\s+[''\"]%s[''\"].*$", Advice: "Consult 3rd party documentation", Effort: 300, Readiness: 10, Impact: "", Category: "third-party", Criticality: "",
             Tags:
             []Tag{  { Value: "third-party",}, },
@@ -6165,7 +6204,7 @@ func BootstrapRules() []Rule {
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "sockets", Advice: "Socket traffic may pose a problem in some containership/cloud settings", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "sockets", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "socket", Advice: "Socket traffic may pose a problem in some containership/cloud settings", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "socket", Recipe: "", },
              { Type: "", Pattern: "", Value: "gtk3", Advice: "Desktop applications cannot run in containers/clouds", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "desktop-app", Recipe: "", },
              { Type: "", Pattern: "", Value: "activerecord", Advice: "While ActiveRecord is a powerful ORM, its tight coupling to SQL databases and reliance on a centralized connection pool can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ORM", Recipe: "", },
              { Type: "", Pattern: "", Value: "rmagick", Advice: "While RMagick is a powerful image processing library, its dependence on ImageMagick can make it difficult to install and configure in certain cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "image-processing", Recipe: "", },
@@ -6176,6 +6215,32 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "sidekiq", Advice: "While Sidekiq is another popular background job processor, its reliance on Redis can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "job-processor", Recipe: "", },
              { Type: "", Pattern: "", Value: "delayedjob", Advice: "While DelayedJob is a popular background job processor, its reliance on a centralized queue can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "job-processor", Recipe: "", },
              { Type: "", Pattern: "", Value: "activestorage", Advice: "While ActiveStorage is a convenient feature for handling files in Rails applications, its reliance on a centralized storage solution can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "rails", Recipe: "", },
+             }, },
+        
+            { Name: "ruby-rpc", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "^%s", Advice: "Remote procedure calls can be problematic in cloud/container envs.", Effort: 5, Readiness: 0, Impact: "", Category: "rpc", Criticality: "",
+            Tags:
+            []Tag{  { Value: "rpc",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "rpc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "ruby-windows-reg", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Windows Registry is not available in cloud/container envs", Effort: 2, Readiness: 0, Impact: "", Category: "windows-reg", Criticality: "",
+            Tags:
+            []Tag{  { Value: "windows-reg",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "Registry", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "sqlserver-ssis", FileType: "(dtsx$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "SSIS is not supported on CloudFoundry.", Effort: 100, Readiness: 0, Impact: "", Category: "Unsupported modules", Criticality: "",

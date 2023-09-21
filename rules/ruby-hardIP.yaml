@@ -4,7 +4,7 @@ filetype: rb$
 target: line
 type: regex
 defaultpattern: "%s"
-advice: Hardcoded IP addresses are problematic in K8S
+advice: Hardcoded IP addresses are problematic in cloud/container env
 effort: 1
 readiness: 8
 category: hard-ip

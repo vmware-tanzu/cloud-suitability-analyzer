@@ -2,11 +2,7 @@
 logger = Logger.new('my_logs.log')
 ##############
 
-RPC:
-service RouteGuide {
-   ...
-}
-
+#RPC:
 rpc GetFeature(Point) returns (Feature) {}
 
 

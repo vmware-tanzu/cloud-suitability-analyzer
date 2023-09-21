@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapBinsTemplate.txt found under go/resources folder
-//Created @ 2023-09-21 15:20:22.538295 -0500 CDT m=+0.404272219
+//Created @ 2023-09-21 17:28:57.753019 -0500 CDT m=+0.349428831
 
 func BootstrapBins() []Bin {
     var BootstrapBins = []Bin{
@@ -55,7 +55,7 @@ func BootstrapBins() []Bin {
             []*BinTag{  { Name: "ui", Type: 1, Action: "OR", },  { Name: "web-app", Type: 0, Action: "AND", },  { Name: "web-container", Type: 0, Action: "AND", },  { Name: "jsp", Type: 1, Action: "OR", },  { Name: "jsf", Type: 1, Action: "OR", },  { Name: "portlet", Type: 1, Action: "OR", },  { Name: "struts", Type: 1, Action: "OR", },  { Name: "jetty", Type: 1, Action: "OR", },  },
              },
         
-            { Name: "JAVA-DESKTOP",
+            { Name: "DESKTOP-APP",
             Tags:
             []*BinTag{  { Name: "desktop-app", Type: 1, Action: "OR", },  },
              },

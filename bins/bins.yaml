@@ -134,7 +134,7 @@ tags:
     type: OR
 
 ---
-name: JAVA-DESKTOP
+name: DESKTOP-APP
 tags:
   - name: desktop-app
     type: OR
