@@ -1,5 +1,5 @@
 ---
-name: java-hardIP
+name: ruby-hardIP
 filetype: rb$
 target: line
 type: regex
