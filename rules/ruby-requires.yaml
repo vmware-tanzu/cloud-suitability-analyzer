@@ -10,12 +10,40 @@ category: third-party
 tags:
 - value: third-party
 patterns:
+
+- value: listen
+  advice: "This gem is used for file system monitoring and can cause issues when used in a container environment. It can lead to high CPU usage and memory leaks."
+  tag: file system monitoring
+- value: rb-inotify
+  advice: This gem is similar to `listen` and can also cause issues in a container environment. It can lead to high CPU usage and memory leaks.
+  tag: system monitoring
+- value: rb-fsevent
+  advice: "This gem is used for file system monitoring on macOS and can cause issues when used in a container environment. It can lead to high CPU usage and memory leaks."
+  tag: macOS file monitoring
+- value: rb-kqueue
+  advice: "This gem is used for file system monitoring on BSD-based systems and can cause issues when used in a container environment. It can lead to high CPU usage and memory leaks."
+  tag: BSD file monitoring
+- value: rb-fchange
+  advice: "This gem is used for file system monitoring and can cause issues when used in a container environment. It can lead to high CPU usage and memory leaks."
+  tag: file system monitoring
+- value: docker-sync
+  advice: "docker-sync usage indicates this application has been preppred to run in a container"
+  effort: -200
+- value: docker-compose
+  advice: "docker-compose usage indicates this application has been preppred to run in a container"
+  effort: -200
+- value: sinatra
+  tag: sinatra
+  advice: Sinatra applications require special consideration migrating to the cloud/container
 - value: socket
   tag: socket
   advice: Socket traffic may pose a problem in some containership/cloud settings
 - value: gtk3
   tag: desktop-app
   advice: Desktop applications cannot run in containers/clouds  
+- value: sinatra/activerecord
+  tag: ORM
+  advice: "While ActiveRecord is a powerful ORM, its tight coupling to SQL databases and reliance on a centralized connection pool can make it difficult to horizontally scale in cloud environments."
 - value: activerecord
   tag: ORM
   advice: "While ActiveRecord is a powerful ORM, its tight coupling to SQL databases and reliance on a centralized connection pool can make it difficult to horizontally scale in cloud environments."

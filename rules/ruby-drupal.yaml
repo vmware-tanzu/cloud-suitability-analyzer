@@ -1,0 +1,15 @@
+name: ruby-drupal
+filetype: php$
+target: line
+type: regex
+defaultpattern: \b%s
+effort: 100
+readiness: 0
+advice: Ruby on rails application
+category: drupal
+tags:
+- value: drupal
+patterns:
+- value: drupal_route
+profiles:
+- value: cloud-suitability
