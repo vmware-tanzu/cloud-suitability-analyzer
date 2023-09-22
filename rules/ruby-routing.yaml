@@ -1,0 +1,15 @@
+name: ruby-routing
+filetype: rb$
+target: line
+type: regex
+defaultpattern: \b%s
+effort: 2
+readiness: 0
+advice: Ruby on rails application
+category: ruby-on-rails
+tags:
+- value: ruby-on-rails
+patterns:
+- value: ActionController
+profiles:
+- value: cloud-suitability

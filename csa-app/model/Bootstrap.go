@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-09-21 17:28:57.54221 -0500 CDT m=+0.138622780
+//Created @ 2023-09-22 14:18:38.028445 -0500 CDT m=+0.151250839
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -6155,6 +6155,19 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "IO", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
+            { Name: "ruby-gemfile", FileType: "$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Ruby on Rails", Effort: 5, Readiness: 1000, Impact: "", Category: "docker", Criticality: "",
+            Tags:
+            []Tag{  { Value: "ruby-gemfile",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "Gemfile", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
             { Name: "ruby-hardIP", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "%s", Advice: "Hardcoded IP addresses are problematic in cloud/container env", Effort: 1, Readiness: 8, Impact: "", Category: "hard-ip", Criticality: "",
             Tags:
             []Tag{  { Value: "hard-ip",}, },
@@ -6166,6 +6179,19 @@ func BootstrapRules() []Rule {
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "ruby-kernel", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "File i/o in environments that are emphemeral is a not a best practice", Effort: 2, Readiness: 0, Impact: "", Category: "file-io", Criticality: "",
+            Tags:
+            []Tag{  { Value: "file-io",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "Kernel\\.open\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "ruby-ldap", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Use of ldap in a cloud/container env is not a best practice", Effort: 2, Readiness: 0, Impact: "", Category: "windows-reg", Criticality: "",
