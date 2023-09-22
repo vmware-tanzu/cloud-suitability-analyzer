@@ -71,7 +71,39 @@ patterns:
 - value: activestorage 
   tag: rails
   advice: "While ActiveStorage is a convenient feature for handling files in Rails applications, its reliance on a centralized storage solution can make it difficult to horizontally scale in cloud environments."
-
+- value: win32ole 
+  tag: windows
+  advice: "This gem provides an interface to the Windows OLE (Object Linking and Embedding) system, which allows Ruby programs to interact with Windows applications and controls."
+- value: win32api
+  tag: windows
+  advice: "This gem provides an interface to the Windows API (Application Programming Interface), which allows Ruby programs to interact with Windows system functions and services."
+- value:  win32gui
+  tag: windows
+  advice: "This gem provides an interface to the Windows GUI (Graphical User Interface), which allows Ruby programs to create and manipulate Windows GUI elements such as windows, buttons, and menus."
+- value: win32process
+  tag: windows
+  advice: "This gem provides an interface to the Windows process management system, which allows Ruby programs to create, manage, and communicate with Windows processes."
+- value: win32service
+  tag: windows
+  advice: "This gem provides an interface to the Windows service management system, which allows Ruby programs to create, manage, and communicate with Windows services."
+- value: osx_app
+  tag: osx
+  advice: "This gem provides an interface to the OSX application programming interface (API), which allows Ruby programs to interact with OSX applications and services."
+- value: osx_core_foundation
+  tag: osx
+  advice: "This gem provides an interface to the OSX Core Foundation framework, which allows Ruby programs to interact with OSX system services and frameworks."
+- value: osx_foundation
+  tag: osx
+  advice: "This gem provides an interface to the OSX Foundation framework, which allows Ruby programs to interact with OSX system services and frameworks."
+- value: osx_gui
+  tag: osx
+  advice: "This gem provides an interface to the OSX GUI (Graphical User Interface), which allows Ruby programs to create and manipulate OSX GUI elements such as windows, buttons, and menus."
+- value: osx_process
+  tag: osx
+  advice: "This gem provides an interface to the OSX process management system, which allows Ruby programs to create, manage, and communicate with OSX processes."
+- value: osx_service
+  tag: osx
+  advice: "This gem provides an interface to the OSX service management system, which allows Ruby programs to create, manage, and communicate with OSX services."
 profiles:
 - value: cloud-suitability
 

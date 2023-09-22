@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-09-22 14:18:38.028445 -0500 CDT m=+0.151250839
+//Created @ 2023-09-22 15:34:38.331353 -0500 CDT m=+0.186253094
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -6142,6 +6142,19 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "SqliteDatabase", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
+            { Name: "ruby-drupal", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Ruby on rails application", Effort: 100, Readiness: 0, Impact: "", Category: "drupal", Criticality: "",
+            Tags:
+            []Tag{  { Value: "drupal",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "drupal_route", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
             { Name: "ruby-file-io", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "File i/o in environments that are emphemeral is a bad practice", Effort: 2, Readiness: 0, Impact: "", Category: "file-io", Criticality: "",
             Tags:
             []Tag{  { Value: "file-io",}, },
@@ -6230,8 +6243,17 @@ func BootstrapRules() []Rule {
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "socket", Advice: "Socket traffic may pose a problem in some containership/cloud settings", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "socket", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "listen", Advice: "This gem is used for file system monitoring and can cause issues when used in a container environment. It can lead to high CPU usage and memory leaks.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "file system monitoring", Recipe: "", },
+             { Type: "", Pattern: "", Value: "rb-inotify", Advice: "This gem is similar to `listen` and can also cause issues in a container environment. It can lead to high CPU usage and memory leaks.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "system monitoring", Recipe: "", },
+             { Type: "", Pattern: "", Value: "rb-fsevent", Advice: "This gem is used for file system monitoring on macOS and can cause issues when used in a container environment. It can lead to high CPU usage and memory leaks.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "macOS file monitoring", Recipe: "", },
+             { Type: "", Pattern: "", Value: "rb-kqueue", Advice: "This gem is used for file system monitoring on BSD-based systems and can cause issues when used in a container environment. It can lead to high CPU usage and memory leaks.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "BSD file monitoring", Recipe: "", },
+             { Type: "", Pattern: "", Value: "rb-fchange", Advice: "This gem is used for file system monitoring and can cause issues when used in a container environment. It can lead to high CPU usage and memory leaks.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "file system monitoring", Recipe: "", },
+             { Type: "", Pattern: "", Value: "docker-sync", Advice: "docker-sync usage indicates this application has been preppred to run in a container", Effort: -200, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "docker-compose", Advice: "docker-compose usage indicates this application has been preppred to run in a container", Effort: -200, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "sinatra", Advice: "Sinatra applications require special consideration migrating to the cloud/container", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "sinatra", Recipe: "", },
+             { Type: "", Pattern: "", Value: "socket", Advice: "Socket traffic may pose a problem in some containership/cloud settings", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "socket", Recipe: "", },
              { Type: "", Pattern: "", Value: "gtk3", Advice: "Desktop applications cannot run in containers/clouds", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "desktop-app", Recipe: "", },
+             { Type: "", Pattern: "", Value: "sinatra/activerecord", Advice: "While ActiveRecord is a powerful ORM, its tight coupling to SQL databases and reliance on a centralized connection pool can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ORM", Recipe: "", },
              { Type: "", Pattern: "", Value: "activerecord", Advice: "While ActiveRecord is a powerful ORM, its tight coupling to SQL databases and reliance on a centralized connection pool can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ORM", Recipe: "", },
              { Type: "", Pattern: "", Value: "rmagick", Advice: "While RMagick is a powerful image processing library, its dependence on ImageMagick can make it difficult to install and configure in certain cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "image-processing", Recipe: "", },
              { Type: "", Pattern: "", Value: "nokogiri", Advice: "While Nokogiri is a popular XML parsing library, its reliance on libxml2 can make it difficult to install and configure in certain cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "xml-parsing", Recipe: "", },
@@ -6241,6 +6263,19 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "sidekiq", Advice: "While Sidekiq is another popular background job processor, its reliance on Redis can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "job-processor", Recipe: "", },
              { Type: "", Pattern: "", Value: "delayedjob", Advice: "While DelayedJob is a popular background job processor, its reliance on a centralized queue can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "job-processor", Recipe: "", },
              { Type: "", Pattern: "", Value: "activestorage", Advice: "While ActiveStorage is a convenient feature for handling files in Rails applications, its reliance on a centralized storage solution can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "rails", Recipe: "", },
+             }, },
+        
+            { Name: "ruby-routing", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Ruby on rails application", Effort: 2, Readiness: 0, Impact: "", Category: "ruby-on-rails", Criticality: "",
+            Tags:
+            []Tag{  { Value: "ruby-on-rails",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "ActionController", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "ruby-rpc", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "^%s", Advice: "Remote procedure calls can be problematic in cloud/container envs.", Effort: 5, Readiness: 0, Impact: "", Category: "rpc", Criticality: "",
