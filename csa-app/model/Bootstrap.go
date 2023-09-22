@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-09-22 15:34:38.331353 -0500 CDT m=+0.186253094
+//Created @ 2023-09-22 15:55:43.769045 -0500 CDT m=+0.165972546
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -6263,6 +6263,17 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "sidekiq", Advice: "While Sidekiq is another popular background job processor, its reliance on Redis can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "job-processor", Recipe: "", },
              { Type: "", Pattern: "", Value: "delayedjob", Advice: "While DelayedJob is a popular background job processor, its reliance on a centralized queue can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "job-processor", Recipe: "", },
              { Type: "", Pattern: "", Value: "activestorage", Advice: "While ActiveStorage is a convenient feature for handling files in Rails applications, its reliance on a centralized storage solution can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "rails", Recipe: "", },
+             { Type: "", Pattern: "", Value: "win32ole", Advice: "This gem provides an interface to the Windows OLE (Object Linking and Embedding) system, which allows Ruby programs to interact with Windows applications and controls.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "windows", Recipe: "", },
+             { Type: "", Pattern: "", Value: "win32api", Advice: "This gem provides an interface to the Windows API (Application Programming Interface), which allows Ruby programs to interact with Windows system functions and services.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "windows", Recipe: "", },
+             { Type: "", Pattern: "", Value: "win32gui", Advice: "This gem provides an interface to the Windows GUI (Graphical User Interface), which allows Ruby programs to create and manipulate Windows GUI elements such as windows, buttons, and menus.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "windows", Recipe: "", },
+             { Type: "", Pattern: "", Value: "win32process", Advice: "This gem provides an interface to the Windows process management system, which allows Ruby programs to create, manage, and communicate with Windows processes.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "windows", Recipe: "", },
+             { Type: "", Pattern: "", Value: "win32service", Advice: "This gem provides an interface to the Windows service management system, which allows Ruby programs to create, manage, and communicate with Windows services.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "windows", Recipe: "", },
+             { Type: "", Pattern: "", Value: "osx_app", Advice: "This gem provides an interface to the OSX application programming interface (API), which allows Ruby programs to interact with OSX applications and services.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "osx", Recipe: "", },
+             { Type: "", Pattern: "", Value: "osx_core_foundation", Advice: "This gem provides an interface to the OSX Core Foundation framework, which allows Ruby programs to interact with OSX system services and frameworks.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "osx", Recipe: "", },
+             { Type: "", Pattern: "", Value: "osx_foundation", Advice: "This gem provides an interface to the OSX Foundation framework, which allows Ruby programs to interact with OSX system services and frameworks.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "osx", Recipe: "", },
+             { Type: "", Pattern: "", Value: "osx_gui", Advice: "This gem provides an interface to the OSX GUI (Graphical User Interface), which allows Ruby programs to create and manipulate OSX GUI elements such as windows, buttons, and menus.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "osx", Recipe: "", },
+             { Type: "", Pattern: "", Value: "osx_process", Advice: "This gem provides an interface to the OSX process management system, which allows Ruby programs to create, manage, and communicate with OSX processes.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "osx", Recipe: "", },
+             { Type: "", Pattern: "", Value: "osx_service", Advice: "This gem provides an interface to the OSX service management system, which allows Ruby programs to create, manage, and communicate with OSX services.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "osx", Recipe: "", },
              }, },
         
             { Name: "ruby-routing", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Ruby on rails application", Effort: 2, Readiness: 0, Impact: "", Category: "ruby-on-rails", Criticality: "",

@@ -10,7 +10,6 @@ category: third-party
 tags:
 - value: third-party
 patterns:
-
 - value: listen
   advice: "This gem is used for file system monitoring and can cause issues when used in a container environment. It can lead to high CPU usage and memory leaks."
   tag: file system monitoring
