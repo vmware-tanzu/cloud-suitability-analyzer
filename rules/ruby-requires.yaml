@@ -103,6 +103,29 @@ patterns:
 - value: osx_service
   tag: osx
   advice: "This gem provides an interface to the OSX service management system, which allows Ruby programs to create, manage, and communicate with OSX services."
+
+- value: ruby-linux
+  tag: linux
+  advice: "This gem provides a set of classes and methods for interacting with the Linux operating system, including file system manipulation, process management, and network communication."
+
+- value: linux-sys
+  tag: linux
+  advice: "This gem provides a set of classes and methods for interacting with the Linux kernel, including system calls, device drivers, and kernel modules"
+
+- value: linux-users
+  tag: linux
+  advice: "This gem provides a set of classes and methods for managing Linux users and groups, including user authentication, password management, and group membership."
+
+- value: linux-network
+  tag: linux
+  advice: "This gem provides a set of classes and methods for managing Linux network interfaces, including IP addresses, routing tables, and network protocols."
+
+- value: linux-storage
+  tag: linux 
+  advice: "This gem provides a set of classes and methods for managing Linux storage devices, including disk partitions, file systems, and storage drivers."
+
+
+
 profiles:
 - value: cloud-suitability
 
