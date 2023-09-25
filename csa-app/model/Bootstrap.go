@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-09-22 15:55:43.769045 -0500 CDT m=+0.165972546
+//Created @ 2023-09-25 07:58:02.52143 -0500 CDT m=+0.172671753
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -6274,6 +6274,11 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "osx_gui", Advice: "This gem provides an interface to the OSX GUI (Graphical User Interface), which allows Ruby programs to create and manipulate OSX GUI elements such as windows, buttons, and menus.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "osx", Recipe: "", },
              { Type: "", Pattern: "", Value: "osx_process", Advice: "This gem provides an interface to the OSX process management system, which allows Ruby programs to create, manage, and communicate with OSX processes.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "osx", Recipe: "", },
              { Type: "", Pattern: "", Value: "osx_service", Advice: "This gem provides an interface to the OSX service management system, which allows Ruby programs to create, manage, and communicate with OSX services.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "osx", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ruby-linux", Advice: "This gem provides a set of classes and methods for interacting with the Linux operating system, including file system manipulation, process management, and network communication.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "linux", Recipe: "", },
+             { Type: "", Pattern: "", Value: "linux-sys", Advice: "This gem provides a set of classes and methods for interacting with the Linux kernel, including system calls, device drivers, and kernel modules", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "linux", Recipe: "", },
+             { Type: "", Pattern: "", Value: "linux-users", Advice: "This gem provides a set of classes and methods for managing Linux users and groups, including user authentication, password management, and group membership.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "linux", Recipe: "", },
+             { Type: "", Pattern: "", Value: "linux-network", Advice: "This gem provides a set of classes and methods for managing Linux network interfaces, including IP addresses, routing tables, and network protocols.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "linux", Recipe: "", },
+             { Type: "", Pattern: "", Value: "linux-storage", Advice: "This gem provides a set of classes and methods for managing Linux storage devices, including disk partitions, file systems, and storage drivers.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "linux", Recipe: "", },
              }, },
         
             { Name: "ruby-routing", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Ruby on rails application", Effort: 2, Readiness: 0, Impact: "", Category: "ruby-on-rails", Criticality: "",
