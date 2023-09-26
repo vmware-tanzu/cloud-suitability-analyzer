@@ -6,7 +6,7 @@ defaultpattern: .*(%s)\s*\(.*\)
 category: filesystem
 advice: Filesystem manipulation is not encouraged in cloud-native applications. Keep your content off the filesystem
 recipe: Add a persistence volume or avoid Filesystem manipulation 
-effort: 50
+effort: 500
 readiness: 1000
 tags:
   - value: io

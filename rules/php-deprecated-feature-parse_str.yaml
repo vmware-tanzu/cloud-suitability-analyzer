@@ -6,7 +6,7 @@ defaultpattern: ([^_]%s)\s*\(.*[^,]\)
 category: deprecation
 advice: parse_str() without second argument is deprecated
 recipe: All existing uses should be gradually removed or upgraded to new equivalent features.  
-effort: 3
+effort: 1
 readiness: 1000
 tags:
   - value: deprecated
