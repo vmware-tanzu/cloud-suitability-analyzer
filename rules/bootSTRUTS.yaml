@@ -5,13 +5,13 @@ target: line
 type: regex
 defaultpattern: (%s)
 category: struts
-advice: Automatic remediation with Bootifier
+advice: Identified the use of the Struts framework (Struts 2) in the XML configuration. This may pose a few challenges due to its complex XML-based configuration, server-side session management, and tight coupling with Java EE application server. Consider refactoring the application with a more lightweight web framework, such as Spring Boot . Automatic remediation with Bootifier / Spring Boot Migrator may be available.  
 effort: 2
 readiness: 2
 tags:
   - value: struts
 patterns:
   - value: struts2-core
-    tag: struts-2
+    tag: struts-2ƒ
 profiles:
 - value: cloud-suitability

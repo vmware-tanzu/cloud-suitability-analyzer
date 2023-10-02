@@ -7,7 +7,7 @@ target: line
 type: regex
 defaultpattern: (%s)
 category: jaxws
-advice: Automatic remediation with Bootifier
+advice: Identified usage of JAX-WS (Java API for XML Web Services) components, traditionally associated with SOAP-based web services. consider migrating away from JAX-WS to more lightweight and RESTful web service alternatives, such as Spring Boot with JAX-RS (Java API for RESTful Web Services). Automatic remediation with Bootifier / Spring Boot Migrator may be available.
 effort: 2
 readiness: 2
 tags:

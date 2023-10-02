@@ -5,7 +5,7 @@ target: line
 type: regex
 defaultpattern: (%s)
 category: ejb
-advice: Automatic remediation with Bootifier
+advice: Identified usage of EJBs (Enterprise JavaBeans). EJBs traditionally introduce heavyweight components with substantial memory and CPU overhead. For instance, Stateless Session Beans (SLSBs) can be created and maintained for each client request, increasing memory consumption and potentially leading to inefficient resource utilization. EJB containers have historically been known for their slow startup times. In a cloud-native environment where rapid scaling and responsiveness are crucial, these extended startup times can be a bottleneck, especially during auto-scaling events. EJBs are tightly coupled to the Java EE application server, which can limit the application's ability to horizontally scale across multiple containers or nodes. EJBs are historically tied to specific application server flavors, which can create vendor lock-in issues. Consider rearchitecting or optimizing EJB usage and exploring an alternative like Spring Boot. Automatic remediation with Bootifier / Spring Boot Migrator may be available.
 effort: 2
 readiness: 2
 tags:

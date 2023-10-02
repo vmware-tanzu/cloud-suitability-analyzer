@@ -5,7 +5,7 @@ target: line
 type: regex
 defaultpattern: (%s)
 category: cdi
-advice: Automatic remediation with Bootifier
+advice: Identified CDI (Contexts and Dependency Injection) usage. Unoptimized CDI can lead to memory overhead, slower startup times, and hinder horizontal scaling. Automatic remediation with Bootifier / Spring Boot Migrator may be available.
 effort: 2
 readiness: 2
 tags:

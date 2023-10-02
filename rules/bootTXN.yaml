@@ -5,7 +5,7 @@ target: line
 type: regex
 defaultpattern: (%s)
 category: txn
-advice: Automatic remediation with Bootifier
+advice: Detected the presence of XML configurations related to transaction management. Consider leveraging cloud-native databases and services that provide built-in, scalable transaction management capabilities. Be aware that transaction management can introduce complexities, that may require careful design and testing to ensure data consistency and persistence. Automatic remediation with Bootifier / Spring Boot Migrator may be available. 
 effort: 2
 readiness: 2
 tags:

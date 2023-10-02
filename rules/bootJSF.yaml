@@ -6,7 +6,7 @@ target: line
 type: regex
 defaultpattern: (%s)
 category: jsf
-advice: Automatic remediation with Bootifier
+advice: Identified the usage of JavaServer Faces (JSF) components in the XML configuration, highlighting potential issues related to session management and statefulness. Consider migrating away from JSF and towards more lightweight and stateless web frameworks, and / or refactoring your application to deal with sessions externally. Automatic remediation with Bootifier / Spring Boot Migrator may be available.  
 effort: 2
 readiness: 2
 tags:

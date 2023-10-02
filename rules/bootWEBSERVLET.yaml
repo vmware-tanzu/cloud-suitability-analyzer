@@ -5,7 +5,7 @@ target: line
 type: regex
 defaultpattern: (%s)
 category: WebServlet
-advice: Automatic remediation with Bootifier
+advice: Detected the use of WebSocket configurations in the XML file - a technology for enabling real-time communication in web applications. WebSocket connections can be long-lived, which may pose challenges in scenarios requiring rapid scaling.  WebSocket-based applications may also require specific infrastructure support for load balancing and handling large numbers of concurrent connections. To address scalability and efficient WebSocket management in a cloud-native context, consider WebSocket gateways or brokers. These components act as intermediaries between clients and WebSocket servers, helping distribute incoming WebSocket connections and messages effectively. Automatic remediation with Bootifier / Spring Boot Migrator may be available. 
 effort: 0
 readiness: 2
 tags:

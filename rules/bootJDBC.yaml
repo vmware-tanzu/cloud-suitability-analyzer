@@ -3,7 +3,7 @@ filetype: java$
 target: line
 type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
-advice: Consult 3rd party documentation
+advice: Identified the usage of JDBC (Java Database Connectivity) imports in the code. Consider utilizing Spring Data JPA or Spring Data JDBC, which provide higher-level abstractions and more efficient connection pooling mechanisms for handling database operations in a cloud-native context.
 effort: 0
 readiness: 5
 category: persistence

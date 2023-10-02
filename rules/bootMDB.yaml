@@ -6,7 +6,7 @@ target: line
 type: regex
 defaultpattern: (%s)
 category: mdb
-advice: Automatic remediation with Bootifier
+advice: Detected the usage of Message-Driven Beans (MDBs) in the XML configuration. While MDBs are a powerful mechanism for asynchronous processing in Java EE applications, their suitability in a cloud-native context should be carefully considered. MDBs are traditionally associated with Java EE application servers, and their deployment and management can be complex. Consider alternatives for handling asynchronous processing, such as Spring Boot's asynchronous capabilities, external messaging services, or refactoring your application to follow a more event-driven architecture. Automatic remediation with Bootifier / Spring Boot Migrator may be available.  
 effort: 2
 readiness: 2
 tags:
