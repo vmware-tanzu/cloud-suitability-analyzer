@@ -5,10 +5,10 @@ type: regex
 defaultpattern: \b%s
 effort: 2
 readiness: 0
-advice: File i/o in environments that are emphemeral is a not a best practice
-category: file-io
+advice: Kernel operations my indicate actions that are not cloud/container friendly
+category: kernel
 tags:
-- value: file-io
+- value: kernel
 patterns:
 - value: Kernel\.open\(
 profiles:

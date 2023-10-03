@@ -106,22 +106,27 @@ patterns:
 
 - value: ruby-linux
   tag: linux
+  effort: 1
   advice: "This gem provides a set of classes and methods for interacting with the Linux operating system, including file system manipulation, process management, and network communication."
 
 - value: linux-sys
   tag: linux
+  effort: 1
   advice: "This gem provides a set of classes and methods for interacting with the Linux kernel, including system calls, device drivers, and kernel modules"
 
 - value: linux-users
   tag: linux
+  effort: 1
   advice: "This gem provides a set of classes and methods for managing Linux users and groups, including user authentication, password management, and group membership."
 
 - value: linux-network
   tag: linux
+  effort: 1
   advice: "This gem provides a set of classes and methods for managing Linux network interfaces, including IP addresses, routing tables, and network protocols."
 
 - value: linux-storage
-  tag: linux 
+  tag: linux
+  effort: 1 
   advice: "This gem provides a set of classes and methods for managing Linux storage devices, including disk partitions, file systems, and storage drivers."
 
 

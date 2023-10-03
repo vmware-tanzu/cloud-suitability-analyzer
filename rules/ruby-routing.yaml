@@ -3,7 +3,7 @@ filetype: rb$
 target: line
 type: regex
 defaultpattern: \b%s
-effort: 2
+effort: 1
 readiness: 0
 advice: Ruby on rails application
 category: ruby-on-rails

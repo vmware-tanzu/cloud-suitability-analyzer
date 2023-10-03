@@ -5,7 +5,7 @@ target: line
 type: regex
 defaultpattern: "%s"
 advice: Hardcoded IP addresses are problematic in cloud/container env
-effort: 1
+effort: 2
 readiness: 8
 category: hard-ip
 tags:
