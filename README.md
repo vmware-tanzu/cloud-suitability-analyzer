@@ -1,4 +1,4 @@
-# Cloud Suitability Analyzer
+# Cloud Suitability Analyzer (Open Source)
 
 
 # Latest Additions
