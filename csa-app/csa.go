@@ -251,6 +251,10 @@ func procsAndThreads() {
 		mt = *util.MaxThreads
 	}
 
+	if *util.Blank {
+		fmt.Println("Blank is set**********")
+	}
+
 	if *util.Verbose {
 		fmt.Println("		 GO RUNTIME		")
 		fmt.Println("-----------------------")

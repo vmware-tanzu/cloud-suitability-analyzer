@@ -206,9 +206,6 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run, app *model.Appli
 		data.Ext = finding.Ext
 		data.Advice = finding.Advice
 		data.Line = finding.Line
-		if *util.Blank {
-			finding.Value = "--"
-		}
 		data.Value = finding.Value
 	} else {
 		data.SetValue(target)
