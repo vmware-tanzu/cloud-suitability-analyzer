@@ -109,7 +109,7 @@ func (repo *RepoService) GetRunAPIDetails(runId uint) ([]model.ApiUsageDetail, e
 	if err == nil {
 		for _, finding := range apiFindings {
 
-			if *util.Mute {
+			if *util.Blank {
 				finding.Value = "--"
 			}
 
