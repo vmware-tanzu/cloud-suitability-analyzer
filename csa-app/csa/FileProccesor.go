@@ -200,10 +200,6 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run, app *model.Appli
 		Criticality: criticality,
 		Application: file.Dir}
 
-	if *util.Blank {
-		finding.Value = "--"
-	}
-
 	if finding != nil {
 		data.Filename = finding.Filename
 		data.Fqn = finding.Fqn
