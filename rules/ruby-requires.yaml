@@ -42,10 +42,13 @@ patterns:
   advice: Desktop applications cannot run in containers/clouds  
 - value: sinatra/activerecord
   tag: ORM
+  effort: 1
   advice: "While ActiveRecord is a powerful ORM, its tight coupling to SQL databases and reliance on a centralized connection pool can make it difficult to horizontally scale in cloud environments."
 - value: activerecord
   tag: ORM
+  effort: 1
   advice: "While ActiveRecord is a powerful ORM, its tight coupling to SQL databases and reliance on a centralized connection pool can make it difficult to horizontally scale in cloud environments."
+  effort: 1
 - value: rmagick
   tag: image-processing
   advice: "While RMagick is a powerful image processing library, its dependence on ImageMagick can make it difficult to install and configure in certain cloud environments."

@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-09-25 07:58:02.52143 -0500 CDT m=+0.172671753
+//Created @ 2023-10-03 09:25:46.329791 -0500 CDT m=+0.236659250
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -5741,7 +5741,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "allow_url_include", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "php-cache", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(%s)\\s*\\[.*\\]", Advice: "However, the default configuration is to store session data in a temporary file on the local disk. Again, this will not work if you’re using multiple nodes", Effort: 20, Readiness: 1000, Impact: "", Category: "session_management", Criticality: "",
+            { Name: "php-cache", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(%s)\\s*\\[.*\\]", Advice: "However, the default configuration is to store session data in a temporary file on the local disk. Again, this will not work if you’re using multiple nodes", Effort: 200, Readiness: 1000, Impact: "", Category: "session_management", Criticality: "",
             Tags:
             []Tag{  { Value: "cache",}, },
             Profiles:
@@ -5768,7 +5768,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "cgi.force_redirect", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "php-deprecated-feature-parse_str", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: "([^_]%s)\\s*\\(.*[^,]\\)", Advice: "parse_str() without second argument is deprecated", Effort: 3, Readiness: 1000, Impact: "", Category: "deprecation", Criticality: "",
+            { Name: "php-deprecated-feature-parse_str", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: "([^_]%s)\\s*\\(.*[^,]\\)", Advice: "parse_str() without second argument is deprecated", Effort: 1, Readiness: 1000, Impact: "", Category: "deprecation", Criticality: "",
             Tags:
             []Tag{  { Value: "deprecated",}, },
             Profiles:
@@ -5781,7 +5781,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "parse_str", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "php-deprecated-feature-should-not-be-used", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: "([^_]%s)\\s*\\(+.*\\)", Advice: "Deprecated language features are those that have been retained temporarily for backward compatibility, but which will eventually be removed from the language. In effect, deprecation announces a grace period to allow the smooth transition from the old features to the new ones. In that period, no use of the deprecated features should be added to the code. Refactor or upgrade to use Php 7+", Effort: 7, Readiness: 1000, Impact: "", Category: "deprecation", Criticality: "",
+            { Name: "php-deprecated-feature-should-not-be-used", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: "([^_]%s)\\s*\\(+.*\\)", Advice: "Deprecated language features are those that have been retained temporarily for backward compatibility, but which will eventually be removed from the language. In effect, deprecation announces a grace period to allow the smooth transition from the old features to the new ones. In that period, no use of the deprecated features should be added to the code. Refactor or upgrade to use Php 7+", Effort: 1, Readiness: 1000, Impact: "", Category: "deprecation", Criticality: "",
             Tags:
             []Tag{  { Value: "deprecated",}, },
             Profiles:
@@ -5840,7 +5840,20 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "file_uploads", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "php-enable-session-use-trans-sid", FileType: "ini$", Target: "line", Type: "regex", DefaultPattern: "\\s*(%s)=+1$", Advice: "PHP’s session.use_trans_sid automatically appends the user’s session id to urls when cookies are disabled.", Effort: 5, Readiness: 1000, Impact: "", Category: "Vulnerability", Criticality: "",
+            { Name: "php-drupal", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Drupal application", Effort: 100, Readiness: 0, Impact: "", Category: "drupal", Criticality: "",
+            Tags:
+            []Tag{  { Value: "drupal",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "drupal_route", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "php-enable-session-use-trans-sid", FileType: "ini$", Target: "line", Type: "regex", DefaultPattern: "\\s*(%s)=+1$", Advice: "PHP’s session.use_trans_sid automatically appends the user’s session id to urls when cookies are disabled.", Effort: 100, Readiness: 1000, Impact: "", Category: "Vulnerability", Criticality: "",
             Tags:
             []Tag{  { Value: "vulnerability",}, },
             Profiles:
@@ -5853,7 +5866,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "session.use_trans_sid", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "php-file-system-manipulation", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(%s)\\s*\\(.*\\)", Advice: "Filesystem manipulation is not encouraged in cloud-native applications. Keep your content off the filesystem", Effort: 50, Readiness: 1000, Impact: "", Category: "filesystem", Criticality: "",
+            { Name: "php-file-system-manipulation", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(%s)\\s*\\(.*\\)", Advice: "Filesystem manipulation is not encouraged in cloud-native applications. Keep your content off the filesystem", Effort: 500, Readiness: 1000, Impact: "", Category: "filesystem", Criticality: "",
             Tags:
             []Tag{  { Value: "io",}, },
             Profiles:
@@ -5885,7 +5898,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "tempnam", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "php-function-method-naming-convention", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: "^(%s)\\s+[a-z]+[a-zA-Z0-9]*\\(.*\\)", Advice: "Shared naming conventions allow teams to collaborate efficiently. All function names match a provided regular expression.", Effort: 2, Readiness: 1000, Impact: "", Category: "naming_convention", Criticality: "",
+            { Name: "php-function-method-naming-convention", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: "^(%s)\\s+[a-z]+[a-zA-Z0-9]*\\(.*\\)", Advice: "Shared naming conventions allow teams to collaborate efficiently. All function names match a provided regular expression.", Effort: 1, Readiness: 1000, Impact: "", Category: "naming_convention", Criticality: "",
             Tags:
             []Tag{  { Value: "code-smell",}, },
             Profiles:
@@ -5898,7 +5911,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "function", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "php-global-variable", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(\\$%s)\\s*\\[.*\\]", Advice: "The default configuration is to store session data in a temporary file on the local disk. Again, this will not work if you’re using multiple nodes", Effort: 20, Readiness: 1000, Impact: "", Category: "session_management", Criticality: "",
+            { Name: "php-global-variable", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(\\$%s)\\s*\\[.*\\]", Advice: "The default configuration is to store session data in a temporary file on the local disk. Again, this will not work if you’re using multiple nodes", Effort: 200, Readiness: 1000, Impact: "", Category: "session_management", Criticality: "",
             Tags:
             []Tag{  { Value: "cache",}, { Value: "session",}, },
             Profiles:
@@ -5912,7 +5925,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "_COOKIE", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "php-goto-stmt-should-not-be-used", FileType: "ini$", Target: "line", Type: "regex", DefaultPattern: "\\s*(%s\\s*.+)", Advice: "goto is an unstructured control flow statement. It makes code less readable and maintainable. Structured control flow statements such as if, for, while, continue or break should be used instead.", Effort: 3, Readiness: 1000, Impact: "", Category: "code_smell", Criticality: "",
+            { Name: "php-goto-stmt-should-not-be-used", FileType: "ini$", Target: "line", Type: "regex", DefaultPattern: "\\s*(%s\\s*.+)", Advice: "goto is an unstructured control flow statement. It makes code less readable and maintainable. Structured control flow statements such as if, for, while, continue or break should be used instead.", Effort: 1, Readiness: 1000, Impact: "", Category: "code_smell", Criticality: "",
             Tags:
             []Tag{  { Value: "unstructured",}, },
             Profiles:
@@ -5964,7 +5977,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "stream_socket_pair", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "php-references-should-not-be-passed-to-func-call", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*\\s*\\(%s+.*\\)", Advice: "Passing a reference to a function parameter means that any modifications the method makes to the parameter will be made to the original value as well, since references have the effect of pointing two variables at the same memory space. This feature can be difficult to use correctly, particularly if the callee is not expecting a reference, and the improper use of references in function calls can make code less efficient rather than more efficient.", Effort: 3, Readiness: 1000, Impact: "", Category: "code_smell", Criticality: "",
+            { Name: "php-references-should-not-be-passed-to-func-call", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*\\s*\\(%s+.*\\)", Advice: "Passing a reference to a function parameter means that any modifications the method makes to the parameter will be made to the original value as well, since references have the effect of pointing two variables at the same memory space. This feature can be difficult to use correctly, particularly if the callee is not expecting a reference, and the improper use of references in function calls can make code less efficient rather than more efficient.", Effort: 1, Readiness: 1000, Impact: "", Category: "code_smell", Criticality: "",
             Tags:
             []Tag{  { Value: "code_smell",}, },
             Profiles:
@@ -5977,7 +5990,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "&", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "php-socket-security-sensitive", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(%s)\\s*\\(.*\\)", Advice: "Using sockets is security-sensitive. It has led in the past to the following vulnerabilities:CVE-2011-178,CVE-2017-5645,CVE-2018-6597", Effort: 50, Readiness: 1000, Impact: "", Category: "anti-pattern", Criticality: "",
+            { Name: "php-socket-security-sensitive", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(%s)\\s*\\(.*\\)", Advice: "Using sockets is security-sensitive. It has led in the past to the following vulnerabilities:CVE-2011-178,CVE-2017-5645,CVE-2018-6597", Effort: 200, Readiness: 1000, Impact: "", Category: "anti-pattern", Criticality: "",
             Tags:
             []Tag{  { Value: "anti-pattern",}, },
             Profiles:
@@ -5997,7 +6010,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "stream_socket_pair", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "php-php-url-not-hardcoded", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(%s://).*", Advice: "Url Hardcoding in code is anti-pattern", Effort: 2, Readiness: 1000, Impact: "", Category: "anti-pattern", Criticality: "",
+            { Name: "php-php-url-not-hardcoded", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(%s://).*", Advice: "Url Hardcoding in code is anti-pattern", Effort: 200, Readiness: 1000, Impact: "", Category: "anti-pattern", Criticality: "",
             Tags:
             []Tag{  { Value: "code_smell",}, },
             Profiles:
@@ -6142,19 +6155,6 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "SqliteDatabase", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "ruby-drupal", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Ruby on rails application", Effort: 100, Readiness: 0, Impact: "", Category: "drupal", Criticality: "",
-            Tags:
-            []Tag{  { Value: "drupal",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "drupal_route", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
             { Name: "ruby-file-io", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "File i/o in environments that are emphemeral is a bad practice", Effort: 2, Readiness: 0, Impact: "", Category: "file-io", Criticality: "",
             Tags:
             []Tag{  { Value: "file-io",}, },
@@ -6181,7 +6181,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "Gemfile", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "ruby-hardIP", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "%s", Advice: "Hardcoded IP addresses are problematic in cloud/container env", Effort: 1, Readiness: 8, Impact: "", Category: "hard-ip", Criticality: "",
+            { Name: "ruby-hardIP", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "%s", Advice: "Hardcoded IP addresses are problematic in cloud/container env", Effort: 2, Readiness: 8, Impact: "", Category: "hard-ip", Criticality: "",
             Tags:
             []Tag{  { Value: "hard-ip",}, },
             Profiles:
@@ -6194,9 +6194,9 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "ruby-kernel", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "File i/o in environments that are emphemeral is a not a best practice", Effort: 2, Readiness: 0, Impact: "", Category: "file-io", Criticality: "",
+            { Name: "ruby-kernel", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Kernel operations my indicate actions that are not cloud/container friendly", Effort: 2, Readiness: 0, Impact: "", Category: "kernel", Criticality: "",
             Tags:
-            []Tag{  { Value: "file-io",}, },
+            []Tag{  { Value: "kernel",}, },
             Profiles:
             []Profile{  { Value: "cloud-suitability",}, },
             Excludepatterns:
@@ -6207,7 +6207,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "Kernel\\.open\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "ruby-ldap", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Use of ldap in a cloud/container env is not a best practice", Effort: 2, Readiness: 0, Impact: "", Category: "windows-reg", Criticality: "",
+            { Name: "ruby-ldap", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Use of ldap in a cloud/container env is not a best practice", Effort: 1, Readiness: 0, Impact: "", Category: "windows-reg", Criticality: "",
             Tags:
             []Tag{  { Value: "windows-reg",}, },
             Profiles:
@@ -6220,7 +6220,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "LDAP", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "ruby-log2file", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Servlet Java API Import", Effort: 2, Readiness: 0, Impact: "", Category: "servlet", Criticality: "",
+            { Name: "ruby-log2file", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Logging to a file", Effort: 2, Readiness: 0, Impact: "", Category: "servlet", Criticality: "",
             Tags:
             []Tag{  { Value: "log2file",}, },
             Profiles:
@@ -6274,14 +6274,14 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "osx_gui", Advice: "This gem provides an interface to the OSX GUI (Graphical User Interface), which allows Ruby programs to create and manipulate OSX GUI elements such as windows, buttons, and menus.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "osx", Recipe: "", },
              { Type: "", Pattern: "", Value: "osx_process", Advice: "This gem provides an interface to the OSX process management system, which allows Ruby programs to create, manage, and communicate with OSX processes.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "osx", Recipe: "", },
              { Type: "", Pattern: "", Value: "osx_service", Advice: "This gem provides an interface to the OSX service management system, which allows Ruby programs to create, manage, and communicate with OSX services.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "osx", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ruby-linux", Advice: "This gem provides a set of classes and methods for interacting with the Linux operating system, including file system manipulation, process management, and network communication.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "linux", Recipe: "", },
-             { Type: "", Pattern: "", Value: "linux-sys", Advice: "This gem provides a set of classes and methods for interacting with the Linux kernel, including system calls, device drivers, and kernel modules", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "linux", Recipe: "", },
-             { Type: "", Pattern: "", Value: "linux-users", Advice: "This gem provides a set of classes and methods for managing Linux users and groups, including user authentication, password management, and group membership.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "linux", Recipe: "", },
-             { Type: "", Pattern: "", Value: "linux-network", Advice: "This gem provides a set of classes and methods for managing Linux network interfaces, including IP addresses, routing tables, and network protocols.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "linux", Recipe: "", },
-             { Type: "", Pattern: "", Value: "linux-storage", Advice: "This gem provides a set of classes and methods for managing Linux storage devices, including disk partitions, file systems, and storage drivers.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "linux", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ruby-linux", Advice: "This gem provides a set of classes and methods for interacting with the Linux operating system, including file system manipulation, process management, and network communication.", Effort: 1, Readiness: 0, Criticality: "", Category: "", Tag: "linux", Recipe: "", },
+             { Type: "", Pattern: "", Value: "linux-sys", Advice: "This gem provides a set of classes and methods for interacting with the Linux kernel, including system calls, device drivers, and kernel modules", Effort: 1, Readiness: 0, Criticality: "", Category: "", Tag: "linux", Recipe: "", },
+             { Type: "", Pattern: "", Value: "linux-users", Advice: "This gem provides a set of classes and methods for managing Linux users and groups, including user authentication, password management, and group membership.", Effort: 1, Readiness: 0, Criticality: "", Category: "", Tag: "linux", Recipe: "", },
+             { Type: "", Pattern: "", Value: "linux-network", Advice: "This gem provides a set of classes and methods for managing Linux network interfaces, including IP addresses, routing tables, and network protocols.", Effort: 1, Readiness: 0, Criticality: "", Category: "", Tag: "linux", Recipe: "", },
+             { Type: "", Pattern: "", Value: "linux-storage", Advice: "This gem provides a set of classes and methods for managing Linux storage devices, including disk partitions, file systems, and storage drivers.", Effort: 1, Readiness: 0, Criticality: "", Category: "", Tag: "linux", Recipe: "", },
              }, },
         
-            { Name: "ruby-routing", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Ruby on rails application", Effort: 2, Readiness: 0, Impact: "", Category: "ruby-on-rails", Criticality: "",
+            { Name: "ruby-routing", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Ruby on rails application", Effort: 1, Readiness: 0, Impact: "", Category: "ruby-on-rails", Criticality: "",
             Tags:
             []Tag{  { Value: "ruby-on-rails",}, },
             Profiles:
