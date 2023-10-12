@@ -272,6 +272,9 @@ func (repo *RepoService) GetAnnotations(runId uint) ([]model.LevelDetail, error)
 	findings, err := repo.repositoryMgr.Findings.GetFindingsByRule(runId, "java-annotations")
 
 	for _, finding := range findings {
+		if *util.Blank {
+			finding.Value = "--"
+		}
 		annotations = append(annotations, model.NewLevelDetail(finding.Application, finding.Category, finding.Filename, finding.Line, finding.Value,
 			finding.Pattern, finding.Effort, csa.GetLevelForScore(finding.Effort), finding.Advice))
 	}
@@ -286,6 +289,9 @@ func (repo *RepoService) GetThirdParty(runId uint) ([]model.LevelDetail, error) 
 	findings, err := repo.repositoryMgr.Findings.GetFindingsByRule(runId, "java-3rdPartyImports")
 
 	for _, finding := range findings {
+		if *util.Blank {
+			finding.Value = "--"
+		}
 		thirdParty = append(thirdParty, model.NewLevelDetail(finding.Application, finding.Category, finding.Filename, finding.Line, finding.Value,
 			finding.Pattern, finding.Effort, csa.GetLevelForScore(finding.Effort), finding.Advice))
 	}
