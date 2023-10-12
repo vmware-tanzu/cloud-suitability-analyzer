@@ -6,6 +6,7 @@
 package services
 
 import (
+	"csa-app/util"
 	"fmt"
 	"sort"
 	"strings"
@@ -99,6 +100,7 @@ func (repo *RepoService) GetRunAPISummary(runId uint) ([]model.ApiUsage, error) 
 
 	return apiSummary, err
 }
+
 func (repo *RepoService) GetRunAPIDetails(runId uint) ([]model.ApiUsageDetail, error) {
 	apiDetails := []model.ApiUsageDetail{}
 
@@ -106,6 +108,11 @@ func (repo *RepoService) GetRunAPIDetails(runId uint) ([]model.ApiUsageDetail, e
 
 	if err == nil {
 		for _, finding := range apiFindings {
+
+			if *util.Mute {
+				finding.Value = "--"
+			}
+
 			apiDetails = append(apiDetails, model.ApiUsageDetail{
 				Application: finding.Application,
 				Api:         finding.Category,
