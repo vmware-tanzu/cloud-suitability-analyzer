@@ -67,7 +67,7 @@ func (f *Finding) SetValue(value string) {
 	if len(value) > (FINDING_VAL_LEN) {
 		f.Value = value[0:(FINDING_VAL_LEN-5)] + "..."
 	} else {
-		if *util.Blank {
+		if *util.Efd {
 			f.Value = "---"
 		} else {
 			f.Value = value

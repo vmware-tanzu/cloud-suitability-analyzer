@@ -15,7 +15,7 @@ import (
 var (
 	App       = kingpin.New(APP_NAME, "CSA is used to analyze & collect data related to the cloud readiness of an application based on it's source-code.")
 	Verbose   = App.Flag("verbose", "enable verbose mode.").Short('v').Bool()
-	Blank     = App.Flag("blank", "hide sensitive values in output").Short('b').Bool()
+	Efd       = App.Flag("efd", "exclude finding details").Bool()
 	Profile   = App.Flag("profile", "enables profiling (cpu|mem)").Enum("cpu", "mem")
 	Xtract    = App.Flag("xtract", "extract minimum output for pipeline usage.").Short('x').Bool()
 	Zap       = App.Flag("zap", "zap (purge) the database before running").Short('z').Bool()

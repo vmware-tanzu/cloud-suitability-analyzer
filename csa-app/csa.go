@@ -251,8 +251,8 @@ func procsAndThreads() {
 		mt = *util.MaxThreads
 	}
 
-	if *util.Blank {
-		fmt.Println("Blank is set**********")
+	if *util.Efd {
+		fmt.Println("Finding details will be removed")
 	}
 
 	if *util.Verbose {
