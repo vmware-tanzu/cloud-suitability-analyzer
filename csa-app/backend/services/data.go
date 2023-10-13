@@ -99,6 +99,7 @@ func (repo *RepoService) GetRunAPISummary(runId uint) ([]model.ApiUsage, error) 
 
 	return apiSummary, err
 }
+
 func (repo *RepoService) GetRunAPIDetails(runId uint) ([]model.ApiUsageDetail, error) {
 	apiDetails := []model.ApiUsageDetail{}
 
@@ -106,6 +107,7 @@ func (repo *RepoService) GetRunAPIDetails(runId uint) ([]model.ApiUsageDetail, e
 
 	if err == nil {
 		for _, finding := range apiFindings {
+
 			apiDetails = append(apiDetails, model.ApiUsageDetail{
 				Application: finding.Application,
 				Api:         finding.Category,
@@ -265,6 +267,7 @@ func (repo *RepoService) GetAnnotations(runId uint) ([]model.LevelDetail, error)
 	findings, err := repo.repositoryMgr.Findings.GetFindingsByRule(runId, "java-annotations")
 
 	for _, finding := range findings {
+
 		annotations = append(annotations, model.NewLevelDetail(finding.Application, finding.Category, finding.Filename, finding.Line, finding.Value,
 			finding.Pattern, finding.Effort, csa.GetLevelForScore(finding.Effort), finding.Advice))
 	}

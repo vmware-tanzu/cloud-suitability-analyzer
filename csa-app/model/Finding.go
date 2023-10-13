@@ -6,6 +6,7 @@
 package model
 
 import (
+	"csa-app/util"
 	"strings"
 	"time"
 )
@@ -37,7 +38,7 @@ type Finding struct {
 	Application string          `gorm:"index;not null" json:",omitempty" yaml:",omitempty"`
 	Tags        []FindingTag    `gorm:"foreignkey:FindingID" json:",omitempty" yaml:",omitempty"`
 	Recipes     []FindingRecipe `gorm:"foreignkey:FindingID" json:",omitempty" yaml:",omitempty"`
-	Result      string           `gorm:"type:text;"`
+	Result      string          `gorm:"type:text;"`
 }
 
 type FindingDTO struct {
@@ -66,7 +67,11 @@ func (f *Finding) SetValue(value string) {
 	if len(value) > (FINDING_VAL_LEN) {
 		f.Value = value[0:(FINDING_VAL_LEN-5)] + "..."
 	} else {
-		f.Value = value
+		if *util.Efd {
+			f.Value = "---"
+		} else {
+			f.Value = value
+		}
 	}
 }
 
@@ -103,7 +108,7 @@ func (f *Finding) CreateDTO() *FindingDTO {
 	dto.Advice = f.Advice
 	dto.Effort = f.Effort
 	dto.Readiness = f.Readiness
-	dto.Value = f.Value
+	dto.Value = "109"
 	dto.Pattern = f.Pattern
 	dto.Criticality = f.Criticality
 
