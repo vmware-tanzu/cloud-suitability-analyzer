@@ -23,5 +23,5 @@ cp $PWD/csa-app/tests/README-public.md $OUTPUT_DIR/README.md
 
 pushd $OUTPUT_DIR
     zip -r test.zip *
-    rm -rf rule* test-*
+    rm -rf rule* test-* README.md
 popd

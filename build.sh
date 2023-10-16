@@ -84,6 +84,7 @@ runGoGenerate() {
     fi
 
     echo "~~~> Updating dependencies"
+    go get -u
     go mod tidy
     if [ $? -eq 0 ]
     then
