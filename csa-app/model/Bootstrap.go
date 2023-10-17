@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-10-17 09:55:49.754313 -0500 CDT m=+0.152092519
+//Created @ 2023-10-17 13:10:43.526289 -0500 CDT m=+0.121322850
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -739,6 +739,19 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "dll$", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
+            { Name: "windows-file-path", FileType: "java$|properties$|xml$|yaml$|yml$|json$|jsn$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "This file system path is Microsoft Windows platform dependent. It needs to be replaced with a Linux-style path", Effort: 4, Readiness: 0, Impact: "", Category: "os", Criticality: "Critical",
+            Tags:
+            []Tag{  { Value: "os",}, },
+            Profiles:
+            []Profile{  },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "(\"|''|`|\\s|^)(?:[a-zA-Z]\\:|\\\\\\\\[\\w\\s\\.]+\\\\[\\w\\s\\.$]+)([\\\\\\/][^\\n\\t]+)+", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
             { Name: "yaml-nonstandard-port", FileType: "(yaml$|yml$)", Target: "contents", Type: "yamlpath", DefaultPattern: "", Advice: "The application is setting the server port. Please be aware of potential port reliance issues during the migration process", Effort: 0, Readiness: 0, Impact: "", Category: "port", Criticality: "Info",
             Tags:
             []Tag{  { Value: "port",}, },
@@ -1214,6 +1227,19 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "System.FilePath.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
+            { Name: "dotnet-ipv4-addresses", FileType: "(yaml$|yml$|cs$|json$)", Target: "line", Type: "regex", DefaultPattern: "", Advice: "Found hard-coded IPv4s. Make configurable, put into environment variables. Leverage config maps in a kubernetes like environment.", Effort: 3, Readiness: 8, Impact: "", Category: "hard-ip", Criticality: "",
+            Tags:
+            []Tag{  { Value: "hard-ip",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  { Value: ".GeneratedCodeAttribute\\(.*[,]",}, { Value: "AssemblyFileVersion\\(",}, { Value: "AssemblyVersion\\(",}, { Value: "Version=",}, { Value: "\"assemblyVersion\".*[:].\".*\"",}, { Value: "\"fileVersion\".*[:].\".*\"",}, { Value: "PackageReference.*Version=\"",}, { Value: "GeneratedCode\\(",}, { Value: "([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "[^_](([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
             { Name: "dotnet-launchProcess", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: "%s", Advice: "Launching additional processes within a container like environment is not recommended. In a targeted docker like environment it is generally recommended that you separate areas of concern by using one service per container.", Effort: 300, Readiness: 7, Impact: "", Category: "process-launch", Criticality: "",
             Tags:
             []Tag{  { Value: "process-launch",}, },
@@ -1227,6 +1253,20 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "[\\s=]Process[.]Start[(\\s.]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: ".WaitForExit\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: ".new\\sProcess\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-logging", FileType: "cs$|vb$", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Logging to the Event Log is not recommended for cloud native apps. Write to or manage logfiles. Instead, each running process should write its event stream, unbuffered, to stdout. https://docs.lacunasoftware.com/en-us/articles/amplia/on-premises/windows/enable-stdout-log.html", Effort: 100, Readiness: 3, Impact: "", Category: "logging", Criticality: "",
+            Tags:
+            []Tag{  { Value: "logging",}, { Value: "eventlog",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "EventLogTraceListener", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "EventLog", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "dotnet-logging-config", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Logging to the Event Log is not recommended for cloud native apps. write to or manage logfiles. Instead, each running process should write its event stream, unbuffered, to stdout. https://docs.lacunasoftware.com/en-us/articles/amplia/on-premises/windows/enable-stdout-log.html", Effort: 100, Readiness: 5, Impact: "", Category: "logging", Criticality: "",
@@ -1493,6 +1533,23 @@ func BootstrapRules() []Rule {
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "/libraries[@count>13]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "hardcode-uri", FileType: "(java$|^vb$|py$|go$|aspx$|^c$|h$|cs$|csx$|cpp$|cob$|cfm$|cfml$|dockerfile$|jsp$|php$|^r$|^ts$|yaml$|yml$|json$)", Target: "line", Type: "regex", DefaultPattern: "(?:(?:^|[^\"])|(?:^|[^ =])\"|(?:^|[^:]) \"|(?:^|[^s])=\"|(?:^|[^\"]): \"|(?:^|[^n])s=\"|(?:^|[^d])\": \"|(?:^|[^l])ns=\"|(?:^|[^e])d\": \"|(?:^|[^m])lns=\"|(?:^|[^v])ed\": \"|(?:^|[^x])mlns=\"|(?:^|[^l])ved\": \"|(?:^|[^o])lved\": \"|(?:^|[^s])olved\": \"|(?:^|[^e])solved\": \"|(?:^|[^r])esolved\": \")(%s)\\:{1}\\/{2}[a-zA-Z0-9]", Advice: "Found hard-coded URI. Make configurable, put into environment or config map", Effort: 3, Readiness: 8, Impact: "", Category: "env-config", Criticality: "",
+            Tags:
+            []Tag{  { Value: "hardcoded-uri",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  { Value: "xmlns=\"(http)\\:{1}\\/{2}[a-zA-Z0-9]",}, { Value: "(https)\\:{1}\\/{2}registry.npmjs.org/@angular/",}, { Value: "<meta.*content=.*",}, { Value: "<!doctype.*",}, { Value: "<!DOCTYPE.*",}, { Value: "http://activemq.apache.org",}, { Value: "http://www.apache.org",}, { Value: "<!-- .*-->",}, },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "http", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "https", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "file", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "sftp", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ftp", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "java-3rdPartyImports", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Consult 3rd party documentation", Effort: 0, Readiness: 0, Impact: "", Category: "third-party", Criticality: "",
