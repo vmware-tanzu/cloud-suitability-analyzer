@@ -19,7 +19,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-//The Engine that does file parsing and rule matching
+// The Engine that does file parsing and rule matching
 type CsaService struct {
 	ruleRepository       db.RuleRepository
 	runRepository        db.RunRepository
@@ -137,7 +137,7 @@ func (csaService *CsaService) concurrentAnalysis(run *model.Run) {
 	}
 
 	if !*util.Xtract {
-		run.StopActivityLF("analysis", fmt.Sprintf("A8nalyzing...%s", msg), false, true)
+		run.StopActivityLF("analysis", fmt.Sprintf("Analyzing...%s", msg), false, true)
 	} else {
 		run.StopActivityLF("analysis", "", false, false)
 	}
@@ -166,7 +166,7 @@ func (csaService *CsaService) SerialAnalysis(run *model.Run) {
 		msg = "errors!"
 	}
 	if !*util.Xtract {
-		run.StopActivityLF("analysis", fmt.Sprintf("A9nalyzing...%s", msg), false, true)
+		run.StopActivityLF("analysis", fmt.Sprintf("Analyzing...%s", msg), false, true)
 	} else {
 		run.StopActivityLF("analysis", "", false, false)
 	}

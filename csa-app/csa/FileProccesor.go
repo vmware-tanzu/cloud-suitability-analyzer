@@ -201,12 +201,18 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run, app *model.Appli
 		Application: file.Dir}
 
 	if finding != nil {
+		Value := ""
+		if *util.Efd {
+			Value = "---"
+		} else {
+			Value = finding.Value
+		}
 		data.Filename = finding.Filename
 		data.Fqn = finding.Fqn
 		data.Ext = finding.Ext
 		data.Advice = finding.Advice
 		data.Line = finding.Line
-		data.Value = finding.Value
+		data.Value = Value
 	} else {
 		data.SetValue(target)
 	}
