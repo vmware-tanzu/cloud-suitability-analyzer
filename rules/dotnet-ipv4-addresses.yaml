@@ -1,5 +1,5 @@
 name: dotnet-ipv4-addresses
-filetype: (yaml|yml|cs$|json)
+filetype: (yaml$|yml$|cs$|json$)
 target: line
 type: regex
 advice: Found hard-coded IPv4s. Make configurable, put into environment variables. Leverage config maps in a kubernetes like environment.

@@ -6,8 +6,9 @@
 package db
 
 import (
-	"github.com/jinzhu/gorm"
 	"csa-app/model"
+	"csa-app/util"
+	"github.com/jinzhu/gorm"
 )
 
 func GetReportData(runId uint, reportId int) []model.ReportData {
@@ -78,7 +79,13 @@ func UniqueFinding(findings []model.Finding) []string {
 	for _, entry := range findings {
 		if _, value := keys[entry.Value]; !value {
 			keys[entry.Value] = true
-			list = append(list, entry.Value)
+			Value := ""
+			if *util.Efd {
+				Value = "---"
+			} else {
+				Value = entry.Value
+			}
+			list = append(list, Value)
 		}
 	}
 	return list

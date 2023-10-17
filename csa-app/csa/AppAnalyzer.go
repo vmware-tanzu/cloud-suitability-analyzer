@@ -53,9 +53,9 @@ func (csaService *CsaService) analyzeApp(run *model.Run, app *model.Application,
 			} else {
 				run.FileAnalyzed()
 				modResult := run.AnalyzedCnt % modCnt
-					if modResult == 0 {
-						util.WriteLogWithToken("Analyzing!", fmt.Sprintf("%2.f%%", float64(run.AnalyzedCnt)/float64(run.Files)*100), "Filename: %s...done\n!", app.Files[idx].FQN)
-					}
+				if modResult == 0 {
+					util.WriteLogWithToken("Analyzing!", fmt.Sprintf("%2.f%%", float64(run.AnalyzedCnt)/float64(run.Files)*100), "Filename: %s...done\n!", app.Files[idx].FQN)
+				}
 			}
 		}(i)
 	}
@@ -65,7 +65,7 @@ func (csaService *CsaService) analyzeApp(run *model.Run, app *model.Application,
 	//Ensure we always get a percent complete message even if we have very few files in an app!
 	util.WriteLogWithToken("Analyzing", fmt.Sprintf("%2.f%%", float64(run.AnalyzedCnt)/float64(run.Files)*100), "App: %s...done\n!", app.Name)
 
-	if (!*util.Xtract) {
+	if !*util.Xtract {
 		run.StopActivity(fmt.Sprintf("%s-analysis", app.Name), fmt.Sprintf("Analyzing - %s...done!", app.Name), true)
 	} else {
 		run.StopActivity(fmt.Sprintf("%s-analysis", app.Name), "", false)
@@ -89,7 +89,7 @@ func (csaService *CsaService) analyzeFile(run *model.Run, app *model.Application
 			rulesUsed = append(rulesUsed, app.Rules[i].Name)
 			//Rule applies to this file!
 			if *util.Verbose {
-				util.WriteLog("A5nalyzing", "Rule [%s] applies to file [%s|%s|%s]\n", app.Rules[i].Name, file.Name, file.Ext, file.FQN)
+				util.WriteLog("Analyzing", "Rule [%s] applies to file [%s|%s|%s]\n", app.Rules[i].Name, file.Name, file.Ext, file.FQN)
 			}
 			if app.Rules[i].Target == model.LINE_TARGET {
 				rulesForFile = append(rulesForFile, app.Rules[i])
@@ -106,7 +106,7 @@ func (csaService *CsaService) analyzeFile(run *model.Run, app *model.Application
 
 		} else {
 			if *util.Verbose {
-				util.WriteLog("A6nalyzing", "Rule [%s] does not apply to file [%s|%s|%s]\n", app.Rules[i].Name, file.Name, file.Ext, file.FQN)
+				util.WriteLog("Analyzing", "Rule [%s] does not apply to file [%s|%s|%s]\n", app.Rules[i].Name, file.Name, file.Ext, file.FQN)
 			}
 		}
 	}
@@ -162,7 +162,7 @@ func (csaService *CsaService) analyzeFile(run *model.Run, app *model.Application
 	}
 
 	if *util.Verbose {
-		util.WriteLog("A7nalyzing", "************ FILE [%s] FINDINGS [%d] ***************\n", file.Name, findings)
+		util.WriteLog("Analyzing", "************ FILE [%s] FINDINGS [%d] ***************\n", file.Name, findings)
 	}
 
 	return nil
