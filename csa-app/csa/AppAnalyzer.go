@@ -37,14 +37,14 @@ func (csaService *CsaService) analyzeApp(run *model.Run, app *model.Application,
 		go func(idx int) {
 			defer waitGroup.Done()
 			if *util.Verbose {
-				util.WriteLog(fmt.Sprintf("A1nalyzing - %s", app.Name), "Scanning Files...   Filename: %s\n", app.Files[idx].FQN)
+				util.WriteLog(fmt.Sprintf("Analyzing - %s", app.Name), "Scanning Files...   Filename: %s\n", app.Files[idx].FQN)
 			}
 
 			err := csaService.analyzeFile(run, app, app.Files[idx], csaService.saveChan)
 
 			if err != nil {
 				if *util.FailFast {
-					util.WriteLog("A2nalyzing...error!", "Error occurred during analysis! Details: %s", err.Error())
+					util.WriteLog("Analyzing...error!", "Error occurred during analysis! Details: %s", err.Error())
 					csaService.stopRun(run)
 					os.Exit(2)
 				} else {
