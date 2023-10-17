@@ -54,7 +54,7 @@ func NewFindingRepositoryForRun(run *model.Run) FindingRepository {
 func (findingRepository *OrmRepository) SaveFinding(finding *model.Finding) error {
 
 	if *util.Efd {
-		finding.SetValue("")
+		finding.SetValue("---")
 	}
 
 	result := findingRepository.dbconn.Create(finding)
