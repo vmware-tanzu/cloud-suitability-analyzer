@@ -69,6 +69,7 @@ func (f *Finding) SetValue(value string) {
 	} else {
 		if *util.Efd {
 			f.Value = "---"
+			f.Result = "---"
 		} else {
 			f.Value = value
 		}

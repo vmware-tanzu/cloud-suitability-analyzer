@@ -151,10 +151,6 @@ func (csaService *CsaService) analyzeFile(run *model.Run, app *model.Application
 			Criticality: "none",
 			Application: file.Dir}
 
-		if *util.Efd {
-			msg = "---"
-		}
-
 		fileFinding.SetValue(msg)
 		fileFinding.AddTag(model.INFO_FINDING)
 		fileFinding.AddTag(model.FILE_FINDING)
