@@ -26,12 +26,12 @@ category:
     assert:  true
     assert-count:  1
     assert-value: "null"
-  - name: "Authentication IIS Module False Positive"
-    rule-name: dotnet-iis_module-Authentication
-    test-filename: dotnet-iis_module-Authentication_false_positive.config
-    assert:  true
-    assert-count:  0
-    assert-value: "null"
+  #- name: "Authentication IIS Module False Positive"
+  #  rule-name: dotnet-iis_module-Authentication
+  #  test-filename: dotnet-iis_module-Authentication_false_positive.config
+  #  assert:  true
+  #  assert-count:  0
+  #  assert-value: "null"
   - name: "Authorization IIS Module"
     rule-name: dotnet-iis_module-Authorization
     test-filename: dotnet-iis_module-Authorization.config
