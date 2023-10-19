@@ -128,7 +128,7 @@ func (csaService *CsaService) PerformAnalysis(run *model.Run) {
 					}
 				}
 
-				//---- End language specific metrics ----
+				//---- End language specific metrics to correct perfect scores----
 
 				csaService.generateReports(run)
 			}
