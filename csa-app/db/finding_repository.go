@@ -196,7 +196,7 @@ func (findingRepository *OrmRepository) GetFindingsDTOForRunAppLevel(runId uint,
 		}
 	}
 
-	whereClause := "findings.run_id = ? and findings.category != 'File Finding' and findings.category != 'SLOC' and findings.application = ?" // and effort >= ? and effort <= ?"
+	whereClause := "findings.run_id = ? and findings.application = ? and effort >= ? and effort <= ?"
 
 	if !includeFF {
 		whereClause += " and findings.category !='" + model.FILE_ANALYZED_CATEGORY + "'"
