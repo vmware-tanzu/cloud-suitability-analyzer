@@ -105,7 +105,14 @@ func (repo *RepoService) GetRunAPIDetails(runId uint) ([]model.ApiUsageDetail, e
 	apiFindings, err := repo.repositoryMgr.Findings.GetFindingsByTag(runId, model.API_TAG)
 
 	if err == nil {
+		AdjLevel := ""
 		for _, finding := range apiFindings {
+			if finding.Effort < 0 {
+				AdjLevel = "Boost"
+			} else {
+				AdjLevel = csa.GetLevelForScore(finding.Effort)
+			}
+
 			apiDetails = append(apiDetails, model.ApiUsageDetail{
 				Application: finding.Application,
 				Api:         finding.Category,
@@ -115,7 +122,7 @@ func (repo *RepoService) GetRunAPIDetails(runId uint) ([]model.ApiUsageDetail, e
 				Value:       finding.Value,
 				Effort:      finding.Effort,
 				Advice:      finding.Advice,
-				Level:       csa.GetLevelForScore(finding.Effort)})
+				Level:       AdjLevel})
 		}
 	}
 
