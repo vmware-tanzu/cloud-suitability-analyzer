@@ -13,3 +13,5 @@ patterns:
   - value: //*[groupId="org.springframework.cloud" and matches(version,"(?i)^ilford")]/version
   - value: //*[matches(name(), "spring-?cloud.version") and matches(text(),"(?i)^2020")]
   - value: //*[matches(name(), "spring-?cloud.version") and matches(text(),"(?i)^ilford")]
+profiles:
+  - value: Azure Spring Apps

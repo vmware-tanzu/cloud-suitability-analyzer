@@ -16,3 +16,5 @@ patterns:
  - value: $[*]["appenders","Appenders"]["Routing"]["Routes"]["Route"][?( @.File || @.file)]
  - value: $[*]["appenders","Appenders"][?(@.RollingFile || @.rollingFile || @.appender[?(@.type=~/(?i)RollingFile/)])]
  - value: $[*]["appenders","Appenders"]["Routing"]["Routes"]["Route"][?( @.RollingFile || @.rollingFile)]
+profiles:
+  - value: Azure Spring Apps

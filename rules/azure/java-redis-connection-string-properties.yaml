@@ -15,3 +15,5 @@ patterns:
  - value: (^|\.|\s)jedis\.(username|password)
  - value: (^|\.|\s)lettuce\.(url|host)
  - value: (^|\.|\s)lettuce\.(username|password)
+profiles:
+  - value: Azure Spring Apps

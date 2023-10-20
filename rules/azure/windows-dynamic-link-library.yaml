@@ -10,3 +10,5 @@ tags:
   - value: os
 patterns:
   - value: dll$
+profiles:
+  - value: Azure Spring Apps

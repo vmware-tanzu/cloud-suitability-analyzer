@@ -17,3 +17,5 @@ patterns:
  - value: $..jedis["username","password"]
  - value: $..lettuce["url","host"]
  - value: $..lettuce["username","password"]
+profiles:
+  - value: Azure Spring Apps

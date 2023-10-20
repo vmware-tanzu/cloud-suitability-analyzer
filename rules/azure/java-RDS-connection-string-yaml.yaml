@@ -19,3 +19,5 @@ patterns:
  - value: $..jdbc["url"]
  - value: $..jdbc["username","password"]
  - value: $..[?(@=~/(?i)jdbc:.+:.+/)]
+profiles:
+  - value: Azure Spring Apps

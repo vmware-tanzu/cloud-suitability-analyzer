@@ -11,6 +11,8 @@ tags:
 defaultpattern: (?i)(springCloudVersion|org\.springframework\.cloud)(.*)(%s)
 patterns:
   - value: Edgware|Dalston
+profiles:
+  - value: Azure Spring Apps
 
 # e.g.
 # extra["springCloudVersion"] = "2021.0.5"
