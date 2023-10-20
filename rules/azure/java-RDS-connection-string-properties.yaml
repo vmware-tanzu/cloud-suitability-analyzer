@@ -16,3 +16,5 @@ patterns:
  - value: (^|\.|\s)jdbc\.url
  - value: (^|\.|\s)jdbc\.(username|password)
  - value: =\s*jdbc:.+:.+
+profiles:
+  - value: Azure Spring Apps

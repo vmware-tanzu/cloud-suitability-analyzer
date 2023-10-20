@@ -15,4 +15,5 @@ patterns:
 - value: setProperty
 - value: setProperties
 profiles:
-- value: cloud-suitability
+  - value: cloud-suitability
+  - value: Azure Spring Apps

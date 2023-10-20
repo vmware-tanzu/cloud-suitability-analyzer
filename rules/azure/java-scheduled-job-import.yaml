@@ -19,3 +19,5 @@ patterns:
   - value: org\.apache\.commons\.scheduler
   - value: com\.google\.common\.util\.concurrent\.AbstractScheduledService
   - value: com\.google\.common\.util\.concurrent\.ListeningScheduledExecutorService
+profiles:
+  - value: Azure Spring Apps

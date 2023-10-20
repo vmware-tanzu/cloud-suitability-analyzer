@@ -12,5 +12,7 @@ tags:
   - value: logging
 patterns:
  - value: (?i)(ConsoleAppender|type(\s)*=(\s)*"console"|</console>|org/springframework/boot/logging/logback/base.xml|org/springframework/boot/logging/log4j2/log4j2.xml)
+profiles:
+  - value: Azure Spring Apps
 
- # https://logging.apache.org/log4j/2.x/manual/configuration.html
+ # refer to https://logging.apache.org/log4j/2.x/manual/configuration.html

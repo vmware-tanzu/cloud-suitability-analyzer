@@ -23,4 +23,5 @@ patterns:
   - value: org\.jboss\.logging\.Logger
     tag: jboss-logging
 profiles:
-- value: cloud-suitability
+  - value: cloud-suitability
+  - value: Azure Spring Apps

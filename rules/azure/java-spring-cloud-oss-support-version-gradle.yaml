@@ -11,3 +11,5 @@ tags:
 defaultpattern: (?i)(springCloudVersion|org\.springframework\.cloud)(.*)(%s)
 patterns:
   - value: 2020\.|ilford
+profiles:
+  - value: Azure Spring Apps
