@@ -1,0 +1,73 @@
+name: java-stack-jdbc
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.%s
+advice: Indicate the database used
+effort: 0
+readiness: 10
+category: etl
+tags:
+  - value: database
+patterns:
+- value: jdbc:mysql
+  tag: mysql
+  effort: 0
+- value: jdbc:postgresql
+  tag: postgresql
+  effort: 0
+- value: jdbc:derby
+  tag: derby
+  effort: 0
+- value: jdbc:hive2
+  tag: hive
+  effort: 0
+- value: jdbc:cassandra
+  tag: cassandra
+  effort: 0
+- value: jdbc:clickhouse
+  tag: clickhouse
+  effort: 0
+- value: jdbc:h2
+  tag: h2
+  effort: 0
+- value: jdbc:db2 
+  tag: db2
+  effort: 0 
+- value: jdbc:mariadb
+  tag: mariadb
+  effort: 0
+- value: jdbc:sqlserver
+  tag: sqlserver
+  effort: 0
+- value: jdbc:oracle
+  tag: oracle
+  effort: 0
+- value: import play.mvc
+  tag: play
+  effort: 0
+- value: jdbc:sap:
+  tag: sap
+  effort: 0
+- value: jdbc:snowflake
+  tag: snowflake
+  effort: 0
+- value: jdbc:sqlite
+  tag: sqlite
+  effort: 0
+- value: jdbc:teradata
+  tag: teradata
+  effort: 0
+- value: jdbc:postgresql
+  tag: postgresql
+  effort: 0
+- value: jdbc:mysql
+  tag: mysql
+  effort: 0
+- value: jdbc:postgresql  
+  tag: postgresql
+  effort: 0
+
+
+profiles:
+- value: stack

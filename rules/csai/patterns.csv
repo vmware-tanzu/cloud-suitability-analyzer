@@ -1,0 +1,202 @@
+PatternType,Language,PackageType,Pattern
+File,Java,GlassFish,sun-web.xml
+File,Java,JBoss,jboss-web.xml
+File,Java,JBoss,jboss-web.xml
+File,Java,Jetty,jetty.xml
+File,Java,Jetty,webdefault.xml
+File,Java,Payara,glassfish-resources.xml
+File,Java,Resin,resin.xml
+File,Java,Tomcat,tomee.xml
+File,Java,WebLogic,weblogic.xml
+File,Java,WebSphere,ibm-web-bnd.xml
+Line,Java,HSQLDB (HyperSQL Database),import org.hsqldb
+Line,Java,Amazon RDS (MySQL),jdbc:mysql
+Line,Java,Amazon RDS (PostgreSQL),jdbc:postgresql
+Line,Java,AngularJS,import org.angularjs
+Line,Java,Apache ActiveMQ (Message Broker),ActiveMQConnectionFactory(
+Line,Java,Apache Camel,org.apache.camel
+Line,Java,Apache Derby,jdbc:derby
+Line,Java,Apache Hive,jdbc:hive2
+Line,Java,Apache JCS,import org.apache.jcs
+Line,Java,Apache Pivot,import org.apache.pivot
+Line,Java,Apache Wicket,import org.apache.wicket
+Line,Java AWT,import java.awt
+Line,Java,Batch,import org.springframework.batch
+Line,Java,Caffeine Cache,import com.github.benmanes.caffeine
+Line,Java,Camel,import org.apache.camel
+Line,Java,Cassandra,import com.datastax
+Line,Java,Cassandra,import com.datastax
+Line,Java,Cassandra,jdbc:cassandra
+Line,Java,ClickHouse,jdbc:clickhouse
+Line,Java,Couchbase,import com.couchbase
+Line,Java,Data Transformation,import org.springframework.integration.annotation.ServiceActivator
+Line,Java,Docker Client,import com.github.dockerjava.api.DockerClient
+Line,Java,Ehcache,import net.sf.ehcache
+Line,Java,Elasticsearch,import org.elasticsearch
+Line,Java,ETL,import org.apache.nifi.processor
+Line,Java,FasterXML,import com.fasterxml.jackson
+Line,Java,Geospatial,import org.geotools.geometry.jts
+Line,Java,Google Web Toolkit,import com.google.gwt
+Line,Java,Guava Cache,import com.google.common.cache
+Line,Java,H2,import org.h2
+Line,Java,H2,jdbc:h2
+Line,Java,Hadoop,import org.apache.hadoop
+Line,Java,Hazelcast Cache,import com.hazelcast
+Line,Java,Headless CMS Client,import com.contentful.java.cda.CDAClient
+Line,Java,IBM Db2,jdbc:db2
+Line,Java,IBM MQ,import com.ibm.mq
+Line,Java,Infinispan,import org.infinispan
+Line,Java,InfluxDB,import org.influxdb
+Line,Java,JavaFX,import javafx
+Line,Java,JSF,import javax.faces
+Line,Java,JWTS,import io.jsonwebtoken
+Line,Java,Kafka,import org.apache.kafka
+Line,Java,Kubernetes,import io.kubernetes
+Line,Java,Lucene,import org.apache.lucene
+Line,Java,Mapping,import org.leaflet4j
+Line,Java,MariaDB,jdbc:mariadb
+Line,Java,Memcached,import net.spy.memcached
+Line,Java,Microsoft SQL Server,jdbc:sqlserver
+Line,Java,MongoDB,import com.mongodb
+Line,Java,MongoDB,import org.springframework.data.mongodb
+Line,Java,MongoDB,import reactor.core
+Line,Java,Mongo,import org.springframework.data.mongodb
+Line,Java,MQTT,import org.eclipse.paho.client.mqttv3
+Line,Java,MuleSoft,import org.mule
+Line,Java,MySQL,jdbc:mysql
+Line,Java,MySQL,jdbc:mysql
+Line,Java,Neo4j,import org.neo4j
+Line,Java,NetBeans,import org.netbeans
+Line,Java,Okta,import com.okta.spring.boot.oauth.Okta
+Line,Java,OpenTSDB,import net.opentsdb
+Line,Java,Oracle,jdbc:oracle
+Line,Java,Play Framework,import play.mvc
+Line,Java,PostgreSQL,jdbc:postgresql
+Line,Java,PostgreSQL,jdbc:postgresql
+Line,Java,Prometheus,import io.prometheus
+Line,Java,Qt,import com.trolltech.qt
+Line,Java,Quartz,import org.quartz
+Line,Java,RabbitMQ,import com.rabbitmq
+Line,Java,React,import com.github.gwtreact
+Line,Java,Redis,import org.redisson
+Line,Java,Redis,import redis
+Line,Java,REST,import org.springframework.web.bind.annotation.RestController
+Line,Java,REST,import org.springframework.web.client.RestTemplate
+Line,Java,S3,import com.amazonaws.services.s3.AmazonS3
+Line,Java,SAP HANA,jdbc:sap:
+Line,Java,Single Sign-On,import org.springframework.security.saml
+Line,Java,SLD4J,import org.slf4j
+Line,Java,Snowflake,jdbc:snowflake
+Line,Java,SOAP,import javax.xml.soap
+Line,Java,Spring,import org.springframework
+Line,Java,Spring Security,import org.springframework.security
+Line,Java,SQLite,jdbc:sqlite
+Line,Java,Struts 2,import com.opensymphony
+Line,Java,Struts 2,import org.apache.struts2
+Line,Java,Swing,import javax.swing
+Line,Java,Swing,import org.jdesktop
+Line,Java,SWT,import org.eclipse.swt
+Line,Java,Teradata,jdbc:teradata
+Line,Java,Thymeleaf,import org.springframework.stereotype.Controller
+Line,Java,Thymeleaf,import org.springframework.web.bind
+Line,Java,Thymeleaf,import org.thymeleaf
+Line,Java,Vaadin,import com.vaadin
+Line,Java,WebSocket,import org.springframework.web.socket
+Line,Java,ZooKeeper,import org.apache.curator
+Line,.NET,Apache Camel,using Apache.Camel
+Line,.NET,Apache Hadoop,using Microsoft.Hadoop
+Line,.NET,Apache ZooKeeper,using ZooKeeperNetEx
+Line,.NET,Application Insights (Azure),using Microsoft.ApplicationInsights
+Line,.NET,Authentication Middleware,using Microsoft.AspNetCore.Authentication
+Line,.NET,Batch Processing Libraries,using System.Data
+Line,.NET,Contentful,using Contentful
+Line,.NET,Database Access (Entity Framework Core),using Microsoft.EntityFrameworkCore
+Line,.NET,Data Integration,using Apache.NMS
+Line,.NET,Dependency Injection Container,using Microsoft.Extensions.DependencyInjection
+Line,.NET,Docker,using Docker.DotNet
+Line,.NET,Elasticsearch,using Elasticsearch
+Line,.NET,ETL,using NiFi.Processors
+Line,.NET,File Storage (Azure Blob Storage),using Microsoft.Azure.Storage
+Line,.NET,Hangfire (Job Scheduler),using Hangfire
+Line,.NET,Identity Framework,using Microsoft.AspNetCore.Identity
+Line,.NET,IoC Container,using Microsoft.Extensions.Configuration
+Line,.NET,JSON Serialization,using Newtonsoft.Json
+Line,.NET,JWT Authentication,using System.IdentityModel.Tokens.Jwt
+Line,.NET,Kubernetes,using KubeClient
+Line,.NET,Logging,using Microsoft.Extensions.Logging;`
+Line,.NET,Lucene,using Lucene
+Line,.NET,Mapbox,using Mapbox
+Line,.NET,NetTopologySuite,using NetTopologySuite
+Line,.NET,OAuth2,using IdentityModel.Client
+Line,.NET,Performance Monitoring,using System.Diagnostics
+Line,.NET,RabbitMQ,using RabbitMQ
+Line,.NET,REST,using System.Net.Http
+Line,.NET,SignalR (Real-Time Web),using Microsoft.AspNetCore.SignalR
+Line,.NET,SOAP Client,using System.Web.Services
+Line,.NET,Task Scheduler,using System.Threading.Tasks
+Line,.NET,Umbraco,using Umbraco.Cms.Core
+Line,.NET,WebSocket,using System.Net.WebSockets
+Line,Python,Amazon Aurora (MySQL),create_engine('mysql
+Line,Python,Amazon Neptune,import boto3
+Line,Python,Apache Beam,import apache_beam 
+Line,Python,Apache Nifi,from nipyapi
+Line,Python,Apache Solr,import pysolr
+Line,Python,Background Job Processing,from rq import Queue
+Line,Python,Cassandra,from cassandra
+Line,Python,Cassandra,from cassandra.cluster
+Line,Python,Celery,from celery import Celery
+Line,Python,Contentful,from contentful
+Line,Python,Couchbase,import couchbase
+Line,Python,CouchDB,import couchdb
+Line,Python,Docker,import docker
+Line,Python,DynamoDB,import boto3
+Line,Python,Elasticsearch,from elasticsearch
+Line,Python,Elasticsearch,from elasticsearch_dsl
+Line,Python,etcd,import etcd3
+Line,Python,Fiona,import fiona
+Line,Python,Firebird,create_engine('firebird
+Line,Python,Flask-Injector,from flask_injector
+Line,Python,Flask-Security,from flask_security import Security
+Line,Python,Folium,import folium
+Line,Python,Google Cloud SQL (MySQL),create_engine('mysql
+Line,Python,Google Cloud SQL (PostgreSQL),create_engine('postgresql
+Line,Python,Hadoop,from hadoop_streaming
+Line,Python,HBase,import happybase
+Line,Python,IBM Db2,create_engine('ibm_db_sa
+Line,Python,InfluxDB,from influxdb
+Line,Python,JSON,import json
+Line,Python,JWT,import jwt
+Line,Python,Kubernetes,from kubernetes
+Line,Python,Loguru,from loguru
+Line,Python,Lucene,import lucene
+Line,Python,MariaDB,create_engine('mysql
+Line,Python,Microsoft Azure SQL,create_engine('mssql
+Line,Python,MongoDB,import pymongo
+Line,Python,MQTT,import paho.mqtt.client
+Line,Python,MySQL,create_engine('mysql
+Line,Python,MySQL,import mysql
+Line,Python,Neo4j,from neo4j
+Line,Python,OAuth2,from authlib
+Line,Python,Okta,from okta
+Line,Python,Oracle,create_engine('oracle
+Line,Python,pandas,import pandas
+Line,Python,PostgreSQL,create_engine('postgresql:
+Line,Python,PostgreSQL,import psycopg2`
+Line,Python,Prometheus,from prometheus_client
+Line,Python,RabbitMQ,import pika
+Line,Python,Redis,import redis
+Line,Python,Redshift,create_engine('redshift
+Line,Python,REST,import requests
+Line,Python,S3,import boto3
+Line,Python,SAP HANA,create_engine('hana
+Line,Python,Snowflake,create_engine('snowflake
+Line,Python,SOAP,from zeep
+Line,Python,SQLAlchemy,from sqlalchemy
+Line,Python,SQLite,create_engine('sqlite:
+Line,Python,SQLite,import sqlite3
+Line,Python,SQL Server,create_engine('mssql
+Line,Python,Sybase,create_engine('sqlany
+Line,Python,TimescaleDB,from sqlalchemy 
+Line,Python,TimescaleDB,import psycopg2
+Line,Python,Wagtail,from wagtail
+Line,Python,WebSocket,import

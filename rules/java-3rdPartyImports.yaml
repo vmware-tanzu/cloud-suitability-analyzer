@@ -9,7 +9,7 @@ tags:
 - value: third-party
 patterns:
 - value: ehcache
-  tag: ehcache
+  tag: cache
 - value: 47deg
   tag: 47deg
 - value: advantageous
@@ -696,3 +696,4 @@ patterns:
   tag: zwitserloot
 profiles:
 - value: cloud-suitability
+- value: stack

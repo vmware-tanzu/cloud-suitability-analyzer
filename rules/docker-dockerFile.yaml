@@ -13,6 +13,6 @@ tags:
   - value: tkg
 patterns:
   - value: Dockerfile
-##F Dockerfile
 profiles:
 - value: cloud-suitability
+- value: stack

@@ -13,3 +13,4 @@ patterns:
 - value: Web.config
 profiles:
 - value: cloud-suitability
+- value: stack
