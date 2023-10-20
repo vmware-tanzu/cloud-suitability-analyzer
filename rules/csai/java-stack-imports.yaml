@@ -41,9 +41,6 @@ patterns:
 - value: com.couchbase
   tag: couchbase
   effort: 0
-- value: org.springframework.integration.annotation.ServiceActivator
-  tag: data-transformation
-  effort: 0
 - value: com.github.dockerjava
   tag: docker-client
   effort: 0
