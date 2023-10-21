@@ -1,13 +1,14 @@
-name: java-stack
+name: java-stack-appserver
 filetype: xml$
 target: file
 type: simple-text
-category: buildSystem
+category: app-server
 advice: Align with standard build system
 effort: 0
 readiness: 0
 tags:
 - value: app-server
+
 patterns:
 - value: sun-web.xml
   tag: glassfish

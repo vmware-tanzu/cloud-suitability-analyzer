@@ -1,0 +1,35 @@
+name: java-stack-servlet
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^import(\s*|=")%s$
+advice: Integrate with new alarmD service or migrate to Spring Boot scheduler
+category: servlet
+tags:
+  - value: stack
+patterns:
+- value: javax.servlet
+  tag: Java Servlet
+- value: org.eclipse.jetty.servlet
+  tag: Jetty Servlets
+- value: org.apache.catalina.servlet4preview.http
+  tag: Tomcat Servlets
+- value: org.apache.tomcat.util.http
+  tag: Apache Tomcat Utilities
+- value: org.springframework.web.servlet
+  tag: Spring MVC
+- value: com.sun.faces.facelets
+  tag: JavaServer Faces
+- value: org.jboss.resteasy.plugins.server.servlet
+  tag: RESTEasy Servlets
+- value: io.undertow.servlet
+  tag: Undertow Servlets
+- value: org.mortbay.jetty.servlet
+  tag: Jetty Servlets
+- value: javax.faces.webapp
+  tag: JavaServer Faces
+
+
+
+  profiles:
+- value: stack

@@ -1,0 +1,34 @@
+name: java-stack-rest
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^import(\s*|=")%s$
+advice: Integrate with new alarmD service or migrate to Spring Boot scheduler
+category: REST
+tags:
+  - value: stack
+patterns:
+- value: javax.ws.rs
+  tag: JAX-RS
+- value: org.springframework.web.bind.annotation
+  tag: Spring MVC
+- value: io.swagger
+  tag: Swagger
+- value: org.glassfish.jersey
+  tag: Jersey
+- value: org.apache.cxf.jaxrs
+  tag: Apache CXF
+- value: org.jboss.resteasy.plugins.server.servlet
+  tag: RESTEasy
+- value: io.dropwizard
+  tag: Dropwizard
+- value: com.sun.jersey.api.client
+  tag: Jersey
+- value: org.springframework.boot.autoconfigure.web.servlet
+  tag: Spring Boot
+- value: io.micronaut.http.client
+  tag: Micronaut
+
+
+  profiles:
+- value: stack

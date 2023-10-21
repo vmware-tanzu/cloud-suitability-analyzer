@@ -1,0 +1,33 @@
+name: java-stack-ui
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^import(\s*|=")%s$
+advice: Integrate with new alarmD service or migrate to Spring Boot scheduler
+category: UI
+tags:
+  - value: stack
+patterns:
+- value: javax.swing
+  tag: Swing
+- value: javafx.scene
+  tag: JavaFX
+- value: org.eclipse.swt
+  tag: SWT
+- value: com.vaadin
+  tag: Vaadin
+- value: org.springframework.boot.autoconfigure.web.servlet
+  tag: Spring Boot
+- value: javax.faces
+  tag: JSF
+- value: org.apache.wicket
+  tag: Apache Wicket
+- value: org.primefaces
+  tag: PrimeFaces
+- value: org.thymeleaf
+  tag: Thymeleaf
+- value: org.apache.struts
+  tag: Apache Struts
+
+  profiles:
+- value: stack

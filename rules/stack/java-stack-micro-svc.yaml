@@ -1,0 +1,28 @@
+name: java-stack-micro-svc
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^import(\s*|=")%s$
+advice: Integrate with new alarmD service or migrate to Spring Boot scheduler
+category: microservice
+tags:
+  - value: stack
+patterns:
+- value: org.springframework.cloud
+  tag: Spring Cloud
+- value: io.kubernetes.client
+  tag: Kubernetes
+- value: com.spotify.docker.client
+  tag: Docker
+- value: com.netflix
+  tag: Netflix OSS
+- value: org.apache.camel
+  tag: Apache Camel
+- value: io.quarkus
+  tag: Quarkus
+- value: io.micronaut
+  tag: Micronaut
+
+
+  profiles:
+- value: stack

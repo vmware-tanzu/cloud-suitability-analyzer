@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-10-17 13:10:43.526289 -0500 CDT m=+0.121322850
+//Created @ 2023-10-20 13:40:43.057064 -0500 CDT m=+0.194828924
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -144,7 +144,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "relational database service",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -163,7 +163,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "relational database service",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -185,7 +185,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "apm",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -201,7 +201,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "message queue",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -227,7 +227,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "message queue",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -257,7 +257,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "java version",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -277,7 +277,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "java version",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -297,7 +297,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "config server",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -311,7 +311,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "eureka",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -324,7 +324,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "logging",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -337,7 +337,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "redis",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -355,7 +355,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "redis",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -375,7 +375,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "scheduled job",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -388,7 +388,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "scheduled job",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -406,7 +406,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring boot",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -421,7 +421,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring boot",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -436,7 +436,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring boot",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -454,7 +454,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring boot",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -469,7 +469,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring boot",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -485,7 +485,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring boot",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -500,7 +500,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring boot",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -513,7 +513,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring cloud",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -526,7 +526,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring cloud",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -542,7 +542,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring cloud",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -555,7 +555,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring cloud",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -573,7 +573,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring cloud",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -586,7 +586,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring cloud",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -602,7 +602,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "java version",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -615,7 +615,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "java version",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -635,7 +635,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "logging",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -648,7 +648,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "config server",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -662,7 +662,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "eureka",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -675,7 +675,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "log4j2",}, { Value: "logging",}, { Value: "log2file",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -691,7 +691,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "logging",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -704,7 +704,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "azure",}, { Value: "zipkin",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -717,7 +717,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "port",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -730,7 +730,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "os",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -743,7 +743,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "os",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -756,7 +756,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "port",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -913,7 +913,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "web-config",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "stack",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -962,11 +962,143 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "/configuration/system.web/sessionState[@mode=\"InProc\" or @mode=\"StateServer\"][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
+            { Name: "java-stack", FileType: "xml$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Align with standard build system", Effort: 0, Readiness: 0, Impact: "", Category: "buildSystem", Criticality: "",
+            Tags:
+            []Tag{  { Value: "app-server",}, },
+            Profiles:
+            []Profile{  { Value: "stack",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "sun-web.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "glassfish", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jboss-web.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jboss", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jetty.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jetty", Recipe: "", },
+             { Type: "", Pattern: "", Value: "webdefault.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jetty", Recipe: "", },
+             { Type: "", Pattern: "", Value: "glassfish-resources.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "payara", Recipe: "", },
+             { Type: "", Pattern: "", Value: "resin.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "resin", Recipe: "", },
+             { Type: "", Pattern: "", Value: "tomee.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "tomcat", Recipe: "", },
+             { Type: "", Pattern: "", Value: "weblogic.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "weblogic", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-web-bnd.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "websphere", Recipe: "", },
+             }, },
+        
+            { Name: "java-stack-imports", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "stack", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "org.hsqldb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hsldb", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.angularjs", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "angularjs", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.jcs", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-jcs", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.pivot", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-pivot", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.wicket", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-wicket", Recipe: "", },
+             { Type: "", Pattern: "", Value: "java.awt", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "awt", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.batch", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-batch", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.github.benmanes.caffeine", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "caffeine-cache", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.camel", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "camel", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.datastax", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "cassandra", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.couchbase", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "couchbase", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.github.dockerjava", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "docker-client", Recipe: "", },
+             { Type: "", Pattern: "", Value: "net.sf.ehcache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ehcache", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.elasticsearch", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "elasticsearch", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.nifi.processor", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "etl-nifi", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.fasterxml.jackson", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "fasterxml", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.geotools.geometry.jts", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "geospatial", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.google.gwt", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "google-web-toolkit", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.google.common.cache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "guava-cache", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.h2", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "h2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.hadoop", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hadoop", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.infinispan", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "infinispan", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.influxdb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "influxdb", Recipe: "", },
+             { Type: "", Pattern: "", Value: "javafx", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "javafx", Recipe: "", },
+             { Type: "", Pattern: "", Value: "javax.faces", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jsf", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.jsonwebtoken", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jwts", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.kafka", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "kafka", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.kubernetes", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "kubernetes", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.lucene", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "lucene", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.leaflet4j", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mapping", Recipe: "", },
+             { Type: "", Pattern: "", Value: "net.spy.memcached", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "memcached", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.mongodb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mongodb", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.data.mongodb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mongodb", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.data.mongodb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mongodb", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.eclipse.paho.client.mqttv3", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mqtt", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.mule", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mulesoft", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.neo4j", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "neo4j", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.netbeans", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "netbeans", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.okta.spring.boot.oauth.Okta", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "okta", Recipe: "", },
+             { Type: "", Pattern: "", Value: "net.opentsdb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "opentsdb", Recipe: "", },
+             { Type: "", Pattern: "", Value: "play.mvc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "play-framework", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.prometheus", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "prometheus", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.trolltech.qt", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "qt", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.quartz", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "quartz", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.rabbitmq", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "rabbitmq", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.github.gwtreact", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "react", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.redisson", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "redis", Recipe: "", },
+             { Type: "", Pattern: "", Value: "redis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "redis", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.web.bind.annotation.RestController", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "rest", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.web.client.RestTemplate", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "rest", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.amazonaws.services.s3.AmazonS3", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "s3", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.security.saml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "single-sign-on", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.slf4j", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "sld4j", Recipe: "", },
+             { Type: "", Pattern: "", Value: "javax.xml.soap", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "soap", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.security", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-security", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.opensymphony", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "struts-2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.struts2", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "struts-2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "javax.swing", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "swing", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.jdesktop", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "swing", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.eclipse.swt", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "swt", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.stereotype.Controller", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "thymeleaf", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.web.bind", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "thymeleaf", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.thymeleaf", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "thymeleaf", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.vaadin", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "vaadin", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.web.socket", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "websocket", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.curator", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "zookeeper", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-stack-jdbc", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.%s", Advice: "Indicate the database used", Effort: 0, Readiness: 10, Impact: "", Category: "etl", Criticality: "",
+            Tags:
+            []Tag{  { Value: "database",}, },
+            Profiles:
+            []Profile{  { Value: "stack",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "jdbc:mysql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mysql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:postgresql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "postgresql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:derby", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "derby", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:hive2", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hive", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:cassandra", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "cassandra", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:clickhouse", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "clickhouse", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:h2", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "h2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:db2", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "db2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:mariadb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mariadb", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:sqlserver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "sqlserver", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:oracle", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "oracle", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import play.mvc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "play", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "sap", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:snowflake", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "snowflake", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:sqlite", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "sqlite", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:teradata", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "teradata", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:postgresql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "postgresql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:mysql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mysql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:postgresql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "postgresql", Recipe: "", },
+             }, },
+        
             { Name: "docker-dockerFile", FileType: "$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Determine if TKG is more prescriptive and TBS or Choreographer can be used to containerize", Effort: 5, Readiness: 1000, Impact: "", Category: "docker", Criticality: "",
             Tags:
             []Tag{  { Value: "docker",}, { Value: "tkg",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "stack",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -1556,13 +1688,13 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "third-party",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "stack",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "ehcache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ehcache", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "ehcache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "cache", Recipe: "", },
              { Type: "", Pattern: "", Value: "47deg", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "47deg", Recipe: "", },
              { Type: "", Pattern: "", Value: "advantageous", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "advantageous", Recipe: "", },
              { Type: "", Pattern: "", Value: "agileclick", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "agileclick", Recipe: "", },
@@ -2460,7 +2592,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "io",}, { Value: "file storage",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -2508,7 +2640,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "io",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -2556,7 +2688,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "hard-ip",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -2604,7 +2736,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "java-fx",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -2701,7 +2833,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "security",}, { Value: "jks",}, { Value: "mutual-auth",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -2996,7 +3128,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "logging",}, { Value: "log2file",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -3015,7 +3147,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "logging",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -3180,7 +3312,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "nio",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -3233,7 +3365,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "non-standard-protocol",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -3499,7 +3631,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "slf4j",}, { Value: "logging",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -3664,7 +3796,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "desktop-app",}, { Value: "ui",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -3737,7 +3869,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "config",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -3753,7 +3885,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "jni",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:

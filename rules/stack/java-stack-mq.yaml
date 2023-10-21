@@ -1,0 +1,25 @@
+name: java-stack-mq
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^import(\s*|=")%s$
+advice: Integrate with new alarmD service or migrate to Spring Boot scheduler
+category: MQ
+tags:
+  - value: stack
+patterns:
+- value: org.springframework.security
+  tag: Spring Security
+- value: org.apache.shiro
+  tag: Apache Shiro
+- value: org.owasp
+  tag: OWASP
+- value: org.keycloak
+  tag: Keycloak
+- value: com.auth0
+  tag: Auth0
+- value: io.jsonwebtoken
+  tag: JWT
+
+  profiles:
+- value: stack

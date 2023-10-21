@@ -6,7 +6,7 @@ defaultpattern: ^.%s
 advice: Indicate the database used
 effort: 0
 readiness: 10
-category: etl
+category: database
 tags:
   - value: database
 patterns:
@@ -46,7 +46,7 @@ patterns:
 - value: import play.mvc
   tag: play
   effort: 0
-- value: jdbc:sap:
+- value: jdbc
   tag: sap
   effort: 0
 - value: jdbc:snowflake

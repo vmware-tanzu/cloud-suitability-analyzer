@@ -1,0 +1,29 @@
+name: java-stack-testing
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^import(\s*|=")%s$
+advice: Integrate with new alarmD service or migrate to Spring Boot scheduler
+category: testing
+tags:
+  - value: stack
+patterns:
+- value: org.junit
+  tag: JUnit
+- value: org.testng
+  tag: TestNG
+- value: org.mockito
+  tag: Mockito
+- value: org.hamcrest
+  tag: Hamcrest
+- value: org.openqa.selenium
+  tag: Selenium
+- value: org.apache.jmeter
+  tag: JMeter
+- value: io.restassured
+  tag: RestAssured
+- value: com.github.tomakehurst.wiremock
+  tag: WireMock
+
+  profiles:
+- value: stack
