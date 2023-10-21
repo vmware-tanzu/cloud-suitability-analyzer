@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-10-17 13:10:43.526289 -0500 CDT m=+0.121322850
+//Created @ 2023-10-21 15:53:08.167814 -0500 CDT m=+0.183758429
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -6318,6 +6318,397 @@ func BootstrapRules() []Rule {
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "DTS", Advice: "SSIS is not supported on CloudFoundry. Consider leaving the packages in an external SQL Server deployment or rewrite them in a cloud native ETL Framework like Spring Cloud Data Flow.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-stack-appserver", FileType: "xml$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Align with standard build system", Effort: 0, Readiness: 0, Impact: "", Category: "app-server", Criticality: "",
+            Tags:
+            []Tag{  { Value: "app-server",}, },
+            Profiles:
+            []Profile{  { Value: "stack",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "sun-web.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "glassfish", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jboss-web.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jboss", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jetty.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jetty", Recipe: "", },
+             { Type: "", Pattern: "", Value: "webdefault.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jetty", Recipe: "", },
+             { Type: "", Pattern: "", Value: "glassfish-resources.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "payara", Recipe: "", },
+             { Type: "", Pattern: "", Value: "resin.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "resin", Recipe: "", },
+             { Type: "", Pattern: "", Value: "tomee.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "tomcat", Recipe: "", },
+             { Type: "", Pattern: "", Value: "weblogic.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "weblogic", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-web-bnd.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "websphere", Recipe: "", },
+             }, },
+        
+            { Name: "java-stack-caching", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "cache", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "org.ehcache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Ehcache", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.google.common.cache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Guava", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.github.benmanes.caffeine.cache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Caffeine", Recipe: "", },
+             { Type: "", Pattern: "", Value: "javax.cache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JCache", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.infinispan", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Infinispan", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.ignite", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Apache Ignite", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.cache2k", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Cache2k", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.vladmihalcea.flexypool", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "FlexyPool", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.netflix.blitz4j", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Blitz4j", Recipe: "", },
+             { Type: "", Pattern: "", Value: "net.spy.memcached", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Memcached", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.redisson", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Redisson", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.commons.jcs", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JCS", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-stack-etl", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "ETL", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "org.apache.beam.sdk", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Apache Beam", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.nifi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Apache NiFi", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.talend.sdk.component.api", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Talend", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.pentaho.di", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Pentaho Data Integration", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.batch", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Spring Batch", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.flink", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Apache Flink", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.spark.sql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Apache Spark", Recipe: "", },
+             { Type: "", Pattern: "", Value: "cascading.pipe", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Cascading", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.linkedin.cdi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "LinkedIn Datafu", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.embulk", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Embulk", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-stack-imports", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "stack", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "org.hsqldb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hsldb", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.angularjs", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "angularjs", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.jcs", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-jcs", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.pivot", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-pivot", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.wicket", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-wicket", Recipe: "", },
+             { Type: "", Pattern: "", Value: "java.awt", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "awt", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.batch", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-batch", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.github.benmanes.caffeine", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "caffeine-cache", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.camel", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "camel", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.datastax", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "cassandra", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.couchbase", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "couchbase", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.github.dockerjava", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "docker-client", Recipe: "", },
+             { Type: "", Pattern: "", Value: "net.sf.ehcache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ehcache", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.elasticsearch", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "elasticsearch", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.nifi.processor", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "etl-nifi", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.fasterxml.jackson", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "fasterxml", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.geotools.geometry.jts", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "geospatial", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.google.gwt", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "google-web-toolkit", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.google.common.cache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "guava-cache", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.h2", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "h2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.hadoop", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hadoop", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.infinispan", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "infinispan", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.influxdb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "influxdb", Recipe: "", },
+             { Type: "", Pattern: "", Value: "javafx", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "javafx", Recipe: "", },
+             { Type: "", Pattern: "", Value: "javax.faces", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jsf", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.jsonwebtoken", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jwts", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.kafka", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "kafka", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.kubernetes", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "kubernetes", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.lucene", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "lucene", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.leaflet4j", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mapping", Recipe: "", },
+             { Type: "", Pattern: "", Value: "net.spy.memcached", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "memcached", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.mongodb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mongodb", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.data.mongodb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mongodb", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.data.mongodb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mongodb", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.eclipse.paho.client.mqttv3", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mqtt", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.mule", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mulesoft", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.neo4j", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "neo4j", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.netbeans", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "netbeans", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.okta.spring.boot.oauth.Okta", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "okta", Recipe: "", },
+             { Type: "", Pattern: "", Value: "net.opentsdb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "opentsdb", Recipe: "", },
+             { Type: "", Pattern: "", Value: "play.mvc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "play-framework", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.prometheus", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "prometheus", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.trolltech.qt", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "qt", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.quartz", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "quartz", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.rabbitmq", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "rabbitmq", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.github.gwtreact", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "react", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.redisson", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "redis", Recipe: "", },
+             { Type: "", Pattern: "", Value: "redis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "redis", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.web.bind.annotation.RestController", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "rest", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.web.client.RestTemplate", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "rest", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.amazonaws.services.s3.AmazonS3", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "s3", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.security.saml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "single-sign-on", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.slf4j", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "sld4j", Recipe: "", },
+             { Type: "", Pattern: "", Value: "javax.xml.soap", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "soap", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.security", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-security", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.opensymphony", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "struts-2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.struts2", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "struts-2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "javax.swing", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "swing", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.jdesktop", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "swing", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.eclipse.swt", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "swt", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.stereotype.Controller", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "thymeleaf", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.web.bind", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "thymeleaf", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.thymeleaf", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "thymeleaf", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.vaadin", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "vaadin", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.web.socket", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "websocket", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.curator", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "zookeeper", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-stack-jdbc", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.%s", Advice: "Indicate the database used", Effort: 0, Readiness: 10, Impact: "", Category: "database", Criticality: "",
+            Tags:
+            []Tag{  { Value: "database",}, },
+            Profiles:
+            []Profile{  { Value: "stack",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "jdbc:mysql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mysql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:postgresql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "postgresql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:derby", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "derby", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:hive2", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hive", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:cassandra", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "cassandra", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:clickhouse", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "clickhouse", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:h2", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "h2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:db2", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "db2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:mariadb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mariadb", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:sqlserver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "sqlserver", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:oracle", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "oracle", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import play.mvc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "play", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "sap", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:snowflake", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "snowflake", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:sqlite", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "sqlite", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:teradata", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "teradata", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:postgresql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "postgresql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:mysql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mysql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:postgresql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "postgresql", Recipe: "", },
+             }, },
+        
+            { Name: "java-stack-logging", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "Logging", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "org.slf4j", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "SLF4J (Simple Logging Facade for Java)", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.log4j", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Log4j 1.x (Apache Log4j 1.x)", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.logging.log4j", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Log4j 2.x (Apache Log4j 2.x)", Recipe: "", },
+             { Type: "", Pattern: "", Value: "java.util.logging", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JUL (Java Util Logging)", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.jboss.logging", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JBoss Logging", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ch.qos.logback", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Logback", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.commons.logging", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Apache Commons Logging", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.eclipse.jetty.util.log", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Jetty Logging", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.tinylog.Logger", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "tinylog", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.google.common.logging", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Google Guava Logging", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-stack-micro-svc", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "microservice", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "org.springframework.cloud", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Spring Cloud", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.kubernetes.client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Kubernetes", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.spotify.docker.client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Docker", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.netflix", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Netflix OSS", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.camel", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Apache Camel", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.quarkus", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Quarkus", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.micronaut", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Micronaut", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-stack-mobile", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "mobile", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "android", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Android SDK", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.facebook.react", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "React Native", Recipe: "", },
+             { Type: "", Pattern: "", Value: "xamarin", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Xamarin", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.flutter", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Flutter", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.google.android.gms", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Google Play", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-stack-mq", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "MQ", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "org.springframework.security", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Spring Security", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.shiro", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Apache Shiro", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.owasp", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "OWASP", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.keycloak", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Keycloak", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.auth0", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Auth0", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.jsonwebtoken", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JWT", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-stack-rest", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "REST", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "javax.ws.rs", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JAX-RS", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.web.bind.annotation", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Spring MVC", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.swagger", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Swagger", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.glassfish.jersey", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Jersey", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.cxf.jaxrs", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Apache CXF", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.jboss.resteasy.plugins.server.servlet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "RESTEasy", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.dropwizard", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Dropwizard", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.sun.jersey.api.client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Jersey", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.boot.autoconfigure.web.servlet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Spring Boot", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.micronaut.http.client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Micronaut", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-stack-security", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "security", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "org.springframework.security", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Spring Security", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.shiro", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Apache Shiro", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.owasp", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "OWASP", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.keycloak", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Keycloak", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.auth0", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Auth0", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.jsonwebtoken", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JWT", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-stack-servlet", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "servlet", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "javax.servlet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Java Servlet", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.eclipse.jetty.servlet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Jetty Servlets", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.catalina.servlet4preview.http", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Tomcat Servlets", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.tomcat.util.http", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Apache Tomcat Utilities", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.web.servlet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Spring MVC", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.sun.faces.facelets", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JavaServer Faces", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.jboss.resteasy.plugins.server.servlet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "RESTEasy Servlets", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.undertow.servlet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Undertow Servlets", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.mortbay.jetty.servlet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Jetty Servlets", Recipe: "", },
+             { Type: "", Pattern: "", Value: "javax.faces.webapp", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JavaServer Faces", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-stack-soap", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "SOAP", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "javax.xml.soap", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "SAAJ", Recipe: "", },
+             { Type: "", Pattern: "", Value: "javax.jws", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JAX-WS", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.cxf.jaxws", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Apache CXF", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.ws.client.core", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Spring Web Services", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.jboss.ws.api", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JBoss Web Services", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.glassfish.metro.webservices.api", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Metro", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.sun.xml.ws", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JAX-WS RI", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.axis2.jaxws", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Apache Axis2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.sun.xml.messaging.saaj", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "SAAJ RI", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-stack-testing", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "testing", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "org.junit", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JUnit", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.testng", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "TestNG", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.mockito", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Mockito", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.hamcrest", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Hamcrest", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.openqa.selenium", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Selenium", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.jmeter", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JMeter", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.restassured", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "RestAssured", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.github.tomakehurst.wiremock", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "WireMock", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-stack-ui", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "UI", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "javax.swing", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Swing", Recipe: "", },
+             { Type: "", Pattern: "", Value: "javafx.scene", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JavaFX", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.eclipse.swt", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "SWT", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.vaadin", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Vaadin", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.boot.autoconfigure.web.servlet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Spring Boot", Recipe: "", },
+             { Type: "", Pattern: "", Value: "javax.faces", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JSF", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.wicket", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Apache Wicket", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.primefaces", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "PrimeFaces", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.thymeleaf", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Thymeleaf", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.struts", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Apache Struts", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "tas-environment-cfenv-gradle", FileType: "gradle$", Target: "line", Type: "regex", DefaultPattern: "^.*%s", Advice: "Application appears to be using cf env library to inject environment variables provided by TAS.", Effort: 1, Readiness: 7, Impact: "", Category: "tas", Criticality: "",

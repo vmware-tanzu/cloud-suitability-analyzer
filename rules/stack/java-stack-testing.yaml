@@ -2,6 +2,7 @@ name: java-stack-testing
 filetype: (jsp$|java$)
 target: line
 type: regex
+effort: 1
 defaultpattern: ^import\s*%s.*
 advice: Integrate with new alarmD service or migrate to Spring Boot scheduler
 category: testing
