@@ -5,7 +5,7 @@ type: regex
 effort: 1
 defaultpattern: ^import\s*%s.*
 advice: Integrate with new alarmD service or migrate to Spring Boot scheduler
-category: SOAP
+category: soap
 tags:
   - value: stack
 patterns:
@@ -27,7 +27,6 @@ patterns:
   tag: Apache Axis2
 - value: com.sun.xml.messaging.saaj
   tag: SAAJ RI
-
-  profiles:
+profiles:
 - value: stack
 - value: cloud-suitability

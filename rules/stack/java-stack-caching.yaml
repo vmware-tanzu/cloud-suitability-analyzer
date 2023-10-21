@@ -9,7 +9,6 @@ category: cache
 tags:
   - value: stack
 patterns:
-
 - value: org.ehcache
   tag: Ehcache
 - value: com.google.common.cache
@@ -34,7 +33,5 @@ patterns:
   tag: Redisson
 - value: org.apache.commons.jcs
   tag: JCS
-
-  profiles:
+profiles:
 - value: stack
-- value: cloud-suitability

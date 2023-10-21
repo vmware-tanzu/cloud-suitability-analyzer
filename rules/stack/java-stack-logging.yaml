@@ -5,7 +5,7 @@ type: regex
 effort: 1
 defaultpattern: ^import\s*%s.*
 advice: Integrate with new alarmD service or migrate to Spring Boot scheduler
-category: Logging
+category: logging
 tags:
   - value: stack
 patterns:
@@ -29,8 +29,5 @@ patterns:
   tag: tinylog
 - value: com.google.common.logging
   tag: Google Guava Logging
-
-
-  profiles:
+profiles:
 - value: stack
-- value: cloud-suitability

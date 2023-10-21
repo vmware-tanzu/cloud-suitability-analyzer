@@ -29,9 +29,5 @@ patterns:
   tag: Jetty Servlets
 - value: javax.faces.webapp
   tag: JavaServer Faces
-
-
-
-  profiles:
+profiles:
 - value: stack
-- value: cloud-suitability

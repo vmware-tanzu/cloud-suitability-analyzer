@@ -29,6 +29,5 @@ patterns:
   tag: Thymeleaf
 - value: org.apache.struts
   tag: Apache Struts
-
-  profiles:
+profiles:
 - value: stack

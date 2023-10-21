@@ -5,7 +5,7 @@ type: regex
 effort: 1
 defaultpattern: ^import\s*%s.*
 advice: Integrate with new alarmD service or migrate to Spring Boot scheduler
-category: REST
+category: s-rest
 tags:
   - value: stack
 patterns:
@@ -29,8 +29,5 @@ patterns:
   tag: Spring Boot
 - value: io.micronaut.http.client
   tag: Micronaut
-
-
-  profiles:
+profiles:
 - value: stack
-- value: cloud-suitability

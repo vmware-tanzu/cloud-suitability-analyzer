@@ -5,7 +5,7 @@ type: regex
 effort: 1
 defaultpattern: ^import\s*%s.*
 advice: Integrate with new alarmD service or migrate to Spring Boot scheduler
-category: MQ
+category: mq
 tags:
   - value: stack
 patterns:
@@ -21,7 +21,5 @@ patterns:
   tag: Auth0
 - value: io.jsonwebtoken
   tag: JWT
-
-  profiles:
+profiles:
 - value: stack
-- value: cloud-suitability

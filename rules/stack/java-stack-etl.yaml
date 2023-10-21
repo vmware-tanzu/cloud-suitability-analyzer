@@ -29,7 +29,6 @@ patterns:
   tag: LinkedIn Datafu
 - value: org.embulk
   tag: Embulk
-
-  profiles:
+profiles:
 - value: stack
 - value: cloud-suitability

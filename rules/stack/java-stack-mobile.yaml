@@ -5,11 +5,10 @@ type: regex
 effort: 1
 defaultpattern: ^import\s*%s.*
 advice: Integrate with new alarmD service or migrate to Spring Boot scheduler
-category: mobile
+category: s-mobile
 tags:
   - value: stack
 patterns:
-
 - value: android
   tag: Android SDK
 - value: com.facebook.react
@@ -20,7 +19,5 @@ patterns:
   tag: Flutter
 - value: com.google.android.gms
   tag: Google Play
-
-  profiles:
+profiles:
 - value: stack
-- value: cloud-suitability

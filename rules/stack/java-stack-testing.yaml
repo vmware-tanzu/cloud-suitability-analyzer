@@ -25,7 +25,6 @@ patterns:
   tag: RestAssured
 - value: com.github.tomakehurst.wiremock
   tag: WireMock
-
-  profiles:
+profiles:
 - value: stack
 - value: cloud-suitability

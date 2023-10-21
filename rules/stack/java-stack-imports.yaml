@@ -5,212 +5,144 @@ type: regex
 effort: 1
 defaultpattern: ^import\s*%s.*
 advice: Integrate with new alarmD service or migrate to Spring Boot scheduler
-category: stack
+category: database
 tags:
   - value: stack
 patterns:
 - value: org.hsqldb
   tag: hsldb
-
 - value: org.angularjs
   tag: angularjs
-
 - value: org.apache.jcs
   tag: apache-jcs
-
 - value: org.apache.pivot
   tag: apache-pivot
-
 - value: org.apache.wicket
   tag: apache-wicket
- 
 - value: java.awt
   tag: awt
- 
 - value: org.springframework.batch
   tag: spring-batch
-
 - value: com.github.benmanes.caffeine
   tag: caffeine-cache
-
 - value: org.apache.camel
   tag: camel
- 
 - value: com.datastax
   tag: cassandra
-
 - value: com.couchbase
   tag: couchbase
-
 - value: com.github.dockerjava
   tag: docker-client
-
 - value: net.sf.ehcache
   tag: ehcache
-
 - value: org.elasticsearch
   tag: elasticsearch
-
 - value: org.apache.nifi.processor
   tag: etl-nifi
-
 - value: com.fasterxml.jackson
   tag: fasterxml
-
 - value: org.geotools.geometry.jts
   tag: geospatial
-
 - value: com.google.gwt
   tag: google-web-toolkit
-
 - value: com.google.common.cache
   tag: guava-cache
-
 - value: org.h2
   tag: h2
-
 - value: org.apache.hadoop
   tag: hadoop
-
 - value: org.infinispan
   tag: infinispan
-
 - value: org.influxdb
   tag: influxdb
-
 - value: javafx
   tag: javafx
-
 - value: javax.faces
   tag: jsf
-
 - value: io.jsonwebtoken
   tag: jwts
-
 - value: org.apache.kafka
   tag: kafka
-
 - value: io.kubernetes
   tag: kubernetes
-
 - value: org.apache.lucene
   tag: lucene
-
 - value: org.leaflet4j
   tag: mapping
-
 - value: net.spy.memcached
   tag: memcached
-
 - value: com.mongodb
   tag: mongodb
-
 - value: org.springframework.data.mongodb
   tag: mongodb
-
 - value: org.springframework.data.mongodb
   tag: mongodb
- 
 - value: org.eclipse.paho.client.mqttv3
   tag: mqtt
-
 - value: org.mule
   tag: mulesoft
-
 - value: org.neo4j
   tag: neo4j
-
 - value: org.netbeans
   tag: netbeans
-
 - value: com.okta.spring.boot.oauth.Okta
   tag: okta
-
 - value: net.opentsdb
   tag: opentsdb
-
 - value: play.mvc
   tag: play-framework
-
 - value: io.prometheus
   tag: prometheus
-
 - value: com.trolltech.qt
   tag: qt
-
 - value: org.quartz
   tag: quartz
-
 - value: com.rabbitmq
   tag: rabbitmq
-
 - value: com.github.gwtreact
   tag: react
-
 - value: org.redisson
   tag: redis
-
 - value: redis
   tag: redis
-
 - value: org.springframework.web.bind.annotation.RestController
   tag: rest
-
 - value: org.springframework.web.client.RestTemplate
   tag: rest
-
 - value: com.amazonaws.services.s3.AmazonS3
   tag: s3
-
 - value: org.springframework.security.saml
   tag: single-sign-on
-
 - value: org.slf4j
   tag: sld4j
-
 - value: javax.xml.soap
   tag: soap
-
 - value: org.springframework
   tag: spring
-
 - value: org.springframework.security
   tag: spring-security
-
 - value: com.opensymphony
   tag: struts-2
-
 - value: org.apache.struts2
   tag: struts-2
-
 - value: javax.swing
   tag: swing
-
 - value: org.jdesktop
   tag: swing
-
 - value: org.eclipse.swt
   tag: swt
-
 - value: org.springframework.stereotype.Controller
   tag: thymeleaf
-
 - value: org.springframework.web.bind
   tag: thymeleaf
-
 - value: org.thymeleaf
   tag: thymeleaf
-
 - value: com.vaadin
   tag: vaadin
-
 - value: org.springframework.web.socket
   tag: websocket
- 
 - value: org.apache.curator
   tag: zookeeper
- 
-
-  profiles:
+profiles:
 - value: stack
 - value: cloud-suitability
