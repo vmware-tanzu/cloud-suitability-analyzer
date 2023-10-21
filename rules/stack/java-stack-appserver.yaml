@@ -1,0 +1,41 @@
+name: java-stack-appserver
+filetype: xml$
+target: file
+type: simple-text
+category: app-server
+advice: Align with standard build system
+effort: 0
+readiness: 0
+tags:
+- value: app-server
+
+patterns:
+- value: sun-web.xml
+  tag: glassfish
+  effort: 0
+- value: jboss-web.xml
+  tag: jboss
+  effort: 0
+- value: jetty.xml
+  tag: jetty
+  effort: 0
+- value: webdefault.xml
+  tag: jetty
+  effort: 0
+- value: glassfish-resources.xml
+  tag: payara
+  effort: 0
+- value: resin.xml
+  tag: resin
+  effort: 0
+- value: tomee.xml
+  tag: tomcat
+  effort: 0
+- value: weblogic.xml
+  tag: weblogic
+  effort: 0
+- value: ibm-web-bnd.xml
+  tag: websphere
+  effort: 0
+profiles:
+- value: stack

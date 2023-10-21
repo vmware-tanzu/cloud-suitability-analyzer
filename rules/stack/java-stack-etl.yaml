@@ -1,0 +1,33 @@
+name: java-stack-etl
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^import\s*%s.*
+advice: Integrate with new alarmD service or migrate to Spring Boot scheduler
+category: ETL
+tags:
+  - value: stack
+patterns:
+- value: org.apache.beam.sdk
+  tag: Apache Beam
+- value: org.apache.nifi
+  tag: Apache NiFi
+- value: org.talend.sdk.component.api
+  tag: Talend
+- value: org.pentaho.di
+  tag: Pentaho Data Integration
+- value: org.springframework.batch
+  tag: Spring Batch
+- value: org.apache.flink
+  tag: Apache Flink
+- value: org.apache.spark.sql
+  tag: Apache Spark
+- value: cascading.pipe
+  tag: Cascading
+- value: com.linkedin.cdi
+  tag: LinkedIn Datafu
+- value: org.embulk
+  tag: Embulk
+
+  profiles:
+- value: stack

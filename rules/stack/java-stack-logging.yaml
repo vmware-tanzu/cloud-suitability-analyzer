@@ -1,0 +1,34 @@
+name: java-stack-logging
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^import\s*%s.*
+advice: Integrate with new alarmD service or migrate to Spring Boot scheduler
+category: Logging
+tags:
+  - value: stack
+patterns:
+- value: org.slf4j
+  tag: SLF4J (Simple Logging Facade for Java)
+- value: org.apache.log4j
+  tag: Log4j 1.x (Apache Log4j 1.x)
+- value: org.apache.logging.log4j
+  tag: Log4j 2.x (Apache Log4j 2.x)
+- value: java.util.logging
+  tag: JUL (Java Util Logging)
+- value: org.jboss.logging
+  tag: JBoss Logging
+- value: ch.qos.logback
+  tag: Logback
+- value: org.apache.commons.logging
+  tag: Apache Commons Logging
+- value: org.eclipse.jetty.util.log
+  tag: Jetty Logging
+- value: org.tinylog.Logger
+  tag: tinylog
+- value: com.google.common.logging
+  tag: Google Guava Logging
+
+
+  profiles:
+- value: stack

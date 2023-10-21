@@ -1,0 +1,38 @@
+name: java-stack-caching
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^import\s*%s.*
+advice: Integrate with new alarmD service or migrate to Spring Boot scheduler
+category: cache
+tags:
+  - value: stack
+patterns:
+
+- value: org.ehcache
+  tag: Ehcache
+- value: com.google.common.cache
+  tag: Guava
+- value: com.github.benmanes.caffeine.cache
+  tag: Caffeine
+- value: javax.cache
+  tag: JCache
+- value: org.infinispan
+  tag: Infinispan
+- value: org.apache.ignite
+  tag: Apache Ignite
+- value: org.cache2k
+  tag: Cache2k
+- value: com.vladmihalcea.flexypool
+  tag: FlexyPool
+- value: com.netflix.blitz4j
+  tag: Blitz4j
+- value: net.spy.memcached
+  tag: Memcached
+- value: org.redisson
+  tag: Redisson
+- value: org.apache.commons.jcs
+  tag: JCS
+
+  profiles:
+- value: stack

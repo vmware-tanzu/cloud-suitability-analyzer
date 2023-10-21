@@ -1,0 +1,31 @@
+name: java-stack-soap
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^import\s*%s.*
+advice: Integrate with new alarmD service or migrate to Spring Boot scheduler
+category: SOAP
+tags:
+  - value: stack
+patterns:
+- value: javax.xml.soap
+  tag: SAAJ
+- value: javax.jws
+  tag: JAX-WS
+- value: org.apache.cxf.jaxws
+  tag: Apache CXF
+- value: org.springframework.ws.client.core
+  tag: Spring Web Services
+- value: org.jboss.ws.api
+  tag: JBoss Web Services
+- value: org.glassfish.metro.webservices.api
+  tag: Metro
+- value: com.sun.xml.ws
+  tag: JAX-WS RI
+- value: org.apache.axis2.jaxws
+  tag: Apache Axis2
+- value: com.sun.xml.messaging.saaj
+  tag: SAAJ RI
+
+  profiles:
+- value: stack

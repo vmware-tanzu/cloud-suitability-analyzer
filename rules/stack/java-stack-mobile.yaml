@@ -1,0 +1,24 @@
+name: java-stack-mobile
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^import\s*%s.*
+advice: Integrate with new alarmD service or migrate to Spring Boot scheduler
+category: mobile
+tags:
+  - value: stack
+patterns:
+
+- value: android
+  tag: Android SDK
+- value: com.facebook.react
+  tag: React Native
+- value: xamarin
+  tag: Xamarin
+- value: io.flutter
+  tag: Flutter
+- value: com.google.android.gms
+  tag: Google Play
+
+  profiles:
+- value: stack
