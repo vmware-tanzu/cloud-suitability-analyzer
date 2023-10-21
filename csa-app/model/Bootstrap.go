@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-10-21 10:01:32.4727 -0500 CDT m=+0.174655603
+//Created @ 2023-10-21 10:17:42.509404 -0500 CDT m=+0.210520378
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -1556,7 +1556,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "third-party",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "stack",}, },
+            []Profile{  { Value: "cloud-suitability",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
