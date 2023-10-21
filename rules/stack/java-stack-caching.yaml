@@ -37,3 +37,4 @@ patterns:
 
   profiles:
 - value: stack
+- value: cloud-suitability

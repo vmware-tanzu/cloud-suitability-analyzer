@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-10-21 15:53:08.167814 -0500 CDT m=+0.183758429
+//Created @ 2023-10-21 16:34:41.420758 -0500 CDT m=+0.149939637
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -6320,7 +6320,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "DTS", Advice: "SSIS is not supported on CloudFoundry. Consider leaving the packages in an external SQL Server deployment or rewrite them in a cloud native ETL Framework like Spring Cloud Data Flow.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-stack-appserver", FileType: "xml$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Align with standard build system", Effort: 0, Readiness: 0, Impact: "", Category: "app-server", Criticality: "",
+            { Name: "java-stack-appserver", FileType: "xml$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Align with standard build system", Effort: 1, Readiness: 0, Impact: "", Category: "app-server", Criticality: "",
             Tags:
             []Tag{  { Value: "app-server",}, },
             Profiles:
@@ -6341,7 +6341,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "ibm-web-bnd.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "websphere", Recipe: "", },
              }, },
         
-            { Name: "java-stack-caching", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "cache", Criticality: "",
+            { Name: "java-stack-caching", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "cache", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6366,7 +6366,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-stack-etl", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "ETL", Criticality: "",
+            { Name: "java-stack-etl", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "ETL", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6389,7 +6389,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-stack-imports", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "stack", Criticality: "",
+            { Name: "java-stack-imports", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "stack", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6469,7 +6469,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-stack-jdbc", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.%s", Advice: "Indicate the database used", Effort: 0, Readiness: 10, Impact: "", Category: "database", Criticality: "",
+            { Name: "java-stack-jdbc", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.%s", Advice: "Indicate the database used", Effort: 1, Readiness: 10, Impact: "", Category: "database", Criticality: "",
             Tags:
             []Tag{  { Value: "database",}, },
             Profiles:
@@ -6500,7 +6500,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "jdbc:postgresql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "postgresql", Recipe: "", },
              }, },
         
-            { Name: "java-stack-logging", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "Logging", Criticality: "",
+            { Name: "java-stack-logging", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "Logging", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6523,7 +6523,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-stack-micro-svc", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "microservice", Criticality: "",
+            { Name: "java-stack-micro-svc", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "microservice", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6543,7 +6543,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-stack-mobile", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "mobile", Criticality: "",
+            { Name: "java-stack-mobile", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "mobile", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6561,7 +6561,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-stack-mq", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "MQ", Criticality: "",
+            { Name: "java-stack-mq", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "MQ", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6580,7 +6580,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-stack-rest", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "REST", Criticality: "",
+            { Name: "java-stack-rest", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "REST", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6603,7 +6603,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-stack-security", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "security", Criticality: "",
+            { Name: "java-stack-security", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "security", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6622,7 +6622,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-stack-servlet", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "servlet", Criticality: "",
+            { Name: "java-stack-servlet", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "servlet", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6645,7 +6645,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-stack-soap", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "SOAP", Criticality: "",
+            { Name: "java-stack-soap", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "SOAP", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6667,7 +6667,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-stack-testing", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "testing", Criticality: "",
+            { Name: "java-stack-testing", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "testing", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6688,7 +6688,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-stack-ui", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 0, Readiness: 0, Impact: "", Category: "UI", Criticality: "",
+            { Name: "java-stack-ui", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "UI", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
