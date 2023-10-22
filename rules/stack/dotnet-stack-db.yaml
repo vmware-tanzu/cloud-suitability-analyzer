@@ -10,37 +10,29 @@ category: database
 tags:
 - value: stack
 patterns:
-- value: System.Data.SqlClient
-- value: Microsoft.EntityFrameworkCore
-- value: NHibernate
-- value: Dapper
-- value: ServiceStack.OrmLite
 - value: AutoMapper
-- value: System.Data.Entity
+- value: Cassandra   
+- value: Dapper   
 - value: EntityFramework   
-- value: System.Data.Odbc   
-- value: System.Data.OleDb   
-- value: NHibernate   
-- value: ServiceStack.OrmLite   
-- value: System.Data.SQLite   
-- value: Microsoft.EntityFrameworkCore   
+- value: Firebird   
 - value: LinqToDB   
 - value: LiteDB   
-- value: Oracle.DataAccess.Client   
-- value: MySql.Data.MySqlClient   
-- value: System.Data.SqlClient   
 - value: Microsoft.Data.Sqlite   
-- value: Dapper.Contrib   
-- value: System.Data.OracleClient   
-- value: Dapper   
-- value: Cassandra   
-- value: FirebirdSql.Data.FirebirdClient   
-- value: PetaPoco   
-- value: MySql.Data.MySqlClient   
-- value: SqlKata   
-- value: MongoDB.Driver   
 - value: Microsoft.EntityFrameworkCore   
-- value: System.Data.Entity   
+- value: MongoDB.Driver   
+- value: MySql.Data.MySqlClient   
+- value: NHibernate   
 - value: Npgsql   
+- value: Oracle.DataAccess.Client   
+- value: PetaPoco   
+- value: ServiceStack.OrmLite   
+- value: SqlKata   
+- value: System.Data.Entity   
+- value: System.Data.Odbc   
+- value: System.Data.OleDb   
+- value: System.Data.OracleClient   
+- value: System.Data.SQLite   
+- value: System.Data.SqlClient
+
 profiles:
 - value: stack
