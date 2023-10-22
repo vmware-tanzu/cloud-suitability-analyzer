@@ -42,6 +42,5 @@ patterns:
 - value: Microsoft.EntityFrameworkCore   
 - value: System.Data.Entity   
 - value: Npgsql   
-
 profiles:
 - value: stack

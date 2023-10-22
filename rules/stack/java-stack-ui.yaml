@@ -10,24 +10,16 @@ tags:
   - value: stack
 patterns:
 - value: javax.swing
-  tag: Swing
 - value: javafx.scene
-  tag: JavaFX
 - value: org.eclipse.swt
-  tag: SWT
 - value: com.vaadin
-  tag: Vaadin
-- value: org.springframework.boot.autoconfigure.web.servlet
-  tag: Spring Boot
+- value: org.springframework.boot
 - value: javax.faces
-  tag: JSF
 - value: org.apache.wicket
-  tag: Apache Wicket
 - value: org.primefaces
-  tag: PrimeFaces
 - value: org.thymeleaf
-  tag: Thymeleaf
 - value: org.apache.struts
-  tag: Apache Struts
+- value: org.springframework.web
+- value: javax.servlet
 profiles:
 - value: stack

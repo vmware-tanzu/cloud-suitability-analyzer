@@ -1,4 +1,4 @@
-name: dotnet-cache
+name: dotnet-stack-logging
 filetype: (cs$|vb$)
 target: line
 type: regex
@@ -6,7 +6,7 @@ defaultpattern: .*%s.*
 advice: This is a stack component
 effort: 1
 readiness: 0
-category: database
+category: logging
 tags:
 - value: stack
 patterns:

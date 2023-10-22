@@ -6,7 +6,7 @@ defaultpattern: .*%s.*
 advice: This is a stack component
 effort: 1
 readiness: 0
-category: database
+category: testing
 tags:
 - value: stack
 patterns:

@@ -31,4 +31,3 @@ patterns:
   tag: Embulk
 profiles:
 - value: stack
-- value: cloud-suitability

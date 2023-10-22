@@ -6,7 +6,7 @@ defaultpattern: .*%s.*
 advice: This is a stack component
 effort: 1
 readiness: 0
-category: database
+category: UI
 tags:
 - value: stack
 patterns:
@@ -32,8 +32,5 @@ patterns:
 - value: Uno.Platform
 - value: Windows.UI
 - value: Xamarin.Forms
-
-
-
 profiles:
 - value: stack

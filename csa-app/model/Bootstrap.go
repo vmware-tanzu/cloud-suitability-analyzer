@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-10-22 08:36:20.278716 -0500 CDT m=+0.170172443
+//Created @ 2023-10-22 10:29:39.92613 -0500 CDT m=+0.188714139
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -6330,11 +6330,34 @@ func BootstrapRules() []Rule {
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "Swashbuckle.AspNetCore", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "OpenAPI", Recipe: "", },
-             { Type: "", Pattern: "", Value: "GraphQL", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "GraphQL", Recipe: "", },
-             { Type: "", Pattern: "", Value: "RESTSharp", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "RESTSharp", Recipe: "", },
-             { Type: "", Pattern: "", Value: "NancyFx", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "NancyFx", Recipe: "", },
-             { Type: "", Pattern: "", Value: "OData", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "OData", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "Swashbuckle.AspNetCore", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "GraphQL", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "RESTSharp", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "NancyFx", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "OData", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-stack-cache", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  { Value: "stack",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "Alachisoft.NCache.Runtime.Caching", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Couchbase", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "EasyCaching.Core", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Enyim.Caching", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "LRU", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Memcached.ClientLibrary", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Microsoft.Extensions.Caching.Distributed", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Microsoft.Extensions.Caching.Memory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Microsoft.Extensions.Caching.Redis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Microsoft.Extensions.Caching.SqlServer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "StackExchange.Redis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "dotnet-stack-db", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
@@ -6347,11 +6370,55 @@ func BootstrapRules() []Rule {
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "System.Data.SqlClient", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ADO.NET (SQL Client)", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Microsoft.EntityFrameworkCore", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Entity Framework Core", Recipe: "", },
-             { Type: "", Pattern: "", Value: "NHibernate", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "NHibernate", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Dapper", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Dapper", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ServiceStack.OrmLite", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "OrmLite", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "System.Data.SqlClient", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Microsoft.EntityFrameworkCore", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "NHibernate", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Dapper", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ServiceStack.OrmLite", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "AutoMapper", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "System.Data.Entity", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "EntityFramework", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "System.Data.Odbc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "System.Data.OleDb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "NHibernate", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ServiceStack.OrmLite", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "System.Data.SQLite", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Microsoft.EntityFrameworkCore", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "LinqToDB", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "LiteDB", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Oracle.DataAccess.Client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MySql.Data.MySqlClient", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "System.Data.SqlClient", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Microsoft.Data.Sqlite", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Dapper.Contrib", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "System.Data.OracleClient", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Dapper", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Cassandra", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "FirebirdSql.Data.FirebirdClient", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "PetaPoco", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MySql.Data.MySqlClient", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "SqlKata", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MongoDB.Driver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Microsoft.EntityFrameworkCore", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "System.Data.Entity", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Npgsql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-cache", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  { Value: "stack",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "Common.Logging", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Elmah", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "NLog", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Serilog", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "log4net", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "dotnet-micro-svc", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
@@ -6364,11 +6431,11 @@ func BootstrapRules() []Rule {
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "Microsoft.Extensions.Hosting", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Core Hosting", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Docker.DotNet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Docker", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Steeltoe", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Steeltoe", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Orleans", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Orleans", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Dapr", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Dapr", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "Microsoft.Extensions.Hosting", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Docker.DotNet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Steeltoe", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Orleans", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Dapr", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "dotnet-mobile", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
@@ -6398,11 +6465,16 @@ func BootstrapRules() []Rule {
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "RabbitMQ.Client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "RabbitMQ", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Apache.NMS.ActiveMQ", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ActiveMQ", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Confluent.Kafka", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Apache Kafka", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Azure.Messaging.EventHubs", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Azure Event Hubs", Recipe: "", },
-             { Type: "", Pattern: "", Value: "NServiceBus", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "NServiceBus", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "RabbitMQ.Client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Apache.NMS.ActiveMQ", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Confluent.Kafka", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Azure.Messaging.EventHubs", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "NServiceBus", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Amazon.SQS", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Apache.NMS.ActiveMQ", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "IBM.XMS", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Microsoft.Azure.ServiceBus", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "RabbitMQ.Client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "dotnet-stack-security", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
@@ -6415,11 +6487,16 @@ func BootstrapRules() []Rule {
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "ASP.NET Core Identity", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ASP.NET Core Identity", Recipe: "", },
-             { Type: "", Pattern: "", Value: "IdentityServer4", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "IdentityServer4", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Ocelot", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Ocelot", Recipe: "", },
-             { Type: "", Pattern: "", Value: "JsonWebToken", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JWT", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Auth0", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Auth0", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "Microsoft.AspNet.Identity.Owin", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Microsoft.AspNet.Identity", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Microsoft.IdentityModel.Tokens", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "System.IdentityModel.Tokens.Jwt", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "System.IdentityModel.Tokens", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "System.Net.Security", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "System.Security.Claims", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "System.Security.Cryptography.X509Certificates", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "System.Security.Cryptography", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "System.Web.Security", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "dotnet-stack-testing", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
@@ -6432,11 +6509,15 @@ func BootstrapRules() []Rule {
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "NUnit", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "NUnit", Recipe: "", },
-             { Type: "", Pattern: "", Value: "xUnit.net", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "xUnit.net", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MSTest", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "MSTest", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Moq", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Moq", Recipe: "", },
-             { Type: "", Pattern: "", Value: "SpecFlow", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "SpecFlow", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "NUnit", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "xUnit.net", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MSTest", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Moq", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "SpecFlow", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MSTest", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Microsoft.VisualStudio.TestTools.UnitTesting", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "NUnit.Framework", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "xUnit", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "dotnet-ui", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
@@ -6454,6 +6535,17 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "Uno", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Uno", Recipe: "", },
              { Type: "", Pattern: "", Value: "MAUI", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "MAUI", Recipe: "", },
              { Type: "", Pattern: "", Value: "Avalonia", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Avalonia", Recipe: "", },
+             { Type: "", Pattern: "", Value: "System.Windows.Forms", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Forms", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Eto.Forms", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Fluent.UI", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "GtkSharp", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MahApps.Metro", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Qml.Net", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "System.Web.Mvc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "System.Windows.Forms", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Uno.Platform", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Windows.UI", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Xamarin.Forms", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "java-stack-appserver", FileType: "xml$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "app-server", Criticality: "",
