@@ -18,4 +18,4 @@ patterns:
 - value: System.Security.Cryptography
 - value: System.Web.Security
 profiles:
-- value: stack
+- value: stack-out

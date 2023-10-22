@@ -16,4 +16,4 @@ patterns:
 - value: NancyFx
 - value: OData
 profiles:
-- value: stack
+- value: stack-out

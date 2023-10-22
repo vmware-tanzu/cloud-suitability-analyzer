@@ -30,4 +30,4 @@ patterns:
 - value: com.google.common.logging
   tag: Google Guava Logging
 profiles:
-- value: stack
+- value: stack-out

@@ -28,4 +28,4 @@ patterns:
 - value: com.sun.xml.messaging.saaj
   tag: SAAJ RI
 profiles:
-- value: stack
+- value: stack-out

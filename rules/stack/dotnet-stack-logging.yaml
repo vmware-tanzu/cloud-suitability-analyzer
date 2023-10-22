@@ -16,4 +16,4 @@ patterns:
 - value: Serilog
 - value: log4net
 profiles:
-- value: stack
+- value: stack-out

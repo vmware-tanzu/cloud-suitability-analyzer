@@ -34,4 +34,4 @@ patterns:
 - value: org.apache.commons.jcs
   tag: JCS
 profiles:
-- value: stack
+- value: stack-out

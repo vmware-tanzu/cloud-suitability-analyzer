@@ -22,4 +22,4 @@ patterns:
 - value: Microsoft.Extensions.Caching.SqlServer
 - value: StackExchange.Redis
 profiles:
-- value: stack
+- value: stack-out

@@ -20,4 +20,4 @@ patterns:
 - value: com.google.android.gms
   tag: Google Play
 profiles:
-- value: stack
+- value: stack-out
