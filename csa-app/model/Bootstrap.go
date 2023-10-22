@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-10-21 17:33:26.748175 -0500 CDT m=+0.150897790
+//Created @ 2023-10-22 08:36:20.278716 -0500 CDT m=+0.170172443
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -6320,7 +6320,143 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "DTS", Advice: "SSIS is not supported on CloudFoundry. Consider leaving the packages in an external SQL Server deployment or rewrite them in a cloud native ETL Framework like Spring Cloud Data Flow.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-stack-appserver", FileType: "xml$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Align with standard build system", Effort: 1, Readiness: 0, Impact: "", Category: "app-server", Criticality: "",
+            { Name: "dotnet-stack-api", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  { Value: "stack",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "Swashbuckle.AspNetCore", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "OpenAPI", Recipe: "", },
+             { Type: "", Pattern: "", Value: "GraphQL", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "GraphQL", Recipe: "", },
+             { Type: "", Pattern: "", Value: "RESTSharp", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "RESTSharp", Recipe: "", },
+             { Type: "", Pattern: "", Value: "NancyFx", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "NancyFx", Recipe: "", },
+             { Type: "", Pattern: "", Value: "OData", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "OData", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-stack-db", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  { Value: "stack",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "System.Data.SqlClient", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ADO.NET (SQL Client)", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Microsoft.EntityFrameworkCore", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Entity Framework Core", Recipe: "", },
+             { Type: "", Pattern: "", Value: "NHibernate", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "NHibernate", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Dapper", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Dapper", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ServiceStack.OrmLite", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "OrmLite", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-micro-svc", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  { Value: "stack",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "Microsoft.Extensions.Hosting", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Core Hosting", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Docker.DotNet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Docker", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Steeltoe", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Steeltoe", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Orleans", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Orleans", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Dapr", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Dapr", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-mobile", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  { Value: "stack",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "Xamarin.Android", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Xamarin.Android", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Xamarin.iOS", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Xamarin.iOS", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MAUI", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: ".NET MAUI", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Flutter", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Flutter", Recipe: "", },
+             { Type: "", Pattern: "", Value: "React", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "React", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-stack-mq", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  { Value: "stack",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "RabbitMQ.Client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "RabbitMQ", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Apache.NMS.ActiveMQ", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ActiveMQ", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Confluent.Kafka", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Apache Kafka", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Azure.Messaging.EventHubs", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Azure Event Hubs", Recipe: "", },
+             { Type: "", Pattern: "", Value: "NServiceBus", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "NServiceBus", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-stack-security", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  { Value: "stack",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "ASP.NET Core Identity", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ASP.NET Core Identity", Recipe: "", },
+             { Type: "", Pattern: "", Value: "IdentityServer4", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "IdentityServer4", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Ocelot", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Ocelot", Recipe: "", },
+             { Type: "", Pattern: "", Value: "JsonWebToken", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JWT", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Auth0", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Auth0", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-stack-testing", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  { Value: "stack",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "NUnit", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "NUnit", Recipe: "", },
+             { Type: "", Pattern: "", Value: "xUnit.net", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "xUnit.net", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MSTest", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "MSTest", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Moq", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Moq", Recipe: "", },
+             { Type: "", Pattern: "", Value: "SpecFlow", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "SpecFlow", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-ui", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
+            Tags:
+            []Tag{  { Value: "stack",}, },
+            Profiles:
+            []Profile{  { Value: "stack",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "Blazor", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Blazor", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Xamarin", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Xamarin", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Uno", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Uno", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MAUI", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "MAUI", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Avalonia", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Avalonia", Recipe: "", },
+             }, },
+        
+            { Name: "java-stack-appserver", FileType: "xml$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "app-server", Criticality: "",
             Tags:
             []Tag{  { Value: "app-server",}, },
             Profiles:
@@ -6341,7 +6477,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "ibm-web-bnd.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "websphere", Recipe: "", },
              }, },
         
-            { Name: "java-stack-caching", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "cache", Criticality: "",
+            { Name: "java-stack-caching", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "cache", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6365,7 +6501,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "org.apache.commons.jcs", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JCS", Recipe: "", },
              }, },
         
-            { Name: "java-stack-etl", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "ETL", Criticality: "",
+            { Name: "java-stack-etl", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "ETL", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6387,7 +6523,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "org.embulk", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Embulk", Recipe: "", },
              }, },
         
-            { Name: "java-stack-imports", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
+            { Name: "java-stack-imports", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6466,7 +6602,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "org.apache.curator", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "zookeeper", Recipe: "", },
              }, },
         
-            { Name: "java-stack-jdbc", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.%s", Advice: "Indicate the database used", Effort: 1, Readiness: 10, Impact: "", Category: "database", Criticality: "",
+            { Name: "java-stack-jdbc", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.%s", Advice: "This is a stack component", Effort: 1, Readiness: 10, Impact: "", Category: "database", Criticality: "",
             Tags:
             []Tag{  { Value: "database",}, },
             Profiles:
@@ -6497,7 +6633,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "jdbc:postgresql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "postgresql", Recipe: "", },
              }, },
         
-            { Name: "java-stack-logging", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "logging", Criticality: "",
+            { Name: "java-stack-logging", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "logging", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6519,7 +6655,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "com.google.common.logging", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Google Guava Logging", Recipe: "", },
              }, },
         
-            { Name: "java-stack-micro-svc", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "microservice", Criticality: "",
+            { Name: "java-stack-micro-svc", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "microservice", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6538,7 +6674,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "io.micronaut", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Micronaut", Recipe: "", },
              }, },
         
-            { Name: "java-stack-mobile", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "s-mobile", Criticality: "",
+            { Name: "java-stack-mobile", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "s-mobile", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6555,7 +6691,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "com.google.android.gms", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Google Play", Recipe: "", },
              }, },
         
-            { Name: "java-stack-mq", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "mq", Criticality: "",
+            { Name: "java-stack-mq", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "mq", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6573,7 +6709,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "io.jsonwebtoken", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JWT", Recipe: "", },
              }, },
         
-            { Name: "java-stack-rest", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "s-rest", Criticality: "",
+            { Name: "java-stack-rest", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "s-rest", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6595,7 +6731,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "io.micronaut.http.client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Micronaut", Recipe: "", },
              }, },
         
-            { Name: "java-stack-security", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "security", Criticality: "",
+            { Name: "java-stack-security", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "security", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6613,7 +6749,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "io.jsonwebtoken", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JWT", Recipe: "", },
              }, },
         
-            { Name: "java-stack-servlet", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "servlet", Criticality: "",
+            { Name: "java-stack-servlet", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "servlet", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6635,7 +6771,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "javax.faces.webapp", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JavaServer Faces", Recipe: "", },
              }, },
         
-            { Name: "java-stack-soap", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "soap", Criticality: "",
+            { Name: "java-stack-soap", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "soap", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6656,7 +6792,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "com.sun.xml.messaging.saaj", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "SAAJ RI", Recipe: "", },
              }, },
         
-            { Name: "java-stack-testing", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "testing", Criticality: "",
+            { Name: "java-stack-testing", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "testing", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6676,7 +6812,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "com.github.tomakehurst.wiremock", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "WireMock", Recipe: "", },
              }, },
         
-            { Name: "java-stack-ui", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "UI", Criticality: "",
+            { Name: "java-stack-ui", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "UI", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:

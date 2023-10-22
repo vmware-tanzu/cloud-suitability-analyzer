@@ -11,14 +11,13 @@ tags:
 - value: stack
 patterns:
 - value: NUnit
-  tag: NUnit
 - value: xUnit.net
-  tag: xUnit.net
 - value: MSTest
-  tag: MSTest
 - value: Moq
-  tag: Moq
 - value: SpecFlow
-  tag: SpecFlow
+- value: MSTest
+- value: Microsoft.VisualStudio.TestTools.UnitTesting
+- value: NUnit.Framework
+- value: xUnit
 profiles:
 - value: stack

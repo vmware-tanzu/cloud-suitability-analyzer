@@ -1,4 +1,4 @@
-name: dotnet-micro-svc
+name: dotnet-cache
 filetype: (cs$|vb$)
 target: line
 type: regex
@@ -10,10 +10,10 @@ category: database
 tags:
 - value: stack
 patterns:
-- value: Microsoft.Extensions.Hosting
-- value: Docker.DotNet
-- value: Steeltoe
-- value: Orleans
-- value: Dapr
+- value: Common.Logging
+- value: Elmah
+- value: NLog
+- value: Serilog
+- value: log4net
 profiles:
 - value: stack

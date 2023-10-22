@@ -11,14 +11,14 @@ tags:
 - value: stack
 patterns:
 - value: RabbitMQ.Client
-  tag: RabbitMQ
 - value: Apache.NMS.ActiveMQ
-  tag: ActiveMQ
 - value: Confluent.Kafka
-  tag: Apache Kafka
 - value: Azure.Messaging.EventHubs
-  tag: Azure Event Hubs
 - value: NServiceBus
-  tag: NServiceBus
+- value: Amazon.SQS
+- value: Apache.NMS.ActiveMQ
+- value: IBM.XMS
+- value: Microsoft.Azure.ServiceBus
+- value: RabbitMQ.Client
 profiles:
 - value: stack

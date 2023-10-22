@@ -20,6 +20,20 @@ patterns:
   tag: MAUI
 - value: Avalonia
   tag: Avalonia
+- value: System.Windows.Forms
+  tag: Forms
+- value: Eto.Forms
+- value: Fluent.UI
+- value: GtkSharp
+- value: MahApps.Metro
+- value: Qml.Net
+- value: System.Web.Mvc
+- value: System.Windows.Forms
+- value: Uno.Platform
+- value: Windows.UI
+- value: Xamarin.Forms
+
+
 
 profiles:
 - value: stack

@@ -20,7 +20,7 @@ while IFS= read -r line; do
         # If we already have a stack name, we should create the directory and file for the previous stack
         if [ ! -z "$stack_name" ]; then
             mkdir -p "$stack_name"
-            echo -e "$imports" > "$stack_name/$stack_name.java"
+            echo -e "$imports" > "$stack_name/$stack_name.cs"
         fi
         # Update the stack name and reset imports
         stack_name=$(echo "$line" | sed 's/#//;s/ //g')
@@ -34,5 +34,5 @@ done < "$file"
 # Handle the last stack
 if [ ! -z "$stack_name" ]; then
     mkdir -p "$stack_name"
-    echo -e "$imports" > "$stack_name/$stack_name.java"
+    echo -e "$imports" > "$stack_name/$stack_name.cs"
 fi

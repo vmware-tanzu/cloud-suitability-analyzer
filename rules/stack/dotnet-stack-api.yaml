@@ -11,14 +11,9 @@ tags:
 - value: stack
 patterns:
 - value: Swashbuckle.AspNetCore
-  tag: OpenAPI
 - value: GraphQL
-  tag: GraphQL
 - value: RESTSharp
-  tag: RESTSharp
 - value: NancyFx
-  tag: NancyFx
 - value: OData
-  tag: OData
 profiles:
 - value: stack

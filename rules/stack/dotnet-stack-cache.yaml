@@ -1,0 +1,25 @@
+name: dotnet-cache
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: This is a stack component
+effort: 1
+readiness: 0
+category: database
+tags:
+- value: stack
+patterns:
+- value: Alachisoft.NCache.Runtime.Caching
+- value: Couchbase
+- value: EasyCaching.Core
+- value: Enyim.Caching
+- value: LRU
+- value: Memcached.ClientLibrary
+- value: Microsoft.Extensions.Caching.Distributed
+- value: Microsoft.Extensions.Caching.Memory
+- value: Microsoft.Extensions.Caching.Redis
+- value: Microsoft.Extensions.Caching.SqlServer
+- value: StackExchange.Redis
+profiles:
+- value: stack

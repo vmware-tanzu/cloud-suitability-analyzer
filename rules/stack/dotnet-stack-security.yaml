@@ -10,15 +10,15 @@ category: database
 tags:
 - value: stack
 patterns:
-- value: ASP.NET Core Identity
-  tag: ASP.NET Core Identity
-- value: IdentityServer4
-  tag: IdentityServer4
-- value: Ocelot
-  tag: Ocelot
-- value: JsonWebToken
-  tag: JWT
-- value: Auth0
-  tag: Auth0
+- value: Microsoft.AspNet.Identity.Owin
+- value: Microsoft.AspNet.Identity
+- value: Microsoft.IdentityModel.Tokens
+- value: System.IdentityModel.Tokens.Jwt
+- value: System.IdentityModel.Tokens
+- value: System.Net.Security
+- value: System.Security.Claims
+- value: System.Security.Cryptography.X509Certificates
+- value: System.Security.Cryptography
+- value: System.Web.Security
 profiles:
 - value: stack
