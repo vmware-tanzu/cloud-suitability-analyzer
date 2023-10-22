@@ -1,0 +1,24 @@
+name: dotnet-stack-testing
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: This is a stack component
+effort: 1
+readiness: 0
+category: database
+tags:
+- value: stack
+patterns:
+- value: NUnit
+  tag: NUnit
+- value: xUnit.net
+  tag: xUnit.net
+- value: MSTest
+  tag: MSTest
+- value: Moq
+  tag: Moq
+- value: SpecFlow
+  tag: SpecFlow
+profiles:
+- value: stack

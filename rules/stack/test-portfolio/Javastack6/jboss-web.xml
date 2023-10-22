@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  this is really not needed...
+  you can just build (or rename WAR file to) spring-boot-jboss.war
+-->
+<!DOCTYPE jboss-web>
+<jboss-web>
+  <context-root>/spring-boot-jboss</context-root>
+</jboss-web>

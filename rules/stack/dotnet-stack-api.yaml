@@ -1,0 +1,24 @@
+name: dotnet-stack-api
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: This is a stack component
+effort: 1
+readiness: 0
+category: database
+tags:
+- value: stack
+patterns:
+- value: Swashbuckle.AspNetCore
+  tag: OpenAPI
+- value: GraphQL
+  tag: GraphQL
+- value: RESTSharp
+  tag: RESTSharp
+- value: NancyFx
+  tag: NancyFx
+- value: OData
+  tag: OData
+profiles:
+- value: stack

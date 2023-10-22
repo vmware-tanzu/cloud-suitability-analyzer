@@ -3,7 +3,7 @@ filetype: (jsp$|java$)
 target: line
 type: regex
 defaultpattern: ^.%s
-advice: Indicate the database used
+advice: This is a stack component
 effort: 1
 readiness: 10
 category: database

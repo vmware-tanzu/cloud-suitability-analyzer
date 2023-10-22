@@ -4,7 +4,7 @@ target: line
 type: regex
 effort: 1
 defaultpattern: ^import\s*%s.*
-advice: Integrate with new alarmD service or migrate to Spring Boot scheduler
+advice: This is a stack component
 category: UI
 tags:
   - value: stack

@@ -1,0 +1,24 @@
+name: dotnet-micro-svc
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: This is a stack component
+effort: 1
+readiness: 0
+category: database
+tags:
+- value: stack
+patterns:
+- value: Microsoft.Extensions.Hosting
+  tag: Core Hosting
+- value: Docker.DotNet
+  tag: Docker
+- value: Steeltoe
+  tag: Steeltoe
+- value: Orleans
+  tag: Orleans
+- value: Dapr
+  tag: Dapr
+profiles:
+- value: stack

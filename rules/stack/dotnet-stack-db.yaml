@@ -1,0 +1,24 @@
+name: dotnet-stack-db
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: This is a stack component
+effort: 1
+readiness: 0
+category: database
+tags:
+- value: stack
+patterns:
+- value: System.Data.SqlClient
+  tag: ADO.NET (SQL Client)
+- value: Microsoft.EntityFrameworkCore
+  tag: Entity Framework Core
+- value: NHibernate
+  tag: NHibernate
+- value: Dapper
+  tag: Dapper
+- value: ServiceStack.OrmLite
+  tag: OrmLite
+profiles:
+- value: stack

@@ -3,12 +3,11 @@ filetype: xml$
 target: file
 type: simple-text
 category: app-server
-advice: Align with standard build system
+advice: This is a stack component
 effort: 1
 readiness: 0
 tags:
 - value: app-server
-
 patterns:
 - value: sun-web.xml
   tag: glassfish

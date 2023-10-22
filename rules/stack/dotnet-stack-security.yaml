@@ -1,0 +1,24 @@
+name: dotnet-stack-security
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: This is a stack component
+effort: 1
+readiness: 0
+category: database
+tags:
+- value: stack
+patterns:
+- value: ASP.NET Core Identity
+  tag: ASP.NET Core Identity
+- value: IdentityServer4
+  tag: IdentityServer4
+- value: Ocelot
+  tag: Ocelot
+- value: JsonWebToken
+  tag: JWT
+- value: Auth0
+  tag: Auth0
+profiles:
+- value: stack

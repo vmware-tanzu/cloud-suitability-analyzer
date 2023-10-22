@@ -1,0 +1,25 @@
+name: dotnet-ui
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: This is a stack component
+effort: 1
+readiness: 0
+category: database
+tags:
+- value: stack
+patterns:
+- value: Blazor
+  tag: Blazor
+- value: Xamarin
+  tag: Xamarin
+- value: Uno
+  tag: Uno
+- value: MAUI
+  tag: MAUI
+- value: Avalonia
+  tag: Avalonia
+
+profiles:
+- value: stack

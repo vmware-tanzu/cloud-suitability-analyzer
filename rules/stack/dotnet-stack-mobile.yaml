@@ -1,0 +1,24 @@
+name: dotnet-mobile
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: This is a stack component
+effort: 1
+readiness: 0
+category: database
+tags:
+- value: stack
+patterns:
+- value: Xamarin.Android
+  tag: Xamarin.Android
+- value: Xamarin.iOS
+  tag: Xamarin.iOS
+- value: MAUI
+  tag: .NET MAUI
+- value: Flutter
+  tag: Flutter
+- value: React
+  tag: React
+profiles:
+- value: stack

@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-10-21 16:47:58.795749 -0500 CDT m=+0.156809370
+//Created @ 2023-10-21 17:33:26.748175 -0500 CDT m=+0.150897790
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -6345,7 +6345,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "stack",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6363,15 +6363,13 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "net.spy.memcached", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Memcached", Recipe: "", },
              { Type: "", Pattern: "", Value: "org.redisson", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Redisson", Recipe: "", },
              { Type: "", Pattern: "", Value: "org.apache.commons.jcs", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JCS", Recipe: "", },
-             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "cloud-suitability", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "java-stack-etl", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "ETL", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "stack",}, { Value: "cloud-suitability",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6387,15 +6385,13 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "cascading.pipe", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Cascading", Recipe: "", },
              { Type: "", Pattern: "", Value: "com.linkedin.cdi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "LinkedIn Datafu", Recipe: "", },
              { Type: "", Pattern: "", Value: "org.embulk", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Embulk", Recipe: "", },
-             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "cloud-suitability", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-stack-imports", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "stack", Criticality: "",
+            { Name: "java-stack-imports", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "stack",}, { Value: "cloud-suitability",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6468,15 +6464,13 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "com.vaadin", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "vaadin", Recipe: "", },
              { Type: "", Pattern: "", Value: "org.springframework.web.socket", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "websocket", Recipe: "", },
              { Type: "", Pattern: "", Value: "org.apache.curator", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "zookeeper", Recipe: "", },
-             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "cloud-suitability", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "java-stack-jdbc", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.%s", Advice: "Indicate the database used", Effort: 1, Readiness: 10, Impact: "", Category: "database", Criticality: "",
             Tags:
             []Tag{  { Value: "database",}, },
             Profiles:
-            []Profile{  { Value: "stack",}, { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "stack",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6503,11 +6497,11 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "jdbc:postgresql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "postgresql", Recipe: "", },
              }, },
         
-            { Name: "java-stack-logging", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "Logging", Criticality: "",
+            { Name: "java-stack-logging", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "logging", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "stack",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6523,15 +6517,13 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "org.eclipse.jetty.util.log", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Jetty Logging", Recipe: "", },
              { Type: "", Pattern: "", Value: "org.tinylog.Logger", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "tinylog", Recipe: "", },
              { Type: "", Pattern: "", Value: "com.google.common.logging", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Google Guava Logging", Recipe: "", },
-             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "cloud-suitability", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "java-stack-micro-svc", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "microservice", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "stack",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6544,15 +6536,13 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "org.apache.camel", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Apache Camel", Recipe: "", },
              { Type: "", Pattern: "", Value: "io.quarkus", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Quarkus", Recipe: "", },
              { Type: "", Pattern: "", Value: "io.micronaut", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Micronaut", Recipe: "", },
-             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "cloud-suitability", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-stack-mobile", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "mobile", Criticality: "",
+            { Name: "java-stack-mobile", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "s-mobile", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "stack",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6563,15 +6553,13 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "xamarin", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Xamarin", Recipe: "", },
              { Type: "", Pattern: "", Value: "io.flutter", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Flutter", Recipe: "", },
              { Type: "", Pattern: "", Value: "com.google.android.gms", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Google Play", Recipe: "", },
-             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "cloud-suitability", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-stack-mq", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "MQ", Criticality: "",
+            { Name: "java-stack-mq", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "mq", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "stack",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6583,15 +6571,13 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "org.keycloak", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Keycloak", Recipe: "", },
              { Type: "", Pattern: "", Value: "com.auth0", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Auth0", Recipe: "", },
              { Type: "", Pattern: "", Value: "io.jsonwebtoken", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JWT", Recipe: "", },
-             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "cloud-suitability", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-stack-rest", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "REST", Criticality: "",
+            { Name: "java-stack-rest", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "s-rest", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "stack",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6607,15 +6593,13 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "com.sun.jersey.api.client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Jersey", Recipe: "", },
              { Type: "", Pattern: "", Value: "org.springframework.boot.autoconfigure.web.servlet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Spring Boot", Recipe: "", },
              { Type: "", Pattern: "", Value: "io.micronaut.http.client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Micronaut", Recipe: "", },
-             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "cloud-suitability", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "java-stack-security", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "security", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "stack",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6627,15 +6611,13 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "org.keycloak", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Keycloak", Recipe: "", },
              { Type: "", Pattern: "", Value: "com.auth0", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Auth0", Recipe: "", },
              { Type: "", Pattern: "", Value: "io.jsonwebtoken", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JWT", Recipe: "", },
-             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "cloud-suitability", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "java-stack-servlet", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "servlet", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "stack",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6651,15 +6633,13 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "io.undertow.servlet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Undertow Servlets", Recipe: "", },
              { Type: "", Pattern: "", Value: "org.mortbay.jetty.servlet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Jetty Servlets", Recipe: "", },
              { Type: "", Pattern: "", Value: "javax.faces.webapp", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JavaServer Faces", Recipe: "", },
-             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "cloud-suitability", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-stack-soap", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "SOAP", Criticality: "",
+            { Name: "java-stack-soap", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "soap", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "stack",}, { Value: "cloud-suitability",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6674,15 +6654,13 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "com.sun.xml.ws", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JAX-WS RI", Recipe: "", },
              { Type: "", Pattern: "", Value: "org.apache.axis2.jaxws", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Apache Axis2", Recipe: "", },
              { Type: "", Pattern: "", Value: "com.sun.xml.messaging.saaj", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "SAAJ RI", Recipe: "", },
-             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "cloud-suitability", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "java-stack-testing", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "testing", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "stack",}, { Value: "cloud-suitability",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6696,15 +6674,13 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "org.apache.jmeter", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JMeter", Recipe: "", },
              { Type: "", Pattern: "", Value: "io.restassured", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "RestAssured", Recipe: "", },
              { Type: "", Pattern: "", Value: "com.github.tomakehurst.wiremock", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "WireMock", Recipe: "", },
-             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "cloud-suitability", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "java-stack-ui", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Integrate with new alarmD service or migrate to Spring Boot scheduler", Effort: 1, Readiness: 0, Impact: "", Category: "UI", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "stack",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6720,7 +6696,6 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "org.primefaces", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "PrimeFaces", Recipe: "", },
              { Type: "", Pattern: "", Value: "org.thymeleaf", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Thymeleaf", Recipe: "", },
              { Type: "", Pattern: "", Value: "org.apache.struts", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Apache Struts", Recipe: "", },
-             { Type: "", Pattern: "", Value: "stack", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "tas-environment-cfenv-gradle", FileType: "gradle$", Target: "line", Type: "regex", DefaultPattern: "^.*%s", Advice: "Application appears to be using cf env library to inject environment variables provided by TAS.", Effort: 1, Readiness: 7, Impact: "", Category: "tas", Criticality: "",

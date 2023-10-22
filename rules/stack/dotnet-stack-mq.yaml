@@ -1,0 +1,24 @@
+name: dotnet-stack-mq
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: This is a stack component
+effort: 1
+readiness: 0
+category: database
+tags:
+- value: stack
+patterns:
+- value: RabbitMQ.Client
+  tag: RabbitMQ
+- value: Apache.NMS.ActiveMQ
+  tag: ActiveMQ
+- value: Confluent.Kafka
+  tag: Apache Kafka
+- value: Azure.Messaging.EventHubs
+  tag: Azure Event Hubs
+- value: NServiceBus
+  tag: NServiceBus
+profiles:
+- value: stack
