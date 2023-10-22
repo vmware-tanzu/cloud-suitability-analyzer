@@ -11,13 +11,10 @@ tags:
 - value: stack
 patterns:
 - value: Microsoft.AspNet.Identity.Owin
-- value: Microsoft.AspNet.Identity
 - value: Microsoft.IdentityModel.Tokens
-- value: System.IdentityModel.Tokens.Jwt
 - value: System.IdentityModel.Tokens
 - value: System.Net.Security
 - value: System.Security.Claims
-- value: System.Security.Cryptography.X509Certificates
 - value: System.Security.Cryptography
 - value: System.Web.Security
 profiles:

@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-10-22 10:29:39.92613 -0500 CDT m=+0.188714139
+//Created @ 2023-10-22 10:55:18.230911 -0500 CDT m=+0.140735417
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -6320,7 +6320,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "DTS", Advice: "SSIS is not supported on CloudFoundry. Consider leaving the packages in an external SQL Server deployment or rewrite them in a cloud native ETL Framework like Spring Cloud Data Flow.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-stack-api", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
+            { Name: "dotnet-stack-api", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "api", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6337,7 +6337,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "OData", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-stack-cache", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
+            { Name: "dotnet-stack-cache", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "cache", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6404,7 +6404,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "Npgsql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-cache", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
+            { Name: "dotnet-stack-logging", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "logging", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6421,7 +6421,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "log4net", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-micro-svc", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
+            { Name: "dotnet-micro-svc", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "micro-service", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6438,7 +6438,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "Dapr", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-mobile", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
+            { Name: "dotnet-mobile", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "mobile", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6455,7 +6455,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "React", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "React", Recipe: "", },
              }, },
         
-            { Name: "dotnet-stack-mq", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
+            { Name: "dotnet-stack-mq", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "mq", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6477,7 +6477,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "RabbitMQ.Client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-stack-security", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
+            { Name: "dotnet-stack-security", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "security", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6499,7 +6499,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "System.Web.Security", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-stack-testing", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
+            { Name: "dotnet-stack-testing", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "testing", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6520,7 +6520,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "xUnit", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-ui", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
+            { Name: "dotnet-ui", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "UI", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6552,7 +6552,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "app-server",}, },
             Profiles:
-            []Profile{  { Value: "stack",}, { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "stack",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6597,7 +6597,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  { Value: "stack",}, { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "stack",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6613,85 +6613,6 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "cascading.pipe", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Cascading", Recipe: "", },
              { Type: "", Pattern: "", Value: "com.linkedin.cdi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "LinkedIn Datafu", Recipe: "", },
              { Type: "", Pattern: "", Value: "org.embulk", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Embulk", Recipe: "", },
-             }, },
-        
-            { Name: "java-stack-imports", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "database", Criticality: "",
-            Tags:
-            []Tag{  { Value: "stack",}, },
-            Profiles:
-            []Profile{  { Value: "stack",}, { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "org.hsqldb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hsldb", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.angularjs", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "angularjs", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.jcs", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-jcs", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.pivot", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-pivot", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.wicket", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-wicket", Recipe: "", },
-             { Type: "", Pattern: "", Value: "java.awt", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "awt", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.springframework.batch", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-batch", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.github.benmanes.caffeine", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "caffeine-cache", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.camel", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "camel", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.datastax", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "cassandra", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.couchbase", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "couchbase", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.github.dockerjava", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "docker-client", Recipe: "", },
-             { Type: "", Pattern: "", Value: "net.sf.ehcache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ehcache", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.elasticsearch", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "elasticsearch", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.nifi.processor", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "etl-nifi", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.fasterxml.jackson", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "fasterxml", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.geotools.geometry.jts", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "geospatial", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.google.gwt", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "google-web-toolkit", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.google.common.cache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "guava-cache", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.h2", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "h2", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.hadoop", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hadoop", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.infinispan", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "infinispan", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.influxdb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "influxdb", Recipe: "", },
-             { Type: "", Pattern: "", Value: "javafx", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "javafx", Recipe: "", },
-             { Type: "", Pattern: "", Value: "javax.faces", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jsf", Recipe: "", },
-             { Type: "", Pattern: "", Value: "io.jsonwebtoken", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jwts", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.kafka", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "kafka", Recipe: "", },
-             { Type: "", Pattern: "", Value: "io.kubernetes", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "kubernetes", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.lucene", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "lucene", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.leaflet4j", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mapping", Recipe: "", },
-             { Type: "", Pattern: "", Value: "net.spy.memcached", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "memcached", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.mongodb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mongodb", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.springframework.data.mongodb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mongodb", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.springframework.data.mongodb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mongodb", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.eclipse.paho.client.mqttv3", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mqtt", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.mule", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mulesoft", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.neo4j", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "neo4j", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.netbeans", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "netbeans", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.okta.spring.boot.oauth.Okta", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "okta", Recipe: "", },
-             { Type: "", Pattern: "", Value: "net.opentsdb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "opentsdb", Recipe: "", },
-             { Type: "", Pattern: "", Value: "play.mvc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "play-framework", Recipe: "", },
-             { Type: "", Pattern: "", Value: "io.prometheus", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "prometheus", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.trolltech.qt", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "qt", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.quartz", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "quartz", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.rabbitmq", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "rabbitmq", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.github.gwtreact", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "react", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.redisson", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "redis", Recipe: "", },
-             { Type: "", Pattern: "", Value: "redis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "redis", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.springframework.web.bind.annotation.RestController", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "rest", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.springframework.web.client.RestTemplate", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "rest", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.amazonaws.services.s3.AmazonS3", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "s3", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.springframework.security.saml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "single-sign-on", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.slf4j", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "sld4j", Recipe: "", },
-             { Type: "", Pattern: "", Value: "javax.xml.soap", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "soap", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.springframework", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.springframework.security", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-security", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.opensymphony", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "struts-2", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.struts2", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "struts-2", Recipe: "", },
-             { Type: "", Pattern: "", Value: "javax.swing", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "swing", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.jdesktop", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "swing", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.eclipse.swt", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "swt", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.springframework.stereotype.Controller", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "thymeleaf", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.springframework.web.bind", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "thymeleaf", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.thymeleaf", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "thymeleaf", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.vaadin", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "vaadin", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.springframework.web.socket", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "websocket", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.curator", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "zookeeper", Recipe: "", },
              }, },
         
             { Name: "java-stack-jdbc", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.%s", Advice: "This is a stack component", Effort: 1, Readiness: 10, Impact: "", Category: "database", Criticality: "",
@@ -6766,7 +6687,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "io.micronaut", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Micronaut", Recipe: "", },
              }, },
         
-            { Name: "java-stack-mobile", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "s-mobile", Criticality: "",
+            { Name: "java-stack-mobile", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "mobile", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6801,7 +6722,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "io.jsonwebtoken", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JWT", Recipe: "", },
              }, },
         
-            { Name: "java-stack-rest", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "s-rest", Criticality: "",
+            { Name: "java-stack-rest", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "This is a stack component", Effort: 1, Readiness: 0, Impact: "", Category: "rest", Criticality: "",
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
@@ -6867,7 +6788,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  { Value: "stack",}, { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "stack",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6888,7 +6809,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  { Value: "stack",}, { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "stack",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6914,16 +6835,18 @@ func BootstrapRules() []Rule {
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "javax.swing", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Swing", Recipe: "", },
-             { Type: "", Pattern: "", Value: "javafx.scene", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JavaFX", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.eclipse.swt", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "SWT", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.vaadin", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Vaadin", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.springframework.boot.autoconfigure.web.servlet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Spring Boot", Recipe: "", },
-             { Type: "", Pattern: "", Value: "javax.faces", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "JSF", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.wicket", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Apache Wicket", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.primefaces", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "PrimeFaces", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.thymeleaf", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Thymeleaf", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.struts", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "Apache Struts", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "javax.swing", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "javafx.scene", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.eclipse.swt", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.vaadin", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.boot", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "javax.faces", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.wicket", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.primefaces", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.thymeleaf", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.struts", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.web", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "javax.servlet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "tas-environment-cfenv-gradle", FileType: "gradle$", Target: "line", Type: "regex", DefaultPattern: "^.*%s", Advice: "Application appears to be using cf env library to inject environment variables provided by TAS.", Effort: 1, Readiness: 7, Impact: "", Category: "tas", Criticality: "",

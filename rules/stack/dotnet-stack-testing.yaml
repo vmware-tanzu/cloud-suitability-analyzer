@@ -17,7 +17,6 @@ patterns:
 - value: SpecFlow
 - value: MSTest
 - value: Microsoft.VisualStudio.TestTools.UnitTesting
-- value: NUnit.Framework
 - value: xUnit
 profiles:
 - value: stack
