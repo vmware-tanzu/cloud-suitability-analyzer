@@ -22,4 +22,4 @@ patterns:
 - value: io.jsonwebtoken
   tag: JWT
 profiles:
-- value: stack
+- value: stack-1

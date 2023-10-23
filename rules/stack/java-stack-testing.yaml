@@ -26,4 +26,4 @@ patterns:
 - value: com.github.tomakehurst.wiremock
   tag: WireMock
 profiles:
-- value: stack-out
+- value: stack-1

@@ -30,4 +30,4 @@ patterns:
 - value: org.embulk
   tag: Embulk
 profiles:
-- value: stack
+- value: stack-1

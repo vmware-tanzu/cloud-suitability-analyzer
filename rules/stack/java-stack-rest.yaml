@@ -30,4 +30,4 @@ patterns:
 - value: io.micronaut.http.client
   tag: Micronaut
 profiles:
-- value: stack-out
+- value: stack-1

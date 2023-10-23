@@ -21,4 +21,4 @@ patterns:
 - value: React
   tag: React
 profiles:
-- value: stack-out
+- value: stack-1

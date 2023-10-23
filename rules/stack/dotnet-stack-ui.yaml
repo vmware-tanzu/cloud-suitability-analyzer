@@ -11,26 +11,18 @@ tags:
 - value: stack
 patterns:
 - value: Blazor
-  tag: Blazor
 - value: Xamarin
-  tag: Xamarin
 - value: Uno
-  tag: Uno
 - value: MAUI
-  tag: MAUI
 - value: Avalonia
-  tag: Avalonia
 - value: System.Windows.Forms
-  tag: Forms
-- value: Eto.Forms
-- value: Fluent.UI
+- value: Eto
+- value: Fluent
 - value: GtkSharp
 - value: MahApps.Metro
 - value: Qml.Net
 - value: System.Web.Mvc
-- value: System.Windows.Forms
-- value: Uno.Platform
 - value: Windows.UI
-- value: Xamarin.Forms
+- value: Xamarin
 profiles:
 - value: stack

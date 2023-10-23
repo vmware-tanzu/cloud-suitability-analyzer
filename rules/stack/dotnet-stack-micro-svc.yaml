@@ -16,4 +16,4 @@ patterns:
 - value: Orleans
 - value: Dapr
 profiles:
-- value: stack
+- value: stack-1

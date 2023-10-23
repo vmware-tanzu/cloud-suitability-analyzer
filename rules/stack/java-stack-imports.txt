@@ -144,4 +144,4 @@ patterns:
 - value: org.apache.curator
   tag: zookeeper
 profiles:
-- value: stack-out
+- value: stack-1

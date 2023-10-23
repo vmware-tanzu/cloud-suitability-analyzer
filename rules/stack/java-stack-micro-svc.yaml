@@ -24,4 +24,4 @@ patterns:
 - value: io.micronaut
   tag: Micronaut
 profiles:
-- value: stack
+- value: stack-1

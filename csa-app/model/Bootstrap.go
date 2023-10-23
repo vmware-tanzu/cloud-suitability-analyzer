@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-10-22 12:04:15.977606 -0500 CDT m=+0.173179448
+//Created @ 2023-10-23 06:41:55.675787 -0500 CDT m=+0.217889180
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -6324,7 +6324,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  { Value: "stack",}, },
+            []Profile{  { Value: "stack-1",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6341,7 +6341,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  { Value: "stack",}, },
+            []Profile{  { Value: "stack-1",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6399,7 +6399,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  { Value: "stack",}, },
+            []Profile{  { Value: "stack-1",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6416,7 +6416,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  { Value: "stack",}, },
+            []Profile{  { Value: "stack-1",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6433,7 +6433,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  { Value: "stack",}, },
+            []Profile{  { Value: "stack-1",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6472,7 +6472,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  { Value: "stack",}, },
+            []Profile{  { Value: "stack-1",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6560,7 +6560,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  { Value: "stack",}, },
+            []Profile{  { Value: "stack-1",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6584,7 +6584,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  { Value: "stack",}, },
+            []Profile{  { Value: "stack-1",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6637,7 +6637,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  { Value: "stack",}, },
+            []Profile{  { Value: "stack-1",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6659,7 +6659,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  { Value: "stack",}, },
+            []Profile{  { Value: "stack-1",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6678,7 +6678,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  { Value: "stack",}, },
+            []Profile{  { Value: "stack-out",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6713,7 +6713,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  { Value: "stack",}, },
+            []Profile{  { Value: "stack-1",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6735,7 +6735,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  { Value: "stack",}, },
+            []Profile{  { Value: "stack-1",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6775,7 +6775,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  { Value: "stack",}, },
+            []Profile{  { Value: "stack-1",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6796,7 +6796,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "stack",}, },
             Profiles:
-            []Profile{  { Value: "stack",}, },
+            []Profile{  { Value: "stack-1",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
