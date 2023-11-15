@@ -17,3 +17,5 @@ tags:
   - value: scheduled job
 patterns:
   - value: Scheduled
+profiles:
+  - value: Azure Spring Apps

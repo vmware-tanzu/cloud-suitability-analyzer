@@ -15,4 +15,5 @@ tags:
   - value: java version
 patterns:
   - value: 1\.[0-7]
-
+profiles:
+  - value: Azure Spring Apps

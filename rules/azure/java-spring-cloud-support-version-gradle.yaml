@@ -15,3 +15,5 @@ tags:
 defaultpattern: (?i)(springCloudVersion|org\.springframework\.cloud)(.*)(%s)
 patterns:
   - value: Hoxton|Greenwich|Finchley
+profiles:
+  - value: Azure Spring Apps

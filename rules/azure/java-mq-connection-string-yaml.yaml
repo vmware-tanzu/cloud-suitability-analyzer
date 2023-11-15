@@ -31,3 +31,5 @@ patterns:
  - value: $..rabbitmq[*]["username","password"]
  - value: $..artemis.broker-url
  - value: $..artemis["user","password"]
+profiles:
+  - value: Azure Spring Apps

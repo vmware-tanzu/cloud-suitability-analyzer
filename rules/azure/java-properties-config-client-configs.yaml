@@ -15,3 +15,5 @@ tags:
 patterns:
   - value: (^|\s)spring\.config\.import
   - value: (^|\s)spring\.cloud\.config\.uri
+profiles:
+  - value: Azure Spring Apps

@@ -29,4 +29,5 @@ patterns:
   - value: appender.file.type # properties 
     tag: log4j2
 profiles:
-- value: cloud-suitability
+  - value: cloud-suitability
+  - value: Azure Spring Apps

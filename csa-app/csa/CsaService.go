@@ -202,7 +202,7 @@ func (csaService *CsaService) SerialAnalysis(run *model.Run) {
 		msg = "errors!"
 	}
 	if !*util.Xtract {
-		run.StopActivityLF("analysis", fmt.Sprintf("A9nalyzing...%s", msg), false, true)
+		run.StopActivityLF("analysis", fmt.Sprintf("Analyzing...%s", msg), false, true)
 	} else {
 		run.StopActivityLF("analysis", "", false, false)
 	}

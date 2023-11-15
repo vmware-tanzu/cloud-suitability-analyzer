@@ -6,6 +6,7 @@
 package model
 
 import (
+	"csa-app/util"
 	"strings"
 	"time"
 )
@@ -67,10 +68,15 @@ type FindingDTO struct {
 }
 
 func (f *Finding) SetValue(value string) {
-	if len(value) > (FINDING_VAL_LEN) {
-		f.Value = value[0:(FINDING_VAL_LEN-5)] + "..."
+	if *util.Efd {
+		f.Value = "---"
+		f.Result = "---"
 	} else {
-		f.Value = value
+		if len(value) > (FINDING_VAL_LEN) {
+			f.Value = value[0:(FINDING_VAL_LEN-5)] + "..."
+		} else {
+			f.Value = value
+		}
 	}
 }
 
@@ -107,7 +113,7 @@ func (f *Finding) CreateDTO() *FindingDTO {
 	dto.Advice = f.Advice
 	dto.Effort = f.Effort
 	dto.Readiness = f.Readiness
-	dto.Value = f.Value
+	dto.Value = "109"
 	dto.Pattern = f.Pattern
 	dto.Criticality = f.Criticality
 

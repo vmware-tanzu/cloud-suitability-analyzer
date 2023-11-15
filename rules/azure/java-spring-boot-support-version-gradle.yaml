@@ -16,6 +16,8 @@ patterns:
   - value: org\.springframework\.boot(.*)([\r\n]*)version( *[:=]? *)['"]?(2\.[0-3])
   - value: (?i)(springBootVersion)(.*)(2\.[0-3])
   - value: org\.springframework\.boot['"]?( *[:=]? *)['"]?(2\.[0-3])
+profiles:
+  - value: Azure Spring Apps
 
-# id("org.springframework.boot") version "2.1.6"
-# id 'org.springframework.boot' version '2.1.6'
+# e.g., id("org.springframework.boot") version "2.1.6"
+# e.g., id 'org.springframework.boot' version '2.1.6'

@@ -19,4 +19,5 @@ patterns:
 #- System.loadLibrary
 #- System.load
 profiles:
-- value: cloud-suitability
+  - value: cloud-suitability
+  - value: Azure Spring Apps

@@ -16,4 +16,5 @@ tags:
 patterns:
   - value: "file"
 profiles:
-- value: cloud-suitability
+  - value: cloud-suitability
+  - value: Azure Spring Apps

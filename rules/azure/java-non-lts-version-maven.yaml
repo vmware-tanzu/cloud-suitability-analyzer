@@ -22,3 +22,5 @@ patterns:
   - value: 15
   - value: 16
   - value: 19
+profiles:
+  - value: Azure Spring Apps

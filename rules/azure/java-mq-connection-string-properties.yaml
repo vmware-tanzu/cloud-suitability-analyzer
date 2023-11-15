@@ -28,3 +28,5 @@ patterns:
  - value: spring\.cloud\.azure\.(eventhub|eventhubs|servicebus)\.(.*\.)?credential\.(client-id|client-secret)
  - value: spring\.jms\.servicebus\.(connection-string|password|username)
  - value: spring\.cloud\.stream\.rocketmq\.binder.(name-server|access-key|secret-key)
+profiles:
+  - value: Azure Spring Apps

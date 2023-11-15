@@ -14,3 +14,5 @@ tags:
   - value: port
 patterns:
  - value: (^|\s)server\.port
+profiles:
+  - value: Azure Spring Apps

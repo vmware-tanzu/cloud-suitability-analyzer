@@ -18,3 +18,5 @@ patterns:
   - value: //*[contains(groupId, "newrelic") or contains(artifactId, "newrelic")]
   - value: //*[contains(groupId, "elastic.apm")]
   - value: //*[contains(groupId, "dynatrace.oneagent")]
+profiles:
+  - value: Azure Spring Apps

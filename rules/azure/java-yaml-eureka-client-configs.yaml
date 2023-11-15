@@ -14,3 +14,5 @@ tags:
   - value: eureka
 patterns:
   - value: $.eureka.client["service-url","serviceUrl"]
+profiles:
+  - value: Azure Spring Apps

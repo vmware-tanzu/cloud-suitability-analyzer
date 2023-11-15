@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-10-19 13:34:05.729495 -0500 CDT m=+0.159514704
+//Created @ 2023-11-15 10:33:04.133178 -0600 CST m=+0.185387204
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -144,7 +144,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "relational database service",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -163,7 +163,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "relational database service",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -185,7 +185,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "apm",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -201,7 +201,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "message queue",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -227,7 +227,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "message queue",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -257,7 +257,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "java version",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -277,7 +277,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "java version",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -297,7 +297,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "config server",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -311,7 +311,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "eureka",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -324,7 +324,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "logging",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -337,7 +337,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "redis",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -355,7 +355,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "redis",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -375,7 +375,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "scheduled job",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -388,7 +388,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "scheduled job",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -406,7 +406,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring boot",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -421,7 +421,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring boot",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -436,7 +436,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring boot",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -454,7 +454,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring boot",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -469,7 +469,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring boot",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -485,7 +485,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring boot",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -500,7 +500,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring boot",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -513,7 +513,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring cloud",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -526,7 +526,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring cloud",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -542,7 +542,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring cloud",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -555,7 +555,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring cloud",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -573,7 +573,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring cloud",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -586,7 +586,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "spring cloud",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -602,7 +602,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "java version",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -615,7 +615,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "java version",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -635,7 +635,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "logging",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -648,7 +648,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "config server",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -662,7 +662,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "eureka",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -675,7 +675,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "log4j2",}, { Value: "logging",}, { Value: "log2file",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -691,7 +691,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "logging",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -704,7 +704,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "azure",}, { Value: "zipkin",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -717,7 +717,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "port",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -730,7 +730,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "os",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -743,7 +743,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "os",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -756,7 +756,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "port",}, },
             Profiles:
-            []Profile{  },
+            []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -2338,7 +2338,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "io",}, { Value: "file storage",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -2386,7 +2386,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "io",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -2434,7 +2434,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "hard-ip",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -2482,7 +2482,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "java-fx",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -2579,7 +2579,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "security",}, { Value: "jks",}, { Value: "mutual-auth",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -2874,7 +2874,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "logging",}, { Value: "log2file",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -2893,7 +2893,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "logging",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -3058,7 +3058,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "nio",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -3111,7 +3111,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "non-standard-protocol",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -3377,7 +3377,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "slf4j",}, { Value: "logging",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -3542,7 +3542,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "desktop-app",}, { Value: "ui",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -3615,7 +3615,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "config",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -3631,7 +3631,7 @@ func BootstrapRules() []Rule {
             Tags:
             []Tag{  { Value: "jni",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "Azure Spring Apps",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -6018,6 +6018,171 @@ func BootstrapRules() []Rule {
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "sqlite", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "SqliteDatabase", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "ruby-file-io", RuleType: "", Level: "", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "File i/o in environments that are emphemeral is a bad practice", Effort: 2, Readiness: 0, Impact: "", Category: "file-io", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "file-io",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "IO", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "ruby-gemfile", RuleType: "", Level: "", FileType: "$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Ruby on Rails", Effort: 5, Readiness: 1000, Impact: "", Category: "docker", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "ruby-gemfile",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "Gemfile", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "ruby-hardIP", RuleType: "", Level: "", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "%s", Advice: "Hardcoded IP addresses are problematic in cloud/container env", Effort: 2, Readiness: 8, Impact: "", Category: "hard-ip", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "hard-ip",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "ruby-kernel", RuleType: "", Level: "", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Kernel operations my indicate actions that are not cloud/container friendly", Effort: 2, Readiness: 0, Impact: "", Category: "kernel", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "kernel",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "Kernel\\.open\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "ruby-ldap", RuleType: "", Level: "", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Use of ldap in a cloud/container env is not a best practice", Effort: 1, Readiness: 0, Impact: "", Category: "windows-reg", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "windows-reg",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "LDAP", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "ruby-log2file", RuleType: "", Level: "", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Logging to a file", Effort: 2, Readiness: 0, Impact: "", Category: "servlet", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "log2file",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "Logger.new\\(''", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "ruby-requires", RuleType: "", Level: "", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\brequire\\s+[''\"]%s[''\"].*$", Advice: "Consult 3rd party documentation", Effort: 300, Readiness: 10, Impact: "", Category: "third-party", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "third-party",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "listen", Advice: "This gem is used for file system monitoring and can cause issues when used in a container environment. It can lead to high CPU usage and memory leaks.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "file system monitoring", Recipe: "", },
+             { Type: "", Pattern: "", Value: "rb-inotify", Advice: "This gem is similar to `listen` and can also cause issues in a container environment. It can lead to high CPU usage and memory leaks.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "system monitoring", Recipe: "", },
+             { Type: "", Pattern: "", Value: "rb-fsevent", Advice: "This gem is used for file system monitoring on macOS and can cause issues when used in a container environment. It can lead to high CPU usage and memory leaks.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "macOS file monitoring", Recipe: "", },
+             { Type: "", Pattern: "", Value: "rb-kqueue", Advice: "This gem is used for file system monitoring on BSD-based systems and can cause issues when used in a container environment. It can lead to high CPU usage and memory leaks.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "BSD file monitoring", Recipe: "", },
+             { Type: "", Pattern: "", Value: "rb-fchange", Advice: "This gem is used for file system monitoring and can cause issues when used in a container environment. It can lead to high CPU usage and memory leaks.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "file system monitoring", Recipe: "", },
+             { Type: "", Pattern: "", Value: "docker-sync", Advice: "docker-sync usage indicates this application has been preppred to run in a container", Effort: -200, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "docker-compose", Advice: "docker-compose usage indicates this application has been preppred to run in a container", Effort: -200, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "sinatra", Advice: "Sinatra applications require special consideration migrating to the cloud/container", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "sinatra", Recipe: "", },
+             { Type: "", Pattern: "", Value: "socket", Advice: "Socket traffic may pose a problem in some containership/cloud settings", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "socket", Recipe: "", },
+             { Type: "", Pattern: "", Value: "gtk3", Advice: "Desktop applications cannot run in containers/clouds", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "desktop-app", Recipe: "", },
+             { Type: "", Pattern: "", Value: "sinatra/activerecord", Advice: "While ActiveRecord is a powerful ORM, its tight coupling to SQL databases and reliance on a centralized connection pool can make it difficult to horizontally scale in cloud environments.", Effort: 1, Readiness: 0, Criticality: "", Category: "", Tag: "ORM", Recipe: "", },
+             { Type: "", Pattern: "", Value: "activerecord", Advice: "While ActiveRecord is a powerful ORM, its tight coupling to SQL databases and reliance on a centralized connection pool can make it difficult to horizontally scale in cloud environments.", Effort: 1, Readiness: 0, Criticality: "", Category: "", Tag: "ORM", Recipe: "", },
+             { Type: "", Pattern: "", Value: "rmagick", Advice: "While RMagick is a powerful image processing library, its dependence on ImageMagick can make it difficult to install and configure in certain cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "image-processing", Recipe: "", },
+             { Type: "", Pattern: "", Value: "nokogiri", Advice: "While Nokogiri is a popular XML parsing library, its reliance on libxml2 can make it difficult to install and configure in certain cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "xml-parsing", Recipe: "", },
+             { Type: "", Pattern: "", Value: "unicorn", Advice: "While Unicorn is a popular web server, its master-worker architecture can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "web-server", Recipe: "", },
+             { Type: "", Pattern: "", Value: "puma", Advice: "While Puma is another popular web server, its multi-process architecture can make it difficult to vertically scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "web-server", Recipe: "", },
+             { Type: "", Pattern: "", Value: "resque", Advice: "While Resque is a popular background job processor, its reliance on Redis can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "job-processor", Recipe: "", },
+             { Type: "", Pattern: "", Value: "sidekiq", Advice: "While Sidekiq is another popular background job processor, its reliance on Redis can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "job-processor", Recipe: "", },
+             { Type: "", Pattern: "", Value: "delayedjob", Advice: "While DelayedJob is a popular background job processor, its reliance on a centralized queue can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "job-processor", Recipe: "", },
+             { Type: "", Pattern: "", Value: "activestorage", Advice: "While ActiveStorage is a convenient feature for handling files in Rails applications, its reliance on a centralized storage solution can make it difficult to horizontally scale in cloud environments.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "rails", Recipe: "", },
+             { Type: "", Pattern: "", Value: "win32ole", Advice: "This gem provides an interface to the Windows OLE (Object Linking and Embedding) system, which allows Ruby programs to interact with Windows applications and controls.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "windows", Recipe: "", },
+             { Type: "", Pattern: "", Value: "win32api", Advice: "This gem provides an interface to the Windows API (Application Programming Interface), which allows Ruby programs to interact with Windows system functions and services.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "windows", Recipe: "", },
+             { Type: "", Pattern: "", Value: "win32gui", Advice: "This gem provides an interface to the Windows GUI (Graphical User Interface), which allows Ruby programs to create and manipulate Windows GUI elements such as windows, buttons, and menus.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "windows", Recipe: "", },
+             { Type: "", Pattern: "", Value: "win32process", Advice: "This gem provides an interface to the Windows process management system, which allows Ruby programs to create, manage, and communicate with Windows processes.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "windows", Recipe: "", },
+             { Type: "", Pattern: "", Value: "win32service", Advice: "This gem provides an interface to the Windows service management system, which allows Ruby programs to create, manage, and communicate with Windows services.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "windows", Recipe: "", },
+             { Type: "", Pattern: "", Value: "osx_app", Advice: "This gem provides an interface to the OSX application programming interface (API), which allows Ruby programs to interact with OSX applications and services.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "osx", Recipe: "", },
+             { Type: "", Pattern: "", Value: "osx_core_foundation", Advice: "This gem provides an interface to the OSX Core Foundation framework, which allows Ruby programs to interact with OSX system services and frameworks.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "osx", Recipe: "", },
+             { Type: "", Pattern: "", Value: "osx_foundation", Advice: "This gem provides an interface to the OSX Foundation framework, which allows Ruby programs to interact with OSX system services and frameworks.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "osx", Recipe: "", },
+             { Type: "", Pattern: "", Value: "osx_gui", Advice: "This gem provides an interface to the OSX GUI (Graphical User Interface), which allows Ruby programs to create and manipulate OSX GUI elements such as windows, buttons, and menus.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "osx", Recipe: "", },
+             { Type: "", Pattern: "", Value: "osx_process", Advice: "This gem provides an interface to the OSX process management system, which allows Ruby programs to create, manage, and communicate with OSX processes.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "osx", Recipe: "", },
+             { Type: "", Pattern: "", Value: "osx_service", Advice: "This gem provides an interface to the OSX service management system, which allows Ruby programs to create, manage, and communicate with OSX services.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "osx", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ruby-linux", Advice: "This gem provides a set of classes and methods for interacting with the Linux operating system, including file system manipulation, process management, and network communication.", Effort: 1, Readiness: 0, Criticality: "", Category: "", Tag: "linux", Recipe: "", },
+             { Type: "", Pattern: "", Value: "linux-sys", Advice: "This gem provides a set of classes and methods for interacting with the Linux kernel, including system calls, device drivers, and kernel modules", Effort: 1, Readiness: 0, Criticality: "", Category: "", Tag: "linux", Recipe: "", },
+             { Type: "", Pattern: "", Value: "linux-users", Advice: "This gem provides a set of classes and methods for managing Linux users and groups, including user authentication, password management, and group membership.", Effort: 1, Readiness: 0, Criticality: "", Category: "", Tag: "linux", Recipe: "", },
+             { Type: "", Pattern: "", Value: "linux-network", Advice: "This gem provides a set of classes and methods for managing Linux network interfaces, including IP addresses, routing tables, and network protocols.", Effort: 1, Readiness: 0, Criticality: "", Category: "", Tag: "linux", Recipe: "", },
+             { Type: "", Pattern: "", Value: "linux-storage", Advice: "This gem provides a set of classes and methods for managing Linux storage devices, including disk partitions, file systems, and storage drivers.", Effort: 1, Readiness: 0, Criticality: "", Category: "", Tag: "linux", Recipe: "", },
+             }, },
+        
+            { Name: "ruby-routing", RuleType: "", Level: "", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Ruby on rails application", Effort: 1, Readiness: 0, Impact: "", Category: "ruby-on-rails", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "ruby-on-rails",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "ActionController", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "ruby-rpc", RuleType: "", Level: "", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "^%s", Advice: "Remote procedure calls can be problematic in cloud/container envs.", Effort: 5, Readiness: 0, Impact: "", Category: "rpc", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "rpc",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "rpc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "ruby-windows-reg", RuleType: "", Level: "", FileType: "rb$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Windows Registry is not available in cloud/container envs", Effort: 2, Readiness: 0, Impact: "", Category: "windows-reg", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "windows-reg",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "Registry", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "sqlserver-ssis", RuleType: "fire-once", Level: "", FileType: "(dtsx$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "SSIS is not supported on CloudFoundry.", Effort: 100, Readiness: 0, Impact: "", Category: "Unsupported modules", Criticality: "",Container: 0, Cloud: 0,

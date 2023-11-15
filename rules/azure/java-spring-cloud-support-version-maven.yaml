@@ -19,4 +19,5 @@ patterns:
   - value: //*[matches(name(), "spring-?cloud.version") and matches(text(),"(?i)^Hoxton")]
   - value: //*[matches(name(), "spring-?cloud.version") and matches(text(),"(?i)^Greenwich")]
   - value: //*[matches(name(), "spring-?cloud.version") and matches(text(),"(?i)^Finchley")]
-
+profiles:
+  - value: Azure Spring Apps

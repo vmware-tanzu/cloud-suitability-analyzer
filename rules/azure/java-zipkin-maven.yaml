@@ -15,3 +15,5 @@ tags:
   - value: zipkin
 patterns:
   - value: //*[contains(groupId, "zipkin") or contains(artifactId, "zipkin")]
+profiles:
+  - value: Azure Spring Apps

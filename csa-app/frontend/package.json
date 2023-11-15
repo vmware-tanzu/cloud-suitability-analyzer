@@ -1,6 +1,6 @@
 {
   "name": "cloudreadinessanalyzer",
-  "version": "2.1.0",
+  "version": "4.0.0",
   "scripts": {
     "ng": "ng",
     "dev-start-frontend-backend": "concurrently \"pushd .. && go generate && popd && go run rules-admin.go --database-dir=./data\" \"ng serve --proxy-config proxy-conf.json\"",

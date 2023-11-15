@@ -14,3 +14,5 @@ tags:
   - value: os
 patterns:
   - value: ("|'|`|\s|^)(?:[a-zA-Z]\:|\\\\[\w\s\.]+\\[\w\s\.$]+)([\\\/][^\n\t]+)+
+profiles:
+  - value: Azure Spring Apps
