@@ -1,4 +1,5 @@
 name: dotnet-transactions
+ruletype: fire-once
 filetype: (cs$|vb$)
 target: line
 type: regex

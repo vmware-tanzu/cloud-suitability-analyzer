@@ -1,4 +1,8 @@
 name: xml-webprofile
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: xml$
 target: file
 category: config

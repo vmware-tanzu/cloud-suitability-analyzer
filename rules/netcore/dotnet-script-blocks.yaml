@@ -1,4 +1,8 @@
 name: dotnet-script-blocks
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: (xsl)
 target: line
 type: regex

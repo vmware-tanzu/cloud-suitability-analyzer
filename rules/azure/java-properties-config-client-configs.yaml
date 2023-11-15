@@ -1,8 +1,12 @@
 name: java-properties-config-client-configs
+ruletype: standard
+criticality: medium
+level: Info
+cloud: 100
+container: 100
 filetype: properties$
 target: line
 type: regex
-criticality: Info
 advice: The application is using spring config server and setting the connection string
 category: config server
 effort: 0

@@ -8,6 +8,7 @@ package csa
 import (
 	"fmt"
 	"os"
+	"strings"
 	"sync"
 
 	"csa-app/db"
@@ -94,6 +95,41 @@ func (csaService *CsaService) PerformAnalysis(run *model.Run) {
 				csaService.waitForSavingAndIndexingToComplete(run, saveWorkerCnt, indexWorkerCnt)
 				csaService.generateSloc(run)
 				csaService.scoreApps(run)
+
+				//---- Detect no rules applied ----
+
+				for i := 0; i < len(run.Applications); i++ {
+					languageCounts := make(map[string]int)
+					languages := []string{"java", "php", "python", "dotnet"}
+					for j := 0; j < len(run.Applications[i].Rules); j++ {
+						for _, lang := range languages {
+							if strings.Contains(run.Applications[i].Rules[j].Name, lang) {
+								languageCounts[lang]++
+							}
+						}
+						maxCount := 0
+						maxLanguage := ""
+						for lang, count := range languageCounts {
+							if count > maxCount {
+								maxCount = count
+								maxLanguage = lang
+							}
+						}
+						run.Applications[i].PrimaryLangCount = maxCount
+						run.Applications[i].PrimaryLanguage = maxLanguage
+
+						// --- flag applications with 5 or fewer primary language findings and a score of 9 or higher
+						if run.Applications[i].PrimaryLangCount <= 5 && run.Applications[i].Score >= 9 {
+							// --- the scoring model is reapplied in the UI, so we need this raw score to yield a zero
+							//     in the formula: 10 - log10(rawScore)
+							run.Applications[i].Score = 0
+							run.Applications[i].RawScore = 10000000000
+						}
+					}
+				}
+
+				//---- End language specific metrics to correct perfect scores----
+
 				csaService.generateReports(run)
 			}
 		}

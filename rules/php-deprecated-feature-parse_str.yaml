@@ -1,4 +1,8 @@
 name: php-deprecated-feature-parse_str
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: php$
 target: line
 type: regex

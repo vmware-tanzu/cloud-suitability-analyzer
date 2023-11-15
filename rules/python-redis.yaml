@@ -1,10 +1,14 @@
 name: python-redis
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: py$
 target: line
 type: regex
 defaultpattern: (import)\s+(%s)
 advice: Redis is being used
-effort: 0
+effort: 1
 readiness: 10
 category: services
 tags:

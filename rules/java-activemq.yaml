@@ -1,6 +1,10 @@
 ---
 #--- updated from 8/8/18 Survey
 name: java-activemq
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: java$
 target: line
 type: regex

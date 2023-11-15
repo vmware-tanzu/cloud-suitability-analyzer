@@ -16,33 +16,38 @@ import (
 )
 
 type Rule struct {
-	ID              uint           `gorm:"primary_key" json:"-" yaml:"-"`
-	CreatedAt       time.Time      `json:"-" yaml:"-"`
-	UpdatedAt       time.Time      `json:"-" yaml:"-"`
-	Name            string         `gorm:"type:text;unique_index;not null"`
-	FileType        string         `gorm:"type:text" json:",omitempty" yaml:",omitempty"` //Extension if empty or * then rule applies to all files. Else, rule only applies to files with this extension (sans '.')
-	FileNamePattern string         `gorm:"type:text" json:",omitempty" yaml:",omitempty"`
-	Target          string         `gorm:"type:text"`                                     //File, Line
-	Type            string         `gorm:"type:text"`                                     //Regex, SimpleText, StartsWith, Contains, EndsWith, SimpleTextCaseInsensitive
-	DefaultPattern  string         `gorm:"type:text" json:",omitempty" yaml:",omitempty"` //Pattern with a placeholder that follows standard GO fmt.Sprintf rules. I.E. "[ .]%s[ (]" uses %s for string Pattern Value substitution before compilation!
-	Advice          string         `gorm:"type:text" json:",omitempty" yaml:",omitempty"`
-	Effort          int            `gorm:"type:bigint; column:effort" json:",omitempty" yaml:",omitempty"`
-	Impact          string         `gorm:"type:text" json:",omitempty" yaml:",omitempty"`
-	Readiness       int            `gorm:"type:bigint; column:readiness" json:",omitempty" yaml:",omitempty"`
-	Category        string         `json:",omitempty" yaml:",omitempty"`
-	Criticality     string         `json:",omitempty" yaml:",omitempty"`
-	Tags            []Tag          `json:",omitempty" yaml:",omitempty"`
-	Recipes         []Recipe       `gorm:"foreignkey:RuleID" json:",omitempty" yaml:",omitempty"`
-	Patterns        []Pattern      `gorm:"foreignkey:RuleID"`
-	Excludepatterns []ExcludePattern      `gorm:"foreignkey:RuleID" json:",omitempty" yaml:",omitempty"`
-	fileNameRegex   *regexp.Regexp `gorm:"-" json:"-" yaml:"-"`
-	regex           *regexp.Regexp `gorm:"-" json:"-" yaml:"-"`
-	Metric          *RuleMetric    `gorm:"-" json:"-" yaml:"-"`
-	overrideApplies bool           `gorm:"-" json:"-" yaml:"-"`
-	Negative        bool           `gorm:"type:integer"`
+	ID              uint             `gorm:"primary_key" json:"-" yaml:"-"`
+	CreatedAt       time.Time        `json:"-" yaml:"-"`
+	UpdatedAt       time.Time        `json:"-" yaml:"-"`
+	Name            string           `gorm:"type:text;unique_index;not null"`
+	RuleType        string           `gorm:"type:text" json:",omitempty" yaml:",omitempty"`
+	Level           string           `gorm:"type:text" json:",omitempty" yaml:",omitempty"`
+	FileType        string           `gorm:"type:text" json:",omitempty" yaml:",omitempty"` //Extension if empty or * then rule applies to all files. Else, rule only applies to files with this extension (sans '.')
+	HasFired        bool             `gorm:"type:integer" json:",omitempty" yaml:",omitempty"`
+	FileNamePattern string           `gorm:"type:text" json:",omitempty" yaml:",omitempty"`
+	Target          string           `gorm:"type:text"`                                     //File, Line
+	Type            string           `gorm:"type:text"`                                     //Regex, SimpleText, StartsWith, Contains, EndsWith, SimpleTextCaseInsensitive
+	DefaultPattern  string           `gorm:"type:text" json:",omitempty" yaml:",omitempty"` //Pattern with a placeholder that follows standard GO fmt.Sprintf rules. I.E. "[ .]%s[ (]" uses %s for string Pattern Value substitution before compilation!
+	Advice          string           `gorm:"type:text" json:",omitempty" yaml:",omitempty"`
+	Effort          int              `gorm:"type:bigint; column:effort" json:",omitempty" yaml:",omitempty"`
+	Impact          string           `gorm:"type:text" json:",omitempty" yaml:",omitempty"`
+	Readiness       int              `gorm:"type:bigint; column:readiness" json:",omitempty" yaml:",omitempty"`
+	Cloud           int              `gorm:"type:bigint; column:cloud" json:",omitempty" yaml:",omitempty"`
+	Container       int              `gorm:"type:bigint; column:container" json:",omitempty" yaml:",omitempty"`
+	Category        string           `json:",omitempty" yaml:",omitempty"`
+	Criticality     string           `json:",omitempty" yaml:",omitempty"`
+	Tags            []Tag            `json:",omitempty" yaml:",omitempty"`
+	Recipes         []Recipe         `gorm:"foreignkey:RuleID" json:",omitempty" yaml:",omitempty"`
+	Patterns        []Pattern        `gorm:"foreignkey:RuleID"`
+	Excludepatterns []ExcludePattern `gorm:"foreignkey:RuleID" json:",omitempty" yaml:",omitempty"`
+	fileNameRegex   *regexp.Regexp   `gorm:"-" json:"-" yaml:"-"`
+	regex           *regexp.Regexp   `gorm:"-" json:"-" yaml:"-"`
+	Metric          *RuleMetric      `gorm:"-" json:"-" yaml:"-"`
+	overrideApplies bool             `gorm:"-" json:"-" yaml:"-"`
+	Negative        bool             `gorm:"type:integer"`
 	sync.Mutex      `gorm:"-" json:"-" yaml:"-"`
-	Profiles        []Profile      `json:",omitempty" yaml:",omitempty"`
-	
+	Profiles        []Profile `json:",omitempty" yaml:",omitempty"`
+
 	//Extra Metadata for rule curation purposes
 	Metadata_sno         string `gorm:"type:text"`
 	Metadata_category    string `gorm:"type:text"`

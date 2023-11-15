@@ -1,8 +1,12 @@
 name: java-mq-connection-string-user-password-properties
+ruletype: standard
+criticality: medium
+level: Info
+cloud: 100
+container: 100
 filetype: properties$
 target: line
 type: regex
-criticality: Info
 advice: Message queue connection string, username or password are detected
 category: message queue
 tags: 

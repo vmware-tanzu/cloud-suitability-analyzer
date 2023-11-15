@@ -1,4 +1,8 @@
 name: dotnet-iis_module-Authentication
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: config$
 target: file
 type: xpath

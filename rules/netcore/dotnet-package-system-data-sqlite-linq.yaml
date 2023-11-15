@@ -1,4 +1,8 @@
 name: dotnet-package-system-data-sqlite-linq
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: (config$)
 target: line
 type: regex

@@ -1,6 +1,10 @@
 #SW
 #todo to remove
 name: bootJSF
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: xml$
 target: line
 type: regex

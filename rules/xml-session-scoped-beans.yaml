@@ -1,4 +1,8 @@
 name: xml-session-scoped-beans
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: xml$
 target: line
 type: regex

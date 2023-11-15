@@ -1,4 +1,5 @@
 name: SNAP-build-Ant-Maven
+ruletype: fire-once
 filetype: xml$
 target: file
 type: simple-text

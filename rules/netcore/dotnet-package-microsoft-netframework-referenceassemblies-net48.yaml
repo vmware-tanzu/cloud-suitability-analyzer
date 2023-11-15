@@ -1,4 +1,8 @@
 name: dotnet-package-microsoft-netframework-referenceassemblies-net48
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: (config$)
 target: line
 type: regex

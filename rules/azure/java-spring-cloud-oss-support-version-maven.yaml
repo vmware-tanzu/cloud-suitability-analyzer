@@ -1,8 +1,12 @@
 name: java-spring-cloud-oss-support-version-maven
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: xml$
 target: contents
 type: xpath
-criticality: Warn
+level: Warn
 advice: Spring cloud version is out of open source support support. If you don't have commercial support, please update to newer version
 effort: 4
 category: version

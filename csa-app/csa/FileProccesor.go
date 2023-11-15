@@ -12,6 +12,7 @@ import (
 	"fmt"
 	"io"
 	"io/ioutil"
+	"math"
 	"os"
 	"os/exec"
 	"regexp"
@@ -35,7 +36,8 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-func (csaService *CsaService) processFile(run *model.Run, app *model.Application, file *util.FileInfo, rules []model.Rule, hasContentRules bool, output chan<- interface{}) (findingCnt int, err error) {
+func (csaService *CsaService) processFile(run *model.Run, app *model.Application, file *util.FileInfo, rules []model.Rule, hasContentRules bool, output chan<- interface{}) (r []model.Rule, findingCnt int, err error) {
+
 
 	if len(rules) > 0 {
 
@@ -56,7 +58,7 @@ func (csaService *CsaService) processFile(run *model.Run, app *model.Application
 				_, _ = fmt.Fprintf(os.Stderr, "Failed opening file [%s]. Details: %s\n", file.FQN, err.Error())
 				fmt.Printf("************** WARNING - INCONSISTENT RESULTS CAN OCCUR BECAUSE OF THIS ERROR **************\n")
 			}
-			return findingCnt, err
+			return r, findingCnt, err
 		}
 
 		defer closeFile(inFile)
@@ -89,12 +91,12 @@ func (csaService *CsaService) processFile(run *model.Run, app *model.Application
 			if process && len(strings.TrimSpace(curLine)) > 0 {
 				sloc++
 				for i := range rules {
-
 					if rules[i].Target == model.LINE_TARGET {
-						findingCnt += csaService.processPatterns(run, app, file, line, curLine, rules[i], output)
-
+						findings := 0
+						findings, rules[i] = csaService.processPatterns(run, app, file, line, curLine, rules[i], output)
+						findingCnt += findings
 						if *util.Verbose {
-							util.WriteLog("A10nalyzing", "### Rule: %s Hit: %d times on File: %s Line: %d ###\n", rules[i].Name, findingCnt, file.Name, line)
+							util.WriteLog("Analyzing", "### Rule: %s Hit: %d times on File: %s Line: %d ###\n", rules[i].Name, findingCnt, file.Name, line)
 						}
 					}
 				}
@@ -105,9 +107,11 @@ func (csaService *CsaService) processFile(run *model.Run, app *model.Application
 		if hasContentRules {
 			for i := range rules {
 				if rules[i].Target == model.CONTENTS_TARGET {
-					findingCnt += csaService.processPatterns(run, app, file, 0, contents, rules[i], output)
+					findings := 0
+					findings, rules[i] = csaService.processPatterns(run, app, file, 0, contents, rules[i], output)
+					findingCnt += findings
 					if *util.Verbose {
-						util.WriteLog("A11nalyzing", "### Rule: %s Hit: %d times on File: %s  ###\n", rules[i].Name, findingCnt, file.Name)
+						util.WriteLog("Analyzing", "### Rule: %s Hit: %d times on File: %s  ###\n", rules[i].Name, findingCnt, file.Name)
 					}
 				}
 			}
@@ -115,17 +119,19 @@ func (csaService *CsaService) processFile(run *model.Run, app *model.Application
 
 		//Create an info finding for each file with SLOC info!
 		fileFinding := model.Finding{
-			RunID:       run.ID,
-			Filename:    file.Name,
-			Fqn:         file.FQN,
-			Ext:         file.Ext,
-			Category:    model.SLOC_CATEGORY,
-			Pattern:     model.FILE_SLOC_PATTERN,
-			Value:       fmt.Sprintf("%d", sloc),
-			Effort:      0,
-			Readiness:   0,
-			Criticality: "none",
-			Application: file.Dir}
+			RunID:             run.ID,
+			Filename:          file.Name,
+			Fqn:               file.FQN,
+			Ext:               file.Ext,
+			Category:          model.SLOC_CATEGORY,
+			Pattern:           model.FILE_SLOC_PATTERN,
+			Value:             fmt.Sprintf("%d", sloc),
+			Effort:            0,
+			Readiness:         0,
+			Criticality:       "none",
+			CloudNativeEffort: 0,
+			ContainerEffort:   0,
+			Application:       file.Dir}
 
 		fileFinding.AddTag(model.INFO_FINDING)
 		fileFinding.AddTag(model.SLOC_CATEGORY)
@@ -136,12 +142,12 @@ func (csaService *CsaService) processFile(run *model.Run, app *model.Application
 		run.AddFindings(1)
 	}
 
-	return findingCnt, nil
+	return rules, findingCnt, nil
 }
 
-func (csaService *CsaService) handleRuleMatched(run *model.Run, app *model.Application, file *util.FileInfo, line int, target string, rule model.Rule, pattern model.Pattern, output chan<- interface{}, result string, finding *model.Finding) {
+func (csaService *CsaService) handleRuleMatched(run *model.Run, app *model.Application, file *util.FileInfo, line int, target string, rule model.Rule, pattern model.Pattern, output chan<- interface{}, result string, finding *model.Finding) model.Rule {
 	matchHasImpact := true
-
+	rule.HasFired = true
 	//Track Rule matches for rules that have the associated impact type. Otherwise that is a waste of time!
 	if rule.Impact == model.APP_IMPACT {
 		app.Lock()
@@ -167,7 +173,27 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run, app *model.Appli
 		readiness = pattern.Readiness
 	}
 
+	cloud_native_effort := 0
+	container_effort := 0
+
+	if rule.Cloud != 0 && rule.Container != 0 {
+		//--- transform the effort based upon fractional weight of cloud and container
+
+		native_factor := float64(rule.Cloud) / 100.0
+		container_factor := float64(rule.Container) / 100.0
+		cloud_native_effort = int(math.Round(float64(rule.Effort) * native_factor))
+		container_effort = int(math.Round(float64(rule.Effort) * container_factor))
+		if app.Model.Name == "native-model" {
+			effort = cloud_native_effort
+		} else if app.Model.Name == "con-model" {
+			effort = container_effort
+		} else {
+			effort = rule.Effort
+		}
+	}
+
 	criticality := rule.Criticality
+
 	if pattern.Criticality != "" {
 		criticality = pattern.Criticality
 	}
@@ -185,20 +211,22 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run, app *model.Appli
 	}
 
 	data := model.Finding{
-		RunID:       run.ID,
-		Filename:    file.Name,
-		Fqn:         file.FQN,
-		Ext:         file.Ext,
-		Line:        line,
-		Rule:        rule.Name,
-		Pattern:     pattern.Value,
-		Category:    category,
-		Effort:      effort,
-		Note:        note,
-		Result:      result,
-		Readiness:   readiness,
-		Criticality: criticality,
-		Application: file.Dir}
+		RunID:             run.ID,
+		Filename:          file.Name,
+		Fqn:               file.FQN,
+		Ext:               file.Ext,
+		Line:              line,
+		Rule:              rule.Name,
+		Pattern:           pattern.Value,
+		Category:          category,
+		Effort:            effort,
+		Note:              note,
+		Result:            result,
+		Readiness:         readiness,
+		Criticality:       criticality,
+		CloudNativeEffort: cloud_native_effort,
+		ContainerEffort:   container_effort,
+		Application:       file.Dir}
 
 	if finding != nil {
 		Value := ""
@@ -247,6 +275,7 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run, app *model.Appli
 
 	//Send finding to save worker
 	output <- data
+	return rule
 }
 
 func (csaService *CsaService) RunPlugin(run *model.Run, app *model.Application, file *util.FileInfo, line int, target string, rule model.Rule, pattern model.Pattern, output chan<- interface{}) {
@@ -262,7 +291,7 @@ func (csaService *CsaService) RunPlugin(run *model.Run, app *model.Application, 
 				var finding model.Finding
 
 				for ; err != io.EOF; err = decoder.Decode(&finding) {
-					csaService.handleRuleMatched(run, app, file, line, target, rule, pattern, output, "", &finding)
+					rule = csaService.handleRuleMatched(run, app, file, line, target, rule, pattern, output, "", &finding)
 				}
 
 				scanner := bufio.NewScanner(stderr)
@@ -289,7 +318,7 @@ func (csaService *CsaService) RunPlugin(run *model.Run, app *model.Application, 
 	}
 }
 
-func (csaService *CsaService) processPatterns(run *model.Run, app *model.Application, file *util.FileInfo, line int, target string, rule model.Rule, output chan<- interface{}) int {
+func (csaService *CsaService) processPatterns(run *model.Run, app *model.Application, file *util.FileInfo, line int, target string, rule model.Rule, output chan<- interface{}) (int int, ruleReturn model.Rule) {
 	if *util.Verbose {
 		fmt.Printf("Rule [%s|%s] checking against Value [%s]\n", rule.Name, rule.FileType, target)
 	}
@@ -354,7 +383,9 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 
 			// if value, ok := path.String(root); ok
 			ok, result := matchFunc()
-			if ok && !rule.Negative {
+			// --- Added logic to fire some rules only once per application
+			if ok && !rule.Negative && !(rule.RuleType == "fire-once" && rule.HasFired) {
+
 				if len(result) > 0 {
 					target = regexp.MustCompile(`\r?\n`).ReplaceAllString(result, " ")
 				}
@@ -362,7 +393,8 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 				exclude := csaService.shouldFindingBeExcluded(target, rule)
 
 				if exclude == false {
-					csaService.handleRuleMatched(run, app, file, line, target, rule, rule.Patterns[i], output, result, nil)
+
+					rule = csaService.handleRuleMatched(run, app, file, line, target, rule, rule.Patterns[i], output, result, nil)
 					findings++
 					cnt++
 				}
@@ -371,7 +403,7 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 				// Lets check if the result is valid
 				exclude := csaService.shouldFindingBeExcluded(target, rule)
 				if exclude == false {
-					csaService.handleRuleMatched(run, app, file, 0, target, rule, rule.Patterns[i], output, "", nil)
+					rule = csaService.handleRuleMatched(run, app, file, 0, target, rule, rule.Patterns[i], output, "", nil)
 					findings++
 					cnt++
 				}
@@ -387,7 +419,7 @@ func (csaService *CsaService) processPatterns(run *model.Run, app *model.Applica
 	run.AddFindings(findings)
 	rule.Metric.Accumulate(pcnt, cnt, time.Since(start))
 
-	return findings
+	return findings, rule
 }
 
 func (csaService *CsaService) generateSloc(run *model.Run) {

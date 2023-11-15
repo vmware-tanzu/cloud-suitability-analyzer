@@ -1,5 +1,9 @@
 #SW - this is where we need xpath
 name: SNAP-SQL
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: java$
 target: line
 type: regex

@@ -1,5 +1,9 @@
 
 name: dotnet-asp-classic-2-0
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: (asp$)
 target: line
 type: regex

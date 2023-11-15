@@ -100,7 +100,9 @@ func (csaService *CsaService) analyzeFile(run *model.Run, app *model.Application
 				wasAnalyzed = true
 			} else {
 				//Check for name hit!
-				findings += csaService.processPatterns(run, app, file, 0, filepath.Base(file.Name), app.Rules[i], output)
+				findingCnt := 0
+				findingCnt, app.Rules[i] = csaService.processPatterns(run, app, file, 0, filepath.Base(file.Name), app.Rules[i], output)
+				findings += findingCnt
 				fileNameAnalyzed = true
 			}
 
@@ -111,7 +113,7 @@ func (csaService *CsaService) analyzeFile(run *model.Run, app *model.Application
 		}
 	}
 
-	fileFindings, err := csaService.processFile(run, app, file, rulesForFile, hasContentRules, output)
+	_, fileFindings, err := csaService.processFile(run, app, file, rulesForFile, hasContentRules, output)
 
 	if err != nil {
 		return err

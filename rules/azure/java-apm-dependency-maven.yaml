@@ -1,9 +1,13 @@
 name: java-apm-dependency-maven
+ruletype: standard
+criticality: medium
+level: Info
+cloud: 100
+container: 100
 filetype: xml$
 filenamepattern: ^pom.xml$
 target: file
 type: xpath
-criticality: Info
 advice: The application has integrated an Application Performance Management (APM) tool as a dependency
 category: apm
 tags: 

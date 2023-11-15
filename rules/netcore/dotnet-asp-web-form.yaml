@@ -1,5 +1,9 @@
 
 name: dotnet-asp-web-form
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: (aspx$)
 target: line
 type: regex

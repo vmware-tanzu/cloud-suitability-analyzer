@@ -1,4 +1,8 @@
 name: dotnet-logging-config
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: config$
 target: file
 type: xpath

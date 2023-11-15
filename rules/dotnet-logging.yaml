@@ -1,5 +1,9 @@
 name: dotnet-logging
-filetype: cs$|vb$
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (cs$|vb$)
 target: line
 type: regex
 defaultpattern: .*%s.*

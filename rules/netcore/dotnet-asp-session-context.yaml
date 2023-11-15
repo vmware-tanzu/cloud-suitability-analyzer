@@ -1,4 +1,8 @@
 name: dotnet-asp-session-context
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: (cs$|vb$)
 target: line
 type: regex

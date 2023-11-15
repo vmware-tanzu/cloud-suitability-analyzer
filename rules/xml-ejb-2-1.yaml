@@ -1,5 +1,9 @@
 #-- SW
 name: xml-ejb-2-1
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: xml$
 target: line
 type: regex

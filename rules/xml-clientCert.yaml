@@ -1,4 +1,8 @@
 name: xml-clientCert
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: xml$
 target: line
 type: regex

@@ -1,4 +1,5 @@
 name: sqlserver-ssis
+ruletype: fire-once
 filetype: (dtsx$)
 target: line
 type: regex

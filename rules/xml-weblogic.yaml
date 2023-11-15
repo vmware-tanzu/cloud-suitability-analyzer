@@ -1,4 +1,8 @@
 name: xml-weblogic
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: xml$
 target: file
 type: simple-text

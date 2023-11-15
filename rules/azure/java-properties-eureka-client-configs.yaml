@@ -1,8 +1,12 @@
 name: java-properties-eureka-client-configs
+ruletype: standard
+criticality: medium
+level: Info
+cloud: 100
+container: 100
 filetype: properties$
 target: line
 type: regex
-criticality: Info
 advice: The application is using eureka and setting the connection string
 category: eureka
 effort: 0

@@ -1,4 +1,8 @@
 name: java-logging-import
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: (jsp$|java$)
 target: line
 type: regex

@@ -1,4 +1,8 @@
 name: java-logging-file-appender
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: xml$|properties$
 target: line
 type: regex

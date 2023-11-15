@@ -1,4 +1,8 @@
 name: php-disabled-enable-dl
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: ini$
 target: line
 type: regex

@@ -1,4 +1,8 @@
 name: docker-non-root-user
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: $
 target: line
 type: regex

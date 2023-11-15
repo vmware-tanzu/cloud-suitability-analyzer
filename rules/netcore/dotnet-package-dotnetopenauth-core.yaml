@@ -1,4 +1,8 @@
 name: dotnet-package-dotnetopenauth-core
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: (config$)
 target: line
 type: regex

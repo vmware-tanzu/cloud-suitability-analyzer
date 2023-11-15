@@ -1,4 +1,5 @@
 name: config-sessionState
+ruletype: fire-once
 filetype: config$
 target: file
 type: xpath

@@ -1,4 +1,8 @@
 name: java-system-config
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: $
 target: line
 type: regex

@@ -1,9 +1,13 @@
 name: java-springframework
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: java$
 target: line
 type: contains
 advice: Presence of spring framework may indicate the app should target TAS
-effort: 0
+effort: -100
 readiness: 0
 category: springFramework
 tags:

@@ -1,4 +1,8 @@
 name: js-stdout
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: js$
 target: line
 type: regex

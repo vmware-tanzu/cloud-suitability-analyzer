@@ -1,10 +1,14 @@
 name: java-metrics
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: (jsp$|java$)
 target: line
 type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Indicates use of a metrics collection library, which supports containerization
-effort: -1
+effort: -10
 readiness: 7
 category: metrics
 tags:

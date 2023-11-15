@@ -1,4 +1,5 @@
 name: dotnet-windows-application-domain
+ruletype: fire-once
 filetype: (cs$|vb$)
 target: line
 type: regex
