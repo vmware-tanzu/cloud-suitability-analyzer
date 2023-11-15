@@ -3,6 +3,7 @@
 
 | Date         | Action                       | Author   |
 | ------------ | ---------------------------- | -------- |
+| Nov 15, 2023 | Update with new feature released in 4.1.10 | S. Woods
 | Jul 26, 2023 | Update with new features released in 4.0    | S. Carbonell
 | Feb 10, 2021 | Add call graphs to user manual with package descriptions| S. Woods
 | Jul 30, 2020 | Amended rule import instructions | S. Woods |
@@ -443,7 +444,8 @@ What is a Rule? A rule is in simplest terms a description of something that you 
 | Attribute      | Type                     | Description                                                                                                                                                                                                    | Required (y/n) | Default                                               | Overridable (y/n) |
 | -------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------------------------------------------------- | ----------------- |
 | Name           | string                   | The name of the rule. Can be meaningful or not but must be unique! And must match the name of the yaml file.                                                                                                   | Y              |                                                       | N                 |
-| FileType       | string                   | The file extension the rule will target. I.E. `java` for `.java` files! Value should not include the dot (period). This can also be a regular expression. I.E. `xm[li]` would match both `xml` and `xmi` files | N              | Rule will apply to all files if no value is specified | N                 |
+| FileType       | string                   | The file extension the rule will target. I.E. `java` for `.java` files! Value should not include the dot (period). This can also be a regular expression. I.E. `xm[li]` would match both `xml` and `xmi` files | N              | Rule will apply to all files if no value is specified | N      
+| Container/Cloud           | int | Factor to apply to effort score. This allows efforts to be scaled up or down. This is a percentage. 100, the default has no effect. 150 will raise the effort by 50%, 50 will lower the score by half.
 | Target         | enum                     | This is the target of the rule. Valid values: File,Line. File = rule will apply to filenames only. Line = rule will be applied against every line of content within the file.                                  | Y              |                                                       | N                 |
 | Type           | enum                     | This specifies the type or behavior of the rule. Valid values: regex, simple-text, simple-text-ci, starts-with, starts-with-ci, ends-with, ends-with-ci, contains, contains-ci                                 | Y              |                                                       | Y                 |
 | DefaultPattern | string                   | Pattern with a placeholder (%s) for substitution of "Pattern" values. I.E. "[ .]%s[ (]". This does not only apply to Regex rules but can also be used for others like a StartsWith such as 'org.json.%s'       | N              |                                                       | Y (pattern)       |
