@@ -38,7 +38,6 @@ import (
 
 func (csaService *CsaService) processFile(run *model.Run, app *model.Application, file *util.FileInfo, rules []model.Rule, hasContentRules bool, output chan<- interface{}) (r []model.Rule, findingCnt int, err error) {
 
-
 	if len(rules) > 0 {
 
 		//Get File Lang
@@ -229,18 +228,12 @@ func (csaService *CsaService) handleRuleMatched(run *model.Run, app *model.Appli
 		Application:       file.Dir}
 
 	if finding != nil {
-		Value := ""
-		if *util.Efd {
-			Value = "---"
-		} else {
-			Value = finding.Value
-		}
 		data.Filename = finding.Filename
 		data.Fqn = finding.Fqn
 		data.Ext = finding.Ext
 		data.Advice = finding.Advice
 		data.Line = finding.Line
-		data.Value = Value
+		data.Value = finding.Value
 	} else {
 		data.SetValue(target)
 	}

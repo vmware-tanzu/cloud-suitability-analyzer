@@ -68,12 +68,13 @@ type FindingDTO struct {
 }
 
 func (f *Finding) SetValue(value string) {
-	if *util.Efd {
-		f.Value = "---"
-		f.Result = "---"
+
+	if len(value) > (FINDING_VAL_LEN) {
+		f.Value = value[0:(FINDING_VAL_LEN-5)] + "..."
 	} else {
-		if len(value) > (FINDING_VAL_LEN) {
-			f.Value = value[0:(FINDING_VAL_LEN-5)] + "..."
+		if *util.Efd {
+			f.Value = "---"
+			f.Result = "---"
 		} else {
 			f.Value = value
 		}

@@ -6,7 +6,6 @@
 package services
 
 import (
-	"csa-app/util"
 	"fmt"
 	"sort"
 	"strings"
@@ -116,19 +115,13 @@ func (repo *RepoService) GetRunAPIDetails(runId uint) ([]model.ApiUsageDetail, e
 				AdjLevel = csa.GetLevelForScore(finding.Effort)
 			}
 
-			Value := ""
-			if *util.Efd {
-				Value = "---"
-			} else {
-				Value = finding.Value
-			}
 			apiDetails = append(apiDetails, model.ApiUsageDetail{
 				Application: finding.Application,
 				Api:         finding.Category,
 				Filename:    finding.Filename,
 				Pattern:     finding.Pattern,
 				Line:        finding.Line,
-				Value:       Value,
+				Value:       finding.Value,
 				Effort:      finding.Effort,
 				Advice:      finding.Advice,
 				Level:       AdjLevel})
@@ -281,13 +274,7 @@ func (repo *RepoService) GetAnnotations(runId uint) ([]model.LevelDetail, error)
 	findings, err := repo.repositoryMgr.Findings.GetFindingsByRule(runId, "java-annotations")
 
 	for _, finding := range findings {
-		Value := ""
-		if *util.Efd {
-			Value = "---"
-		} else {
-			Value = finding.Value
-		}
-		annotations = append(annotations, model.NewLevelDetail(finding.Application, finding.Category, finding.Filename, finding.Line, Value,
+		annotations = append(annotations, model.NewLevelDetail(finding.Application, finding.Category, finding.Filename, finding.Line, finding.Value,
 			finding.Pattern, finding.Effort, csa.GetLevelForScore(finding.Effort), finding.Advice))
 	}
 
@@ -301,13 +288,7 @@ func (repo *RepoService) GetThirdParty(runId uint) ([]model.LevelDetail, error) 
 	findings, err := repo.repositoryMgr.Findings.GetFindingsByRule(runId, "java-3rdPartyImports")
 
 	for _, finding := range findings {
-		Value := ""
-		if *util.Efd {
-			Value = "---"
-		} else {
-			Value = finding.Value
-		}
-		thirdParty = append(thirdParty, model.NewLevelDetail(finding.Application, finding.Category, finding.Filename, finding.Line, Value,
+		thirdParty = append(thirdParty, model.NewLevelDetail(finding.Application, finding.Category, finding.Filename, finding.Line, finding.Value,
 			finding.Pattern, finding.Effort, csa.GetLevelForScore(finding.Effort), finding.Advice))
 	}
 

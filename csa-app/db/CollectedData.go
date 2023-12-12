@@ -7,7 +7,6 @@ package db
 
 import (
 	"csa-app/model"
-	"csa-app/util"
 	"github.com/jinzhu/gorm"
 )
 
@@ -79,13 +78,7 @@ func UniqueFinding(findings []model.Finding) []string {
 	for _, entry := range findings {
 		if _, value := keys[entry.Value]; !value {
 			keys[entry.Value] = true
-			Value := ""
-			if *util.Efd {
-				Value = "---"
-			} else {
-				Value = entry.Value
-			}
-			list = append(list, Value)
+			list = append(list, entry.Value)
 		}
 	}
 	return list
