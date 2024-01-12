@@ -19,7 +19,7 @@ compilePackageFrontEnd() {
     echo "~~~> Running npm ci"
     export NODE_OPTIONS="--max_old_space_size=4096"
 
-    npm update && npm fund
+    npm update && npm fund && npm audit --fix
     npm ci -s --no-optional --force --legacy-peer-deps
 
     if [ $? -eq 0 ]
