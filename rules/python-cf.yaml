@@ -1,4 +1,8 @@
 name: python-cf
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: py$
 target: line
 type: regex

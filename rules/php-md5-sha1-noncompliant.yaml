@@ -1,4 +1,8 @@
 name: php-md5-sha1-noncompliant
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: php$
 target: line
 type: regex

@@ -1,4 +1,5 @@
 name: dotnet-windows-components
+ruletype: fire-once
 filetype: (cs$|vb$)
 target: line
 type: regex

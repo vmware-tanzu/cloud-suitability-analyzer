@@ -1,8 +1,12 @@
 name: java-spring-cloud-version-gradle
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: gradle$|kts$
 target: line
 type: regex
-criticality: Critical
+level: Critical
 advice: Spring cloud version is too low
 effort: 50
 category: version
@@ -11,6 +15,8 @@ tags:
 defaultpattern: (?i)(springCloudVersion|org\.springframework\.cloud)(.*)(%s)
 patterns:
   - value: Edgware|Dalston
+profiles:
+  - value: Azure Spring Apps
 
 # e.g.
 # extra["springCloudVersion"] = "2021.0.5"

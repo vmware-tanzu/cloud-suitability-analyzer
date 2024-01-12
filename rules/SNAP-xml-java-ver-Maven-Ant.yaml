@@ -1,5 +1,6 @@
 #SW - this is where we need xpath
 name: SNAP-java-ver-Maven-Ant
+ruletype: fire-once
 filetype: xml$
 target: line
 type: regex

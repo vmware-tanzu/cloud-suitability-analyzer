@@ -1,5 +1,6 @@
 #SW
 name: xml-weblogic-1-6
+ruletype: fire-once
 filetype: xml$
 target: line
 type: regex

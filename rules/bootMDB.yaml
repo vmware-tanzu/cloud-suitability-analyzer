@@ -1,6 +1,10 @@
 #SW
 #todo search for mdb imports or annotations
 name: bootMDB
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: xml$
 target: line
 type: regex

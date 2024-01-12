@@ -1,5 +1,9 @@
 # todo how do we know that this imports imply that cache is distributed?
 name: java-cache-dist-import
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: (jsp$|java$)
 target: line
 type: regex

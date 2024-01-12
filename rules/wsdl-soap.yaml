@@ -1,4 +1,8 @@
 name: wsdl-soap
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: wsdl$
 target: file
 effort: 4

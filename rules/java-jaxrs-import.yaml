@@ -1,10 +1,14 @@
 name: java-jaxrs-import
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: (jsp$|java$)
 target: line
 type: regex
 defaultpattern: ^.*import(\s*|=")%s.*$
 advice: Refer to platform documentation
-effort: 0
+effort: 1
 readiness: 8
 category: jax-rs
 tags:

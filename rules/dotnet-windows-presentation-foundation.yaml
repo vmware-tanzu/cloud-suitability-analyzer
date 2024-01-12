@@ -1,4 +1,5 @@
 name: dotnet-windows-presentation-foundation
+ruletype: fire-once
 # ignore development config files
 filetype: xaml
 target: line

@@ -2,6 +2,10 @@
 #--- updated from 8/8/18 Survey
 # todo should we change to look for javax.naming or javax.jndi package
 name: java-batch
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: java$
 target: line
 type: regex

@@ -1,4 +1,8 @@
 name: SNAP-build-Gradle
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: gradle$
 target: file
 type: simple-text

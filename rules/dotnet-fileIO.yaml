@@ -1,5 +1,9 @@
 #qc1
 name: dotnet-fileIO
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: (cs$|vb$)
 target: line
 type: regex

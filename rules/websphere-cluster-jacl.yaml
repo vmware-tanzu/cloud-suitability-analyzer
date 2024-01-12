@@ -1,4 +1,8 @@
 name: websphere-cluster-jacl
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: jacl$
 target: line
 type: regex

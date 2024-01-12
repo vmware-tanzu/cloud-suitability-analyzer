@@ -1,9 +1,13 @@
 name: java-spring-boot-starter
+ruletype: standard
+criticality: medium
+level: Info
+cloud: 100
+container: 100
 filetype: gradle$|kts$|xml$
 filenamepattern: (^build.gradle|^pom.xml$)
 target: contents
 type: regex
-criticality: Info
 advice: The application has spring boot/spring cloud starter dependencies
 effort: 0
 category: spring boot
@@ -16,3 +20,5 @@ patterns:
   - value: spring-cloud-starter-gateway
   - value: spring-cloud-config-server
   - value: spring-cloud-starter-netflix-eureka-server
+profiles:
+  - value: Azure Spring Apps

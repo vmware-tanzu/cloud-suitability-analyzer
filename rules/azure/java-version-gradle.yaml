@@ -1,8 +1,12 @@
 name: java-version-gradle
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: gradle$|kts$
 target: line
 type: regex
-criticality: Critical
+level: Critical
 advice: JDK version is found to be lower than JAVA_8
 effort: 50
 category: version
@@ -11,4 +15,5 @@ tags:
   - value: java version
 patterns:
   - value: 1\.[0-7]
-
+profiles:
+  - value: Azure Spring Apps

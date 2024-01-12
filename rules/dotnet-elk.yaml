@@ -1,4 +1,8 @@
 name: dotnet-serilog-elasticsearch
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: (cs|yaml|yml|json)
 target: line
 type: regex

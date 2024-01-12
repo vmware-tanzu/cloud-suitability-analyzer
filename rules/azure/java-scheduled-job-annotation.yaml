@@ -1,8 +1,12 @@
 name: java-scheduled-job-annotation
+ruletype: standard
+criticality: medium
+level: Warn
+cloud: 100
+container: 100
 filetype: java$
 target: line
 type: regex
-criticality: Warn
 defaultpattern: ^\s*@%s
 advice: The application has scheduled jobs such as Quartz Scheduler tasks or cron jobs. 
         Please be aware that after migrating to the cloud and scaling out,
@@ -13,3 +17,5 @@ tags:
   - value: scheduled job
 patterns:
   - value: Scheduled
+profiles:
+  - value: Azure Spring Apps

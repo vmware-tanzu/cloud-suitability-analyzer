@@ -2,6 +2,10 @@
 #todo do we need to expand patterns to search for other application server deps
 #todo change the contains to regex
 name: bootJAXWS
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: xml$
 target: line
 type: regex

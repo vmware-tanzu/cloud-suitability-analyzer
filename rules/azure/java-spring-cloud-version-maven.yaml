@@ -1,8 +1,12 @@
 name: java-spring-cloud-version-maven
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: xml$
 target: contents
 type: xpath
-criticality: Critical
+level: Critical
 advice: Spring cloud version is too low
 effort: 50
 category: version
@@ -13,4 +17,5 @@ patterns:
   - value: //*[groupId="org.springframework.cloud" and matches(version,"(?i)^Dalston")]/version
   - value: //*[matches(name(), "spring-?cloud.version") and matches(text(),"(?i)^Edgware")]
   - value: //*[matches(name(), "spring-?cloud.version") and matches(text(),"(?i)^Dalston")]
-
+profiles:
+  - value: Azure Spring Apps

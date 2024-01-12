@@ -1,4 +1,8 @@
 name: java-jks
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: jks$
 target: file
 effort: 7
@@ -14,4 +18,5 @@ tags:
 patterns:
 - value: .*\.jks
 profiles:
-- value: cloud-suitability
+  - value: cloud-suitability
+  - value: Azure Spring Apps

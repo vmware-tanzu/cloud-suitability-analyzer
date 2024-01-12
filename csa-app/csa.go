@@ -251,6 +251,10 @@ func procsAndThreads() {
 		mt = *util.MaxThreads
 	}
 
+	if *util.Efd {
+		fmt.Println("Finding details will be removed")
+	}
+
 	if *util.Verbose {
 		fmt.Println("		 GO RUNTIME		")
 		fmt.Println("-----------------------")

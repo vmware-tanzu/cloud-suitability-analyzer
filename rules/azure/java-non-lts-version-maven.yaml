@@ -1,8 +1,12 @@
 name: java-non-lts-version-maven
+ruletype: standard
+criticality: medium
+level: Warn
+cloud: 100
+container: 100
 filetype: xml$
 target: contents
 type: xpath
-criticality: Warn
 advice: The application is using non-LTS version Java. JDK on LTS version is recommended, i.e., JAVA_8, JAVA_11 or JAVA_17.
 effort: 6
 category: java
@@ -18,3 +22,5 @@ patterns:
   - value: 15
   - value: 16
   - value: 19
+profiles:
+  - value: Azure Spring Apps

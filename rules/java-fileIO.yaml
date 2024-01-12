@@ -1,6 +1,10 @@
 ---
 #--- updated from 8/8/18 Survey
 name: java-fileIO
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: java$
 target: line
 type: regex
@@ -50,4 +54,5 @@ patterns:
   - value: LineNumberReader
   - value: RandomAccessFile
 profiles:
-- value: cloud-suitability
+  - value: cloud-suitability
+  - value: Azure Spring Apps

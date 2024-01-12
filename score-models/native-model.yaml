@@ -1,0 +1,303 @@
+# This model is based upon the value of criticality in the rules.
+# The value of critical is designed to represent the relative importance of the rule.
+# It is in the format 50:50, where the first value scales the effort for twelve-factor migration
+# The second value scales the effort for containerization. The values are in the range 0-100. 
+# The default value is 50:50 which will have not effect on the effort.
+# The value will be divided by 50 and multiplied by the effort to arrive at a final score.
+# Score = 10 - Log10(Sum(Effort * (Criticality / 50)), where Sum is the total of all adjusted efforts.
+name: native-model
+max-score: 10
+ranges:
+  - type: sloc
+    start: "0"
+    end: "1000"
+    ranges:
+      - type: raw
+        start: int.min
+        end: "10"
+        ranges:
+          - type: bv
+            start: flt.min
+            end: flt.max
+            outcome:
+              calculate: true
+              expression: max_score - log(10,raw_cloud_score)
+              recommendation: Refactor to Tanzu Application Service
+      - type: raw
+        start: "11"
+        end: "100"
+        ranges:
+          - type: bv
+            start: flt.min
+            end: flt.max
+            outcome:
+              calculate: true
+              expression: max_score - log(10,raw_cloud_score)
+              recommendation: Refactor to Tanzu Application Service
+      - type: raw
+        start: "101"
+        end: "1000"
+        ranges:
+          - type: bv
+            start: flt.min
+            end: flt.max
+            outcome:
+              calculate: true
+              expression: max_score - log(10,raw_cloud_score)
+              recommendation: Refactor to Tanzu Application Service
+      - type: raw
+        start: "1001"
+        end: int.max
+        ranges:
+          - type: bv
+            start: flt.min
+            end: flt.max
+            outcome:
+              calculate: true
+              expression: max_score - log(10,raw_cloud_score)
+              recommendation: Modernization
+  - type: sloc
+    start: "1001"
+    end: "2500"
+    ranges:
+      - type: raw
+        start: int.min
+        end: "10"
+        ranges:
+          - type: bv
+            start: flt.min
+            end: flt.max
+            outcome:
+              calculate: true
+              expression: max_score - log(10,raw_cloud_score)
+              recommendation: Refactor to Tanzu Application Service
+      - type: raw
+        start: "11"
+        end: "500"
+        ranges:
+          - type: bv
+            start: flt.min
+            end: flt.max
+            outcome:
+              calculate: true
+              expression: max_score - log(10,raw_cloud_score)
+              recommendation: Refactor to Tanzu Application Service
+      - type: raw
+        start: "501"
+        end: "1000"
+        ranges:
+          - type: bv
+            start: flt.min
+            end: flt.max
+            outcome:
+              calculate: true
+              expression: max_score - log(10,raw_cloud_score)
+              recommendation: Refactor to Tanzu Application Service
+      - type: raw
+        start: "1001"
+        end: int.max
+        ranges:
+          - type: bv
+            start: flt.min
+            end: flt.max
+            outcome:
+              calculate: true
+              expression: max_score - log(10,raw_cloud_score)
+              recommendation: Modernization
+  - type: sloc
+    start: "2501"
+    end: "5000"
+    ranges:
+      - type: raw
+        start: int.min
+        end: "10"
+        ranges:
+          - type: bv
+            start: flt.min
+            end: flt.max
+            outcome:
+              calculate: true
+              expression: max_score - log(10,raw_cloud_score)
+              recommendation: Refactor to Tanzu Application Service
+      - type: raw
+        start: "11"
+        end: "1000"
+        ranges:
+          - type: bv
+            start: flt.min
+            end: flt.max
+            outcome:
+              calculate: true
+              expression: max_score - log(10,raw_cloud_score)
+              recommendation: Refactor to Tanzu Application Service
+      - type: raw
+        start: "1001"
+        end: "1500"
+        ranges:
+          - type: bv
+            start: flt.min
+            end: flt.max
+            outcome:
+              calculate: true
+              expression: max_score - log(10,raw_cloud_score)
+              recommendation: Refactor to Tanzu Application Service 
+      - type: raw
+        start: "1501"
+        end: int.max
+        ranges:
+          - type: bv
+            start: flt.min
+            end: flt.max
+            outcome:
+              calculate: true
+              expression: max_score - log(10,raw_cloud_score)
+              recommendation: Modernization
+  - type: sloc
+    start: "5001"
+    end: "10000"
+    ranges:
+      - type: raw
+        start: int.min
+        end: "10"
+        ranges:
+          - type: bv
+            start: flt.min
+            end: flt.max
+            outcome:
+              score: 10
+              recommendation: Refactor to Tanzu Application Service
+      - type: raw
+        start: "11"
+        end: "100"
+        ranges:
+          - type: bv
+            start: flt.min
+            end: flt.max
+            outcome:
+              score: 9.75
+              recommendation: Refactor to Tanzu Application Service
+      - type: raw
+        start: "101"
+        end: "500"
+        ranges:
+          - type: bv
+            start: flt.min
+            end: flt.max
+            outcome:
+              score: 9.5
+              recommendation: Refactor to Tanzu Application Service
+      - type: raw
+        start: "501"
+        end: "1000"
+        ranges:
+          - type: bv
+            start: flt.min
+            end: flt.max
+            outcome:
+              score: 9
+              recommendation: Refactor to Tanzu Application Service
+      - type: raw
+        start: "1001"
+        end: int.max
+        ranges:
+          - type: bv
+            start: flt.min
+            end: 2
+            outcome:
+              calculate: true
+              expression: max_score - log(10,raw_cloud_score)
+              recommendation: Refactor to Tanzu Kubernetes Service
+          - type: bv
+            start: 2.01
+            end: flt.max
+            outcome:
+              calculate: true
+              expression: max_score - log(10,raw_cloud_score)
+              recommendation: Refactor to Tanzu Application Service
+  - type: sloc
+    start: "10001"
+    end: int.max
+    ranges:
+      - type: raw
+        start: int.min
+        end: "10"
+        ranges:
+          - type: bv
+            start: flt.min
+            end: flt.max
+            outcome:
+              score: 10
+              recommendation: Refactor to Tanzu Application Service
+      - type: raw
+        start: "11"
+        end: "100"
+        ranges:
+          - type: bv
+            start: flt.min
+            end: flt.max
+            outcome:
+              score: 9.75
+              recommendation: Refactor to Tanzu Application Service
+      - type: raw
+        start: "101"
+        end: "500"
+        ranges:
+          - type: bv
+            start: flt.min
+            end: flt.max
+            outcome:
+              score: 9.5
+              recommendation: Refactor to Tanzu Application Service
+      - type: raw
+        start: "501"
+        end: "1000"
+        ranges:
+          - type: bv
+            start: flt.min
+            end: flt.max
+            outcome:
+              score: 9
+              recommendation: Refactor to Tanzu Application Service
+      - type: raw
+        start: "1001"
+        end: "10000"
+        ranges:
+          - type: bv
+            start: flt.min
+            end: 8.0
+            outcome:
+              calculate: true
+              expression: max_score - log(10,raw_cloud_score)
+              recommendation: Refactor to Tanzu Application Service
+          - type: bv
+            start: 8.01
+            end: flt.max
+            outcome:
+              calculate: true
+              expression: max_score - log(10,raw_cloud_score)
+              recommendation: Modernization
+      - type: raw
+        start: "10001"
+        end: int.max
+        ranges:
+          - type: bv
+            start: flt.min
+            end: 2.0
+            outcome:
+              calculate: true
+              expression: max_score - log(10,raw_cloud_score)
+              recommendation: Refactor to Tanzu Kubernetes Service
+          - type: bv
+            start: 2.01
+            end: 8.0
+            outcome:
+              calculate: true
+              expression: max_score - log(10,raw_cloud_score)
+              recommendation: Refactor to Tanzu Application Service
+          - type: bv
+            start: 8.01
+            end: flt.max
+            outcome:
+              calculate: true
+              expression: max_score - log(10,raw_cloud_score)
+              recommendation: Modernization

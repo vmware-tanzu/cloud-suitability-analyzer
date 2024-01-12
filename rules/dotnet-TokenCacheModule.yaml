@@ -1,5 +1,6 @@
 #qc1
 name: dotnet-iis_module-TokenCacheModule
+ruletype: fire-once
 filetype: config$
 target: file
 type: xpath

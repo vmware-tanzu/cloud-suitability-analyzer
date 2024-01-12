@@ -1,4 +1,8 @@
 name: dotnet-MSMQ-vbcs
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: (cs$|vb$)
 target: line
 type: regex

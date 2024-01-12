@@ -1,8 +1,12 @@
 name: java-redis-connection-string-user-password-yaml
+ruletype: standard
+criticality: medium
+level: Info
+cloud: 100
+container: 100
 filetype: yaml$|yml$
 target: contents
 type: yamlpath
-criticality: Info
 advice: Redis connection string, username and password are detected
 category: redis
 tags: 
@@ -17,3 +21,5 @@ patterns:
  - value: $..jedis["username","password"]
  - value: $..lettuce["url","host"]
  - value: $..lettuce["username","password"]
+profiles:
+  - value: Azure Spring Apps

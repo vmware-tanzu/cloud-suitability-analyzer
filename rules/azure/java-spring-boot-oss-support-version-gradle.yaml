@@ -1,8 +1,12 @@
 name: java-spring-boot-oss-support-version-gradle
+ruletype: standard
+criticality: medium
+level: Warn
+cloud: 100
+container: 100
 filetype: gradle$|kts$
 target: line
 type: regex
-criticality: Warn
 advice: Spring boot version is out of spring boot open source support support(https://spring.io/projects/spring-boot#support). If you don't have commercial support, please update to newer version
 effort: 4
 category: version
@@ -12,6 +16,8 @@ patterns:
   - value: org\.springframework\.boot(.*)([\r\n]*)version( *[:=]? *)['"]?(2\.[4-6])
   - value: (?i)(springBootVersion)(.*)(2\.[4-6])
   - value: org\.springframework\.boot['"]?( *[:=]? *)['"]?(2\.[4-6])
+profiles:
+  - value: Azure Spring Apps
 
-# id("org.springframework.boot") version "2.4.6"
-# id 'org.springframework.boot' version '2.4.6'
+# e.g., id("org.springframework.boot") version "2.4.6"
+# e.g., id 'org.springframework.boot' version '2.4.6'

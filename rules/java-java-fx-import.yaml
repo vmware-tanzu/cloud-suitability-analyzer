@@ -1,4 +1,8 @@
 name: java-java-fx-import
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: java$
 target: line
 type: regex
@@ -13,4 +17,5 @@ tags:
 patterns:
 - value: javafx
 profiles:
-- value: cloud-suitability
+  - value: cloud-suitability
+  - value: Azure Spring Apps

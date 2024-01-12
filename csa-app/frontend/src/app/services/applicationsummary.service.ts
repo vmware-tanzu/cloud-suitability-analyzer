@@ -37,12 +37,12 @@ export class ApplicationSummaryService {
   }
 
   getApplicationAllFindings(runid: number, appName: string): Observable<ApplicationFinding[]>  {
-    const url = UriConstants.RUNS_URI + runid + '/apps/' + appName + '/findings/scorecard/low,medium,high?includeFF=false';
+    const url = UriConstants.RUNS_URI + runid + '/apps/' + appName + '/findings/scorecard/low,medium,high,info?includeFF=false';
     return this.http.post<ApplicationFinding[]>(url, "");
   }
 
   getApplicationFindingsByTag(runid: number, appName: string, tag: Tag): Observable<ApplicationFinding[]>  {
-    const url = UriConstants.RUNS_URI + runid + '/apps/' + appName + '/findings/scorecard/low,medium,high?includeFF=false';
+    const url = UriConstants.RUNS_URI + runid + '/apps/' + appName + '/findings/scorecard/low,medium,high,info?includeFF=false';
 
     let tagReq: TagRequest = new TagRequest(tag.Value, true);
 
@@ -55,7 +55,7 @@ export class ApplicationSummaryService {
   }
 
   getApplicationFindingsByTags(runid: number, appName: string, bin: Bin): Observable<ApplicationFinding[]>  {
-    const url = UriConstants.RUNS_URI + runid + '/apps/' + appName + '/findings/scorecard/low,medium,high?includeFF=false';
+    const url = UriConstants.RUNS_URI + runid + '/apps/' + appName + '/findings/scorecard/low,medium,high,info?includeFF=false';
 
     let tagsReq: TagRequest [] = [];
     bin.tags.forEach(tag => {

@@ -1,8 +1,12 @@
 name: java-mq-connection-string-user-password-yaml
+ruletype: standard
+criticality: medium
+level: Info
+cloud: 100
+container: 100
 filetype: (yaml$|yml$|json$|jsn$)
 target: contents
 type: yamlpath
-criticality: Info
 advice: Message queue connection string, username or password are detected
 category: message queue
 tags: 
@@ -27,3 +31,5 @@ patterns:
  - value: $..rabbitmq[*]["username","password"]
  - value: $..artemis.broker-url
  - value: $..artemis["user","password"]
+profiles:
+  - value: Azure Spring Apps

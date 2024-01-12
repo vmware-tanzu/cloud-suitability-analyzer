@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MAC_CLIS=("nodejs" "npm" "go" "go-bindata" "musl-cross|filosottile/musl-cross" "mingw-w64" "goreleaser")
+MAC_CLIS=("nodejs" "npm" "go" "go-bindata" "musl-cross|filosottile/musl-cross/musl-cross" "mingw-w64" "goreleaser")
 LINUX_CLIS=("nodejs" "npm" "go" "go-bindata" "musl-tools" "gcc-mingw-w64" "build-essential")
 OS=$(uname)
 

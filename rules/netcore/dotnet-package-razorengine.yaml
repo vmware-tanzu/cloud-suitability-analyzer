@@ -1,4 +1,8 @@
 name: dotnet-package-razorengine
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: (config$)
 target: line
 type: regex

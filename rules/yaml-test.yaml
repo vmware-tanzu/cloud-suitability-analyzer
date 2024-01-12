@@ -1,4 +1,8 @@
 name: yaml-test
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: (yaml|yml)$
 target: file
 type: yamlpath

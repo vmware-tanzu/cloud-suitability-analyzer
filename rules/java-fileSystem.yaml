@@ -1,4 +1,8 @@
 name: java-file-system
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: java$
 advice: Use backing storage service
 target: line
@@ -12,4 +16,5 @@ tags:
 patterns:
   - value: "file"
 profiles:
-- value: cloud-suitability
+  - value: cloud-suitability
+  - value: Azure Spring Apps

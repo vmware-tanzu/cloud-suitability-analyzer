@@ -1,4 +1,8 @@
 name: dotnet-asp-machine-key
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: config$
 target: file
 type: xpath

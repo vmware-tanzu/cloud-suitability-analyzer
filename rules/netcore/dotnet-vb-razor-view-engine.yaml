@@ -1,5 +1,9 @@
 
 name: dotnet-vb-razor-view-engine
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: (vbhtml$)
 target: line
 type: regex

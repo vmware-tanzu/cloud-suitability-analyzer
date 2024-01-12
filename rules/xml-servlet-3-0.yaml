@@ -1,5 +1,9 @@
 #SW
 name: xml-servlet-3-0
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: xml$
 target: line
 type: regex

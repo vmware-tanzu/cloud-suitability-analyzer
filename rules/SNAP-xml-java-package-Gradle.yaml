@@ -1,5 +1,9 @@
 #SW - this is where we need xpath
 name: SNAP-java-package-Gradle
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: gradle$|kts$
 target: line
 type: regex

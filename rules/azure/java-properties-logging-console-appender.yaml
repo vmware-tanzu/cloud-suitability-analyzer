@@ -1,5 +1,9 @@
 name: java-properties-logging-console-appender
-criticality: Warn
+ruletype: standard
+criticality: medium
+level: Warn
+cloud: 100
+container: 100
 filetype: xml$
 filenamepattern: ^log4j2?(-\w+)?\.properties$
 target: contents
@@ -12,3 +16,5 @@ tags:
   - value: logging
 patterns:
  - value: (?i)(appender.*=.*ConsoleAppender|appender.*\.type.*=.*Console|(org/springframework/boot/logging/logback/base.xml)|(org/springframework/boot/logging/log4j2/log4j2.xml))
+profiles:
+  - value: Azure Spring Apps

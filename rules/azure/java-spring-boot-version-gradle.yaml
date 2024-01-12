@@ -1,8 +1,12 @@
 name: java-spring-boot-version-gradle
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: gradle$|kts$
 target: line
 type: regex
-criticality: Critical
+level: Critical
 advice: Spring boot version is too low
 effort: 50
 category: version
@@ -12,6 +16,8 @@ patterns:
   - value: org\.springframework\.boot(.*)([\r\n]*)version( *[:=]? *)['"]?(1\.)
   - value: (?i)(springBootVersion)(.*)(1\.)
   - value: org\.springframework\.boot['"]?( *[:=]? *)['"]?(1\.)
+profiles:
+  - value: Azure Spring Apps
 
-# id("org.springframework.boot") version "2.7.6"
-# id 'org.springframework.boot' version '2.7.6'
+# e.g., id("org.springframework.boot") version "2.7.6"
+# e.g., id 'org.springframework.boot' version '2.7.6'

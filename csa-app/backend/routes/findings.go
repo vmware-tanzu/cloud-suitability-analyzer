@@ -6,12 +6,12 @@
 package routes
 
 import (
-	"fmt"
-	"github.com/gin-gonic/gin"
 	"csa-app/backend/services"
 	"csa-app/db"
 	"csa-app/model"
 	"csa-app/search"
+	"fmt"
+	"github.com/gin-gonic/gin"
 
 	log "github.com/sirupsen/logrus"
 	"net/http"
@@ -161,7 +161,6 @@ func (r *findingRoutes) getAppFindings(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, msg)
 		return
 	}
-
 	log.Debugf("Received Post request for App Findings run[%d] app[%s] card[%s] tag[%v] includeFF[%v]\n", runId, appName, scoreCard, tags, includeFF)
 
 	findings, err := r.appService.GetAppFindings(runId, appName, scoreCard, *tags, includeFF)

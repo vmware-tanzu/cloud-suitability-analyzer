@@ -28,6 +28,7 @@ func TestRuleFileType(t *testing.T) {
 
 	r := getValidRule()
 	r.FileType = ""
+	r.RuleType = "standard"
 
 	valid, _ := r.IsValid()
 

@@ -1,4 +1,8 @@
 name: php-socket-security-sensitive
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: php$
 target: line
 type: regex

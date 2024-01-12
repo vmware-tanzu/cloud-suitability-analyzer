@@ -1,4 +1,8 @@
 name: xml-ehcache-Config
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: xml$
 target: line
 type: regex

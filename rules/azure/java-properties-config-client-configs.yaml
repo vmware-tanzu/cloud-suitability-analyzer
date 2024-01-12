@@ -1,8 +1,12 @@
 name: java-properties-config-client-configs
+ruletype: standard
+criticality: medium
+level: Info
+cloud: 100
+container: 100
 filetype: properties$
 target: line
 type: regex
-criticality: Info
 advice: The application is using spring config server and setting the connection string
 category: config server
 effort: 0
@@ -11,3 +15,5 @@ tags:
 patterns:
   - value: (^|\s)spring\.config\.import
   - value: (^|\s)spring\.cloud\.config\.uri
+profiles:
+  - value: Azure Spring Apps

@@ -1,8 +1,12 @@
 name: java-spring-cloud-support-version-gradle
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: gradle$|kts$
 target: line
 type: regex
-criticality: Warn
+level: Warn
 advice: Spring cloud version is out of any support. Please update to newer version
 effort: 6
 category: version
@@ -11,3 +15,5 @@ tags:
 defaultpattern: (?i)(springCloudVersion|org\.springframework\.cloud)(.*)(%s)
 patterns:
   - value: Hoxton|Greenwich|Finchley
+profiles:
+  - value: Azure Spring Apps

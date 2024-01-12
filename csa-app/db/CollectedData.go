@@ -6,8 +6,8 @@
 package db
 
 import (
-	"github.com/jinzhu/gorm"
 	"csa-app/model"
+	"github.com/jinzhu/gorm"
 )
 
 func GetReportData(runId uint, reportId int) []model.ReportData {

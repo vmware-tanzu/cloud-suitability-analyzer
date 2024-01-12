@@ -1,4 +1,5 @@
 name: dotnet-windowsForms
+ruletype: fire-once
 filetype: (cs$|vb$|csproj$)
 target: line
 type: regex

@@ -1,4 +1,8 @@
 name: dotnet-windows-workflow-foundation
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 # ignore development config files
 filetype: (cs$|vb$)
 target: line

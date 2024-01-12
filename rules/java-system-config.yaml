@@ -1,4 +1,8 @@
 name: java-system-config
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
 filetype: $
 target: line
 type: regex
@@ -15,4 +19,5 @@ patterns:
 - value: setProperty
 - value: setProperties
 profiles:
-- value: cloud-suitability
+  - value: cloud-suitability
+  - value: Azure Spring Apps

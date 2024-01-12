@@ -16,10 +16,10 @@ import (
 	"sync"
 	"time"
 
+	"csa-app/util"
 	"github.com/jinzhu/gorm"
 	"github.com/kardianos/osext"
 	"github.com/mitchellh/go-homedir"
-	"csa-app/util"
 )
 
 type Run struct {

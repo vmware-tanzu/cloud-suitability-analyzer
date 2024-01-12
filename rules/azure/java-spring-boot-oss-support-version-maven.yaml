@@ -1,8 +1,12 @@
 name: java-spring-boot-oss-support-version-maven
+ruletype: standard
+criticality: medium
+level: Warn
+cloud: 100
+container: 100
 filetype: xml$
 target: contents
 type: xpath
-criticality: Warn
 advice: Spring boot version is out of spring boot open source support support(https://spring.io/projects/spring-boot#support). If you don't have commercial support, please update to newer version
 effort: 4
 category: version
@@ -13,3 +17,5 @@ patterns:
   - value: 2.4
   - value: 2.5
   - value: 2.6
+profiles:
+  - value: Azure Spring Apps
