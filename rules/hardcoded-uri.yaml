@@ -1,13 +1,9 @@
 name: hardcode-uri
-<<<<<<< HEAD
 filetype: (java$|^vb$|py$|go$|aspx$|^c$|h$|cs$|csx$|cpp$|cob$|cfm$|cfml$|dockerfile$|jsp$|php$|^r$|^rb$|^ts$|yaml$|yml$|json$)
-=======
 ruletype: standard
 criticality: medium
 cloud: 100
 container: 100
-filetype: (java$|^vb$|py$|go$|aspx$|^c$|h$|cs$|csx$|cpp$|cob$|cfm$|cfml$|dockerfile$|jsp$|php$|^r$|^ts$|yaml$|yml$|json$)
->>>>>>> master
 #filetype: (cs$|js$)
 target: line
 type: regex
