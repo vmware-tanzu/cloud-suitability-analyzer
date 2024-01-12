@@ -10,7 +10,7 @@ defaultpattern: .*(%s)\s*\(.*\)
 category: anti-pattern
 advice:  Using sockets is security-sensitive. It has led in the past to the following vulnerabilities:CVE-2011-178,CVE-2017-5645,CVE-2018-6597
 recipe: In many cases there is no need to open a socket yourself. Use instead libraries and existing protocols.
-effort: 50
+effort: 200
 readiness: 1000
 tags:
   - value: anti-pattern

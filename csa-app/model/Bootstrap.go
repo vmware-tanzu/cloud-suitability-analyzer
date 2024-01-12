@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2023-12-12 11:22:00.366201 +0530 IST m=+0.193116861
+//Created @ 2024-01-12 11:29:39.373499 -0800 PST m=+0.297180161
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -1522,7 +1522,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "/libraries[@count>13]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "hardcode-uri", RuleType: "standard", Level: "", FileType: "(java$|^vb$|py$|go$|aspx$|^c$|h$|cs$|csx$|cpp$|cob$|cfm$|cfml$|dockerfile$|jsp$|php$|^r$|^ts$|yaml$|yml$|json$)", Target: "line", Type: "regex", DefaultPattern: "(?:(?:^|[^\"])|(?:^|[^ =])\"|(?:^|[^:]) \"|(?:^|[^s])=\"|(?:^|[^\"]): \"|(?:^|[^n])s=\"|(?:^|[^d])\": \"|(?:^|[^l])ns=\"|(?:^|[^e])d\": \"|(?:^|[^m])lns=\"|(?:^|[^v])ed\": \"|(?:^|[^x])mlns=\"|(?:^|[^l])ved\": \"|(?:^|[^o])lved\": \"|(?:^|[^s])olved\": \"|(?:^|[^e])solved\": \"|(?:^|[^r])esolved\": \")(%s)\\:{1}\\/{2}[a-zA-Z0-9]", Advice: "Found hard-coded URI. Make configurable, put into environment or config map", Effort: 3, Readiness: 8, Impact: "", Category: "env-config", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "hardcode-uri", RuleType: "standard", Level: "", FileType: "(java$|^vb$|py$|go$|aspx$|^c$|h$|cs$|csx$|cpp$|cob$|cfm$|cfml$|dockerfile$|jsp$|php$|^r$|^rb$|^ts$|yaml$|yml$|json$)", Target: "line", Type: "regex", DefaultPattern: "(?:(?:^|[^\"])|(?:^|[^ =])\"|(?:^|[^:]) \"|(?:^|[^s])=\"|(?:^|[^\"]): \"|(?:^|[^n])s=\"|(?:^|[^d])\": \"|(?:^|[^l])ns=\"|(?:^|[^e])d\": \"|(?:^|[^m])lns=\"|(?:^|[^v])ed\": \"|(?:^|[^x])mlns=\"|(?:^|[^l])ved\": \"|(?:^|[^o])lved\": \"|(?:^|[^s])olved\": \"|(?:^|[^e])solved\": \"|(?:^|[^r])esolved\": \")(%s)\\:{1}\\/{2}[a-zA-Z0-9]", Advice: "Found hard-coded URI. Make configurable, put into environment or config map", Effort: 3, Readiness: 8, Impact: "", Category: "env-config", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "hardcoded-uri",}, },
             Profiles:
@@ -5619,7 +5619,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "allow_url_include", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "php-cache", RuleType: "standard", Level: "", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(%s)\\s*\\[.*\\]", Advice: "However, the default configuration is to store session data in a temporary file on the local disk. Again, this will not work if you’re using multiple nodes", Effort: 20, Readiness: 1000, Impact: "", Category: "session_management", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "php-cache", RuleType: "standard", Level: "", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(%s)\\s*\\[.*\\]", Advice: "However, the default configuration is to store session data in a temporary file on the local disk. Again, this will not work if you’re using multiple nodes", Effort: 200, Readiness: 1000, Impact: "", Category: "session_management", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "cache",}, },
             Profiles:
@@ -5646,7 +5646,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "cgi.force_redirect", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "php-deprecated-feature-parse_str", RuleType: "standard", Level: "", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: "([^_]%s)\\s*\\(.*[^,]\\)", Advice: "parse_str() without second argument is deprecated", Effort: 3, Readiness: 1000, Impact: "", Category: "deprecation", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "php-deprecated-feature-parse_str", RuleType: "standard", Level: "", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: "([^_]%s)\\s*\\(.*[^,]\\)", Advice: "parse_str() without second argument is deprecated", Effort: 1, Readiness: 1000, Impact: "", Category: "deprecation", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "deprecated",}, },
             Profiles:
@@ -5659,7 +5659,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "parse_str", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "php-deprecated-feature-should-not-be-used", RuleType: "standard", Level: "", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: "([^_]%s)\\s*\\(+.*\\)", Advice: "Deprecated language features are those that have been retained temporarily for backward compatibility, but which will eventually be removed from the language. In effect, deprecation announces a grace period to allow the smooth transition from the old features to the new ones. In that period, no use of the deprecated features should be added to the code. Refactor or upgrade to use Php 7+", Effort: 7, Readiness: 1000, Impact: "", Category: "deprecation", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "php-deprecated-feature-should-not-be-used", RuleType: "standard", Level: "", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: "([^_]%s)\\s*\\(+.*\\)", Advice: "Deprecated language features are those that have been retained temporarily for backward compatibility, but which will eventually be removed from the language. In effect, deprecation announces a grace period to allow the smooth transition from the old features to the new ones. In that period, no use of the deprecated features should be added to the code. Refactor or upgrade to use Php 7+", Effort: 1, Readiness: 1000, Impact: "", Category: "deprecation", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "deprecated",}, },
             Profiles:
@@ -5718,7 +5718,20 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "file_uploads", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "php-enable-session-use-trans-sid", RuleType: "standard", Level: "", FileType: "ini$", Target: "line", Type: "regex", DefaultPattern: "\\s*(%s)=+1$", Advice: "PHP’s session.use_trans_sid automatically appends the user’s session id to urls when cookies are disabled.", Effort: 5, Readiness: 1000, Impact: "", Category: "Vulnerability", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "php-drupal", RuleType: "", Level: "", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: "\\b%s", Advice: "Drupal application", Effort: 100, Readiness: 0, Impact: "", Category: "drupal", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "drupal",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "drupal_route", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "php-enable-session-use-trans-sid", RuleType: "standard", Level: "", FileType: "ini$", Target: "line", Type: "regex", DefaultPattern: "\\s*(%s)=+1$", Advice: "PHP’s session.use_trans_sid automatically appends the user’s session id to urls when cookies are disabled.", Effort: 100, Readiness: 1000, Impact: "", Category: "Vulnerability", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "vulnerability",}, },
             Profiles:
@@ -5731,7 +5744,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "session.use_trans_sid", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "php-file-system-manipulation", RuleType: "standard", Level: "", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(%s)\\s*\\(.*\\)", Advice: "Filesystem manipulation is not encouraged in cloud-native applications. Keep your content off the filesystem", Effort: 50, Readiness: 1000, Impact: "", Category: "filesystem", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "php-file-system-manipulation", RuleType: "standard", Level: "", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(%s)\\s*\\(.*\\)", Advice: "Filesystem manipulation is not encouraged in cloud-native applications. Keep your content off the filesystem", Effort: 500, Readiness: 1000, Impact: "", Category: "filesystem", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "io",}, },
             Profiles:
@@ -5763,7 +5776,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "tempnam", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "php-function-method-naming-convention", RuleType: "standard", Level: "", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: "^(%s)\\s+[a-z]+[a-zA-Z0-9]*\\(.*\\)", Advice: "Shared naming conventions allow teams to collaborate efficiently. All function names match a provided regular expression.", Effort: 2, Readiness: 1000, Impact: "", Category: "naming_convention", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "php-function-method-naming-convention", RuleType: "standard", Level: "", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: "^(%s)\\s+[a-z]+[a-zA-Z0-9]*\\(.*\\)", Advice: "Shared naming conventions allow teams to collaborate efficiently. All function names match a provided regular expression.", Effort: 1, Readiness: 1000, Impact: "", Category: "naming_convention", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "code-smell",}, },
             Profiles:
@@ -5776,7 +5789,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "function", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "php-global-variable", RuleType: "standard", Level: "", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(\\$%s)\\s*\\[.*\\]", Advice: "The default configuration is to store session data in a temporary file on the local disk. Again, this will not work if you’re using multiple nodes", Effort: 20, Readiness: 1000, Impact: "", Category: "session_management", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "php-global-variable", RuleType: "standard", Level: "", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(\\$%s)\\s*\\[.*\\]", Advice: "The default configuration is to store session data in a temporary file on the local disk. Again, this will not work if you’re using multiple nodes", Effort: 200, Readiness: 1000, Impact: "", Category: "session_management", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "cache",}, { Value: "session",}, },
             Profiles:
@@ -5790,7 +5803,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "_COOKIE", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "php-goto-stmt-should-not-be-used", RuleType: "standard", Level: "", FileType: "ini$", Target: "line", Type: "regex", DefaultPattern: "\\s*(%s\\s*.+)", Advice: "goto is an unstructured control flow statement. It makes code less readable and maintainable. Structured control flow statements such as if, for, while, continue or break should be used instead.", Effort: 3, Readiness: 1000, Impact: "", Category: "code_smell", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "php-goto-stmt-should-not-be-used", RuleType: "standard", Level: "", FileType: "ini$", Target: "line", Type: "regex", DefaultPattern: "\\s*(%s\\s*.+)", Advice: "goto is an unstructured control flow statement. It makes code less readable and maintainable. Structured control flow statements such as if, for, while, continue or break should be used instead.", Effort: 1, Readiness: 1000, Impact: "", Category: "code_smell", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "unstructured",}, },
             Profiles:
@@ -5842,7 +5855,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "stream_socket_pair", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "php-references-should-not-be-passed-to-func-call", RuleType: "standard", Level: "", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*\\s*\\(%s+.*\\)", Advice: "Passing a reference to a function parameter means that any modifications the method makes to the parameter will be made to the original value as well, since references have the effect of pointing two variables at the same memory space. This feature can be difficult to use correctly, particularly if the callee is not expecting a reference, and the improper use of references in function calls can make code less efficient rather than more efficient.", Effort: 3, Readiness: 1000, Impact: "", Category: "code_smell", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "php-references-should-not-be-passed-to-func-call", RuleType: "standard", Level: "", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*\\s*\\(%s+.*\\)", Advice: "Passing a reference to a function parameter means that any modifications the method makes to the parameter will be made to the original value as well, since references have the effect of pointing two variables at the same memory space. This feature can be difficult to use correctly, particularly if the callee is not expecting a reference, and the improper use of references in function calls can make code less efficient rather than more efficient.", Effort: 1, Readiness: 1000, Impact: "", Category: "code_smell", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "code_smell",}, },
             Profiles:
@@ -5855,7 +5868,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "&", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "php-socket-security-sensitive", RuleType: "standard", Level: "", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(%s)\\s*\\(.*\\)", Advice: "Using sockets is security-sensitive. It has led in the past to the following vulnerabilities:CVE-2011-178,CVE-2017-5645,CVE-2018-6597", Effort: 50, Readiness: 1000, Impact: "", Category: "anti-pattern", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "php-socket-security-sensitive", RuleType: "standard", Level: "", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(%s)\\s*\\(.*\\)", Advice: "Using sockets is security-sensitive. It has led in the past to the following vulnerabilities:CVE-2011-178,CVE-2017-5645,CVE-2018-6597", Effort: 200, Readiness: 1000, Impact: "", Category: "anti-pattern", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "anti-pattern",}, },
             Profiles:
@@ -5875,7 +5888,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "stream_socket_pair", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "php-php-url-not-hardcoded", RuleType: "standard", Level: "", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(%s://).*", Advice: "Url Hardcoding in code is anti-pattern", Effort: 2, Readiness: 1000, Impact: "", Category: "anti-pattern", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "php-php-url-not-hardcoded", RuleType: "standard", Level: "", FileType: "php$", Target: "line", Type: "regex", DefaultPattern: ".*(%s://).*", Advice: "Url Hardcoding in code is anti-pattern", Effort: 200, Readiness: 1000, Impact: "", Category: "anti-pattern", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "code_smell",}, },
             Profiles:

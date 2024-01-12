@@ -10,7 +10,7 @@ defaultpattern: .*(%s://).*
 category: anti-pattern
 advice:  Url Hardcoding in code is anti-pattern 
 recipe: use variables tired in configuration files instead
-effort: 2
+effort: 200
 readiness: 1000
 tags:
   - value: code_smell

@@ -10,7 +10,7 @@ defaultpattern: .*(\$%s)\s*\[.*\]
 category: session_management
 advice:  The default configuration is to store session data in a temporary file on the local disk. Again, this will not work if you’re using multiple nodes
 recipe: Store sessions in a centralized caching server or cluster. So stop putting everything into $_SESSION or $_COOKIE
-effort: 20
+effort: 200
 readiness: 1000
 tags:
   - value: cache
