@@ -12,7 +12,7 @@ effort: 6
 category: java
 defaultpattern: //*[starts-with(java.version,"%s")]/java.version
 tags:
-  - value: java version
+  - value: java-version
 patterns:
   - value: 9
   - value: 10

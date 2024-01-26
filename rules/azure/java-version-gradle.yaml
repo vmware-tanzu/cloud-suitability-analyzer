@@ -12,7 +12,7 @@ effort: 50
 category: version
 defaultpattern: (^|\.|\s)targetCompatibility(\s|=)[^\d]+(%s)
 tags:
-  - value: java version
+  - value: java-version
 patterns:
   - value: 1\.[0-7]
 profiles:

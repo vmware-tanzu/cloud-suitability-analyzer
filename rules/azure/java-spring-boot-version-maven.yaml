@@ -12,7 +12,7 @@ effort: 50
 category: version
 defaultpattern: //*[groupId="org.springframework.boot" and starts-with(version,"%s")]/version
 tags:
-  - value: spring boot
+  - value: spring-boot
 patterns:
   - value: 1
 profiles:

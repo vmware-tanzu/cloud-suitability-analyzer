@@ -12,7 +12,7 @@ advice: The application has spring boot/spring cloud starter dependencies
 effort: 0
 category: spring boot
 tags:
-  - value: spring boot
+  - value: spring-boot
 patterns:
   - value: spring-boot-admin-starter-server
   - value: spring-boot-starter-web|spring-boot-starter-webflux
