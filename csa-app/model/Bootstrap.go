@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2024-01-26 14:34:53.133665 -0800 PST m=+0.202987190
+//Created @ 2024-01-26 17:50:41.385671 -0600 CST m=+0.157651550
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -255,7 +255,7 @@ func BootstrapRules() []Rule {
         
             { Name: "java-non-lts-version-gradle", RuleType: "standard", Level: "Warn", FileType: "gradle$|kts$", Target: "line", Type: "regex", DefaultPattern: "(^|\\.|\\s)targetCompatibility(\\s|=)[^\\d]+(%s)", Advice: "The application is using non-LTS version Java. JDK on LTS version is recommended, i.e., JAVA_8, JAVA_11 or JAVA_17.", Effort: 6, Readiness: 0, Impact: "", Category: "version", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
-            []Tag{  { Value: "java version",}, },
+            []Tag{  { Value: "java-version",}, },
             Profiles:
             []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
@@ -275,7 +275,7 @@ func BootstrapRules() []Rule {
         
             { Name: "java-non-lts-version-maven", RuleType: "standard", Level: "Warn", FileType: "xml$", Target: "contents", Type: "xpath", DefaultPattern: "//*[starts-with(java.version,\"%s\")]/java.version", Advice: "The application is using non-LTS version Java. JDK on LTS version is recommended, i.e., JAVA_8, JAVA_11 or JAVA_17.", Effort: 6, Readiness: 0, Impact: "", Category: "java", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
-            []Tag{  { Value: "java version",}, },
+            []Tag{  { Value: "java-version",}, },
             Profiles:
             []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
@@ -404,7 +404,7 @@ func BootstrapRules() []Rule {
         
             { Name: "java-spring-boot-oss-support-version-gradle", RuleType: "standard", Level: "Warn", FileType: "gradle$|kts$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "Spring boot version is out of spring boot open source support support(https://spring.io/projects/spring-boot#support). If you don't have commercial support, please update to newer version", Effort: 4, Readiness: 0, Impact: "", Category: "version", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
-            []Tag{  { Value: "spring boot",}, },
+            []Tag{  { Value: "spring-boot",}, },
             Profiles:
             []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
@@ -419,7 +419,7 @@ func BootstrapRules() []Rule {
         
             { Name: "java-spring-boot-oss-support-version-maven", RuleType: "standard", Level: "Warn", FileType: "xml$", Target: "contents", Type: "xpath", DefaultPattern: "//*[groupId=\"org.springframework.boot\" and starts-with(version,\"%s\")]/version", Advice: "Spring boot version is out of spring boot open source support support(https://spring.io/projects/spring-boot#support). If you don't have commercial support, please update to newer version", Effort: 4, Readiness: 0, Impact: "", Category: "version", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
-            []Tag{  { Value: "spring boot",}, },
+            []Tag{  { Value: "spring-boot",}, },
             Profiles:
             []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
@@ -434,7 +434,7 @@ func BootstrapRules() []Rule {
         
             { Name: "java-spring-boot-starter", RuleType: "standard", Level: "Info", FileType: "gradle$|kts$|xml$", Target: "contents", Type: "regex", DefaultPattern: "", Advice: "The application has spring boot/spring cloud starter dependencies", Effort: 0, Readiness: 0, Impact: "", Category: "spring boot", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
-            []Tag{  { Value: "spring boot",}, },
+            []Tag{  { Value: "spring-boot",}, },
             Profiles:
             []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
@@ -452,7 +452,7 @@ func BootstrapRules() []Rule {
         
             { Name: "java-spring-boot-support-version-gradle", RuleType: "standard", Level: "Warn", FileType: "gradle$|kts$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "Spring boot version is out of any spring boot support(https://spring.io/projects/spring-boot#support). Please update to newer version", Effort: 6, Readiness: 0, Impact: "", Category: "version", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
-            []Tag{  { Value: "spring boot",}, },
+            []Tag{  { Value: "spring-boot",}, },
             Profiles:
             []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
@@ -467,7 +467,7 @@ func BootstrapRules() []Rule {
         
             { Name: "java-spring-boot-support-version-maven", RuleType: "standard", Level: "Warn", FileType: "xml$", Target: "contents", Type: "xpath", DefaultPattern: "//*[groupId=\"org.springframework.boot\" and starts-with(version,\"%s\")]/version", Advice: "Spring boot version is out of any spring boot support(https://spring.io/projects/spring-boot#support). Please update to newer version", Effort: 6, Readiness: 0, Impact: "", Category: "version", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
-            []Tag{  { Value: "spring boot",}, },
+            []Tag{  { Value: "spring-boot",}, },
             Profiles:
             []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
@@ -483,7 +483,7 @@ func BootstrapRules() []Rule {
         
             { Name: "java-spring-boot-version-gradle", RuleType: "standard", Level: "Critical", FileType: "gradle$|kts$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "Spring boot version is too low", Effort: 50, Readiness: 0, Impact: "", Category: "version", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
-            []Tag{  { Value: "spring boot",}, },
+            []Tag{  { Value: "spring-boot",}, },
             Profiles:
             []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
@@ -498,7 +498,7 @@ func BootstrapRules() []Rule {
         
             { Name: "java-spring-boot-version-maven", RuleType: "standard", Level: "Critical", FileType: "xml$", Target: "contents", Type: "xpath", DefaultPattern: "//*[groupId=\"org.springframework.boot\" and starts-with(version,\"%s\")]/version", Advice: "Spring boot version is too low", Effort: 50, Readiness: 0, Impact: "", Category: "version", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
-            []Tag{  { Value: "spring boot",}, },
+            []Tag{  { Value: "spring-boot",}, },
             Profiles:
             []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
@@ -600,7 +600,7 @@ func BootstrapRules() []Rule {
         
             { Name: "java-version-gradle", RuleType: "standard", Level: "Critical", FileType: "gradle$|kts$", Target: "line", Type: "regex", DefaultPattern: "(^|\\.|\\s)targetCompatibility(\\s|=)[^\\d]+(%s)", Advice: "JDK version is found to be lower than JAVA_8", Effort: 50, Readiness: 0, Impact: "", Category: "version", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
-            []Tag{  { Value: "java version",}, },
+            []Tag{  { Value: "java-version",}, },
             Profiles:
             []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
@@ -613,7 +613,7 @@ func BootstrapRules() []Rule {
         
             { Name: "java-version-maven", RuleType: "standard", Level: "Critical", FileType: "xml$", Target: "contents", Type: "xpath", DefaultPattern: "//*[starts-with(java.version,\"%s\")]/java.version", Advice: "JDK version is found to be lower than JAVA_8", Effort: 50, Readiness: 0, Impact: "", Category: "java", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
-            []Tag{  { Value: "java version",}, },
+            []Tag{  { Value: "java-version",}, },
             Profiles:
             []Profile{  { Value: "Azure Spring Apps",}, },
             Excludepatterns:
@@ -6237,7 +6237,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "java-cfenv-boot", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "tas-environment-connector-gradle", RuleType: "standard", Level: "", FileType: "gradle$", Target: "line", Type: "regex", DefaultPattern: "^.*%s", Advice: "Application appears to be using cloud connectors library to inject environment variables provided by TAS.", Effort: 1, Readiness: 7, Impact: "", Category: "tas", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "tas-environment-connector-gradle", RuleType: "standard", Level: "", FileType: "gradle$", Target: "line", Type: "regex", DefaultPattern: "^.*%s", Advice: "Application appears to be using cloud connectors library to inject environment variables provided by TAS. Follow the guidance listed here https://docs.cloudfoundry.org/buildpacks/java/configuring-service-connections.html", Effort: 100, Readiness: 7, Impact: "", Category: "tas", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "tas",}, { Value: "env-config",}, },
             Profiles:
@@ -6247,10 +6247,14 @@ func BootstrapRules() []Rule {
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "spring-cloud-cloudfoundry-connector", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "spring-boot-starter-cloud-connectors", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring-cloud-core", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring-cloud-connectors-core", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring-cloud-cloudfoundry-connector", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring-cloud-spring-service-connector", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "tas-environment-connector-maven", RuleType: "standard", Level: "", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(>.*%s<)", Advice: "Application appears to be using cloud connectors library to inject environment variables provided by TAS.", Effort: 1, Readiness: 7, Impact: "", Category: "tas", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "tas-environment-connector-maven", RuleType: "standard", Level: "", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(>.*%s<)", Advice: "Application appears to be using cloud connectors library to inject environment variables provided by TAS. Follow the guidance listed here https://docs.cloudfoundry.org/buildpacks/java/configuring-service-connections.html", Effort: 100, Readiness: 7, Impact: "", Category: "tas", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "tas",}, { Value: "env-config",}, },
             Profiles:
@@ -6260,7 +6264,11 @@ func BootstrapRules() []Rule {
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "spring-cloud-cloudfoundry-connector", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "spring-boot-starter-cloud-connectors", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring-cloud-core", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring-cloud-connectors-core", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring-cloud-cloudfoundry-connector", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring-cloud-spring-service-connector", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "tas-environment-connector-python", RuleType: "standard", Level: "", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*%s", Advice: "Application appears to be using Cloudfoundry python client to inject environment variables provided by TAS.", Effort: 1, Readiness: 7, Impact: "", Category: "tas", Criticality: "medium",Container: 100, Cloud: 100,
@@ -6274,6 +6282,20 @@ func BootstrapRules() []Rule {
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "CloudFoundryClient", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "tas-spring-code-changes", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(>.*%s<)", Advice: "Remove any of these annotations from Spring Java configuration classes (provided by Spring Cloud Connectors). Replace them with the Spring SPeL or Spring Boot configuration (https://docs.cloudfoundry.org/buildpacks/java/configuring-service-connections.html#spring) options listed above.", Effort: 100, Readiness: 7, Impact: "", Category: "tas", Criticality: "medium",Container: 100, Cloud: 100,
+            Tags:
+            []Tag{  { Value: "tas",}, { Value: "spring",}, { Value: "env-config",}, },
+            Profiles:
+            []Profile{  { Value: "tas",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "ServiceScan", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "CloudScan", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "weblogic-cluster-config", RuleType: "fire-once", Level: "", FileType: "conf$", Target: "line", Type: "regex", DefaultPattern: "^%s.*", Advice: "Weblogic clusters cannot run in K8S", Effort: 1, Readiness: 0, Impact: "", Category: "wlcluster", Criticality: "",Container: 0, Cloud: 0,
