@@ -1,0 +1,25 @@
+name: php-disabled-file-uploads
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: ini$
+target: line
+type: regex
+defaultpattern: \s*(%s)=+1$
+category: Vulnerability
+advice: file_uploads is an on-by-default PHP configuration that allows files to be uploaded to your site.
+recipe: This feature should be disabled unless it is absolutely necessary for your site in php.ini
+effort: 5
+readiness: 1000
+tags:
+  - value: vulnerability
+  - value: security
+  - value: modernize
+  - value: container
+patterns:
+  - value: file_uploads
+
+#- file_uploads=1
+profiles:
+  - value: cloud-suitability

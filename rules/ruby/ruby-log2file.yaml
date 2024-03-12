@@ -1,0 +1,16 @@
+name: ruby-log2file
+filetype: rb$
+target: line
+type: regex
+defaultpattern: \b%s
+effort: 2
+readiness: 0
+advice: Logging to a file
+category: servlet
+tags:
+  - value: log2file
+  - value: logging
+patterns:
+  - value: Logger.new\('
+profiles:
+  - value: cloud-suitability

@@ -11,12 +11,13 @@ advice: Not supported in .NetCore, Replace with TryUpdateModelAsync
 readiness: 9
 effort: 10
 patterns:
-- value: TryUpdateModel
+  - value: TryUpdateModel
 category: unsupported-netcore
 tags:
-- value: mvc
-- value: asp
-- value: unsupported-netcore
+  - value: mvc
+  - value: asp
+  - value: unsupported-netcore
+  - value: modernize
 #- protected internal bool TryUpdateModel<TModel>
 profiles:
-- value: netcore
+  - value: netcore

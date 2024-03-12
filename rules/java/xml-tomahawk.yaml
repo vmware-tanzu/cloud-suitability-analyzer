@@ -1,0 +1,22 @@
+#SW
+name: xml-tomahawk
+ruletype: fire-once
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: tomahawk
+advice: Consider upgrading to modern UI framework
+effort: 600
+readiness: 200
+tags:
+  - value: jsf
+  - value: web-profile
+  - value: tomahawk
+  - value: modernize
+  - value: container
+patterns:
+  - value: myfaces.apache.org/tomahawk
+##myfaces.apache.org/tomahawk
+profiles:
+  - value: cloud-suitability

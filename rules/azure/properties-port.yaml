@@ -12,7 +12,8 @@ category: port
 effort: 0
 tags:
   - value: port
+  - value: configuration
 patterns:
- - value: (^|\s)server\.port
+  - value: (^|\s)server\.port
 profiles:
   - value: Azure Spring Apps

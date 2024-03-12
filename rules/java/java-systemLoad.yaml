@@ -1,0 +1,24 @@
+name: java-systemLoad
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: (System.)%s
+advice: Remediate to cloud friendly implentation
+effort: 1000
+readiness: 10
+category: process-launch
+tags:
+  - value: jni
+  - value: modernize
+patterns:
+  - value: loadLibrary
+  - value: load
+#- System.loadLibrary
+#- System.load
+profiles:
+  - value: cloud-suitability
+  - value: Azure Spring Apps

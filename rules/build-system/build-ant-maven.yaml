@@ -1,0 +1,22 @@
+name: build-ant-maven
+ruletype: fire-once
+filetype: xml$
+target: file
+type: simple-text
+category: buildSystem
+advice: Align with standard build system
+effort: 0
+readiness: 0
+tags:
+  - value: build-system
+patterns:
+  - value: build.xml
+    tag: ant
+    effort: 100
+  - value: pom.xml
+    tag: maven
+    effort: 0
+
+##F build.gradle
+profiles:
+  - value: cloud-suitability

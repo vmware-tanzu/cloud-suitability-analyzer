@@ -1,0 +1,23 @@
+name: js-symbol
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: js$
+target: line
+type: regex
+defaultpattern: new\\s+%s
+advice: Symbol is a primitive type introduced in ECMAScript2015. Its instances are mainly used as unique property keys. An instance can only be created by using Symbol as a function. Using Symbol with the new operator will raise a TypeError.
+effort: 1
+readiness: 10
+category: design
+tags:
+  - value: type-error
+  - value: frontend
+  - value: modernize
+patterns:
+  - value: Symbol
+
+#- new Synbol
+profiles:
+  - value: cloud-suitability

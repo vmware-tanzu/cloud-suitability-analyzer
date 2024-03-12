@@ -1,0 +1,21 @@
+name: java-rabbitmq-import
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Make sure that configuration is Cloud friendly
+effort: 1
+readiness: 5
+category: mq
+tags:
+  - value: message-queue
+  - value: rabbitmq
+  - value: messaging
+patterns:
+  - value: com.rabbitmq
+profiles:
+- value: cloud-suitability

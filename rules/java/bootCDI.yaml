@@ -1,0 +1,34 @@
+#SW
+name: bootCDI
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: cdi
+advice: Automatic remediation with Bootifier
+effort: 2
+readiness: 2
+tags:
+  - value: cdi
+  - value: migrate-off-legacy-server
+  - value: container
+  - value: modernize
+patterns:
+  - value: javaee-api
+    tag: javaee-api
+  - value: javax.inject
+    tag: javax-inject
+  - value: cdi-api
+    tag: cdi-api
+  - value: jboss-ejb-api_3.0_spec
+    tag: jboss-ejb-api_3.0_spec
+  - value: jboss-ejb-api_3.1_spec
+    tag: jboss-ejb-api_3.1_spec
+  - value: jboss-ejb-api_3.2_spec
+    tag: jboss-ejb-api_3.2_spec
+profiles:
+- value: cloud-suitability

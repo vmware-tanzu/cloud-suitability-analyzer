@@ -1,0 +1,96 @@
+name: java-resource-spi
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: "^.*[ .]%s[ (].*"
+effort: 10
+readiness: 70
+category: jca
+advice: Consider rearchitecting the application to use Cloud friendly remote communications - http or messaging
+tags:
+  - value: resource-adapter
+  - value: spi
+  - value: jca
+  - value: modernize
+  - value: container
+patterns:
+  - value: getTransactionSynchronizationRegistry
+  - value: ConnectionRequestInfo
+  - value: DissociatableManagedConnection
+  - value: dissociateConnections
+  - value: LazyAssociatableConnectionManager
+  - value: associateConnection
+  - value: LazyEnlistableConnectionManager
+  - value: lazyEnlist
+  - value: LazyEnlistableManagedConnection
+  - value: ResourceAdapter
+  - value: endpointActivation
+  - value: endpointDeactivation
+  - value: ResourceAdapterAssociation
+  - value: getResourceAdapter
+  - value: setResourceAdapter
+  - value: ValidatingManagedConnectionFactory
+  - value: getInvalidConnections
+  - value: XATerminator
+  - value: MessageEndpointFactory
+  - value: isDeliveryTransacted
+  - value: getMechType
+  - value: DistributableWork
+  - value: DistributableWorkManager
+  - value: WorkContextLifecycleListener
+  - value: contextSetupComplete
+  - value: contextSetupFailed
+  - value: WorkContextProvider
+  - value: scheduleWork
+  - value: HintsContext
+  - value: setupSecurityContext
+  - value: WorkAdapter
+  - value: workAccepted
+  - value: workCompleted
+  - value: workRejected
+  - value: workStarted
+  - value: WorkContextErrorCodes
+  - value: getStartDuration
+##  getTransactionSynchronizationRegistry(
+##  ConnectionRequestInfo(
+##  DissociatableManagedConnection(
+##  dissociateConnections(
+##  LazyAssociatableConnectionManager(
+##  associateConnection(
+##  LazyEnlistableConnectionManager(
+##  lazyEnlist(
+##  LazyEnlistableManagedConnection(
+##  ResourceAdapter(
+##  endpointActivation(
+##  endpointDeactivation(
+##  ResourceAdapterAssociation(
+##  getResourceAdapter(
+##  setResourceAdapter(
+##  ValidatingManagedConnectionFactory(
+##  getInvalidConnections(
+##  XATerminator(
+##  MessageEndpointFactory(
+##  isDeliveryTransacted(
+##  getMechType(
+##  DistributableWork(
+##  DistributableWorkManager(
+##  WorkContextLifecycleListener(
+##  contextSetupComplete(
+##  contextSetupFailed(
+##  WorkContextProvider(
+##  scheduleWork(
+##  HintsContext(
+##  setupSecurityContext(
+##  WorkAdapter(
+##  workAccepted(
+##  workCompleted(
+##  workRejected(
+##  workStarted(
+##  WorkContextErrorCodes(
+##  getStartDuration(
+profiles:
+  - value: cloud-suitability

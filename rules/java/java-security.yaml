@@ -1,0 +1,41 @@
+name: java-security
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Application is using a java keystore
+recipes:
+effort: 10
+readiness: 0
+category: security
+tags:
+  - value: security
+patterns:
+  - value: javax.net.ssl.keyStore
+    tag: javax-net-ssl
+  - value: javax.net.ssl.keyStoreType
+    tag: javax-net-ssl
+  - value: javax.net.ssl.keyStorePassword
+    tag: javax-net-ssl
+  - value: javax.net.ssl.trustStore
+    tag: javax-net-ssl
+  - value: javax.net.ssl.trustStoreType
+    tag: javax-net-ssl
+  - value: javax.net.ssl.trustStorePassword
+    tag: javax-net-ssl
+  - value: java.security
+    tag: x509
+
+#- import javax.net.ssl.keyStore
+#- import javax.net.ssl.keyStoreType
+#- import javax.net.ssl.keyStorePassword
+#- import javax.net.ssl.trustStore
+#- import javax.net.ssl.trustStoreType
+#- import javax.net.ssl.trustStorePassword
+#- import java.security
+profiles:
+  - value: cloud-suitability

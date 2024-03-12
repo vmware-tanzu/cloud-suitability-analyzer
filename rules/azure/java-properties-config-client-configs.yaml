@@ -12,6 +12,7 @@ category: config server
 effort: 0
 tags:
   - value: config server
+  - value: configuration
 patterns:
   - value: (^|\s)spring\.config\.import
   - value: (^|\s)spring\.cloud\.config\.uri

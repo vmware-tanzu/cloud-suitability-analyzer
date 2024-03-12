@@ -1,0 +1,21 @@
+name: java-persistence
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Consult 3rd party documentation
+effort: 5
+readiness: 5
+category: persistence
+tags:
+  - value: javax-persistence
+  - value: io
+  - value: database
+patterns:
+  - value: javax.persistence
+profiles:
+  - value: cloud-suitability

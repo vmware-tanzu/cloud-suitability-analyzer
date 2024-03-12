@@ -1,0 +1,25 @@
+name: php-enable-session-use-trans-sid
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: ini$
+target: line
+type: regex
+defaultpattern: \s*(%s)=+1$
+category: Vulnerability
+advice: PHP’s session.use_trans_sid automatically appends the user’s session id to urls when cookies are disabled.
+recipe: session.use_trans_sid is off by default, this rule raises an issue when it is explicitly enabled.
+effort: 100
+readiness: 1000
+tags:
+  - value: vulnerability
+  - value: security
+  - value: modernize
+  - value: container
+patterns:
+  - value: session.use_trans_sid
+
+#- session.use_trans_sid=1
+profiles:
+  - value: cloud-suitability

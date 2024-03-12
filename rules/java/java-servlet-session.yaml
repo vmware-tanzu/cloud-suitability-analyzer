@@ -1,0 +1,25 @@
+name: java-servlet-session
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+effort: 10
+readiness: 0
+advice: HTTP Session Java API Import. Make sure that externalized data store is used for session
+category: servlet
+tags:
+  - value: servlet
+  - value: session
+  - value: web-container
+  - value: tas
+  - value: modernize
+  - value: container
+patterns:
+  - value: javax.servlet.http.HttpSession
+##import javax.servlet.
+profiles:
+  - value: cloud-suitability

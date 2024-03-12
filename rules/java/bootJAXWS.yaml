@@ -1,0 +1,30 @@
+#todo SW Can be improved by searching for SOAP dependencies in imports or annotations
+#todo do we need to expand patterns to search for other application server deps
+#todo change the contains to regex
+name: bootJAXWS
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: jaxws
+advice: Automatic remediation with Bootifier
+effort: 2
+readiness: 2
+tags:
+  - value: jax-ws
+  - value: migrate-off-legacy-server
+  - value: container
+  - value: modernize
+patterns:
+  - value: jboss-annotations-api_1.3_spec
+    tag: jboss-annotations-1-3
+  - value: jboss-servlet-api_4.0_spec
+    tag: jboss-servlet-4.0
+  - value: javax.enterprise.concurrent-api
+    tag: javax-enterprise-concurrent
+profiles:
+  - value: cloud-suitability

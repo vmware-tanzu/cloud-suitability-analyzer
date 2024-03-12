@@ -12,6 +12,8 @@ category: eureka
 effort: 0
 tags:
   - value: eureka
+  - value: spring
+  - value: configuration
 patterns:
   - value: (^|\s)eureka\.client\.(service-url|serviceUrl)
 profiles:

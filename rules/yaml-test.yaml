@@ -11,4 +11,4 @@ readiness: 10
 patterns:
   - value: $.orchestration
 profiles:
-- value: cloud-suitability
+  - value: cloud-suitability

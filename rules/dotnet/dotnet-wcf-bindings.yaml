@@ -1,0 +1,27 @@
+name: dotnet-wcf-bindings
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: config$
+target: line
+type: regex
+advice: Refers to documentation when using WCF, some protocols might not be supported
+effort: 0
+category: wcf
+tags:
+  - value: windows-wcf
+  - value: communication
+  - value: modernize
+patterns:
+  - value: <basic.+Binding>
+    #- <basicHttpBinding><binding allowCookies="Boolean"
+    advice: Refers to documentation when using WCF, some protocols might not be supported
+  - value: <mexHttp.+Binding>
+    #- <mexHttpBinding><binding closeTimeout="TimeSpan"
+    advice: Refers to documentation when using WCF, some protocols might not be supported
+  - value: <webHttp.+Binding>
+    #- <webHttpBinding><binding allowCookies="Boolean"
+    advice: Refers to documentation when using WCF, some protocols might not be supported
+profiles:
+  - value: cloud-suitability

@@ -1,0 +1,36 @@
+name: php-md5-sha1-noncompliant
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: php$
+target: line
+type: regex
+defaultpattern: .*(%s\(.*\))
+category: security
+advice:  Cryptographic hash algorithms such as MD2, MD4, MD5, MD6, HAVAL-128, HMAC-MD5, DSA (which uses SHA-1), RIPEMD, RIPEMD-128, RIPEMD-160, HMACRIPEMD160 and SHA-1 are no longer considered secure, because it is possible to have collisions (little computational effort is enough to find two or more different inputs that produce the same hash). Safer alternatives, such as SHA-256, SHA-512, SHA-3 are recommended, and for password hashing, it is even better to use algorithms that do not compute too quickly, like bcrypt, scrypt, argon2 or pbkdf2 because it slows down brute force attacks.
+effort: 10
+readiness: 1000
+tags:
+  - value: security
+  - value: modernize
+  - value: container  
+patterns:
+  - value:  md5
+  - value:  sha1
+  - value:  md2
+  - value:  sha1
+  - value:  md4
+  - value:  haval128
+  - value:  dsa
+
+
+#- md5("password"
+#- sha1("password"
+#- md2("password"
+#- sha1("password"
+#- md4("password"
+#- haval128("password"
+#- dsa("password"
+profiles:
+- value: cloud-suitability

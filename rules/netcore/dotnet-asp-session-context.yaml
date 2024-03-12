@@ -12,11 +12,12 @@ readiness: 9
 effort: 10
 category: unsupported-netcore
 patterns:
-- value: HttpContextBase
+  - value: HttpContextBase
 tags:
-- value: asp
-- value: session
-- value: unsupported-netcore
+  - value: asp
+  - value: session
+  - value: unsupported-netcore
+  - value: modernize
 #- string GetCartId(HttpContextBase context)
 profiles:
-- value: netcore
+  - value: netcore

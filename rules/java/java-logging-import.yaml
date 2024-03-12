@@ -1,0 +1,31 @@
+name: java-logging-import
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Change to an implementation of SLF4J i.e. Logback
+effort: 3
+readiness: 5
+category: logging
+tags:
+  - value: logging
+patterns:
+  - value: java\.util\.logging
+    tag: java-util
+  - value: org\.apache\.log4j
+    tag: log4j
+  - value: org\.apache\.logging\.log4j
+    tag: log4j2
+  - value: org\.apache\.commons\.logging
+    tag: commons-logging
+  - value: org\.osgi\.service\.log
+    tag: org-osgi
+  - value: org\.jboss\.logging\.Logger
+    tag: jboss-logging
+profiles:
+  - value: cloud-suitability
+  - value: Azure Spring Apps

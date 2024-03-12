@@ -1,0 +1,20 @@
+name: python-db-peewee
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: py$
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Check target platform has support for this library
+effort: 1
+readiness: 10
+category: database
+tags:
+  - value: peewee
+  - value: database
+patterns:
+  - value: peewee
+profiles:
+  - value: cloud-suitability

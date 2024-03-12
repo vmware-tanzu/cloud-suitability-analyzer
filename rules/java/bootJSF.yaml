@@ -1,0 +1,41 @@
+#SW
+#todo to remove
+name: bootJSF
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: jsf
+advice: Automatic remediation with Bootifier
+effort: 2
+readiness: 2
+tags:
+  - value: jsf
+  - value: migrate-off-legacy-server
+  - value: container
+  - value: modernize 
+patterns:
+  - value: javax.faces-
+    tag: javax-faces
+  - value: jsf-api
+    tag: jsf
+  - value: myfaces-api
+    tag: myfaces
+  - value: myfaces-impl
+    tag: myfaces
+  - value: jsf-impl
+    tag: jsf
+  - value: jboss-jsf-api_2.3_spec
+    tag: jboss-jsf-2.3
+  - value: jboss-jsf-api_2.2_spec
+    tag: jboss-jsf-2.2
+  - value: jboss-jsf-api_2.1_spec
+    tag: jboss-jsf-2.1
+  - value: jboss-jsf-api_2.0_spec
+    tag: jboss-jsf-2.0
+profiles:
+- value: cloud-suitability

@@ -1,0 +1,21 @@
+#SW
+name: xml-statefulEJB
+ruletype: fire-once
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: ejb
+advice: Relies on application server for shared state and will require a rewrite to Stateless or externalize state storage
+effort: 1000
+readiness: 1000
+tags:
+  - value: ejb
+  - value: stateful
+  - value: container
+  - value: modernize
+patterns:
+  - value: <session-type>Stateful</session-type>
+##<session-type>Stateful</session-type>
+profiles:
+  - value: cloud-suitability

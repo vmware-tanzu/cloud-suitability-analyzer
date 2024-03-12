@@ -1,0 +1,31 @@
+name: php-deprecated-feature-parse_str
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: php$
+target: line
+type: regex
+defaultpattern: ([^_]%s)\s*\(.*[^,]\)
+category: deprecation
+advice: parse_str() without second argument is deprecated
+recipe: All existing uses should be gradually removed or upgraded to new equivalent features.
+effort: 1
+readiness: 1000
+tags:
+  - value: deprecated
+  - value: modernize
+  - value: container
+patterns:
+  - value: parse_str
+
+#- gmp_random(
+#- parse_str(
+#- create_function(
+#- mysql_escape_string(
+#- sql_regcase(
+#- spliti(
+#- set_socket_blocking
+#- session_register(
+profiles:
+  - value: cloud-suitability

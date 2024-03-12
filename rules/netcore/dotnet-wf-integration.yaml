@@ -12,9 +12,10 @@ effort: 10
 readiness: 10
 category: WF
 patterns:
-- value: XamlIntegration
+  - value: XamlIntegration
 tags:
-- value: api
-- value: unsupported-netcore
+  - value: api
+  - value: unsupported-netcore
+  - value: modernize
 profiles:
-- value: netcore
+  - value: netcore

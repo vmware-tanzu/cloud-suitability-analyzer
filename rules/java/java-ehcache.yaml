@@ -1,0 +1,20 @@
+name: java-ehcache
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+effort: 100
+readiness: 6
+advice: Consider to externalize cache if not already
+category: cache
+tags:
+  - value: cache
+  - value: ehcache
+patterns:
+  - value: net.sf.ehcache
+profiles:
+  - value: cloud-suitability

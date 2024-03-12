@@ -1,0 +1,24 @@
+#SW
+name: xml-myfaces
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: myfaces
+advice: Consider upgrading to modern UI framework
+effort: 5
+readiness: 2
+tags:
+  - value: jsf
+  - value: container
+  - value: modernize
+  - value: frontend
+patterns:
+  - value: org.apache.myfaces
+#org.apache.myfaces
+profiles:
+  - value: cloud-suitability

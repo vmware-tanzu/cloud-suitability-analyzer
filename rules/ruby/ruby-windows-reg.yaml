@@ -1,0 +1,17 @@
+name: ruby-windows-reg
+filetype: rb$
+target: line
+type: regex
+defaultpattern: \b%s
+effort: 2
+readiness: 0
+advice: Windows Registry is not available in cloud/container envs
+category: windows-reg
+tags:
+  - value: windows-reg
+  - value: modernize
+  - value: container  
+patterns:
+  - value: Registry
+profiles:
+  - value: cloud-suitability

@@ -1,0 +1,28 @@
+name: java-mongo-cassandra
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: (import)\s+(%s)
+advice: Application is using a non relational database
+effort: 0
+readiness: 0
+category: springFramework
+tags:
+  - value: spring
+  - value: database
+  - value: tas
+patterns:
+  - value: org.springframework
+  - value: org.springframework.mongo
+    tag: mongo
+    effort: 0
+  - value: org.springframework.cassandra
+    tag: cassandra
+    effort: 0
+## import org.springframework
+profiles:
+  - value: cloud-suitability

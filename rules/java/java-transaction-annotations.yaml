@@ -1,0 +1,23 @@
+name: java-transaction-annotations
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^\s*@%s
+advice: Review if distributed transcations are used and consider rearchitecting using eventual consistency
+effort: 5
+category: transaction
+tags:
+  - value: transaction
+  - value: modernize
+patterns:
+  - value: Remote
+  - value: LocalHome
+  - value: RemoteHome
+  - value: TransactionManagement
+  - value: TransactionAttribute
+profiles:
+  - value: cloud-suitability

@@ -1,0 +1,21 @@
+name: tas-environment-cfenv-gradle
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: gradle$
+target: line
+type: regex
+defaultpattern: ^.*%s
+advice: Application appears to be using cf env library to inject environment variables provided by TAS.
+effort: 1
+readiness: 7
+category: tas
+tags:
+  - value: tas
+  - value: env-config
+  - value: dependencies
+patterns:
+  - value: spring-cloud-cloudfoundry-connector
+profiles:
+  - value: tas

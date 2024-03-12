@@ -16,9 +16,9 @@ tags:
   - value: logging
   - value: log2file
 patterns:
- - value: $[*]["appenders","Appenders"][?( @.File || @.file || @.appender[?(@.type=~/(?i)file/)])]
- - value: $[*]["appenders","Appenders"]["Routing"]["Routes"]["Route"][?( @.File || @.file)]
- - value: $[*]["appenders","Appenders"][?(@.RollingFile || @.rollingFile || @.appender[?(@.type=~/(?i)RollingFile/)])]
- - value: $[*]["appenders","Appenders"]["Routing"]["Routes"]["Route"][?( @.RollingFile || @.rollingFile)]
+  - value: $[*]["appenders","Appenders"][?( @.File || @.file || @.appender[?(@.type=~/(?i)file/)])]
+  - value: $[*]["appenders","Appenders"]["Routing"]["Routes"]["Route"][?( @.File || @.file)]
+  - value: $[*]["appenders","Appenders"][?(@.RollingFile || @.rollingFile || @.appender[?(@.type=~/(?i)RollingFile/)])]
+  - value: $[*]["appenders","Appenders"]["Routing"]["Routes"]["Route"][?( @.RollingFile || @.rollingFile)]
 profiles:
   - value: Azure Spring Apps

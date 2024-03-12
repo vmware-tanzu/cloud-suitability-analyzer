@@ -1,0 +1,31 @@
+name: plaintext-creds
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+target: line
+type: regex
+defaultpattern: (%s)\s*=+\s*["'][^${[(\s][^"${[(\s].*
+advice: Found plain text crdentials. Never save passwords or login information in files. Make configurable, put into environment variables or config maps in a kubernetes like environment. Credentials could also be set and retrieved from cloud friendly crdential vaults.
+readiness: 9
+category: security
+tags:
+  - value: security
+  - value: configuration
+excludepatterns:
+  - value: <Control.*Property.*Password=\"yes
+  - value: (Login)\s*=+\s*"true
+patterns:
+  - value: Password
+  - value: User
+  - value: User Id
+  - value: username
+  - value: Username
+  - value: Login
+  - value: Loginname
+  - value: login
+  - value: Loginname
+  - value: password
+negative: false
+profiles:
+  - value: cloud-suitability

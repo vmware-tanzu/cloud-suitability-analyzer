@@ -1,0 +1,35 @@
+name: xml-jee
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: file
+type: simple-text
+advice: Convert to Spring based application configuration or use importResource
+effort: 20
+readiness: 8
+category: Config
+tags:
+  - value: full-profile
+  - value: javaee
+  - value: container
+  - value: modernize  
+patterns:
+  - value: application.xml
+    tag: ear
+  - value: application-client.xml
+    tag: application-client
+  - value: ejb-jar.xml
+    tag: ejb
+  - value: ra.xml
+    tag: resourceadapter
+  - value: webservices.xml
+    tag: web-service
+##F application.xml
+##F application-client.xml
+##F ejb-jar.xml
+##F ra.xml
+##F webservices.xml
+profiles:
+  - value: cloud-suitability

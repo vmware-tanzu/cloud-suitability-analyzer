@@ -1,0 +1,20 @@
+name: python-db-redis
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: py$
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Redis is being used
+effort: 1
+readiness: 10
+category: cache
+tags:
+  - value: redis
+  - value: cache
+patterns:
+  - value: redis
+profiles:
+  - value: cloud-suitability

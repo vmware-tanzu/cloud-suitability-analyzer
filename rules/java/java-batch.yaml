@@ -1,0 +1,51 @@
+---
+#--- updated from 8/8/18 Survey
+# todo should we change to look for javax.naming or javax.jndi package
+name: java-batch
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: "^.*[ .]%s[ (].*"
+effort: 10
+readiness: 7
+category: jndi
+advice: Remove jndi provider or move to TKG
+tags:
+  - value: jndi
+  - value: batch
+  - value: web-container
+  - value: container
+patterns:
+  - value: NamingEnumeration
+  - value: NameClassPair
+  - value: NameParser
+  - value: DirContext
+  - value: BinaryRefAddr
+  - value: CompositeName
+  - value: CompoundName
+  - value: InitialContext
+  - value: LinkRef
+  - value: NameClassPair
+  - value: RefAddr
+  - value: StringRefAddr
+  - value: BasicControl
+  - value: ControlFactory
+  - value: InitialLdapContext
+  - value: LdapName
+  - value: ManageReferralControl
+  - value: PagedResultsControl
+  - value: PagedResultsResponseControl
+  - value: SortControl
+  - value: SortKey
+  - value: SortResponseControl
+  - value: StartTlsRequest
+  - value: StartTlsResponse
+  - value: UnsolicitedNotificationEvent
+  - value: NamingEvent
+  - value: NamingExceptionEvent
+profiles:
+- value: cloud-suitability

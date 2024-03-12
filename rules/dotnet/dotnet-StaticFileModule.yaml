@@ -1,0 +1,22 @@
+#qc1
+name: dotnet-StaticFileModule
+ruletype: fire-once
+filetype: config$
+target: file
+type: xpath
+category: Unsupported modules
+advice: Ensure compatible configuation
+effort: 400
+readiness: 5
+patterns:
+  - value: /configuration/system.webServer/handlers/add[contains(@modules, "StaticFileModule")][1]
+  - value: /configuration/system.webServer/handlers/add[@name="StaticFileModule"][1]
+## StaticFileModule
+#- <configuration><system.webServer><handlers><add name="StaticFileModule" image="%windir%\system32\inetsrv\static.dll" />
+tags:
+  - value: iis-module
+  - value: static-file-module
+  - value: web-server
+  - value: modernize
+profiles:
+  - value: cloud-suitability

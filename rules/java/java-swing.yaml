@@ -1,0 +1,144 @@
+name: java-swing
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: "^.*[ .]%s[ (].*"
+effort: 500
+readiness: 100
+advice: Consider upgrading to modern cloud native UI framework
+category: Swing
+tags:
+  - value: desktop-app
+  - value: ui
+  - value: modernize
+patterns:
+  - value: JApplet
+  - value: JButton
+  - value: JCheckBox
+  - value: JCheckBoxMenuItem
+  - value: JColorChooser
+  - value: JComboBox
+  - value: JComponent
+  - value: JDesktopPane
+  - value: JDialog
+  - value: JEditorPane
+  - value: JFileChooser
+  - value: JFormattedTextField
+  - value: JFormattedTextField.AbstractFormatter
+  - value: JFormattedTextField.AbstractFormatterFactory
+  - value: JFrame
+  - value: JInternalFrame
+  - value: JInternalFrame.JDesktopIcon
+  - value: JLabel
+  - value: JLayer
+  - value: JLayeredPane
+  - value: JList
+  - value: JList.DropLocation
+  - value: JMenu
+  - value: JMenuBar
+  - value: JMenuItem
+  - value: JOptionPane
+  - value: JPanel
+  - value: JPasswordField
+  - value: JPopupMenu
+  - value: JPopupMenu.Separator
+  - value: JProgressBar
+  - value: JRadioButton
+  - value: JRadioButtonMenuItem
+  - value: JRootPane
+  - value: JScrollBar
+  - value: JScrollPane
+  - value: JSeparator
+  - value: JSlider
+  - value: JSpinner
+  - value: JSpinner.DateEditor
+  - value: JSpinner.DefaultEditor
+  - value: JSpinner.ListEditor
+  - value: JSpinner.NumberEditor
+  - value: JSplitPane
+  - value: JTabbedPane
+  - value: JTable
+  - value: JTable.DropLocation
+  - value: JTextArea
+  - value: JTextField
+  - value: JTextPane
+  - value: JToggleButton
+  - value: JToggleButton.ToggleButtonModel
+  - value: JToolBar
+  - value: JToolBar.Separator
+  - value: JToolTip
+  - value: JTree
+  - value: JTree.DropLocation
+  - value: JTree.DynamicUtilTreeNode
+  - value: JTree.EmptySelectionModel
+  - value: JViewport
+  - value: JWindow
+
+##  JApplet(
+##  JButton(
+##  JCheckBox(
+##  JCheckBoxMenuItem(
+##  JColorChooser(
+##  JComboBox(
+##  JComponent(
+##  JDesktopPane(
+##  JDialog(
+##  JEditorPane(
+##  JFileChooser(
+##  JFormattedTextField(
+##  JFormattedTextField.AbstractFormatter(
+##  JFormattedTextField.AbstractFormatterFactory(
+##  JFrame(
+##  JInternalFrame(
+##  JInternalFrame.JDesktopIcon(
+##  JLabel(
+##  JLayer(
+##  JLayeredPane(
+##  JList(
+##  JList.DropLocation(
+##  JMenu(
+##  JMenuBar(
+##  JMenuItem(
+##  JOptionPane(
+##  JPanel(
+##  JPasswordField(
+##  JPopupMenu(
+##  JPopupMenu.Separator(
+##  JProgressBar(
+##  JRadioButton(
+##  JRadioButtonMenuItem(
+##  JRootPane(
+##  JScrollBar(
+##  JScrollPane(
+##  JSeparator(
+##  JSlider(
+##  JSpinner(
+##  JSpinner.DateEditor(
+##  JSpinner.DefaultEditor(
+##  JSpinner.ListEditor(
+##  JSpinner.NumberEditor(
+##  JSplitPane(
+##  JTabbedPane(
+##  JTable(
+##  JTable.DropLocation(
+##  JTextArea(
+##  JTextField(
+##  JTextPane(
+##  JToggleButton(
+##  JToggleButton.ToggleButtonModel(
+##  JToolBar(
+##  JToolBar.Separator(
+##  JToolTip(
+##  JTree(
+##  JTree.DropLocation(
+##  JTree.DynamicUtilTreeNode(
+##  JTree.EmptySelectionModel(
+##  JViewport(
+##  JWindow(
+profiles:
+  - value: cloud-suitability
+  - value: Azure Spring Apps

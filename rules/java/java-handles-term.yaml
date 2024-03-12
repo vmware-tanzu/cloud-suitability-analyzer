@@ -1,0 +1,22 @@
+---
+name: java-handles-term
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: ^.*%s
+advice: For containerization, the TERM signal must be handled, this pattern is a positive finding.
+effort: 1
+readiness: 6
+category: term-signal
+tags:
+  - value: term
+  - value: container
+  - value: modernize
+patterns:
+  - value: Runtime.getRuntime().addShutdownHook
+profiles:
+- value: cloud-suitability

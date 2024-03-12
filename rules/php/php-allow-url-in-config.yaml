@@ -1,0 +1,25 @@
+name: php-allow-url-in-config
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: ini$
+target: line
+type: regex
+defaultpattern: \s*(%s)=1$
+category: Vulnerability
+advice: allow_url_fopen and allow_url_include allow code to be read into a script from URL’s. The ability to suck in executable code from outside your site, coupled with imperfect input cleansing could lay your site bare to attackers explicitly disable allow_url_fopen and allow_url_include'
+effort: 5
+readiness: 1000
+tags:
+  - value: vulnerability
+  - value: security
+  - value: modernize
+  - value: container
+patterns:
+  - value: allow_url_fopen
+  - value: allow_url_include
+
+  #- allow_url_fopen=1
+profiles:
+  - value: cloud-suitability

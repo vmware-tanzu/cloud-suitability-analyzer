@@ -6,17 +6,18 @@ container: 100
 filetype: (cs$|vb$)
 target: line
 type: regex
-defaultpattern: '%s'
+defaultpattern: "%s"
 patterns:
-- value: .*Create.*\(FormCollection.*
+  - value: .*Create.*\(FormCollection.*
 advice: Not supported, Replace with IFormCollection
 readiness: 9
 effort: 10
 category: unsupported-netcore
 tags:
-- value: mvc
-- value: asp
-- value: unsupported-netcore
-#- ActionResult Create(FormCollection formCollection)  
+  - value: mvc
+  - value: asp
+  - value: unsupported-netcore
+  - value: modernize
+#- ActionResult Create(FormCollection formCollection)
 profiles:
-- value: netcore
+  - value: netcore

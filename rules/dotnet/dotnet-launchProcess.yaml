@@ -1,0 +1,26 @@
+name: dotnet-launchProcess
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: '%s'
+advice: Launching additional processes within a container like environment is not recommended. In a targeted docker like environment it is generally recommended that you separate areas of concern by using one service per container.
+readiness: 7
+effort: 300
+category: process-launch
+tags:
+  - value: process-launch
+  - value: modernize
+  - value: container
+patterns:
+  - value: '[\s=]Process[.]Start[(\s.]'
+  - value: .WaitForExit\(
+  - value: .new\sProcess\(
+#- Process()
+#- Process ()
+#- Process.
+profiles:
+  - value: cloud-suitability

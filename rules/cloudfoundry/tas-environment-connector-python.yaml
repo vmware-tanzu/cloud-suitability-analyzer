@@ -1,0 +1,21 @@
+name: tas-environment-connector-python
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: py$
+target: line
+type: regex
+defaultpattern: ^.*%s
+advice: Application appears to be using Cloudfoundry python client to inject environment variables provided by TAS.
+effort: 1
+readiness: 7
+category: tas
+tags:
+  - value: tas
+  - value: env-config
+  - value: dependencies
+patterns:
+  - value: CloudFoundryClient
+profiles:
+  - value: tas

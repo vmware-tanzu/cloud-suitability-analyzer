@@ -13,6 +13,7 @@ category: version
 defaultpattern: //*[groupId="org.springframework.boot" and starts-with(version,"%s")]/version
 tags:
   - value: spring-boot
+  - value: dependencies
 patterns:
   - value: 2.0
   - value: 2.1

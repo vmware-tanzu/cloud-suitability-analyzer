@@ -9,15 +9,16 @@ target: line
 type: regex
 advice: Redis connection string, username and password are detected
 category: redis
-tags: 
- - value: redis
+tags:
+  - value: redis
+  - value: cache
 effort: 0
 patterns:
- - value: (^|\.|\s)redis\.(.*\.)?(url|host|nodes)
- - value: (^|\.|\s)redis\.(.*\.)?(username|password)
- - value: (^|\.|\s)jedis\.(url|host)
- - value: (^|\.|\s)jedis\.(username|password)
- - value: (^|\.|\s)lettuce\.(url|host)
- - value: (^|\.|\s)lettuce\.(username|password)
+  - value: (^|\.|\s)redis\.(.*\.)?(url|host|nodes)
+  - value: (^|\.|\s)redis\.(.*\.)?(username|password)
+  - value: (^|\.|\s)jedis\.(url|host)
+  - value: (^|\.|\s)jedis\.(username|password)
+  - value: (^|\.|\s)lettuce\.(url|host)
+  - value: (^|\.|\s)lettuce\.(username|password)
 profiles:
   - value: Azure Spring Apps

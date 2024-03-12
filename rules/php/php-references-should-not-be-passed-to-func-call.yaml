@@ -1,0 +1,25 @@
+name: php-references-should-not-be-passed-to-func-call
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: php$
+target: line
+type: regex
+defaultpattern: .*\s*\(%s+.*\)
+category: code_smell
+advice:  Passing a reference to a function parameter means that any modifications the method makes to the parameter will be made to the original value as well, since references have the effect of pointing two variables at the same memory space. This feature can be difficult to use correctly, particularly if the callee is not expecting a reference, and the improper use of references in function calls can make code less efficient rather than more efficient.
+recipe: Pass by value
+effort: 1
+readiness: 1000
+tags:
+  - value: code_smell
+  - value: modernize
+  - value: container  
+patterns:
+  - value:  '&'
+
+
+#- &variablename
+profiles:
+- value: cloud-suitability

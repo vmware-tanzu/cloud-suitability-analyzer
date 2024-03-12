@@ -1,0 +1,21 @@
+name: java-slf4j-import
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Review logging configuration and remove file appenders.
+effort: 1
+readiness: 0
+category: slf4j
+tags:
+  - value: slf4j
+  - value: logging
+patterns:
+  - value: org.slf4j
+profiles:
+  - value: cloud-suitability
+  - value: Azure Spring Apps

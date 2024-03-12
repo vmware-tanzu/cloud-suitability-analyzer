@@ -1,0 +1,29 @@
+name: java-metrics
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Indicates use of a metrics collection library, which supports containerization
+effort: -10
+readiness: 7
+category: metrics
+tags:
+  - value: metrics
+  - value: monitoring
+patterns:
+  - value: io.micrometer
+    tag: micrometer
+  - value: javax.management
+    tag: javax-management
+  - value: io.dropwizard
+    tag: dropwizard
+  - value: com.netuitive.ananke
+    tag: netuitive
+  - value: edu.iris.dmc
+    tag: iris-dmc
+profiles:
+  - value: cloud-suitability

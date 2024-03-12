@@ -1,0 +1,26 @@
+name: js-fileIO
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: js$
+target: line
+type: regex
+defaultpattern: .%s
+advice: Cloud-native applications should not rely on a local filesystem to store information, configuration or logs. Some alternatives could be cloud storage (buckets), storing data in a shared database or leveraging shared mounted volumes in a kubernetes like environment.
+effort: 30
+readiness: 8
+category: io
+tags:
+  - value: io
+  - value: modernize
+  - value: container
+  - value: frontend
+patterns:
+  - value: appendFile
+  - value: writeFile
+
+#- appendFile
+#- writeFile
+profiles:
+  - value: cloud-suitability

@@ -12,9 +12,10 @@ advice: Windows Workflow Foundation (WF) won't be ported to .NET Core. See https
 effort: 500
 readiness: 1
 patterns:
-- value: System.Activities.Core.Presentation
+  - value: System.Activities.Core.Presentation
 tags:
-- value: windows-wf
-- value: unsupported-netcore
+  - value: windows-wf
+  - value: unsupported-netcore
+  - value: modernize
 profiles:
-- value: netcore
+  - value: netcore

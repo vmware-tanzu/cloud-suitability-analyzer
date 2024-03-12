@@ -8,6 +8,7 @@ import (
 	"csa-app/db"
 	"csa-app/model"
 	"csa-app/util"
+
 	"github.com/sirupsen/logrus"
 
 	"csa-app/backend/routes"
@@ -22,7 +23,7 @@ func main() {
 
 	util.App.HelpFlag.Short('?')
 	util.App.Version(Version)
-	util.App.Author("Steve Woods (Pivotal)")
+	util.App.Author("VMware by Broadcom")
 
 	// Begin DB Initialization
 	var run = model.Run{}

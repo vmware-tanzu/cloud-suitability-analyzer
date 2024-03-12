@@ -1,0 +1,26 @@
+name: js-cache
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: js$
+target: line
+type: regex
+defaultpattern: (%s)
+category: session_management
+advice: Using caching in memory will not scale when used in a multi nodes environment. Use distributed caching like redis instead.
+effort: 20
+readiness: 1000
+tags:
+  - value: cache
+  - value: frontend
+patterns:
+  - value: .*(cache)\s*\[.*\]
+  - value: .*(CACHE)\s*\[.*\]
+  - value: .*cache.get\(
+  - value: .*cache.set\(
+
+#- $_SESSION["KEY"]
+#- $_COOKIE["KEY"]
+profiles:
+  - value: cloud-suitability

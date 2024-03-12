@@ -1,0 +1,24 @@
+name: php-disabled-enable-dl
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: ini$
+target: line
+type: regex
+defaultpattern: \s*(%s)=+1$
+category: Vulnerability
+advice:  enable_dl is on by default and allows open_basedir restrictions, which limit the files a script can access, to be ignored enable_dl should be explicitly turned off in php.ini
+effort: 5
+readiness: 1000
+tags:
+  - value: vulnerability
+  - value: security
+  - value: modernize
+  - value: container
+patterns:
+  - value: enable_dl
+
+#- enable_dl=1
+profiles:
+- value: cloud-suitability

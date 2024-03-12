@@ -1,0 +1,22 @@
+name: xml-session-scoped-beans
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: session
+advice: Relies on application server for shared state and will require a rewrite to Stateless or externalize state storage
+effort: 100
+readiness: 100
+tags:
+  - value: stateful
+  - value: session
+  - value: container
+  - value: modernize  
+patterns:
+  - value: scope="session"
+profiles:
+  - value: cloud-suitability

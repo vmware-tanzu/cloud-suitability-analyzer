@@ -1,0 +1,25 @@
+#SW
+name: xml-localJNDI
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: jndi
+advice: WebSphere does not allow local JNDI, refer to documentation
+effort: 10
+readiness: 10
+tags:
+  - value: jndi
+  - value: local
+  - value: web-container
+  - value: container
+  - value: modernize  
+patterns:
+  - value: <local-jndi-name>
+##<local-jndi-name>
+profiles:
+  - value: cloud-suitability

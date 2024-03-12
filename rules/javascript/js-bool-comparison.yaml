@@ -1,0 +1,27 @@
+name: js-bool-comparison
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: js$
+target: line
+type: regex
+defaultpattern: (!|=)=\\s+%s
+advice: Boolean literals should be avoided in comparison expressions == and != to improve code readability.
+effort: 1
+readiness: 10
+category: design
+tags:
+  - value: bool-compare
+  - value: readability
+  - value: container
+  - value: modernize
+  - value: frontend
+patterns:
+  - value: true
+  - value: false
+
+#- = false
+#- = true
+profiles:
+  - value: cloud-suitability

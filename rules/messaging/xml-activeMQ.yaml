@@ -1,0 +1,22 @@
+name: xml-activeMQ
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: mq
+advice: Make sure that Active MQ broker is available on target platform
+effort: 5
+readiness: 10
+tags:
+  - value: amqp
+  - value: message-queue
+  - value: messaging
+patterns:
+  - value: amq:broker
+## amq:broker
+profiles:
+  - value: cloud-suitability

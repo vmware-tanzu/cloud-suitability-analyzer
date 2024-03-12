@@ -1,0 +1,54 @@
+#SW - this is where we need xpath
+name: SNAP-java-ver-Maven-Ant
+ruletype: fire-once
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: java-ver
+advice: Legacy Java detected.  Consider upgrading.
+effort: 100
+readiness: 0
+tags:
+  - value: java-version
+  - value: build-system
+patterns:
+  #Maven
+  - value: "<target>1.4</target>"
+    tag: java-14
+  - value: "<target>1.5</target>"
+    tag: java-15
+  - value: "<target>1.6</target>"
+    tag: java-16
+
+  #Ant
+  - value: '<javac target="1.4"'
+  - value: '<javac target="1.5"'
+  - value: '<javac target="1.6"'
+
+#- '<target>1.4</target>'
+#- '<target>1.5</target>'
+#- '<target>1.6</target>'
+#- '<target>1.7</target>'
+#- '<target>1.8</target>'
+#- '<target>1.9</target>'
+#- '<target>1.10</target>'
+#- '<target>1.11</target>'
+#- '<target>1.12</target>'
+#- '<target>1.13</target>'
+#- '<target>1.14</target>'
+
+#Ant
+#- '<javac target="1.4"'
+#- '<javac target="1.5"'
+#- '<javac target="1.6"'
+#- '<javac target="1.7"'
+#- '<javac target="1.8"'
+#- '<javac target="1.9"'
+#- '<javac target="1.10"'
+#- '<javac target="1.11"'
+#- '<javac target="1.12"'
+#- '<javac target="1.13"'
+#- '<javac target="1.14"'
+profiles:
+  - value: cloud-suitability

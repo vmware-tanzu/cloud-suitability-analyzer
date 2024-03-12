@@ -1,0 +1,26 @@
+#SW
+name: xml-trinidad
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: trinidad
+advice: Consider upgrading to modern UI framework
+effort: 10
+readiness: 7
+tags:
+  - value: jsf
+  - value: web-profile
+  - value: trinidad
+  - value: frontend
+  - value: modernize
+  - value: container  
+patterns:
+  - value: myfaces.apache.org/trinidad/config
+##myfaces.apache.org/trinidad/config
+profiles:
+  - value: cloud-suitability

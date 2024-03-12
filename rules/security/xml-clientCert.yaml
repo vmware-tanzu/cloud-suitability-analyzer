@@ -1,0 +1,23 @@
+name: xml-clientCert
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: security
+advice: Avoid reliance on SSL
+effort: 5
+readiness: 10
+tags:
+  - value: certificate
+  - value: auth
+  - value: security
+patterns:
+  - value: <auth-method>CLIENT-CERT
+
+##<auth-method>CLIENT-CERT
+profiles:
+  - value: cloud-suitability

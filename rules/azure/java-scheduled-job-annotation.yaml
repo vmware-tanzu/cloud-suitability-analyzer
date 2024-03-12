@@ -8,13 +8,16 @@ filetype: java$
 target: line
 type: regex
 defaultpattern: ^\s*@%s
-advice: The application has scheduled jobs such as Quartz Scheduler tasks or cron jobs. 
-        Please be aware that after migrating to the cloud and scaling out,
-        scheduled jobs in applications may run more than once per scheduled period and lead to unintended consequences.
+advice:
+  The application has scheduled jobs such as Quartz Scheduler tasks or cron jobs.
+  Please be aware that after migrating to the cloud and scaling out,
+  scheduled jobs in applications may run more than once per scheduled period and lead to unintended consequences.
 effort: 6
 category: scheduled job
 tags:
   - value: scheduled job
+  - value: faas
+  - value: container
 patterns:
   - value: Scheduled
 profiles:

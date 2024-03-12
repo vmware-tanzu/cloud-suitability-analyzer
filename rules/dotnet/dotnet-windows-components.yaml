@@ -1,0 +1,22 @@
+name: dotnet-windows-components
+ruletype: fire-once
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Unsupported on TAS
+patterns:
+  - value: GetObjectContext
+  - value: System.Transactions
+readiness: 9
+effort: 1000
+tags:
+  - value: com+
+  - value: api
+  - value: distributed-transaction
+  - value: unsupported-netcore
+  - value: modernize
+#- public TransactionScope (System.Transactions.Transaction transactionToUse, TimeSpan
+#- Set ObjContext = GetObjectContext
+profiles:
+  - value: cloud-suitability

@@ -1,0 +1,23 @@
+#SW
+name: java-ejb-stateful-import
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+category: ejb
+advice: Refer to platform documentation
+effort: 7
+readiness: 7
+tags:
+  - value: ejb
+  - value: stateful
+  - value: container
+  - value: modernize  
+patterns:
+  - value: javax.ejb.Stateful
+profiles:
+  - value: cloud-suitability

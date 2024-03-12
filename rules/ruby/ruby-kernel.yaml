@@ -1,0 +1,17 @@
+name: ruby-kernel
+filetype: rb$
+target: line
+type: regex
+defaultpattern: \b%s
+effort: 2
+readiness: 0
+advice: Kernel operations my indicate actions that are not cloud/container friendly
+category: kernel
+tags:
+  - value: kernel
+  - value: modernize
+  - value: container
+patterns:
+  - value: Kernel\.open\(
+profiles:
+  - value: cloud-suitability

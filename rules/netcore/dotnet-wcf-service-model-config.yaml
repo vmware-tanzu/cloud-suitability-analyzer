@@ -8,14 +8,15 @@ target: file
 type: xpath
 advice: Upgrade to CoreWCF https://devblogs.microsoft.com/dotnet/upgrading-a-wcf-service-to-dotnet-6/
 patterns:
-- value: /configuration/system.serviceModel
+  - value: /configuration/system.serviceModel
 readiness: 9
 effort: 10
 category: unsupported-iis-module
 tags:
-- value: windows-wcf
-- value: communication
-- value: api
-- value: unsupported-netcore
+  - value: windows-wcf
+  - value: communication
+  - value: api
+  - value: unsupported-netcore
+  - value: modernize
 profiles:
-- value: netcore
+  - value: netcore

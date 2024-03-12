@@ -1,0 +1,24 @@
+#SW
+name: xml-ejb-resource-mgr-aut
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: security
+advice: Security implementation might need to be refactored
+effort: 10
+readiness: 10
+tags:
+  - value: security
+  - value: web-app
+  - value: modernize
+  - value: container
+patterns:
+  - value: <res-auth>Container</res-auth>
+##<res-auth>Container</res-auth>
+profiles:
+  - value: cloud-suitability

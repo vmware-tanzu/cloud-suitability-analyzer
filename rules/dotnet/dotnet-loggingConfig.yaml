@@ -1,0 +1,19 @@
+name: dotnet-logging-config
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: config$
+target: file
+type: xpath
+category: logging
+advice: Logging to the Event Log is not recommended for cloud native apps. write to or manage logfiles. Instead, each running process should write its event stream, unbuffered, to stdout. https://docs.lacunasoftware.com/en-us/articles/amplia/on-premises/windows/enable-stdout-log.html
+effort: 100
+readiness: 5
+tags:
+  - value: logging
+  - value: eventlog
+patterns:
+  - value: /configuration/system.diagnostics/trace/listeners/add[@type="System.Diagnostics.EventLogTraceListener"]
+profiles:
+  - value: cloud-suitability

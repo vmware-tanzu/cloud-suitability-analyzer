@@ -1,0 +1,123 @@
+---
+# todo consider looking for rmi/corba java package imports instead of classes
+#--- updated from 8/8/18 Survey
+name: java-corba
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: ".*[ .]%s[ (].*"
+advice: Replace with cloud-friendly framework or move to TKG
+#--- 8/8/18 survey
+effort: 10
+readiness: 6
+category: corba
+tags:
+  - value: rpc
+  - value: corba
+  - value: non-standard-protocol
+  - value: container
+patterns:
+  - value: AnyHolder
+  - value: AnySeqHelper
+  - value: AnySeqHolder
+  - value: BooleanHolder
+  - value: BooleanSeqHelper
+  - value: BooleanSeqHolder
+  - value: ByteHolder
+  - value: CharHolder
+  - value: CharSeqHelper
+  - value: CharSeqHolder
+  - value: CompletionStatus
+  - value: CompletionStatusHelper
+  - value: ContextList
+  - value: CurrentHelper
+  - value: CurrentHolder
+  - value: DefinitionKind
+  - value: DefinitionKindHelper
+  - value: DoubleHolder
+  - value: DoubleSeqHelper
+  - value: DoubleSeqHolder
+  - value: DynamicImplementatio
+  - value: ExceptionList
+  - value: FieldNameHelper
+  - value: FixedHolder
+  - value: FloatHolder
+  - value: FloatSeqHelper
+  - value: FloatSeqHolder
+  - value: IdentifierHelper
+  - value: IDLTypeHelper
+  - value: IntHolder
+  - value: LocalObject
+  - value: LongHolder
+  - value: LongLongSeqHelper
+  - value: LongLongSeqHolder
+  - value: LongSeqHelper
+  - value: LongSeqHolder
+  - value: NamedValue
+  - value: NameValuePair
+  - value: NameValuePairHelper
+  - value: NVList
+  - value: ObjectHelper
+  - value: ObjectHolder
+  - value: OctetSeqHelper
+  - value: OctetSeqHolder
+  - value: ParameterMode
+  - value: ParameterModeHelper
+  - value: ParameterModeHolder
+  - value: PolicyErrorCodeHelper
+  - value: PolicyErrorHelper
+  - value: PolicyHolder
+  - value: PolicyListHelper
+  - value: PolicyListHolder
+  - value: PolicyTypeHelper
+  - value: PrincipalHolder
+  - value: RepositoryIdHelper
+  - value: ServerRequest
+  - value: ServiceDetail
+  - value: ServiceDetailHelper
+  - value: ServiceInformation
+  - value: ServiceInformationHelper
+  - value: ServiceInformationHolder
+  - value: SetOverrideType
+  - value: SetOverrideTypeHelper
+  - value: ShortHolder
+  - value: ShortSeqHelper
+  - value: ShortSeqHolder
+  - value: StringHolder
+  - value: StringSeqHelper
+  - value: StringSeqHolder
+  - value: StringValueHelper
+  - value: StructMember
+  - value: StructMemberHelper
+  - value: TCKind
+  - value: TypeCode
+  - value: TypeCodeHolder
+  - value: ULongLongSeqHelper
+  - value: ULongLongSeqHolder
+  - value: ULongSeqHelper
+  - value: ULongSeqHolder
+  - value: UnionMember
+  - value: UnionMemberHelper
+  - value: UnknownUserExceptionHelper
+  - value: UnknownUserExceptionHolder
+  - value: UShortSeqHelper
+  - value: UShortSeqHolder
+  - value: ValueBaseHelper
+  - value: ValueBaseHolder
+  - value: ValueMember
+  - value: ValueMemberHelper
+  - value: VersionSpecHelper
+  - value: VisibilityHelper
+  - value: WCharSeqHelper
+  - value: WCharSeqHolder
+  - value: WrongTransactionHelper
+  - value: WrongTransactionHolder
+  - value: WStringSeqHelper
+  - value: WStringSeqHolder
+  - value: WStringValueHelper
+profiles:
+- value: cloud-suitability

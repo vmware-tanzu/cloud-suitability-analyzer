@@ -11,14 +11,14 @@ advice: Not supported, replace with a new View Component feature https://learn.m
 readiness: 9
 effort: 10
 patterns:
-- value: ChildActionOnly
+  - value: ChildActionOnly
 category: unsupported-netcore
 tags:
-- value: asp
-- value: mvc
-- value: unsupported-netcore
+  - value: asp
+  - value: mvc
+  - value: unsupported-netcore
+  - value: modernize
 profiles:
-- value: netcore
-
+  - value: netcore
 #- [ChildActionOnly]
 #- public ActionResult Countries(List<String> countryData)

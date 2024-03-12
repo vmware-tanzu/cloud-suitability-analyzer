@@ -1,0 +1,58 @@
+name: java-nonstandard-protocol
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: (%s)
+effort: 50
+readiness: 10
+advice: Ensure cloud friendly communication protocols
+category: protocol
+tags:
+  - value: non-standard-protocol
+  - value: modernize
+  - value: container  
+patterns:
+  - value: "t3:"
+    tag: t3
+  - value: "iiop:"
+    tag: iiop
+  - value: "corbaloc"
+    tag: corba
+  - value: "tcp:"
+    tag: tcp
+  - value: "ssl:"
+    tag: ssl
+  - value: "udp:"
+    tag: udp
+  - value: "imap:"
+    tag: imap
+  - value: "jdbc:"
+    tag: jdbc
+  - value: "ldap:"
+    tag: ldap
+  - value: "ldaps:"
+    tag: ldaps
+  - value: "pop2:"
+    tag: pop2
+  - value: "smtp:"
+    tag: smtp
+  - value: "ssl:"
+    tag: ssl
+  - value: "tcp:"
+    tag: tcp
+  - value: "ftp:"
+    tag: ftp
+  - value: "sftp:"
+    tag: sftp
+## t3:
+## iiop:
+## corbaloc
+## tcp:
+## ssl:
+profiles:
+  - value: cloud-suitability
+  - value: Azure Spring Apps

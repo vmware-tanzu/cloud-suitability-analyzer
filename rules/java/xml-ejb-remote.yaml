@@ -1,0 +1,22 @@
+name: xml-ejb-remote
+ruletype: fire-once
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: ejb
+advice: Application server coupling.  Consider rearchitecting to use cloud friendly communication protocol
+effort: 100
+readiness: 100
+tags:
+  - value: remote-ejb
+  - value: ejb
+  - value: javaee
+  - value: full-profile
+  - value: modernize
+  - value: container
+patterns:
+  - value: <remote>
+##<remote>
+profiles:
+  - value: cloud-suitability

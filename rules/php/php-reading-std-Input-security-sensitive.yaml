@@ -1,0 +1,32 @@
+name: php-reading-std-Input-security-sensitive
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: php$
+target: line
+type: regex
+defaultpattern: .*(%s)\s*\(.*\)
+category: security
+advice: Reading Standard Input is security-sensitive. It has led in the past to the following vulnerabilities:CVE-2005-2337,CVE-2017-11449
+recipe: Sanitize all data read from the standard input before using it. (https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
+effort: 50
+readiness: 1000
+tags:
+  - value: security
+  - value: filesystem
+  - value: modernize
+  - value: container
+patterns:
+  - value: stream_get_line
+  - value: stream_copy_to_stream
+  - value: file_get_contents
+  - value: readfile
+  - value: fopen
+  - value: stream_socket_server
+  - value: stream_socket_client
+  - value: stream_socket_pair
+
+#- stream_get_line
+profiles:
+  - value: cloud-suitability

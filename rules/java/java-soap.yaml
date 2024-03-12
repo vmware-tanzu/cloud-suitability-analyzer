@@ -1,0 +1,64 @@
+name: java-soap
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+advice: Consider upgrading to modern cloud native messaging
+defaultpattern: ^.* %s.*[(].*
+effort: 4
+readiness: 3
+category: soap
+tags:
+  - value: web-service
+  - value: soap
+  - value: modernize
+  - value: container
+patterns:
+  - value: SOAPBody
+  - value: SOAPBodyElement
+  - value: SOAPConstants
+  - value: SOAPElement
+  - value: SOAPEnvelope
+  - value: SOAPFault
+  - value: SOAPFaultElement
+  - value: SOAPHeader
+  - value: SOAPHeaderElement
+  - value: AttachmentPart
+  - value: MessageFactory
+  - value: MimeHeader
+  - value: MimeHeaders
+  - value: SAAJMetaFactory
+  - value: SAAJResult
+  - value: SOAPConnection
+  - value: SOAPConnectionFactory
+  - value: SOAPElementFactory
+  - value: SOAPFactory
+  - value: SOAPMessage
+  - value: SOAPPart
+  - value: SOAPBinding
+##  SOAPBody(
+##  SOAPBodyElement(
+##  SOAPConstants(
+##  SOAPElement(
+##  SOAPEnvelope(
+##  SOAPFault(
+##  SOAPFaultElement(
+##  SOAPHeader(
+##  SOAPHeaderElement(
+##  AttachmentPart(
+##  MessageFactory(
+##  MimeHeader(
+##  MimeHeaders(
+##  SAAJMetaFactory(
+##  SAAJResult(
+##  SOAPConnection(
+##  SOAPConnectionFactory(
+##  SOAPElementFactory(
+##  SOAPFactory(
+##  SOAPMessage(
+##  SOAPPart(
+profiles:
+  - value: cloud-suitability

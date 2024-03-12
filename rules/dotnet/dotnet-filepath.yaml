@@ -1,0 +1,22 @@
+name: dotnet-filepath
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (cs|yaml|yml|json)
+target: line
+type: regex
+defaultpattern: '%s'
+advice: Relying on the local filesystem to store state is unreliable in a cloud platform. Containers are ephemerals and data could be lost. Data could be stored in database or the application should leverage File Sharing Systems like NFS Persistent Volume (PV) in Kubernetes environment.
+effort: 8
+readiness: 3
+category: io
+tags:
+  - value: io
+  - value: modernize
+patterns:
+  - value: \sFilePath.*=
+  - value: System.FilePath.*
+#- System.FilePath.Windows 
+profiles:
+  - value: cloud-suitability

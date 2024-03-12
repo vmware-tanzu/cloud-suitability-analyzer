@@ -1,0 +1,31 @@
+#SW
+#todo search for mdb imports or annotations
+name: bootMDB
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: mdb
+advice: Automatic remediation with Bootifier
+effort: 2
+readiness: 2
+tags:
+  - value: mdb
+  - value: migrate-off-legacy-server  
+  - value: container
+  - value: modernize
+patterns:
+  - value: javax.ejb-api
+    tag: javax.ejb
+  - value: jboss-ejb-api_3.0_spec
+    tag: jboss-ejb-3-0
+  - value: jboss-ejb-api_3.1_spec
+    tag: jboss-ejb-3-1
+  - value: jboss-ejb-api_3.2_spec
+    tag: jboss-ejb-3-2
+profiles:
+- value: cloud-suitability

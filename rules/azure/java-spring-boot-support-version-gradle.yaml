@@ -12,6 +12,7 @@ effort: 6
 category: version
 tags:
   - value: spring-boot
+  - value: dependencies
 patterns:
   - value: org\.springframework\.boot(.*)([\r\n]*)version( *[:=]? *)['"]?(2\.[0-3])
   - value: (?i)(springBootVersion)(.*)(2\.[0-3])

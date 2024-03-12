@@ -1,0 +1,24 @@
+#SW
+name: xml-jsf-1-x
+ruletype: fire-once
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: jsf
+advice: Consider upgrading to modern UI framework
+effort: 1000
+readiness: 0
+tags:
+  - value: jsf
+  - value: web-app
+  - value: container
+  - value: modernize
+  - value: frontend
+patterns:
+  - value: web-facesconfig_1_0.dtd
+  - value: web-facesconfig_1_1.dtd
+  - value: web-facesconfig_1_2.xsd
+##web-facesconfig_1_0.dtd
+profiles:
+  - value: cloud-suitability

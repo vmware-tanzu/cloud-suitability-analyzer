@@ -12,9 +12,10 @@ effort: 10
 readiness: 10
 category: API
 tags:
-- value: api
-- value: unsupported-netcore
+  - value: api
+  - value: unsupported-netcore
+  - value: modernize
 patterns:
-- value: Assembly.Load\(
+  - value: Assembly.Load\(
 profiles:
-- value: netcore
+  - value: netcore

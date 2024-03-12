@@ -1,0 +1,32 @@
+name: dotnet-wcf-protocols
+ruletype: fire-once
+filetype: config$
+target: line
+type: regex
+advice: Unsupported protocols
+effort: 500
+category: wcf
+tags:
+  - value: windows-wcf
+  - value: communication
+  - value: api
+  - value: modernize
+patterns:
+  - value: <udpBinding>
+    advice: UDP protocol not supported on PCF
+    tag: udp
+  #- <udpBinding><binding closeTimeout="TimeSpan"
+  - value: <.*NamedPipeBinding>
+    advice: NamedPipe protocol not supported on PCF
+  #- <mexNamedPipeBinding><binding closeTimeout="TimeSpan"
+  #- <netNamedPipeBinding><binding closeTimeout="TimeSpan"
+  - value: <.*MsmqBinding>
+    #- <netMsmqBinding><binding closeTimeout="TimeSpan"
+    advice: Msmq protocol not supported on PCF
+    tag: msmq
+  - value: <net.+Binding>
+    #- <netTcpContextBinding><binding closeTimeout="TimeSpan"
+    #- <netTcpBinding><binding closeTimeout="TimeSpan"
+    advice: Non HTTP based protocols are either unsupported or require extensive refactoring when on PCF. TCP binding would require TCP Router to be configured and app to be self hosted (TCP-IIS activation not supported)
+profiles:
+  - value: cloud-suitability

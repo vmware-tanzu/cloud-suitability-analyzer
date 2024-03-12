@@ -1,0 +1,22 @@
+name: dotnet-serilog
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: cs$
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Logging with Serilog. Make sure not to log to file. Remote logging sinks need to be reachable on network. Logging to the Event Log is not recommended for cloud native apps. Write to or manage logfiles. Instead, each running process should write its event stream, unbuffered, to stdout.
+effort: 3
+readiness: 8
+category: logging
+tags:
+  - value: logging
+patterns:
+  - value: Serilog.Sinks
+    tag: serilog
+  - value: .UseSerilog()
+    tag: serilog
+profiles:
+  - value: cloud-suitability

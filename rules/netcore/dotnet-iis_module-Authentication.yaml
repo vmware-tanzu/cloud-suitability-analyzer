@@ -8,15 +8,16 @@ target: file
 type: xpath
 advice: Windows and IIS server dependency. Not supported in .netCore targeting linux. Use Microsoft.AspNetCore.Authentication.Negotiate instead.
 patterns:
-- value: /configuration/system.web/authentication
+  - value: /configuration/system.web/authentication
 readiness: 9
 effort: 10
 category: unsupported-iis-module
 tags:
-- value: iis-module
+  - value: iis-module
+  - value: modernize
 excludepatterns:
-- value: .authentication.*mode="None"
+  - value: .authentication.*mode="None"
 #- <configuration><system.web><authentication
 # Mostly a challenge if moving to .NetCore
 profiles:
-- value: netcore
+  - value: netcore

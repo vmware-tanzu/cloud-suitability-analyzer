@@ -1,0 +1,21 @@
+---
+#--- TODO need to separate and survey to score
+name: java-springboot-annotations
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+advice: Spring Boot is a positive score
+effort: -100
+readiness: 0
+defaultpattern: ^\s*@%s
+category: spring-boot
+tags:
+  - value: spring-boot
+patterns:
+  - value: SpringBootApplication
+profiles:
+  - value: cloud-suitability

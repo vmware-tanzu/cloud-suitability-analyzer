@@ -1,0 +1,31 @@
+---
+#--- updated from 8/8/18 Survey
+name: java-tangosol
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: "^.*[ .]%s[ ({.<].*"
+effort: 10
+readiness: 6
+advice: Convert to cloud friendly cache implementation
+category: cache
+tags:
+  - value: cache
+  - value: tangosol
+  - value: modernize
+patterns:
+  - value: getConfigurableCacheFactory
+  - value: NamedCache
+  - value: ReflectionExtractor
+  - value: ChainedExtractor
+
+##  getConfigurableCacheFactory(
+##  NamedCache(
+##  ReflectionExtractor(
+##  ChainedExtractor(
+profiles:
+  - value: cloud-suitability

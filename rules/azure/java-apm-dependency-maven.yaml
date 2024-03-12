@@ -10,8 +10,9 @@ target: file
 type: xpath
 advice: The application has integrated an Application Performance Management (APM) tool as a dependency
 category: apm
-tags: 
-- value: apm
+tags:
+  - value: apm
+  - value: monitoring
 effort: 0
 patterns:
   - value: //*[contains(groupId, "applicationinsights") or contains(artifactId, "applicationinsights")]

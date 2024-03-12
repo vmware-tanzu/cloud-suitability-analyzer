@@ -1,0 +1,485 @@
+name: java-3rdPartyImports
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Consult 3rd party documentation
+category: third-party
+tags:
+  - value: third-party
+  - value: dependencies
+patterns:
+  - value: ehcache
+    tag: caching
+  - value: 47deg
+    tag: scala
+  - value: advantageous
+    tag: reflection
+  - value: agileclick
+    tag: orm
+  - value: agilej
+    tag: codeanalysis
+  - value: akka
+    tag: multi-threaded
+  - value: alibaba
+    tag: spring
+  - value: androidtransfuse
+    tag: android
+  - value: angular
+    tag: browser
+  - value: apache.commons
+    tag: utility
+  - value: apitrary
+    tag: orm
+  - value: apptik
+    tag: rest
+  - value: aranea-apps
+    tag: android
+  - value: argonaut
+    tag: scala
+  - value: asm
+    tag: bytecode
+  - value: aspectj
+    tag: aop
+  - value: asynchttpclient
+    tag: http
+  - value: atmosphere
+    tag: event-driven
+  - value: attoparser
+    tag: html
+  - value: avast
+    tag: bytecode
+  - value: aws-java
+    tag: s3-storage
+  - value: axion
+    tag: webservices
+  - value: azure
+    tag: cloud
+  - value: baracus
+    tag: clojure
+  - value: bcel
+    tag: bytecode
+  - value: beanshell
+    tag: interpreter
+  - value: bluelinelabs
+    tag: android
+  - value: brightify
+    tag: kotlin
+  - value: bsf
+    tag: beanscripting
+  - value: bytebuddy
+    tag: bytecode
+  - value: caffeine
+    tag: caching
+  - value: cassandra
+    tag: database
+  - value: ccil
+    tag: osgi
+  - value: celum
+    tag: jdbc
+  - value: cemerick
+    tag: clojure
+  - value: ceylon
+    tag: ceylon
+  - value: cglib
+    tag: bytecode
+  - value: circe
+    tag: json
+  - value: circumflex
+    tag: html
+  - value: clojure
+    tag: clojure
+  - value: cojen
+    tag: codegenerator
+  - value: com.m3
+    tag: cache
+  - value: commonjava
+    tag: maven
+  - value: commons-configuration
+    tag: config
+  - value: commons-digester
+    tag: xml
+  - value: commons-logging
+    tag: logging
+  - value: constretto
+    tag: config
+  - value: critero
+    tag: commerce
+  - value: cyrusinnovation
+    tag: commercial
+  - value: databene
+    tag: utility
+  - value: datanucleus
+    tag: persistence
+  - value: datoin
+    tag: http
+  - value: modeltools
+    tag: statistics
+  - value: dropwizard
+    tag: rest
+  - value: easygson
+    tag: json
+  - value: easymetrics
+    tag: metrics
+  - value: easymock
+    tag: testing
+  - value: ebay
+    tag: commerce
+  - value: eclipse
+    tag: ide
+  - value: eclipsesource
+    tag: rest
+  - value: esotericsoftware
+    tag: serialization
+  - value: everit
+    tag: json
+  - value: exparity
+    tag: beans
+  - value: fasterxml
+    tag: xml
+  - value: flexjson
+    tag: json
+  - value: foursquare
+    tag: commercial
+  - value: gatling
+    tag: testing
+  - value: github
+    tag: repo
+  - value: glassfish
+    tag: jee
+  - value: gmock
+    tag: testing
+  - value: goggle
+    tag: cloud
+  - value: grails
+    tag: browser
+  - value: greenrobot
+    tag: event-driven
+  - value: groovy
+    tag: groovy
+  - value: grouplens
+    tag: utility
+  - value: guava
+    tag: utility
+  - value: h2database
+    tag: database
+  - value: helger
+    tag: json
+  - value: hibernate
+    tag: orm
+  - value: htmlcleaner
+    tag: html
+  - value: http4s
+    tag: http
+  - value: hydra
+    tag: database
+  - value: ini4j
+    tag: config
+  - value: inject
+    tag: dependency-injection
+  - value: io.spray
+    tag: json
+  - value: io.wcm
+    tag: testing
+  - value: itextpdf
+    tag: pdf
+  - value: j256
+    tag: orm
+  - value: j4Unit
+    tag: testing
+  - value: jamon
+    tag: metrics
+  - value: jasonjson
+    tag: json
+  - value: javaclub
+    tag: orm
+  - value: javalite
+    tag: protocol-buffers
+  - value: javassist
+    tag: bytecode
+  - value: jboss
+    tag: jee
+  - value: jboss-cache
+    tag: caching
+  - value: jcabi
+    tag: logging
+  - value: jcache
+    tag: caching
+  - value: jclouds
+    tag: cloud
+  - value: jconfig
+    tag: config
+  - value: jdev
+    tag: maven
+  - value: jdub
+    tag: scala
+  - value: jmemcache
+    tag: caching
+  - value: jmetrix
+    tag: metrics
+  - value: jmock
+    tag: testing
+  - value: jmockring
+    tag: testing
+  - value: joda-time
+    tag: date-time
+  - value: jodd
+    tag: math
+  - value: joestelmach
+    tag: date-time
+  - value: jpox
+    tag: persistence
+  - value: jruby
+    tag: ruby
+  - value: jsog
+    tag: json
+  - value: json4s
+    tag: json
+  - value: jsonbuddy
+    tag: json
+  - value: jsoup
+    tag: html
+  - value: jtidy
+    tag: html
+  - value: jvnet
+    tag: mime
+  - value: kasource
+    tag: json
+  - value: kie
+    tag: bpm
+  - value: kodein
+    tag: kotlin
+  - value: kohesive
+    tag: kotlin
+  - value: kohsuke
+    tag: dcom
+  - value: kotlin
+    tag: kotlin
+  - value: ktor
+    tag: kotlin
+  - value: librato
+    tag: metrics
+  - value: liftweb
+    tag: scala
+  - value: lihaoyi
+    tag: scala
+  - value: littleshoot
+    tag: mulimedia
+  - value: log4j
+    tag: logging
+  - value: log4s
+    tag: logging
+  - value: logback
+    tag: logging
+  - value: loopj
+    tag: android
+  - value: lowagie
+    tag: pdf
+  - value: lyft
+    tag: android
+  - value: madgag
+    tag: android
+  - value: mashape
+    tag: metrics
+  - value: mchange
+    tag: jdbc
+  - value: mckoi
+    tag: database
+  - value: metrics4j
+    tag: metics
+  - value: minidev
+    tag: database
+  - value: mockachino
+    tag: testing
+  - value: mockejb
+    tag: testing
+  - value: mockito
+    tag: testing
+  - value: mockk
+    tag: testing
+  - value: mockobjects
+    tag: testing
+  - value: mockrunner
+    tag: testing
+  - value: mongo
+    tag: database
+  - value: mortbay
+    tag: jetty
+  - value: mozilla
+    tag: browser
+  - value: mybatis
+    tag: database
+  - value: nekohtml
+    tag: html
+  - value: netflix
+    tag: netflix
+  - value: ning
+    tag: http
+  - value: nscala
+    tag: scala
+  - value: objectos
+    tag: assertions
+  - value: objectweb
+    tag: database
+  - value: ocpsoft
+    tag: utility
+  - value: opensynphony
+    tag: jee
+  - value: ops4j
+    tag: logging
+  - value: org.json
+    tag: json
+  - value: outr
+    tag: logging
+  - value: ow2
+    tag: bytecode
+  - value: p6spy
+    tag: database
+  - value: parfait
+    tag: metrics
+  - value: perf4j
+    tag: metrics
+  - value: picocontainer
+    tag: dependency-injection
+  - value: plausible
+    tag: R-language
+  - value: plexus
+    tag: utility
+  - value: pnuts
+    tag: scripting
+  - value: pojava
+    tag: datetime
+  - value: polyforms
+    tag: dependency-injection
+  - value: powermock
+    tag: testing
+  - value: proofpoint
+    tag: rest
+  - value: proxool
+    tag: database
+  - value: rabbitmq
+    tag: messaging
+  - value: redis
+    tag: database
+  - value: rhq
+    tag: rhq
+  - value: roboguice
+    tag: dependency-injection
+  - value: rubicon
+    tag: android
+  - value: saliman
+    tag: gradle
+  - value: scala-lang
+    tag: scala
+  - value: scala-tools
+    tag: scala
+  - value: scalaj
+    tag: scala
+  - value: scalamock
+    tag: scala
+  - value: scaldi
+    tag: scala
+  - value: sejda
+    tag: pdf
+  - value: sf.json-lib
+    tag: json
+  - value: sharegov
+    tag: browser
+  - value: sirona
+    tag: metrics
+  - value: skinny-framework
+    tag: web-framework
+  - value: slf4j
+    tag: logging
+  - value: slf4j-api
+    tag: loggin
+  - value: socialmetrix
+    tag: email
+  - value: softsmithy
+    tag: utility
+  - value: softwaremill
+    tag: commercial
+  - value: sorm-framework
+    tag: android
+  - value: soywiz
+    tag: kotlin
+  - value: specs2
+    tag: scala
+  - value: spring
+    tag: spring
+  - value: squareup
+    tag: http
+  - value: squeryl
+    tag: scala
+  - value: stackmob
+    tag: security
+  - value: stickycode
+    tag: spring
+  - value: streametry
+    tag: json
+  - value: sun
+    tag: sun
+  - value: sun.mail
+    tag: email
+  - value: swinglabs
+    tag: swing
+  - value: tedhi
+    tag: datatime
+  - value: tehuti
+    tag: metrics
+  - value: time4j
+    tag: datetime
+  - value: tophe
+    tag: android
+  - value: tornado
+    tag: clojure
+  - value: toucanpdf
+    tag: pdf
+  - value: trove4j
+    tag: collections
+  - value: truecommons
+    tag: utility
+  - value: twitter
+    tag: twitter
+  - value: typesafe
+    tag: akka
+  - value: uberfire
+    tag: web-framework
+  - value: ujoframework
+    tag: database
+  - value: ujorm
+    tag: html
+  - value: unboundid
+    tag: ldap
+  - value: unimi
+    tag: collections
+  - value: uniscala
+    tag: json
+  - value: vaadin
+    tag: web-framework
+  - value: vertx
+    tag: web-framework
+  - value: vibur
+    tag: jdbc
+  - value: whirlycott
+    tag: caching
+  - value: wix
+    tag: web-framework
+  - value: wvlet
+    tag: scala
+  - value: yammer
+    tag: metrics
+  - value: ymock
+    tag: testing
+  - value: zalando
+    tag: json
+  - value: zappos
+    tag: json
+  - value: zaxxer
+    tag: jdbc
+profiles:
+  - value: cloud-suitability

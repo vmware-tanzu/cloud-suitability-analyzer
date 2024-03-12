@@ -12,11 +12,12 @@ effort: 10
 readiness: 10
 category: WCF
 tags:
-- value: windows-web-services
-- value: communication
-- value: api
-- value: unsupported-netcore
+  - value: windows-web-services
+  - value: communication
+  - value: api
+  - value: unsupported-netcore
+  - value: modernize
 patterns:
-- value: System.Web.Services
+  - value: System.Web.Services
 profiles:
-- value: netcore
+  - value: netcore

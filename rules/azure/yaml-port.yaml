@@ -12,6 +12,7 @@ category: port
 effort: 0
 tags:
   - value: port
+  - value: dependencies
 patterns:
   - value: $.server.port
 profiles:

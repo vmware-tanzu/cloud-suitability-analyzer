@@ -1,0 +1,90 @@
+name: java-ejb-rmi
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+advice: Removing RMI calls from client applications. 
+defaultpattern: "^.*[ .]%s[ (].*"
+effort: 10
+readiness: 4
+category: ejb
+tags:
+  - value: ejb
+  - value: stateless
+  - value: container
+  - value: modernize  
+patterns:
+  - value: EJBContext
+  - value: EJBHome
+  - value: EJBLocalHome
+  - value: EJBLocalObject
+  - value: EJBMetaData
+  - value: EJBObject
+  - value: EnterpriseBean
+  - value: EntityBean
+  - value: EntityContext
+  - value: HomeHandle
+  - value: MessageDrivenBean
+  - value: MessageDrivenContext
+  - value: SessionBean
+  - value: SessionContext
+  - value: SessionSynchronization
+  - value: TimedObject
+  - value: TimerHandle
+  - value: TimerService
+  - value: RMISecurityManager
+  - value: RemoteException
+  ##- value: MarshalException - common name for exceptions used by serializers!
+  - value: PortableRemoteObject
+  - value: exportObject
+  - value: unexportObject
+  - value: AccessException
+  - value: AlreadyBoundException
+  ##- value: ConnectException -part of java.net.*
+  - value: ConnectIOException
+  ##- value: MarshalException
+  - value: NoSuchObjectException
+  - value: NotBoundException
+  - value: RemoteException
+  - value: RMISecurityException
+  ##- value: ServerError
+  ##- value: ServerException
+  - value: ServerRuntimeException
+  - value: StubNotFoundException
+  - value: UnexpectedException
+  ## - value: UnknownHostException -part of java.net.*
+  - value: UnmarshalException
+  - value: ActivationInstantiator
+  - value: ActivationMonitor
+  - value: ActivationSystem
+  - value: Activatable
+  - value: ActivationDesc
+  - value: ActivationGroup
+  - value: ActivationGroup_Stub
+  - value: ActivationGroupDesc
+  - value: ActivationGroupDesc.CommandEnvironment
+  - value: ActivationGroupID
+  - value: ActivationID
+  - value: LocateRegistry
+  - value: LoaderHandler
+  - value: RemoteCall
+  - value: RemoteRef
+  - value: RMIClientSocketFactory
+  - value: RMIFailureHandler
+  - value: RMIServerSocketFactory
+  - value: LogStream
+  - value: ObjID
+  ## - value: Operation
+  - value: RemoteObject
+  - value: RemoteObjectInvocationHandler
+  - value: RemoteServer
+  - value: RemoteStub
+  - value: RMIClassLoader
+  - value: RMIClassLoaderSpi
+  - value: RMISocketFactory
+  - value: UnicastRemoteObject
+profiles:
+- value: cloud-suitability

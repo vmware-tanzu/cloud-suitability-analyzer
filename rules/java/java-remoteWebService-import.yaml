@@ -1,0 +1,34 @@
+name: java-remoteWebService-import
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Consider rearchitecting the application to use Cloud friendly remote communications - http or messaging
+effort: 10
+readiness: 10
+category: web-service
+tags:
+  - value: web-service
+  - value: modernize
+  - value: container
+patterns:
+  - value: javax.xml.ws.AsyncHandler
+    tag: javax-xml-ws
+  - value: javax.xml.ws.Service
+    tag: javax-xml-ws
+  - value: javax.xml.ws.Service.Mode
+    tag: javax-xml-ws
+  - value: javax.xml.ws.WebServiceClient
+    tag: javax-xml-ws
+  - value: javax.xml.ws.WebServiceRef
+    tag: javax-xml-ws
+  - value: javax.xml.ws.WebServiceRefs
+    tag: javax-xml-ws
+  - value: org.apache.client.wink.client
+    tag: wink
+profiles:
+  - value: cloud-suitability

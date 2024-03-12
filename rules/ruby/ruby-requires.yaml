@@ -1,0 +1,136 @@
+name: ruby-requires
+filetype: rb$
+target: line
+type: regex
+defaultpattern: \brequire\s+['"]%s['"].*$
+advice: Consult 3rd party documentation
+effort: 300
+readiness: 10
+category: third-party
+tags:
+  - value: third-party
+  - value: dependencies
+patterns:
+  - value: listen
+    advice: "This gem is used for file system monitoring and can cause issues when used in a container environment. It can lead to high CPU usage and memory leaks."
+    tag: file system monitoring
+  - value: rb-inotify
+    advice: This gem is similar to `listen` and can also cause issues in a container environment. It can lead to high CPU usage and memory leaks.
+    tag: system monitoring
+  - value: rb-fsevent
+    advice: "This gem is used for file system monitoring on macOS and can cause issues when used in a container environment. It can lead to high CPU usage and memory leaks."
+    tag: macOS file monitoring
+  - value: rb-kqueue
+    advice: "This gem is used for file system monitoring on BSD-based systems and can cause issues when used in a container environment. It can lead to high CPU usage and memory leaks."
+    tag: BSD file monitoring
+  - value: rb-fchange
+    advice: "This gem is used for file system monitoring and can cause issues when used in a container environment. It can lead to high CPU usage and memory leaks."
+    tag: file system monitoring
+  - value: docker-sync
+    advice: "docker-sync usage indicates this application has been preppred to run in a container"
+    effort: -200
+  - value: docker-compose
+    advice: "docker-compose usage indicates this application has been preppred to run in a container"
+    effort: -200
+  - value: sinatra
+    tag: sinatra
+    advice: Sinatra applications require special consideration migrating to the cloud/container
+  - value: socket
+    tag: socket
+    advice: Socket traffic may pose a problem in some containership/cloud settings
+  - value: gtk3
+    tag: desktop-app
+    advice: Desktop applications cannot run in containers/clouds
+  - value: sinatra/activerecord
+    tag: ORM
+    effort: 1
+    advice: "While ActiveRecord is a powerful ORM, its tight coupling to SQL databases and reliance on a centralized connection pool can make it difficult to horizontally scale in cloud environments."
+  - value: activerecord
+    tag: ORM
+    effort: 1
+    advice: "While ActiveRecord is a powerful ORM, its tight coupling to SQL databases and reliance on a centralized connection pool can make it difficult to horizontally scale in cloud environments."
+  - value: rmagick
+    tag: image-processing
+    advice: "While RMagick is a powerful image processing library, its dependence on ImageMagick can make it difficult to install and configure in certain cloud environments."
+  - value: nokogiri
+    tag: xml-parsing
+    advice: "While Nokogiri is a popular XML parsing library, its reliance on libxml2 can make it difficult to install and configure in certain cloud environments."
+  - value: unicorn
+    tag: web-server
+    advice: "While Unicorn is a popular web server, its master-worker architecture can make it difficult to horizontally scale in cloud environments."
+  - value: puma
+    tag: web-server
+    advice: "While Puma is another popular web server, its multi-process architecture can make it difficult to vertically scale in cloud environments."
+  - value: resque
+    tag: job-processor
+    advice: "While Resque is a popular background job processor, its reliance on Redis can make it difficult to horizontally scale in cloud environments."
+  - value: sidekiq
+    tag: job-processor
+    advice: "While Sidekiq is another popular background job processor, its reliance on Redis can make it difficult to horizontally scale in cloud environments."
+  - value: delayedjob
+    tag: job-processor
+    advice: "While DelayedJob is a popular background job processor, its reliance on a centralized queue can make it difficult to horizontally scale in cloud environments."
+  - value: activestorage
+    tag: rails
+    advice: "While ActiveStorage is a convenient feature for handling files in Rails applications, its reliance on a centralized storage solution can make it difficult to horizontally scale in cloud environments."
+  - value: win32ole
+    tag: windows
+    advice: "This gem provides an interface to the Windows OLE (Object Linking and Embedding) system, which allows Ruby programs to interact with Windows applications and controls."
+  - value: win32api
+    tag: windows
+    advice: "This gem provides an interface to the Windows API (Application Programming Interface), which allows Ruby programs to interact with Windows system functions and services."
+  - value: win32gui
+    tag: windows
+    advice: "This gem provides an interface to the Windows GUI (Graphical User Interface), which allows Ruby programs to create and manipulate Windows GUI elements such as windows, buttons, and menus."
+  - value: win32process
+    tag: windows
+    advice: "This gem provides an interface to the Windows process management system, which allows Ruby programs to create, manage, and communicate with Windows processes."
+  - value: win32service
+    tag: windows
+    advice: "This gem provides an interface to the Windows service management system, which allows Ruby programs to create, manage, and communicate with Windows services."
+  - value: osx_app
+    tag: osx
+    advice: "This gem provides an interface to the OSX application programming interface (API), which allows Ruby programs to interact with OSX applications and services."
+  - value: osx_core_foundation
+    tag: osx
+    advice: "This gem provides an interface to the OSX Core Foundation framework, which allows Ruby programs to interact with OSX system services and frameworks."
+  - value: osx_foundation
+    tag: osx
+    advice: "This gem provides an interface to the OSX Foundation framework, which allows Ruby programs to interact with OSX system services and frameworks."
+  - value: osx_gui
+    tag: osx
+    advice: "This gem provides an interface to the OSX GUI (Graphical User Interface), which allows Ruby programs to create and manipulate OSX GUI elements such as windows, buttons, and menus."
+  - value: osx_process
+    tag: osx
+    advice: "This gem provides an interface to the OSX process management system, which allows Ruby programs to create, manage, and communicate with OSX processes."
+  - value: osx_service
+    tag: osx
+    advice: "This gem provides an interface to the OSX service management system, which allows Ruby programs to create, manage, and communicate with OSX services."
+
+  - value: ruby-linux
+    tag: linux
+    effort: 1
+    advice: "This gem provides a set of classes and methods for interacting with the Linux operating system, including file system manipulation, process management, and network communication."
+
+  - value: linux-sys
+    tag: linux
+    effort: 1
+    advice: "This gem provides a set of classes and methods for interacting with the Linux kernel, including system calls, device drivers, and kernel modules"
+
+  - value: linux-users
+    tag: linux
+    effort: 1
+    advice: "This gem provides a set of classes and methods for managing Linux users and groups, including user authentication, password management, and group membership."
+
+  - value: linux-network
+    tag: linux
+    effort: 1
+    advice: "This gem provides a set of classes and methods for managing Linux network interfaces, including IP addresses, routing tables, and network protocols."
+
+  - value: linux-storage
+    tag: linux
+    effort: 1
+    advice: "This gem provides a set of classes and methods for managing Linux storage devices, including disk partitions, file systems, and storage drivers."
+
+profiles:
+  - value: cloud-suitability

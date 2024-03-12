@@ -1,0 +1,28 @@
+name: xml-webprofile
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: file
+category: config
+effort: 50
+readiness: 1000
+type: simple-text
+advice: Consider rearchitecting if decision is made to move off application server
+tags:
+  - value: web-profile
+  - value: container
+  - value: modernize  
+patterns:
+  - value: persistence.xml
+    tag: jpa
+  - value: web.xml
+    tag: webapp
+  - value: applicationContext.xml
+    tag: file-system-xml-application-context
+##F persistence.xml
+##F web.xml
+##F applicationContext.xml
+profiles:
+  - value: cloud-suitability

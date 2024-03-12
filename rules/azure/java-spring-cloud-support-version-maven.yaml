@@ -12,6 +12,7 @@ effort: 6
 category: version
 tags:
   - value: spring cloud
+  - value: dependencies  
 patterns:
   - value: //*[groupId="org.springframework.cloud" and matches(version,"(?i)^Hoxton")]/version
   - value: //*[groupId="org.springframework.cloud" and matches(version,"(?i)^Greenwich")]/version

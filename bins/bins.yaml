@@ -1,34 +1,21 @@
 ---
 #--- tags have to be all lowercase
-name: TKG
-tags:
-  - name: docker
-    type: OR
-  - name: stateful
-    type: AND
-  - name: javaee
-    type: AND
-  - name: full-profile
-    type: AND
-  - name: jni
-    type: OR
-  - name: non-standard-protocol
-    type: OR
-  - name: corba
-    type: OR
-
 ---
 name: TAS
 tags:
-  - name: web-profile
+  - name: tas
+    type: OR
+  - name: env-config
+    type: OR
+  - name: dependencies
     type: OR
   - name: spring
     type: OR
-  - name: spring-boot
-    type: OR
-  - name: web-container
-    type: OR
-  - name: rest
+
+---
+name: MODERNIZE
+tags:
+  - name: modernize
     type: OR
 
 ---
@@ -36,73 +23,25 @@ name: BATCH
 tags:
   - name: batch
     type: OR
-  - name: etl
-    type: OR
 
 ---
 name: CONTAINER
 tags:
-  - name: term
-    type: OR
-  - name: metrics
-    type: OR
-  - name: sudo
-    type: OR
-  - name: health-check
-    type: OR
-  - name: ehcache
-    type: OR
-  - name: non-root-user
-    type: OR
-  - name: hard-ip
-    type: OR
-  - name: process-exit
-    type: OR
-  - name: dist-cache
-    type: OR
-  - name: ws-cluster
-    type: OR
-  - name: wl-cluster
-    type: OR
-  - name: io
-    type: OR
-  - name: log2file
-    type: OR
-  - name: docker
-    type: OR
-  - name: transaction
+  - name: container
     type: OR
 
 ---
-name: BOOT
+name: DEPENDENCIES
 tags:
-  - name: cdi
-    type: OR
-  - name: ejb
-    type: OR
-  - name: jax-ws
-    type: OR
-  - name: jsf
-    type: OR
-  - name: mdb
-    type: OR
-  - name: struts
-    type: OR
-  - name: txn
-    type: OR
-  - name: servlet
+  - name: dependencies
     type: OR
 
----
-name: MICRO-SERVICE
-tags:
-  - name: spring-boot
-    type: AND
-  
 ---
 name: SPRING
 tags:
   - name: spring
+    type: OR
+  - name: spring-boot
     type: OR
 
 ---
@@ -114,23 +53,9 @@ tags:
     type: EXCLUDE
 
 ---
-name: WEB-MVC
+name: FRONTEND
 tags:
-  - name: ui
-    type: OR
-  - name: web-app
-    type: AND
-  - name: web-container
-    type: AND
-  - name: jsp
-    type: OR
-  - name: jsf
-    type: OR
-  - name: portlet
-    type: OR
-  - name: struts
-    type: OR
-  - name: jetty
+  - name: frontend
     type: OR
 
 ---
@@ -144,41 +69,59 @@ name: CACHING
 tags:
   - name: cache
     type: OR
- 
----
-name: MONOLITH
-tags:
-  - name: soap
-    type: AND
-  - name: web-service
-    type: AND
-  - name: messaging
-    type: AND
-  - name: ear
-    type: AND
-  - name: stateful
-    type: AND
-  - name: rpc
-    type: OR
-  - name: ant
-    type: OR
-  - name: websphere
-    type: OR
-  - name: weblogic
-    type: OR
-  - name: glassfish
-    type: OR
-  - name: jboss
-    type: OR
-  - name: security
-    type: OR
 
 ---
 name: FAAS
 tags:
-  - name: io
+  - name: faas
     type: OR
+
+---
+name: DATABASE
+tags:
+  - name: database
+    type: OR
+
+---
+name: MESSAGING
+tags:
+  - name: messaging
+    type: OR
+
+---
+name: SECURITY
+tags:
   - name: security
     type: OR
-  - name: faas
+
+---
+name: LOGGING
+tags:
+  - name: logging
+    type: OR
+
+---
+name: CONFIGURATION
+tags:
+  - name: configuration
+    type: OR
+
+---
+name: MONITORING
+tags:
+  - name: monitoring
+    type: OR
+
+---
+name: BUILD-SYSTEM
+tags:
+  - name: build-system
+    type: OR
+
+---
+name: VERSION
+tags:
+  - name: java-version
+    type: OR
+  - name: spring-boot-version
     type: OR

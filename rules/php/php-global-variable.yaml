@@ -1,0 +1,27 @@
+name: php-global-variable
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: php$
+target: line
+type: regex
+defaultpattern: .*(\$%s)\s*\[.*\]
+category: session_management
+advice: The default configuration is to store session data in a temporary file on the local disk. Again, this will not work if you’re using multiple nodes
+recipe: Store sessions in a centralized caching server or cluster. So stop putting everything into $_SESSION or $_COOKIE
+effort: 200
+readiness: 1000
+tags:
+  - value: cache
+  - value: session
+  - value: modernize
+  - value: container
+patterns:
+  - value: _SESSION
+  - value: _COOKIE
+
+#- $_SESSION["KEY"]
+#- $_COOKIE["KEY"]
+profiles:
+  - value: cloud-suitability

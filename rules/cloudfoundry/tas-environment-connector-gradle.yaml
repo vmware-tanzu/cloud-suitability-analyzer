@@ -1,0 +1,25 @@
+name: tas-environment-connector-gradle
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: gradle$
+target: line
+type: regex
+defaultpattern: ^.*%s
+advice: Application appears to be using cloud connectors library to inject environment variables provided by TAS. Follow the guidance listed here https://docs.cloudfoundry.org/buildpacks/java/configuring-service-connections.html
+effort: 100
+readiness: 7
+category: tas
+tags:
+  - value: tas
+  - value: env-config
+  - value: dependencies
+patterns:
+  - value: spring-boot-starter-cloud-connectors
+  - value: spring-cloud-core
+  - value: spring-cloud-connectors-core
+  - value: spring-cloud-cloudfoundry-connector
+  - value: spring-cloud-spring-service-connector
+profiles:
+  - value: tas

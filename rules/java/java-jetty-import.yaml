@@ -1,0 +1,22 @@
+name: java-jetty-import
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Use Managed Executor
+effort: 1
+readiness: 10
+category: threading
+tags:
+  - value: threading
+  - value: jetty
+  - value: tas
+  - value: container
+patterns:
+  - value: org.eclipse.jetty
+profiles:
+  - value: cloud-suitability

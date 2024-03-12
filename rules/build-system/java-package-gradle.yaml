@@ -1,0 +1,27 @@
+#SW - this is where we need xpath
+name: java-package-gradle
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: gradle$|kts$
+target: line
+type: regex
+defaultpattern: apply\s*plugin:\s*[']%s[']
+category: packaging
+advice: Application Server coupling detected.  Consider repackaging artifact as either war or executable jar
+effort: 100
+readiness: 0
+tags:
+  - value: gradle
+  - value: build-system
+patterns:
+  - value: ear
+  - value: jar
+  - value: war
+#--- gradle
+
+##apply plugin: 'ear'
+##apply plugin: 'war'
+profiles:
+  - value: cloud-suitability

@@ -1,0 +1,25 @@
+name: php-cgi-force-redirect-enabled
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: ini$
+target: line
+type: regex
+defaultpattern: \s*(%s)=+0$
+category: Vulnerability
+advice: The cgi.force_redirect php.ini configuration is on by default, and it prevents unauthenticated access to scripts when PHP is running as a CGI.
+recipe: Unfortunately, it must be disabled on IIS, OmniHTTPD and Xitami, but in all other cases it should be on.
+effort: 5
+readiness: 1000
+tags:
+  - value: vulnerability
+  - value: security
+  - value: modernize
+  - value: container
+patterns:
+  - value: cgi.force_redirect
+
+#- cgi.force_redirect=0
+profiles:
+  - value: cloud-suitability

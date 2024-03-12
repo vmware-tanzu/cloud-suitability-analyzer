@@ -1,0 +1,23 @@
+name: wsdl-soap
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: wsdl$
+target: file
+effort: 4
+readiness: 3
+category: soap
+advice: Consider upgrading to cloud friendly communication protocol
+type: regex
+tags:
+  - value: wsdl
+  - value: web-service
+  - value: soap
+  - value: modernize
+  - value: container
+patterns:
+  - value: .*\.wsdl
+## "*.wsdl"
+profiles:
+  - value: cloud-suitability

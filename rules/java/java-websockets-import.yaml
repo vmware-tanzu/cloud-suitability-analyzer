@@ -1,0 +1,28 @@
+name: java-websockets-import
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+effort: 100
+readiness: 100
+category: websockets
+advice: Make sure that target platform supports websocket api
+recipes:
+defaultpattern: '^import\s*%s.*'
+tags:
+  - value: web-socket
+  - value: io
+  - value: container
+  - value: modernize  
+patterns:
+  - value: javax.websocket
+  - value: javax.websocket.Endpoint
+    effort: 100
+  - value: io.vertx.core.http.ServerWebSocket;
+    tag: vertx
+    effort: 100
+profiles:
+  - value: cloud-suitability
