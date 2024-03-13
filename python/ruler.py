@@ -9,8 +9,7 @@
 #       OPTIONS:  ---
 #  REQUIREMENTS:  ---
 #          BUGS:  ---
-#        AUTHOR:  App Tx Team (Steve Woods)
-#       COMPANY:  VMware
+#       COMPANY:  VMware by Broadcom
 #       VERSION:  1.0
 #       CREATED:  08/16/2020
 #      REVISION:  1.1

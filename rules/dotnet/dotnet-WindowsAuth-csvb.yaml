@@ -1,0 +1,19 @@
+name: dotnet-WindowsAuth-csvb
+ruletype: fire-once
+filetype: (cs$|vb$)
+target: line
+defaultpattern: .*%s.*
+type: regex
+category: Unsupported modules
+advice: Windows Integrated Authentication will be problematic in the cloud as containers won't be joining Windows Domains. Use another authentication mechanism more cloud friendly like SSO, LDAP Remote Calls, Local...
+effort: 500
+readiness: 1
+patterns:
+  - value: GetSection\(system.webServer/security/authentication/windowsAuthentication
+  - value: GetSection\("system.webServer/security/authentication/windowsAuthentication
+tags:
+  - value: windows-auth
+  - value: security
+#- GetSection(system.webServer/security/authentication/windowsAuthentication
+profiles:
+  - value: cloud-suitability

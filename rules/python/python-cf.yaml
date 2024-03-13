@@ -1,0 +1,21 @@
+name: python-cf
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: py$
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Check for cloud foundry support.
+# TODO
+effort: -10
+readiness: 10
+category: cloudfoundry
+tags:
+  - value: container
+  - value: tas
+patterns:
+  - value: load_from_vcap_services
+profiles:
+  - value: cloud-suitability

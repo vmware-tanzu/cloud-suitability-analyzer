@@ -1,0 +1,37 @@
+name: hardcode-uri
+filetype: (java$|^vb$|py$|go$|aspx$|^c$|h$|cs$|csx$|cpp$|cob$|cfm$|cfml$|dockerfile$|jsp$|php$|^r$|^rb$|^ts$|yaml$|yml$|json$)
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+#filetype: (cs$|js$)
+target: line
+type: regex
+defaultpattern: '(?:(?:^|[^"])|(?:^|[^ =])"|(?:^|[^:]) "|(?:^|[^s])="|(?:^|[^"]): "|(?:^|[^n])s="|(?:^|[^d])": "|(?:^|[^l])ns="|(?:^|[^e])d": "|(?:^|[^m])lns="|(?:^|[^v])ed": "|(?:^|[^x])mlns="|(?:^|[^l])ved": "|(?:^|[^o])lved": "|(?:^|[^s])olved": "|(?:^|[^e])solved": "|(?:^|[^r])esolved": ")(%s)\:{1}\/{2}[a-zA-Z0-9]'
+#defaultpattern: '(%s)\:{1}\/{2}[a-zA-Z0-9]'
+#Lookbehind patterns => "resolved": ","xmlns="
+advice: Found hard-coded URI. Make configurable, put into environment or config map
+effort: 3
+readiness: 8
+category: env-config
+tags:
+  - value: hardcoded-uri
+  - value: configuration
+excludepatterns:
+  - value: xmlns="(http)\:{1}\/{2}[a-zA-Z0-9]
+  - value: (https)\:{1}\/{2}registry.npmjs.org/@angular/
+  - value: <meta.*content=.*
+  - value: <!doctype.*
+  - value: <!DOCTYPE.*
+  - value: http://activemq.apache.org
+  - value: http://www.apache.org
+  # Remove commented urls
+  - value: <!-- .*-->
+patterns:
+  - value: http
+  - value: https
+  - value: file
+  - value: sftp
+  - value: ftp
+profiles:
+  - value: cloud-suitability

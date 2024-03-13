@@ -1,0 +1,23 @@
+#SW
+name: bootSTRUTS
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: struts
+advice: Automatic remediation with Bootifier
+effort: 2
+readiness: 2
+tags:
+  - value: struts
+  - value: frontend
+  - value: modernize
+patterns:
+  - value: struts2-core
+    tag: struts-2
+profiles:
+- value: cloud-suitability

@@ -1,0 +1,29 @@
+#SW - this is where we need xpath
+name: java-package-maven-ant
+ruletype: fire-once
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: packaging
+advice: Application Server coupling detected
+effort: 100
+readiness: 0
+tags:
+  - value: maven
+  - value: build-system
+patterns:
+  - value: <packaging>ear</packaging>
+
+  #Ant Packaging
+  - value: '<target name="ear"'
+#- <packaging>war</packaging>
+#- <packaging>jar</packaging>
+#- <packaging>ear</packaging>
+
+#Ant Packaging
+#- '<target name="war"'
+#- '<target name="jar"'
+#- '<target name="ear"'
+profiles:
+  - value: cloud-suitability

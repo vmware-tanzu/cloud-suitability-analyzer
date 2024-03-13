@@ -1,0 +1,22 @@
+name: java-jersey-import
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+effort: 5
+readiness: 8
+category: jersey
+advice: Refer to 3rd party organization for cloud affinity of library
+defaultpattern: '^import\s*%s.*'
+tags:
+  - value: jersey
+  - value: rest
+  - value: dependencies
+patterns:
+  - value: com.sun.jersey
+##import com.sun.jersey
+profiles:
+- value: cloud-suitability

@@ -1,0 +1,29 @@
+name: dotnet-windowsServices
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Traditional Windows services will not run on linux environments. Windows services should be turned into their own deployable console application.
+effort: 0
+readiness: 4
+category: windows-services
+tags:
+  - value: windows-services
+  - value: process
+  - value: modernize
+patterns:
+  - value: "[:].*ServiceBase.*"
+  - value: .*ServiceController.*
+  - value: .*System.ServiceProcess.*
+  # .NET 6 ways to build
+  - value: .*[.]UseWindowsService
+  - value: .*[.]ConfigureServices
+#- ServiceBase
+#- ServiceController
+#- System.ServiceProcess
+profiles:
+  - value: cloud-suitability

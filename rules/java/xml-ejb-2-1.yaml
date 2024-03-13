@@ -1,0 +1,25 @@
+#-- SW
+name: xml-ejb-2-1
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: ejb
+advice: Application server coupling
+effort: 10
+readiness: 10
+tags:
+  - value: ejb
+  - value: javaee
+  - value: full-profile
+  - value: modernize
+  - value: container  
+patterns:
+  - value: ejb-jar_2_1.xsd
+##ejb-jar_2_1.xsd
+profiles:
+  - value: cloud-suitability

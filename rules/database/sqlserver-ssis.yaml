@@ -1,0 +1,22 @@
+name: sqlserver-ssis
+ruletype: fire-once
+filetype: (dtsx$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: SSIS is not supported on CloudFoundry.
+effort: 100
+readiness: 0
+category: Unsupported modules
+tags:
+  - value: ssis
+  - value: etl
+  - value: sql
+  - value: modernize
+  - value: container
+  - value: database
+patterns:
+  - value: DTS
+    advice: SSIS is not supported on CloudFoundry. Consider leaving the packages in an external SQL Server deployment or rewrite them in a cloud native ETL Framework like Spring Cloud Data Flow.
+profiles:
+  - value: cloud-suitability

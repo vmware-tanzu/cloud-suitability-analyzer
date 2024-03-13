@@ -1,0 +1,22 @@
+#SW
+name: xml-transportSecurity
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: security
+advice: Application Server coupling
+effort: 2
+readiness: 10
+tags:
+  - value: security
+  - value: web-app
+patterns:
+  - value: <transport-guarantee>CONFIDENTIAL
+##<transport-guarantee>CONFIDENTIAL
+profiles:
+  - value: cloud-suitability

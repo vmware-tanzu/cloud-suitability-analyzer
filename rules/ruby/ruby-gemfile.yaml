@@ -1,0 +1,17 @@
+name: ruby-gemfile
+filetype: $
+target: file
+type: simple-text
+category: docker
+advice: Ruby on Rails
+recipes:
+effort: 5
+readiness: 1000
+tags:
+  - value: ruby-gemfile
+  - value: modernize
+  - value: container
+patterns:
+  - value: Gemfile
+profiles:
+  - value: cloud-suitability

@@ -1,0 +1,26 @@
+name: java-mulesoft-intf
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+effort: 10
+readiness: 10
+advice: Refer to platform documentation
+#--- Example for extends 'Interface'
+# public class FileToInputStream extends AbstractMessageTransformer {
+defaultpattern: "^.*[ .]%s[ {].*"
+category: etl
+tags:
+  - value: mulesoft
+  - value: modernize
+  - value: container
+patterns:
+  - value: AbstractMessageTransformer
+  - value: AbstractTransformer
+## AbstractMessageTransformer{
+## AbstractTransformer{
+profiles:
+- value: cloud-suitability

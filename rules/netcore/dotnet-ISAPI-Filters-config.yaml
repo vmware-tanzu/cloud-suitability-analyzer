@@ -12,10 +12,11 @@ category: unsupported-iis-module
 effort: 1000
 readiness: 10
 patterns:
-- value: /configuration/system.webServer/isapiFilters[1]
+  - value: /configuration/system.webServer/isapiFilters[1]
 #- <configuration><system.webServer><isapiFilters
 tags:
-- value: iis-module
+  - value: iis-module
+  - value: modernize
 # Mostly a challenge if moving to .NetCore
 profiles:
-- value: netcore
+  - value: netcore

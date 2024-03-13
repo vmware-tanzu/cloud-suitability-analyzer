@@ -1,0 +1,34 @@
+name: java-rpc-import
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Adapt cloud friendly protocol
+effort: 2
+readiness: 10
+category: web-service
+tags:
+  - value: web-service
+  - value: rpc
+  - value: soap
+  - value: modernize
+  - value: container
+patterns:
+  - value: org.apache.soap.rpc
+    tag: apach-soap
+  - value: javax.xml.rpc.Call
+    tag: javax.xml.rpc
+  - value: javax.xml.rpc.Service
+    tag: javax.xml.rpc
+  - value: javax.xml.rpc.Stub
+    tag: javax.xml.rpc
+  - value: javax.xml.rpc.ServiceFactory
+    tag: javax.xml.rpc
+  - value: javax.xml.rpc.ServiceException
+    tag: javax.xml.rpc
+profiles:
+  - value: cloud-suitability

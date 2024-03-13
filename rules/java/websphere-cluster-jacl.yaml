@@ -1,0 +1,21 @@
+name: websphere-cluster-jacl
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: jacl$
+target: line
+type: regex
+defaultpattern: "^ *%s.*"
+category: wscluster
+advice: Websphere clusters cannot run in K8S
+effort: 1
+readiness: 0
+tags:
+  - value: ws-cluster
+  - value: modernize
+  - value: container
+patterns:
+  - value: _CLUSTERS
+profiles:
+  - value: cloud-suitability

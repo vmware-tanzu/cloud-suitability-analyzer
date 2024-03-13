@@ -1,0 +1,22 @@
+---
+name: java-hardIP
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: "%s"
+advice: Hardcoded IP addresses are problematic in K8S
+effort: 1
+readiness: 8
+category: hard-ip
+tags:
+  - value: hard-ip
+  - value: configuration
+patterns:
+  - value: '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}'
+profiles:
+  - value: cloud-suitability
+  - value: Azure Spring Apps

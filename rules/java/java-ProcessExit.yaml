@@ -1,0 +1,24 @@
+name: java-processexit
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+effort: 9
+readiness: 10
+advice: Refer to IBM documentation
+defaultpattern: "^.*[.]%s[ (].*$"
+category: process-exit
+tags:
+  - value: process-exit
+  - value: container
+patterns:
+  - value: exit
+  - value: halt
+
+## .exit(
+## .halt(
+profiles:
+  - value: cloud-suitability

@@ -1,0 +1,23 @@
+name: dotnet-windowsPrincipal
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (cs$|vb$|csproj$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Operations requiring a Windows domain are not supported in a container like environment. Features relying on Windows authentication will be problematic if targeting linux environment.
+effort: 100
+readiness: 8
+category: Unsupported modules
+tags:
+  - value: windows-principal
+  - value: windows-domain
+  - value: security
+patterns:
+  - value: System.Security.Principal
+    advice: Operations requiring a Windows domain are not supported
+#- using System.Security.Principal;
+profiles:
+  - value: cloud-suitability

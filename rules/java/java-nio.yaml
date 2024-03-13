@@ -1,0 +1,103 @@
+name: java-nio
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: "^.*[ .]%s[ (].*"
+effort: 8
+readiness: 8
+advice: Make sure to use Cloud Friendly storage provider.
+category: nio
+tags:
+  - value: nio
+  - value: modernize
+  - value: container
+patterns:
+  - value: BufferOverflowException
+  - value: BufferUnderflowException
+  - value: InvalidMarkException
+  - value: ReadOnlyBufferException
+  - value: FileSystemProvider
+  - value: GroupPrincipal
+  - value: UserPrincipal
+  - value: BasicFileAttributeView
+  - value: UserPrincipalLookupService
+  - value: BasicFileAttributeView
+  - value: BasicFileAttributes
+  - value: PosixFileAttributeView
+  - value: PosixFileAttributes
+  - value: PosixFilePermission
+  - value: PosixFilePermissions
+  - value: SocketChannel
+  - value: CharacterCodingException
+  - value: ServerSocketChannel
+  - value: SelectionKey
+  - value: CancelledKeyException
+  - value: DatagramChannel
+  - value: StandardOpenOption
+  - value: MappemodelyteBuffer
+  - value: ClosedChannelException
+  - value: StandardOpenOption
+  - value: AsynchronousChannelGroup
+  - value: AsynchronousFileChannel
+  - value: AsynchronousServerSocketChannel
+  - value: AsynchronousSocketChannel
+  - value: DatagramChannel
+  - value: FileChannel
+  - value: FileChannel.MapMode
+  - value: FileLock
+  - value: MembershipKey
+  - value: Pipe.SinkChannel
+  - value: Pipe.SourceChannel
+  - value: SelectableChannel
+  - value: SelectionKey
+  - value: Selector
+  - value: ServerSocketChannel
+  - value: SocketChannel
+##  BufferOverflowException(
+##  BufferUnderflowException(
+##  InvalidMarkException(
+##  ReadOnlyBufferException(
+##  FileSystemProvider(
+##  GroupPrincipal(
+##  UserPrincipal(
+##  BasicFileAttributeView(
+##  UserPrincipalLookupService(
+##  BasicFileAttributeView(
+##  BasicFileAttributes(
+##  PosixFileAttributeView(
+##  PosixFileAttributes(
+##  PosixFilePermission(
+##  PosixFilePermissions(
+##  SocketChannel(
+##  CharacterCodingException(
+##  ServerSocketChannel(
+##  SelectionKey(
+##  CancelledKeyException(
+##  DatagramChannel(
+##  StandardOpenOption(
+##  MappemodelyteBuffer(
+##  ClosedChannelException(
+##  StandardOpenOption(
+##  AsynchronousChannelGroup(
+##  AsynchronousFileChannel(
+##  AsynchronousServerSocketChannel(
+##  AsynchronousSocketChannel(
+##  DatagramChannel(
+##  FileChannel(
+##  FileChannel.MapMode(
+##  FileLock(
+##  MembershipKey(
+##  Pipe.SinkChannel(
+##  Pipe.SourceChannel(
+##  SelectableChannel(
+##  SelectionKey(
+##  Selector(
+##  ServerSocketChannel(
+##  SocketChannel(
+profiles:
+  - value: cloud-suitability
+  - value: Azure Spring Apps

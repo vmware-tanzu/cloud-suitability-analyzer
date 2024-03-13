@@ -12,6 +12,7 @@ effort: 4
 category: version
 tags:
   - value: spring cloud
+  - value: dependencies  
 defaultpattern: (?i)(springCloudVersion|org\.springframework\.cloud)(.*)(%s)
 patterns:
   - value: 2020\.|ilford

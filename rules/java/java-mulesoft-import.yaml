@@ -1,0 +1,22 @@
+name: java-mulesoft-import
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: There are several changes required to move a Mule Project to PCF
+effort: 100
+readiness: 10
+category: etl
+tags:
+  - value: mulesoft
+  - value: etl
+  - value: modernize
+  - value: container
+patterns:
+  - value: org.mule
+profiles:
+  - value: cloud-suitability

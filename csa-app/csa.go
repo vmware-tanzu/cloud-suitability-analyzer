@@ -9,9 +9,6 @@
 //
 //   Summary:  Apply system of patterns to extract meta-data from source, config, git, maven assets
 //
-//       CREATED:  3/15/18
-//      REVISION:  7/19/19
-//	  REVISED BY:  Steve Woods (App Tx)
 //===============================================================================
 
 package main
@@ -87,7 +84,7 @@ func main() {
 
 	util.App.HelpFlag.Short('h')
 	util.App.Version(Version)
-	util.App.Author("Steve Woods (VMware)")
+	util.App.Author("VMware by Broadcom")
 
 	var run = model.NewRun()
 

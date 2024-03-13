@@ -1,0 +1,51 @@
+name: php-file-system-manipulation
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: php$
+target: line
+type: regex
+defaultpattern: .*(%s)\s*\(.*\)
+category: filesystem
+advice: Filesystem manipulation is not encouraged in cloud-native applications. Keep your content off the filesystem
+recipe: Add a persistence volume or avoid Filesystem manipulation
+effort: 500
+readiness: 1000
+tags:
+  - value: io
+  - value: modernize
+  - value: container
+patterns:
+  - value: file_put_contents
+  - value: filemtime
+  - value: fputcsv
+  - value: fputs
+  - value: fopen
+  - value: fsync
+  - value: ftell
+  - value: ftruncate
+  - value: fwrite
+  - value: is_writable
+  - value: mkdir
+  - value: move_uploaded_file
+  - value: readfile
+  - value: rmdir
+  - value: touch
+  - value: chown
+  - value: copy
+  - value: fflush
+  - value: tmpfile
+  - value: tempnam
+
+#- file_put_contents(
+#- filemtime(
+#- fputcsv(
+#- fsync(
+#- fwrite(
+#- is_writable(
+#- mkdir
+#- move_uploaded_file(
+#- touch(
+profiles:
+  - value: cloud-suitability

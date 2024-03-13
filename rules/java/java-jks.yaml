@@ -1,0 +1,22 @@
+name: java-jks
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: jks$
+target: file
+effort: 7
+readiness: 7
+category: security
+advice: Make sure to externalize jks store
+recipes:
+type: regex
+tags:
+  - value: security
+  - value: jks
+  - value: mutual-auth
+patterns:
+  - value: .*\.jks
+profiles:
+  - value: cloud-suitability
+  - value: Azure Spring Apps

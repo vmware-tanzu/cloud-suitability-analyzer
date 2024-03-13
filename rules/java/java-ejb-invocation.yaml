@@ -1,0 +1,25 @@
+name: java-ejb-invocation
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: ^.*@%s.*$
+category: ejb
+advice: Refer to platform documentation
+effort: 7
+readiness: 10
+tags:
+  - value: annotations
+  - value: mdb
+  - value: ejb
+  - value: container
+  - value: modernize
+patterns:
+  - value: 'EJB\(lookup'
+
+##@EJB(lookup=)
+profiles:
+  - value: cloud-suitability

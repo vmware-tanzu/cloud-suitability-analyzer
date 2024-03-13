@@ -11,13 +11,13 @@ advice: Spring boot version is out of spring boot open source support support(ht
 effort: 4
 category: version
 tags:
-  - value: spring-boot
+  - value: spring-boot-version
+  - value: dependencies
 patterns:
-  - value: org\.springframework\.boot(.*)([\r\n]*)version( *[:=]? *)['"]?(2\.[4-6])
-  - value: (?i)(springBootVersion)(.*)(2\.[4-6])
-  - value: org\.springframework\.boot['"]?( *[:=]? *)['"]?(2\.[4-6])
+  - value: org\.springframework\.boot(.*)([\r\n]*)version( *[:=]? *)['"]?(2\.[4-7])
+  - value: (?i)(springBootVersion)(.*)(2\.[4-7])
+  - value: org\.springframework\.boot['"]?( *[:=]? *)['"]?(2\.[4-7])
 profiles:
   - value: Azure Spring Apps
-
 # e.g., id("org.springframework.boot") version "2.4.6"
 # e.g., id 'org.springframework.boot' version '2.4.6'

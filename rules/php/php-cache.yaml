@@ -1,0 +1,26 @@
+name: php-cache
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: php$
+target: line
+type: regex
+defaultpattern: .*(%s)\s*\[.*\]
+category: session_management
+advice: However, the default configuration is to store session data in a temporary file on the local disk. Again, this will not work if you’re using multiple nodes
+recipe: Store sessions in a centralized caching server or cluster. So stop putting everything into $_SESSION or $_COOKIE
+effort: 200
+readiness: 1000
+tags:
+  - value: cache
+  - value: modernize
+  - value: container
+patterns:
+  - value: cache
+  - value: CACHE
+
+#- $_SESSION["KEY"]
+#- $_COOKIE["KEY"]
+profiles:
+  - value: cloud-suitability

@@ -1,0 +1,22 @@
+#SW
+name: java-transportSecurity
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: (%s)
+category: Security
+advice: Servlet data protection is used, make sure that it is supported by target platform runtime
+effort: 10
+readiness: 10
+tags:
+  - value: security
+  - value: transport-security
+patterns:
+  - value: TransportGuarantee.CONFIDENTIAL
+##TransportGuarantee.CONFIDENTIAL
+profiles:
+  - value: cloud-suitability

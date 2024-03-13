@@ -1,0 +1,52 @@
+---
+#--- updated from 8/8/18 Survey
+name: java-jsp
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+advice: Consider migrating to modern UI frameworks that have better support for the cloud.
+defaultpattern: "^.*[ .]%s[ (].*"
+effort: 2
+readiness: 5
+category: jsp
+tags:
+  - value: ui
+  - value: jsp
+  - value: web-container
+  - value: frontend
+  - value: modernize
+patterns:
+  - value: TagSupport
+  - value: JspException
+  - value: BodyContent
+  - value: HttpJspPage
+  - value: JspApplicationContext
+  - value: JspPage
+  - value: JspContext
+  - value: JspEngineInfo
+  - value: JspFactory
+  - value: JspWriter
+  - value: PageContext
+  - value: JspException
+  - value: JspTagException
+  - value: SkipPageException
+##  TagSupport(
+##  JspException(
+##  BodyContent(
+##  HttpJspPage(
+##  JspApplicationContext(
+##  JspPage(
+##  JspContext(
+##  JspEngineInfo(
+##  JspFactory(
+##  JspWriter(
+##  PageContext(
+##  JspException(
+##  JspTagException(
+##  SkipPageException(
+profiles:
+- value: cloud-suitability

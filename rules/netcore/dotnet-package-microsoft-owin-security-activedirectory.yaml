@@ -7,13 +7,14 @@ filetype: (config$)
 target: line
 type: regex
 defaultpattern: .*%s.*
-advice: Not Supported in .NetCore 
+advice: Not Supported in .NetCore
 effort: 10
 readiness: 10
 category: package
 patterns:
-- value: Microsoft.Owin.Security.ActiveDirectory
+  - value: Microsoft.Owin.Security.ActiveDirectory
 tags:
-- value: unsupported-netcore
+  - value: unsupported-netcore
+  - value: modernize
 profiles:
-- value: netcore
+  - value: netcore

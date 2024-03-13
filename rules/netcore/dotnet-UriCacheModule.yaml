@@ -12,10 +12,11 @@ advice: Windows and IIS server dependency. Not supported in .netCore targeting l
 effort: 1000
 readiness: 5
 tags:
-- value: uri-cache
+  - value: uri-cache
+  - value: modernize
 patterns:
   - value: /configuration/system.webServer/globalModules/add[@name="UriCacheModule"][1]
 #- <configuration><system.webServer><globalModules><add name="UriCacheModule" image="%windir%\System32\inetsrv\cachtokn.dll" />
 ## UriCacheModule
 profiles:
-- value: netcore
+  - value: netcore

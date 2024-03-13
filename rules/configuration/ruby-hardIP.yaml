@@ -1,0 +1,17 @@
+---
+name: ruby-hardIP
+filetype: rb$
+target: line
+type: regex
+defaultpattern: "%s"
+advice: Hardcoded IP addresses are problematic in cloud/container env
+effort: 2
+readiness: 8
+category: hard-ip
+tags:
+  - value: hard-ip
+  - value: configuration
+patterns:
+  - value: '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}'
+profiles:
+- value: cloud-suitability

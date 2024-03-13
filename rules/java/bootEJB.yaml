@@ -1,0 +1,30 @@
+#SW
+name: bootEJB
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: ejb
+advice: Automatic remediation with Bootifier
+effort: 2
+readiness: 2
+tags:
+  - value: ejb
+  - value: migrate-off-legacy-server
+  - value: container
+  - value: modernize
+patterns:
+  - value: ejb-api
+    tag: ejb
+  - value: jboss-ejb-api_3.0_spec
+    tag: jboss-ejb-api_3.0_spec
+  - value: jboss-ejb-api_3.1_spec
+    tag: jboss-ejb-api_3.1_spec
+  - value: jboss-ejb-api_3.2_spec
+    tag: jboss-ejb-api_3.2_spec
+profiles:
+- value: cloud-suitability

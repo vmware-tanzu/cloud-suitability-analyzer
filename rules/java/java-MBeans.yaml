@@ -1,0 +1,26 @@
+name: java-MBeans
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: (%s)\:{1}
+advice: MBean is application server specific, change to refactor using cloud friendly technology
+effort: 100
+readiness: 10
+category: websphere
+tags:
+  - value: mdb
+  - value: websphere
+  - value: container
+  - value: modernize
+patterns:
+  - value: "WebSphere:"
+##WebSphere:feature
+##WebSphere:name
+##WebSphere:service
+##WebSphere:type
+profiles:
+  - value: cloud-suitability

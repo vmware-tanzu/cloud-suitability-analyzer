@@ -1,0 +1,45 @@
+name: java-resource-cci
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: "^.*[ .]%s[ (].*"
+effort: 70
+readiness: 7
+advice: Consider rearchitecting the application to use Cloud friendly remote communications - http or messaging
+category: jca
+tags:
+  - value: cci
+  - value: resource-adapter
+  - value: modernize
+  - value: container
+patterns:
+  - value: createInteraction
+  - value: getEISProductName
+  - value: getEISProductVersion
+  - value: getAdapterName
+  - value: getAdapterShortDescription
+  - value: getAdapterVersion
+  - value: getInteractionSpecsSupported
+  - value: getSpecVersion
+  - value: supportsExecuteWithInputAndOutputRecord
+  - value: supportsExecuteWithInputRecordOnly
+  - value: supportsLocalTransactionDemarcation
+#TODO Add import javax.resource.cci effort 100
+
+##  createInteraction(
+##  getEISProductName(
+##  getEISProductVersion(
+##  getAdapterName(
+##  getAdapterShortDescription(
+##  getAdapterVersion(
+##  getInteractionSpecsSupported(
+##  getSpecVersion(
+##  supportsExecuteWithInputAndOutputRecord(
+##  supportsExecuteWithInputRecordOnly(
+##  supportsLocalTransactionDemarcation(
+profiles:
+  - value: cloud-suitability

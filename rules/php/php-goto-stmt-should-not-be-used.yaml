@@ -1,0 +1,23 @@
+name: php-goto-stmt-should-not-be-used
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: ini$
+target: line
+type: regex
+defaultpattern: \s*(%s\s*.+)
+category: code_smell
+advice: goto is an unstructured control flow statement. It makes code less readable and maintainable. Structured control flow statements such as if, for, while, continue or break should be used instead.
+effort: 1
+readiness: 1000
+tags:
+  - value: unstructured
+  - value: modernize
+  - value: container
+patterns:
+  - value: goto
+
+  #- goto 30
+profiles:
+  - value: cloud-suitability

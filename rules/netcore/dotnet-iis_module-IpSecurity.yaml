@@ -8,13 +8,14 @@ target: file
 type: xpath
 advice: Windows and IIS server dependency. Not supported in .netCore targeting linux.
 patterns:
-- value: /configuration/system.webServer/security/ipSecurity
+  - value: /configuration/system.webServer/security/ipSecurity
 readiness: 9
 effort: 10
 category: unsupported-iis-module
 tags:
-- value: iis-module
+  - value: iis-module
+  - value: modernize
 #- <configuration><system.webServer><security><ipSecurity
 # Mostly a challenge if moving to .NetCore
 profiles:
-- value: netcore
+  - value: netcore

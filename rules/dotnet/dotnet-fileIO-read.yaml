@@ -1,0 +1,24 @@
+#qc1
+name: dotnet-fileIO-read
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s*\(.*
+advice: Relying on the local filesystem to store state is unreliable in a cloud platform.
+effort: 3
+readiness: 8
+category: io
+tags:
+- value: io
+- value: container
+patterns:
+- value: File.Open
+## File.Open
+  advice: Calling File.Open
+#- File.Open("C:\\bin
+profiles:
+- value: cloud-suitability

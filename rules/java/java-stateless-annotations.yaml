@@ -1,0 +1,21 @@
+name: java-stateless-annotations
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^\s*@%s
+advice: Consider rearchitecting if decisions is made to not use application server
+effort: 5
+category: stateless
+tags:
+  - value: stateless
+  - value: ejb
+  - value: modernize
+patterns:
+  - value: Stateless
+    tag: ejb
+profiles:
+  - value: cloud-suitability

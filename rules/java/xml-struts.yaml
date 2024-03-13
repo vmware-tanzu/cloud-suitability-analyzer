@@ -1,0 +1,33 @@
+#SW
+name: xml-struts
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: struts
+advice: Consider upgrading to modern cloud native UI framework
+effort: 10
+readiness: 10
+tags:
+  - value: struts
+  - value: ui
+  - value: frontend
+  - value: modernize
+  - value: container
+patterns:
+  - value: struts-config_1_1.dtd
+  - value: struts-2.2.dtd
+  - value: struts-2.3.dtd
+  - value: struts-2.4.dtd
+  - value: struts-2.5.dtd
+  - value: struts.apache.org/tags-tiles
+  - value: tiles-config_2_0.dtd
+  - value: tiles-config_2_1.dtd
+  - value: tiles-config_3_0.dtd
+##struts-config_1_1.dtd
+profiles:
+  - value: cloud-suitability

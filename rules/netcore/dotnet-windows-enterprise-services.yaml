@@ -9,15 +9,16 @@ type: regex
 defaultpattern: .*%s.*
 advice: Not Supported on .Net Core
 patterns:
-- value: System.EnterpriseService
+  - value: System.EnterpriseService
 readiness: 9
 effort: 10
 category: unsupported-netcore
 tags:
-- value: com+
-- value: api
-- value: distributed-transaction
-- value: unsupported-netcore
+  - value: com+
+  - value: api
+  - value: distributed-transaction
+  - value: unsupported-netcore
+  - value: modernize
 #- using System.EnterpriseServices;
 profiles:
-- value: netcore
+  - value: netcore

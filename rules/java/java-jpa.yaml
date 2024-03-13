@@ -1,0 +1,43 @@
+---
+name: java-jpa
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: "^.*[ @.]%s[ (].*"
+effort: 2
+readiness: 6
+advice: JPA will work inside of Cloud Native applications, make sure to use best practices to externalize connection parameters. 
+category: jpa
+tags:
+  - value: jpa
+  - value: web-profile
+  - value: entity-manager
+  - value: database
+  - value: modernize
+  - value: container
+patterns:
+  - value: createEntityManagerFactory
+  - value: createEntityManager
+  - value: getTransaction
+  - value: EntityManagerFactory
+  - value: EntityManager
+  - value: MapKeyClass
+  - value: MapKeyColumn
+  - value: MapKeyEnumerated
+  - value: EntityTransaction
+  - value: ElementCollection
+##  createEntityManagerFactory(
+##  createEntityManager(
+##  getTransaction(
+##  EntityManagerFactory(
+##  MapKeyClass(
+##  MapKeyColumn(
+##  MapKeyEnumerated(
+##  EntityTransaction(
+##  ElementCollection(
+profiles:
+- value: cloud-suitability

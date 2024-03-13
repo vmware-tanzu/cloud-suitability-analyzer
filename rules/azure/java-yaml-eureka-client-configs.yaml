@@ -12,6 +12,7 @@ category: eureka
 effort: 0
 tags:
   - value: eureka
+  - value: configuration
 patterns:
   - value: $.eureka.client["service-url","serviceUrl"]
 profiles:

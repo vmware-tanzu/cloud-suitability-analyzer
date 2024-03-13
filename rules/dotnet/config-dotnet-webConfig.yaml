@@ -1,0 +1,21 @@
+name: config-dotnet-webConfig
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: config$
+target: file
+category: Config
+type: simple-text
+advice: Upgrade to .Net Core
+effort: 0
+readiness: 0
+tags:
+- value: web-config
+- value: modernize-to-net-core
+- value: modernize
+patterns:
+- value: web.config
+- value: Web.config
+profiles:
+- value: cloud-suitability

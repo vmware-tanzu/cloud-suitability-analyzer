@@ -1,0 +1,17 @@
+name: ruby-rpc
+filetype: rb$
+target: line
+type: regex
+defaultpattern: ^%s
+effort: 5
+readiness: 0
+advice: Remote procedure calls can be problematic in cloud/container envs.
+category: rpc
+tags:
+  - value: rpc
+  - value: modernize
+  - value: container
+patterns:
+  - value: rpc
+profiles:
+  - value: cloud-suitability

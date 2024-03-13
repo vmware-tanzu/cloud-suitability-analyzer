@@ -1,0 +1,151 @@
+---
+name: java-jsf
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: "^.*[ .]%s[ (].*$"
+effort: 5
+readiness: 4
+category: jsf
+tags:
+  - value: jsf
+  - value: ui
+  - value: frontend
+  - value: modernize
+advice: Consider migrating to modern frameworks that have better support for the cloud.
+recipes:
+patterns:
+  - value: ApplicationConfigurationPopulator
+  - value: ApplicationFactory
+  - value: ApplicationWrapper
+  - value: ConfigurableNavigationHandler
+  - value: ConfigurableNavigationHandlerWrapper
+  - value: FacesMessage
+  - value: FacesMessage.Severity
+  - value: NavigationCase
+  - value: NavigationCaseWrapper
+  - value: NavigationHandler
+  - value: NavigationHandlerWrapper
+  - value: ResourceHandler
+  - value: ResourceHandlerWrapper
+  - value: ResourceWrapper
+  - value: StateManager
+  - value: StateManagerWrapper
+  - value: ViewHandler
+  - value: ViewHandlerWrapper
+  - value: ViewResource
+  - value: ApplicationScoped
+  - value: CustomScoped
+  - value: Managemodelean
+  - value: ManagedProperty
+  - value: NoneScoped
+  - value: Referencemodelean
+  - value: RequestScoped
+  - value: SessionScoped
+  - value: ViewScoped
+  - value: ActionSource
+  - value: ActionSource2
+  - value: ContextCallback
+  - value: EditableValueHolder
+  - value: NamingContainer
+  - value: PartialStateHolder
+  - value: StateHelper
+  - value: StateHolder
+  - value: TransientStateHelper
+  - value: TransientStateHolder
+  - value: UniqueIdVendor
+  - value: ValueHolder
+  - value: UIColumn
+  - value: UICommand
+  - value: UIComponent
+  - value: UIComponentBase
+  - value: UIData
+  - value: UIForm
+  - value: UIGraphic
+  - value: UIInput
+  - value: UIMessage
+  - value: UIMessages
+  - value: UINamingContainer
+  - value: UIOutcomeTarget
+  - value: UIOutput
+  - value: UIPanel
+  - value: UIParameter
+  - value: UISelectBoolean
+  - value: UISelectItem
+  - value: UISelectItems
+  - value: UISelectMany
+  - value: UISelectOne
+  - value: UIViewAction
+  - value: UIViewParameter
+  - value: UIViewParameter.Reference
+  - value: UIViewRoot
+##  ApplicationConfigurationPopulator(
+##  ApplicationFactory(
+##  ApplicationWrapper(
+##  ConfigurableNavigationHandler(
+##  ConfigurableNavigationHandlerWrapper(
+##  FacesMessage(
+##  FacesMessage.Severity(
+##  NavigationCase(
+##  NavigationCaseWrapper(
+##  NavigationHandler(
+##  NavigationHandlerWrapper(
+##  ResourceHandler(
+##  ResourceHandlerWrapper(
+##  ResourceWrapper(
+##  StateManager(
+##  StateManagerWrapper(
+##  ViewHandler(
+##  ViewHandlerWrapper(
+##  ViewResource(
+##  ApplicationScoped(
+##  CustomScoped(
+##  Managemodelean(
+##  ManagedProperty(
+##  NoneScoped(
+##  Referencemodelean(
+##  RequestScoped(
+##  SessionScoped(
+##  ViewScoped(
+##  ActionSource(
+##  ActionSource2(
+##  ContextCallback(
+##  EditableValueHolder(
+##  NamingContainer(
+##  PartialStateHolder(
+##  StateHelper(
+##  StateHolder(
+##  TransientStateHelper(
+##  TransientStateHolder(
+##  UniqueIdVendor(
+##  ValueHolder(
+##  UIColumn(
+##  UICommand(
+##  UIComponent(
+##  UIComponentBase(
+##  UIData(
+##  UIForm(
+##  UIGraphic(
+##  UIInput(
+##  UIMessage(
+##  UIMessages(
+##  UINamingContainer(
+##  UIOutcomeTarget(
+##  UIOutput(
+##  UIPanel(
+##  UIParameter(
+##  UISelectBoolean(
+##  UISelectItem(
+##  UISelectItems(
+##  UISelectMany(
+##  UISelectOne(
+##  UIViewAction(
+##  UIViewParameter(
+##  UIViewParameter.Reference(
+##  UIViewRoot(
+profiles:
+  - value: cloud-suitability

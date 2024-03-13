@@ -1,0 +1,22 @@
+#SW
+name: xml-xa-dataSource
+ruletype: fire-once
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: datasource
+advice: Consider rearchitecting if decision is made to move off application server
+effort: 1000
+readiness: 10
+tags:
+  - value: transaction
+  - value: jta
+  - value: web-profile
+  - value: container
+  - value: modernize
+patterns:
+  - value: <xa-datasource
+##<xa-datasource
+profiles:
+  - value: cloud-suitability

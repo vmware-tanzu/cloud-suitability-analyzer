@@ -1,0 +1,27 @@
+#SW
+name: java-mdb
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: MDB
+advice: Application server coupling
+effort: 7
+readiness: 7
+tags:
+  - value: mdb
+  - value: ejb
+  - value: javaee
+  - value: fullprofile
+  - value: modernize
+  - value: container
+patterns:
+  - value: <ejb-ref>
+  - value: MessageDriven
+##MessageDriven
+profiles:
+- value: cloud-suitability

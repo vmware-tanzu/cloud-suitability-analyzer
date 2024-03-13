@@ -1,0 +1,30 @@
+#SW
+name: bootWEBSOCKET
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: WebServlet
+advice: Automatic remediation with Bootifier
+effort: 0
+readiness: 2
+tags:
+  - value: web-socket
+  - value: migrate-off-legacy-server
+  - value: container
+  - value: modernize  
+patterns:
+  - value: ejb-api
+    tag: ejb
+  - value: websocket-api
+    tag: websocket
+  - value: javax.websocket-client-api
+    tag: websocket-client
+  - value: javax.websocket-all
+    tag: websocket-all
+profiles:
+- value: cloud-suitability

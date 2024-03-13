@@ -1,0 +1,20 @@
+name: dotnet-windows-code-access-security
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: unsupported
+patterns:
+  - value: CodeAccessPermission
+readiness: 9
+effort: 10
+category: security
+tags:
+  - value: security
+#-  public class   NameIdPermission : CodeAccessPermission, IUnres
+profiles:
+  - value: cloud-suitability

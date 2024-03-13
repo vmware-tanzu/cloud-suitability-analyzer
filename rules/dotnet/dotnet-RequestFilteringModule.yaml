@@ -1,0 +1,21 @@
+name: dotnet-RequestFilteringModule
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: config$
+target: file
+type: xpath
+advice: Refer to platform documentation
+effort: 100
+readiness: 1
+patterns:
+  - value: /configuration/system.webServer/security/requestFiltering/requestLimits[1]
+category: unsupported-iis-module
+tags:
+  - value: iis-module
+  - value: request-filtering
+  - value: modernize
+#- <configuration><system.webServer><security><requestFiltering><requestLimits
+profiles:
+  - value: cloud-suitability

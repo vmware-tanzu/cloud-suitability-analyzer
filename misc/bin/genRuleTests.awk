@@ -1,5 +1,5 @@
 #!/usr/local/bin/gawk -f
-# Author: Steve Woods
+
 BEGIN {
   usage = "Usage:\ngenRuleTests.awk *.yaml <output directory>"	
   patternsFound=0

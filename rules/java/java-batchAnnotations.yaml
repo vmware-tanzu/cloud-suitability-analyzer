@@ -1,0 +1,22 @@
+---
+#--- updated from 8/8/18 Survey
+name: java-batchAnnotations
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: ^.*@%s$
+advice: Batch processing can include long running processes consider using k8s job scheduler
+category: batch
+effort: 10
+readiness: 7
+tags:
+  - value: batch
+  - value: container
+patterns:
+  - value: BatchProperty
+profiles:
+  - value: cloud-suitability

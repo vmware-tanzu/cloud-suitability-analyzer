@@ -12,9 +12,10 @@ advice: Not supported in .netCore
 effort: 10
 readiness: 1
 patterns:
-- value: System.Runtime.Serialization
+  - value: System.Runtime.Serialization
 tags:
-- value: serialization
-- value: unsupported-netcore
+  - value: serialization
+  - value: unsupported-netcore
+  - value: modernize
 profiles:
-- value: netcore
+  - value: netcore

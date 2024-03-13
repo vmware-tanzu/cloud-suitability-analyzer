@@ -1,0 +1,22 @@
+name: js-stdout
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: js$
+target: line
+type: regex
+defaultpattern: (%s)\s*\(.*\)
+advice: Debug statements are always useful during development. But include them in production code - particularly in code that runs client-side - and you run the risk of inadvertently exposing sensitive information, slowing down the browser, or even erroring-out the site for some users.
+effort: 2
+readiness: 4
+category: design
+tags:
+  - value: vulnerability
+  - value: modernize
+  - value: security
+  - value: frontend
+patterns:
+  - value: console.log
+profiles:
+  - value: cloud-suitability

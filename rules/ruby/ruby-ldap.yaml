@@ -1,0 +1,17 @@
+name: ruby-ldap
+filetype: rb$
+target: line
+type: regex
+defaultpattern: \b%s
+effort: 1
+readiness: 0
+advice: Use of ldap in a cloud/container env is not a best practice
+category: windows-reg
+tags:
+  - value: windows-reg
+  - value: modernize
+  - value: container
+patterns:
+  - value: LDAP
+profiles:
+  - value: cloud-suitability

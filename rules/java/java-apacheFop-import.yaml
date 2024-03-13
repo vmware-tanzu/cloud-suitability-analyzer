@@ -1,0 +1,34 @@
+name: java-apacheFop-import
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: "[ .]%s[ .({]"
+effort: 5
+readiness: 10
+advice: Usage requires configuration remdiation
+category: thirdParty
+tags:
+  - value: apache-fop
+  - value: third-party
+  - value: dependencies
+patterns:
+  - value: FopFactory
+  - value: Fop
+  - value: FopFactoryBuilder
+  - value: FOUserAgent
+  - value: setTargetResolution
+  - value: setDocumentHandlerOverride
+  - value: setFOEventHandlerOverride
+## FopFactory(
+## Fop(
+## FopFactoryBuilder(
+## FOUserAgent(
+## setTargetResolution(
+## setDocumentHandlerOverride(
+## setFOEventHandlerOverride(
+profiles:
+- value: cloud-suitability

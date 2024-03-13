@@ -1,0 +1,23 @@
+#SW
+name: xml-servlet-2-x
+ruletype: fire-once
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: servlet
+advice: Web Server coupling. Consider upgrading to modern framework.
+effort: 700
+readiness: 700
+tags:
+  - value: servlet
+  - value: web-container
+  - value: container
+  - value: modernize
+patterns:
+  - value: web-app_2_3.dtd
+  - value: web-app_2_4.xsd
+  - value: web-app_2_5.xsd
+##web-app_2_3.dtd
+profiles:
+  - value: cloud-suitability

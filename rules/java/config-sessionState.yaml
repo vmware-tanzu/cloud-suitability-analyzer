@@ -1,0 +1,17 @@
+name: config-sessionState
+ruletype: fire-once
+filetype: config$
+target: file
+type: xpath
+advice: App should be executed as a stateless process. User session information could be store in the database (Ex https://www.c-sharpcorner.com/article/configure-sql-server-session-state-in-asp-net-core/). A better approach is to use a Redis or SQL Server distributed cache, which doesn't require sticky sessions. For more information, see Distributed caching in ASP.NET Core (https://learn.microsoft.com/en-us/aspnet/core/performance/caching/distributed?view=aspnetcore-7.0).
+readiness: 2
+effort: 200
+category: stateful
+tags:
+  - value: stateful
+  - value: session
+  - value: modernize
+patterns:
+  - value: /configuration/system.web/sessionState[@mode="InProc" or @mode="StateServer"][1]
+profiles:
+- value: cloud-suitability

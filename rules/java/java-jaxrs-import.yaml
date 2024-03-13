@@ -1,0 +1,24 @@
+name: java-jaxrs-import
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Refer to platform documentation
+effort: 1
+readiness: 8
+category: jax-rs
+tags:
+  - value: jax-rs
+  - value: rest
+  - value: tas
+patterns:
+  - value: javax.ws.rs
+    tag: jaxrs
+  - value: com.sun.jersey
+    tag: jersey
+profiles:
+  - value: cloud-suitability

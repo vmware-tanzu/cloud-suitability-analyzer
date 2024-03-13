@@ -1,0 +1,20 @@
+name: dotnet-windowsForms
+ruletype: fire-once
+filetype: (cs$|vb$|csproj$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Windows Forms module is not supported in the cloud. Refactor to a web application.
+effort: 1000
+readiness: 5
+category: Unsupported modules
+tags:
+  - value: windows-forms
+  - value: windows-desktop
+  - value: frontend
+patterns:
+  - value: System.Windows.Forms
+    advice: Windows Forms module is not supported. Refactor to a web application.
+#- using System.Windows.Forms;
+profiles:
+  - value: cloud-suitability

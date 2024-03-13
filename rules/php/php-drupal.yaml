@@ -1,0 +1,17 @@
+name: php-drupal
+filetype: php$
+target: line
+type: regex
+defaultpattern: \b%s
+effort: 100
+readiness: 0
+advice: Drupal application
+category: drupal
+tags:
+  - value: drupal
+patterns:
+  - value: drupal_route
+  - value: modernize
+  - value: container  
+profiles:
+  - value: cloud-suitability

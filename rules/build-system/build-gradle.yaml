@@ -1,0 +1,21 @@
+name: build-gradle
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: gradle$
+target: file
+type: simple-text
+category: buildSystem
+advice: Gradle is being used
+effort: 0
+readiness: 0
+tags:
+  - value: gradle
+  - value: build-system
+patterns:
+  - value: build.gradle
+
+##F build.gradle
+profiles:
+  - value: cloud-suitability

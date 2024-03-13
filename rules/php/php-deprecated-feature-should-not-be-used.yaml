@@ -1,0 +1,53 @@
+name: php-deprecated-feature-should-not-be-used
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: php$
+target: line
+type: regex
+defaultpattern: ([^_]%s)\s*\(+.*\)
+category: deprecation
+advice: Deprecated language features are those that have been retained temporarily for backward compatibility, but which will eventually be removed from the language. In effect, deprecation announces a grace period to allow the smooth transition from the old features to the new ones. In that period, no use of the deprecated features should be added to the code. Refactor or upgrade to use Php 7+
+recipe: All existing uses should be gradually removed or upgraded to new equivalent features.  
+effort: 1
+readiness: 1000
+tags:
+  - value: deprecated
+  - value: modernize
+  - value: container
+patterns:
+  - value: call_user_method
+  - value: call_user_method_array 
+  - value: define_syslog_variables
+  - value: dl 
+  - value: ereg 
+  - value: ereg_replace 
+  - value: eregi
+  - value: eregi_replace 
+  - value: set_magic_quotes_runtime
+  - value: magic_quotes_runtime
+  - value: session_register
+  - value: session_unregister 
+  - value: session_is_registered 
+  - value: set_socket_blocking 
+  - value: split
+  - value: spliti
+  - value: sql_regcase
+  - value: mysql_db_query
+  - value: mysql_escape_string
+  - value: create_function
+  - value: gmp_random
+
+
+
+#- gmp_random(
+#- parse_str(
+#- create_function(
+#- mysql_escape_string(
+#- sql_regcase(
+#- spliti(
+#- set_socket_blocking
+#- session_register(
+profiles:
+- value: cloud-suitability

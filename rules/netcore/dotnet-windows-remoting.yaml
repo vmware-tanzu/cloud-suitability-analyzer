@@ -6,17 +6,19 @@ container: 100
 filetype: config$
 target: file
 type: xpath
-advice: Unsupported, consider inter-process communication (IPC) System.IO.Pipes class
+advice:
+  Unsupported, consider inter-process communication (IPC) System.IO.Pipes class
   or the MemoryMappedFile class.Also StreamJsonRpc or ASP.NET Core (either using gRPC
   or RESTful Web API services).
 effort: 500
 readiness: 5
 category: Unsupported
 tags:
-- value: remoting
-- value: unsupported-netcore
+  - value: remoting
+  - value: unsupported-netcore
+  - value: modernize
 patterns:
-- value: /configuration/system.runtime.remoting
+  - value: /configuration/system.runtime.remoting
 negative: false
 profiles:
-- value: netcore
+  - value: netcore

@@ -13,11 +13,12 @@ advice: Use alternatives, see CoreWF and CoreWCF, runs on windows only and would
 effort: 10
 readiness: 1
 patterns:
-- value: WorkflowService
+  - value: WorkflowService
 tags:
-- value: windows-wcf
-- value: windows-workflow-service
-- value: unsupported-netcore
+  - value: windows-wcf
+  - value: windows-workflow-service
+  - value: unsupported-netcore
+  - value: modernize
 #-   WorkflowService service = new WorkflowService()
 profiles:
-- value: netcore
+  - value: netcore

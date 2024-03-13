@@ -1,0 +1,20 @@
+name: dotnet-windows-application-domain
+ruletype: fire-once
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Unsupported, For .NET Core, there is exactly one AppDomain. Isolation and unloading are provided through AssemblyLoadContext. Security boundaries should be provided by process boundaries and appropriate remoting techniques
+patterns:
+  - value: AppDomain.CreateDomain
+readiness: 9
+effort: 1000
+category: windows-domain
+tags:
+  - value: app-domain
+  - value: security
+  - value: unsupported-netcore
+  - value: modernize
+#- AppDomain newDomain = AppDomain.CreateDomain("newDomain", evidence, setup);
+profiles:
+  - value: cloud-suitability

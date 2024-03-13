@@ -1,0 +1,21 @@
+#SW
+name: xml-portlet-1-0
+ruletype: fire-once
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: version-portlet
+advice: Consider upgrading to modern UI framework
+effort: 500
+readiness: 700
+tags:
+  - value: portlet
+  - value: web-container
+  - value: container
+  - value: modernize
+patterns:
+  - value: portlet-app_1_0.xsd
+##portlet-app_1_0.xsd
+profiles:
+  - value: cloud-suitability

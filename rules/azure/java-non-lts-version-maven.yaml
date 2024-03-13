@@ -13,6 +13,7 @@ category: java
 defaultpattern: //*[starts-with(java.version,"%s")]/java.version
 tags:
   - value: java-version
+  - value: dependencies
 patterns:
   - value: 9
   - value: 10

@@ -1,0 +1,78 @@
+---
+#--- updated from 8/8/18 Survey
+name: java-jndi
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: "^.*[ .]%s[ (].*"
+effort: 250
+readiness: 7
+category: jndi
+advice: Refactor jndi calls
+tags:
+  - value: jndi
+  - value: web-container
+  - value: modernize
+  - value: container  
+patterns:
+  - value: NamingEnumeration
+  - value: NameClassPair
+  - value: NameParser
+  - value: DirContext
+  - value: BinaryRefAddr
+  - value: CompositeName
+  - value: CompoundName
+  - value: InitialContext
+  - value: LinkRef
+  - value: NameClassPair
+  - value: RefAddr
+  - value: StringRefAddr
+  - value: BasicControl
+  - value: ControlFactory
+  - value: InitialLdapContext
+  - value: LdapName
+  - value: ManageReferralControl
+  - value: PagedResultsControl
+  - value: PagedResultsResponseControl
+  - value: SortControl
+  - value: SortKey
+  - value: SortResponseControl
+  - value: StartTlsRequest
+  - value: StartTlsResponse
+  - value: UnsolicitedNotificationEvent
+  - value: NamingEvent
+  - value: NamingExceptionEvent
+##  NamingEnumeration(
+##  NameClassPair(
+##  NameParser(
+##  DirContext(
+##  BinaryRefAddr(
+##  CompositeName(
+##  CompoundName(
+##  InitialContext(
+##  LinkRef(
+##  NameClassPair(
+##  RefAddr(
+##  StringRefAddr(
+##  BasicControl(
+##  ControlFactory(
+##  InitialLdapContext(
+##  LdapName(
+##  ManageReferralControl(
+##  PagedResultsControl(
+##  PagedResultsResponseControl(
+##  Rdn(
+##  SortControl(
+##  SortKey(
+##  SortResponseControl(
+##  StartTlsRequest(
+##  StartTlsResponse(
+##  UnsolicitedNotificationEvent(
+##  NamingEvent(
+##  NamingExceptionEvent(
+profiles:
+- value: cloud-suitability

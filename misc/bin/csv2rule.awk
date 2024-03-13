@@ -1,7 +1,5 @@
 #!/usr/bin/awk -f
 
-
-# Author: Steve Woods
 # Purpose: Convert csv file to rule yaml file
 
 #--- Initialize filename as empty string

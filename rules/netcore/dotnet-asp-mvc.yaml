@@ -12,11 +12,12 @@ readiness: 9
 effort: 10
 category: unsupported-netcore
 patterns:
-- value: System.Web.Mvc
+  - value: System.Web.Mvc
 tags:
-- value: mvc
-- value: asp
-- value: unsupported-netcore
+  - value: mvc
+  - value: asp
+  - value: unsupported-netcore
+  - value: modernize
 #-public abstract class Controller : System.Web.Mvc.ControllerBase,
 profiles:
-- value: netcore
+  - value: netcore

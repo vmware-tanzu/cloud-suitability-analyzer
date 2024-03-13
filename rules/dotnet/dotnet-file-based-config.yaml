@@ -1,0 +1,21 @@
+name: dotnet-file-based-config
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: cs
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Externalize configuration to environment or use ConfigMap as file-mount into a K8S pod
+effort: 10
+readiness: 3
+category: env-config
+tags:
+- value: env-config
+- value: configuration
+patterns:
+- value: .AddJsonFile\("
+#- Configuration = new Configuration().AddJsonFile("config.json")
+profiles:
+- value: cloud-suitability

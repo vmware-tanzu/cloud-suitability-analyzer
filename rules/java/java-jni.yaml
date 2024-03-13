@@ -1,0 +1,40 @@
+---
+#--- updated from 8/8/18 Survey
+name: java-jni
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+advice: A few conditions have to be met to make JNI calls
+defaultpattern: ^\s*%s\s*native\s*
+effort: 1000
+#TODO rule for System.loadlibrary
+readiness: 7
+category: jni
+tags:
+  - value: native
+  - value: jni
+  - value: modernize
+  - value: container
+patterns:
+  - value: "public"
+  - value: "private"
+  - value: "static"
+    #--- below does not work
+    #- value: public native
+    #- value: private native
+    #- value: static native
+
+    #--- below does not work
+    #- value: public\s+native
+    #- value: private\s+native
+    #- value: static\s+native
+
+## public native
+## private native
+## static native
+profiles:
+- value: cloud-suitability

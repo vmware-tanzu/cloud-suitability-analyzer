@@ -11,11 +11,12 @@ advice: BeginInvoke and EndInvoke methods on delegates are supported on .NET Cor
 readiness: 9
 effort: 10
 patterns:
-- value: BeginInvoke\(
-- value: EndInvoke\(
+  - value: BeginInvoke\(
+  - value: EndInvoke\(
 category: unsupported-netcore
 tags:
-- value: netcore
-- value: mvc
+  - value: netcore
+  - value: mvc
+  - value: modernize
 profiles:
-- value: netcore
+  - value: netcore

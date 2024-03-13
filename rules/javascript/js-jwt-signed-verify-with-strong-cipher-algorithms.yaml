@@ -1,0 +1,23 @@
+name: js-jwt-signed-verify-with-strong-cipher-algorithms
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: js$
+target: line
+type: regex
+defaultpattern: .*\s*{\s(%s\s*:+\s*.none.\s*}|.*\s*(%ss:+\s*\[\s*.*,+\s*.*none.*\s*]+))
+category: vulnerability
+advice: If a JSON Web Token (JWT) is not signed with a strong cipher algorithm (or not signed at all) an attacker can forge it and impersonate user identities. Do not use none algorithm to sign or verify the validity of a token. Do not use a token without verifying its signature before.
+effort: 10
+readiness: 1000
+tags:
+  - value: vulnerability
+  - value: security
+  - value: frontend
+patterns:
+  - value: algorithm
+
+#- algorithms
+profiles:
+  - value: cloud-suitability

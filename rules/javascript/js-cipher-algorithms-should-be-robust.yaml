@@ -1,0 +1,31 @@
+name: js-cipher-algorithms-should-be-robust
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: js$
+target: line
+type: regex
+defaultpattern: (%s+.+,+)
+category: vulnerability
+advice: Weak cipher algorithms are used. A general recommendation is to only use cipher algorithms intensively tested and promoted by the cryptographic community.
+effort: 10
+readiness: 1000
+tags:
+  - value: vulnerability
+  - value: security
+  - value: frontend
+patterns:
+  - value: DES
+  - value: DES-EDE
+  - value: DES-EDE3
+  - value: RC2
+  - value: RC4
+  - value: RC5
+  - value: MD5
+  - value: SHA-1
+  - value: WEP
+  - value: CAST-128
+  - value: Blowfish
+profiles:
+  - value: cloud-suitability

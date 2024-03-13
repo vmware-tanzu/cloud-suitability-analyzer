@@ -1,0 +1,47 @@
+#qc1
+name: dotnet-fileIO
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*\(.*
+advice: Relying on the local filesystem to store data is unreliable in a cloud platform. Containers are ephemerals and data could be lost. Data could be stored in database or the application should leverage File Sharing Systems like NFS Persistent Volume (PV) in Kubernetes environment.
+effort: 100
+readiness: 8
+category: io
+tags:
+  - value: io
+  - value: modernize
+patterns:
+  - value: 'File.Append'
+  #- File.Append(
+    advice: Appending to a file (File.Append*) - Relying on the local filesystem to store state is unreliable in a cloud platform.
+  - value: File.Create
+  #- File.Create(
+    advice: Calling File.Create - Relying on the local filesystem to store state is unreliable in a cloud platform.
+  - value: File.Move
+  #- File.Move(
+    advice: Calling File.Move - Relying on the local filesystem to store state is unreliable in a cloud platform.
+  - value: File.OpenWrite
+  #- File.OpenWrite(
+    advice: Calling File.OpenWrite - Relying on the local filesystem to store state is unreliable in a cloud platform.
+  - value: File.Replace
+  #- File.Replace(
+    advice: Calling File.Replace - Relying on the local filesystem to store state is unreliable in a cloud platform.
+  - value: File.Set
+  #- File.Set(
+    advice: Setting File Metadata (File.Set*) - Relying on the local filesystem to store state is unreliable in a cloud platform.
+  - value: File.Write
+  #- File.Write(
+    advice: Writing to a file (File.Write*) - Relying on the local filesystem to store state is unreliable in a cloud platform.
+  - value: 'new FileStream'
+  #- new FileStream(
+    advice: Direct construction of FileStream - Relying on the local filesystem to store state is unreliable in a cloud platform.
+  - value: FileSystemWatcher
+  #- FileSystemWatcher(
+    advice: Use of FileSystemWatcher - Relying on the local filesystem to store state is unreliable in a cloud platform.
+profiles:
+  - value: cloud-suitability

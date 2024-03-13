@@ -1,0 +1,20 @@
+#qc1
+name: dotnet-database-access
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: config$
+target: file
+type: xpath
+advice: Remove connection strings from files, use environment variables (or mount configmap into pod in a docker like environment)
+readiness: 10
+effort: 100
+category: database
+tags:
+- value: database
+- value: configuration
+patterns:
+- value: /configuration/connectionStrings[1]
+profiles:
+- value: cloud-suitability

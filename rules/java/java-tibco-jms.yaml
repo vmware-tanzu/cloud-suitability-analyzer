@@ -1,0 +1,23 @@
+name: java-tibco-jms
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+advice: Integrating with TIBCO BusinessWorks JMS queues from a Spring application requires vendor-specific implementation
+target: line
+type: regex
+#--- TibjmsConnectionFactory tibjmsConnectionFactory = (TibjmsConnectionFactory) jmsConnectionFactory().getObject();
+defaultpattern: "^.*[ .]%s[ (].*"
+effort: 7
+readiness: 6
+category: tibco
+tags:
+  - value: tibco
+  - value: modernize
+  - value: container
+patterns:
+  - value: TibjmsConnectionFactory
+## TibjmsConnectionFactory(
+profiles:
+  - value: cloud-suitability

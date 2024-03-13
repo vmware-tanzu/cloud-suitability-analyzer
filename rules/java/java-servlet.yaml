@@ -1,0 +1,24 @@
+name: java-servlet
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+effort: 1
+readiness: 0
+advice: Servlet Java API Import
+category: servlet
+tags:
+  - value: servlet
+  - value: web-container
+  - value: tas
+  - value: modernize
+  - value: container
+patterns:
+  - value: javax.servlet.
+#- import javax.servlet.
+profiles:
+  - value: cloud-suitability

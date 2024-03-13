@@ -1,0 +1,25 @@
+name: php-php-url-not-hardcoded
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: php$
+target: line
+type: regex
+defaultpattern: .*(%s://).*
+category: anti-pattern
+advice: Url Hardcoding in code is anti-pattern
+recipe: use variables tired in configuration files instead
+effort: 200
+readiness: 1000
+tags:
+  - value: code_smell
+  - value: configuration
+patterns:
+  - value: http
+  - value: https
+
+#- http://www.google.com
+#- https://www.google.com
+profiles:
+  - value: cloud-suitability

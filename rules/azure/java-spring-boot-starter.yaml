@@ -13,6 +13,7 @@ effort: 0
 category: spring boot
 tags:
   - value: spring-boot
+  - value: dependencies
 patterns:
   - value: spring-boot-admin-starter-server
   - value: spring-boot-starter-web|spring-boot-starter-webflux

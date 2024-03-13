@@ -1,0 +1,21 @@
+name: java-security-annotations
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^\s*@%s
+advice: Java EE security appears to be used
+effort: 5
+category: security
+tags:
+  - value: security
+patterns:
+  - value: DeclareRoles
+  - value: DenyAll
+  - value: PermitAll
+  - value: RolesAllowed
+profiles:
+  - value: cloud-suitability

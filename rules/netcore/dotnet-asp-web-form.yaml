@@ -1,4 +1,3 @@
-
 name: dotnet-asp-web-form
 ruletype: standard
 criticality: medium
@@ -11,15 +10,16 @@ defaultpattern: (%s)
 advice: Unsupported-netcore. Not supported by many PAS. ASP .net pages will have to be replaced by ASP .NetCore. See https://learn.microsoft.com/en-us/dotnet/architecture/porting-existing-aspnet-apps/migrate-web-forms
 readiness: 9
 effort: 10
-category: unsupported-netcore. 
+category: unsupported-netcore.
 tags:
-- value: asp
-- value: asp-web-form
-- value: unsupported-netcore
+  - value: asp
+  - value: asp-web-form
+  - value: unsupported-netcore
+  - value: modernize
 patterns:
-- value: (Page Language=)
-- value: (CodeBehind=.*.aspx)
-#- <%@  Page Language="C#" AutoEventWireup="true" CodeBehind="user-form.aspx.cs"  
+  - value: (Page Language=)
+  - value: (CodeBehind=.*.aspx)
+#- <%@  Page Language="C#" AutoEventWireup="true" CodeBehind="user-form.aspx.cs"
 # aspx files are more likely webforms
 profiles:
-- value: netcore
+  - value: netcore

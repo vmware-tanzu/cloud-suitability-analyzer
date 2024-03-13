@@ -9,8 +9,7 @@
 #       OPTIONS:  ---
 #  REQUIREMENTS:  ---
 #          BUGS:  ---
-#        AUTHOR:  App Tx Team (Steve Woods)
-#       COMPANY:  VMware
+#       COMPANY:  VMware by Broadcom
 #       VERSION:  1.0
 #       CREATED:  08/26/2020
 #      REVISION:  1.0
@@ -59,7 +58,7 @@ zipFileReleaseName = head_tail[1]
 head_tail = os.path.split(absoluteZipPath)
 
 
-# --- untar or unzip 
+# --- untar or unzip
 if absoluteZipPath.endswith("tar.gz"):
     print(f'Untarring {absoluteZipPath} release to {devPath}')
     tar = tarfile.open(absoluteZipPath, "r:gz")

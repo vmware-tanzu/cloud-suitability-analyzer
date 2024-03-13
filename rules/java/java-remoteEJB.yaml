@@ -1,0 +1,32 @@
+---
+#--- TODO need to separate and survey to score
+name: java-remoteEJB
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+advice: Consider rearchitecting the application to use Cloud friendly remote communications - http or messaging
+effort: 10
+readiness: 10
+defaultpattern: ^\s*@%s
+category: ejb
+tags:
+  - value: annotations
+  - value: ejb
+  - value: fullprofile
+  - value: modernize
+  - value: container
+patterns:
+  - value: RemoteHome
+    tag: remote
+  - value: EJBObject
+  - value: EJBHome
+##@Remote
+##@RemoteHome
+##@EJBObject
+##@EJBHome
+profiles:
+  - value: cloud-suitability

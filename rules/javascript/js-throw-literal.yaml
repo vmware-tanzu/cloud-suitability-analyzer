@@ -1,0 +1,21 @@
+name: js-throw-literal
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: js$
+target: line
+type: regex
+defaultpattern: (%s)\\s+(\\d|'.+'|\".+\")
+advice: It is a bad practice to throw something that's not derived at some level from Error. If you can't find an existing Error type that suitably conveys what you need to convey, then you should extend Error to create one.
+effort: 1
+readiness: 10
+category: design
+tags:
+  - value: exception
+  - value: frontend
+  - value: modernize
+patterns:
+  - value: throw
+profiles:
+  - value: cloud-suitability

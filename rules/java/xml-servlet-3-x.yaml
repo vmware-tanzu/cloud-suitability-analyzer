@@ -1,0 +1,25 @@
+#SW
+name: xml-servlet-3-x
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: servlet
+advice: Web Server coupling. Consider upgrading to modern framework.
+effort: 8
+readiness: 10
+tags:
+  - value: servlet
+  - value: web-container
+  - value: container
+  - value: modernize
+patterns:
+  - value: web-app_3_0.xsd
+  - value: web-app_3_1.xsd
+##web-app_3_0.xsd
+profiles:
+  - value: cloud-suitability

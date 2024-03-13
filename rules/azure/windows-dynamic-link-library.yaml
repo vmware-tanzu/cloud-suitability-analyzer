@@ -12,6 +12,7 @@ effort: 10
 category: os
 tags:
   - value: os
+  - value: dependencies
 patterns:
   - value: dll$
 profiles:

@@ -1,0 +1,22 @@
+name: java-file-system
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+advice: Use backing storage service
+target: line
+type: regex
+defaultpattern: (%s)\:{1}\/{2}
+effort: 100
+readiness: 10
+category: io
+tags:
+  - value: io
+  - value: stateful
+  - value: container
+patterns:
+  - value: "file"
+profiles:
+  - value: cloud-suitability
+  - value: Azure Spring Apps

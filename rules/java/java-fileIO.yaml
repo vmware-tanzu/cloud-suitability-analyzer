@@ -1,0 +1,60 @@
+---
+#--- updated from 8/8/18 Survey
+name: java-fileIO
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: "^.*[ .]%s[ (].*"
+advice: Move to cloud friendly alternative storage service
+effort: 8
+readiness: 8
+category: io
+tags:
+  - value: io
+  - value: file storage
+  - value: stateful
+  - value: container
+patterns:
+  - value: getNextEntry
+  - value: putNextEntry
+  - value: canExecute
+  - value: canRead
+  - value: canWrite
+  - value: createNewFile
+  - value: getAbsoluteFile
+  - value: getFile
+  - value: getAbsolutePath
+  - value: getCanonicalFile
+  - value: getCanonicalPath
+  - value: getFreeSpace
+  - value: getTotalSpace
+  - value: getUsableSpace
+  - value: isDirectory
+  - value: isFile
+  - value: isHidden
+  - value: lastModified
+  - value: listFiles
+  - value: mkdir
+  - value: mkdirs
+  - value: renameTo
+  - value: setExecutable
+  - value: setLastModified
+  - value: setReadOnly
+  - value: setReadable
+  - value: setWritable
+  - value: FileDescriptor
+  - value: FileInputStream
+  - value: FileOutputStream
+  - value: FilePermission
+  - value: FileReader
+  - value: FileWriter
+  - value: LineNumberInputStream
+  - value: LineNumberReader
+  - value: RandomAccessFile
+profiles:
+  - value: cloud-suitability
+  - value: Azure Spring Apps

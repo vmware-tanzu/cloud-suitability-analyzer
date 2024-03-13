@@ -1,0 +1,26 @@
+---
+#--- updated from 8/8/18 Survey
+name: java-messageDrivenBeans
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: ^.*@%s.*$
+category: mdb
+advice: Refer to platform documentation
+effort: 7
+readiness: 10
+tags:
+  - value: annotations
+  - value: mdb
+  - value: container
+  - value: modernize
+patterns:
+  - value: 'EJB\(lookup'
+
+##@EJB(lookup=)
+profiles:
+  - value: cloud-suitability

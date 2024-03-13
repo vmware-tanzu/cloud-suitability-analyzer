@@ -15,6 +15,6 @@ category: logging
 tags:
   - value: logging
 patterns:
- - value: $[*]["appenders","Appenders"][?(@.console || @.Console || @.appender[?(@.type=~/(?i)console/)])]
+  - value: $[*]["appenders","Appenders"][?(@.console || @.Console || @.appender[?(@.type=~/(?i)console/)])]
 profiles:
   - value: Azure Spring Apps

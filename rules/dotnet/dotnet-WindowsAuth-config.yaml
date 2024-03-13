@@ -1,0 +1,25 @@
+#qc1
+name: dotnet-WindowsAuth-config
+ruletype: fire-once
+# ignore development config files
+filetype: config$
+target: file
+type: xpath
+category: Unsupported modules
+advice: Windows Integrated Authentication will be problematic in the cloud as containers won't be joining Windows Domains. Use another authentication mechanism more cloud friendly like SSO, LDAP Remote Calls, Local...
+effort: 500
+readiness: 1
+tags:
+  - value: windows-auth
+  - value: security
+patterns:
+  - value: //system.webServer/security/authentication/windowsAuthentication[translate(@enabled, "abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ") = "TRUE"][1]
+  - value: /configuration/system.serviceModel/bindings//binding/security/transport[translate(@clientCredentialType, "abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ")="WINDOWS"][1]
+  - value: /configuration/system.web/authentication[translate(@mode, "abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ")="WINDOWS"][1]
+  - value: /configuration/connectionStrings/add[contains(translate(translate(@connectionString, " ", ""), "abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ"), "INTEGRATEDSECURITY=TRUE")]
+#- value: Integrated Security=True
+#  effort: 100
+## <windowsAuthentication
+#- <system.webServer><security><authentication><windowsAuthentication enabled="true" />
+profiles:
+  - value: cloud-suitability

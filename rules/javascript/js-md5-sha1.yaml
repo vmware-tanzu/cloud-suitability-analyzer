@@ -1,0 +1,21 @@
+name: js-md5-sha1
+filetype: js$
+target: line
+type: regex
+defaultpattern: .*(%s\(.*\))
+category: security
+#advice:  Cryptographic hash algorithms such as MD2 MD4 MD5 MD6 HAVAL128 HMACMD5 DSA which uses SHA-1 RIPEMD, RIPEMD-128, RIPEMD-160, HMACRIPEMD160 and SHA-1 are no longer considered secure, because it is possible to have collisions little computational effort is enough to find two or more different inputs that produce the same hash. Safer alternatives, such as SHA-256, SHA-512, SHA-3 are recommended, and for password hashing, it is even better to use algorithms that do not compute too quickly like bcrypt scrypt argon2 or pbkdf2 because it slows down brute force attacks.
+effort: 10
+readiness: 1000
+tags:
+  - value: vulnerability
+  - value: security
+  - value: frontend
+patterns:
+  - value: md5
+  - value: sha1
+  - value: md2
+  - value: sha1
+  - value: md4
+  - value: haval128
+  - value: dsa

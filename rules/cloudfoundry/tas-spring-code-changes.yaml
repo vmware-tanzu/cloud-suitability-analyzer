@@ -1,0 +1,23 @@
+name: tas-spring-code-changes
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+advice: Remove any of these annotations from Spring Java configuration classes (provided by Spring Cloud Connectors). Replace them with the Spring SPeL or Spring Boot configuration (https://docs.cloudfoundry.org/buildpacks/java/configuring-service-connections.html#spring) options listed above.
+effort: 100
+defaultpattern: (>.*%s<)
+readiness: 7
+category: tas
+tags:
+  - value: tas
+  - value: env-config
+  - value: dependencies
+  - value: spring
+patterns:
+  - value: ServiceScan
+  - value: CloudScan
+profiles:
+  - value: tas

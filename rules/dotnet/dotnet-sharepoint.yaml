@@ -1,0 +1,23 @@
+name: dotnet-sharepoint
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: SharePoint is not supported on CloudFoundry.
+effort: 100
+readiness: 0
+category: unsupported-module
+tags:
+  - value: sharepoint
+  - value: modernize
+patterns:
+  - value: Microsoft.SharePoint
+    advice: SharePoint is not supported on CloudFoundry.
+    #- Microsoft.SharePoint
+    #- using Microsoft.SharePoint.Client;
+profiles:
+  - value: cloud-suitability

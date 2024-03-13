@@ -1,0 +1,22 @@
+name: dotnet-security
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (cs$|vb$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Relying on Windows certificate stores is problematic in a cloud environment. Certificate stores could be shared via shared volume mounts. Ideally you should decouple certificates and SSL from your application. SSL could also be handled at the load balancer level.
+readiness: 10
+effort: 3
+category: security
+tags:
+  - value: security
+  - value: certificate
+patterns:
+  - value: X509Store
+    tag: x509-store
+#- X509Store store = new X509Store(storeName, storeLocation);
+profiles:
+  - value: cloud-suitability

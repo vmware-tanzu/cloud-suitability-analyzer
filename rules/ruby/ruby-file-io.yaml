@@ -1,0 +1,17 @@
+name: ruby-file-io
+filetype: rb$
+target: line
+type: regex
+defaultpattern: \b%s
+effort: 2
+readiness: 0
+advice: File i/o in environments that are emphemeral is a bad practice
+category: io
+tags:
+  - value: io
+  - value: modernize
+  - value: container
+patterns:
+  - value: IO
+profiles:
+  - value: cloud-suitability

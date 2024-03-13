@@ -1,0 +1,25 @@
+name: java-stateful-annotations
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^\s*@%s
+advice: Relies on application server for shared state and will require a rewrite to Stateless or externalize state storage
+effort: 10
+category: stateful
+tags:
+  - value: stateful
+  - value: modernize
+patterns:
+  - value: Stateful
+  - value: Init
+  - value: Remove
+  - value: PostActivate
+  - value: PrePassivate
+    tag: ejb
+    tag: stateful
+profiles:
+  - value: cloud-suitability

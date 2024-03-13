@@ -3,15 +3,15 @@
 
 | Date         | Action                       | Author   |
 | ------------ | ---------------------------- | -------- |
-| Nov 15, 2023 | Update with new feature released in 4.1.10 | S. Woods
+| Nov 15, 2023 | Update with new feature released in 4.1.10 | Tanzu Labs
 | Jul 26, 2023 | Update with new features released in 4.0    | S. Carbonell
-| Feb 10, 2021 | Add call graphs to user manual with package descriptions| S. Woods
-| Jul 30, 2020 | Amended rule import instructions | S. Woods |
-| Jul 30, 2020 | Prep for open source release | S. Woods |
-| Dec 12, 2018 | Converted from readme        | S. Woods |
-| Dec 18, 2018 | Added scoring/graphics       | S. Woods |
-| Dec 20, 2018 | Added bucketing and profile  | S. Woods |
-| Jan 03, 2018 | Added EULA                   | S. Woods |
+| Feb 10, 2021 | Add call graphs to user manual with package descriptions| Tanzu Labs
+| Jul 30, 2020 | Amended rule import instructions | Tanzu Labs |
+| Jul 30, 2020 | Prep for open source release | Tanzu Labs |
+| Dec 12, 2018 | Converted from readme        | Tanzu Labs |
+| Dec 18, 2018 | Added scoring/graphics       | Tanzu Labs |
+| Dec 20, 2018 | Added bucketing and profile  | Tanzu Labs |
+| Jan 03, 2018 | Added EULA                   | Tanzu Labs |
 
 ## License
 
@@ -214,7 +214,7 @@ The table below describes the settings that are available:
     "applications": [
         {
             "Name": "App1",
-            "Path": "/Users/swoods/pvtl/portfoliosmall-shortNames/App1",
+            "Path": "/Users/user/pvtl/portfoliosmall-shortNames/App1",
             "business-domain": "",
             "business-value": 0,
             "dir-exclude-regex": "^([.].*|target|classes|bin|test|node_modules|eclipse|out)$",
@@ -223,7 +223,7 @@ The table below describes the settings that are available:
         },
         {
             "Name": "App8",
-            "Path": "/Users/swoods/pvtl/portfoliosmall-shortNames/App8",
+            "Path": "/Users/user/pvtl/portfoliosmall-shortNames/App8",
             "business-domain": "",
             "business-value": 0,
             "dir-exclude-regex": "^([.].*|target|classes|bin|test|node_modules|eclipse|out)$",
@@ -748,13 +748,13 @@ The `cas ui` command launches a browser-based visual explorer. You'll see `csa` 
 
 ```bash
 Csa: 1.63.0-rev.2 DBEngine: sqlite-3.25.2	DBName: csa.db
-User: swoods
+User: user
 Command: ui
-User-Home: /Users/swoods
-DB Path: /Users/swoods/af/csa.db
-Rules-Dir: /Users/swoods/csa/rules
-OutputPath: /Users/swoods/csa/csa-reports
-Exe Path: /Users/swoods/csa
+User-Home: /Users/user
+DB Path: /Users/user/af/csa.db
+Rules-Dir: /Users/user/csa/rules
+OutputPath: /Users/user/csa/csa-reports
+Exe Path: /Users/user/csa
 Tmp Path: /var/folders/w6/3lp91tmn6b51wbqlzn2v6ywc0000gn/T/386908506
 
 Using Http FileSystem!

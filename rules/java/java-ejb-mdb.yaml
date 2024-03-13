@@ -1,0 +1,24 @@
+name: java-ejb-mdb
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+category: ejb
+advice: Consult MDB documentation
+effort: 7
+readiness: 7
+tags:
+  - value: ejb
+  - value: mdb
+  - value: messaging
+  - value: container
+  - value: modernize
+patterns:
+  - value: javax.ejb.MessageDriven
+  - value: javax.ejb.ActivationConfigProperty
+profiles:
+  - value: cloud-suitability

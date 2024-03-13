@@ -1,0 +1,20 @@
+#qc1
+name: config-security
+ruletype: fire-once
+filetype: config$
+target: file
+type: xpath
+advice: Use of generated machine keys is problematic
+effort: 100
+readiness: 100
+category: security
+tags:
+- value: auto-gen-key
+- value: security
+patterns:
+- value: /configuration/system.web/machineKey[contains(@validationKey, "AutoGenerate") or contains(@decryptionKey, "AutoGenerate")]
+
+##validationKey="AutoGenerate"
+##decryptionKey="AutoGenerate"
+profiles:
+- value: cloud-suitability

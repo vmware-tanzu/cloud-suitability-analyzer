@@ -1,0 +1,28 @@
+name: java-struts-import
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Consider upgrading to modern cloud native UI framework
+effort: 6
+readiness: 7
+category: struts
+tags:
+  - value: struts
+  - value: web-app
+  - value: web-container
+  - value: frontend
+  - value: container
+patterns:
+  - value: org.apache.struts
+    tag: struts
+  - value: org.apache.struts2
+    tag: struts
+  - value: com.opensymphony
+    tag: opensymphony
+profiles:
+  - value: cloud-suitability

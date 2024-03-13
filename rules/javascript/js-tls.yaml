@@ -1,0 +1,23 @@
+name: js-md5-sha1-noncompliant
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: js$
+target: line
+type: regex
+defaultpattern: .*(%s)\s*(1.1)+
+category: security
+advice: TLS1.1 is not secure
+recipe: Change to TLS1.2 and above
+effort: 5
+readiness: 1000
+tags:
+  - value: vulnerability
+  - value: security
+  - value: frontend
+patterns:
+  - value: tls
+  - value: TLS
+profiles:
+  - value: cloud-suitability

@@ -1,0 +1,22 @@
+name: java-java-fx-import
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+effort: 1000
+readiness: 100
+category: java-fx
+advice: Java-fx is not cloud compatible and requires the JRE on the remote device.
+recipes:
+defaultpattern: '^import\s*%s.*'
+tags:
+  - value: java-fx
+  - value: desktop-app
+patterns:
+  - value: javafx
+profiles:
+  - value: cloud-suitability
+  - value: Azure Spring Apps

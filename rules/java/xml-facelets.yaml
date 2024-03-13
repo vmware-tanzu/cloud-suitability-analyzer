@@ -1,0 +1,26 @@
+#SW
+name: xml-facelets
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: line
+type: regex
+defaultpattern: (%s)
+category: Facelets
+advice: Consider upgrading to modern UI framework
+effort: 2
+readiness: 2
+tags:
+  - value: facelets
+  - value: jsf
+  - value: web-app
+  - value: modernize
+  - value: container
+  - value: frontend
+patterns:
+  - value: jsf/facelets
+##jsf/facelets
+profiles:
+  - value: cloud-suitability

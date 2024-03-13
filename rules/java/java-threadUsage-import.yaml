@@ -1,0 +1,23 @@
+name: java-threadUsage-import
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (jsp$|java$)
+target: line
+type: regex
+defaultpattern: ^.*import(\s*|=")%s.*$
+advice: Use Managed Executor
+effort: 100
+readiness: 10
+category: threading
+tags:
+  - value: threading
+  - value: tas
+  - value: container
+recipes:
+patterns:
+  - value: java.lang.Thread
+  - value: java.lang.Runnable
+profiles:
+  - value: cloud-suitability
