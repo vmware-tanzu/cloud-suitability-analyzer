@@ -12,7 +12,7 @@ type PortfolioScore struct {
 	Findings       int           `json:"findings"`
 	CIFindings     int           `json:"ciFindings"`
 	InfoFindings   int           `json:"infoFindings"`
-	RawScore       int           `json:"rawScore"`
+	RawScore       int64         `json:"rawScore"`
 	AppScores      []Application `json:"appScores"`
 	Recommendation string        `json:"recommendation"`
 }
@@ -22,7 +22,7 @@ type ApplicationDetails struct {
 	Findings          int     `json:"findings"`
 	CIFindings        int     `json:"ciFindings"`
 	InfoFindings      int     `json:"infoFindings"`
-	RawScore          int     `json:"rawScore"`
+	RawScore          int64   `json:"rawScore"`
 	RawCloudScore     int     `json:"rawCloudScore"`
 	RawContainerScore int     `json:"rawContainerScore"`
 	NumCrits          int     `json:"numCrits"`

@@ -97,14 +97,14 @@ func (csaService *CsaService) PerformAnalysis(run *model.Run) {
 
 				//---- Detect no rules applied ----
 
-				// for i := 0; i < len(run.Applications); i++ {
-				// 	if run.Applications[i].CIFindings == 0 && run.Applications[i].Score >= 9 {
-				// 		// --- the scoring model is reapplied in the UI, so we need this raw score to yield a zero
-				// 		//     in the formula: 10 - log10(rawScore)
-				// 		run.Applications[i].Score = 0
-				// 		run.Applications[i].RawScore = 10000000000
-				// 	}
-				// }
+				for i := 0; i < len(run.Applications); i++ {
+					if run.Applications[i].CIFindings == 0 && run.Applications[i].Score >= 9 {
+						// --- the scoring model is reapplied in the UI, so we need this raw score to yield a zero
+						//     in the formula: 10 - log10(rawScore)
+						run.Applications[i].Score = 0
+						run.Applications[i].RawScore = 10000000000
+					}
+				}
 
 				//---- End language specific metrics to correct perfect scores----
 
