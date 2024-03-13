@@ -28,8 +28,6 @@ import (
 	"csa-app/model"
 	"csa-app/util"
 
-	"database/sql"
-
 	"github.com/antchfx/xmlquery"
 
 	//"github.com/mattn/go-sqlite3"
@@ -492,7 +490,7 @@ func (csaService *CsaService) genAppCSAResults(run *model.Run) {
 			 FROM findings where rule is not null and rule != ''
 		 `
 
-		var sqlDBFile = *util.DbDir + string(os.PathSeparator) + *util.DBName
+		// var sqlDBFile = *util.DbDir + string(os.PathSeparator) + *util.DBName
 
 		fileFindings := []model.Finding{}
 
@@ -501,13 +499,13 @@ func (csaService *CsaService) genAppCSAResults(run *model.Run) {
 			os.Exit(1)
 		}
 
-		db, err := sql.Open("sqlite3", sqlDBFile)
-		if err != nil {
-			fmt.Print(err)
-			os.Exit(1)
-		}
-		defer db.Close()
-		rows, err := db.Query(qryFindings)
+		// db, err := sql.Open("sqlite3", sqlDBFile)
+		// if err != nil {
+		// 	fmt.Print(err)
+		// 	os.Exit(1)
+		// }
+		// defer db.Close()
+		rows, err := run.DB.DB().Query(qryFindings)
 		if err != nil {
 			fmt.Print(err)
 			os.Exit(1)

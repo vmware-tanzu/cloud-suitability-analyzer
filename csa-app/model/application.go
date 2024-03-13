@@ -13,6 +13,7 @@ import (
 	"time"
 
 	"csa-app/util"
+
 	"github.com/sirupsen/logrus"
 )
 
@@ -40,7 +41,7 @@ type Application struct {
 	PrimaryLanguage   string            `gorm:"-" json:"-" yaml:"-"`
 	PrimaryLangCount  int               `gorm:"-" json:"-" yaml:"-"`
 	InfoFindings      int               `json:"infoFindings"`
-	RawScore          int               `json:"rawScore"`
+	RawScore          int64             `json:"rawScore"`
 	RawContainerScore int               `json:"rawContainerScore"`
 	RawCloudScore     int               `json:"rawCloudScore"`
 	NumCrits          int               `json:"numCrits"`

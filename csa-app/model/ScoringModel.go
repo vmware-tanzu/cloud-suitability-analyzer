@@ -185,7 +185,7 @@ func (sb *Bucket) TheStart() interface{} {
 		v, _ := getFloatVal(sb.Start)
 		return v
 	} else {
-		v, _ := getIntVal(sb.Start)
+		v, _ := getInt64Val(sb.Start)
 		return v
 	}
 }
@@ -195,7 +195,7 @@ func (sb *Bucket) TheEnd() interface{} {
 		v, _ := getFloatVal(sb.End)
 		return v
 	} else {
-		v, _ := getIntVal(sb.End)
+		v, _ := getInt64Val(sb.End)
 		return v
 	}
 }
@@ -204,7 +204,7 @@ func (b *Bucket) Contains(target interface{}) bool {
 	if b.Type == BV_BKT_TYPE {
 		return target.(float64) >= b.TheStart().(float64) && b.TheEnd().(float64) >= target.(float64)
 	} else {
-		return target.(int) >= b.TheStart().(int) && b.TheEnd().(int) >= target.(int)
+		return target.(int64) >= b.TheStart().(int64) && b.TheEnd().(int64) >= target.(int64)
 	}
 }
 
@@ -213,7 +213,7 @@ func (b *Bucket) GetOutcome(app Application) *Outcome {
 
 	switch b.Type {
 	case SLOC_BKT_TYPE:
-		hit = b.Contains(app.SlocCnt)
+		hit = b.Contains(int64(app.SlocCnt))
 	case RAW_BKT_TYPE:
 		hit = b.Contains(app.RawScore)
 	case BV_BKT_TYPE:
@@ -259,8 +259,8 @@ func (b *Bucket) Validate() error {
 
 	} else {
 
-		s, err := getIntVal(b.Start)
-		min := 0
+		s, err := getInt64Val(b.Start)
+		min := int64(0)
 		if b.Type == RAW_BKT_TYPE {
 			min = math.MinInt64
 		}
@@ -271,7 +271,7 @@ func (b *Bucket) Validate() error {
 			return fmt.Errorf("[%s] bucket is invalid.  start [%s] must be greater than or equal to [%d]", b.Type, b.Start, min)
 		}
 
-		e, err := getIntVal(b.End)
+		e, err := getInt64Val(b.End)
 		if err != nil {
 			return fmt.Errorf("[%s] bucket has invalid end [%s]. details: %s", b.Type, b.End, err.Error())
 		}
@@ -303,7 +303,7 @@ func (b *Bucket) StartsBefore(b2 *Bucket) bool {
 	if b.Type == BV_BKT_TYPE {
 		return b.TheStart().(float64) < b2.TheStart().(float64)
 	} else {
-		return b.TheStart().(int) < b2.TheStart().(int)
+		return b.TheStart().(int64) < b2.TheStart().(int64)
 	}
 }
 
@@ -341,11 +341,11 @@ func validateIntBuckets(bkts []*Bucket) error {
 	bktTypes := ""
 
 	cnt := 0
-	lastEnd := 0
-	rangeMin := math.MinInt64
+	lastEnd := int64(0)
+	rangeMin := int64(math.MinInt64)
 	for _, bkt := range bkts {
-		bStart := bkt.TheStart().(int)
-		bEnd := bkt.TheEnd().(int)
+		bStart := bkt.TheStart().(int64)
+		bEnd := bkt.TheEnd().(int64)
 
 		if cnt == 0 {
 			bktTypes = bkt.Type
@@ -421,7 +421,7 @@ func validateFloatBuckets(bkts []*Bucket) error {
 	return nil
 }
 
-func getIntVal(target string) (int, error) {
+func getInt64Val(target string) (int64, error) {
 
 	if target == "" {
 		return math.MinInt64, nil
@@ -443,7 +443,7 @@ func getIntVal(target string) (int, error) {
 		return math.MinInt64, err
 	}
 
-	return int(val), nil
+	return val, nil
 }
 
 func getFloatVal(target string) (float64, error) {

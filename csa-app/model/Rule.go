@@ -23,7 +23,7 @@ type Rule struct {
 	RuleType        string           `gorm:"type:text" json:",omitempty" yaml:",omitempty"`
 	Level           string           `gorm:"type:text" json:",omitempty" yaml:",omitempty"`
 	FileType        string           `gorm:"type:text" json:",omitempty" yaml:",omitempty"` //Extension if empty or * then rule applies to all files. Else, rule only applies to files with this extension (sans '.')
-	HasFired        bool             `gorm:"type:integer" json:",omitempty" yaml:",omitempty"`
+	HasFired        bool             `gorm:"type:bool" json:",omitempty" yaml:",omitempty"`
 	FileNamePattern string           `gorm:"type:text" json:",omitempty" yaml:",omitempty"`
 	Target          string           `gorm:"type:text"`                                     //File, Line
 	Type            string           `gorm:"type:text"`                                     //Regex, SimpleText, StartsWith, Contains, EndsWith, SimpleTextCaseInsensitive
@@ -44,7 +44,7 @@ type Rule struct {
 	regex           *regexp.Regexp   `gorm:"-" json:"-" yaml:"-"`
 	Metric          *RuleMetric      `gorm:"-" json:"-" yaml:"-"`
 	overrideApplies bool             `gorm:"-" json:"-" yaml:"-"`
-	Negative        bool             `gorm:"type:integer"`
+	Negative        bool             `gorm:"type:bool"`
 	sync.Mutex      `gorm:"-" json:"-" yaml:"-"`
 	Profiles        []Profile `json:",omitempty" yaml:",omitempty"`
 
