@@ -11,9 +11,10 @@ install_mac_clis() {
         
         if [[ -z $(brew list | grep ${package_name}) ]]; then
             if [[ ! -z ${tap_name} ]]; then
-                brew tap ${tap_name}
+                brew install ${tap_name}
+            else
+                brew install ${cli}
             fi
-            brew install ${cli}
         fi
     done
 }
