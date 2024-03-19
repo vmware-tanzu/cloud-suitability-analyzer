@@ -21,9 +21,20 @@ builds:
     tags:
       - sqlite_omit_load_extension
 
+    flags:
+      - -trimpath
+
     ldflags:
       - -s -w -X main.Version={{.Version}} -X main.CommitSha={{.Commit}} -X main.BuildDate={{.Date}}
       - -extldflags=-static
+
+    asmflags:
+      - -D mysymbol
+      - all=-trimpath={{.Env.GOPATH}}
+
+    gcflags:
+      - all=-trimpath={{.Env.GOPATH}}
+      - ./dontoptimizeme=-N
 
     goos:
       - windows
@@ -40,9 +51,20 @@ builds:
     tags:
       - sqlite_omit_load_extension
 
+    flags:
+      - -trimpath
+
     ldflags:
       - -s -w -X main.Version={{.Version}} -X main.CommitSha={{.Commit}} -X main.BuildDate={{.Date}}
 
+    asmflags:
+      - -D mysymbol
+      - all=-trimpath={{.Env.GOPATH}}
+
+    gcflags:
+      - all=-trimpath={{.Env.GOPATH}}
+      - ./dontoptimizeme=-N
+    
     goos:
       - darwin
 
@@ -61,9 +83,20 @@ builds:
     tags:
     - sqlite_omit_load_extension
 
+    flags:
+      - -trimpath
+
     ldflags:
       - -s -w -X main.Version={{.Version}} -X main.CommitSha={{.Commit}} -X main.BuildDate={{.Date}}
       - -extldflags=-static
+
+    asmflags:
+      - -D mysymbol
+      - all=-trimpath={{.Env.GOPATH}}
+
+    gcflags:
+      - all=-trimpath={{.Env.GOPATH}}
+      - ./dontoptimizeme=-N
 
     goos:
       - linux
