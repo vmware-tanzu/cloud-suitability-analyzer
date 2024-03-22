@@ -30,10 +30,8 @@ builds:
 
     asmflags:
       - -D mysymbol
-      - all=-trimpath={{.Env.GOPATH}}
 
     gcflags:
-      - all=-trimpath={{.Env.GOPATH}}
       - ./dontoptimizeme=-N
 
     goos:
@@ -59,10 +57,8 @@ builds:
 
     asmflags:
       - -D mysymbol
-      - all=-trimpath={{.Env.GOPATH}}
 
     gcflags:
-      - all=-trimpath={{.Env.GOPATH}}
       - ./dontoptimizeme=-N
     
     goos:
@@ -92,10 +88,8 @@ builds:
 
     asmflags:
       - -D mysymbol
-      - all=-trimpath={{.Env.GOPATH}}
 
     gcflags:
-      - all=-trimpath={{.Env.GOPATH}}
       - ./dontoptimizeme=-N
 
     goos:
