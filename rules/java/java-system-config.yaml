@@ -3,7 +3,7 @@ ruletype: standard
 criticality: medium
 cloud: 100
 container: 100
-filetype: $
+filetype: java$
 target: line
 type: regex
 defaultpattern: (System.)%s\(

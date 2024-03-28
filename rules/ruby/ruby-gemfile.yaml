@@ -1,5 +1,5 @@
 name: ruby-gemfile
-filetype: $
+filetype: Gemfile$
 target: file
 type: simple-text
 category: docker
