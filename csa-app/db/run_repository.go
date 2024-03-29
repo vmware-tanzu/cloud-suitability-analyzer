@@ -10,8 +10,8 @@ import (
 	"sort"
 	"time"
 
-	"github.com/jinzhu/gorm"
 	"csa-app/model"
+	"github.com/jinzhu/gorm"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -25,6 +25,7 @@ type RunRepository interface {
 	UpdateApp(app *model.Application) error
 	GetApp(runId uint, appName string) (*model.Application, error)
 	GetAppByID(runId uint, appId uint) (*model.Application, error)
+	CloneRun(sourceRunId uint, destRun *model.Run) error
 }
 
 func NewRunRepository(db *gorm.DB) RunRepository {
@@ -69,6 +70,66 @@ func (repo *OrmRepository) GetRun(runId uint) (model.Run, error) {
 	res := repo.dbconn.Where(&model.Run{ID: runId}).Find(&run)
 
 	return run, res.Error
+}
+
+func (repo *OrmRepository) CloneRun(sourceRunId uint, destRun *model.Run) error {
+	var sourceRun model.Run
+	res := repo.dbconn.Where(&model.Run{ID: sourceRunId}).Preload("Applications").Preload("Applications.Tags").Find(&sourceRun)
+	err := res.Error
+
+	if err == nil {
+		// copy the apps and tags into destRun
+		runApps, _ := repo.GetRunApps(sourceRun.ID)
+		for a := range runApps {
+			var app = &runApps[a]
+			app.ID = 0
+			app.RunID = 0
+			destRun.Applications = append(destRun.Applications, app)
+			for t := range app.Tags {
+				app.Tags[t].ID = 0
+				app.Tags[t].ApplicationID = 0
+			}
+		}
+		destRun.Applications = destRun.AppsOrdered()
+		err := repo.dbconn.Save(&destRun).Error
+
+		if err == nil {
+			// copy the slocs into destRun
+			slocs, _ := repo.GetSlocForRun(sourceRun.ID)
+			for s := range slocs {
+				var sloc = slocs[s]
+				sloc.ID = 0
+				sloc.RunID = destRun.ID
+				err = repo.CreateSlocData(&sloc)
+				if err != nil {
+					break
+				}
+			}
+		}
+		if err == nil {
+			// copy the findings into destRun
+			findings, _ := repo.GetFindings(sourceRun.ID)
+			for f := range findings {
+				var finding = findings[f]
+				finding.ID = 0
+				finding.RunID = destRun.ID
+				for t := range finding.Tags {
+					finding.Tags[t].ID = 0
+					finding.Tags[t].FindingID = 0
+				}
+				for r := range finding.Recipes {
+					finding.Recipes[r].ID = 0
+					finding.Recipes[r].FindingID = 0
+				}
+				err = repo.SaveFinding(&finding)
+				if err != nil {
+					break
+				}
+			}
+		}
+	}
+
+	return err
 }
 
 func (repo *OrmRepository) GetRunsByCommand(cmd string) ([]model.Run, error) {

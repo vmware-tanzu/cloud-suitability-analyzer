@@ -8,13 +8,14 @@ package routes
 import (
 	"fmt"
 	"net/http"
+	"sort"
 	"time"
 
-	"github.com/gin-gonic/gin"
 	"csa-app/backend/services"
 	"csa-app/db"
 	"csa-app/model"
 	"csa-app/search"
+	"github.com/gin-gonic/gin"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -70,6 +71,12 @@ func (r *runRoutes) getAppScores(c *gin.Context) {
 
 func (r *runRoutes) getAnalyzeRuns(c *gin.Context) {
 	runs, _ := r.runsRepository.GetRunsByCommand("analyze")
+	reruns, _ := r.runsRepository.GetRunsByCommand("recalculate")
+	for i := range reruns {
+		runs = append(runs, reruns[i])
+	}
+	//sort the combined list
+	sort.Slice(runs, func(i, j int) bool { return runs[i].ID < runs[j].ID })
 	c.JSON(http.StatusOK, gin.H{
 		"runs": runs,
 	})

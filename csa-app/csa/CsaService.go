@@ -7,6 +7,7 @@ package csa
 
 import (
 	"fmt"
+	log "github.com/sirupsen/logrus"
 	"os"
 	"sync"
 
@@ -122,6 +123,50 @@ func (csaService *CsaService) PerformAnalysis(run *model.Run) {
 		csaService.genRuleMetrics(run)
 	}
 
+}
+
+func (csaService *CsaService) PerformRecalculate(run *model.Run) {
+	run.SetAlias(*util.RecalculateRunLabel)
+	csaService.startRun(run)
+	priorRun := model.Run{
+		ID: *util.RecalculateRunId,
+	}
+	rules := &[]model.Rule{}
+	errors := &[]error{}
+	err := csaService.runRepository.CloneRun(priorRun.ID, run)
+	if err == nil {
+		*rules, err = csaService.ruleRepository.GetRulesForRun(&priorRun)
+		if err == nil {
+			*errors = csaService.findingRepository.UpdateFindingsForRecalculate(run, *rules)
+			if len(*errors) == 0 {
+				for a := range run.Applications {
+					if err != nil {
+						*errors = append(*errors, err)
+						break
+					}
+					app := run.Applications[a]
+					sm := &model.ScoringModel{}
+					sm, err = csaService.scoringRepository.GetModelByName(app.ScoringModel)
+					if err == nil {
+						err = app.CalculateScore(sm)
+					}
+				}
+			}
+		} else {
+			*errors = append(*errors, err)
+		}
+	} else {
+		*errors = append(*errors, err)
+	}
+	if len(*errors) > 0 {
+		log.Error("Error(s) during PerformRecalculate!")
+		for e := range *errors {
+			log.Error(fmt.Errorf("%w", (*errors)[e]))
+		}
+	} else {
+		csaService.generateReports(run)
+	}
+	csaService.stopRun(run)
 }
 
 func (csaService *CsaService) concurrentAnalysis(run *model.Run) {

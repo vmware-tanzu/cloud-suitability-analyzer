@@ -6,14 +6,32 @@
 package util
 
 import (
+	"fmt"
 	"strconv"
+	"strings"
 	"sync"
 
 	"gopkg.in/alecthomas/kingpin.v2"
 )
 
 var (
-	App       = kingpin.New(APP_NAME, "CSA is used to analyze & collect data related to the cloud readiness of an application based on it's source-code.")
+	App = kingpin.New(APP_NAME, "CSA is used to analyze & collect data related to the cloud readiness of an application based on it's source-code.").Action(
+		func(context *kingpin.ParseContext) error {
+			var err error
+			switch context.SelectedCommand.Model().Name {
+			case RECALCULCATE_CMD:
+				// Handle Default Value for Alias flag
+				alias := getElementValue(context.Elements, "alias")
+				runId := getElementValue(context.Elements, "run-id")
+				if alias == "" {
+					alias = fmt.Sprintf("Recalculate Run %s", runId)
+				}
+				alias = cleanElementValue(alias)
+				err = context.SelectedCommand.GetFlag("alias").Model().Value.Set(alias)
+				break
+			}
+			return err
+		})
 	Verbose   = App.Flag("verbose", "enable verbose mode.").Short('v').Bool()
 	Efd       = App.Flag("efd", "exclude finding details").Bool()
 	Profile   = App.Flag("profile", "enables profiling (cpu|mem)").Enum("cpu", "mem")
@@ -46,6 +64,11 @@ var (
 	//List reports Command
 	ShowReports = App.Command("list", "list available reports to run")
 	ReportType  = ShowReports.Flag("report-type", "show reports available for a particular type (all|csa|git)").Default(APP_NAME).String()
+
+	//Recalculate Command
+	RecalculateCmd      = App.Command(RECALCULCATE_CMD, "Recalculate the scores for an app within a given run.")
+	RecalculateRunId    = RecalculateCmd.Flag("run-id", "ID of the run to recalculate").Required().Uint()
+	RecalculateRunLabel = RecalculateCmd.Flag("alias", "the name or alias for this run. (Recalculate Run [run-id])").Short('a').String()
 
 	//Analyze Command
 	AnalyzeCmd            = App.Command(ANALYZE_CMD, "analyze the code on the provided path").Default()
@@ -141,6 +164,45 @@ var (
 	Lock = &sync.Mutex{}
 )
 
+func cleanElementValue(flagValue string) string {
+	value := strings.TrimSpace(flagValue)
+	if len(value) > 0 {
+		switch value[0] {
+		case ':':
+			value = strings.TrimPrefix(value, string(value[0]))
+			break
+		case '=':
+			value = strings.TrimPrefix(value, string(value[0]))
+			break
+		}
+		replacer := strings.NewReplacer("'", "", "\"", "")
+		value = replacer.Replace(value)
+	}
+	return strings.TrimSpace(value)
+}
+
+func getElementValue(elements []*kingpin.ParseElement, elementName string) string {
+	var name string
+	for e := range elements {
+		el := elements[e]
+		switch el.Clause.(type) {
+		case *kingpin.ArgClause:
+			name = el.Clause.(*kingpin.ArgClause).Model().Name
+			break
+		case *kingpin.FlagClause:
+			name = el.Clause.(*kingpin.FlagClause).Model().Name
+			break
+		case *kingpin.CmdClause:
+			name = el.Clause.(*kingpin.CmdClause).Model().Name
+			break
+		}
+		if name == elementName {
+			return cleanElementValue(*el.Value)
+		}
+	}
+	return ""
+}
+
 func IsAppFlagDefaulted(flag string) bool {
 	return IsCmdFlagDefaulted("", flag)
 }
@@ -194,6 +256,7 @@ const DEFAULT_MAX_POSTGRES_WORKERS = 10
 
 // CMDS
 const ANALYZE_CMD string = "analyze"
+const RECALCULCATE_CMD string = "recalculate"
 const PROFILE_FLAG string = "profiles"
 const RULE_INCLUDE_FLAG string = "rule-include-tags"
 const RULE_EXCLUDE_FLAG string = "rule-exclude-tags"
