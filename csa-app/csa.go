@@ -200,6 +200,13 @@ func main() {
 		reportService := report.NewReportSvc(repoMgr, reportTemplates)
 		csaService := csa.NewCsaSvc(repoMgr, reportService)
 		csaService.PerformAnalysis(run)
+	case util.RecalculateCmd.FullCommand():
+		run.SetPaths(*util.Path)
+		run.SetRequestedReports(util.ReportsFlag, "1,2,3,4,5")
+		run.ValidateRun()
+		reportService := report.NewReportSvc(repoMgr, reportTemplates)
+		csaService := csa.NewCsaSvc(repoMgr, reportService)
+		csaService.PerformRecalculate(run)
 	case util.NatLangCmd.FullCommand():
 		run.SetPaths(*util.NatLangPath)
 		run.ValidateRun()

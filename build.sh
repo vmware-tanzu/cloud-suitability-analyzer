@@ -109,6 +109,9 @@ generateCSAExecutables() {
     elif [[ "$OS" == "Darwin" ]]; then
       echo "Building executables for darwin, linux and windows"
       goreleaser build --skip-validate --snapshot --clean
+    elif [[ "$OS" == "Windows" ]]; then
+      echo "Building executables for linux and windows"
+      goreleaser build --skip-validate --snapshot --id='linux' --id='windows' --clean
     fi
   popd
 }
@@ -116,7 +119,7 @@ generateCSAExecutables() {
 # Create csa test executables
 generateRuleTestExecutables() {
   echo "Build Rule Test executables under csa-app/test-exe"
-  sh build-test-clis.sh
+  ./build-test-clis.sh
 }
 
 # Run tests to validate the correctness of the rules
@@ -136,14 +139,20 @@ runRuleTests() {
 
 helpText() {
   echo "./build.sh - Generate binaries"
-  echo "  -h|--help       Help!!"
-  echo "  -r|--release    Specify this flag if you want to generate the release builds"
+  echo "  -h|--help                 Help!!"
+  echo "  -r|--release              Specify this flag if you want to generate the release builds"
+  echo "  -s|--skip-dependencies    Specify this flag if you want to skip dependency downloads before build starts"
 }
 
 while [[ $# -gt 0 ]]; do
   case $1 in
     -r|--release)
       RELEASE=true
+      shift
+      shift
+      ;;
+    -s|--skip-dependencies)
+      SKIP=true
       shift
       shift
       ;;
@@ -159,7 +168,9 @@ while [[ $# -gt 0 ]]; do
   esac  
 done
 
-./download-dependencies.sh
+if [[ -z "$SKIP" ]]; then
+  ./download-dependencies.sh
+fi
 cleanup
 compilePackageFrontEnd
 runGoGenerate

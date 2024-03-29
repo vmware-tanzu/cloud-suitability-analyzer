@@ -37,6 +37,7 @@ type FindingRepository interface {
 	GetFindingsDTOForRun(runid uint) ([]*model.FindingDTO, error)
 	GetFindingsDTOForRunAppLevel(runId uint, app string, card string, tags []string, includeFF bool) ([]*model.FindingDTO, error)
 	GetTagsForApp(runId uint, app string) ([]string, error)
+	UpdateFindingsForRecalculate(run *model.Run, rulesToApply []model.Rule) []error
 }
 
 func NewFindingRepository(db *gorm.DB) FindingRepository {
@@ -49,6 +50,72 @@ func NewFindingRepositoryForRun(run *model.Run) FindingRepository {
 	return &OrmRepository{
 		dbconn: run.DB,
 	}
+}
+
+func (findingRepository *OrmRepository) UpdateFindingsForRecalculate(run *model.Run, rulesToApply []model.Rule) []error {
+	errors := []error{}
+	ruleMap := map[string]*model.Rule{}
+	for r := range rulesToApply {
+		rule := &rulesToApply[r]
+		ruleMap[rule.Name] = rule
+	}
+
+	appDetailsMap := map[string]model.ApplicationDetails{}
+	findings, _ := findingRepository.GetFindings(run.ID)
+
+	// apply new effort scores to any findings with rule changes
+	for f := range findings {
+		finding := findings[f]
+		_, ok := ruleMap[finding.Rule]
+		if ok && finding.Effort != ruleMap[finding.Rule].Effort {
+			finding.Effort = ruleMap[finding.Rule].Effort
+		}
+
+		// keep track of the sum of effort per app as it will be the new raw score
+		app, hasKey := appDetailsMap[finding.Application]
+		if !hasKey {
+			appDetailsMap[finding.Application] = model.ApplicationDetails{
+				RawScore: int64(finding.Effort),
+				Findings: 1,
+			}
+		} else {
+			app = appDetailsMap[finding.Application]
+			app.RawScore += int64(finding.Effort)
+			app.Findings++
+			appDetailsMap[finding.Application] = app
+		}
+
+		err := findingRepository.dbconn.Save(&finding).Error
+		if err != nil {
+			errors = append(errors, err)
+		}
+	}
+
+	if len(errors) == 0 {
+		// update the raw scores used in calculation
+		for a := range run.Applications {
+			_, exists := appDetailsMap[run.Applications[a].Name]
+			if exists {
+				app := run.Applications[a]
+				app.RawScore = appDetailsMap[app.Name].RawScore
+				app.Findings = appDetailsMap[app.Name].Findings
+				run.Applications[a] = app
+
+				info := &[]*util.FileInfo{}
+				for i := 1; i <= app.FilesCnt; i++ {
+					*info = append(*info, &util.FileInfo{})
+				}
+				app.Files = *info
+				run.Applications[a] = app
+			}
+		}
+		err := findingRepository.dbconn.Save(&run).Error
+		if err != nil {
+			errors = append(errors, err)
+		}
+	}
+
+	return errors
 }
 
 func (findingRepository *OrmRepository) SaveFinding(finding *model.Finding) error {
@@ -385,7 +452,7 @@ func (findingRepository *OrmRepository) GetApplicationDetailsForRun(runid uint, 
 	if err == nil {
 
 		rows, err := findingRepository.dbconn.Model(&model.Finding{}).
-			Select("application, count(*) as ciFindings").Where("run_id = ? and effort <> 0", runid).Group("application").Rows()
+			Select("application, count(*) as ciFindings").Where("run_id = ? and rule <> ''", runid).Group("application").Rows()
 
 		if err == nil {
 			for rows.Next() {
