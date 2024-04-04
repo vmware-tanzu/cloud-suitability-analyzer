@@ -9,8 +9,7 @@ project_name: cloud-suitability-analyzer
 builds:
   - id: windows
     binary: >-
-      csa-
-      windows-
+      csa-windows-
       {{- if eq .Arch "amd64" }}x86_64
       {{- else if eq .Arch "386" }}i386
       {{- else }}{{ .Arch }}{{ end }}
@@ -48,8 +47,7 @@ builds:
 
   - id: darwin
     binary: >-
-      csa-
-      darwin-
+      csa-darwin-
       {{- if eq .Arch "amd64" }}x86_64
       {{- else if eq .Arch "386" }}i386
       {{- else }}{{ .Arch }}{{ end }}
@@ -82,8 +80,7 @@ builds:
 
   - id: linux
     binary: >-
-      csa-
-      linux-
+      csa-linux-
       {{- if eq .Arch "amd64" }}x86_64
       {{- else if eq .Arch "386" }}i386
       {{- else }}{{ .Arch }}{{ end }}
