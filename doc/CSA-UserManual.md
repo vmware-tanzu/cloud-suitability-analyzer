@@ -4,7 +4,7 @@
 | Date         | Action                       | Author   |
 | ------------ | ---------------------------- | -------- |
 | Nov 15, 2023 | Update with new feature released in 4.1.10 | Tanzu Labs
-| Jul 26, 2023 | Update with new features released in 4.0    | S. Carbonell
+| Jul 26, 2023 | Update with new features released in 4.0    | Tanzu Labs
 | Feb 10, 2021 | Add call graphs to user manual with package descriptions| Tanzu Labs
 | Jul 30, 2020 | Amended rule import instructions | Tanzu Labs |
 | Jul 30, 2020 | Prep for open source release | Tanzu Labs |
