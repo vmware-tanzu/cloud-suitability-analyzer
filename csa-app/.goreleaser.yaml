@@ -10,7 +10,7 @@ builds:
   - id: windows
     binary: >-
       csa-
-      {{- title .Os }}-
+      windows-
       {{- if eq .Arch "amd64" }}x86_64
       {{- else if eq .Arch "386" }}i386
       {{- else }}{{ .Arch }}{{ end }}
@@ -49,7 +49,7 @@ builds:
   - id: darwin
     binary: >-
       csa-
-      {{- title .Os }}-
+      darwin-
       {{- if eq .Arch "amd64" }}x86_64
       {{- else if eq .Arch "386" }}i386
       {{- else }}{{ .Arch }}{{ end }}
@@ -83,7 +83,7 @@ builds:
   - id: linux
     binary: >-
       csa-
-      {{- title .Os }}-
+      linux-
       {{- if eq .Arch "amd64" }}x86_64
       {{- else if eq .Arch "386" }}i386
       {{- else }}{{ .Arch }}{{ end }}

@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2024-04-04 08:19:52.62294 -0500 CDT m=+0.064880084
+//Created @ 2024-04-04 08:45:17.698725 -0500 CDT m=+0.066021334
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
