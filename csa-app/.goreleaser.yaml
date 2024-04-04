@@ -8,7 +8,13 @@ project_name: cloud-suitability-analyzer
     
 builds:
   - id: windows
-    binary: csa
+    binary: >-
+      csa-
+      {{- title .Os }}-
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
+      {{- if .Arm }}v{{ .Arm }}{{ end }}
     no_unique_dist_dir: true
 
     env:
@@ -41,7 +47,13 @@ builds:
       - amd64
 
   - id: darwin
-    binary: csa
+    binary: >-
+      csa-
+      {{- title .Os }}-
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
+      {{- if .Arm }}v{{ .Arm }}{{ end }}
     no_unique_dist_dir: true
     env:
       - CGO_ENABLED=1
@@ -66,15 +78,24 @@ builds:
 
     goarch:
       - amd64
+      - arm64
 
   - id: linux
-    binary: csa-l
+    binary: >-
+      csa-
+      {{- title .Os }}-
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
+      {{- if .Arm }}v{{ .Arm }}{{ end }}
     no_unique_dist_dir: true
     env:
       - CGO_ENABLED=1
       - >-
         {{- if eq .Os "linux" }}
-          {{- if eq .Arch "amd64" }}CC=x86_64-linux-musl-gcc{{- end }}
+          {{- if eq .Arch "amd64" }}CC=x86_64-linux-musl-gcc
+          {{- else if eq .Arch "arm64" }}CC=aarch64-linux-musl-gcc
+          {{- end }}
         {{- end }}
     tags:
     - sqlite_omit_load_extension
@@ -96,7 +117,8 @@ builds:
       - linux
 
     goarch:
-      - amd64      
+      - amd64
+      - arm64
 
 archives:
   - format: tar.gz

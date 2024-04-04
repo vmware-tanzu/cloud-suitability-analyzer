@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2024-03-21 22:19:46.929908 -0500 CDT m=+0.059040251
+//Created @ 2024-04-04 08:19:52.62294 -0500 CDT m=+0.064880084
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -916,7 +916,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "docker-non-root-user", RuleType: "standard", Level: "", FileType: "$", Target: "line", Type: "regex", DefaultPattern: "^%s", Advice: "Shows evidence of avoiding root privledges", Effort: -100, Readiness: 1000, Impact: "", Category: "dockerSecurity", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "docker-non-root-user", RuleType: "standard", Level: "", FileType: "(Dockerfile$|Containerfile$)", Target: "line", Type: "regex", DefaultPattern: "^%s", Advice: "Shows evidence of avoiding root privledges", Effort: -100, Readiness: 1000, Impact: "", Category: "dockerSecurity", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "non-root-user",}, { Value: "docker",}, { Value: "container",}, },
             Profiles:
@@ -931,7 +931,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "USER", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "docker-sudo", RuleType: "standard", Level: "", FileType: "$", Target: "line", Type: "regex", DefaultPattern: "^%s", Advice: "Using root inside a container is a serious vulnerability.", Effort: 100, Readiness: 10, Impact: "", Category: "docker", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "docker-sudo", RuleType: "standard", Level: "", FileType: "(Dockerfile$|Containerfile$)", Target: "line", Type: "regex", DefaultPattern: "^%s", Advice: "Using root inside a container is a serious vulnerability.", Effort: 100, Readiness: 10, Impact: "", Category: "docker", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "docker",}, { Value: "sudo",}, { Value: "container",}, },
             Profiles:
@@ -3665,7 +3665,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "JWindow", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-system-config", RuleType: "standard", Level: "", FileType: "$", Target: "line", Type: "regex", DefaultPattern: "(System.)%s\\(", Advice: "Review usage of environment variables and system properties and externalize.", Effort: 3, Readiness: 10, Impact: "", Category: "config", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "java-system-config", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(System.)%s\\(", Advice: "Review usage of environment variables and system properties and externalize.", Effort: 3, Readiness: 10, Impact: "", Category: "config", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "config",}, { Value: "configuration",}, },
             Profiles:
@@ -6626,7 +6626,7 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "IO", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "ruby-gemfile", RuleType: "", Level: "", FileType: "$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Ruby on Rails", Effort: 5, Readiness: 1000, Impact: "", Category: "docker", Criticality: "",Container: 0, Cloud: 0,
+            { Name: "ruby-gemfile", RuleType: "", Level: "", FileType: "Gemfile$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Ruby on Rails", Effort: 5, Readiness: 1000, Impact: "", Category: "docker", Criticality: "",Container: 0, Cloud: 0,
             Tags:
             []Tag{  { Value: "ruby-gemfile",}, { Value: "modernize",}, { Value: "container",}, },
             Profiles:

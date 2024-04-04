@@ -31,10 +31,10 @@ require (
 )
 
 require (
-	github.com/RoaringBitmap/roaring v1.9.0 // indirect
+	github.com/RoaringBitmap/roaring v1.9.1 // indirect
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751 // indirect
 	github.com/alecthomas/units v0.0.0-20231202071711-9a357b53e9c9 // indirect
-	github.com/antchfx/xpath v1.2.5 // indirect
+	github.com/antchfx/xpath v1.3.0 // indirect
 	github.com/bits-and-blooms/bitset v1.13.0 // indirect
 	github.com/blevesearch/go-porterstemmer v1.0.3 // indirect
 	github.com/blevesearch/mmap-go v1.0.4 // indirect
@@ -60,7 +60,7 @@ require (
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
-	github.com/google/pprof v0.0.0-20240320155624-b11c3daa6f07 // indirect
+	github.com/google/pprof v0.0.0-20240402174815-29b9bb013b0f // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.7 // indirect
@@ -80,7 +80,7 @@ require (
 	go.etcd.io/bbolt v1.3.9 // indirect
 	golang.org/x/arch v0.7.0 // indirect
 	golang.org/x/crypto v0.21.0 // indirect
-	golang.org/x/net v0.22.0 // indirect
+	golang.org/x/net v0.23.0 // indirect
 	golang.org/x/sys v0.18.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 	google.golang.org/protobuf v1.33.0 // indirect
