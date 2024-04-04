@@ -108,7 +108,8 @@
       "tough-cookie": "~4.1.3"
     },
     "@angular-devkit/build-angular": {
-      "webpack-dev-middleware": "~6.1.1"
+      "webpack-dev-middleware": "~6.1.1",
+      "vite": "~4.5.3"
     },
     "webpack-dev-server": {
       "webpack-dev-middleware": "~6.1.1"
