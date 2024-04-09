@@ -38,7 +38,7 @@
     "rxjs": "~7.8.1",
     "tslib": "~2.5.0",
     "webdriver-manager": "~12.1.9",
-    "xlsx": "https://cdn.sheetjs.com/xlsx-0.19.3/xlsx-0.19.3.tgz",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.2/xlsx-0.20.2.tgz",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
