@@ -32,13 +32,13 @@
     "@swimlane/ngx-charts": "~20.1.2",
     "@webcomponents/webcomponentsjs": "~2.8.0",
     "d3": "~7.8.4",
+    "json-to-csv-export": "^2.1.1",
     "lodash": "~4.17.21",
     "ngx-toastr": "~16.2.0",
     "normalize.css": "~8.0.1",
     "rxjs": "~7.8.1",
     "tslib": "~2.5.0",
     "webdriver-manager": "~12.1.9",
-    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.2/xlsx-0.20.2.tgz",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {

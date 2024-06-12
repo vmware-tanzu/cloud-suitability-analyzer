@@ -102,16 +102,16 @@ generateCSAExecutables() {
     OS=$(uname)
     if [[ "$OS" == "Linux" ]]; then
       echo "Building executables for linux and windows"
-      goreleaser build --skip-validate --snapshot --id='linux' --id='windows' --clean
+      goreleaser build --snapshot --id='linux' --id='windows' --clean
     elif [[ "$OS" == "Darwin" && "$RELEASE" == true ]]; then
       echo "Building executables for darwin, linux and windows"
         goreleaser build --clean
     elif [[ "$OS" == "Darwin" ]]; then
       echo "Building executables for darwin, linux and windows"
-      goreleaser build --skip-validate --snapshot --clean
+      goreleaser build --snapshot --clean
     elif [[ "$OS" == "Windows" ]]; then
       echo "Building executables for linux and windows"
-      goreleaser build --skip-validate --snapshot --id='linux' --id='windows' --clean
+      goreleaser build --snapshot --id='linux' --id='windows' --clean
     fi
   popd
 }

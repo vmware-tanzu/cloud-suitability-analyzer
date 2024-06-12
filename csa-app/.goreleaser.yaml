@@ -4,6 +4,9 @@
 #   hooks:
     # You may remove this if you don't use go modules.
     # - ./buildWebUI.sh
+
+version: 2
+
 project_name: cloud-suitability-analyzer
     
 builds:
