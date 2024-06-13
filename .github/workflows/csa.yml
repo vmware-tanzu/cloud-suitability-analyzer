@@ -15,10 +15,10 @@ jobs:
     - name: Check out code into the Go module directory
       uses: actions/checkout@v4
       with:
-        go-version: '1.22'
+        go-version: 1.21
 
     - name: Install Dependencies
-      run: sudo apt update && sudo apt install -y nodejs npm golang go-bindata musl-tools gcc-mingw-w64 build-essential
+      run: sudo apt update && sudo apt install -y nodejs npm go-bindata musl-tools gcc-mingw-w64 build-essential
     
     - name: Install goreleaser
       run: sudo snap install goreleaser --classic
