@@ -16,7 +16,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Install Dependencies
-      run: sudo apt update && apt install -y nodejs npm golang go-bindata musl-tools gcc-mingw-w64 build-essential
+      run: sudo apt update && sudo apt install -y nodejs npm golang go-bindata musl-tools gcc-mingw-w64 build-essential
     
     - name: Install goreleaser
       run: sudo snap install goreleaser --classic
