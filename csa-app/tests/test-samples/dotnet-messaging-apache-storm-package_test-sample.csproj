@@ -41,7 +41,7 @@
     <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.Runtime.Caching" Version="4.5.0-rc1" />
-    <PackageReference Include="System.Security.Permissions" Version="4.5.0-rc1" developmentDependency="true" />
+    <PackageReference Include="System.Security.Permissions" Version="4.5.0" developmentDependency="true" />
   </ItemGroup>
 
 </Project>
