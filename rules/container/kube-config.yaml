@@ -9,6 +9,7 @@ patterns:
   - value: .*kind:\s.*Service.*
   - value: .*kind:\s.*Pod.*
   - value: .*kind:\s.*Policy.*
+  - value: .*kind:\s.*Ingress.*
 readiness: 9
 effort: 0
 category: platform

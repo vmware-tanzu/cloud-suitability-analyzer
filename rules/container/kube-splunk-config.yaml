@@ -6,6 +6,7 @@ defaultpattern: (%s)
 advice: Usage of Splunk
 patterns:
   - value: ".*splunk.com.*"
+  - value: "splunk.*"
 readiness: 9
 effort: 0
 category: logging

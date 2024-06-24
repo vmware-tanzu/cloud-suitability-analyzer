@@ -1,0 +1,82 @@
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: app-config
+data:
+  greetingMessage: "Hi from k8s deployment!!"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: sample-k8s-app
+  name: sample-k8s-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sample-k8s-app
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: sample-k8s-app
+    spec:
+      containers:
+      - image: rjain/sample-k8s-app
+        name: sample-k8s-app
+        resources: {}
+        envFrom:
+        - configMapRef:
+            name: app-config
+        readinessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 20
+status: {}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: sample-k8s-app
+  name: sample-k8s-app
+  namespace: default
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: sample-k8s-app
+  type: NodePort
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: apps-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: sample.k8s.int
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: sample-k8s-app
+            port:
+              number: 80

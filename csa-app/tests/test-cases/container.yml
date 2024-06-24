@@ -1,0 +1,16 @@
+---
+category:
+  - rules-directory: "rules"
+    tests:
+      - name: "K8S Config"
+        rule-name: kube-config
+        test-filename: sample-k8s-deployment.yaml
+        assert: true
+        assert-count: 3
+        assert-value: "null"
+      - name: "K8S Splunk"
+        rule-name: kube-splunk-config
+        test-filename: kube-splunk.yaml
+        assert: true
+        assert-count: 8
+        assert-value: "null"
