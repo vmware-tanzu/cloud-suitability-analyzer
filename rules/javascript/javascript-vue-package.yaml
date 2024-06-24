@@ -1,0 +1,17 @@
+name: javascript-vue-package
+filetype: (json$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Usage of Vue JS
+patterns:
+  - value: '"vue".*'
+readiness: 9
+effort: 0
+category: javascript-framework
+tags:
+  - value: javascript-framework
+  - value: vue-js
+  - value: frontend
+profiles:
+  - value: compass-discovery

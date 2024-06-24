@@ -1,0 +1,19 @@
+name: javascript-knockout-code
+filetype: (js$|html$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Usage of Knockout JS
+patterns:
+  - value: <script.*src=.*knockout
+  - value: ko.applyBindings\(
+  - value: ko.observable\(
+readiness: 9
+effort: 0
+category: javascript-framework
+tags:
+  - value: javascript-framework
+  - value: knockout-js
+  - value: frontend
+profiles:
+  - value: compass-discovery

@@ -1,0 +1,24 @@
+name: java-splunk
+filetype: (java$|properties$|xml$|gradle$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Usage of Splunk
+patterns:
+  - value: "com.splunk."
+  - value: .*Authorization.*Splunk
+  - value: (?i).*Splunk.*Log.*
+  - value: (?i).*Log.*Splunk.*
+  - value: (?i).*splunk_.*
+  - value: .*http[s]*://.*splunk
+  - value: '.*Splunk.*'
+  - value: '.*com.splunk.*'
+readiness: 9
+effort: 0
+category: logging
+tags:
+  - value: splunk
+  - value: logging
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

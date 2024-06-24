@@ -1,0 +1,23 @@
+name: java-mulesoft
+filetype: (java$|cls$|xml$|gradle$)
+target: line
+type: regex
+defaultpattern: (%s)
+category: api
+advice: Detection of Mulesoft Usage
+effort: 0
+readiness: 1
+tags:
+  - value: api
+  - value: mulesoft
+  - value: messaging
+  - value: streaming
+patterns:
+  - value: com.mulesoft
+  - value: .mulesoft.com
+  - value: www.mulesoft.org
+  - value: .*mule-.*
+  - value: .*org.mule.*
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

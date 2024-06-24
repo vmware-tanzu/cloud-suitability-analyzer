@@ -1,0 +1,23 @@
+# This rule aims to identify the integration of Apache Geode in .NET applications through the Geode .NET Client API.
+# Documentation: https://geode.apache.org/releases/latest/dotnetdocs/hierarchy.html
+# Example: https://github.com/apache/geode-native/blob/develop/examples/dotnet/putgetremove/Program.cs
+name: dotnet-apache-geode
+filetype: (cs$|vb$|csproj$|vbproj$)
+target: line
+type: regex
+defaultpattern: (%s)
+category: caching
+advice: Direct usage of Apache Geode .NET Client APIs in .NET code for data management and caching.
+effort: 0
+readiness: 1
+tags:
+  - value: cache
+  - value: apache-geode
+  - value: .NET
+patterns:
+  - value: 'Apache.Geode'
+  - value: '.CreateRegionFactory'
+  - value: '.GetQueryService'
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

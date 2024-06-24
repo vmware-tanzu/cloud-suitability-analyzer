@@ -1,0 +1,23 @@
+# This rule identifies the use of Apache Flume in .NET applications through specific interactions with the Flume .NET Client, as demonstrated in the DotNetFlumeNG.Clients repository.
+# Reference: https://github.com/marksl/DotNetFlumeNG.Clients/blob/master/log4netTestApp/MockThriftServer.cs
+name: dotnet-apache-flume
+filetype: (cs$|vb$|csproj$|vbproj$)
+target: line
+type: regex
+defaultpattern: (%s)
+category: messasging
+advice: Direct usage of Apache Flume .NET Client APIs in .NET code, indicating logging and data forwarding to Flume.
+effort: 0
+readiness: 1
+tags:
+  - value: apache-flume
+  - value: messaging
+patterns:
+  - value: 'ThriftFlumeEventServer.*'
+  - value: '.Append(FlumeEvent)'
+  - value: 'new TSocket\('
+  - value: 'new TProtocol\('
+  - value: 'DotNetFlumeNG.*'  
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

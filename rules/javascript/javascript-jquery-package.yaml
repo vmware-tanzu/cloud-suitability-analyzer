@@ -1,0 +1,17 @@
+name: javascript-jquery-package
+filetype: (config$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Usage of Jquery
+patterns:
+  - value: PackageReference.*"jQuery"
+readiness: 9
+effort: 0
+category: javascript-framework
+tags:
+  - value: javascript-framework
+  - value: jquery-js
+  - value: frontend
+profiles:
+  - value: compass-discovery

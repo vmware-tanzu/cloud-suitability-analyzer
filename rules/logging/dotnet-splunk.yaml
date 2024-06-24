@@ -1,0 +1,19 @@
+name: dotnet-splunk
+filetype: (cs$|vb$|config$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Usage of Splunk
+patterns:
+  - value: '.*using\sSplunk.Client'
+  - value: .*http[s]*://.*splunk
+  - value: 'Splunk.*'
+readiness: 9
+effort: 0
+category: logging
+tags:
+  - value: Splunk
+  - value: logging
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

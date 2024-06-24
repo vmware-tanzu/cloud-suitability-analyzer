@@ -1,0 +1,21 @@
+name: java-apache-wink
+filetype: (java$|py$|js$|ts$|yml$|yaml$|go$|rb$|scala$|xml$|properties$)
+target: line
+type: regex
+effort: 0
+readiness: 10
+category: api
+advice: Usage of apache wink
+defaultpattern: "(?i)%s"
+tags:
+  - value: api
+  - value: apache-wink
+  - value: rest-api
+patterns:
+  - value: import.*apache.*wink
+    tag: apache-wink-import
+  - value: apache.*wink
+    tag: apache-wink-detect
+profiles:
+  - value: compass-discovery
+  - value: cloud-suitability

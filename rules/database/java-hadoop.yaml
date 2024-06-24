@@ -1,0 +1,22 @@
+name: java-hadoop
+filetype: (java$|xml$|gradle$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Usage of Hadoop
+patterns:
+  - value: .*org.apache.hadoop.*
+  - value: .*hadoop-client.*
+  - value: .*hadoop-common.*
+  - value: .*hadoop-core.*
+  - value: .*hadoop-hdfs.*
+readiness: 9
+effort: 0
+category: web
+tags:
+  - value: hadoop
+  - value: distributed-data-processing
+  - value: database
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

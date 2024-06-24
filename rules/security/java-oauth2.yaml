@@ -1,0 +1,22 @@
+name: java-oauth2
+filetype: (java$|xml$|gradle$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Usage of OAuth2
+patterns:
+  - value: import.*org.springframework.security.oauth2*
+  - value: org.springframework.security.oauth2.jwt.Jwt.*
+    tag: jwt-authentication
+  - value: spring-boot-starter-oauth2.*
+  - value: spring-security-oauth2-.*
+readiness: 9
+effort: 0
+category: authentication
+tags:
+  - value: authentication
+  - value: oauth
+  - value: security
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

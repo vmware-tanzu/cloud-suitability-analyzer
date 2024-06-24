@@ -8,16 +8,19 @@ container: 100
 filetype: java$
 target: line
 type: regex
-defaultpattern: ".*[ .]%s[ (].*"
-advice: Remediate any persistence issues 
+defaultpattern: (%s)
+advice: Remediate any persistence issues
 effort: 7
 readiness: 7
-category: activemq
+category: messaging
 tags:
   - value: activemq
   - value: message-queue
   - value: messaging
 patterns:
   - value: createActiveMQConnection
+  - value: import.*org.apache.activemq
+  - value: ActiveMQConnectionFactory
 profiles:
-- value: cloud-suitability
+  - value: cloud-suitability
+  - value: compass-discovery

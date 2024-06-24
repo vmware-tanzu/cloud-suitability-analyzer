@@ -1,196 +1,196 @@
 ---
 category:
-- rules-directory: "rules"
-  tests:
-  - name: "Plain Text Credentials"
-    rule-name: plaintext-creds
-    test-filename: plain_text_credentials.cs
-    assert:  true
-    assert-count:  3
-    assert-value: "null"
-  - name: "Plain Text Credentials False positive"
-    rule-name: plaintext-creds
-    test-filename: plain_text_credentials_false_positive.cs
-    assert:  false
-    assert-count:  0
-    assert-value: "null"
- # - name: "Hard Coded IP False Positive"
- #   rule-name: dotnet-ipv4-addresses
- #   test-filename: hard_code_ip_false_positive.cs
- #   assert:  false
- #   assert-count:  0
- #   assert-value: "null"
- # - name: "Hard Coded IP False Positive for json"
- #   rule-name: dotnet-ipv4-addresses
- #   test-filename: hard_code_ip_false_positive.json
- #   assert:  false
- #   assert-count:  0
- #   assert-value: "null"
- # - name: "Hard Coded IP"
- #   rule-name: dotnet-ipv4-addresses
- #   test-filename: hard_code_ip.cs
- #   assert:  true
- #   assert-count:  1
- #   assert-value: "conn.connect(\"http://10.180.142.31/\")"
- # - name: "Hard Coded URI False Positive"
- #   rule-name: hardcode-uri
- #   test-filename: hard_code_uri_false_positive.cs
- #   assert:  false
- #   assert-count:  0
- #   assert-value: "null"
-  - name: "Hard Coded URI"
-    rule-name: hardcode-uri
-    test-filename: hard_code_uri.cs
-    assert:  true
-    assert-count:  1
-    assert-value: "https://some-uri.com"
-  - name: "File IO Create/Update/Delete"
-    rule-name: dotnet-fileIO
-    test-filename: file_io.cs
-    assert:  true
-    assert-count:  9
-    assert-value: "null"
-  - name: "Session in Memory"
-    rule-name: config-sessionState
-    test-filename: server_session.config
-    assert:  true
-    assert-count:  1
-    assert-value: "null"
-  - name: "Windows Form"
-    rule-name: dotnet-windowsForms
-    test-filename: windows_form.cs
-    assert:  true
-    assert-count:  2
-    assert-value: "using System.Windows.Forms;public class Form : System.Windows.Forms.ContainerControl"
-  - name: "Application Domain"
-    rule-name: dotnet-windows-application-domain
-    test-filename: test.cs
-    assert:  true
-    assert-count:  1
-    assert-value: "AppDomain newDomain = AppDomain.CreateDomain(\"newDomain\", evidence, setup);"
-  - name: "File Caching Config"
-    rule-name: dotnet-FileCacheModule
-    test-filename: file_caching_module.config
-    assert:  true
-    assert-count:  1
-    assert-value: "null"
-  - name: "Launch Process"
-    rule-name: dotnet-launchProcess
-    test-filename: launch_process.cs
-    assert:  true
-    assert-count:  3
-    assert-value: "null"
-  - name: "Launch Process with False Positives"
-    rule-name: dotnet-launchProcess
-    test-filename: launch_process_false_positives.cs
-    assert:  false
-    assert-count:  0
-    assert-value: "null"
-  - name: "Windows Registry"
-    rule-name: dotnet-windowsRegistry
-    test-filename: windows_registry.cs
-    assert:  true
-    assert-count:  3
-    assert-value: "null"
-  - name: "Dotnet Logging"
-    rule-name: dotnet-logging
-    test-filename: dotnet_logging.vb
-    assert:  true
-    assert-count:  2
-    assert-value: "null"
-  - name: "Dotnet Logging Config"
-    rule-name: dotnet-logging-config
-    test-filename: dotnet_logging_config.config
-    assert:  true
-    assert-count:  1
-    assert-value: "null"
-  - name: "File Path"
-    rule-name: dotnet-filepath
-    test-filename: file_path.cs
-    assert:  true
-    assert-count:  2
-    assert-value: "null"
-  - name: "File Path with False Positive"
-    rule-name: dotnet-filepath
-    test-filename: file_path_false_positive.cs
-    assert:  false
-    assert-count:  0
-    assert-value: "null"
-  - name: "File Based Config"
-    rule-name: dotnet-file-based-config
-    test-filename: dotnet-file-based-config.cs
-    assert:  true
-    assert-count:  1
-    assert-value: "null"
-  - name: "Security"
-    rule-name: dotnet-security
-    test-filename: dotnet-security.cs
-    assert:  true
-    assert-count:  1
-    assert-value: "null"
-  - name: "Serilog"
-    rule-name: dotnet-serilog
-    test-filename: dotnet-serilog.cs
-    assert:  true
-    assert-count:  2
-    assert-value: "null"
-  - name: "Windows Presentation Foundation"
-    rule-name: dotnet-windows-presentation-foundation
-    test-filename: dotnet-windows-presentation-foundation.xaml
-    assert:  true
-    assert-count:  1
-    assert-value: "null"
-  - name: "Windows Principal"
-    rule-name: dotnet-windowsPrincipal
-    test-filename: dotnet-windowsPrincipal.cs
-    assert:  true
-    assert-count:  1
-    assert-value: "null"
-  - name: "Windows Services"
-    rule-name: dotnet-windowsServices
-    test-filename: dotnet-windowsServices.cs
-    assert:  true
-    assert-count:  3
-    assert-value: "null"
-  - name: "Encryption Config"
-    rule-name: config-encryption
-    test-filename: config-encryption.config
-    assert:  true
-    assert-count:  1
-    assert-value: "null"
-  - name: "Connection String"
-    rule-name: dotnet-connectionstrings
-    test-filename: dotnet-connectionstrings.json
-    assert:  true
-    assert-count:  1
-    assert-value: "null"
-  - name: "Connection String"
-    rule-name: dotnet-database-access
-    test-filename: dotnet-database-access.config
-    assert:  true
-    assert-count:  1
-    assert-value: "null"
-  - name: "JS FileIO"
-    rule-name: js-fileIO
-    test-filename: js-fileIO.js
-    assert:  true
-    assert-count:  1
-    assert-value: "null"
-  - name: "JS Cache"
-    rule-name: js-cache
-    test-filename: js-cache.js
-    assert:  true
-    assert-count:  3
-    assert-value: "null"
-  - name: "Windows Integrated Authentication"
-    rule-name: dotnet-WindowsAuth-config
-    test-filename: dotnet-WindowsAuth-config.config
-    assert:  true
-    assert-count:  1
-    assert-value: "null"
-  - name: "Windows Integrated Authentication in Code"
-    rule-name: dotnet-WindowsAuth-csvb
-    test-filename: dotnet-WindowsAuth-csvb.cs
-    assert:  true
-    assert-count:  1
-    assert-value: "null"
+  - rules-directory: "rules"
+    tests:
+      - name: "Plain Text Credentials"
+        rule-name: plaintext-creds
+        test-filename: plain_text_credentials.cs
+        assert: true
+        assert-count: 3
+        assert-value: "null"
+      - name: "Plain Text Credentials False positive"
+        rule-name: plaintext-creds
+        test-filename: plain_text_credentials_false_positive.cs
+        assert: false
+        assert-count: 0
+        assert-value: "null"
+      # - name: "Hard Coded IP False Positive"
+      #   rule-name: dotnet-ipv4-addresses
+      #   test-filename: hard_code_ip_false_positive.cs
+      #   assert:  false
+      #   assert-count:  0
+      #   assert-value: "null"
+      # - name: "Hard Coded IP False Positive for json"
+      #   rule-name: dotnet-ipv4-addresses
+      #   test-filename: hard_code_ip_false_positive.json
+      #   assert:  false
+      #   assert-count:  0
+      #   assert-value: "null"
+      # - name: "Hard Coded IP"
+      #   rule-name: dotnet-ipv4-addresses
+      #   test-filename: hard_code_ip.cs
+      #   assert:  true
+      #   assert-count:  1
+      #   assert-value: "conn.connect(\"http://10.180.142.31/\")"
+      # - name: "Hard Coded URI False Positive"
+      #   rule-name: hardcode-uri
+      #   test-filename: hard_code_uri_false_positive.cs
+      #   assert:  false
+      #   assert-count:  0
+      #   assert-value: "null"
+      - name: "Hard Coded URI"
+        rule-name: hardcode-uri
+        test-filename: hard_code_uri.cs
+        assert: true
+        assert-count: 1
+        assert-value: "https://some-uri.com"
+      - name: "File IO Create/Update/Delete"
+        rule-name: dotnet-fileIO
+        test-filename: file_io.cs
+        assert: true
+        assert-count: 9
+        assert-value: "null"
+      - name: "Session in Memory"
+        rule-name: config-sessionState
+        test-filename: server_session.config
+        assert: true
+        assert-count: 1
+        assert-value: "null"
+      - name: "Windows Form"
+        rule-name: dotnet-windowsForms
+        test-filename: windows_form.cs
+        assert: true
+        assert-count: 2
+        assert-value: "using System.Windows.Forms;public class Form : System.Windows.Forms.ContainerControl"
+      - name: "Application Domain"
+        rule-name: dotnet-windows-application-domain
+        test-filename: test.cs
+        assert: true
+        assert-count: 1
+        assert-value: 'AppDomain newDomain = AppDomain.CreateDomain("newDomain", evidence, setup);'
+      - name: "File Caching Config"
+        rule-name: dotnet-FileCacheModule
+        test-filename: file_caching_module.config
+        assert: true
+        assert-count: 1
+        assert-value: "null"
+      - name: "Launch Process"
+        rule-name: dotnet-launchProcess
+        test-filename: launch_process.cs
+        assert: true
+        assert-count: 3
+        assert-value: "null"
+      - name: "Launch Process with False Positives"
+        rule-name: dotnet-launchProcess
+        test-filename: launch_process_false_positives.cs
+        assert: false
+        assert-count: 0
+        assert-value: "null"
+      - name: "Windows Registry"
+        rule-name: dotnet-windowsRegistry
+        test-filename: windows_registry.cs
+        assert: true
+        assert-count: 3
+        assert-value: "null"
+      - name: "Dotnet Logging"
+        rule-name: dotnet-logging
+        test-filename: dotnet_logging.vb
+        assert: true
+        assert-count: 2
+        assert-value: "null"
+      - name: "Dotnet Logging Config"
+        rule-name: dotnet-logging-config
+        test-filename: dotnet_logging_config.config
+        assert: true
+        assert-count: 1
+        assert-value: "null"
+      - name: "File Path"
+        rule-name: dotnet-filepath
+        test-filename: file_path.cs
+        assert: true
+        assert-count: 2
+        assert-value: "null"
+      - name: "File Path with False Positive"
+        rule-name: dotnet-filepath
+        test-filename: file_path_false_positive.cs
+        assert: false
+        assert-count: 0
+        assert-value: "null"
+      - name: "File Based Config"
+        rule-name: dotnet-file-based-config
+        test-filename: dotnet-file-based-config.cs
+        assert: true
+        assert-count: 1
+        assert-value: "null"
+      - name: "Security"
+        rule-name: dotnet-security
+        test-filename: dotnet-security.cs
+        assert: true
+        assert-count: 1
+        assert-value: "null"
+      - name: "Serilog"
+        rule-name: dotnet-serilog
+        test-filename: dotnet-serilog.cs
+        assert: true
+        assert-count: 2
+        assert-value: "null"
+      - name: "Windows Presentation Foundation"
+        rule-name: dotnet-windows-presentation-foundation
+        test-filename: dotnet-windows-presentation-foundation.xaml
+        assert: true
+        assert-count: 1
+        assert-value: "null"
+      - name: "Windows Principal"
+        rule-name: dotnet-windowsPrincipal
+        test-filename: dotnet-windowsPrincipal.cs
+        assert: true
+        assert-count: 1
+        assert-value: "null"
+      - name: "Windows Services"
+        rule-name: dotnet-windowsServices
+        test-filename: dotnet-windowsServices.cs
+        assert: true
+        assert-count: 3
+        assert-value: "null"
+      - name: "Encryption Config"
+        rule-name: config-encryption
+        test-filename: config-encryption.config
+        assert: true
+        assert-count: 1
+        assert-value: "null"
+      - name: "Connection String"
+        rule-name: dotnet-connectionstrings
+        test-filename: dotnet-connectionstrings.json
+        assert: true
+        assert-count: 1
+        assert-value: "null"
+      - name: "Connection String"
+        rule-name: dotnet-database-access
+        test-filename: dotnet-database-access.config
+        assert: true
+        assert-count: 1
+        assert-value: "null"
+      - name: "JS FileIO"
+        rule-name: js-fileIO
+        test-filename: js-fileIO.js
+        assert: true
+        assert-count: 1
+        assert-value: "null"
+      - name: "JS Cache"
+        rule-name: js-cache
+        test-filename: js-cache.js
+        assert: true
+        assert-count: 3
+        assert-value: "null"
+      - name: "Windows Integrated Authentication"
+        rule-name: dotnet-WindowsAuth-config
+        test-filename: dotnet-WindowsAuth-config.config
+        assert: true
+        assert-count: 1
+        assert-value: "null"
+      - name: "Windows Integrated Authentication in Code"
+        rule-name: dotnet-WindowsAuth-csvb
+        test-filename: dotnet-WindowsAuth-csvb.cs
+        assert: true
+        assert-count: 1
+        assert-value: "null"

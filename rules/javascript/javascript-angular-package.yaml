@@ -1,0 +1,17 @@
+name: javascript-angular-package
+filetype: (json$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Usage of Angular
+patterns:
+  - value: '@angular\/.*:'
+readiness: 9
+effort: 0
+category: javascript-framework
+tags:
+  - value: javascript-framework
+  - value: angular
+  - value: frontend
+profiles:
+  - value: compass-discovery

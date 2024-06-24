@@ -10,13 +10,14 @@ effort: 5
 readiness: 8
 category: jersey
 advice: Refer to 3rd party organization for cloud affinity of library
-defaultpattern: '^import\s*%s.*'
+defaultpattern: (%s)
 tags:
   - value: jersey
   - value: rest
   - value: dependencies
 patterns:
   - value: com.sun.jersey
-##import com.sun.jersey
+  - value: jersey-.*
+  - value: spring-boot-starter-jersey
 profiles:
 - value: cloud-suitability

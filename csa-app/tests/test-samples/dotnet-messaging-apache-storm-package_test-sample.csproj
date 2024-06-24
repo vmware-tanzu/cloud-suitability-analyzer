@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Label="NuGet">
+    <AssemblyTitle>Dotnet.Storm.Adapter</AssemblyTitle>
+    <AssemblyName>Dotnet.Storm.Adapter</AssemblyName>
+    <PackageId>Dotnet.Storm.Adapter</PackageId>
+
+    <Description>A dotnet core adapter for apache storm multilang protocol.</Description>
+    <PackageTags>microsoft;apache;storm;storm-multilang;storm-dotnet-adapter;dotnet-core-adapter</PackageTags>
+
+    <Version>1.0.1</Version>
+    <VersionPrefix>1.0.1</VersionPrefix>
+    <FileVersion>1.0.1</FileVersion>
+
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Authors>Microsoft</Authors>
+    <Company>Microsoft</Company>
+    <Copyright>© Microsoft Corporation. All Rights Reserved.</Copyright>
+
+    <RepositoryType>git</RepositoryType>
+
+    <PackageIconUrl>https://secure.gravatar.com/avatar/08cb1de15b201ab761820bed22b61cb0</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/Azure/net-storm-multilang-adapter</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/Azure/net-storm-multilang-adapter/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/Azure/net-storm-multilang-adapter</RepositoryUrl>
+
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <SignAssembly>False</SignAssembly>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="CommandLineParser" Version="2.2.1" />
+    <PackageReference Include="log4net" Version="2.0.8" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="System.Runtime.Caching" Version="4.5.0-rc1" />
+    <PackageReference Include="System.Security.Permissions" Version="4.5.0-rc1" developmentDependency="true" />
+  </ItemGroup>
+
+</Project>

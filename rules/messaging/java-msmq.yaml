@@ -1,0 +1,24 @@
+# This rule aims to identify Java source code that interacts with MSMQ, focusing on libraries and patterns indicative of such integration.
+# MSMQ usage in Java can be challenging since direct interaction with MSMQ typically occurs through Windows-based APIs or intermediary libraries that provide a bridge between Java applications and MSMQ. Java applications might use third-party libraries, JMS (Java Message Service) adapters, or COM (Component Object Model) bridges for this purpose.
+# Example: https://j-integra.intrinsyc.com/support/com/doc/other_examples/Java_from_MSMQ.htm#CREATE
+name: java-msmq
+filetype: java$
+target: line
+type: regex
+defaultpattern: (%s)
+category: messaging
+advice: MSMQ API usage
+effort: 0
+readiness: 1
+tags:
+  - value: messaging
+  - value: msmq
+  - value: java
+patterns:
+  - value: "new MSMQQueueInfo"
+  - value: "msmq."
+  - value: "MQACCESS.MQ_SEND_ACCESS"
+  - value: "MQSHARE.MQ_DENY_NONE"
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

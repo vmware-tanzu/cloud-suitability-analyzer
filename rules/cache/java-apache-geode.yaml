@@ -1,0 +1,26 @@
+# This rule aims to identify the active usage of Apache Geode in Java source code through specific API interactions.
+# Documentation: https://geode.apache.org/docs/
+# Example: https://github.com/apache/geode-examples/blob/develop/listener/src/main/java/org/apache/geode_examples/listener/Example.java
+name: java-apache-geode
+filetype: (java$|xml$|gradle$)
+target: line
+type: regex
+defaultpattern: (%s)
+category: caching
+advice: Direct usage of Apache Geode APIs in Java, focusing on region operations, client configurations, and data management.
+effort: 0
+readiness: 1
+tags:
+  - value: cache
+  - value: apache-geode
+  - value: java
+patterns:
+  - value: 'org.apache.geode.cache.*'
+  - value: 'new ClientCacheFactory'
+  - value: 'createClientRegionFactory'
+  - value: 'clientRegionFactory.create'
+  - value: 'org.apache.geode'
+  - value: 'geode-core'
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

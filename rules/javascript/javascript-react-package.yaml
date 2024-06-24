@@ -1,0 +1,17 @@
+name: javascript-react-package
+filetype: (json$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Usage of React JS
+patterns:
+  - value: '"react".*'
+readiness: 9
+effort: 0
+category: javascript-framework
+tags:
+  - value: javascript-framework
+  - value: react-js
+  - value: frontend
+profiles:
+  - value: compass-discovery

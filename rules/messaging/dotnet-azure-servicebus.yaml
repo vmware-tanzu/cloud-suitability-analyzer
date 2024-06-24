@@ -1,0 +1,26 @@
+# This rule aims to identify active usage of Azure Service Bus in .NET source code through specific API interactions.
+# Documentation: https://learn.microsoft.com/en-us/dotnet/api/overview/azure/messaging.servicebus-readme
+# Example: https://learn.microsoft.com/en-us/dotnet/api/overview/azure/messaging.servicebus-readme?view=azure-dotnet#send-and-receive-a-message
+name: dotnet-azure-servicebus
+filetype: (cs$|vb$|csproj$|vbproj$)
+target: line
+type: regex
+defaultpattern: (%s)
+category: messaging
+advice: Azure Service Bus API usage in .NET code, including client creation and message operations.
+effort: 0
+readiness: 9
+tags:
+  - value: messaging
+  - value: azure-servicebus
+  - value: .NET
+patterns:
+  - value: 'new ServiceBusClient'
+  - value: '.CreateSender'
+  - value: 'new ServiceBusMessage'
+  - value: '.SendMessageAsync'
+  - value: '.ReceiveMessageAsync\(\)'
+  - value: 'Azure.Messaging.ServiceBus'
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

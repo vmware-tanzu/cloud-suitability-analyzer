@@ -1,0 +1,18 @@
+name: kube-splunk-config
+filetype: (yml$|yaml$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Usage of Splunk
+patterns:
+  - value: ".*splunk.com.*"
+readiness: 9
+effort: 0
+category: logging
+tags:
+  - value: Splunk
+  - value: logging
+  - value: container
+profiles:
+  - value: compass-discovery
+  - value: cloud-suitability

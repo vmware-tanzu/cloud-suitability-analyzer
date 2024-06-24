@@ -7,7 +7,7 @@ container: 100
 filetype: java$
 target: line
 type: regex
-defaultpattern: "^.*[ .]%s[ ({.].*"
+defaultpattern: (%s)
 effort: 10
 readiness: 6
 advice: Run embedded service broker as a JMS Provider.
@@ -19,6 +19,7 @@ tags:
   - value: modernize
   - value: container
 patterns:
+  - value: import javax.jms
   - value: MessageConsumer
     tag: jms-listener
   - value: JMSException
@@ -66,53 +67,10 @@ patterns:
   - value: XATopicConnection
   - value: XATopicConnectionFactory
   - value: XATopicSession
-##  MessageConsumer(
-##  ConnectionFactory(
-##  JmsException(
-##  BytesMessage(
-##  CompletionListener(
-##  ConnectionConsumer(
-##  ConnectionFactory(
-##  ConnectionMetaData(
-##  DeliveryMode(
-##  Destination(
-##  ExceptionListener(
-##  JMSConsumer(
-##  JMSContext(
-##  JMSProducer(
-##  MapMessage(
-##  Message(
-##  MessageConsumer(
-##  MessageListener(
-##  MessageProducer(
-##  ObjectMessage(
-##  QueueBrowser(
-##  QueueConnection(
-##  QueueConnectionFactory(
-##  QueueReceiver(
-##  QueueSender(
-##  QueueSession(
-##  ServerSession(
-##  ServerSessionPool(
-##  StreamMessage(
-##  TemporaryQueue(
-##  TemporaryTopic(
-##  TextMessage(
-##  Topic(
-##  TopicConnection(
-##  TopicConnectionFactory(
-##  TopicPublisher(
-##  TopicSession(
-##  TopicSubscriber(
-##  XAConnection(
-##  XAConnectionFactory(
-##  XAJMSContext(
-##  XAQueueConnection(
-##  XAQueueConnectionFactory(
-##  XAQueueSession(
-##  XASession(
-##  XATopicConnection(
-##  XATopicConnectionFactory(
-##  XATopicSession(
+  - value: .createConsumer
+  - value: .createProducer
+  - value: \@JMSDestinationDefinition
+  - value: JMSException
 profiles:
   - value: cloud-suitability
+  - value: compass-discovery

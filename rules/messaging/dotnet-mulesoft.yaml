@@ -1,0 +1,20 @@
+name: dotnet-mulesoft
+filetype: (config$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Usage of Mulesoft
+patterns:
+  - value: RAML.
+  - value: Raml.
+  - value: AMF.
+readiness: 9
+effort: 0
+category: api
+tags:
+  - value: api
+  - value: mulesoft
+  - value: api-gateway
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

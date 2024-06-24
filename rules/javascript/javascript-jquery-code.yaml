@@ -1,0 +1,19 @@
+name: javascript-jquery-code
+filetype: (js$|html$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Usage of Jquery
+patterns:
+  - value: '[$]\(document\).ready\('
+  - value: <script.*src=".*jquery
+  - value: require\('jquery
+readiness: 9
+effort: 0
+category: javascript-framework
+tags:
+  - value: javascript-framework
+  - value: jquery
+  - value: frontend
+profiles:
+  - value: compass-discovery

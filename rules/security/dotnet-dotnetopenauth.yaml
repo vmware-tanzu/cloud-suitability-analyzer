@@ -1,0 +1,17 @@
+name: dotnet-dotnetopenauth-config
+filetype: (config$)
+target: file
+type: xpath
+advice: Usage of Dotnet Open Auth
+patterns:
+  - value: /configuration/dotNetOpenAuth
+  - value: DotNetOpenAuth
+readiness: 9
+effort: 0
+category: authentication
+tags:
+  - value: oauth-authentication
+  - value: security
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

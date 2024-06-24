@@ -4,11 +4,11 @@ ruletype: standard
 criticality: medium
 cloud: 100
 container: 100
-filetype: java$
+filetype: (java$|yml$|yaml$|scala$|xml$|properties$)
 target: line
 type: regex
 impact: file
-defaultpattern: "^.*[ .]%s[ (.{].*"
+defaultpattern: '.*%s.*'
 effort: 500
 readiness: 6
 category: jta
@@ -20,6 +20,7 @@ tags:
   - value: web-profile
   - value: modernize
   - value: database
+  - value: spring-transaction
 patterns:
   - value: UserTransaction
   - value: InvalidTransactionException
@@ -42,26 +43,13 @@ patterns:
   - value: XAException
   - value: enlistForDurableTwoPhase
   - value: enlistForVolatileTwoPhase
-##  UserTransaction(
-##  InvalidTransactionException(
-##  TransactionRequiredException(
-##  TransactionRollemodelackException(
-##  Synchronization(
-##  TransactionManager(
-##  TransactionSynchronizationRegistry(
-##  UserTransaction(
-##  HeuristicCommitException(
-##  HeuristicMixedException(
-##  HeuristicRollbackException(
-##  InvalidTransactionException(
-##  NotSupportedException(
-##  RollbackException(
-##  SystemException(
-##  TransactionalException(
-##  TransactionRequiredException(
-##  TransactionRollemodelackException(
-##  XAResource(
-##  Xid(
-##  XAException(
+  - value: import.*org.springframework.transaction
+    tag: spring-transaction-import
+  - value: org.springframework.transaction
+  - value: .PlatformTransactionManager
+  - value: import.*spring.*tx
+    tag: spring-tx-import
+  - value: spring.*tx
+    tag: spring-tx-detect
 profiles:
 - value: cloud-suitability

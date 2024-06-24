@@ -1,12 +1,12 @@
-name: java-rabbitmq-import
+name: java-rabbitmq
 ruletype: standard
 criticality: medium
 cloud: 100
 container: 100
-filetype: (jsp$|java$)
+filetype: (jsp$|java$|xml$)
 target: line
 type: regex
-defaultpattern: ^.*import(\s*|=")%s.*$
+defaultpattern: (%s)
 advice: Make sure that configuration is Cloud friendly
 effort: 1
 readiness: 5
@@ -17,5 +17,10 @@ tags:
   - value: messaging
 patterns:
   - value: com.rabbitmq
+  - value: import.*com.rabbitmq.
+  - value: handleDelivery\(
+  - value: .basicConsume
+  - value: <groupId>com.rabbitmq
 profiles:
-- value: cloud-suitability
+  - value: cloud-suitability
+  - value: compass-discovery

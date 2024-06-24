@@ -1,0 +1,27 @@
+# This rule aims to identify active usage of Apache Storm in Java source code through specific API interactions.
+# Documentation: https://storm.apache.org/releases/current/index.html
+# Example: https://github.com/zachradtka/Storm/blob/master/src/main/java/storm/BasicAppendTopology.java
+name: java-apache-storm
+filetype: (java$|xml$|gradle$)
+target: line
+type: regex
+defaultpattern: (%s)
+category: messaging
+advice: Direct interaction with Apache Storm APIs in Java, focusing on topology setup and stream processing.
+effort: 0
+readiness: 1
+tags:
+  - value: messaging
+  - value: apache-storm
+  - value: java
+patterns:
+  - value: '.storm.'
+  - value: 'new TopologyBuilder\(\)'
+  - value: '.setSpout\('
+  - value: '.setBolt\('
+  - value: '.createTopology\(\)'
+  - value: 'org.apache.storm'
+  - value: 'storm-core'
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

@@ -1,0 +1,18 @@
+name: openshift-config
+filetype: (yaml$|json$|yml$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Openshift Config
+patterns:
+  - value: .*openshift.io.*
+readiness: 9
+effort: 0
+category: platform
+tags:
+  - value: openshift
+  - value: platform
+  - value: container
+profiles:
+  - value: compass-discovery
+  - value: cloud-suitability

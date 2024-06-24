@@ -3,22 +3,22 @@ package test
 import (
 	"bufio"
 	"bytes"
+	"csa-app/model"
+	"csa-app/util"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"regexp"
 	"strings"
-	"csa-app/model"
-	"csa-app/util"
 	"testing"
-	"gopkg.in/yaml.v3"
+
 	"github.com/antchfx/xmlquery"
+	"gopkg.in/yaml.v3"
 )
 
-//-----------------------------------------------------------------------
-//Loads rules from files
-//-----------------------------------------------------------------------
+// -----------------------------------------------------------------------
+// Loads rules from files
+// -----------------------------------------------------------------------
 func Setup(ruleDir string) (rules []model.Rule) {
 	fileUtil := util.NewFileUtil()
 	files := fileUtil.GetFileList(ruleDir, "(json|yaml|yml)")
@@ -46,9 +46,9 @@ func Setup(ruleDir string) (rules []model.Rule) {
 	return rules
 }
 
-//-----------------------------------------------------------------------
-//Extract Rules YAMLs
-//-----------------------------------------------------------------------
+// -----------------------------------------------------------------------
+// Extract Rules YAMLs
+// -----------------------------------------------------------------------
 func extractRule(decoder util.FileDecoder) (model.Rule, error) {
 	var rule model.Rule
 	err := decoder.Decode(&rule)
@@ -60,9 +60,9 @@ func extractRule(decoder util.FileDecoder) (model.Rule, error) {
 	return rule, err
 }
 
-//-----------------------------------------------------------------------
-//Get rule by name
-//-----------------------------------------------------------------------
+// -----------------------------------------------------------------------
+// Get rule by name
+// -----------------------------------------------------------------------
 func RuleByName(t *testing.T, rules []model.Rule, ruleName string) (rule model.Rule) {
 	for _, r := range rules {
 		if ruleName == r.Name {
@@ -72,9 +72,9 @@ func RuleByName(t *testing.T, rules []model.Rule, ruleName string) (rule model.R
 	return rule
 }
 
-//-----------------------------------------------------------------------
-//Light weight version of AppAnalyzer.analyzeFile
-//-----------------------------------------------------------------------
+// -----------------------------------------------------------------------
+// Light weight version of AppAnalyzer.analyzeFile
+// -----------------------------------------------------------------------
 func AnalyzeFile(rule model.Rule, file util.FileInfo) (findingCnt int, value string) {
 
 	var rulesForFile []model.Rule
@@ -107,9 +107,9 @@ func AnalyzeFile(rule model.Rule, file util.FileInfo) (findingCnt int, value str
 	return fileFindings, value
 }
 
-//-----------------------------------------------------------------------
-//Light weight version of FileProcessor.processFile
-//-----------------------------------------------------------------------
+// -----------------------------------------------------------------------
+// Light weight version of FileProcessor.processFile
+// -----------------------------------------------------------------------
 func processFile(file *util.FileInfo, rules []model.Rule, hasContentRules bool) (findingCnt int, value string) {
 	if len(rules) > 0 {
 
@@ -184,9 +184,9 @@ func processFile(file *util.FileInfo, rules []model.Rule, hasContentRules bool) 
 	return findingCnt, value
 }
 
-//-----------------------------------------------------------------------
-//Light weight version of FileProcessor.processPatterns
-//-----------------------------------------------------------------------
+// -----------------------------------------------------------------------
+// Light weight version of FileProcessor.processPatterns
+// -----------------------------------------------------------------------
 func processPatterns(file *util.FileInfo, line int, target string, rule model.Rule) int {
 
 	xmlDocs := make(map[string](*xmlquery.Node))
@@ -201,7 +201,7 @@ func processPatterns(file *util.FileInfo, line int, target string, rule model.Ru
 	for i := range rule.Patterns {
 
 		if rule.Patterns[i].Type == model.PLUGIN_MATCH_TYPE {
-
+			// DO NOTHING
 		} else {
 
 			matchFunc := func() (bool, string) {
@@ -210,7 +210,7 @@ func processPatterns(file *util.FileInfo, line int, target string, rule model.Ru
 
 			if rule.Patterns[i].Type == model.XPATH_MATCH_TYPE {
 				if xmlDocs[file.FQN] == nil {
-					if rawData, err := ioutil.ReadFile(file.FQN); err == nil {
+					if rawData, err := os.ReadFile(file.FQN); err == nil {
 						if xml, err := xmlquery.Parse(bytes.NewReader(rawData)); err == nil {
 							xmlDocs[file.FQN] = xml
 						}
@@ -223,7 +223,7 @@ func processPatterns(file *util.FileInfo, line int, target string, rule model.Ru
 			} else if rule.Patterns[i].Type == model.YAMLPATH_MATCH_TYPE {
 
 				if yamlDocs[file.FQN] == nil {
-					if rawData, err := ioutil.ReadFile(file.FQN); err == nil {
+					if rawData, err := os.ReadFile(file.FQN); err == nil {
 						var node yaml.Node
 						err = yaml.Unmarshal(rawData, &node)
 

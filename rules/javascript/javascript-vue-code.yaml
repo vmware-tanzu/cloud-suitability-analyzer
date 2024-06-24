@@ -1,0 +1,19 @@
+name: javascript-vue-code
+filetype: (js$|vue$|html$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Usage of Vue JS
+patterns:
+  - value: import.*from\s'vue'
+  - value: vue.js
+  - value: new\sVue\s*[(]
+readiness: 9
+effort: 0
+category: javascript-framework
+tags:
+  - value: javascript-framework
+  - value: vue-js
+  - value: frontend
+profiles:
+  - value: compass-discovery

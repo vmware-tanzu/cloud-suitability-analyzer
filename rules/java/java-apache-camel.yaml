@@ -1,0 +1,19 @@
+name: java-apache-camel
+filetype: (java$|xml$|gradle$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Usage of Apache Camel
+patterns:
+  - value: import.*org.apache.camel.*
+  - value: org.apache.camel.*
+readiness: 9
+effort: 0
+category: integration-framework
+tags:
+  - value: integration-framework
+  - value: apache-camel
+  - value: modernize
+profiles:
+  - value: compass-discovery
+  - value: cloud-suitability

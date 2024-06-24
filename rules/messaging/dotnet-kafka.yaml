@@ -1,0 +1,27 @@
+#SW
+name: dotnet-messaging-kafka-code
+filetype: (cs$|vb$|config$|csproj$)
+target: line
+type: regex
+defaultpattern: (%s)
+category: messaging
+advice: Detection of Kafka
+effort: 0
+readiness: 9
+tags:
+  - value: kafka
+  - value: messaging
+patterns:
+  - value: Confluent.Kafka
+  - value: ProducerBuilder
+  - value: .ProduceAsync
+  - value: ProducerConfig
+  - value: ConsumerConfig
+  - value: ConsumerBuilder
+  - value: DependentProducerBuilder
+  - value: KafkaNet.Protocol
+  - value: KafkaOptions
+  - value: ConsumerOptions
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

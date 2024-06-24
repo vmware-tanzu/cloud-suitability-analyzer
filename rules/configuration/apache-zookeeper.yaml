@@ -1,0 +1,18 @@
+name: apache-zookeeper
+filetype: (java$|py$|js$|ts$|yml$|yaml$|go$|rb$|scala$|xml$|properties$)
+target: line
+type: regex
+effort: 0
+readiness: 10
+category: other
+advice: Usage of apache zookeeper
+defaultpattern: "(?i)%s"
+tags:
+  - value: apache-zookeeper
+  - value: configuration
+patterns:
+  - value: import.*apache.*zookeeper
+  - value: org.apache.zookeeper.*
+profiles:
+  - value: compass-discovery
+  - value: cloud-suitability

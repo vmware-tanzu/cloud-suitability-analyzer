@@ -1,0 +1,20 @@
+name: java-spring-integration
+filetype: (xml$|gradle$|java$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Usage of Spring Integration
+patterns:
+  - value: .*spring-integration-core.*
+  - value: .*spring-integration-file.*
+  - value: .*@EnableIntegration.*
+  - value: .*org.springframework.integration.*
+readiness: 9
+effort: 0
+category: messaging
+tags:
+  - value: spring-integration
+  - value: messaging
+profiles:
+  - value: compass-discovery
+  - value: cloud-suitability

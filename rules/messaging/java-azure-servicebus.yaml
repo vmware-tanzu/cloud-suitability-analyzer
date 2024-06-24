@@ -1,0 +1,24 @@
+# This rule aims to identify active usage of Azure Service Bus in Java source code through specific API interactions.
+# https://learn.microsoft.com/en-us/java/api/overview/azure/messaging-servicebus-readme?view=azure-java-stable
+name: java-azure-servicebus
+filetype: (java$|xml$|gradle$)
+target: line
+type: regex
+defaultpattern: (%s)
+category: messaging
+advice: Implementation of Azure Service Bus API in Java code.
+effort: 0
+readiness: 1
+tags:
+  - value: messaging
+  - value: azure-servicebus
+  - value: java
+patterns:
+  - value: 'new ServiceBusClientBuilder\(\)'
+  - value: 'new ServiceBusMessage'
+  - value: 'ServiceBusMessageBatch'
+  - value: 'ServiceBusReceivedMessageContext'
+  - value: 'azure-messaging-servicebus'  
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

@@ -1,0 +1,6 @@
+<dependencies>
+  <dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-messaging-servicebus</artifactId>
+  </dependency>
+</dependencies>

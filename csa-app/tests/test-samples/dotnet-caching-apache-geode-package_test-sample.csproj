@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>Apache.Geode.NetCore</RootNamespace>
+        <AssemblyName>Apache.Geode.NetCore</AssemblyName>
+        <Platforms>AnyCPU;x64</Platforms>
+    </PropertyGroup>
+
+</Project>

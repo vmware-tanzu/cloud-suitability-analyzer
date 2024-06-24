@@ -1,0 +1,21 @@
+name: mulesoft-config-raml
+filetype: (raml$|xml$|json$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Usage of Mulesoft
+patterns:
+  - value: .*#%RAML.*
+  - value: .*minMuleVersion.*
+  - value: .*http[s]*://.*mulesoft.*
+  - value: .*<mule\s*
+readiness: 9
+effort: 0
+category: api
+tags:
+  - value: api
+  - value: mulesoft
+  - value: api-gateway
+  - value: modernize
+profiles:
+  - value: compass-discovery

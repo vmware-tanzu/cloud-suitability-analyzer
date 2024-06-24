@@ -1,0 +1,19 @@
+name: java-quartz
+filetype: (java$|xml$|gradle$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Usage of Quartz Scheduling
+patterns:
+  - value: .*org.springframework.scheduling.quartz.*
+  - value: .*org.quartz.*
+  - value: '.*spring-boot-starter-quartz*'
+readiness: 9
+effort: 0
+category: scheduling
+tags:
+  - value: quartz
+  - value: scheduler
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

@@ -1,0 +1,20 @@
+#SW
+name: dotnet-rabbitmq
+filetype: (cs$|vb$|config$|csproj$)
+target: line
+type: regex
+defaultpattern: (%s)
+category: messaging
+advice: Detection of rabbitmq
+effort: 0
+readiness: 1
+tags:
+  - value: rabbitmq
+  - value: messaging
+patterns:
+  - value: RabbitMQ.Client
+  - value: .BasicPublish
+  - value: .QueueDeclare
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

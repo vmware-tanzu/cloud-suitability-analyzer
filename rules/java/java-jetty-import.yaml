@@ -3,10 +3,10 @@ ruletype: standard
 criticality: medium
 cloud: 100
 container: 100
-filetype: (jsp$|java$)
+filetype: (jsp$|java$|xml$)
 target: line
 type: regex
-defaultpattern: ^.*import(\s*|=")%s.*$
+defaultpattern: (%s)
 advice: Use Managed Executor
 effort: 1
 readiness: 10
@@ -18,5 +18,7 @@ tags:
   - value: container
 patterns:
   - value: org.eclipse.jetty
+  - value: .*org.mortbay.jetty.Server.*
 profiles:
   - value: cloud-suitability
+  - value: compass-discovery

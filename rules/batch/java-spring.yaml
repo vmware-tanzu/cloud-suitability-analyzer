@@ -1,0 +1,18 @@
+name: java-spring
+filetype: (xml$|gradle$|java$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Usage of Spring Batch
+patterns:
+  - value: .*spring-batch-core.*
+  - value: .*org.springframework.batch.*
+readiness: 9
+effort: 0
+category: batch
+tags:
+  - value: spring-batch
+  - value: batch
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

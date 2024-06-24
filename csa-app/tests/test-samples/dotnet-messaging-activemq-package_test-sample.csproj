@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+  http://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+  -->
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <OutputType>Library</OutputType>
+        <TargetFrameworks>netstandard2.0</TargetFrameworks>
+        <RootNamespace>Apache.NMS.AMQP</RootNamespace>
+        <AssemblyName>Apache.NMS.AMQP</AssemblyName>
+        <LangVersion>7.3</LangVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)'=='Release'">
+        <OutputPath>..\..\build\</OutputPath>
+        <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>Apache.NMS.AMQP</PackageId>
+        <Version>2.2.0</Version>
+        <Authors>Apache ActiveMQ</Authors>
+        <Company>Apache Software Foundation</Company>
+        <Product>Apache ActiveMQ NMS AMQP Client</Product>
+        <Description>Apache ActiveMQ NMS.AMQP provides a NMS based client that uses the AMQP v1.0 protocol.</Description>
+        <Copyright>Copyright (C) 2005-2023 Apache Software Foundation</Copyright>
+        <PackageProjectUrl>https://activemq.apache.org/components/nms/</PackageProjectUrl>
+        <PackageLicense>https://github.com/apache/activemq-nms-amqp/blob/master/NOTICE.txt</PackageLicense>
+        <PackageIconUrl>https://activemq.apache.org/assets/img/activemq_logo_icon.png</PackageIconUrl>
+        <RepositoryUrl>https://github.com/apache/activemq-nms-amqp</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>apache;activemq;nms;amqp;net;messaging</PackageTags>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    </PropertyGroup>
+
+    <!-- SourceLink Start -->
+    <PropertyGroup>
+        <!-- Embed source files that are not tracked by the source control manager in the PDB -->
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <!-- Build symbol package (.snupkg) to distribute the PDB containing Source Link -->
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+    <ItemGroup>
+        <!-- Add PackageReference specific for your source control provider (see below) -->
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+    </ItemGroup>
+    <!-- SourceLink End -->
+
+    <ItemGroup>
+        <None Include="..\..\LICENSE.txt" Pack="true" PackagePath="LICENSE.txt" />
+        <None Include="..\..\NOTICE.txt" Pack="true" PackagePath="NOTICE.txt" />
+    </ItemGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <!-- To debug Message dispatch MultiThreading -->
+        <!-- <DefineConstants>DEBUG;TRACE;TRACELOCKS</DefineConstants>  -->
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+            <_Parameter1>NMS.AMQP.Test</_Parameter1>
+        </AssemblyAttribute>
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- AMQPNetLite.Core is .NET Standard 1.3 package -->
+        <PackageReference Include="AMQPNetLite.Core" Version="2.4.3" />
+        <PackageReference Include="Apache.NMS" Version="2.1.0" />
+        <PackageReference Include="System.Threading.Tasks.Dataflow" Version="4.9.0" />
+    </ItemGroup>
+</Project>

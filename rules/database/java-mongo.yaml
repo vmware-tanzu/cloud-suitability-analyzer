@@ -1,0 +1,32 @@
+name: java-mongo
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (java$|gradle$|xml$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Application is using a non relational database or nosql
+effort: 0
+readiness: 0
+category: springFramework
+tags:
+  - value: spring
+  - value: database
+  - value: tas
+patterns:
+  - value: import.*com.mongodb.client
+  - value: MongoClients
+  - value: MongoDatabase
+  - value: MongoCollection
+  - value: org.springframework
+  - value: org.springframework.mongo
+    tag: mongo
+    effort: 0
+  - value: org.mongodb
+  - value: <artifactId>mongodb
+  - value: mongo-java-driver
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

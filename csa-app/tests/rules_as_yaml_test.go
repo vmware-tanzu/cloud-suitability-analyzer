@@ -1,13 +1,13 @@
 package main
 
 import (
+	"csa-app/model"
+	"csa-app/tests/metadata"
+	"csa-app/tests/test"
+	"csa-app/util"
 	"fmt"
 	"io/ioutil"
 	"os"
-	"csa-app/tests/test"
-	"csa-app/model"
-	"csa-app/util"
-	"csa-app/tests/metadata"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -145,5 +145,3 @@ func testRuleByName(t *testing.T, testName string, rule model.Rule, targetFilePa
 		assert.Equal(t, expectedValue, value, "\033[91mThe collected finding text did not match expectation\033[0m")
 	}
 }
-
-

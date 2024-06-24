@@ -1,0 +1,25 @@
+name: java-spring-swagger
+filetype: (java$|yml$|yaml$|scala$|xml$|properties$)
+target: line
+type: regex
+effort: 0
+readiness: 10
+category: api
+advice: Usage of spring swagger
+defaultpattern: "(?i)%s"
+tags:
+  - value: api
+  - value: spring-swagger
+  - value: documentation
+patterns:
+  - value: import.*io.*swagger
+    tag: spring-io-swagger-import
+  - value: io.*swagger
+    tag: spring-io-swagger-detect
+  - value: import.*spring.*swagger
+    tag: spring-swagger-import
+  - value: spring.*swagger
+    tag: spring-swagger-detect
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

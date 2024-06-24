@@ -1,0 +1,19 @@
+name: java-hazelcast
+filetype: (java$|xml$|gradle$)
+target: line
+type: regex
+defaultpattern: .*%s.*
+advice: Usage of Hazelcast
+patterns:
+  - value: import.*hazelcast.*
+  - value: com.hazelcast
+readiness: 9
+effort: 0
+category: hazelcast
+tags:
+  - value: hazelcast
+  - value: streaming
+  - value: messaging
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

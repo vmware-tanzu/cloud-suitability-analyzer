@@ -77,6 +77,12 @@ tags:
     type: OR
 
 ---
+name: WEBSERVER
+tags:
+  - name: webserver
+    type: OR
+
+---
 name: DATABASE
 tags:
   - name: database
@@ -98,6 +104,12 @@ tags:
 name: LOGGING
 tags:
   - name: logging
+    type: OR
+
+---
+name: SCHEDULING
+tags:
+  - name: scheduler
     type: OR
 
 ---
@@ -124,4 +136,10 @@ tags:
   - name: java-version
     type: OR
   - name: spring-boot-version
+    type: OR
+
+---
+name: DOCUMENTATION
+tags:
+  - name: documentation
     type: OR

@@ -1,0 +1,21 @@
+name: mainframe-code
+filetype: (cpy$|cob$|cbl$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Mainframe Code
+patterns:
+  - value: .*DIVISION.*
+  - value: .*DISPLAY.*
+  - value: .*INSPECT.*
+  - value: .*STOP RUN.*
+  - value: .*PROGRAM-ID.*
+  - value: .*[0-9][0-9]\s.*
+readiness: 9
+effort: 1000
+category: mainframe
+tags:
+  - value: mainframe
+  - value: modernize
+profiles:
+  - value: compass-discovery
