@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapBinsTemplate.txt found under go/resources folder
-//Created @ 2024-06-12 19:32:55.745207 -0500 CDT m=+0.925820988
+//Created @ 2024-06-24 18:02:37.220542 -0500 CDT m=+0.603890872
 
 func BootstrapBins() []Bin {
     var BootstrapBins = []Bin{
@@ -70,6 +70,11 @@ func BootstrapBins() []Bin {
             []*BinTag{  { Name: "faas", Type: 1, Action: "OR", },  },
              },
         
+            { Name: "WEBSERVER",
+            Tags:
+            []*BinTag{  { Name: "webserver", Type: 1, Action: "OR", },  },
+             },
+        
             { Name: "DATABASE",
             Tags:
             []*BinTag{  { Name: "database", Type: 1, Action: "OR", },  },
@@ -90,6 +95,11 @@ func BootstrapBins() []Bin {
             []*BinTag{  { Name: "logging", Type: 1, Action: "OR", },  },
              },
         
+            { Name: "SCHEDULING",
+            Tags:
+            []*BinTag{  { Name: "scheduler", Type: 1, Action: "OR", },  },
+             },
+        
             { Name: "CONFIGURATION",
             Tags:
             []*BinTag{  { Name: "configuration", Type: 1, Action: "OR", },  },
@@ -108,6 +118,11 @@ func BootstrapBins() []Bin {
             { Name: "VERSION",
             Tags:
             []*BinTag{  { Name: "java-version", Type: 1, Action: "OR", },  { Name: "spring-boot-version", Type: 1, Action: "OR", },  },
+             },
+        
+            { Name: "DOCUMENTATION",
+            Tags:
+            []*BinTag{  { Name: "documentation", Type: 1, Action: "OR", },  },
              },
         
     }

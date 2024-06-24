@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2024-06-12 19:32:55.209113 -0500 CDT m=+0.389727151
+//Created @ 2024-06-24 18:02:36.94618 -0500 CDT m=+0.329531880
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -636,6 +636,34 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "$.server.port", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
+            { Name: "java-spark", RuleType: "", Level: "", FileType: "(java$|kt$|kts$|scala$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Spark", Effort: 0, Readiness: 9, Impact: "", Category: "web", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "spark",}, { Value: "batch",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: ".*import\\s*spark.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*org.apache.spark.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-spring", RuleType: "", Level: "", FileType: "(xml$|gradle$|java$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Spring Batch", Effort: 0, Readiness: 9, Impact: "", Category: "batch", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "spring-batch",}, { Value: "batch",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: ".*spring-batch-core.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*org.springframework.batch.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
             { Name: "build-ant-maven", RuleType: "fire-once", Level: "", FileType: "xml$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Align with standard build system", Effort: 0, Readiness: 0, Impact: "", Category: "buildSystem", Criticality: "",Container: 0, Cloud: 0,
             Tags:
             []Tag{  { Value: "build-system",}, },
@@ -710,6 +738,69 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "<javac target=\"1.6\"", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
+            { Name: "dotnet-apache-geode", RuleType: "", Level: "", FileType: "(cs$|vb$|csproj$|vbproj$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Direct usage of Apache Geode .NET Client APIs in .NET code for data management and caching.", Effort: 0, Readiness: 1, Impact: "", Category: "caching", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "cache",}, { Value: "apache-geode",}, { Value: ".NET",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "Apache.Geode", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".CreateRegionFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".GetQueryService", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-hazelcast", RuleType: "", Level: "", FileType: "(cs$|vb$|config$|csproj$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Usage of Hazelcast", Effort: 0, Readiness: 9, Impact: "", Category: "hazelcast", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "hazelcast",}, { Value: "cache",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "HazelcastClient", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "HazelcastOptions", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Hazelcast.Net", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-apache-geode", RuleType: "", Level: "", FileType: "(java$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Direct usage of Apache Geode APIs in Java, focusing on region operations, client configurations, and data management.", Effort: 0, Readiness: 1, Impact: "", Category: "caching", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "cache",}, { Value: "apache-geode",}, { Value: "java",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "org.apache.geode.cache.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "new ClientCacheFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "createClientRegionFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "clientRegionFactory.create", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.geode", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "geode-core", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-spring-cache", RuleType: "", Level: "", FileType: "(java$|xml$|gradle$|properties$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Caching", Effort: 0, Readiness: 9, Impact: "", Category: "caching", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "cache",}, { Value: "spring-boot",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: ".*spring-boot-starter-cache.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*spring.cache.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*org.springframework.cache.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
             { Name: "python-db-redis", RuleType: "standard", Level: "", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Redis is being used", Effort: 1, Readiness: 10, Impact: "", Category: "cache", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "redis",}, { Value: "cache",}, },
@@ -723,18 +814,33 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "redis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "python-redis", RuleType: "standard", Level: "", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "(import)\\s+(%s)", Advice: "Redis is being used", Effort: 1, Readiness: 10, Impact: "", Category: "services", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "redis-cache", RuleType: "", Level: "", FileType: "(cs$|java$|py$|js$|yml$|yaml$|xml$|gradle$|scala$|ts$|config$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Redis Cache", Effort: 0, Readiness: 10, Impact: "", Category: "cache", Criticality: "",Container: 0, Cloud: 0,
             Tags:
-            []Tag{  { Value: "redis",}, { Value: "cache",}, },
+            []Tag{  { Value: "cache",}, { Value: "redis",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "redis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "aioredis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "import.*JedisService", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "<groupId>redis.clients<\\/groupId>", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "java-redis-client-maven", Recipe: "", },
+             { Type: "", Pattern: "", Value: "<artifactId>jedis<\\/artifactId>", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "java-redis-client", Recipe: "", },
+             { Type: "", Pattern: "", Value: "redis.clients:jedis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "java-redis-client-gradle", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import.*redis.clients.jedis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import.*io.lettuce.core.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*org.springframework.data.redis.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import.*redis.embedded.RedisServer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import.*com.redis.{RedisClient", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import.*com.redis.RedisCommand", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "<bean.*org.springframework.data.redis.connection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "JedisService", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "redis-kub-service", Recipe: "", },
+             { Type: "", Pattern: "", Value: "from ''redis''", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "PackageReference.*StackExchange.Redis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "redis-stack-dotnet", Recipe: "", },
+             { Type: "", Pattern: "", Value: "using.*StackExchange.Redis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "redis-stack-dotnet", Recipe: "", },
+             { Type: "", Pattern: "", Value: "redis.Redis\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "redis-stack-python", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import.*redis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "redis-stack-python", Recipe: "", },
              }, },
         
             { Name: "xml-ehcache-Config", RuleType: "standard", Level: "", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider external cache provider", Effort: 50, Readiness: 10, Impact: "", Category: "cache", Criticality: "medium",Container: 100, Cloud: 100,
@@ -835,6 +941,20 @@ func BootstrapRules() []Rule {
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "ServiceScan", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "CloudScan", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "apache-zookeeper", RuleType: "", Level: "", FileType: "(java$|py$|js$|ts$|yml$|yaml$|go$|rb$|scala$|xml$|properties$)", Target: "line", Type: "regex", DefaultPattern: "(?i)%s", Advice: "Usage of apache zookeeper", Effort: 0, Readiness: 10, Impact: "", Category: "other", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "apache-zookeeper",}, { Value: "configuration",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "import.*apache.*zookeeper", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.zookeeper.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "hardcode-uri", RuleType: "standard", Level: "", FileType: "(java$|^vb$|py$|go$|aspx$|^c$|h$|cs$|csx$|cpp$|cob$|cfm$|cfml$|dockerfile$|jsp$|php$|^r$|^rb$|^ts$|yaml$|yml$|json$)", Target: "line", Type: "regex", DefaultPattern: "(?:(?:^|[^\"])|(?:^|[^ =])\"|(?:^|[^:]) \"|(?:^|[^s])=\"|(?:^|[^\"]): \"|(?:^|[^n])s=\"|(?:^|[^d])\": \"|(?:^|[^l])ns=\"|(?:^|[^e])d\": \"|(?:^|[^m])lns=\"|(?:^|[^v])ed\": \"|(?:^|[^x])mlns=\"|(?:^|[^l])ved\": \"|(?:^|[^o])lved\": \"|(?:^|[^s])olved\": \"|(?:^|[^e])solved\": \"|(?:^|[^r])esolved\": \")(%s)\\:{1}\\/{2}[a-zA-Z0-9]", Advice: "Found hard-coded URI. Make configurable, put into environment or config map", Effort: 3, Readiness: 8, Impact: "", Category: "env-config", Criticality: "medium",Container: 100, Cloud: 100,
@@ -958,6 +1078,50 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "/libraries[@count>13]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
+            { Name: "kube-config", RuleType: "", Level: "", FileType: "(yaml$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Kubernetes Config", Effort: 0, Readiness: 9, Impact: "", Category: "platform", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "kubernetes",}, { Value: "platform",}, { Value: "container",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: ".*kind:\\s.*Deployment.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*kind:\\s.*Service.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*kind:\\s.*Pod.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*kind:\\s.*Policy.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*kind:\\s.*Ingress.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "kube-splunk-config", RuleType: "", Level: "", FileType: "(yml$|yaml$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Splunk", Effort: 0, Readiness: 9, Impact: "", Category: "logging", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "Splunk",}, { Value: "logging",}, { Value: "container",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: ".*splunk.com.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "splunk.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "openshift-config", RuleType: "", Level: "", FileType: "(yaml$|json$|yml$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Openshift Config", Effort: 0, Readiness: 9, Impact: "", Category: "platform", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "openshift",}, { Value: "platform",}, { Value: "container",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: ".*openshift.io.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
             { Name: "SNAP-ETL-import", RuleType: "fire-once", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^import\\s*.*%s.*$", Advice: "Vendor specific integration implementation", Effort: 100, Readiness: 0, Impact: "", Category: "etl", Criticality: "",Container: 0, Cloud: 0,
             Tags:
             []Tag{  { Value: "etl",}, { Value: "build-system",}, { Value: "database",}, },
@@ -1043,6 +1207,71 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "ElasticConfiguration", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
+            { Name: "dotnet-graphql", RuleType: "", Level: "", FileType: "(cs$|vb$|config$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Graphql", Effort: 0, Readiness: 9, Impact: "", Category: "api", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "graphql",}, { Value: "database",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: ".*using\\s*GraphQL", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*GraphQL.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-ibm-mq", RuleType: "", Level: "", FileType: "(csproj$|config$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "IBM MQ", Effort: 0, Readiness: 9, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "messaging",}, { Value: "ibm-mq",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "amqmdnet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-mq-client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-mongodb", RuleType: "", Level: "", FileType: "(cs$|vb$|config$|csproj$|json$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "mongodb usage", Effort: 0, Readiness: 1, Impact: "", Category: "database", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "database",}, { Value: "mongodb",}, { Value: "nosql",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "MongoDB.Driver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "IMongoCollection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MongoDB.Bson", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.data.mongodb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "mongodb://", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-mssql", RuleType: "", Level: "", FileType: "(cs$|vb$|config$|csproj$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "mssql usage", Effort: 0, Readiness: 1, Impact: "", Category: "database", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "database",}, { Value: "mssql",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "SqlDataReader", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "SqlConnection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "System.Data.SqlClient;", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "SqlCommand", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Microsoft.EntityFrameworkCore.SqlServer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Microsoft.SqlServer.Server", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Microsoft.Data.SqlClient", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MySql.Data", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
             { Name: "dotnet-oracle-umanaged", RuleType: "standard", Level: "", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Oracle unmanaged driver requires including binaries with app", Effort: 3, Readiness: 8, Impact: "", Category: "database", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "database",}, { Value: "oracle",}, },
@@ -1056,19 +1285,204 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "Oracle.DataAccess", Advice: "Oracle unmanaged driver requires including binaries with app -- can use buildpack.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-mongo-cassandra", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(import)\\s+(%s)", Advice: "Application is using a non relational database", Effort: 0, Readiness: 0, Impact: "", Category: "springFramework", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "dotnet-oracle", RuleType: "", Level: "", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Oracle usage", Effort: 0, Readiness: 1, Impact: "", Category: "database", Criticality: "",Container: 0, Cloud: 0,
             Tags:
-            []Tag{  { Value: "spring",}, { Value: "database",}, { Value: "tas",}, },
+            []Tag{  { Value: "database",}, { Value: "oracle",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "org.springframework", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.springframework.mongo", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mongo", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "Oracle.DataAccess", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Oracle.ManagedDataAccess", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "OracleConnection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "System.Data.OracleClient", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Oracle.EntityFrameworkCore", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Oracle.ManagedDataAccess.EntityFramework", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Oracle.ManagedDataAccess.Core", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-postgresql", RuleType: "", Level: "", FileType: "(cs$|vb$|csproj$|vbproj$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Direct usage of Npgsql for PostgreSQL database interactions in .NET code.", Effort: 0, Readiness: 1, Impact: "", Category: "database", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "database",}, { Value: "postgresql",}, { Value: ".NET",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "NpgsqlConnection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "NpgsqlCommand", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "NpgsqlDataReader", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ExecuteNonQueryAsync\\(\\)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Npgsql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-mongo-cassandra", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(import)\\s+(%s)", Advice: "Application is using a non relational database or nosql", Effort: 0, Readiness: 9, Impact: "", Category: "springFramework", Criticality: "medium",Container: 100, Cloud: 100,
+            Tags:
+            []Tag{  { Value: "spring",}, { Value: "database",}, { Value: "tas",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: ".*import\\s.*cassandra.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*org.apache.cassandra.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*com.datastax.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*dse-java.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*PackageReference.*Cassandra.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "org.springframework.cassandra", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "cassandra", Recipe: "", },
+             }, },
+        
+            { Name: "java-db2", RuleType: "", Level: "", FileType: "(java$|properties$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Detection of db2 Usage", Effort: 0, Readiness: 1, Impact: "", Category: "database", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "db2",}, { Value: "database",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "jdbc:db2", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.db2.jcc.DB2Driver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.db2", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-graphql", RuleType: "", Level: "", FileType: "(java$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Graphql", Effort: 0, Readiness: 9, Impact: "", Category: "api", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "graphql",}, { Value: "database",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: ".*import\\s*graphql.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*com.graphql.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-hadoop", RuleType: "", Level: "", FileType: "(java$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Hadoop", Effort: 0, Readiness: 9, Impact: "", Category: "web", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "hadoop",}, { Value: "distributed-data-processing",}, { Value: "database",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: ".*org.apache.hadoop.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*hadoop-client.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*hadoop-common.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*hadoop-core.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*hadoop-hdfs.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-mongo", RuleType: "standard", Level: "", FileType: "(java$|gradle$|xml$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Application is using a non relational database or nosql", Effort: 0, Readiness: 0, Impact: "", Category: "springFramework", Criticality: "medium",Container: 100, Cloud: 100,
+            Tags:
+            []Tag{  { Value: "spring",}, { Value: "database",}, { Value: "tas",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "import.*com.mongodb.client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MongoClients", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MongoDatabase", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MongoCollection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.mongo", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mongo", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.mongodb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "<artifactId>mongodb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "mongo-java-driver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-mssql", RuleType: "", Level: "", FileType: "(java$|properties$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Detection of mssql Usage", Effort: 0, Readiness: 1, Impact: "", Category: "database", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "mssql",}, { Value: "database",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "jdbc:sqlserver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.microsoft.sqlserver.jdbc.SQLServerDriver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.microsoft.sqlserver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-mysql", RuleType: "", Level: "", FileType: "(java$|xml$|properties$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Detection of MongoDb Usage", Effort: 0, Readiness: 1, Impact: "", Category: "database", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "mysql",}, { Value: "database",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "com.mysql.jdbc.Driver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:mysql://", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.mysql.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:mysql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "<artifactId>mysql-", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "mysql:mysql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.springsource.com.mysql.jdbc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-oracle", RuleType: "", Level: "", FileType: "(java$|properties$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Detection of SQL Oracle Usage", Effort: 0, Readiness: 1, Impact: "", Category: "database", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "oracle",}, { Value: "database",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "oracle.jdbc.OracleDriver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:oracle", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-postgres", RuleType: "", Level: "", FileType: "(java$|properties$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Detection of SQL Postgres Usage", Effort: 0, Readiness: 1, Impact: "", Category: "database", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "postgres",}, { Value: "database",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "org.postgresql.Driver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:postgresql://", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.postgresql.Driver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:postgresql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-sqlite", RuleType: "", Level: "", FileType: "(java$|properties$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Detection of SQLite Usage", Effort: 0, Readiness: 1, Impact: "", Category: "database", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "sqlite",}, { Value: "database",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "jdbc:sqlite", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.sqlite.JDBC", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "sqlite-jdbc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "python-db-peewee", RuleType: "standard", Level: "", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Check target platform has support for this library", Effort: 1, Readiness: 10, Impact: "", Category: "database", Criticality: "medium",Container: 100, Cloud: 100,
@@ -1109,6 +1523,22 @@ func BootstrapRules() []Rule {
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "DTS", Advice: "SSIS is not supported on CloudFoundry. Consider leaving the packages in an external SQL Server deployment or rewrite them in a cloud native ETL Framework like Spring Cloud Data Flow.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-spring-swagger", RuleType: "", Level: "", FileType: "(java$|yml$|yaml$|scala$|xml$|properties$)", Target: "line", Type: "regex", DefaultPattern: "(?i)%s", Advice: "Usage of spring swagger", Effort: 0, Readiness: 10, Impact: "", Category: "api", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "api",}, { Value: "spring-swagger",}, { Value: "documentation",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "import.*io.*swagger", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-io-swagger-import", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.*swagger", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-io-swagger-detect", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import.*spring.*swagger", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-swagger-import", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring.*swagger", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-swagger-detect", Recipe: "", },
              }, },
         
             { Name: "config-dotnet-webConfig", RuleType: "standard", Level: "", FileType: "config$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Upgrade to .Net Core", Effort: 0, Readiness: 0, Impact: "", Category: "Config", Criticality: "medium",Container: 100, Cloud: 100,
@@ -1590,6 +2020,22 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: ".*[.]ConfigureServices", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
+            { Name: "mulesoft-config-raml", RuleType: "", Level: "", FileType: "(raml$|xml$|json$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Mulesoft", Effort: 0, Readiness: 9, Impact: "", Category: "api", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "api",}, { Value: "mulesoft",}, { Value: "api-gateway",}, { Value: "modernize",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: ".*#%RAML.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*minMuleVersion.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*http[s]*://.*mulesoft.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*<mule\\s*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
             { Name: "bootCDI", RuleType: "standard", Level: "", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Automatic remediation with Bootifier", Effort: 2, Readiness: 2, Impact: "", Category: "cdi", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "cdi",}, { Value: "migrate-off-legacy-server",}, { Value: "container",}, { Value: "modernize",}, },
@@ -2053,6 +2499,48 @@ func BootstrapRules() []Rule {
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "com.tfcci.ucs.manager", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-apache-camel", RuleType: "", Level: "", FileType: "(java$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Apache Camel", Effort: 0, Readiness: 9, Impact: "", Category: "integration-framework", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "integration-framework",}, { Value: "apache-camel",}, { Value: "modernize",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "import.*org.apache.camel.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.camel.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-apache-poi", RuleType: "", Level: "", FileType: "(java$|py$|js$|ts$|yml$|yaml$|go$|rb$|scala$|xml$|properties$)", Target: "line", Type: "regex", DefaultPattern: "(?i)%s", Advice: "Usage of apache poi", Effort: 0, Readiness: 10, Impact: "", Category: "other", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "document",}, { Value: "apache-poi",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "import.*apache.*poi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-poi-import", Recipe: "", },
+             { Type: "", Pattern: "", Value: "apache.*poi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-poi-detect", Recipe: "", },
+             }, },
+        
+            { Name: "java-apache-wink", RuleType: "", Level: "", FileType: "(java$|py$|js$|ts$|yml$|yaml$|go$|rb$|scala$|xml$|properties$)", Target: "line", Type: "regex", DefaultPattern: "(?i)%s", Advice: "Usage of apache wink", Effort: 0, Readiness: 10, Impact: "", Category: "api", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "api",}, { Value: "apache-wink",}, { Value: "rest-api",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "import.*apache.*wink", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-wink-import", Recipe: "", },
+             { Type: "", Pattern: "", Value: "apache.*wink", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-wink-detect", Recipe: "", },
              }, },
         
             { Name: "java-apacheFop-import", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "[ .]%s[ .({]", Advice: "Usage requires configuration remdiation", Effort: 5, Readiness: 10, Impact: "", Category: "thirdParty", Criticality: "medium",Container: 100, Cloud: 100,
@@ -2625,11 +3113,11 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "Runtime.getRuntime().addShutdownHook", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-hazelcast", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ ({.<].*", Advice: "Make sure Cache instance is externalized", Effort: 100, Readiness: 6, Impact: "", Category: "cache", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "java-hazelcast", RuleType: "standard", Level: "", FileType: "(java$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Make sure Cache instance is externalized", Effort: 100, Readiness: 6, Impact: "", Category: "cache", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
-            []Tag{  { Value: "hazelcast",}, { Value: "cache",}, },
+            []Tag{  { Value: "hazelcast",}, { Value: "cache",}, { Value: "messaging",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -2644,6 +3132,8 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "setMapEvictionPolicy", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "MapEvictionPolicy", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "newHazelcastInstance", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import.*hazelcast.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.hazelcast", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "java-iop", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (.].*", Advice: "Remote Method Invocations create coupling between componets. Move to cloud friendly alternatives such as REST endpoints.", Effort: 3, Readiness: 6, Impact: "", Category: "iop", Criticality: "medium",Container: 100, Cloud: 100,
@@ -2731,7 +3221,7 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "ChainedExtractor", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-jersey-import", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Refer to 3rd party organization for cloud affinity of library", Effort: 5, Readiness: 8, Impact: "", Category: "jersey", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "java-jersey-import", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Refer to 3rd party organization for cloud affinity of library", Effort: 5, Readiness: 8, Impact: "", Category: "jersey", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "jersey",}, { Value: "rest",}, { Value: "dependencies",}, },
             Profiles:
@@ -2742,19 +3232,22 @@ func BootstrapRules() []Rule {
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "com.sun.jersey", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jersey-.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring-boot-starter-jersey", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-jetty-import", RuleType: "standard", Level: "", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Use Managed Executor", Effort: 1, Readiness: 10, Impact: "", Category: "threading", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "java-jetty-import", RuleType: "standard", Level: "", FileType: "(jsp$|java$|xml$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Use Managed Executor", Effort: 1, Readiness: 10, Impact: "", Category: "threading", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "threading",}, { Value: "jetty",}, { Value: "tas",}, { Value: "container",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "org.eclipse.jetty", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*org.mortbay.jetty.Server.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "java-jks", RuleType: "standard", Level: "", FileType: "jks$", Target: "file", Type: "regex", DefaultPattern: "", Advice: "Make sure to externalize jks store", Effort: 7, Readiness: 7, Impact: "", Category: "security", Criticality: "medium",Container: 100, Cloud: 100,
@@ -2948,9 +3441,9 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "SkipPageException", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-jta", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (.{].*", Advice: "Distributed transactions are problematic and should be remediated.  Consider Eventual Consistency pattern.", Effort: 500, Readiness: 6, Impact: "file", Category: "jta", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "java-jta", RuleType: "standard", Level: "", FileType: "(java$|yml$|yaml$|scala$|xml$|properties$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Distributed transactions are problematic and should be remediated.  Consider Eventual Consistency pattern.", Effort: 500, Readiness: 6, Impact: "file", Category: "jta", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
-            []Tag{  { Value: "transaction",}, { Value: "jta",}, { Value: "web-profile",}, { Value: "modernize",}, { Value: "database",}, },
+            []Tag{  { Value: "transaction",}, { Value: "jta",}, { Value: "web-profile",}, { Value: "modernize",}, { Value: "database",}, { Value: "spring-transaction",}, },
             Profiles:
             []Profile{  { Value: "cloud-suitability",}, },
             Excludepatterns:
@@ -2979,6 +3472,11 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "XAException", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "enlistForDurableTwoPhase", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "enlistForVolatileTwoPhase", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import.*org.springframework.transaction", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-transaction-import", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.transaction", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".PlatformTransactionManager", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import.*spring.*tx", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-tx-import", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring.*tx", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-tx-detect", Recipe: "", },
              }, },
         
             { Name: "java-jvm-runtimeConfigProps", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Do not change these properties at runtime in application code", Effort: 50, Readiness: 0, Impact: "", Category: "config", Criticality: "medium",Container: 100, Cloud: 100,
@@ -3485,6 +3983,22 @@ func BootstrapRules() []Rule {
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "SpringBootApplication", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-spring-integration", RuleType: "", Level: "", FileType: "(xml$|gradle$|java$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Spring Integration", Effort: 0, Readiness: 9, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "spring-integration",}, { Value: "messaging",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: ".*spring-integration-core.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*spring-integration-file.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*@EnableIntegration.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*org.springframework.integration.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "java-springframework", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "contains", DefaultPattern: "", Advice: "Presence of spring framework may indicate the app should target TAS", Effort: -100, Readiness: 0, Impact: "", Category: "springFramework", Criticality: "medium",Container: 100, Cloud: 100,
@@ -4310,6 +4824,157 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "<xa-datasource", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
+            { Name: "javascript-angular-html", RuleType: "", Level: "", FileType: "(html$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Angular", Effort: 0, Readiness: 9, Impact: "", Category: "javascript-framework", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "javascript-framework",}, { Value: "angular",}, { Value: "frontend",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "[*]ngFor=", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "[*]ngIf=", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "javascript-angular-package", RuleType: "", Level: "", FileType: "(json$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Angular", Effort: 0, Readiness: 9, Impact: "", Category: "javascript-framework", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "javascript-framework",}, { Value: "angular",}, { Value: "frontend",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "@angular\\/.*:", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "javascript-angular-typescript", RuleType: "", Level: "", FileType: "(ts$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Angular", Effort: 0, Readiness: 9, Impact: "", Category: "javascript-framework", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "javascript-framework",}, { Value: "angular",}, { Value: "frontend",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "import.*''@angular.*'';", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "javascript-jquery-code", RuleType: "", Level: "", FileType: "(js$|html$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Jquery", Effort: 0, Readiness: 9, Impact: "", Category: "javascript-framework", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "javascript-framework",}, { Value: "jquery",}, { Value: "frontend",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "[$]\\(document\\).ready\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "<script.*src=\".*jquery", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "require\\(''jquery", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "javascript-jquery-package", RuleType: "", Level: "", FileType: "(config$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Jquery", Effort: 0, Readiness: 9, Impact: "", Category: "javascript-framework", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "javascript-framework",}, { Value: "jquery-js",}, { Value: "frontend",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "PackageReference.*\"jQuery\"", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "javascript-knockout-code", RuleType: "", Level: "", FileType: "(js$|html$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Knockout JS", Effort: 0, Readiness: 9, Impact: "", Category: "javascript-framework", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "javascript-framework",}, { Value: "knockout-js",}, { Value: "frontend",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "<script.*src=.*knockout", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ko.applyBindings\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ko.observable\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "javascript-knockout-package", RuleType: "", Level: "", FileType: "(json$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Knockout JS", Effort: 0, Readiness: 9, Impact: "", Category: "javascript-framework", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "javascript-framework",}, { Value: "knockout-js",}, { Value: "frontend",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "\"knockout\".*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "javascript-react-code", RuleType: "", Level: "", FileType: "(js$|ts$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of React JS", Effort: 0, Readiness: 9, Impact: "", Category: "javascript-framework", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "javascript-framework",}, { Value: "react-js",}, { Value: "frontend",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "React.Component", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import\\sReact\\sfrom\\s''react''", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "javascript-react-package", RuleType: "", Level: "", FileType: "(json$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of React JS", Effort: 0, Readiness: 9, Impact: "", Category: "javascript-framework", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "javascript-framework",}, { Value: "react-js",}, { Value: "frontend",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "\"react\".*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "javascript-vue-code", RuleType: "", Level: "", FileType: "(js$|vue$|html$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Vue JS", Effort: 0, Readiness: 9, Impact: "", Category: "javascript-framework", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "javascript-framework",}, { Value: "vue-js",}, { Value: "frontend",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "import.*from\\s''vue''", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "vue.js", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "new\\sVue\\s*[(]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "javascript-vue-package", RuleType: "", Level: "", FileType: "(json$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Vue JS", Effort: 0, Readiness: 9, Impact: "", Category: "javascript-framework", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "javascript-framework",}, { Value: "vue-js",}, { Value: "frontend",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "\"vue\".*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
             { Name: "js-bool-comparison", RuleType: "standard", Level: "", FileType: "js$", Target: "line", Type: "regex", DefaultPattern: "(!|=)=\\\\s+%s", Advice: "Boolean literals should be avoided in comparison expressions == and != to improve code readability.", Effort: 1, Readiness: 10, Impact: "", Category: "design", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "bool-compare",}, { Value: "readability",}, { Value: "container",}, { Value: "modernize",}, { Value: "frontend",}, },
@@ -4514,6 +5179,41 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "var", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
+            { Name: "dotnet-splunk", RuleType: "", Level: "", FileType: "(cs$|vb$|config$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Splunk", Effort: 0, Readiness: 9, Impact: "", Category: "logging", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "Splunk",}, { Value: "logging",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: ".*using\\sSplunk.Client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*http[s]*://.*splunk", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Splunk.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-splunk", RuleType: "", Level: "", FileType: "(java$|properties$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Splunk", Effort: 0, Readiness: 9, Impact: "", Category: "logging", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "splunk",}, { Value: "logging",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "com.splunk.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*Authorization.*Splunk", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(?i).*Splunk.*Log.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(?i).*Log.*Splunk.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(?i).*splunk_.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*http[s]*://.*splunk", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*Splunk.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*com.splunk.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
             { Name: "log2file-import", RuleType: "standard", Level: "", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Logging should be to console", Effort: 1, Readiness: 8, Impact: "", Category: "log2file", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "log2file",}, { Value: "logging",}, },
@@ -4553,30 +5253,256 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "property.filename", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-activemq", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: ".*[ .]%s[ (].*", Advice: "Remediate any persistence issues", Effort: 7, Readiness: 7, Impact: "", Category: "activemq", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "mainframe-code", RuleType: "", Level: "", FileType: "(cpy$|cob$|cbl$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Mainframe Code", Effort: 1000, Readiness: 9, Impact: "", Category: "mainframe", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "mainframe",}, { Value: "modernize",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: ".*DIVISION.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*DISPLAY.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*INSPECT.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*STOP RUN.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*PROGRAM-ID.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*[0-9][0-9]\\s.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-activemq", RuleType: "", Level: "", FileType: "(cs$|vb$|config$|csproj$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of ActiveMQ library in .NET project files and XML configuration settings.", Effort: 0, Readiness: 1, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "messaging",}, { Value: "activemq",}, { Value: ".NET",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "Apache.NMS.ActiveMQ", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Apache.NMS.AMQP", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "new NMSConnectionFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".NMSCorrelationID", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "new Uri\\(\"activemq:", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-apache-flume", RuleType: "", Level: "", FileType: "(cs$|vb$|csproj$|vbproj$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Direct usage of Apache Flume .NET Client APIs in .NET code, indicating logging and data forwarding to Flume.", Effort: 0, Readiness: 1, Impact: "", Category: "messasging", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "apache-flume",}, { Value: "messaging",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "ThriftFlumeEventServer.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".Append(FlumeEvent)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "new TSocket\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "new TProtocol\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "DotNetFlumeNG.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-apache-storm", RuleType: "", Level: "", FileType: "(cs$|vb$|csproj$|vbproj$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Integration with Apache Storm using the net-storm-multilang-adapter in .NET applications.", Effort: 0, Readiness: 1, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "messaging",}, { Value: "apache-storm",}, { Value: ".NET",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "StormAdapter", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "StormTuple", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "StormContext", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Storm.Adapter", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-azure-servicebus", RuleType: "", Level: "", FileType: "(cs$|vb$|csproj$|vbproj$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Azure Service Bus API usage in .NET code, including client creation and message operations.", Effort: 0, Readiness: 9, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "messaging",}, { Value: "azure-servicebus",}, { Value: ".NET",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "new ServiceBusClient", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".CreateSender", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "new ServiceBusMessage", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".SendMessageAsync", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".ReceiveMessageAsync\\(\\)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Azure.Messaging.ServiceBus", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-messaging-kafka-code", RuleType: "", Level: "", FileType: "(cs$|vb$|config$|csproj$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Detection of Kafka", Effort: 0, Readiness: 9, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "kafka",}, { Value: "messaging",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "Confluent.Kafka", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ProducerBuilder", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".ProduceAsync", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ProducerConfig", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ConsumerConfig", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ConsumerBuilder", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "DependentProducerBuilder", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "KafkaNet.Protocol", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "KafkaOptions", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ConsumerOptions", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-mulesoft", RuleType: "", Level: "", FileType: "(config$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Usage of Mulesoft", Effort: 0, Readiness: 9, Impact: "", Category: "api", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "api",}, { Value: "mulesoft",}, { Value: "api-gateway",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "RAML.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Raml.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "AMF.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-rabbitmq", RuleType: "", Level: "", FileType: "(cs$|vb$|config$|csproj$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Detection of rabbitmq", Effort: 0, Readiness: 1, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "rabbitmq",}, { Value: "messaging",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "RabbitMQ.Client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".BasicPublish", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".QueueDeclare", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-webspheremq", RuleType: "", Level: "", FileType: "(config$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Usage of Webpshere", Effort: 0, Readiness: 9, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "webspheremq",}, { Value: "messaging",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "amqmdnet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-activemq", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Remediate any persistence issues", Effort: 7, Readiness: 7, Impact: "", Category: "messaging", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "activemq",}, { Value: "message-queue",}, { Value: "messaging",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "createActiveMQConnection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import.*org.apache.activemq", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ActiveMQConnectionFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-jms", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ ({.].*", Advice: "Run embedded service broker as a JMS Provider.", Effort: 10, Readiness: 6, Impact: "", Category: "jms", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "java-apache-flink", RuleType: "", Level: "", FileType: "(java$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Direct usage of Apache Flink APIs in Java, focusing on data processing operations and environment setup.", Effort: 0, Readiness: 1, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
             Tags:
-            []Tag{  { Value: "jms",}, { Value: "message-queue",}, { Value: "messaging",}, { Value: "modernize",}, { Value: "container",}, },
+            []Tag{  { Value: "messaging",}, { Value: "apache-flink",}, { Value: "java",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "MessageConsumer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jms-listener", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "org.apache.flink.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".getExecutionEnvironment\\(\\)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".setStreamTimeCharacteristic\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.flink", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "flink-java", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "flink-clients", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-apache-flume", RuleType: "", Level: "", FileType: "(java$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Direct interaction with Apache Flume APIs in Java, focusing on event creation, agent configuration, and data transmission.", Effort: 0, Readiness: 1, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "logging",}, { Value: "apache-flume",}, { Value: "messaging",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "import org.apache.flume.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "new FlumeException", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "new SinkRunner", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "new ChannelProcessor", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.flume", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "flume-ng", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-apache-storm", RuleType: "", Level: "", FileType: "(java$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Direct interaction with Apache Storm APIs in Java, focusing on topology setup and stream processing.", Effort: 0, Readiness: 1, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "messaging",}, { Value: "apache-storm",}, { Value: "java",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: ".storm.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "new TopologyBuilder\\(\\)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".setSpout\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".setBolt\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".createTopology\\(\\)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.storm", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "storm-core", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-azure-servicebus", RuleType: "", Level: "", FileType: "(java$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Implementation of Azure Service Bus API in Java code.", Effort: 0, Readiness: 1, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "messaging",}, { Value: "azure-servicebus",}, { Value: "java",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "new ServiceBusClientBuilder\\(\\)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "new ServiceBusMessage", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ServiceBusMessageBatch", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ServiceBusReceivedMessageContext", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "azure-messaging-servicebus", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-jms", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Run embedded service broker as a JMS Provider.", Effort: 10, Readiness: 6, Impact: "", Category: "jms", Criticality: "medium",Container: 100, Cloud: 100,
+            Tags:
+            []Tag{  { Value: "jms",}, { Value: "message-queue",}, { Value: "messaging",}, { Value: "modernize",}, { Value: "container",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "import javax.jms", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MessageConsumer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jms-listener", Recipe: "", },
              { Type: "", Pattern: "", Value: "JMSException", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "BytesMessage", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "CompletionListener", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
@@ -4620,13 +5546,39 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "XATopicConnection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "XATopicConnectionFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "XATopicSession", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".createConsumer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".createProducer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "\\@JMSDestinationDefinition", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "JMSException", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-mqseries", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "You need to make sure that you are using the dependencies that match the version of IBM MQ on the server", Effort: 7, Readiness: 7, Impact: "", Category: "ibm-mq", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "java-kafka", RuleType: "", Level: "", FileType: "(java$|properties$|gradle$|xml$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Detection of Kafka", Effort: 0, Readiness: 1, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
             Tags:
-            []Tag{  { Value: "ibm-mq",}, { Value: "message-queue",}, { Value: "messaging",}, },
+            []Tag{  { Value: "messaging",}, { Value: "kafka",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "KafkaProducer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "KafkaConsumer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "KafkaListener", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ProducerRecord", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ProducerConfig", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ConsumerRecords", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import.*org.apache.kafka.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.kafka", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*org.apache.kafka.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*kafka-.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-mqseries", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "You need to make sure that you are using the dependencies that match the version of IBM MQ on the server", Effort: 7, Readiness: 7, Impact: "", Category: "ibmmq", Criticality: "medium",Container: 100, Cloud: 100,
+            Tags:
+            []Tag{  { Value: "ibmmq",}, { Value: "message-queue",}, { Value: "messaging",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
@@ -4664,19 +5616,75 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "MQSimpleConnectionManager", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "MQSubscription", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "MQTopic", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MQMessage", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MQException", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import.*com.ibm.mq.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-rabbitmq-import", RuleType: "standard", Level: "", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Make sure that configuration is Cloud friendly", Effort: 1, Readiness: 5, Impact: "", Category: "mq", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "java-msmq", RuleType: "", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "MSMQ API usage", Effort: 0, Readiness: 1, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "messaging",}, { Value: "msmq",}, { Value: "java",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "new MSMQQueueInfo", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "msmq.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MQACCESS.MQ_SEND_ACCESS", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MQSHARE.MQ_DENY_NONE", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-mulesoft", RuleType: "", Level: "", FileType: "(java$|cls$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Detection of Mulesoft Usage", Effort: 0, Readiness: 1, Impact: "", Category: "api", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "api",}, { Value: "mulesoft",}, { Value: "messaging",}, { Value: "streaming",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "com.mulesoft", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".mulesoft.com", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "www.mulesoft.org", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*mule-.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*org.mule.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-rabbitmq", RuleType: "standard", Level: "", FileType: "(jsp$|java$|xml$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Make sure that configuration is Cloud friendly", Effort: 1, Readiness: 5, Impact: "", Category: "mq", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "message-queue",}, { Value: "rabbitmq",}, { Value: "messaging",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "com.rabbitmq", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import.*com.rabbitmq.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "handleDelivery\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".basicConsume", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "<groupId>com.rabbitmq", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "python-activemq", RuleType: "", Level: "", FileType: "(py$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Import statements and specific usage of stomp.py and pyactivemq for ActiveMQ in Python code.", Effort: 0, Readiness: 1, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "messaging",}, { Value: "activemq",}, { Value: "python",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "import pyactivemq", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import stomp", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "os.getenv\\(\"ACTIVEMQ_", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stomp.Connection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "python-rabbitmq", RuleType: "standard", Level: "", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "RabbitMq messaging is used", Effort: 1, Readiness: 10, Impact: "", Category: "services", Criticality: "medium",Container: 100, Cloud: 100,
@@ -6765,6 +7773,21 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "Registry", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
+            { Name: "java-quartz", RuleType: "", Level: "", FileType: "(java$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Quartz Scheduling", Effort: 0, Readiness: 9, Impact: "", Category: "scheduling", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "quartz",}, { Value: "scheduler",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: ".*org.springframework.scheduling.quartz.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*org.quartz.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*spring-boot-starter-quartz*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
             { Name: "config-encryption", RuleType: "fire-once", Level: "", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Use of encrypted sections is problematic in cloud environments. Configurations should be externalized as environment variables instead of encrypting them in configuration file.", Effort: 300, Readiness: 0, Impact: "", Category: "security", Criticality: "",Container: 0, Cloud: 0,
             Tags:
             []Tag{  { Value: "security",}, { Value: "encryption",}, },
@@ -6791,6 +7814,49 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "/configuration/system.web/machineKey[contains(@validationKey, \"AutoGenerate\") or contains(@decryptionKey, \"AutoGenerate\")]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
+            { Name: "dotnet-dotnetopenauth-config", RuleType: "", Level: "", FileType: "(config$)", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Usage of Dotnet Open Auth", Effort: 0, Readiness: 9, Impact: "", Category: "authentication", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "oauth-authentication",}, { Value: "security",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "/configuration/dotNetOpenAuth", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "DotNetOpenAuth", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-oauth2", RuleType: "", Level: "", FileType: "(java$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of OAuth2", Effort: 0, Readiness: 9, Impact: "", Category: "authentication", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "authentication",}, { Value: "oauth",}, { Value: "security",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "import.*org.springframework.security.oauth2*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.security.oauth2.jwt.Jwt.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jwt-authentication", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring-boot-starter-oauth2.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring-security-oauth2-.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-saml", RuleType: "", Level: "", FileType: "(xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of SAML", Effort: 0, Readiness: 9, Impact: "", Category: "authentication", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "authentication",}, { Value: "saml",}, { Value: "security",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "opensaml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
             { Name: "xml-clientCert", RuleType: "standard", Level: "", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Avoid reliance on SSL", Effort: 5, Readiness: 10, Impact: "", Category: "security", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "certificate",}, { Value: "auth",}, { Value: "security",}, },
@@ -6815,6 +7881,56 @@ func BootstrapRules() []Rule {
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "<res-auth>Container</res-auth>", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-spring-boot-tomcat", RuleType: "", Level: "", FileType: "(xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Spring Boot Tomcat", Effort: 0, Readiness: 9, Impact: "", Category: "web-server", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "tomcat",}, { Value: "webserver",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "<artifactId>spring-boot-starter-web<\\/artifactId>", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "<artifactId>spring-boot-starter-tomcat<\\/artifactId>", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-spring-undertow", RuleType: "", Level: "", FileType: "(java$|yml$|yaml$|scala$|xml$|properties$)", Target: "line", Type: "regex", DefaultPattern: "(?i)%s", Advice: "Usage of spring undertow", Effort: 0, Readiness: 10, Impact: "", Category: "other", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "webserver",}, { Value: "spring-undertow",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "import.*io.*undertow", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-io-undertow-import", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.*undertow", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-io-undertow-detect", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import.*spring.*undertow", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-undertow-import", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring.*undertow", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-undertow-detect", Recipe: "", },
+             }, },
+        
+            { Name: "java-tomcat", RuleType: "", Level: "", FileType: "(xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Tomcat", Effort: 0, Readiness: 9, Impact: "", Category: "webserver", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "tomcat",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: ".*org.apache.catalina.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*org.apache.tomcat.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*tomcat-dbcp.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*tomcat-jdbc.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*tomcat-embed-jasper.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*tomcat-embed-core.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*tomcat-embed-websocket.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*tomcat7-maven-plugin.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "yaml-test", RuleType: "standard", Level: "", FileType: "(yaml|yml)$", Target: "file", Type: "yamlpath", DefaultPattern: "", Advice: "", Effort: 1000, Readiness: 10, Impact: "", Category: "", Criticality: "medium",Container: 100, Cloud: 100,

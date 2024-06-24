@@ -3,10 +3,10 @@ ruletype: standard
 criticality: medium
 cloud: 100
 container: 100
-filetype: java$
+filetype: (java$|xml$|gradle$)
 target: line
 type: regex
-defaultpattern: "^.*[ .]%s[ ({.<].*"
+defaultpattern: (%s)
 effort: 100
 readiness: 6
 advice: Make sure Cache instance is externalized
@@ -14,6 +14,7 @@ category: cache
 tags:
   - value: hazelcast
   - value: cache
+  - value: messaging
 patterns:
   - value: HazelcastInstance
   - value: NearCacheClientSupport
@@ -24,5 +25,8 @@ patterns:
   - value: setMapEvictionPolicy
   - value: MapEvictionPolicy
   - value: newHazelcastInstance
+  - value: import.*hazelcast.*
+  - value: com.hazelcast
 profiles:
   - value: cloud-suitability
+  - value: compass-discovery
