@@ -39,7 +39,7 @@
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.2.1" />
     <PackageReference Include="log4net" Version="2.0.10" />
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.Runtime.Caching" Version="4.5.0-rc1" />
     <PackageReference Include="System.Security.Permissions" Version="4.5.0" developmentDependency="true" />
   </ItemGroup>
