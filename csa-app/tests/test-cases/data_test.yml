@@ -3,76 +3,76 @@ category:
   - rules-directory: "rules"
     tests:
       - name: "DOTNET ActiveMQ - Code"
-        rule-name: dotnet-activemq
+        rule-name: dotnet-messaging
         test-filename: dotnet-messaging-activemq-code_test-sample.cs
-        assert: true
-        assert-count: 4
-        assert-value: "null"
-      - name: "DOTNET ActiveMQ - Package"
-        rule-name: dotnet-activemq
-        test-filename: dotnet-messaging-activemq-package_test-sample.csproj
         assert: true
         assert-count: 3
         assert-value: "null"
+      - name: "DOTNET ActiveMQ - Package"
+        rule-name: dotnet-messaging
+        test-filename: dotnet-messaging-activemq-package_test-sample.csproj
+        assert: true
+        assert-count: 4
+        assert-value: "null"
       - name: "JAVA MSMQ - Code"
-        rule-name: java-msmq
+        rule-name: java-messaging
         test-filename: java-messaging-msmq-code_test-sample.java
         assert: true
-        assert-count: 6
+        assert-count: 7
         assert-value: "null"
       - name: "PYTHON ActiveMQ - Code"
-        rule-name: python-activemq
+        rule-name: python-messaging
         test-filename: python-messaging-activemq-code_test-code.py
         assert: true
-        assert-count: 6
+        assert-count: 2
         assert-value: "null"
       - name: "DOTNET - Caching - Apache Geode - Code"
-        rule-name: dotnet-apache-geode
+        rule-name: dotnet-cache
         test-filename: dotnet-caching-apache-geode-code_test-sample.cs
         assert: true
         assert-count: 3
         assert-value: "null"
       - name: "DOTNET - Caching - Apache Geode - Package"
-        rule-name: dotnet-apache-geode
+        rule-name: dotnet-cache
         test-filename: dotnet-caching-apache-geode-package_test-sample.csproj
         assert: true
         assert-count: 2
         assert-value: "null"
       - name: "DOTNET - Databases - PostgreSQL - Code"
-        rule-name: dotnet-postgresql
+        rule-name: dotnet-rdbms-database
         test-filename: dotnet-database-postgresql-code_test-sample.cs
         assert: true
-        assert-count: 7
+        assert-count: 6
         assert-value: "null"
       - name: "DOTNET - Databases - PostgreSQL - Package"
-        rule-name: dotnet-postgresql
+        rule-name: dotnet-rdbms-database
         test-filename: dotnet-database-postgresql-package_test-sample.csproj
         assert: true
         assert-count: 1
         assert-value: "null"
       - name: "DOTNET - Messaging - Apache Flume - Package"
-        rule-name: dotnet-apache-flume
+        rule-name: dotnet-messaging
         test-filename: dotnet-messaging-apache-flume-package_test-sample.csproj
         assert: true
         assert-count: 3
         assert-value: "null"
       - name: "DOTNET - Messaging - Apache Flume - Code"
-        rule-name: dotnet-apache-flume
+        rule-name: dotnet-messaging
         test-filename: dotnet-messaging-apache-flume-code_test-sample.cs
         assert: true
-        assert-count: 2
+        assert-count: 6
         assert-value: "null"
       - name: "DOTNET - Messaging - Apache Storm - Package"
-        rule-name: dotnet-apache-storm
+        rule-name: dotnet-messaging
         test-filename: dotnet-messaging-apache-storm-package_test-sample.csproj
         assert: true
         assert-count: 3
         assert-value: "null"
       - name: "DOTNET - Messaging - Apache Storm - Code"
-        rule-name: dotnet-apache-storm
+        rule-name: dotnet-messaging
         test-filename: dotnet-messaging-apache-storm-code_test-sample.cs
         assert: true
-        assert-count: 6
+        assert-count: 8
         assert-value: "null"
       - name: "DOTNET - Messaging - Azure ServiceBus - Package"
         rule-name: dotnet-azure-servicebus
@@ -87,52 +87,52 @@ category:
         assert-count: 5
         assert-value: "null"
       - name: "JAVA - Caching - Apache Geode - Package"
-        rule-name: java-apache-geode
+        rule-name: java-cache
         test-filename: java-caching-apache-geode-package_test-sample.gradle
         assert: true
         assert-count: 3
         assert-value: "null"
       - name: "JAVA - Caching - Apache Geode - Code"
-        rule-name: java-apache-geode
+        rule-name: java-cache
         test-filename: java-caching-apache-geode-code_test-sample.java
         assert: true
         assert-count: 18
         assert-value: "null"
       - name: "JAVA - Messaging - Apache Flume - Package"
-        rule-name: java-apache-flume
+        rule-name: java-messaging
         test-filename: java-messaging-apache-flume-package_test-sample.xml
         assert: true
-        assert-count: 9
+        assert-count: 42
         assert-value: "null"
       - name: "JAVA - Messaging - Apache Flume - Code"
-        rule-name: java-apache-flume
+        rule-name: java-messaging
         test-filename: java-messaging-apache-flume-code_test-sample.java
         assert: true
         assert-count: 31
         assert-value: "null"
       - name: "JAVA - Messaging - Apache Flink - Package"
-        rule-name: java-apache-flink
+        rule-name: java-messaging
         test-filename: java-messaging-apache-flink-package_test-sample.xml
-        assert: true
-        assert-count: 24
-        assert-value: "null"
-      - name: "JAVA - Messaging - Apache Flink - Code"
-        rule-name: java-apache-flink
-        test-filename: java-messaging-apache-flink-code_test-sample.java
         assert: true
         assert-count: 34
         assert-value: "null"
+      - name: "JAVA - Messaging - Apache Flink - Code"
+        rule-name: java-messaging
+        test-filename: java-messaging-apache-flink-code_test-sample.java
+        assert: true
+        assert-count: 38
+        assert-value: "null"
       - name: "JAVA - Messaging - Apache Storm - Package"
-        rule-name: java-apache-storm
+        rule-name: java-messaging
         test-filename: java-messaging-apache-storm-package_test-sample.xml
         assert: true
-        assert-count: 11
+        assert-count: 19
         assert-value: "null"
       - name: "JAVA - Messaging - Apache Storm - Code"
-        rule-name: java-apache-storm
+        rule-name: java-messaging
         test-filename: java-messaging-apache-storm-code_test-sample.java
         assert: true
-        assert-count: 22
+        assert-count: 34
         assert-value: "null"
       - name: "JAVA - Messaging - Azure ServiceBus - Package"
         rule-name: java-azure-servicebus
@@ -171,40 +171,40 @@ category:
         assert-count: 6
         assert-value: "null"
       - name: "DOTNET - Cache - Hazelcast - Code"
-        rule-name: dotnet-hazelcast
+        rule-name: dotnet-cache
         test-filename: dotnet-hazelcast.cs
         assert: true
-        assert-count: 2
+        assert-count: 4
         assert-value: "null"
       - name: "DOTNET - Cache - Hazelcast - Package"
-        rule-name: dotnet-hazelcast
+        rule-name: dotnet-cache
         test-filename: dotnet-hazelcast-package.csproj
         assert: true
-        assert-count: 2
+        assert-count: 4
         assert-value: "null"
       - name: "JAVA - Cache - Spring Cache - Code"
-        rule-name: java-spring-cache
+        rule-name: java-cache
         test-filename: java-spring-cache.java
         assert: true
         assert-count: 1
         assert-value: "null"
       - name: "JAVA - Cache - Spring Cache - Package"
-        rule-name: java-spring-cache
+        rule-name: java-cache
         test-filename: java-spring-cache.xml
         assert: true
-        assert-count: 1
+        assert-count: 2
         assert-value: "null"
       - name: "JAVA - Cache - Redis - Code"
-        rule-name: redis-cache
+        rule-name: java-cache
         test-filename: java-cache-redis.java
         assert: true
-        assert-count: 10
+        assert-count: 21
         assert-value: "null"
       - name: "JAVA - Cache - Redis - Package"
-        rule-name: redis-cache
+        rule-name: java-cache
         test-filename: java-cache-redis.xml
         assert: true
-        assert-count: 2
+        assert-count: 3
         assert-value: "null"
       - name: "JAVA - Configuration - Zookeeper - Code"
         rule-name: apache-zookeeper

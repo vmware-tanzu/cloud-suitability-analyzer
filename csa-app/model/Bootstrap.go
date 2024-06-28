@@ -5,50 +5,269 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2024-06-24 18:02:36.94618 -0500 CDT m=+0.329531880
+//Created @ 2024-06-27 20:59:30.701427 -0500 CDT m=+0.241069717
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
         
-            { Name: "java-RDS-connection-string-user-password-properties", RuleType: "standard", Level: "Info", FileType: "properties$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "relational database service connection string, username or password are detected", Effort: 0, Readiness: 0, Impact: "", Category: "relational database service", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "java-glassfish-import", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Refer to Weblogic documentation", Effort: 100, Readiness: 10, Impact: "", Category: "app-web-server", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
-            []Tag{  { Value: "relational database service",}, { Value: "database",}, },
+            []Tag{  { Value: "glassfish",}, { Value: "container",}, { Value: "modernize",}, { Value: "weblogic",}, },
             Profiles:
-            []Profile{  { Value: "Azure Spring Apps",}, },
+            []Profile{  { Value: "cloud-suitability",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "(^|\\.|\\s)datasource\\.(.*\\.)?(url|jdbc-url|u\\-r\\-l)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "(^|\\.|\\s)datasource\\.(.*\\.)?(username|user|password)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "(^|\\.|\\s)r2dbc\\.url", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "(^|\\.|\\s)r2dbc\\.(username|password)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "(^|\\.|\\s)jdbc\\.url", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "(^|\\.|\\s)jdbc\\.(username|password)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "=\\s*jdbc:.+:.+", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "com.bea.common.security.xacml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "bea", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.bea.httppubsub", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "bea", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.bea.logging", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "bea", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.bea.security.saml2.providers", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "saml2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.bea.security.saml2.providers.registry", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "saml2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "oracle.ucp", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "oracle", Recipe: "", },
+             { Type: "", Pattern: "", Value: "oracle.ucp.jdbc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "oracle", Recipe: "", },
+             { Type: "", Pattern: "", Value: "oracle.ucp.jdbc.oracle", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "oracle", Recipe: "", },
+             { Type: "", Pattern: "", Value: "weblogic.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "weblogic", Recipe: "", },
+             { Type: "", Pattern: "", Value: "weblogicx.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "weblogic", Recipe: "", },
              }, },
         
-            { Name: "java-RDS-connection-string-user-password-yaml", RuleType: "standard", Level: "Info", FileType: "(yaml$|yml$|json$|jsn$)", Target: "contents", Type: "yamlpath", DefaultPattern: "", Advice: "relational database service connection string, username or password are detected", Effort: 0, Readiness: 0, Impact: "", Category: "relational database service", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "java-jboss", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(import)\\s+(%s)\\.{1}", Advice: "Convert to Spring based POJOs instead of using container specific functionality", Effort: 50, Readiness: 5, Impact: "", Category: "app-web-server", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
-            []Tag{  { Value: "relational database service",}, { Value: "database",}, },
+            []Tag{  { Value: "jboss",}, { Value: "migrate-off-legacy-server",}, { Value: "container",}, { Value: "modernize",}, },
             Profiles:
-            []Profile{  { Value: "Azure Spring Apps",}, },
+            []Profile{  { Value: "cloud-suitability",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "$..datasource.url", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "$..datasource.username", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "$..datasource.password", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "$..datasource[*][\"jdbc-url\",\"url\",\"u-r-l\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "$..datasource[*][\"username\",\"user\",\"password\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "$..r2dbc[\"url\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "$..r2dbc[\"username\",\"password\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "$..jdbc[\"url\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "$..jdbc[\"username\",\"password\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "$..[?(@=~/(?i)jdbc:.+:.+/)]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "org.jboss", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-jetty-import", RuleType: "standard", Level: "", FileType: "(jsp$|java$|xml$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Use Managed Executor", Effort: 1, Readiness: 10, Impact: "", Category: "app-web-server", Criticality: "medium",Container: 100, Cloud: 100,
+            Tags:
+            []Tag{  { Value: "threading",}, { Value: "jetty",}, { Value: "tas",}, { Value: "container",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "org.eclipse.jetty", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*org.mortbay.jetty.Server.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-spring-boot-tomcat", RuleType: "", Level: "", FileType: "(xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Spring Boot Tomcat", Effort: 0, Readiness: 9, Impact: "", Category: "app-web-server", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "tomcat",}, { Value: "webserver",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "<artifactId>spring-boot-starter-web<\\/artifactId>", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "<artifactId>spring-boot-starter-tomcat<\\/artifactId>", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-spring-undertow", RuleType: "", Level: "", FileType: "(java$|yml$|yaml$|scala$|xml$|properties$)", Target: "line", Type: "regex", DefaultPattern: "(?i)%s", Advice: "Usage of spring undertow", Effort: 0, Readiness: 10, Impact: "", Category: "other", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "app-web-server",}, { Value: "undertow",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "import.*io.*undertow", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-io-undertow-import", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.*undertow", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-io-undertow-detect", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import.*spring.*undertow", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-undertow-import", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring.*undertow", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-undertow-detect", Recipe: "", },
+             }, },
+        
+            { Name: "java-tomcat", RuleType: "", Level: "", FileType: "(xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Tomcat", Effort: 0, Readiness: 9, Impact: "", Category: "app-web-server", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "tomcat",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: ".*org.apache.catalina.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*org.apache.tomcat.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*tomcat-dbcp.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*tomcat-jdbc.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*tomcat-embed-jasper.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*tomcat-embed-core.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*tomcat-embed-websocket.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*tomcat7-maven-plugin.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-weblogic", RuleType: "standard", Level: "", FileType: "(java$|conf$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 100, Readiness: 10, Impact: "", Category: "app-web-server", Criticality: "medium",Container: 100, Cloud: 100,
+            Tags:
+            []Tag{  { Value: "weblogic",}, { Value: "container",}, { Value: "modernize",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "weblogic.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "WebLogicCluster", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.bea.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "oracle.ucp", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "weblogicx.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "websphere", RuleType: "standard", Level: "", FileType: "(java$|jacl$|jsp$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Vendor proprietary implementation.  Consider rearchitecting if decision is made to move off application server. Websphere clusters cannot run in K8S", Effort: 1, Readiness: 0, Impact: "", Category: "app-web-server", Criticality: "medium",Container: 100, Cloud: 100,
+            Tags:
+            []Tag{  { Value: "websphere",}, { Value: "modernize",}, { Value: "container",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "_CLUSTERS", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "getCallerList", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "getFirstCaller", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "getFirstServer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "getServerList", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "addPropagationAttribute", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "getPropagationAttributes", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "convertCookieStringToBytes", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "revokeSSOCookies", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "revokeSSOCookiesForPortlets", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "getLTPACookieFromSSOToken", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.websphere", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "websphere", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.axis2", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-axis2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.workplace.extension", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-workplace", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.isc.api.platform", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-isc", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.portal", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-portal", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.wsspi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "wsspi", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.tuscany.sca", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-tuscany", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.oasisopen.sca", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "oasisopen", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.osoa.sca", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "osao-sca", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.uddi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-uddi", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.ws", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-ws", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.ejs.ras", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-ejs-ras", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.ffdc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-ffdc", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.ras", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-ras", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.servlet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-servlet", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.etools", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-etools", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.jca", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-jca", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.webtools", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-webtools", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.wsdl", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-wsdl", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.wsif", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-wsif", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.xmlsoap.schemas.wsdl.wsadie.messages", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "soap-wsdl", Recipe: "", },
+             }, },
+        
+            { Name: "xml-jboss", RuleType: "standard", Level: "", FileType: "xml$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Application Server coupling", Effort: 50, Readiness: 5, Impact: "", Category: "app-web-server", Criticality: "medium",Container: 100, Cloud: 100,
+            Tags:
+            []Tag{  { Value: "jboss",}, { Value: "javaee",}, { Value: "container",}, { Value: "modernize",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "jaws.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jboss.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jbosscmp-jmodelc.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jboss-service.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jboss-web.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jboss-wsse-server.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "xml-tomcat", RuleType: "fire-once", Level: "", FileType: "xml$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Web Server coupling", Effort: 100, Readiness: 0, Impact: "", Category: "app-web-server", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "tomcat",}, { Value: "tas",}, { Value: "container",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "configure.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "context.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "server.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "xml-weblogic", RuleType: "standard", Level: "", FileType: "xml$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 700, Readiness: 700, Impact: "", Category: "app-web-server", Criticality: "medium",Container: 100, Cloud: 100,
+            Tags:
+            []Tag{  { Value: "weblogic",}, { Value: "container",}, { Value: "modernize",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "weblogic.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "weblogic-cmp-rmodelms-jar.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "weblogic-ejb-jar.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "weblogic-ra.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "persistence-configuration.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "weblogic-webservices.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "weblogic-wsee-clientHandlerChain.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "webservice-policy-ref.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "weblogic-wsee-standaloneclient.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "weblogic-application.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "1.2/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "1.3/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "1.4/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "1.5/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "1.6/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "1.7/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "1.8/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "1.9/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "xml-websphere", RuleType: "fire-once", Level: "", FileType: "xm[li]$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 500, Readiness: 1000, Impact: "", Category: "app-web-server", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "websphere",}, { Value: "full-profile",}, { Value: "container",}, { Value: "modernize",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "client-resource.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-application-bnd.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-application-bnd.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-application-client-bnd.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-application-client-bnd.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-application-client-ext.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-application-client-ext.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-application-ext.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-application-ext.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-ejb-access-bean.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-ejb-jar-bnd.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-ejb-jar-bnd.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-ejb-jar-ext.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-ejb-jar-ext.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-ejb-jar-ext-pme.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-ejb-jar-ext-pme.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-webservices-bnd.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-webservices-ext.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-web-bnd.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-web-bnd.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-web-ext.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-web-ext.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-web-ext-pme.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ibm-web-ext-pme.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "j2c_plugin.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "java-apm-dependency-maven", RuleType: "standard", Level: "Info", FileType: "xml$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "The application has integrated an Application Performance Management (APM) tool as a dependency", Effort: 0, Readiness: 0, Impact: "", Category: "apm", Criticality: "medium",Container: 100, Cloud: 100,
@@ -738,9 +957,9 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "<javac target=\"1.6\"", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-apache-geode", RuleType: "", Level: "", FileType: "(cs$|vb$|csproj$|vbproj$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Direct usage of Apache Geode .NET Client APIs in .NET code for data management and caching.", Effort: 0, Readiness: 1, Impact: "", Category: "caching", Criticality: "",Container: 0, Cloud: 0,
+            { Name: "dotnet-cache", RuleType: "standard", Level: "", FileType: "(cs$|vb$|config$|csproj$|json$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Migrate to VMware GemFire", Effort: 100, Readiness: 5, Impact: "", Category: "cache", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
-            []Tag{  { Value: "cache",}, { Value: "apache-geode",}, { Value: ".NET",}, },
+            []Tag{  { Value: "cache",}, },
             Profiles:
             []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
             Excludepatterns:
@@ -748,57 +967,71 @@ func BootstrapRules() []Rule {
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "Apache.Geode", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".CreateRegionFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".GetQueryService", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "Memcache", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "memcache", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Apache.Geode", Advice: "Direct usage of Apache Geode .NET Client APIs in .NET code for data management and caching.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-geode", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".CreateRegionFactory", Advice: "Direct usage of Apache Geode .NET Client APIs in .NET code for data management and caching.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-geode", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".GetQueryService", Advice: "Direct usage of Apache Geode .NET Client APIs in .NET code for data management and caching.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-geode", Recipe: "", },
+             { Type: "", Pattern: "", Value: "HazelcastClient", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hazelcast", Recipe: "", },
+             { Type: "", Pattern: "", Value: "HazelcastOptions", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hazelcast", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Hazelcast", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hazelcast", Recipe: "", },
              }, },
         
-            { Name: "dotnet-hazelcast", RuleType: "", Level: "", FileType: "(cs$|vb$|config$|csproj$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Usage of Hazelcast", Effort: 0, Readiness: 9, Impact: "", Category: "hazelcast", Criticality: "",Container: 0, Cloud: 0,
+            { Name: "dotnet-FileCacheModule", RuleType: "fire-once", Level: "", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "", Effort: 1000, Readiness: 5, Impact: "", Category: "caching", Criticality: "",Container: 0, Cloud: 0,
             Tags:
-            []Tag{  { Value: "hazelcast",}, { Value: "cache",}, },
+            []Tag{  { Value: "cache",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            []Profile{  { Value: "cloud-suitability",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "HazelcastClient", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "HazelcastOptions", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Hazelcast.Net", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "/configuration/location/system.webServer/serverRuntime[@frequentHitThreshold or @frequentHitTimePeriod][1]", Advice: "Caching should be managed externally. Relying on IIS Modules won't work in Linux environment. Alternatives are distributed cache solutions like Redis, SQL Server distributed cache, NCache distributed cache.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "/configuration/system.webServer/staticContent/clientCache[@cacheControlMode][1]", Advice: "Output cache profiles etc. via configuration.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "cache-control-mode", Recipe: "", },
              }, },
         
-            { Name: "java-apache-geode", RuleType: "", Level: "", FileType: "(java$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Direct usage of Apache Geode APIs in Java, focusing on region operations, client configurations, and data management.", Effort: 0, Readiness: 1, Impact: "", Category: "caching", Criticality: "",Container: 0, Cloud: 0,
+            { Name: "java-cache", RuleType: "standard", Level: "", FileType: "(java$|xml$|gradle$|properties$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Distributed caches must be remediated to function in K8S", Effort: 50, Readiness: 10, Impact: "", Category: "cache", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
-            []Tag{  { Value: "cache",}, { Value: "apache-geode",}, { Value: "java",}, },
+            []Tag{  { Value: "stateful",}, { Value: "cache",}, },
             Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            []Profile{  { Value: "cloud-suitability",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "org.apache.geode.cache.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "new ClientCacheFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "createClientRegionFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "clientRegionFactory.create", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.geode", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "geode-core", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-spring-cache", RuleType: "", Level: "", FileType: "(java$|xml$|gradle$|properties$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Caching", Effort: 0, Readiness: 9, Impact: "", Category: "caching", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "cache",}, { Value: "spring-boot",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: ".*spring-boot-starter-cache.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*spring.cache.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*org.springframework.cache.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "org.ehcache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ehcache", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.hazelcast", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hazelcast", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.ignite", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-ignite", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.infinispan", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "infinispan", Recipe: "", },
+             { Type: "", Pattern: "", Value: "net.spy.memcached", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "net-spy-memcached", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.tangosol", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "tangosol", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.commons-jcs-jcache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jcs-jcache", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.websphere.cache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "websphere-cache", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.jboss.ha.cachemanager", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jboss-ha-cachemanager", Recipe: "", },
+             { Type: "", Pattern: "", Value: "javax.cache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "javax-cache", Recipe: "", },
+             { Type: "", Pattern: "", Value: "net.spy.memcached", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "net-spy-memcached", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.opensymphony.oscache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "opensymphony-oscache", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.shiftone-cache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "shiftone-casche", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.websphere.objectgrid", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "websphere-objectgrid", Recipe: "", },
+             { Type: "", Pattern: "", Value: "getConfigurableCacheFactory", Advice: "Make sure its externalized and using Cloud Friendly cache implementation.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jcache", Recipe: "", },
+             { Type: "", Pattern: "", Value: "NamedCache", Advice: "Make sure its externalized and using Cloud Friendly cache implementation.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jcache", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ReflectionExtractor", Advice: "Make sure its externalized and using Cloud Friendly cache implementation.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jcache", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ChainedExtractor", Advice: "Make sure its externalized and using Cloud Friendly cache implementation.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jcache", Recipe: "", },
+             { Type: "", Pattern: "", Value: "javax.cache", Advice: "Make sure its externalized and using Cloud Friendly cache implementation.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jcache", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*spring-boot-starter-cache.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-boot-cache", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*spring.cache.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-boot-cache", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*org.springframework.cache.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-boot-cache", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.jackey", Advice: "Migrate to ValKey (Redis) tile or Tanzu Data Hub", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "redis", Recipe: "", },
+             { Type: "", Pattern: "", Value: "redis", Advice: "Migrate to ValKey (Redis) tile or Tanzu Data Hub", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "redis", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.lettuce", Advice: "Migrate to ValKey (Redis) tile or Tanzu Data Hub", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "redis", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Redis", Advice: "Migrate to ValKey (Redis) tile or Tanzu Data Hub", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "redis", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.geode.cache.*", Advice: "Direct usage of Apache Geode APIs in Java, focusing on region operations, client configurations, and data management.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-geode", Recipe: "", },
+             { Type: "", Pattern: "", Value: "new ClientCacheFactory", Advice: "Direct usage of Apache Geode APIs in Java, focusing on region operations, client configurations, and data management.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-geode", Recipe: "", },
+             { Type: "", Pattern: "", Value: "createClientRegionFactory", Advice: "Direct usage of Apache Geode APIs in Java, focusing on region operations, client configurations, and data management.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-geode", Recipe: "", },
+             { Type: "", Pattern: "", Value: "clientRegionFactory.create", Advice: "Direct usage of Apache Geode APIs in Java, focusing on region operations, client configurations, and data management.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-geode", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.geode", Advice: "Direct usage of Apache Geode APIs in Java, focusing on region operations, client configurations, and data management.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-geode", Recipe: "", },
+             { Type: "", Pattern: "", Value: "geode-core", Advice: "Direct usage of Apache Geode APIs in Java, focusing on region operations, client configurations, and data management.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-geode", Recipe: "", },
              }, },
         
             { Name: "python-db-redis", RuleType: "standard", Level: "", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Redis is being used", Effort: 1, Readiness: 10, Impact: "", Category: "cache", Criticality: "medium",Container: 100, Cloud: 100,
@@ -812,48 +1045,6 @@ func BootstrapRules() []Rule {
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "redis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "redis-cache", RuleType: "", Level: "", FileType: "(cs$|java$|py$|js$|yml$|yaml$|xml$|gradle$|scala$|ts$|config$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Redis Cache", Effort: 0, Readiness: 10, Impact: "", Category: "cache", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "cache",}, { Value: "redis",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "import.*JedisService", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "<groupId>redis.clients<\\/groupId>", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "java-redis-client-maven", Recipe: "", },
-             { Type: "", Pattern: "", Value: "<artifactId>jedis<\\/artifactId>", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "java-redis-client", Recipe: "", },
-             { Type: "", Pattern: "", Value: "redis.clients:jedis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "java-redis-client-gradle", Recipe: "", },
-             { Type: "", Pattern: "", Value: "import.*redis.clients.jedis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "import.*io.lettuce.core.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*org.springframework.data.redis.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "import.*redis.embedded.RedisServer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "import.*com.redis.{RedisClient", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "import.*com.redis.RedisCommand", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "<bean.*org.springframework.data.redis.connection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "JedisService", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "redis-kub-service", Recipe: "", },
-             { Type: "", Pattern: "", Value: "from ''redis''", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "PackageReference.*StackExchange.Redis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "redis-stack-dotnet", Recipe: "", },
-             { Type: "", Pattern: "", Value: "using.*StackExchange.Redis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "redis-stack-dotnet", Recipe: "", },
-             { Type: "", Pattern: "", Value: "redis.Redis\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "redis-stack-python", Recipe: "", },
-             { Type: "", Pattern: "", Value: "import.*redis", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "redis-stack-python", Recipe: "", },
-             }, },
-        
-            { Name: "xml-ehcache-Config", RuleType: "standard", Level: "", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider external cache provider", Effort: 50, Readiness: 10, Impact: "", Category: "cache", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "cache",}, { Value: "ehcache",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "ehcache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "tas-environment-cfenv-gradle", RuleType: "standard", Level: "", FileType: "gradle$", Target: "line", Type: "regex", DefaultPattern: "^.*%s", Advice: "Application appears to be using cf env library to inject environment variables provided by TAS.", Effort: 1, Readiness: 7, Impact: "", Category: "tas", Criticality: "medium",Container: 100, Cloud: 100,
@@ -1122,9 +1313,99 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: ".*openshift.io.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "SNAP-ETL-import", RuleType: "fire-once", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^import\\s*.*%s.*$", Advice: "Vendor specific integration implementation", Effort: 100, Readiness: 0, Impact: "", Category: "etl", Criticality: "",Container: 0, Cloud: 0,
+            { Name: "dotnet-nosql-database", RuleType: "standard", Level: "", FileType: "(cs$|vb$|config$|csproj$|json$)", Target: "line", Type: "regex", DefaultPattern: ".*(%s)", Advice: "", Effort: 100, Readiness: 5, Impact: "", Category: "database", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
-            []Tag{  { Value: "etl",}, { Value: "build-system",}, { Value: "database",}, },
+            []Tag{  { Value: "database",}, { Value: "nosql",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "Apache.Ignite", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-ignite", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Cassandra", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "cassandra", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*using\\s*GraphQL", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "graphql", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*GraphQL.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "graphql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MongoDB", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mongodb", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MongoDB.*", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mongodb", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.data.mongodb", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "nosql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "mongodb://", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "nosql", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-rdbms-database", RuleType: "standard", Level: "", FileType: "(cs$|vb$|config$|csproj$|json$)", Target: "line", Type: "regex", DefaultPattern: ".*(%s)", Advice: "", Effort: 100, Readiness: 5, Impact: "", Category: "database", Criticality: "medium",Container: 100, Cloud: 100,
+            Tags:
+            []Tag{  { Value: "database",}, { Value: "rdbms",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "ConnectionStrings", Advice: "Remove connection strings from files, use environment variables (or mount configmap into pod in a docker like environment)", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "configuration", Recipe: "", },
+             { Type: "", Pattern: "", Value: "connectionStrings", Advice: "Remove connection strings from files, use environment variables (or mount configmap into pod in a docker like environment)", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "configuration", Recipe: "", },
+             { Type: "", Pattern: "", Value: "IBM.Data.DB2", Advice: "IBM.Data.DB2 can require a special procedure so that the driver's native components are deployed with the application.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-db2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "SqlDataReader", Advice: "Leverage MySQL Tile or k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "SqlConnection", Advice: "Leverage MySQL Tile or k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "System.Data.SqlClient;", Advice: "Leverage MySQL Tile or k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "SqlCommand", Advice: "Leverage MySQL Tile or k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Microsoft.EntityFrameworkCore.SqlServer", Advice: "Leverage MySQL Tile or k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Microsoft.SqlServer.Server", Advice: "Leverage MySQL Tile or k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Microsoft.Data.SqlClient", Advice: "Leverage MySQL Tile or k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MySql", Advice: "Leverage MySQL Tile or k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Oracle.DataAccess", Advice: "Oracle unmanaged driver requires including binaries with app -- can use buildpack.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "oracle", Recipe: "", },
+             { Type: "", Pattern: "", Value: "NpgsqlConnection", Advice: "Direct usage of Npgsql for PostgreSQL database interactions in .NET code.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "postgresql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "NpgsqlCommand", Advice: "Direct usage of Npgsql for PostgreSQL database interactions in .NET code.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "postgresql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Npgsql", Advice: "Direct usage of Npgsql for PostgreSQL database interactions in .NET code.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "postgresql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "using Serilog.Sinks.Elasticsearch", Advice: "Make sure to have reachable ELK stack from deployed app", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "elasticsearch", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ElasticConfiguration", Advice: "Make sure to have reachable ELK stack from deployed app", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "elasticsearch", Recipe: "", },
+             }, },
+        
+            { Name: "java-RDS-connection-string-user-password-properties", RuleType: "standard", Level: "Info", FileType: "properties$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "relational database service connection string, username or password are detected. Migrate to Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Impact: "", Category: "relational database service", Criticality: "medium",Container: 100, Cloud: 100,
+            Tags:
+            []Tag{  { Value: "relational database service",}, { Value: "database",}, { Value: "rdbms",}, },
+            Profiles:
+            []Profile{  { Value: "Azure Spring Apps",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "(^|\\.|\\s)datasource\\.(.*\\.)?(url|jdbc-url|u\\-r\\-l)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)datasource\\.(.*\\.)?(username|user|password)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)r2dbc\\.url", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)r2dbc\\.(username|password)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)jdbc\\.url", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)jdbc\\.(username|password)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "=\\s*jdbc:.+:.+", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-RDS-connection-string-user-password-yaml", RuleType: "standard", Level: "Info", FileType: "(yaml$|yml$|json$|jsn$)", Target: "contents", Type: "yamlpath", DefaultPattern: "", Advice: "relational database service connection string, username or password are detected. Migrate to Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Impact: "", Category: "relational database service", Criticality: "medium",Container: 100, Cloud: 100,
+            Tags:
+            []Tag{  { Value: "relational database service",}, { Value: "database",}, { Value: "rdbms",}, },
+            Profiles:
+            []Profile{  { Value: "Azure Spring Apps",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "$..datasource.url", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..datasource.username", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..datasource.password", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..datasource[*][\"jdbc-url\",\"url\",\"u-r-l\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..datasource[*][\"username\",\"user\",\"password\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..r2dbc[\"url\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..r2dbc[\"username\",\"password\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..jdbc[\"url\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..jdbc[\"username\",\"password\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "$..[?(@=~/(?i)jdbc:.+:.+/)]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-in-memory-database", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "", Effort: 0, Readiness: 5, Impact: "", Category: "persistence", Criticality: "medium",Container: 100, Cloud: 100,
+            Tags:
+            []Tag{  { Value: "in-memory",}, { Value: "database",}, },
             Profiles:
             []Profile{  { Value: "cloud-suitability",}, },
             Excludepatterns:
@@ -1132,360 +1413,67 @@ func BootstrapRules() []Rule {
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "org.talend", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "talend", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: ".*hazelcast", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hazelcast", Recipe: "", },
+             }, },
+        
+            { Name: "java-nosql-database", RuleType: "standard", Level: "", FileType: "(java$|gradle$|xml$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Migrate to VMware GemFire", Effort: 10, Readiness: 5, Impact: "", Category: "database", Criticality: "medium",Container: 100, Cloud: 100,
+            Tags:
+            []Tag{  { Value: "database",}, { Value: "nosql",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "apache.ignite", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-ignite", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*org.apache.cassandra.*", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "cassandra", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.springframework.cassandra", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "cassandra", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*import\\s*graphql.*", Advice: "Usage of Graphql", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "graphql", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*com.graphql.*", Advice: "Usage of Graphql", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "graphql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "mongodb", Advice: "Migrate to VMware GemFire, Spring Data makes it easy to migrate to GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mongodb", Recipe: "", },
+             }, },
+        
+            { Name: "java-rdbms-database", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "", Effort: 0, Readiness: 5, Impact: "", Category: "persistence", Criticality: "medium",Container: 100, Cloud: 100,
+            Tags:
+            []Tag{  { Value: "rdbms",}, { Value: "database",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "org.springframework.jdbc", Advice: "Consult 3rd party documentation", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-jdbc", Recipe: "", },
+             { Type: "", Pattern: "", Value: "couchbase", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "couchbase", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:db2", Advice: "Detection of db2 Usage, use Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-db2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.db2.jcc.DB2Driver", Advice: "Detection of db2 Usage, use Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-db2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.db2", Advice: "Detection of db2 Usage, use Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-db2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "elasticsearch", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "elasticsearch", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*org.apache.hadoop.*", Advice: "Usage of Hadoop", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hadoop", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*hadoop-client.*", Advice: "Usage of Hadoop", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hadoop", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*hadoop-common.*", Advice: "Usage of Hadoop", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hadoop", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*hadoop-core.*", Advice: "Usage of Hadoop", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hadoop", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*hadoop-hdfs.*", Advice: "Usage of Hadoop", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hadoop", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*hazelcast", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hazelcast", Recipe: "", },
+             { Type: "", Pattern: "", Value: "mariadb", Advice: "Migrate to Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mariadb", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:sqlserver", Advice: "Detection of mssql Usage", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.microsoft.sqlserver.*", Advice: "Detection of mssql Usage", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "mysql", Advice: "Detection of MySQL Usage", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mysql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "oracle", Advice: "Migrate to Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "oracle", Recipe: "", },
+             { Type: "", Pattern: "", Value: "postgresql", Advice: "Leverage Postgres, Postgres Tile or k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "postgres", Recipe: "", },
+             { Type: "", Pattern: "", Value: "sqlite", Advice: "Detection of SQLite Usage", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "sqlite", Recipe: "", },
+             { Type: "", Pattern: "", Value: "sqlserver", Advice: "Migrate to Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "sqlserver", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.talend", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "talend", Recipe: "", },
              { Type: "", Pattern: "", Value: "oracle.odi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "oracle-odi", Recipe: "", },
              { Type: "", Pattern: "", Value: "com.ibm.is", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-is", Recipe: "", },
              { Type: "", Pattern: "", Value: "net.sf.jasper", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jasper", Recipe: "", },
              { Type: "", Pattern: "", Value: "org.pentaho", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "pentaho", Recipe: "", },
+             { Type: "", Pattern: "", Value: "StoredProcedureQuery", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jdbc", Recipe: "", },
+             { Type: "", Pattern: "", Value: "CallableStatement", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jdbc", Recipe: "", },
              }, },
         
-            { Name: "SNAP-SQL-properties", RuleType: "standard", Level: "", FileType: "properties$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Database coupling detected consider using ORM framework", Effort: 10, Readiness: 0, Impact: "", Category: "jdbc", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "jdbc",}, { Value: "sql",}, { Value: "database",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "StoredProcedureQuery", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "CallableStatement", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "SNAP-SQL", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Database coupling detected consider using ORM framework", Effort: 10, Readiness: 0, Impact: "", Category: "jdbc", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "jdbc",}, { Value: "sql",}, { Value: "database",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "StoredProcedureQuery", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "CallableStatement", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "dotnet-connectionstrings", RuleType: "standard", Level: "", FileType: "(json|property)", Target: "line", Type: "regex", DefaultPattern: ".*(%s)", Advice: "Remove connection strings from files, use environment variables (or mount configmap into pod in a docker like environment)", Effort: 10, Readiness: 5, Impact: "", Category: "connection-string", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "connection-string",}, { Value: "database",}, { Value: "configuration",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "ConnectionStrings", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "dotnet-db2-unmanaged", RuleType: "standard", Level: "", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*\\s*%s$", Advice: "Refer to platform documentation", Effort: 10, Readiness: 9, Impact: "", Category: "database", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "database",}, { Value: "ibm-db2",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "IBM.Data.DB2", Advice: "IBM.Data.DB2 can require a special procedure so that the driver's native components are deployed with the application.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "dotnet-serilog-elasticsearch", RuleType: "standard", Level: "", FileType: "(cs|yaml|yml|json)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Make sure to have reachable ELK stack from deployed app", Effort: 5, Readiness: 8, Impact: "", Category: "logging", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "elasticsearch",}, { Value: "logging",}, { Value: "database",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "using Serilog.Sinks.Elasticsearch", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ElasticConfiguration", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "dotnet-graphql", RuleType: "", Level: "", FileType: "(cs$|vb$|config$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Graphql", Effort: 0, Readiness: 9, Impact: "", Category: "api", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "graphql",}, { Value: "database",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: ".*using\\s*GraphQL", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*GraphQL.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "dotnet-ibm-mq", RuleType: "", Level: "", FileType: "(csproj$|config$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "IBM MQ", Effort: 0, Readiness: 9, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "messaging",}, { Value: "ibm-mq",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "amqmdnet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-mq-client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "dotnet-mongodb", RuleType: "", Level: "", FileType: "(cs$|vb$|config$|csproj$|json$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "mongodb usage", Effort: 0, Readiness: 1, Impact: "", Category: "database", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "database",}, { Value: "mongodb",}, { Value: "nosql",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "MongoDB.Driver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "IMongoCollection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MongoDB.Bson", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.springframework.data.mongodb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "mongodb://", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "dotnet-mssql", RuleType: "", Level: "", FileType: "(cs$|vb$|config$|csproj$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "mssql usage", Effort: 0, Readiness: 1, Impact: "", Category: "database", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "database",}, { Value: "mssql",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "SqlDataReader", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "SqlConnection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "System.Data.SqlClient;", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "SqlCommand", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Microsoft.EntityFrameworkCore.SqlServer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Microsoft.SqlServer.Server", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Microsoft.Data.SqlClient", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MySql.Data", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "dotnet-oracle-umanaged", RuleType: "standard", Level: "", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Oracle unmanaged driver requires including binaries with app", Effort: 3, Readiness: 8, Impact: "", Category: "database", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "database",}, { Value: "oracle",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "Oracle.DataAccess", Advice: "Oracle unmanaged driver requires including binaries with app -- can use buildpack.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "dotnet-oracle", RuleType: "", Level: "", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Oracle usage", Effort: 0, Readiness: 1, Impact: "", Category: "database", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "database",}, { Value: "oracle",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "Oracle.DataAccess", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Oracle.ManagedDataAccess", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "OracleConnection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "System.Data.OracleClient", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Oracle.EntityFrameworkCore", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Oracle.ManagedDataAccess.EntityFramework", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Oracle.ManagedDataAccess.Core", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "dotnet-postgresql", RuleType: "", Level: "", FileType: "(cs$|vb$|csproj$|vbproj$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Direct usage of Npgsql for PostgreSQL database interactions in .NET code.", Effort: 0, Readiness: 1, Impact: "", Category: "database", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "database",}, { Value: "postgresql",}, { Value: ".NET",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "NpgsqlConnection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "NpgsqlCommand", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "NpgsqlDataReader", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ExecuteNonQueryAsync\\(\\)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Npgsql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-mongo-cassandra", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(import)\\s+(%s)", Advice: "Application is using a non relational database or nosql", Effort: 0, Readiness: 9, Impact: "", Category: "springFramework", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "spring",}, { Value: "database",}, { Value: "tas",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: ".*import\\s.*cassandra.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*org.apache.cassandra.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*com.datastax.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*dse-java.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*PackageReference.*Cassandra.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.springframework.cassandra", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "cassandra", Recipe: "", },
-             }, },
-        
-            { Name: "java-db2", RuleType: "", Level: "", FileType: "(java$|properties$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Detection of db2 Usage", Effort: 0, Readiness: 1, Impact: "", Category: "database", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "db2",}, { Value: "database",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "jdbc:db2", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.ibm.db2.jcc.DB2Driver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.ibm.db2", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-graphql", RuleType: "", Level: "", FileType: "(java$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Graphql", Effort: 0, Readiness: 9, Impact: "", Category: "api", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "graphql",}, { Value: "database",}, },
-            Profiles:
-            []Profile{  { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: ".*import\\s*graphql.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*com.graphql.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-hadoop", RuleType: "", Level: "", FileType: "(java$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Hadoop", Effort: 0, Readiness: 9, Impact: "", Category: "web", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "hadoop",}, { Value: "distributed-data-processing",}, { Value: "database",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: ".*org.apache.hadoop.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*hadoop-client.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*hadoop-common.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*hadoop-core.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*hadoop-hdfs.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-mongo", RuleType: "standard", Level: "", FileType: "(java$|gradle$|xml$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Application is using a non relational database or nosql", Effort: 0, Readiness: 0, Impact: "", Category: "springFramework", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "spring",}, { Value: "database",}, { Value: "tas",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "import.*com.mongodb.client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MongoClients", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MongoDatabase", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MongoCollection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.springframework", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.springframework.mongo", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mongo", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.mongodb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "<artifactId>mongodb", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "mongo-java-driver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-mssql", RuleType: "", Level: "", FileType: "(java$|properties$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Detection of mssql Usage", Effort: 0, Readiness: 1, Impact: "", Category: "database", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "mssql",}, { Value: "database",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "jdbc:sqlserver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.microsoft.sqlserver.jdbc.SQLServerDriver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.microsoft.sqlserver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-mysql", RuleType: "", Level: "", FileType: "(java$|xml$|properties$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Detection of MongoDb Usage", Effort: 0, Readiness: 1, Impact: "", Category: "database", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "mysql",}, { Value: "database",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "com.mysql.jdbc.Driver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "jdbc:mysql://", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.mysql.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "jdbc:mysql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "<artifactId>mysql-", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "mysql:mysql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.springsource.com.mysql.jdbc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-oracle", RuleType: "", Level: "", FileType: "(java$|properties$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Detection of SQL Oracle Usage", Effort: 0, Readiness: 1, Impact: "", Category: "database", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "oracle",}, { Value: "database",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "oracle.jdbc.OracleDriver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "jdbc:oracle", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-postgres", RuleType: "", Level: "", FileType: "(java$|properties$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Detection of SQL Postgres Usage", Effort: 0, Readiness: 1, Impact: "", Category: "database", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "postgres",}, { Value: "database",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "org.postgresql.Driver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "jdbc:postgresql://", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.postgresql.Driver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "jdbc:postgresql", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-sqlite", RuleType: "", Level: "", FileType: "(java$|properties$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Detection of SQLite Usage", Effort: 0, Readiness: 1, Impact: "", Category: "database", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "sqlite",}, { Value: "database",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "jdbc:sqlite", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.sqlite.JDBC", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "sqlite-jdbc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "python-db-peewee", RuleType: "standard", Level: "", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Check target platform has support for this library", Effort: 1, Readiness: 10, Impact: "", Category: "database", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "python-database", RuleType: "standard", Level: "", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "", Effort: 1, Readiness: 10, Impact: "", Category: "database", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "peewee",}, { Value: "database",}, },
             Profiles:
@@ -1495,21 +1483,9 @@ func BootstrapRules() []Rule {
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "peewee", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "python-sqlite", RuleType: "standard", Level: "", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider migration to an external database.", Effort: 6, Readiness: 8, Impact: "", Category: "DatabaseAccess", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "database",}, { Value: "sqlite",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "sqlite", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "SqliteDatabase", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "peewee", Advice: "Check target platform has support for this library", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "peewee", Recipe: "", },
+             { Type: "", Pattern: "", Value: "sqlite", Advice: "Consider migration to an external database.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "sqlite", Recipe: "", },
+             { Type: "", Pattern: "", Value: "SqliteDatabase", Advice: "Consider migration to an external database.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "sqlite", Recipe: "", },
              }, },
         
             { Name: "sqlserver-ssis", RuleType: "fire-once", Level: "", FileType: "(dtsx$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "SSIS is not supported on CloudFoundry.", Effort: 100, Readiness: 0, Impact: "", Category: "Unsupported modules", Criticality: "",Container: 0, Cloud: 0,
@@ -1553,32 +1529,6 @@ func BootstrapRules() []Rule {
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "web.config", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "Web.config", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "dotnet-FileCacheModule", RuleType: "fire-once", Level: "", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Caching should be managed externally. Relying on IIS Modules won't work in Linux environment. Alternatives are distributed cache solutions like Redis, SQL Server distributed cache, NCache distributed cache.", Effort: 1000, Readiness: 5, Impact: "", Category: "caching", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "cache",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "/configuration/location/system.webServer/serverRuntime[@frequentHitThreshold or @frequentHitTimePeriod][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "dotnet-HttpCacheModule", RuleType: "fire-once", Level: "", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Output cache profiles etc. via configuration.", Effort: 1000, Readiness: 5, Impact: "", Category: "caching", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "cache-control-mode",}, { Value: "cache",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "/configuration/system.webServer/staticContent/clientCache[@cacheControlMode][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "dotnet-RequestFilteringModule", RuleType: "standard", Level: "", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Refer to platform documentation", Effort: 100, Readiness: 1, Impact: "", Category: "unsupported-iis-module", Criticality: "medium",Container: 100, Cloud: 100,
@@ -1632,49 +1582,6 @@ func BootstrapRules() []Rule {
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "/configuration/system.webServer/globalModules/add[@name=\"TokenCacheModule\"][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "dotnet-WindowsAuth-config", RuleType: "fire-once", Level: "", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Windows Integrated Authentication will be problematic in the cloud as containers won't be joining Windows Domains. Use another authentication mechanism more cloud friendly like SSO, LDAP Remote Calls, Local...", Effort: 500, Readiness: 1, Impact: "", Category: "Unsupported modules", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "windows-auth",}, { Value: "security",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "//system.webServer/security/authentication/windowsAuthentication[translate(@enabled, \"abcdefghijklmnopqrstuvwxyz\", \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\") = \"TRUE\"][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "/configuration/system.serviceModel/bindings//binding/security/transport[translate(@clientCredentialType, \"abcdefghijklmnopqrstuvwxyz\", \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\")=\"WINDOWS\"][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "/configuration/system.web/authentication[translate(@mode, \"abcdefghijklmnopqrstuvwxyz\", \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\")=\"WINDOWS\"][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "/configuration/connectionStrings/add[contains(translate(translate(@connectionString, \" \", \"\"), \"abcdefghijklmnopqrstuvwxyz\", \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\"), \"INTEGRATEDSECURITY=TRUE\")]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "dotnet-WindowsAuth-csvb", RuleType: "fire-once", Level: "", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Windows Integrated Authentication will be problematic in the cloud as containers won't be joining Windows Domains. Use another authentication mechanism more cloud friendly like SSO, LDAP Remote Calls, Local...", Effort: 500, Readiness: 1, Impact: "", Category: "Unsupported modules", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "windows-auth",}, { Value: "security",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "GetSection\\(system.webServer/security/authentication/windowsAuthentication", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "GetSection\\(\"system.webServer/security/authentication/windowsAuthentication", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "dotnet-database-access", RuleType: "standard", Level: "", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Remove connection strings from files, use environment variables (or mount configmap into pod in a docker like environment)", Effort: 100, Readiness: 10, Impact: "", Category: "database", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "database",}, { Value: "configuration",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "/configuration/connectionStrings[1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "dotnet-file-based-config", RuleType: "standard", Level: "", FileType: "cs", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Externalize configuration to environment or use ConfigMap as file-mount into a K8S pod", Effort: 10, Readiness: 3, Impact: "", Category: "env-config", Criticality: "medium",Container: 100, Cloud: 100,
@@ -1764,46 +1671,6 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "[\\s=]Process[.]Start[(\\s.]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: ".WaitForExit\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: ".new\\sProcess\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "dotnet-logging", RuleType: "standard", Level: "", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Logging to the Event Log is not recommended for cloud native apps. Write to or manage logfiles. Instead, each running process should write its event stream, unbuffered, to stdout. https://docs.lacunasoftware.com/en-us/articles/amplia/on-premises/windows/enable-stdout-log.html", Effort: 100, Readiness: 3, Impact: "", Category: "logging", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "logging",}, { Value: "eventlog",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "EventLogTraceListener", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "EventLog", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "dotnet-logging-config", RuleType: "standard", Level: "", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Logging to the Event Log is not recommended for cloud native apps. write to or manage logfiles. Instead, each running process should write its event stream, unbuffered, to stdout. https://docs.lacunasoftware.com/en-us/articles/amplia/on-premises/windows/enable-stdout-log.html", Effort: 100, Readiness: 5, Impact: "", Category: "logging", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "logging",}, { Value: "eventlog",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "/configuration/system.diagnostics/trace/listeners/add[@type=\"System.Diagnostics.EventLogTraceListener\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "dotnet-security", RuleType: "standard", Level: "", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Relying on Windows certificate stores is problematic in a cloud environment. Certificate stores could be shared via shared volume mounts. Ideally you should decouple certificates and SSL from your application. SSL could also be handled at the load balancer level.", Effort: 3, Readiness: 10, Impact: "", Category: "security", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "security",}, { Value: "certificate",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "X509Store", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "x509-store", Recipe: "", },
              }, },
         
             { Name: "dotnet-serilog", RuleType: "standard", Level: "", FileType: "cs$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Logging with Serilog. Make sure not to log to file. Remote logging sinks need to be reachable on network. Logging to the Event Log is not recommended for cloud native apps. Write to or manage logfiles. Instead, each running process should write its event stream, unbuffered, to stdout.", Effort: 3, Readiness: 8, Impact: "", Category: "logging", Criticality: "medium",Container: 100, Cloud: 100,
@@ -1905,19 +1772,6 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "mode=\"Transport\"", Advice: "Transport security at the container is not supported.  Disable transport security on the service", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-windows-application-domain", RuleType: "fire-once", Level: "", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Unsupported, For .NET Core, there is exactly one AppDomain. Isolation and unloading are provided through AssemblyLoadContext. Security boundaries should be provided by process boundaries and appropriate remoting techniques", Effort: 1000, Readiness: 9, Impact: "", Category: "windows-domain", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "app-domain",}, { Value: "security",}, { Value: "unsupported-netcore",}, { Value: "modernize",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "AppDomain.CreateDomain", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
             { Name: "dotnet-windows-code-access-security", RuleType: "standard", Level: "", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "unsupported", Effort: 10, Readiness: 9, Impact: "", Category: "security", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "security",}, },
@@ -1971,19 +1825,6 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "System.Windows.Forms", Advice: "Windows Forms module is not supported. Refactor to a web application.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-windowsPrincipal", RuleType: "standard", Level: "", FileType: "(cs$|vb$|csproj$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Operations requiring a Windows domain are not supported in a container like environment. Features relying on Windows authentication will be problematic if targeting linux environment.", Effort: 100, Readiness: 8, Impact: "", Category: "Unsupported modules", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "windows-principal",}, { Value: "windows-domain",}, { Value: "security",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "System.Security.Principal", Advice: "Operations requiring a Windows domain are not supported", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
             { Name: "dotnet-windowsRegistry", RuleType: "standard", Level: "", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: "^.*%s.*", Advice: "External configurations should be made available by environment variables or some another external service (Property Management Service).", Effort: 100, Readiness: 2, Impact: "", Category: "windows-registry", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "windows-registry",}, { Value: "configuration",}, },
@@ -2018,6 +1859,20 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: ".*System.ServiceProcess.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: ".*[.]UseWindowsService", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: ".*[.]ConfigureServices", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "java-apache-camel", RuleType: "", Level: "", FileType: "(java$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Apache Camel", Effort: 0, Readiness: 9, Impact: "", Category: "integration-framework", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "integration-framework",}, { Value: "apache-camel",}, { Value: "modernize",}, },
+            Profiles:
+            []Profile{  { Value: "compass-discovery",}, { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "import.*org.apache.camel.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.camel.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "mulesoft-config-raml", RuleType: "", Level: "", FileType: "(raml$|xml$|json$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Mulesoft", Effort: 0, Readiness: 9, Impact: "", Category: "api", Criticality: "",Container: 0, Cloud: 0,
@@ -2083,19 +1938,6 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "jboss-annotations-api_1.3_spec", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jboss-annotations-1-3", Recipe: "", },
              { Type: "", Pattern: "", Value: "jboss-servlet-api_4.0_spec", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jboss-servlet-4.0", Recipe: "", },
              { Type: "", Pattern: "", Value: "javax.enterprise.concurrent-api", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "javax-enterprise-concurrent", Recipe: "", },
-             }, },
-        
-            { Name: "bootJDBC", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Consult 3rd party documentation", Effort: 0, Readiness: 5, Impact: "", Category: "persistence", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "spring-boot",}, { Value: "jdbc",}, { Value: "container",}, { Value: "modernize",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "org.springframework.jdbc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-jdbc", Recipe: "", },
              }, },
         
             { Name: "bootJSF", RuleType: "standard", Level: "", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Automatic remediation with Bootifier", Effort: 2, Readiness: 2, Impact: "", Category: "jsf", Criticality: "medium",Container: 100, Cloud: 100,
@@ -2501,20 +2343,6 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "com.tfcci.ucs.manager", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-apache-camel", RuleType: "", Level: "", FileType: "(java$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Apache Camel", Effort: 0, Readiness: 9, Impact: "", Category: "integration-framework", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "integration-framework",}, { Value: "apache-camel",}, { Value: "modernize",}, },
-            Profiles:
-            []Profile{  { Value: "compass-discovery",}, { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "import.*org.apache.camel.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.camel.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
             { Name: "java-apache-poi", RuleType: "", Level: "", FileType: "(java$|py$|js$|ts$|yml$|yaml$|go$|rb$|scala$|xml$|properties$)", Target: "line", Type: "regex", DefaultPattern: "(?i)%s", Advice: "Usage of apache poi", Effort: 0, Readiness: 10, Impact: "", Category: "other", Criticality: "",Container: 0, Cloud: 0,
             Tags:
             []Tag{  { Value: "document",}, { Value: "apache-poi",}, },
@@ -2612,44 +2440,6 @@ func BootstrapRules() []Rule {
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "BatchProperty", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-cache-dist-import", RuleType: "standard", Level: "", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Distributed caches must be remediated to function in K8S", Effort: 50, Readiness: 10, Impact: "", Category: "distcache", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "stateful",}, { Value: "cache",}, { Value: "dist-cache",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "org.ehcache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ehcache", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.hazelcast", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hazelcast", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.ignite", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-ignite", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.infinispan", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "infinispan", Recipe: "", },
-             { Type: "", Pattern: "", Value: "net.spy.memcached", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "net-spy-memcached", Recipe: "", },
-             }, },
-        
-            { Name: "java-cache-import", RuleType: "standard", Level: "", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Cloud readiness issue as potential state information that is not persisted to a backing service", Effort: 50, Readiness: 10, Impact: "", Category: "nondistcache", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "cache",}, { Value: "non-dist-cache",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "com.tangosol", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "tangosol", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.commons-jcs-jcache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jcs-jcache", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.ibm.websphere.cache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "websphere-cache", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.jboss.ha.cachemanager", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jboss-ha-cachemanager", Recipe: "", },
-             { Type: "", Pattern: "", Value: "javax.cache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "javax-cache", Recipe: "", },
-             { Type: "", Pattern: "", Value: "net.spy.memcached", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "net-spy-memcached", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.opensymphony.oscache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "opensymphony-oscache", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.shiftone-cache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "shiftone-casche", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.ibm.websphere.objectgrid", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "websphere-objectgrid", Recipe: "", },
              }, },
         
             { Name: "java-corba", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: ".*[ .]%s[ (].*", Advice: "Replace with cloud-friendly framework or move to TKG", Effort: 10, Readiness: 6, Impact: "", Category: "corba", Criticality: "medium",Container: 100, Cloud: 100,
@@ -2760,19 +2550,6 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "WStringSeqHelper", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "WStringSeqHolder", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "WStringValueHelper", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-ehcache", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Consider to externalize cache if not already", Effort: 100, Readiness: 6, Impact: "", Category: "cache", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "cache",}, { Value: "ehcache",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "net.sf.ehcache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "java-ejb-invocation", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*@%s.*$", Advice: "Refer to platform documentation", Effort: 7, Readiness: 10, Impact: "", Category: "ejb", Criticality: "medium",Container: 100, Cloud: 100,
@@ -3078,28 +2855,6 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "file", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-glassfish-import", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Refer to Weblogic documentation", Effort: 100, Readiness: 10, Impact: "", Category: "oracle", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "glassfish",}, { Value: "container",}, { Value: "modernize",}, { Value: "weblogic",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "com.bea.common.security.xacml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "bea", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.bea.httppubsub", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "bea", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.bea.logging", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "bea", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.bea.security.saml2.providers", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "saml2", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.bea.security.saml2.providers.registry", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "saml2", Recipe: "", },
-             { Type: "", Pattern: "", Value: "oracle.ucp", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "oracle", Recipe: "", },
-             { Type: "", Pattern: "", Value: "oracle.ucp.jdbc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "oracle", Recipe: "", },
-             { Type: "", Pattern: "", Value: "oracle.ucp.jdbc.oracle", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "oracle", Recipe: "", },
-             { Type: "", Pattern: "", Value: "weblogic.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "weblogic", Recipe: "", },
-             { Type: "", Pattern: "", Value: "weblogicx.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "weblogic", Recipe: "", },
-             }, },
-        
             { Name: "java-handles-term", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*%s", Advice: "For containerization, the TERM signal must be handled, this pattern is a positive finding.", Effort: 1, Readiness: 6, Impact: "", Category: "term-signal", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "term",}, { Value: "container",}, { Value: "modernize",}, },
@@ -3111,29 +2866,6 @@ func BootstrapRules() []Rule {
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "Runtime.getRuntime().addShutdownHook", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-hazelcast", RuleType: "standard", Level: "", FileType: "(java$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Make sure Cache instance is externalized", Effort: 100, Readiness: 6, Impact: "", Category: "cache", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "hazelcast",}, { Value: "cache",}, { Value: "messaging",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "HazelcastInstance", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "NearCacheClientSupport", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Hazelcast", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "QueryCacheConfig", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "HazelcastClient", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "newHazelcastClient", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "setMapEvictionPolicy", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MapEvictionPolicy", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "newHazelcastInstance", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "import.*hazelcast.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.hazelcast", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "java-iop", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (.].*", Advice: "Remote Method Invocations create coupling between componets. Move to cloud friendly alternatives such as REST endpoints.", Effort: 3, Readiness: 6, Impact: "", Category: "iop", Criticality: "medium",Container: 100, Cloud: 100,
@@ -3177,19 +2909,6 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "com.sun.jersey", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jersey", Recipe: "", },
              }, },
         
-            { Name: "java-jboss", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(import)\\s+(%s)\\.{1}", Advice: "Convert to Spring based POJOs instead of using container specific functionality", Effort: 50, Readiness: 5, Impact: "", Category: "jboss", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "jboss",}, { Value: "migrate-off-legacy-server",}, { Value: "container",}, { Value: "modernize",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "org.jboss", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
             { Name: "java-jcaAnnotations", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*@%s$", Advice: "Convert to a cloud friendly backing service.", Effort: 100, Readiness: 7, Impact: "", Category: "jca", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "annotations",}, { Value: "jca",}, { Value: "container",}, { Value: "modernize",}, },
@@ -3205,22 +2924,6 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "ConnectionFactoryDefinitions", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-jcache", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ ({.<].*", Advice: "Make sure its externalized and using Cloud Friendly cache implementation.", Effort: 50, Readiness: 6, Impact: "", Category: "cache", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "cache",}, { Value: "jcache",}, { Value: "tas",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "getConfigurableCacheFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "NamedCache", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ReflectionExtractor", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ChainedExtractor", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
             { Name: "java-jersey-import", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Refer to 3rd party organization for cloud affinity of library", Effort: 5, Readiness: 8, Impact: "", Category: "jersey", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "jersey",}, { Value: "rest",}, { Value: "dependencies",}, },
@@ -3234,20 +2937,6 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "com.sun.jersey", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "jersey-.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "spring-boot-starter-jersey", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-jetty-import", RuleType: "standard", Level: "", FileType: "(jsp$|java$|xml$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Use Managed Executor", Effort: 1, Readiness: 10, Impact: "", Category: "threading", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "threading",}, { Value: "jetty",}, { Value: "tas",}, { Value: "container",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "org.eclipse.jetty", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*org.mortbay.jetty.Server.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "java-jks", RuleType: "standard", Level: "", FileType: "jks$", Target: "file", Type: "regex", DefaultPattern: "", Advice: "Make sure to externalize jks store", Effort: 7, Readiness: 7, Impact: "", Category: "security", Criticality: "medium",Container: 100, Cloud: 100,
@@ -4282,41 +3971,6 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "TransportGuarantee.CONFIDENTIAL", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-weblogic-import", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 100, Readiness: 10, Impact: "", Category: "oracle", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "weblogic",}, { Value: "container",}, { Value: "modernize",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "com.bea.common.security.xacml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "bea", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.bea.httppubsub", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "bea", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.bea.logging", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "bea", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.bea.security.saml2.providers", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "saml2", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.bea.security.saml2.providers.registry", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "saml2", Recipe: "", },
-             { Type: "", Pattern: "", Value: "oracle.ucp", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "oracle", Recipe: "", },
-             { Type: "", Pattern: "", Value: "oracle.ucp.jdbc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "oracle", Recipe: "", },
-             { Type: "", Pattern: "", Value: "oracle.ucp.jdbc.oracle", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "oracle", Recipe: "", },
-             { Type: "", Pattern: "", Value: "weblogic.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "weblogic", Recipe: "", },
-             { Type: "", Pattern: "", Value: "weblogicx.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "weblogic", Recipe: "", },
-             }, },
-        
-            { Name: "java-weblogic", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 50, Readiness: 10, Impact: "", Category: "webLogic", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "weblogic",}, { Value: "container",}, { Value: "modernize",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "weblogic.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
             { Name: "java-websockets-import", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^import\\s*%s.*", Advice: "Make sure that target platform supports websocket api", Effort: 100, Readiness: 100, Impact: "", Category: "websockets", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "web-socket",}, { Value: "io",}, { Value: "container",}, { Value: "modernize",}, },
@@ -4330,87 +3984,6 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "javax.websocket", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "javax.websocket.Endpoint", Advice: "", Effort: 100, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "io.vertx.core.http.ServerWebSocket;", Advice: "", Effort: 100, Readiness: 0, Criticality: "", Category: "", Tag: "vertx", Recipe: "", },
-             }, },
-        
-            { Name: "java-ws2liberty-import", RuleType: "standard", Level: "", FileType: "(jsp$|java$)", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "Vendor proprietary implementation.  Consider rearchitecting if decision is made to move off application server", Effort: 10, Readiness: 10, Impact: "", Category: "webSphere", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "websphere",}, { Value: "liberty",}, { Value: "container",}, { Value: "modernize",}, { Value: "tas",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "com.ibm.websphere", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "websphere", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.axis2", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-axis2", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.ibm.workplace.extension", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-workplace", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.ibm.isc.api.platform", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-isc", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.ibm.portal", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-portal", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.ibm.wsspi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "wsspi", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.tuscany.sca", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-tuscany", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.oasisopen.sca", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "oasisopen", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.osoa.sca", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "osao-sca", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.ibm.uddi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-uddi", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.ibm.ws", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-ws", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.ibm.ejs.ras", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-ejs-ras", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.ibm.ffdc", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-ffdc", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.ibm.ras", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-ras", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.ibm.servlet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-servlet", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.ibm.etools", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-etools", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.ibm.jca", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-jca", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.ibm.webtools", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-webtools", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.ibm.wsdl", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-wsdl", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.ibm.wsif", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-wsif", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.xmlsoap.schemas.wsdl.wsadie.messages", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "soap-wsdl", Recipe: "", },
-             }, },
-        
-            { Name: "java-ws2liberty-methods", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "Vendor proprietary implementation.  Consider rearchitecting if decision is made to move off application server", Effort: 10, Readiness: 10, Impact: "", Category: "webSphere", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "websphere",}, { Value: "liberty",}, { Value: "ltpa",}, { Value: "security",}, { Value: "container",}, { Value: "modernize",}, { Value: "tas",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "getCallerList", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "getFirstCaller", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "getFirstServer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "getServerList", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "addPropagationAttribute", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "getPropagationAttributes", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "convertCookieStringToBytes", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "revokeSSOCookies", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "revokeSSOCookiesForPortlets", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "getLTPACookieFromSSOToken", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "weblogic-cluster-config", RuleType: "fire-once", Level: "", FileType: "conf$", Target: "line", Type: "regex", DefaultPattern: "^%s.*", Advice: "Weblogic clusters cannot run in K8S", Effort: 1, Readiness: 0, Impact: "", Category: "wlcluster", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "wl-cluster",}, { Value: "modernize",}, { Value: "container",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "WebLogicCluster", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "websphere-cluster-jacl", RuleType: "standard", Level: "", FileType: "jacl$", Target: "line", Type: "regex", DefaultPattern: "^ *%s.*", Advice: "Websphere clusters cannot run in K8S", Effort: 1, Readiness: 0, Impact: "", Category: "wscluster", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "ws-cluster",}, { Value: "modernize",}, { Value: "container",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "_CLUSTERS", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "wsdl-soap", RuleType: "standard", Level: "", FileType: "wsdl$", Target: "file", Type: "regex", DefaultPattern: "", Advice: "Consider upgrading to cloud friendly communication protocol", Effort: 4, Readiness: 3, Impact: "", Category: "soap", Criticality: "medium",Container: 100, Cloud: 100,
@@ -4492,24 +4065,6 @@ func BootstrapRules() []Rule {
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "jsf/facelets", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "xml-jboss", RuleType: "standard", Level: "", FileType: "xml$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Application Server coupling", Effort: 50, Readiness: 5, Impact: "", Category: "Jboss", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "jboss",}, { Value: "javaee",}, { Value: "container",}, { Value: "modernize",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "jaws.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "entity-beans", Recipe: "", },
-             { Type: "", Pattern: "", Value: "jboss.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "jbosscmp-jmodelc.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "fullprofile", Recipe: "", },
-             { Type: "", Pattern: "", Value: "jboss-service.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "config", Recipe: "", },
-             { Type: "", Pattern: "", Value: "jboss-web.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "webapp", Recipe: "", },
-             { Type: "", Pattern: "", Value: "jboss-wsse-server.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "security", Recipe: "", },
              }, },
         
             { Name: "xml-jee", RuleType: "standard", Level: "", FileType: "xml$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Convert to Spring based application configuration or use importResource", Effort: 20, Readiness: 8, Impact: "", Category: "Config", Criticality: "medium",Container: 100, Cloud: 100,
@@ -4688,21 +4243,6 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "myfaces.apache.org/tomahawk", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-tomcat", RuleType: "fire-once", Level: "", FileType: "xml$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Web Server coupling", Effort: 100, Readiness: 0, Impact: "", Category: "Tomcat", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "tomcat",}, { Value: "tas",}, { Value: "container",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "configure.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "context.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "server.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
             { Name: "xml-transportSecurity", RuleType: "standard", Level: "", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Application Server coupling", Effort: 2, Readiness: 10, Impact: "", Category: "security", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "security",}, { Value: "web-app",}, },
@@ -4729,36 +4269,6 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "myfaces.apache.org/trinidad/config", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "xml-weblogic", RuleType: "standard", Level: "", FileType: "xml$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 700, Readiness: 700, Impact: "", Category: "webLogic", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "weblogic",}, { Value: "full-profile",}, { Value: "container",}, { Value: "modernize",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "weblogic.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "weblogic-cmp-rmodelms-jar.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "weblogic-ejb-jar.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "weblogic-ra.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "persistence-configuration.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "weblogic-webservices.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "weblogic-wsee-clientHandlerChain.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "webservice-policy-ref.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "weblogic-wsee-standaloneclient.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "weblogic-application.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "1.2/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "1.3/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "1.4/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "1.5/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "1.6/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "1.7/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "1.8/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "1.9/weblogic-web-app.xsd", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
             { Name: "xml-webprofile", RuleType: "standard", Level: "", FileType: "xml$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 50, Readiness: 1000, Impact: "", Category: "config", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "web-profile",}, { Value: "container",}, { Value: "modernize",}, },
@@ -4772,43 +4282,6 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "persistence.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jpa", Recipe: "", },
              { Type: "", Pattern: "", Value: "web.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "webapp", Recipe: "", },
              { Type: "", Pattern: "", Value: "applicationContext.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "file-system-xml-application-context", Recipe: "", },
-             }, },
-        
-            { Name: "xml-websphere", RuleType: "fire-once", Level: "", FileType: "xm[li]$", Target: "file", Type: "simple-text", DefaultPattern: "", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 500, Readiness: 1000, Impact: "", Category: "webSphere", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "websphere",}, { Value: "full-profile",}, { Value: "container",}, { Value: "modernize",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "client-resource.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-application-bnd.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-application-bnd.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-application-client-bnd.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-application-client-bnd.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-application-client-ext.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-application-client-ext.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-application-ext.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-application-ext.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-ejb-access-bean.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-ejb-jar-bnd.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-ejb-jar-bnd.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-ejb-jar-ext.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-ejb-jar-ext.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-ejb-jar-ext-pme.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-ejb-jar-ext-pme.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-webservices-bnd.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-webservices-ext.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-web-bnd.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-web-bnd.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-web-ext.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-web-ext.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-web-ext-pme.xmi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ibm-web-ext-pme.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "j2c_plugin.xml", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "xml-xa-dataSource", RuleType: "fire-once", Level: "", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Consider rearchitecting if decision is made to move off application server", Effort: 1000, Readiness: 10, Impact: "", Category: "datasource", Criticality: "",Container: 0, Cloud: 0,
@@ -5179,6 +4652,33 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "var", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
+            { Name: "dotnet-logging", RuleType: "standard", Level: "", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Logging to the Event Log is not recommended for cloud native apps. Write to or manage logfiles. Instead, each running process should write its event stream, unbuffered, to stdout. https://docs.lacunasoftware.com/en-us/articles/amplia/on-premises/windows/enable-stdout-log.html", Effort: 100, Readiness: 3, Impact: "", Category: "logging", Criticality: "medium",Container: 100, Cloud: 100,
+            Tags:
+            []Tag{  { Value: "logging",}, { Value: "eventlog",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "EventLogTraceListener", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "EventLog", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-logging-config", RuleType: "standard", Level: "", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Logging to the Event Log is not recommended for cloud native apps. write to or manage logfiles. Instead, each running process should write its event stream, unbuffered, to stdout. https://docs.lacunasoftware.com/en-us/articles/amplia/on-premises/windows/enable-stdout-log.html", Effort: 100, Readiness: 5, Impact: "", Category: "logging", Criticality: "medium",Container: 100, Cloud: 100,
+            Tags:
+            []Tag{  { Value: "logging",}, { Value: "eventlog",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "/configuration/system.diagnostics/trace/listeners/add[@type=\"System.Diagnostics.EventLogTraceListener\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
             { Name: "dotnet-splunk", RuleType: "", Level: "", FileType: "(cs$|vb$|config$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Splunk", Effort: 0, Readiness: 9, Impact: "", Category: "logging", Criticality: "",Container: 0, Cloud: 0,
             Tags:
             []Tag{  { Value: "Splunk",}, { Value: "logging",}, },
@@ -5271,56 +4771,6 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: ".*[0-9][0-9]\\s.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-activemq", RuleType: "", Level: "", FileType: "(cs$|vb$|config$|csproj$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of ActiveMQ library in .NET project files and XML configuration settings.", Effort: 0, Readiness: 1, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "messaging",}, { Value: "activemq",}, { Value: ".NET",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "Apache.NMS.ActiveMQ", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Apache.NMS.AMQP", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "new NMSConnectionFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".NMSCorrelationID", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "new Uri\\(\"activemq:", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "dotnet-apache-flume", RuleType: "", Level: "", FileType: "(cs$|vb$|csproj$|vbproj$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Direct usage of Apache Flume .NET Client APIs in .NET code, indicating logging and data forwarding to Flume.", Effort: 0, Readiness: 1, Impact: "", Category: "messasging", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "apache-flume",}, { Value: "messaging",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "ThriftFlumeEventServer.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".Append(FlumeEvent)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "new TSocket\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "new TProtocol\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "DotNetFlumeNG.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "dotnet-apache-storm", RuleType: "", Level: "", FileType: "(cs$|vb$|csproj$|vbproj$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Integration with Apache Storm using the net-storm-multilang-adapter in .NET applications.", Effort: 0, Readiness: 1, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "messaging",}, { Value: "apache-storm",}, { Value: ".NET",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "StormAdapter", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "StormTuple", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "StormContext", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Storm.Adapter", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
             { Name: "dotnet-azure-servicebus", RuleType: "", Level: "", FileType: "(cs$|vb$|csproj$|vbproj$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Azure Service Bus API usage in .NET code, including client creation and message operations.", Effort: 0, Readiness: 9, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
             Tags:
             []Tag{  { Value: "messaging",}, { Value: "azure-servicebus",}, { Value: ".NET",}, },
@@ -5339,9 +4789,9 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "Azure.Messaging.ServiceBus", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "dotnet-messaging-kafka-code", RuleType: "", Level: "", FileType: "(cs$|vb$|config$|csproj$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Detection of Kafka", Effort: 0, Readiness: 9, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
+            { Name: "dotnet-messaging", RuleType: "", Level: "", FileType: "(cs$|vb$|config$|csproj$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "", Effort: 5, Readiness: 1, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
             Tags:
-            []Tag{  { Value: "kafka",}, { Value: "messaging",}, },
+            []Tag{  { Value: "messaging",}, { Value: ".NET",}, },
             Profiles:
             []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
             Excludepatterns:
@@ -5349,16 +4799,21 @@ func BootstrapRules() []Rule {
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "Confluent.Kafka", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ProducerBuilder", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".ProduceAsync", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ProducerConfig", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ConsumerConfig", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ConsumerBuilder", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "DependentProducerBuilder", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "KafkaNet.Protocol", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "KafkaOptions", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ConsumerOptions", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "Apache.NMS.*", Advice: "Usage of ActiveMQ library in .NET project files and XML configuration settings. Migrate to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "activemq", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*Flume.*", Advice: "Direct usage of Apache Flume .NET Client APIs in .NET code, indicating logging and data forwarding to Flume.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-flume", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Storm.*", Advice: "Integration with Apache Storm using the net-storm-multilang-adapter in .NET applications.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-storm", Recipe: "", },
+             { Type: "", Pattern: "", Value: "IBMMQ", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-mq", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Msmq", Advice: "MSMQ is a proprietary Windows server-based messaging solution that is not supported by Linux based containers. Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "msmq", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Kafka", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "kafka", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Solace", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "solace", Recipe: "", },
+             { Type: "", Pattern: "", Value: "MassTransit", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator. Out of box support for RabbitMQ", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "masstransit", Recipe: "", },
+             { Type: "", Pattern: "", Value: "NServiceBus", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator. Out of box support for RabbitMQ", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "nservicebus", Recipe: "", },
+             { Type: "", Pattern: "", Value: "DotPulsar", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-pulsar", Recipe: "", },
+             { Type: "", Pattern: "", Value: "rocketmq", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "rocketmq", Recipe: "", },
+             { Type: "", Pattern: "", Value: "zeromq", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "zeromq", Recipe: "", },
+             { Type: "", Pattern: "", Value: "NATS.*", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "nats", Recipe: "", },
+             { Type: "", Pattern: "", Value: "RabbitMQ", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "rabbitmq", Recipe: "", },
+             { Type: "", Pattern: "", Value: "amqmdnet", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "webspheremq", Recipe: "", },
              }, },
         
             { Name: "dotnet-mulesoft", RuleType: "", Level: "", FileType: "(config$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Usage of Mulesoft", Effort: 0, Readiness: 9, Impact: "", Category: "api", Criticality: "",Container: 0, Cloud: 0,
@@ -5374,104 +4829,6 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "RAML.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "Raml.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "AMF.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "dotnet-rabbitmq", RuleType: "", Level: "", FileType: "(cs$|vb$|config$|csproj$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Detection of rabbitmq", Effort: 0, Readiness: 1, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "rabbitmq",}, { Value: "messaging",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "RabbitMQ.Client", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".BasicPublish", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".QueueDeclare", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "dotnet-webspheremq", RuleType: "", Level: "", FileType: "(config$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Usage of Webpshere", Effort: 0, Readiness: 9, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "webspheremq",}, { Value: "messaging",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "amqmdnet", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-activemq", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Remediate any persistence issues", Effort: 7, Readiness: 7, Impact: "", Category: "messaging", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "activemq",}, { Value: "message-queue",}, { Value: "messaging",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "createActiveMQConnection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "import.*org.apache.activemq", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ActiveMQConnectionFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-apache-flink", RuleType: "", Level: "", FileType: "(java$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Direct usage of Apache Flink APIs in Java, focusing on data processing operations and environment setup.", Effort: 0, Readiness: 1, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "messaging",}, { Value: "apache-flink",}, { Value: "java",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "org.apache.flink.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".getExecutionEnvironment\\(\\)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".setStreamTimeCharacteristic\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.flink", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "flink-java", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "flink-clients", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-apache-flume", RuleType: "", Level: "", FileType: "(java$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Direct interaction with Apache Flume APIs in Java, focusing on event creation, agent configuration, and data transmission.", Effort: 0, Readiness: 1, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "logging",}, { Value: "apache-flume",}, { Value: "messaging",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "import org.apache.flume.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "new FlumeException", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "new SinkRunner", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "new ChannelProcessor", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.flume", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "flume-ng", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-apache-storm", RuleType: "", Level: "", FileType: "(java$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Direct interaction with Apache Storm APIs in Java, focusing on topology setup and stream processing.", Effort: 0, Readiness: 1, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "messaging",}, { Value: "apache-storm",}, { Value: "java",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: ".storm.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "new TopologyBuilder\\(\\)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".setSpout\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".setBolt\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".createTopology\\(\\)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.storm", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "storm-core", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "java-azure-servicebus", RuleType: "", Level: "", FileType: "(java$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Implementation of Azure Service Bus API in Java code.", Effort: 0, Readiness: 1, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
@@ -5491,9 +4848,9 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "azure-messaging-servicebus", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-jms", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Run embedded service broker as a JMS Provider.", Effort: 10, Readiness: 6, Impact: "", Category: "jms", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "java-messaging", RuleType: "standard", Level: "", FileType: "(java$|gradle$|yml$|properties$|xml$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Remediate any persistence issues", Effort: 7, Readiness: 7, Impact: "", Category: "messaging", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
-            []Tag{  { Value: "jms",}, { Value: "message-queue",}, { Value: "messaging",}, { Value: "modernize",}, { Value: "container",}, },
+            []Tag{  { Value: "messaging",}, },
             Profiles:
             []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
             Excludepatterns:
@@ -5501,140 +4858,34 @@ func BootstrapRules() []Rule {
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "import javax.jms", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MessageConsumer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jms-listener", Recipe: "", },
-             { Type: "", Pattern: "", Value: "JMSException", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "BytesMessage", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "CompletionListener", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ConnectionConsumer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ConnectionFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ConnectionMetaData", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "DeliveryMode", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ExceptionListener", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "JMSConsumer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "JMSContext", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "JMSProducer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MapMessage", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MessageConsumer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MessageListener", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MessageProducer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ObjectMessage", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "QueueBrowser", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "QueueConnection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "QueueConnectionFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "QueueReceiver", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "QueueSender", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "QueueSession", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ServerSession", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ServerSessionPool", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "StreamMessage", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "TemporaryQueue", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "TemporaryTopic", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "TextMessage", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "TopicConnection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "topic", Recipe: "", },
-             { Type: "", Pattern: "", Value: "TopicConnectionFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "TopicPublisher", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "TopicSession", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "TopicSubscriber", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "XAConnection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "XAConnectionFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "XAJMSContext", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "XAQueueConnection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "XAQueueConnectionFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "XAQueueSession", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "XASession", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "xa", Recipe: "", },
-             { Type: "", Pattern: "", Value: "XATopicConnection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "XATopicConnectionFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "XATopicSession", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".createConsumer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".createProducer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "\\@JMSDestinationDefinition", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "JMSException", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-kafka", RuleType: "", Level: "", FileType: "(java$|properties$|gradle$|xml$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Detection of Kafka", Effort: 0, Readiness: 1, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "messaging",}, { Value: "kafka",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "KafkaProducer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "KafkaConsumer", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "KafkaListener", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ProducerRecord", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ProducerConfig", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ConsumerRecords", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "import.*org.apache.kafka.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.apache.kafka", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*org.apache.kafka.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*kafka-.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-mqseries", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "^.*[ .]%s[ (].*", Advice: "You need to make sure that you are using the dependencies that match the version of IBM MQ on the server", Effort: 7, Readiness: 7, Impact: "", Category: "ibmmq", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "ibmmq",}, { Value: "message-queue",}, { Value: "messaging",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "MQQueueConnectionFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "WMQConstants", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQReceiveExit", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQSecurityExit", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQSendExit", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQAsyncStatus", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQChannelDefinition", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQChannelExit", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQConnectionSecurityParameters", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQDestination", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQDistributionList", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQDistributionListItem", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQEnvironment", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQExitChain", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQExternalReceiveExit", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQExternalSecurityExit", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQExternalSendExit", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQExternalUserExit", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQGetMessageOptions", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQJavaLevel", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQManagedObject", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQMessageTracker", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQPoolToken", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQPropertyDescriptor", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQPutMessageOptions", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQQueue", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQQueueManager", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQReceiveExitChain", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQSendExitChain", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQSimpleConnectionManager", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQSubscription", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQTopic", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQMessage", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQException", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "import.*com.ibm.mq.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-msmq", RuleType: "", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "MSMQ API usage", Effort: 0, Readiness: 1, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "messaging",}, { Value: "msmq",}, { Value: "java",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "new MSMQQueueInfo", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "msmq.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQACCESS.MQ_SEND_ACCESS", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MQSHARE.MQ_DENY_NONE", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "amq:broker", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "activemq", Recipe: "", },
+             { Type: "", Pattern: "", Value: "createActiveMQConnection", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "activemq", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import.*org.apache.activemq", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "activemq", Recipe: "", },
+             { Type: "", Pattern: "", Value: "new NMSConnectionFactory", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "activemq", Recipe: "", },
+             { Type: "", Pattern: "", Value: "NMSCorrelationID", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "activemq", Recipe: "", },
+             { Type: "", Pattern: "", Value: "new Uri\\(\"activemq:", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "activemq", Recipe: "", },
+             { Type: "", Pattern: "", Value: "ActiveMQConnectionFactory", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "activemq", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.flink.*", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-flink", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".getExecutionEnvironment\\(\\)", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-flink", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".setStreamTimeCharacteristic\\(", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-flink", Recipe: "", },
+             { Type: "", Pattern: "", Value: "flink*", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-flink", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.flume.*", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-flume", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*Flume*", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-flume", Recipe: "", },
+             { Type: "", Pattern: "", Value: "flume-*", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-flume", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".storm.", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-storm", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.apache.storm", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-storm", Recipe: "", },
+             { Type: "", Pattern: "", Value: "storm-*", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-storm", Recipe: "", },
+             { Type: "", Pattern: "", Value: "javax.jms", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jms", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*QueueConnectionFactory.*", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jms", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*TopicConnectionFactory.*", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jms", Recipe: "", },
+             { Type: "", Pattern: "", Value: "kafka", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "kafka", Recipe: "", },
+             { Type: "", Pattern: "", Value: "spring-kafka", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "kafka", Recipe: "", },
+             { Type: "", Pattern: "", Value: "io.nats", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "nats", Recipe: "", },
+             { Type: "", Pattern: "", Value: "pulsar", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-pulsar", Recipe: "", },
+             { Type: "", Pattern: "", Value: "import.*com.ibm.mq.*", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibmmq", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*MQ.*", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibmmq", Recipe: "", },
+             { Type: "", Pattern: "", Value: "msmq.", Advice: "MSMQ is a proprietary Windows server-based messaging solution that is not supported by Linux based containers. Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "msmq", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.rabbitmq", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "rabbitmq", Recipe: "", },
              }, },
         
             { Name: "java-mulesoft", RuleType: "", Level: "", FileType: "(java$|cls$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Detection of Mulesoft Usage", Effort: 0, Readiness: 1, Impact: "", Category: "api", Criticality: "",Container: 0, Cloud: 0,
@@ -5654,9 +4905,9 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: ".*org.mule.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
-            { Name: "java-rabbitmq", RuleType: "standard", Level: "", FileType: "(jsp$|java$|xml$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Make sure that configuration is Cloud friendly", Effort: 1, Readiness: 5, Impact: "", Category: "mq", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "python-messaging", RuleType: "", Level: "", FileType: "(py$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "", Effort: 5, Readiness: 1, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
             Tags:
-            []Tag{  { Value: "message-queue",}, { Value: "rabbitmq",}, { Value: "messaging",}, },
+            []Tag{  { Value: "messaging",}, { Value: "python",}, },
             Profiles:
             []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
             Excludepatterns:
@@ -5664,54 +4915,11 @@ func BootstrapRules() []Rule {
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "com.rabbitmq", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "import.*com.rabbitmq.", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "handleDelivery\\(", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".basicConsume", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "<groupId>com.rabbitmq", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "python-activemq", RuleType: "", Level: "", FileType: "(py$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Import statements and specific usage of stomp.py and pyactivemq for ActiveMQ in Python code.", Effort: 0, Readiness: 1, Impact: "", Category: "messaging", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "messaging",}, { Value: "activemq",}, { Value: "python",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "import pyactivemq", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "import stomp", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "os.getenv\\(\"ACTIVEMQ_", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "stomp.Connection", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "python-rabbitmq", RuleType: "standard", Level: "", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "^.*import(\\s*|=\")%s.*$", Advice: "RabbitMq messaging is used", Effort: 1, Readiness: 10, Impact: "", Category: "services", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "rabbitmq",}, { Value: "messaging",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "pika", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "aio_pika", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "xml-activeMQ", RuleType: "standard", Level: "", FileType: "xml$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Make sure that Active MQ broker is available on target platform", Effort: 5, Readiness: 10, Impact: "", Category: "mq", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "amqp",}, { Value: "message-queue",}, { Value: "messaging",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "amq:broker", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: "pyactivemq", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "activemq", Recipe: "", },
+             { Type: "", Pattern: "", Value: "stomp", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "activemq", Recipe: "", },
+             { Type: "", Pattern: "", Value: "kafka", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "kafka", Recipe: "", },
+             { Type: "", Pattern: "", Value: "pika", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "rabbitmq", Recipe: "", },
+             { Type: "", Pattern: "", Value: "aio_pika", Advice: "Move to RabbitMQ tile or RabbitMQ k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "rabbitmq", Recipe: "", },
              }, },
         
             { Name: "dotnet-ISAPI-Filters-config", RuleType: "standard", Level: "", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Windows and IIS server dependency. Not supported in .netCore targeting linux.", Effort: 1000, Readiness: 10, Impact: "", Category: "unsupported-iis-module", Criticality: "medium",Container: 100, Cloud: 100,
@@ -7814,6 +7022,36 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "/configuration/system.web/machineKey[contains(@validationKey, \"AutoGenerate\") or contains(@decryptionKey, \"AutoGenerate\")]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
+            { Name: "dotnet-WindowsAuth-config", RuleType: "fire-once", Level: "", FileType: "config$", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Windows Integrated Authentication will be problematic in the cloud as containers won't be joining Windows Domains. Use another authentication mechanism more cloud friendly like SSO, LDAP Remote Calls, Local...", Effort: 500, Readiness: 1, Impact: "", Category: "Unsupported modules", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "windows-auth",}, { Value: "security",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "//system.webServer/security/authentication/windowsAuthentication[translate(@enabled, \"abcdefghijklmnopqrstuvwxyz\", \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\") = \"TRUE\"][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "/configuration/system.serviceModel/bindings//binding/security/transport[translate(@clientCredentialType, \"abcdefghijklmnopqrstuvwxyz\", \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\")=\"WINDOWS\"][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "/configuration/system.web/authentication[translate(@mode, \"abcdefghijklmnopqrstuvwxyz\", \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\")=\"WINDOWS\"][1]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "/configuration/connectionStrings/add[contains(translate(translate(@connectionString, \" \", \"\"), \"abcdefghijklmnopqrstuvwxyz\", \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\"), \"INTEGRATEDSECURITY=TRUE\")]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-WindowsAuth-csvb", RuleType: "fire-once", Level: "", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Windows Integrated Authentication will be problematic in the cloud as containers won't be joining Windows Domains. Use another authentication mechanism more cloud friendly like SSO, LDAP Remote Calls, Local...", Effort: 500, Readiness: 1, Impact: "", Category: "Unsupported modules", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "windows-auth",}, { Value: "security",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "GetSection\\(system.webServer/security/authentication/windowsAuthentication", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "GetSection\\(\"system.webServer/security/authentication/windowsAuthentication", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
             { Name: "dotnet-dotnetopenauth-config", RuleType: "", Level: "", FileType: "(config$)", Target: "file", Type: "xpath", DefaultPattern: "", Advice: "Usage of Dotnet Open Auth", Effort: 0, Readiness: 9, Impact: "", Category: "authentication", Criticality: "",Container: 0, Cloud: 0,
             Tags:
             []Tag{  { Value: "oauth-authentication",}, { Value: "security",}, },
@@ -7826,6 +7064,45 @@ func BootstrapRules() []Rule {
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "/configuration/dotNetOpenAuth", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "DotNetOpenAuth", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-security", RuleType: "standard", Level: "", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Relying on Windows certificate stores is problematic in a cloud environment. Certificate stores could be shared via shared volume mounts. Ideally you should decouple certificates and SSL from your application. SSL could also be handled at the load balancer level.", Effort: 3, Readiness: 10, Impact: "", Category: "security", Criticality: "medium",Container: 100, Cloud: 100,
+            Tags:
+            []Tag{  { Value: "security",}, { Value: "certificate",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "X509Store", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "x509-store", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-windows-application-domain", RuleType: "fire-once", Level: "", FileType: "(cs$|vb$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Unsupported, For .NET Core, there is exactly one AppDomain. Isolation and unloading are provided through AssemblyLoadContext. Security boundaries should be provided by process boundaries and appropriate remoting techniques", Effort: 1000, Readiness: 9, Impact: "", Category: "windows-domain", Criticality: "",Container: 0, Cloud: 0,
+            Tags:
+            []Tag{  { Value: "app-domain",}, { Value: "security",}, { Value: "unsupported-netcore",}, { Value: "modernize",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "AppDomain.CreateDomain", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             }, },
+        
+            { Name: "dotnet-windowsPrincipal", RuleType: "standard", Level: "", FileType: "(cs$|vb$|csproj$)", Target: "line", Type: "regex", DefaultPattern: ".*%s.*", Advice: "Operations requiring a Windows domain are not supported in a container like environment. Features relying on Windows authentication will be problematic if targeting linux environment.", Effort: 100, Readiness: 8, Impact: "", Category: "Unsupported modules", Criticality: "medium",Container: 100, Cloud: 100,
+            Tags:
+            []Tag{  { Value: "windows-principal",}, { Value: "windows-domain",}, { Value: "security",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "System.Security.Principal", Advice: "Operations requiring a Windows domain are not supported", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "java-oauth2", RuleType: "", Level: "", FileType: "(java$|xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of OAuth2", Effort: 0, Readiness: 9, Impact: "", Category: "authentication", Criticality: "",Container: 0, Cloud: 0,
@@ -7881,56 +7158,6 @@ func BootstrapRules() []Rule {
             []Recipe{  },
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "<res-auth>Container</res-auth>", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-spring-boot-tomcat", RuleType: "", Level: "", FileType: "(xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Spring Boot Tomcat", Effort: 0, Readiness: 9, Impact: "", Category: "web-server", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "tomcat",}, { Value: "webserver",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "<artifactId>spring-boot-starter-web<\\/artifactId>", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "<artifactId>spring-boot-starter-tomcat<\\/artifactId>", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-spring-undertow", RuleType: "", Level: "", FileType: "(java$|yml$|yaml$|scala$|xml$|properties$)", Target: "line", Type: "regex", DefaultPattern: "(?i)%s", Advice: "Usage of spring undertow", Effort: 0, Readiness: 10, Impact: "", Category: "other", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "webserver",}, { Value: "spring-undertow",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "import.*io.*undertow", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-io-undertow-import", Recipe: "", },
-             { Type: "", Pattern: "", Value: "io.*undertow", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-io-undertow-detect", Recipe: "", },
-             { Type: "", Pattern: "", Value: "import.*spring.*undertow", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-undertow-import", Recipe: "", },
-             { Type: "", Pattern: "", Value: "spring.*undertow", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-undertow-detect", Recipe: "", },
-             }, },
-        
-            { Name: "java-tomcat", RuleType: "", Level: "", FileType: "(xml$|gradle$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Usage of Tomcat", Effort: 0, Readiness: 9, Impact: "", Category: "webserver", Criticality: "",Container: 0, Cloud: 0,
-            Tags:
-            []Tag{  { Value: "tomcat",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: ".*org.apache.catalina.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*org.apache.tomcat.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*tomcat-dbcp.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*tomcat-jdbc.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*tomcat-embed-jasper.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*tomcat-embed-core.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*tomcat-embed-websocket.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*tomcat7-maven-plugin.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "yaml-test", RuleType: "standard", Level: "", FileType: "(yaml|yml)$", Target: "file", Type: "yamlpath", DefaultPattern: "", Advice: "", Effort: 1000, Readiness: 10, Impact: "", Category: "", Criticality: "medium",Container: 100, Cloud: 100,

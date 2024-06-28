@@ -159,13 +159,13 @@ category:
         assert-count: 1
         assert-value: "null"
       - name: "Connection String"
-        rule-name: dotnet-connectionstrings
+        rule-name: dotnet-rdbms-database
         test-filename: dotnet-connectionstrings.json
         assert: true
         assert-count: 1
         assert-value: "null"
       - name: "Connection String"
-        rule-name: dotnet-database-access
+        rule-name: dotnet-rdbms-database
         test-filename: dotnet-database-access.config
         assert: true
         assert-count: 1

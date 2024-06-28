@@ -1,0 +1,19 @@
+name: xml-tomcat
+ruletype: fire-once
+filetype: xml$
+target: file
+effort: 100
+readiness: 0
+category: app-web-server
+advice: Web Server coupling
+type: simple-text
+tags:
+  - value: tomcat
+  - value: tas
+  - value: container
+patterns:
+  - value: configure.xml
+  - value: context.xml
+  - value: server.xml
+profiles:
+  - value: cloud-suitability

@@ -1,0 +1,21 @@
+name: java-in-memory-database
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: (%s)
+effort: 0
+readiness: 5
+category: persistence
+tags:
+  - value: in-memory
+  - value: database
+patterns:
+  - value: .*hazelcast
+    advice: Migrate to VMware GemFire
+    tag: hazelcast
+profiles:
+  - value: cloud-suitability

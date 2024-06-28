@@ -1,0 +1,63 @@
+# This rule aims to identify the usage of Apache ActiveMQ in .NET applications, focusing on the integration via the Apache.NMS.ActiveMQ client library.
+# Documentation: https://activemq.apache.org/components/nms
+# Example: https://activemq.apache.org/components/nms/examples/nms-simple-asynchronous-consumer-example
+name: dotnet-messaging
+filetype: (cs$|vb$|config$|csproj$)
+target: line
+type: regex
+defaultpattern: (%s)
+category: messaging
+effort: 5
+readiness: 1
+tags:
+  - value: messaging
+  - value: .NET
+patterns:
+  - value: 'Apache.NMS.*'
+    advice: Usage of ActiveMQ library in .NET project files and XML configuration settings. Migrate to RabbitMQ tile or RabbitMQ k8s operator
+    tag: activemq
+  - value: '.*Flume.*'
+    advice: Direct usage of Apache Flume .NET Client APIs in .NET code, indicating logging and data forwarding to Flume.
+    tag: apache-flume
+  - value: Storm.*
+    advice: Integration with Apache Storm using the net-storm-multilang-adapter in .NET applications.
+    tag: apache-storm
+  - value: IBMMQ
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: ibm-mq
+  - value: Msmq
+    advice: MSMQ is a proprietary Windows server-based messaging solution that is not supported by Linux based containers. Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: msmq
+  - value: Kafka
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: kafka
+  - value: Solace
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: solace
+  - value: MassTransit
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator. Out of box support for RabbitMQ
+    tag: masstransit
+  - value: NServiceBus
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator. Out of box support for RabbitMQ
+    tag: nservicebus
+  - value: DotPulsar
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: apache-pulsar
+  - value: rocketmq
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: rocketmq
+  - value: zeromq
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: zeromq
+  - value: NATS.*
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: nats
+  - value: RabbitMQ
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: rabbitmq
+  - value: amqmdnet
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: webspheremq
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

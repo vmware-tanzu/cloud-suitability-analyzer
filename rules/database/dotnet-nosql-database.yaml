@@ -1,0 +1,41 @@
+name: dotnet-nosql-database
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (cs$|vb$|config$|csproj$|json$)
+target: line
+type: regex
+defaultpattern: .*(%s)
+effort: 100
+readiness: 5
+category: database
+tags:
+  - value: database
+  - value: nosql
+patterns:
+  - value: Apache.Ignite
+    advice: Migrate to VMware GemFire
+    tag: apache-ignite
+  - value: Cassandra
+    advice: Migrate to VMware GemFire
+    tag: cassandra
+  - value: .*using\s*GraphQL
+    tag: graphql
+  - value:  .*GraphQL.*
+    tag: graphql
+  - value: MongoDB
+    advice: Migrate to VMware GemFire
+    tag: mongodb
+  - value: MongoDB.*
+    advice: Migrate to VMware GemFire
+    tag: mongodb
+  - value: org.springframework.data.mongodb
+    advice: Migrate to VMware GemFire
+    tag: nosql
+  - value: mongodb://
+    advice: Migrate to VMware GemFire
+    tag: nosql
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

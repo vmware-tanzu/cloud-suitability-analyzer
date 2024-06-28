@@ -1,0 +1,37 @@
+name: xml-weblogic
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: file
+type: simple-text
+category: app-web-server
+advice: Consider rearchitecting if decision is made to move off application server
+effort: 700
+readiness: 700
+tags:
+  - value: weblogic
+  - value: container
+  - value: modernize  
+patterns:
+  - value: weblogic.xml
+  - value: weblogic-cmp-rmodelms-jar.xml
+  - value: weblogic-ejb-jar.xml
+  - value: weblogic-ra.xml
+  - value: persistence-configuration.xml
+  - value: weblogic-webservices.xml
+  - value: weblogic-wsee-clientHandlerChain.xml
+  - value: webservice-policy-ref.xml
+  - value: weblogic-wsee-standaloneclient.xml
+  - value: weblogic-application.xml
+  - value: 1.2/weblogic-web-app.xsd
+  - value: 1.3/weblogic-web-app.xsd
+  - value: 1.4/weblogic-web-app.xsd
+  - value: 1.5/weblogic-web-app.xsd
+  - value: 1.6/weblogic-web-app.xsd
+  - value: 1.7/weblogic-web-app.xsd
+  - value: 1.8/weblogic-web-app.xsd
+  - value: 1.9/weblogic-web-app.xsd
+profiles:
+  - value: cloud-suitability

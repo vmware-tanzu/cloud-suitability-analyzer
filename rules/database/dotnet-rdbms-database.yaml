@@ -1,0 +1,70 @@
+name: dotnet-rdbms-database
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (cs$|vb$|config$|csproj$|json$)
+target: line
+type: regex
+defaultpattern: .*(%s)
+effort: 100
+readiness: 5
+category: database
+tags:
+  - value: database
+  - value: rdbms
+patterns:
+  - value: "ConnectionStrings"
+    advice: Remove connection strings from files, use environment variables (or mount configmap into pod in a docker like environment)
+    tag: configuration
+  - value: "connectionStrings"
+    advice: Remove connection strings from files, use environment variables (or mount configmap into pod in a docker like environment)
+    tag: configuration
+  - value: IBM.Data.DB2
+    advice: IBM.Data.DB2 can require a special procedure so that the driver's native components are deployed with the application.    
+    tag: ibm-db2
+  - value: SqlDataReader
+    advice: Leverage MySQL Tile or k8s operator
+    tag: mssql
+  - value: SqlConnection
+    advice: Leverage MySQL Tile or k8s operator
+    tag: mssql
+  - value: System.Data.SqlClient;
+    advice: Leverage MySQL Tile or k8s operator
+    tag: mssql
+  - value: SqlCommand
+    advice: Leverage MySQL Tile or k8s operator
+    tag: mssql
+  - value: Microsoft.EntityFrameworkCore.SqlServer
+    advice: Leverage MySQL Tile or k8s operator
+    tag: mssql
+  - value: Microsoft.SqlServer.Server
+    advice: Leverage MySQL Tile or k8s operator
+    tag: mssql
+  - value: Microsoft.Data.SqlClient
+    advice: Leverage MySQL Tile or k8s operator
+    tag: mssql
+  - value: MySql
+    advice: Leverage MySQL Tile or k8s operator
+    tag: mssql
+  - value: Oracle.DataAccess
+    advice: Oracle unmanaged driver requires including binaries with app -- can use buildpack.
+    tag: oracle
+  - value: 'NpgsqlConnection'
+    advice: Direct usage of Npgsql for PostgreSQL database interactions in .NET code.
+    tag: postgresql
+  - value: 'NpgsqlCommand'
+    advice: Direct usage of Npgsql for PostgreSQL database interactions in .NET code.
+    tag: postgresql
+  - value: 'Npgsql'
+    advice: Direct usage of Npgsql for PostgreSQL database interactions in .NET code.
+    tag: postgresql
+  - value: using Serilog.Sinks.Elasticsearch
+    advice: Make sure to have reachable ELK stack from deployed app
+    tag: elasticsearch
+  - value: ElasticConfiguration
+    advice: Make sure to have reachable ELK stack from deployed app
+    tag: elasticsearch
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

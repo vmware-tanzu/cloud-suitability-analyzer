@@ -1,0 +1,99 @@
+# todo how do we know that this imports imply that cache is distributed?
+name: java-cache
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (java$|xml$|gradle$|properties$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Distributed caches must be remediated to function in K8S
+effort: 50
+readiness: 10
+category: cache
+tags:
+  - value: stateful
+  - value: cache
+patterns:
+  - value: org.ehcache #--- dist
+    tag: ehcache
+  - value: com.hazelcast #--- dist
+    tag: hazelcast
+  - value: org.apache.ignite #--- dist
+    tag: apache-ignite
+  - value: org.infinispan #--- dist
+    tag: infinispan
+  - value: net.spy.memcached #--- dist
+    tag: net-spy-memcached
+  - value: com.tangosol
+    tag: tangosol
+  - value: org.apache.commons-jcs-jcache
+    tag: jcs-jcache
+  - value: com.ibm.websphere.cache
+    tag: websphere-cache
+  - value: org.jboss.ha.cachemanager
+    tag: jboss-ha-cachemanager
+  - value: javax.cache
+    tag: javax-cache
+  - value: net.spy.memcached
+    tag: net-spy-memcached
+  - value: com.opensymphony.oscache
+    tag: opensymphony-oscache
+  - value: org.shiftone-cache
+    tag: shiftone-casche
+  - value: com.ibm.websphere.objectgrid
+    tag: websphere-objectgrid
+  - value: getConfigurableCacheFactory
+    tag: jcache
+    advice: Make sure its externalized and using Cloud Friendly cache implementation.
+  - value: NamedCache
+    tag: jcache
+    advice: Make sure its externalized and using Cloud Friendly cache implementation.
+  - value: ReflectionExtractor
+    tag: jcache
+    advice: Make sure its externalized and using Cloud Friendly cache implementation.
+  - value: ChainedExtractor
+    tag: jcache
+    advice: Make sure its externalized and using Cloud Friendly cache implementation.
+  - value: javax.cache
+    tag: jcache
+    advice: Make sure its externalized and using Cloud Friendly cache implementation.
+  - value: ".*spring-boot-starter-cache.*"
+    tag: spring-boot-cache
+  - value: .*spring.cache.*
+    tag: spring-boot-cache
+  - value: .*org.springframework.cache.*
+    tag: spring-boot-cache
+  - value: io.jackey
+    tag: redis
+    advice: Migrate to ValKey (Redis) tile or Tanzu Data Hub
+  - value: redis
+    tag: redis
+    advice: Migrate to ValKey (Redis) tile or Tanzu Data Hub
+  - value: io.lettuce
+    tag: redis
+    advice: Migrate to ValKey (Redis) tile or Tanzu Data Hub
+  - value: Redis
+    tag: redis
+    advice: Migrate to ValKey (Redis) tile or Tanzu Data Hub
+  - value: 'org.apache.geode.cache.*'
+    tag: apache-geode
+    advice: Direct usage of Apache Geode APIs in Java, focusing on region operations, client configurations, and data management.
+  - value: 'new ClientCacheFactory'
+    tag: apache-geode
+    advice: Direct usage of Apache Geode APIs in Java, focusing on region operations, client configurations, and data management.
+  - value: 'createClientRegionFactory'
+    tag: apache-geode
+    advice: Direct usage of Apache Geode APIs in Java, focusing on region operations, client configurations, and data management.
+  - value: 'clientRegionFactory.create'
+    tag: apache-geode
+    advice: Direct usage of Apache Geode APIs in Java, focusing on region operations, client configurations, and data management.
+  - value: 'org.apache.geode'
+    tag: apache-geode
+    advice: Direct usage of Apache Geode APIs in Java, focusing on region operations, client configurations, and data management.
+  - value: 'geode-core'
+    tag: apache-geode
+    advice: Direct usage of Apache Geode APIs in Java, focusing on region operations, client configurations, and data management.
+profiles:
+- value: cloud-suitability

@@ -1,0 +1,37 @@
+name: java-nosql-database
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (java$|gradle$|xml$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Migrate to VMware GemFire
+effort: 10
+readiness: 5
+category: database
+tags:
+  - value: database
+  - value: nosql
+patterns:
+  - value: apache.ignite
+    tag: apache-ignite
+  - value: .*org.apache.cassandra.*
+    advice: Migrate to VMware GemFire
+    tag: cassandra
+  - value: org.springframework.cassandra
+    advice: Migrate to VMware GemFire
+    tag: cassandra
+  - value: .*import\s*graphql.*
+    advice: Usage of Graphql
+    tag: graphql
+  - value: .*com.graphql.*
+    advice: Usage of Graphql
+    tag: graphql
+  - value: mongodb
+    advice: Migrate to VMware GemFire, Spring Data makes it easy to migrate to GemFire
+    tag: mongodb
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

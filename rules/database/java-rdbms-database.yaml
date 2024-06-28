@@ -1,0 +1,92 @@
+name: java-rdbms-database
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: (%s)
+effort: 0
+readiness: 5
+category: persistence
+tags:
+  - value: rdbms
+  - value: database
+patterns:
+  - value: org.springframework.jdbc
+    advice: Consult 3rd party documentation
+    tag: spring-jdbc
+  - value: couchbase
+    advice: Migrate to VMware GemFire
+    tag: couchbase
+  - value: jdbc:db2
+    advice: Detection of db2 Usage, use Tanzu Postgres or MySQL
+    tag: ibm-db2
+  - value: com.ibm.db2.jcc.DB2Driver
+    advice: Detection of db2 Usage, use Tanzu Postgres or MySQL
+    tag: ibm-db2
+  - value: com.ibm.db2
+    advice: Detection of db2 Usage, use Tanzu Postgres or MySQL
+    tag: ibm-db2
+  - value: elasticsearch
+    advice: Migrate to VMware GemFire
+    tag: elasticsearch
+  - value: .*org.apache.hadoop.*
+    advice: Usage of Hadoop
+    tag: hadoop
+  - value: .*hadoop-client.*
+    advice: Usage of Hadoop
+    tag: hadoop
+  - value: .*hadoop-common.*
+    advice: Usage of Hadoop
+    tag: hadoop
+  - value: .*hadoop-core.*
+    advice: Usage of Hadoop
+    tag: hadoop
+  - value: .*hadoop-hdfs.*
+    advice: Usage of Hadoop
+    tag: hadoop
+  - value: .*hazelcast
+    advice: Migrate to VMware GemFire
+    tag: hazelcast
+  - value: mariadb
+    advice: Migrate to Tanzu Postgres or MySQL
+    tag: mariadb
+  - value: jdbc:sqlserver
+    advice: Detection of mssql Usage
+    tag: mssql
+  - value: com.microsoft.sqlserver.*
+    advice: Detection of mssql Usage
+    tag: mssql
+  - value: mysql
+    advice: Detection of MySQL Usage
+    tag: mysql
+  - value: oracle
+    advice: Migrate to Tanzu Postgres or MySQL
+    tag: oracle
+  - value: postgresql
+    advice: Leverage Postgres, Postgres Tile or k8s operator
+    tag: postgres
+  - value: sqlite
+    advice: Detection of SQLite Usage
+    tag: sqlite
+  - value: sqlserver
+    advice: Migrate to Tanzu Postgres or MySQL
+    tag: sqlserver
+  - value: org.talend
+    tag: talend
+  - value: oracle.odi
+    tag: oracle-odi
+  - value: com.ibm.is
+    tag: ibm-is
+  - value: net.sf.jasper
+    tag: jasper
+  - value: org.pentaho
+    tag: pentaho
+  - value: StoredProcedureQuery
+    tag: jdbc
+  - value: CallableStatement
+    tag: jdbc
+profiles:
+  - value: cloud-suitability

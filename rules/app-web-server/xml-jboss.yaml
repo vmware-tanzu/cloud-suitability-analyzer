@@ -1,0 +1,26 @@
+name: xml-jboss
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: xml$
+target: file
+type: simple-text
+category: app-web-server
+advice: Application Server coupling
+effort: 50
+readiness: 5
+tags:
+  - value: jboss
+  - value: javaee
+  - value: container
+  - value: modernize
+patterns:
+  - value: jaws.xml
+  - value: jboss.xml
+  - value: jbosscmp-jmodelc.xml
+  - value: jboss-service.xml
+  - value: jboss-web.xml
+  - value: jboss-wsse-server.xml
+profiles:
+  - value: cloud-suitability

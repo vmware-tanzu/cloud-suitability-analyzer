@@ -1,0 +1,34 @@
+# This rule targets import statements and usage patterns unique to ActiveMQ in Python, focusing on the stomp.py library for ActiveMQ connectivity.
+# Docs: https://activemq.apache.org/python.html
+# Example: https://github.com/apache/activemq/blob/main/assembly/src/release/examples/stomp/python/stomppy/publisher.py
+name: python-messaging
+filetype: (py$)
+target: line
+type: regex
+defaultpattern: (%s)
+category: messaging
+effort: 5
+readiness: 1
+tags:
+  - value: messaging
+  - value: python
+patterns:
+  - value: pyactivemq
+    tag: activemq
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+  - value: stomp
+    tag: activemq
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+  - value: kafka
+    tag: kafka
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+  - value: pika
+    tag: rabbitmq
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+  - value: aio_pika
+    tag: rabbitmq
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

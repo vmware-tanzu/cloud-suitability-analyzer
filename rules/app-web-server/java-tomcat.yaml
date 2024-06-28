@@ -1,0 +1,23 @@
+name: java-tomcat
+filetype: (xml$|gradle$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Usage of Tomcat
+patterns:
+  - value: .*org.apache.catalina.*
+  - value: .*org.apache.tomcat.*
+  - value: .*tomcat-dbcp.*
+  - value: .*tomcat-jdbc.*
+  - value: .*tomcat-embed-jasper.*
+  - value: .*tomcat-embed-core.*
+  - value: .*tomcat-embed-websocket.*
+  - value: .*tomcat7-maven-plugin.*
+readiness: 9
+effort: 0
+category: app-web-server
+tags:
+  - value: tomcat
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

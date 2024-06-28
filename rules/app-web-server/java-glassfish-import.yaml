@@ -1,0 +1,41 @@
+name: java-glassfish-import
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+effort: 100
+readiness: 10
+category: app-web-server
+advice: Refer to Weblogic documentation
+defaultpattern: '^import\s*%s.*'
+tags:
+  - value: glassfish
+  - value: container
+  - value: modernize
+  - value: weblogic
+patterns:
+  - value: com.bea.common.security.xacml
+    tag: bea
+  - value: com.bea.httppubsub
+    tag: bea
+  - value: com.bea.logging
+    tag: bea
+  - value: com.bea.security.saml2.providers
+    tag: saml2
+  - value: com.bea.security.saml2.providers.registry
+    tag: saml2
+  - value: oracle.ucp
+    tag: oracle
+  - value: oracle.ucp.jdbc
+    tag: oracle
+  - value: oracle.ucp.jdbc.oracle
+    tag: oracle
+  - value: weblogic.
+    tag: weblogic
+  - value: weblogicx.
+    tag: weblogic
+profiles:
+  - value: cloud-suitability

@@ -1,0 +1,24 @@
+name: java-jetty-import
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (jsp$|java$|xml$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Use Managed Executor
+effort: 1
+readiness: 10
+category: app-web-server
+tags:
+  - value: threading
+  - value: jetty
+  - value: tas
+  - value: container
+patterns:
+  - value: org.eclipse.jetty
+  - value: .*org.mortbay.jetty.Server.*
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

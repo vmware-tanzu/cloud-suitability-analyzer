@@ -1,0 +1,27 @@
+name: python-database
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: py$
+target: line
+type: regex
+defaultpattern: (%s)
+effort: 1
+readiness: 10
+category: database
+tags:
+  - value: peewee
+  - value: database
+patterns:
+  - value: peewee
+    advice: Check target platform has support for this library
+    tag: peewee
+  - value: sqlite
+    advice: Consider migration to an external database.
+    tag: sqlite
+  - value: SqliteDatabase
+    advice: Consider migration to an external database.
+    tag: sqlite
+profiles:
+  - value: cloud-suitability

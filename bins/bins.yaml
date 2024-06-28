@@ -17,6 +17,14 @@ name: MODERNIZE
 tags:
   - name: modernize
     type: OR
+  - name: weblogic
+    type: OR
+  - name: glassfish
+    type: OR
+  - name: jboss
+    type: OR
+  - name: websphere
+    type: OR
 
 ---
 name: BATCH
@@ -69,7 +77,18 @@ name: CACHING
 tags:
   - name: cache
     type: OR
-
+  - name: memcache
+    type: OR
+  - name: hazelcast
+    type: OR
+  - name: apache-geode
+    type: OR
+  - name: spring-boot-cache
+    type: OR
+  - name: redis
+    type: OR
+  - name: ehcache
+    type: OR
 ---
 name: FAAS
 tags:
@@ -87,11 +106,92 @@ name: DATABASE
 tags:
   - name: database
     type: OR
-
+  - name: ibm-db2
+    type: OR
+  - name: elasticsearch
+    type: OR
+  - name: graphql
+    type: OR
+  - name: mongodb
+    type: OR
+  - name: mssql
+    type: OR
+  - name: oracle
+    type: OR
+  - name: cassandra
+    type: OR
+  - name: hadoop
+    type: OR
+  - name: mysql
+    type: OR
+  - name: postgres
+    type: OR
+  - name: sqlite
+    type: OR
+  - name: peewee
+    type: OR
+  - name: ssis
+    type: OR
+  - name: sqlserver
+    type: OR
+  - name: mariadb
+    type: OR
+  - name: apache-ignite
+    type: OR
+  - name: couchbase
+    type: OR
+  - name: elasticsearch
+    type: OR
+  - name: rdbms
+    type: OR
+  - name: nosql
+    type: OR
+  - name: in-memory
+    type: OR
 ---
 name: MESSAGING
 tags:
   - name: messaging
+    type: OR
+  - name: activemq
+    type: OR
+  - name: apache-flume
+    type: OR
+  - name: apache-storm
+    type: OR
+  - name: ibm-mq
+    type: OR
+  - name: msmq
+    type: OR
+  - name: kafka
+    type: OR
+  - name: solace
+    type: OR
+  - name: masstransit
+    type: OR
+  - name: nservicebus
+    type: OR
+  - name: apache-pulsar
+    type: OR
+  - name: rocketmq
+    type: OR
+  - name: zeromq
+    type: OR
+  - name: nats
+    type: OR
+  - name: rabbitmq
+    type: OR
+  - name: apache-flink
+    type: OR
+  - name: jms
+    type: OR
+  - name: webspheremq
+    type: OR
+  - name: webspheremq
+    type: OR
+  - name: webspheremq
+    type: OR
+  - name: webspheremq
     type: OR
 
 ---

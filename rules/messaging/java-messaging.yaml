@@ -1,0 +1,104 @@
+---
+#--- updated from 8/8/18 Survey
+name: java-messaging
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (java$|gradle$|yml$|properties$|xml$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Remediate any persistence issues
+effort: 7
+readiness: 7
+category: messaging
+tags:
+  - value: messaging
+patterns:
+  - value: amq:broker
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: activemq
+  - value: createActiveMQConnection
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: activemq
+  - value: import.*org.apache.activemq
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: activemq
+  - value: 'new NMSConnectionFactory'
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: activemq
+  - value: 'NMSCorrelationID'
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: activemq
+  - value: 'new Uri\("activemq:'
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: activemq
+  - value: ActiveMQConnectionFactory
+    tag: activemq
+  - value: 'org.apache.flink.*'
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: apache-flink
+  - value: '.getExecutionEnvironment\(\)'
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: apache-flink
+  - value: '.setStreamTimeCharacteristic\('
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: apache-flink
+  - value: 'flink*'
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: apache-flink
+  - value: 'org.apache.flume.*'
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: apache-flume  
+  - value: '.*Flume*'
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: apache-flume
+  - value: 'flume-*'
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: apache-flume
+  - value: '.storm.'
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: apache-storm
+  - value: 'org.apache.storm'
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: apache-storm
+  - value: 'storm-*'
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: apache-storm
+  - value: 'javax.jms'
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: jms
+  - value: '.*QueueConnectionFactory.*'
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: jms
+  - value: '.*TopicConnectionFactory.*'
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: jms
+  - value: 'kafka'
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: kafka
+  - value: 'spring-kafka'
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: kafka
+  - value: 'io.nats'
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: nats
+  - value: 'pulsar'
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: apache-pulsar
+  - value: import.*com.ibm.mq.*
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: ibmmq
+  - value: '.*MQ.*'
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: ibmmq
+  - value: "msmq."
+    advice: MSMQ is a proprietary Windows server-based messaging solution that is not supported by Linux based containers. Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: msmq
+  - value: com.rabbitmq
+    advice: Move to RabbitMQ tile or RabbitMQ k8s operator
+    tag: rabbitmq
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

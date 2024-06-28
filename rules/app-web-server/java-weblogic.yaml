@@ -1,0 +1,25 @@
+name: java-weblogic
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (java$|conf$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Consider rearchitecting if decision is made to move off application server
+effort: 100
+readiness: 10
+category: app-web-server
+tags:
+  - value: weblogic
+  - value: container
+  - value: modernize
+patterns:
+  - value: weblogic.
+  - value: WebLogicCluster
+  - value: com.bea.*
+  - value: oracle.ucp
+  - value: weblogicx.
+profiles:
+  - value: cloud-suitability

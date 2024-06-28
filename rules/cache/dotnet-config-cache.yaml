@@ -1,0 +1,19 @@
+#qc1
+name: dotnet-FileCacheModule
+ruletype: fire-once
+filetype: config$
+target: file
+type: xpath
+category: caching
+effort: 1000
+readiness: 5
+tags:
+  - value: cache
+patterns:
+  - value: /configuration/location/system.webServer/serverRuntime[@frequentHitThreshold or @frequentHitTimePeriod][1]
+    advice: Caching should be managed externally. Relying on IIS Modules won't work in Linux environment. Alternatives are distributed cache solutions like Redis, SQL Server distributed cache, NCache distributed cache.
+  - value: /configuration/system.webServer/staticContent/clientCache[@cacheControlMode][1]
+    tag: cache-control-mode
+    advice: Output cache profiles etc. via configuration.
+profiles:
+  - value: cloud-suitability

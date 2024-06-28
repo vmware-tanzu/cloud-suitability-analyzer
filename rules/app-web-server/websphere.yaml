@@ -1,0 +1,73 @@
+name: websphere
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (java$|jacl$|jsp$)
+target: line
+type: regex
+defaultpattern: (%s)
+category: app-web-server
+advice: Vendor proprietary implementation.  Consider rearchitecting if decision is made to move off application server. Websphere clusters cannot run in K8S
+effort: 1
+readiness: 0
+tags:
+  - value: websphere
+  - value: modernize
+  - value: container
+patterns:
+  - value: _CLUSTERS
+  - value: getCallerList
+  - value: getFirstCaller
+  - value: getFirstServer
+  - value: getServerList
+  - value: addPropagationAttribute
+  - value: getPropagationAttributes
+  - value: convertCookieStringToBytes
+  - value: revokeSSOCookies
+  - value: revokeSSOCookiesForPortlets
+  - value: getLTPACookieFromSSOToken
+  - value: com.ibm.websphere
+    tag: websphere
+  - value: org.apache.axis2
+    tag: apache-axis2
+  - value: com.ibm.workplace.extension
+    tag: ibm-workplace
+  - value: com.ibm.isc.api.platform
+    tag: ibm-isc
+  - value: com.ibm.portal
+    tag: ibm-portal
+  - value: com.ibm.wsspi
+    tag: wsspi
+  - value: org.apache.tuscany.sca
+    tag: apache-tuscany
+  - value: org.oasisopen.sca
+    tag: oasisopen
+  - value: org.osoa.sca
+    tag: osao-sca
+  - value: com.ibm.uddi
+    tag: ibm-uddi
+  - value: com.ibm.ws
+    tag: ibm-ws
+  - value: com.ibm.ejs.ras
+    tag: ibm-ejs-ras
+  - value: com.ibm.ffdc
+    tag: ibm-ffdc
+  - value: com.ibm.ras
+    tag: ibm-ras
+  - value: com.ibm.servlet
+    tag: ibm-servlet
+  - value: com.ibm.etools
+    tag: ibm-etools
+  - value: com.ibm.jca
+    tag: ibm-jca
+  - value: com.ibm.webtools
+    tag: ibm-webtools
+  - value: com.ibm.wsdl
+    tag: ibm-wsdl
+  - value: com.ibm.wsif
+    tag: ibm-wsif
+  - value: org.xmlsoap.schemas.wsdl.wsadie.messages
+    tag: soap-wsdl
+profiles:
+  - value: cloud-suitability

@@ -1,0 +1,40 @@
+name: dotnet-cache
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: (cs$|vb$|config$|csproj$|json$)
+target: line
+type: regex
+defaultpattern: (%s)
+advice: Migrate to VMware GemFire
+effort: 100
+readiness: 5
+category: cache
+tags:
+  - value: cache
+patterns:
+  - value: Memcache
+    tag: memcache
+    advice: Migrate to VMware GemFire
+  - value: 'Apache.Geode'
+    tag: apache-geode
+    advice: Direct usage of Apache Geode .NET Client APIs in .NET code for data management and caching.
+  - value: '.CreateRegionFactory'
+    tag: apache-geode
+    advice: Direct usage of Apache Geode .NET Client APIs in .NET code for data management and caching.
+  - value: '.GetQueryService'
+    tag: apache-geode
+    advice: Direct usage of Apache Geode .NET Client APIs in .NET code for data management and caching.
+  - value: HazelcastClient
+    tag: hazelcast
+    advice: Migrate to VMware GemFire
+  - value: HazelcastOptions
+    tag: hazelcast
+    advice: Migrate to VMware GemFire
+  - value: Hazelcast
+    tag: hazelcast
+    advice: Migrate to VMware GemFire
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

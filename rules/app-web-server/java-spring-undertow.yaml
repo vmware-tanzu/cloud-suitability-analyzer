@@ -1,0 +1,24 @@
+name: java-spring-undertow
+filetype: (java$|yml$|yaml$|scala$|xml$|properties$)
+target: line
+type: regex
+effort: 0
+readiness: 10
+category: other
+advice: Usage of spring undertow
+defaultpattern: "(?i)%s"
+tags:
+  - value: app-web-server
+  - value: undertow
+patterns:
+  - value: import.*io.*undertow
+    tag: spring-io-undertow-import
+  - value: io.*undertow
+    tag: spring-io-undertow-detect
+  - value: import.*spring.*undertow
+    tag: spring-undertow-import
+  - value: spring.*undertow
+    tag: spring-undertow-detect
+profiles:
+  - value: cloud-suitability
+  - value: compass-discovery

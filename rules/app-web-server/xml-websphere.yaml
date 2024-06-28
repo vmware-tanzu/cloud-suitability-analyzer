@@ -1,0 +1,42 @@
+name: xml-websphere
+ruletype: fire-once
+filetype: xm[li]$
+target: file
+type: simple-text
+category: app-web-server
+advice: Consider rearchitecting if decision is made to move off application server
+effort: 500
+readiness: 1000
+tags:
+  - value: websphere
+  - value: full-profile
+  - value: container
+  - value: modernize
+patterns:
+  - value: client-resource.xmi
+  - value: ibm-application-bnd.xmi
+  - value: ibm-application-bnd.xml
+  - value: ibm-application-client-bnd.xmi
+  - value: ibm-application-client-bnd.xml
+  - value: ibm-application-client-ext.xmi
+  - value: ibm-application-client-ext.xml
+  - value: ibm-application-ext.xmi
+  - value: ibm-application-ext.xml
+  - value: ibm-ejb-access-bean.xml
+  - value: ibm-ejb-jar-bnd.xmi
+  - value: ibm-ejb-jar-bnd.xml
+  - value: ibm-ejb-jar-ext.xmi
+  - value: ibm-ejb-jar-ext.xml
+  - value: ibm-ejb-jar-ext-pme.xmi
+  - value: ibm-ejb-jar-ext-pme.xml
+  - value: ibm-webservices-bnd.xmi
+  - value: ibm-webservices-ext.xml
+  - value: ibm-web-bnd.xmi
+  - value: ibm-web-bnd.xml
+  - value: ibm-web-ext.xmi
+  - value: ibm-web-ext.xml
+  - value: ibm-web-ext-pme.xmi
+  - value: ibm-web-ext-pme.xml
+  - value: j2c_plugin.xml
+profiles:
+  - value: cloud-suitability

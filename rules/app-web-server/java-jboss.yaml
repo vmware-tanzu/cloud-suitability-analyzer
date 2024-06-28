@@ -1,0 +1,24 @@
+---
+name: java-jboss
+ruletype: standard
+criticality: medium
+cloud: 100
+container: 100
+filetype: java$
+target: line
+type: regex
+defaultpattern: (import)\s+(%s)\.{1}
+advice: Convert to Spring based POJOs instead of using container specific functionality
+effort: 50
+readiness: 5
+category: app-web-server
+tags:
+  - value: jboss
+  - value: migrate-off-legacy-server
+  - value: container
+  - value: modernize
+patterns:
+  - value: org.jboss
+
+profiles:
+- value: cloud-suitability

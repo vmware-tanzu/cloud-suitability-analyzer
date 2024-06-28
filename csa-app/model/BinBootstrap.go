@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapBinsTemplate.txt found under go/resources folder
-//Created @ 2024-06-24 18:02:37.220542 -0500 CDT m=+0.603890872
+//Created @ 2024-06-27 20:59:31.053701 -0500 CDT m=+0.593341510
 
 func BootstrapBins() []Bin {
     var BootstrapBins = []Bin{
@@ -22,7 +22,7 @@ func BootstrapBins() []Bin {
         
             { Name: "MODERNIZE",
             Tags:
-            []*BinTag{  { Name: "modernize", Type: 1, Action: "OR", },  },
+            []*BinTag{  { Name: "modernize", Type: 1, Action: "OR", },  { Name: "weblogic", Type: 1, Action: "OR", },  { Name: "glassfish", Type: 1, Action: "OR", },  { Name: "jboss", Type: 1, Action: "OR", },  { Name: "websphere", Type: 1, Action: "OR", },  },
              },
         
             { Name: "BATCH",
@@ -62,7 +62,7 @@ func BootstrapBins() []Bin {
         
             { Name: "CACHING",
             Tags:
-            []*BinTag{  { Name: "cache", Type: 1, Action: "OR", },  },
+            []*BinTag{  { Name: "cache", Type: 1, Action: "OR", },  { Name: "memcache", Type: 1, Action: "OR", },  { Name: "hazelcast", Type: 1, Action: "OR", },  { Name: "apache-geode", Type: 1, Action: "OR", },  { Name: "spring-boot-cache", Type: 1, Action: "OR", },  { Name: "redis", Type: 1, Action: "OR", },  { Name: "ehcache", Type: 1, Action: "OR", },  },
              },
         
             { Name: "FAAS",
@@ -77,12 +77,12 @@ func BootstrapBins() []Bin {
         
             { Name: "DATABASE",
             Tags:
-            []*BinTag{  { Name: "database", Type: 1, Action: "OR", },  },
+            []*BinTag{  { Name: "database", Type: 1, Action: "OR", },  { Name: "ibm-db2", Type: 1, Action: "OR", },  { Name: "elasticsearch", Type: 1, Action: "OR", },  { Name: "graphql", Type: 1, Action: "OR", },  { Name: "mongodb", Type: 1, Action: "OR", },  { Name: "mssql", Type: 1, Action: "OR", },  { Name: "oracle", Type: 1, Action: "OR", },  { Name: "cassandra", Type: 1, Action: "OR", },  { Name: "hadoop", Type: 1, Action: "OR", },  { Name: "mysql", Type: 1, Action: "OR", },  { Name: "postgres", Type: 1, Action: "OR", },  { Name: "sqlite", Type: 1, Action: "OR", },  { Name: "peewee", Type: 1, Action: "OR", },  { Name: "ssis", Type: 1, Action: "OR", },  { Name: "sqlserver", Type: 1, Action: "OR", },  { Name: "mariadb", Type: 1, Action: "OR", },  { Name: "apache-ignite", Type: 1, Action: "OR", },  { Name: "couchbase", Type: 1, Action: "OR", },  { Name: "elasticsearch", Type: 1, Action: "OR", },  { Name: "rdbms", Type: 1, Action: "OR", },  { Name: "nosql", Type: 1, Action: "OR", },  { Name: "in-memory", Type: 1, Action: "OR", },  },
              },
         
             { Name: "MESSAGING",
             Tags:
-            []*BinTag{  { Name: "messaging", Type: 1, Action: "OR", },  },
+            []*BinTag{  { Name: "messaging", Type: 1, Action: "OR", },  { Name: "activemq", Type: 1, Action: "OR", },  { Name: "apache-flume", Type: 1, Action: "OR", },  { Name: "apache-storm", Type: 1, Action: "OR", },  { Name: "ibm-mq", Type: 1, Action: "OR", },  { Name: "msmq", Type: 1, Action: "OR", },  { Name: "kafka", Type: 1, Action: "OR", },  { Name: "solace", Type: 1, Action: "OR", },  { Name: "masstransit", Type: 1, Action: "OR", },  { Name: "nservicebus", Type: 1, Action: "OR", },  { Name: "apache-pulsar", Type: 1, Action: "OR", },  { Name: "rocketmq", Type: 1, Action: "OR", },  { Name: "zeromq", Type: 1, Action: "OR", },  { Name: "nats", Type: 1, Action: "OR", },  { Name: "rabbitmq", Type: 1, Action: "OR", },  { Name: "apache-flink", Type: 1, Action: "OR", },  { Name: "jms", Type: 1, Action: "OR", },  { Name: "webspheremq", Type: 1, Action: "OR", },  { Name: "webspheremq", Type: 1, Action: "OR", },  { Name: "webspheremq", Type: 1, Action: "OR", },  { Name: "webspheremq", Type: 1, Action: "OR", },  },
              },
         
             { Name: "SECURITY",
