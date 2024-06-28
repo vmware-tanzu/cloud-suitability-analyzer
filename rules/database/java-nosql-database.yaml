@@ -3,7 +3,7 @@ ruletype: standard
 criticality: medium
 cloud: 100
 container: 100
-filetype: (java$|gradle$|xml$)
+filetype: (java$|gradle$|yml$|properties$|xml$)
 target: line
 type: regex
 defaultpattern: (%s)
@@ -15,12 +15,9 @@ tags:
   - value: database
   - value: nosql
 patterns:
-  - value: apache.ignite
+  - value: .*apache.ignite.*
     tag: apache-ignite
-  - value: .*org.apache.cassandra.*
-    advice: Migrate to VMware GemFire
-    tag: cassandra
-  - value: org.springframework.cassandra
+  - value: .*cassandra.*
     advice: Migrate to VMware GemFire
     tag: cassandra
   - value: .*import\s*graphql.*

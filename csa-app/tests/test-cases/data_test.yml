@@ -86,6 +86,18 @@ category:
         assert: true
         assert-count: 5
         assert-value: "null"
+      - name: "DOTNET - Cache - Hazelcast - Code"
+        rule-name: dotnet-cache
+        test-filename: dotnet-hazelcast.cs
+        assert: true
+        assert-count: 4
+        assert-value: "null"
+      - name: "DOTNET - Cache - Hazelcast - Package"
+        rule-name: dotnet-cache
+        test-filename: dotnet-hazelcast-package.csproj
+        assert: true
+        assert-count: 4
+        assert-value: "null"
       - name: "JAVA - Caching - Apache Geode - Package"
         rule-name: java-cache
         test-filename: java-caching-apache-geode-package_test-sample.gradle
@@ -170,18 +182,6 @@ category:
         assert: true
         assert-count: 6
         assert-value: "null"
-      - name: "DOTNET - Cache - Hazelcast - Code"
-        rule-name: dotnet-cache
-        test-filename: dotnet-hazelcast.cs
-        assert: true
-        assert-count: 4
-        assert-value: "null"
-      - name: "DOTNET - Cache - Hazelcast - Package"
-        rule-name: dotnet-cache
-        test-filename: dotnet-hazelcast-package.csproj
-        assert: true
-        assert-count: 4
-        assert-value: "null"
       - name: "JAVA - Cache - Spring Cache - Code"
         rule-name: java-cache
         test-filename: java-spring-cache.java
@@ -215,6 +215,120 @@ category:
       - name: "JAVA - Configuration - Zookeeper - Package"
         rule-name: apache-zookeeper
         test-filename: java-zookeeper.xml
+        assert: true
+        assert-count: 1
+        assert-value: "null"
+      - name: "JAVA - Database - Spring JDBC - xml"
+        rule-name: java-rdbms-database
+        test-filename: spring-jdbc.xml
+        assert: true
+        assert-count: 1
+        assert-value: "null"
+      - name: "JAVA - Database - Spring JDBC - Code"
+        rule-name: java-rdbms-database
+        test-filename: spring-jdbc.java
+        assert: true
+        assert-count: 3
+        assert-value: "null"
+      - name: "JAVA - Database - couchbase - Code"
+        rule-name: java-rdbms-database
+        test-filename: couchbase.xml
+        assert: true
+        assert-count: 5
+        assert-value: "null"
+      - name: "JAVA - Database - db2 - Code"
+        rule-name: java-rdbms-database
+        test-filename: db2.java
+        assert: true
+        assert-count: 1
+        assert-value: "null"
+      - name: "JAVA - Database - db2 - Package"
+        rule-name: java-rdbms-database
+        test-filename: db2.xml
+        assert: true
+        assert-count: 1
+        assert-value: "null"
+      - name: "JAVA - Database - elasticsearch - Code"
+        rule-name: java-rdbms-database
+        test-filename: elasticsearch.java
+        assert: true
+        assert-count: 5
+        assert-value: "null"
+      - name: "JAVA - Database - Hadoop - Package"
+        rule-name: java-rdbms-database
+        test-filename: hadoop.gradle
+        assert: true
+        assert-count: 19
+        assert-value: "null"
+      - name: "JAVA - In-Memory Database - Hazelcast - Package"
+        rule-name: java-in-memory-database
+        test-filename: hazelcast.xml
+        assert: true
+        assert-count: 1
+        assert-value: "null"
+      - name: "JAVA - Database - MariaDB - Code"
+        rule-name: java-rdbms-database
+        test-filename: mariadb.java
+        assert: true
+        assert-count: 2
+        assert-value: "null"
+      - name: "JAVA - Database - SqlServer - Code"
+        rule-name: java-rdbms-database
+        test-filename: sqlserver.properties
+        assert: true
+        assert-count: 4
+        assert-value: "null"
+      - name: "JAVA - Database - MySQL - Code"
+        rule-name: java-rdbms-database
+        test-filename: mysql.properties
+        assert: true
+        assert-count: 2
+        assert-value: "null"
+      - name: "JAVA - Database - Postgres - Code"
+        rule-name: java-rdbms-database
+        test-filename: postgres.java
+        assert: true
+        assert-count: 2
+        assert-value: "null"
+      - name: "JAVA - Database - SQLite - Code"
+        rule-name: java-rdbms-database
+        test-filename: sqlite.java
+        assert: true
+        assert-count: 7
+        assert-value: "null"
+      - name: "JAVA - Database - Oracle ODI - Code"
+        rule-name: java-rdbms-database
+        test-filename: OdiInvokeScenario.java
+        assert: true
+        assert-count: 8
+        assert-value: "null"
+      - name: "JAVA - Database - JDBC - Code"
+        rule-name: java-rdbms-database
+        test-filename: jdbc.java
+        assert: true
+        assert-count: 9
+        assert-value: "null"
+      - name: "JAVA - NoSQL - Apache Ignite - Code"
+        rule-name: java-nosql-database
+        test-filename: apache-ignite.java
+        assert: true
+        assert-count: 1
+        assert-value: "null"
+      - name: "JAVA - NoSQL - Cassandra - Package"
+        rule-name: java-nosql-database
+        test-filename: cassandra.xml
+        assert: true
+        assert-count: 1
+        assert-value: "null"
+      - name: "JAVA - NoSQL - Graphql - Code"
+        rule-name: java-nosql-database
+        test-filename: graphql.java
+        assert: true
+        assert-count: 5
+        assert-value: "null"
+      - name: "JAVA - NoSQL - MongoDB - Package"
+        rule-name: java-nosql-database
+        test-filename: mongodb.xml
         assert: true
         assert-count: 1
         assert-value: "null"

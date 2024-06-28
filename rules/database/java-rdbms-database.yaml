@@ -3,7 +3,7 @@ ruletype: standard
 criticality: medium
 cloud: 100
 container: 100
-filetype: java$
+filetype: (java$|gradle$|yml$|properties$|xml$)
 target: line
 type: regex
 defaultpattern: (%s)
@@ -35,21 +35,9 @@ patterns:
   - value: .*org.apache.hadoop.*
     advice: Usage of Hadoop
     tag: hadoop
-  - value: .*hadoop-client.*
+  - value: .*hadoop-*
     advice: Usage of Hadoop
     tag: hadoop
-  - value: .*hadoop-common.*
-    advice: Usage of Hadoop
-    tag: hadoop
-  - value: .*hadoop-core.*
-    advice: Usage of Hadoop
-    tag: hadoop
-  - value: .*hadoop-hdfs.*
-    advice: Usage of Hadoop
-    tag: hadoop
-  - value: .*hazelcast
-    advice: Migrate to VMware GemFire
-    tag: hazelcast
   - value: mariadb
     advice: Migrate to Tanzu Postgres or MySQL
     tag: mariadb
@@ -59,6 +47,9 @@ patterns:
   - value: com.microsoft.sqlserver.*
     advice: Detection of mssql Usage
     tag: mssql
+  - value: sqlserver
+    advice: Migrate to Tanzu Postgres or MySQL
+    tag: sqlserver
   - value: mysql
     advice: Detection of MySQL Usage
     tag: mysql
@@ -71,9 +62,6 @@ patterns:
   - value: sqlite
     advice: Detection of SQLite Usage
     tag: sqlite
-  - value: sqlserver
-    advice: Migrate to Tanzu Postgres or MySQL
-    tag: sqlserver
   - value: org.talend
     tag: talend
   - value: oracle.odi

@@ -3,7 +3,7 @@ ruletype: standard
 criticality: medium
 cloud: 100
 container: 100
-filetype: java$
+filetype: (java$|gradle$|yml$|properties$|xml$)
 target: line
 type: regex
 defaultpattern: (%s)
