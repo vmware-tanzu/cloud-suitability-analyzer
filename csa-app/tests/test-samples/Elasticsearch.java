@@ -22,7 +22,7 @@ import java.util.UUID;
 /**
  * Intersect Executor
  */
-public class Elasticsearch implements ElasticHitsExecutor {
+public class elasticsearch implements ElasticHitsExecutor {
 
     private MultiQueryRequestBuilder builder;
     private SearchHits intersectHits;

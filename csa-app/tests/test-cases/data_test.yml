@@ -238,9 +238,9 @@ category:
         assert-value: "null"
       - name: "JAVA - Database - elasticsearch - Code"
         rule-name: java-rdbms-database
-        test-filename: elasticsearch.java
+        test-filename: Elasticsearch.java
         assert: true
-        assert-count: 5
+        assert-count: 6
         assert-value: "null"
       - name: "JAVA - Database - Hadoop - Package"
         rule-name: java-rdbms-database
