@@ -14,18 +14,6 @@ category:
         assert: true
         assert-count: 4
         assert-value: "null"
-      - name: "JAVA MSMQ - Code"
-        rule-name: java-messaging
-        test-filename: java-messaging-msmq-code_test-sample.java
-        assert: true
-        assert-count: 7
-        assert-value: "null"
-      - name: "PYTHON ActiveMQ - Code"
-        rule-name: python-messaging
-        test-filename: python-messaging-activemq-code_test-code.py
-        assert: true
-        assert-count: 2
-        assert-value: "null"
       - name: "DOTNET - Caching - Apache Geode - Code"
         rule-name: dotnet-cache
         test-filename: dotnet-caching-apache-geode-code_test-sample.cs
@@ -42,7 +30,7 @@ category:
         rule-name: dotnet-rdbms-database
         test-filename: dotnet-database-postgresql-code_test-sample.cs
         assert: true
-        assert-count: 6
+        assert-count: 4
         assert-value: "null"
       - name: "DOTNET - Databases - PostgreSQL - Package"
         rule-name: dotnet-rdbms-database
@@ -331,4 +319,88 @@ category:
         test-filename: mongodb.xml
         assert: true
         assert-count: 1
+        assert-value: "null"
+      - name: "JAVA MSMQ - Code"
+        rule-name: java-messaging
+        test-filename: java-messaging-msmq-code_test-sample.java
+        assert: true
+        assert-count: 7
+        assert-value: "null"
+      - name: "PYTHON ActiveMQ - Code"
+        rule-name: python-messaging
+        test-filename: python-messaging-activemq-code_test-code.py
+        assert: true
+        assert-count: 2
+        assert-value: "null"
+      - name: "DOTNET RDBMS - ConnectionStrings - Code"
+        rule-name: dotnet-rdbms-database
+        test-filename: dotnet-db_con.cs
+        assert: true
+        assert-count: 2
+        assert-value: "null"
+      - name: "DOTNET RDBMS - connectionStrings - Code"
+        rule-name: dotnet-rdbms-database
+        test-filename: dotnet-connectionstrings.config
+        assert: true
+        assert-count: 2
+        assert-value: "null"
+      - name: "DOTNET RDBMS - IBM DB2 - Code"
+        rule-name: dotnet-rdbms-database
+        test-filename: dotnet-db2.cs
+        assert: true
+        assert-count: 1
+        assert-value: "null"
+      - name: "DOTNET RDBMS - SqlServer - Code"
+        rule-name: dotnet-rdbms-database
+        test-filename: dotnet-sqlserver.cs
+        assert: true
+        assert-count: 4
+        assert-value: "null"
+      - name: "DOTNET RDBMS - MySQL - Code"
+        rule-name: dotnet-rdbms-database
+        test-filename: dotnet-mysql.cs
+        assert: true
+        assert-count: 2
+        assert-value: "null"
+      - name: "DOTNET RDBMS - Oracle - Code"
+        rule-name: dotnet-rdbms-database
+        test-filename: dotnet-oracle.cs
+        assert: true
+        assert-count: 3
+        assert-value: "null"
+      - name: "DOTNET RDBMS - Postgres - Code"
+        rule-name: dotnet-rdbms-database
+        test-filename: dotnet-postgres.cs
+        assert: true
+        assert-count: 6
+        assert-value: "null"
+      - name: "DOTNET RDBMS - ElasticSearch - Code"
+        rule-name: dotnet-rdbms-database
+        test-filename: dotnet-elasticsearch.cs
+        assert: true
+        assert-count: 1
+        assert-value: "null"
+      - name: "DOTNET NOSQL - Apache Ignite - Code"
+        rule-name: dotnet-nosql-database
+        test-filename: dotnet-apache-ignite.cs
+        assert: true
+        assert-count: 5
+        assert-value: "null"
+      - name: "DOTNET NOSQL - Cassandra - Code"
+        rule-name: dotnet-nosql-database
+        test-filename: dotnet-cassandra.cs
+        assert: true
+        assert-count: 5
+        assert-value: "null"
+      - name: "DOTNET NOSQL - GraphQL - Code"
+        rule-name: dotnet-nosql-database
+        test-filename: dotnet-graphql.cs
+        assert: true
+        assert-count: 3
+        assert-value: "null"
+      - name: "DOTNET NOSQL - MongoDB - Code"
+        rule-name: dotnet-nosql-database
+        test-filename: dotnet-mongodb.cs
+        assert: true
+        assert-count: 3
         assert-value: "null"

@@ -20,20 +20,12 @@ patterns:
   - value: Cassandra
     advice: Migrate to VMware GemFire
     tag: cassandra
-  - value: .*using\s*GraphQL
-    tag: graphql
-  - value:  .*GraphQL.*
+  - value: GraphQL
     tag: graphql
   - value: MongoDB
     advice: Migrate to VMware GemFire
     tag: mongodb
-  - value: MongoDB.*
-    advice: Migrate to VMware GemFire
-    tag: mongodb
-  - value: org.springframework.data.mongodb
-    advice: Migrate to VMware GemFire
-    tag: nosql
-  - value: mongodb://
+  - value: mongodb
     advice: Migrate to VMware GemFire
     tag: nosql
 profiles:
