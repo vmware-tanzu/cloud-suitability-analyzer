@@ -5,7 +5,7 @@
 package model
 
 //Created By BootstrapRulesTemplate.txt found under go/resources folder
-//Created @ 2024-06-27 20:59:30.701427 -0500 CDT m=+0.241069717
+//Created @ 2024-10-18 09:56:47.385226 -0500 CDT m=+0.328520371
 
 func BootstrapRules() []Rule {
     var BootstrapRules = []Rule{
@@ -1325,12 +1325,9 @@ func BootstrapRules() []Rule {
             Patterns:
             []Pattern{  { Type: "", Pattern: "", Value: "Apache.Ignite", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-ignite", Recipe: "", },
              { Type: "", Pattern: "", Value: "Cassandra", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "cassandra", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*using\\s*GraphQL", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "graphql", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*GraphQL.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "graphql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "GraphQL", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "graphql", Recipe: "", },
              { Type: "", Pattern: "", Value: "MongoDB", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mongodb", Recipe: "", },
-             { Type: "", Pattern: "", Value: "MongoDB.*", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mongodb", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.springframework.data.mongodb", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "nosql", Recipe: "", },
-             { Type: "", Pattern: "", Value: "mongodb://", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "nosql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "mongodb", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "nosql", Recipe: "", },
              }, },
         
             { Name: "dotnet-rdbms-database", RuleType: "standard", Level: "", FileType: "(cs$|vb$|config$|csproj$|json$)", Target: "line", Type: "regex", DefaultPattern: ".*(%s)", Advice: "", Effort: 100, Readiness: 5, Impact: "", Category: "database", Criticality: "medium",Container: 100, Cloud: 100,
@@ -1346,42 +1343,80 @@ func BootstrapRules() []Rule {
             []Pattern{  { Type: "", Pattern: "", Value: "ConnectionStrings", Advice: "Remove connection strings from files, use environment variables (or mount configmap into pod in a docker like environment)", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "configuration", Recipe: "", },
              { Type: "", Pattern: "", Value: "connectionStrings", Advice: "Remove connection strings from files, use environment variables (or mount configmap into pod in a docker like environment)", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "configuration", Recipe: "", },
              { Type: "", Pattern: "", Value: "IBM.Data.DB2", Advice: "IBM.Data.DB2 can require a special procedure so that the driver's native components are deployed with the application.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-db2", Recipe: "", },
-             { Type: "", Pattern: "", Value: "SqlDataReader", Advice: "Leverage MySQL Tile or k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
-             { Type: "", Pattern: "", Value: "SqlConnection", Advice: "Leverage MySQL Tile or k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
-             { Type: "", Pattern: "", Value: "System.Data.SqlClient;", Advice: "Leverage MySQL Tile or k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
-             { Type: "", Pattern: "", Value: "SqlCommand", Advice: "Leverage MySQL Tile or k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Microsoft.EntityFrameworkCore.SqlServer", Advice: "Leverage MySQL Tile or k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Microsoft.SqlServer.Server", Advice: "Leverage MySQL Tile or k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
-             { Type: "", Pattern: "", Value: "Microsoft.Data.SqlClient", Advice: "Leverage MySQL Tile or k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "SqlServer", Advice: "Leverage MySQL Tile or k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "SqlClient", Advice: "Leverage MySQL Tile or k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
              { Type: "", Pattern: "", Value: "MySql", Advice: "Leverage MySQL Tile or k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
              { Type: "", Pattern: "", Value: "Oracle.DataAccess", Advice: "Oracle unmanaged driver requires including binaries with app -- can use buildpack.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "oracle", Recipe: "", },
-             { Type: "", Pattern: "", Value: "NpgsqlConnection", Advice: "Direct usage of Npgsql for PostgreSQL database interactions in .NET code.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "postgresql", Recipe: "", },
-             { Type: "", Pattern: "", Value: "NpgsqlCommand", Advice: "Direct usage of Npgsql for PostgreSQL database interactions in .NET code.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "postgresql", Recipe: "", },
              { Type: "", Pattern: "", Value: "Npgsql", Advice: "Direct usage of Npgsql for PostgreSQL database interactions in .NET code.", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "postgresql", Recipe: "", },
-             { Type: "", Pattern: "", Value: "using Serilog.Sinks.Elasticsearch", Advice: "Make sure to have reachable ELK stack from deployed app", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "elasticsearch", Recipe: "", },
-             { Type: "", Pattern: "", Value: "ElasticConfiguration", Advice: "Make sure to have reachable ELK stack from deployed app", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "elasticsearch", Recipe: "", },
+             { Type: "", Pattern: "", Value: "Elasticsearch", Advice: "Make sure to have reachable ELK stack from deployed app", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "elasticsearch", Recipe: "", },
              }, },
         
-            { Name: "java-RDS-connection-string-user-password-properties", RuleType: "standard", Level: "Info", FileType: "properties$", Target: "line", Type: "regex", DefaultPattern: "", Advice: "relational database service connection string, username or password are detected. Migrate to Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Impact: "", Category: "relational database service", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "java-in-memory-database", RuleType: "standard", Level: "", FileType: "(java$|gradle$|yml$|properties$|xml$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "", Effort: 0, Readiness: 5, Impact: "", Category: "persistence", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
-            []Tag{  { Value: "relational database service",}, { Value: "database",}, { Value: "rdbms",}, },
+            []Tag{  { Value: "in-memory",}, { Value: "database",}, },
             Profiles:
-            []Profile{  { Value: "Azure Spring Apps",}, },
+            []Profile{  { Value: "cloud-suitability",}, },
             Excludepatterns:
             []ExcludePattern{  },
             Recipes:
             []Recipe{  },
             Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "(^|\\.|\\s)datasource\\.(.*\\.)?(url|jdbc-url|u\\-r\\-l)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "(^|\\.|\\s)datasource\\.(.*\\.)?(username|user|password)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "(^|\\.|\\s)r2dbc\\.url", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "(^|\\.|\\s)r2dbc\\.(username|password)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "(^|\\.|\\s)jdbc\\.url", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "(^|\\.|\\s)jdbc\\.(username|password)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             { Type: "", Pattern: "", Value: "=\\s*jdbc:.+:.+", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+            []Pattern{  { Type: "", Pattern: "", Value: ".*hazelcast", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hazelcast", Recipe: "", },
              }, },
         
-            { Name: "java-RDS-connection-string-user-password-yaml", RuleType: "standard", Level: "Info", FileType: "(yaml$|yml$|json$|jsn$)", Target: "contents", Type: "yamlpath", DefaultPattern: "", Advice: "relational database service connection string, username or password are detected. Migrate to Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Impact: "", Category: "relational database service", Criticality: "medium",Container: 100, Cloud: 100,
+            { Name: "java-nosql-database", RuleType: "standard", Level: "", FileType: "(java$|gradle$|yml$|properties$|xml$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Migrate to VMware GemFire", Effort: 10, Readiness: 5, Impact: "", Category: "database", Criticality: "medium",Container: 100, Cloud: 100,
+            Tags:
+            []Tag{  { Value: "database",}, { Value: "nosql",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: ".*apache.ignite.*", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-ignite", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*cassandra.*", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "cassandra", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*import\\s*graphql.*", Advice: "Usage of Graphql", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "graphql", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*com.graphql.*", Advice: "Usage of Graphql", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "graphql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "mongodb", Advice: "Migrate to VMware GemFire, Spring Data makes it easy to migrate to GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mongodb", Recipe: "", },
+             }, },
+        
+            { Name: "java-rdbms-database", RuleType: "standard", Level: "", FileType: "(java$|gradle$|yml$|properties$|xml$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "", Effort: 0, Readiness: 5, Impact: "", Category: "persistence", Criticality: "medium",Container: 100, Cloud: 100,
+            Tags:
+            []Tag{  { Value: "rdbms",}, { Value: "database",}, },
+            Profiles:
+            []Profile{  { Value: "cloud-suitability",}, },
+            Excludepatterns:
+            []ExcludePattern{  },
+            Recipes:
+            []Recipe{  },
+            Patterns:
+            []Pattern{  { Type: "", Pattern: "", Value: "org.springframework.jdbc", Advice: "Consult 3rd party documentation", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-jdbc", Recipe: "", },
+             { Type: "", Pattern: "", Value: "couchbase", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "couchbase", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:db2", Advice: "Detection of db2 Usage, use Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-db2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.db2.jcc.DB2Driver", Advice: "Detection of db2 Usage, use Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-db2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.db2", Advice: "Detection of db2 Usage, use Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-db2", Recipe: "", },
+             { Type: "", Pattern: "", Value: "elasticsearch", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "elasticsearch", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*org.apache.hadoop.*", Advice: "Usage of Hadoop", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hadoop", Recipe: "", },
+             { Type: "", Pattern: "", Value: ".*hadoop-*", Advice: "Usage of Hadoop", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hadoop", Recipe: "", },
+             { Type: "", Pattern: "", Value: "mariadb", Advice: "Migrate to Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mariadb", Recipe: "", },
+             { Type: "", Pattern: "", Value: "jdbc:sqlserver", Advice: "Detection of mssql Usage", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.microsoft.sqlserver.*", Advice: "Detection of mssql Usage", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "sqlserver", Advice: "Migrate to Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "sqlserver", Recipe: "", },
+             { Type: "", Pattern: "", Value: "mysql", Advice: "Detection of MySQL Usage", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mysql", Recipe: "", },
+             { Type: "", Pattern: "", Value: "oracle", Advice: "Migrate to Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "oracle", Recipe: "", },
+             { Type: "", Pattern: "", Value: "postgresql", Advice: "Leverage Postgres, Postgres Tile or k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "postgres", Recipe: "", },
+             { Type: "", Pattern: "", Value: "sqlite", Advice: "Detection of SQLite Usage", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "sqlite", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.talend", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "talend", Recipe: "", },
+             { Type: "", Pattern: "", Value: "oracle.odi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "oracle-odi", Recipe: "", },
+             { Type: "", Pattern: "", Value: "com.ibm.is", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-is", Recipe: "", },
+             { Type: "", Pattern: "", Value: "net.sf.jasper", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jasper", Recipe: "", },
+             { Type: "", Pattern: "", Value: "org.pentaho", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "pentaho", Recipe: "", },
+             { Type: "", Pattern: "", Value: "StoredProcedureQuery", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jdbc", Recipe: "", },
+             { Type: "", Pattern: "", Value: "CallableStatement", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jdbc", Recipe: "", },
+             }, },
+        
+            { Name: "java-rds-connection-string", RuleType: "standard", Level: "Info", FileType: "(yaml$|yml$|json$|jsn$|properties$)", Target: "contents", Type: "yamlpath", DefaultPattern: "", Advice: "relational database service connection string, username or password are detected. Migrate to Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Impact: "", Category: "relational database service", Criticality: "medium",Container: 100, Cloud: 100,
             Tags:
             []Tag{  { Value: "relational database service",}, { Value: "database",}, { Value: "rdbms",}, },
             Profiles:
@@ -1401,76 +1436,13 @@ func BootstrapRules() []Rule {
              { Type: "", Pattern: "", Value: "$..jdbc[\"url\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "$..jdbc[\"username\",\"password\"]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              { Type: "", Pattern: "", Value: "$..[?(@=~/(?i)jdbc:.+:.+/)]", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
-             }, },
-        
-            { Name: "java-in-memory-database", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "", Effort: 0, Readiness: 5, Impact: "", Category: "persistence", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "in-memory",}, { Value: "database",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: ".*hazelcast", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hazelcast", Recipe: "", },
-             }, },
-        
-            { Name: "java-nosql-database", RuleType: "standard", Level: "", FileType: "(java$|gradle$|xml$)", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "Migrate to VMware GemFire", Effort: 10, Readiness: 5, Impact: "", Category: "database", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "database",}, { Value: "nosql",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, { Value: "compass-discovery",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "apache.ignite", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "apache-ignite", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*org.apache.cassandra.*", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "cassandra", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.springframework.cassandra", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "cassandra", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*import\\s*graphql.*", Advice: "Usage of Graphql", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "graphql", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*com.graphql.*", Advice: "Usage of Graphql", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "graphql", Recipe: "", },
-             { Type: "", Pattern: "", Value: "mongodb", Advice: "Migrate to VMware GemFire, Spring Data makes it easy to migrate to GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mongodb", Recipe: "", },
-             }, },
-        
-            { Name: "java-rdbms-database", RuleType: "standard", Level: "", FileType: "java$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "", Effort: 0, Readiness: 5, Impact: "", Category: "persistence", Criticality: "medium",Container: 100, Cloud: 100,
-            Tags:
-            []Tag{  { Value: "rdbms",}, { Value: "database",}, },
-            Profiles:
-            []Profile{  { Value: "cloud-suitability",}, },
-            Excludepatterns:
-            []ExcludePattern{  },
-            Recipes:
-            []Recipe{  },
-            Patterns:
-            []Pattern{  { Type: "", Pattern: "", Value: "org.springframework.jdbc", Advice: "Consult 3rd party documentation", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "spring-jdbc", Recipe: "", },
-             { Type: "", Pattern: "", Value: "couchbase", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "couchbase", Recipe: "", },
-             { Type: "", Pattern: "", Value: "jdbc:db2", Advice: "Detection of db2 Usage, use Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-db2", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.ibm.db2.jcc.DB2Driver", Advice: "Detection of db2 Usage, use Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-db2", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.ibm.db2", Advice: "Detection of db2 Usage, use Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-db2", Recipe: "", },
-             { Type: "", Pattern: "", Value: "elasticsearch", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "elasticsearch", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*org.apache.hadoop.*", Advice: "Usage of Hadoop", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hadoop", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*hadoop-client.*", Advice: "Usage of Hadoop", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hadoop", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*hadoop-common.*", Advice: "Usage of Hadoop", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hadoop", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*hadoop-core.*", Advice: "Usage of Hadoop", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hadoop", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*hadoop-hdfs.*", Advice: "Usage of Hadoop", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hadoop", Recipe: "", },
-             { Type: "", Pattern: "", Value: ".*hazelcast", Advice: "Migrate to VMware GemFire", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "hazelcast", Recipe: "", },
-             { Type: "", Pattern: "", Value: "mariadb", Advice: "Migrate to Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mariadb", Recipe: "", },
-             { Type: "", Pattern: "", Value: "jdbc:sqlserver", Advice: "Detection of mssql Usage", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.microsoft.sqlserver.*", Advice: "Detection of mssql Usage", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mssql", Recipe: "", },
-             { Type: "", Pattern: "", Value: "mysql", Advice: "Detection of MySQL Usage", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "mysql", Recipe: "", },
-             { Type: "", Pattern: "", Value: "oracle", Advice: "Migrate to Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "oracle", Recipe: "", },
-             { Type: "", Pattern: "", Value: "postgresql", Advice: "Leverage Postgres, Postgres Tile or k8s operator", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "postgres", Recipe: "", },
-             { Type: "", Pattern: "", Value: "sqlite", Advice: "Detection of SQLite Usage", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "sqlite", Recipe: "", },
-             { Type: "", Pattern: "", Value: "sqlserver", Advice: "Migrate to Tanzu Postgres or MySQL", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "sqlserver", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.talend", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "talend", Recipe: "", },
-             { Type: "", Pattern: "", Value: "oracle.odi", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "oracle-odi", Recipe: "", },
-             { Type: "", Pattern: "", Value: "com.ibm.is", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "ibm-is", Recipe: "", },
-             { Type: "", Pattern: "", Value: "net.sf.jasper", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jasper", Recipe: "", },
-             { Type: "", Pattern: "", Value: "org.pentaho", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "pentaho", Recipe: "", },
-             { Type: "", Pattern: "", Value: "StoredProcedureQuery", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jdbc", Recipe: "", },
-             { Type: "", Pattern: "", Value: "CallableStatement", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "jdbc", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)datasource\\.(.*\\.)?(url|jdbc-url|u\\-r\\-l)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)datasource\\.(.*\\.)?(username|user|password)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)r2dbc\\.url", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)r2dbc\\.(username|password)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)jdbc\\.url", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "(^|\\.|\\s)jdbc\\.(username|password)", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
+             { Type: "", Pattern: "", Value: "=\\s*jdbc:.+:.+", Advice: "", Effort: 0, Readiness: 0, Criticality: "", Category: "", Tag: "", Recipe: "", },
              }, },
         
             { Name: "python-database", RuleType: "standard", Level: "", FileType: "py$", Target: "line", Type: "regex", DefaultPattern: "(%s)", Advice: "", Effort: 1, Readiness: 10, Impact: "", Category: "database", Criticality: "medium",Container: 100, Cloud: 100,
